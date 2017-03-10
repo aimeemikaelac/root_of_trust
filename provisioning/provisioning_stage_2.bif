@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+[fsbl_config] a53_x64
+[bootloader] zcu102_fsbl_predefined.elf
+[destination_cpu=a53-0] zcu102_efuse.elf
+}

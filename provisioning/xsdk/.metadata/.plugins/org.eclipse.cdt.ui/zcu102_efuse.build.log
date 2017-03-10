@@ -1,0 +1,6 @@
+14:53:04 **** Incremental Build of configuration Debug for project zcu102_efuse ****
+make all 
+make: Nothing to be done for 'all'.
+
+14:53:04 Build Finished (took 69ms)
+

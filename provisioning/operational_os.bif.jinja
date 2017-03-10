@@ -1,0 +1,9 @@
+the_ROM_image:
+{
+[keysrc_encryption] bbram_red_key
+[fsbl_config] a53_x64, auth_only, bh_auth_enable
+[auth_params] ppk_select=0; spk_id=0x00000000
+[pskfile] {{ psk_file }}
+[sskfile] {{ ssk_file }}
+[bootloader, authentication=rsa] zynqmp_fsbl.elf
+}

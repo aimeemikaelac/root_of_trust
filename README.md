@@ -15,6 +15,6 @@ Ubuntu packages:
 - **python2**
 - **python-pip**
 
-Python packages:
+Python packages (available in requirements.txt):
 - **pycryptodomex**
 - **jinja2**

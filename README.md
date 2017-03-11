@@ -12,6 +12,7 @@ script called. In future, this will be done using a signed ramdisk image rather 
 The various scripts rely on certain Python packages, which in turn rely on certain Ubuntu packages.
 
 Ubuntu packages:
+- **python2**
 - **python-pip**
 
 Python packages:

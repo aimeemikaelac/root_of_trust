@@ -29,7 +29,7 @@ def render_bif(bif_file, psk_file, ssk_file):
             return bif_out_file
 
 def generate_boot_image(bootgen_path, bif_path, psk_hash_path, binary_path):
-    call_str = "{} -image {} -generate_hashes -efuseppkbits {} -arch zynqmp -log trace -w -o i {}".format(bootgen_path, bif_path, psk_hash_path, binary_path)
+    call_str = "qemu-x86_64 {} -image {} -generate_hashes -efuseppkbits {} -arch zynqmp -log trace -w -o i {}".format(bootgen_path, bif_path, psk_hash_path, binary_path)
     call_tokens = shlex.split(call_str)
     call_dir = os.path.dirname(bif_path)
     call_process = subprocess.Popen(call_tokens, cwd=call_dir)

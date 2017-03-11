@@ -17,3 +17,4 @@ Ubuntu packages:
 
 Python packages:
 - **pycryptodomex**
+- **jinja2**

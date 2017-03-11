@@ -96,7 +96,7 @@ if __name__ == "__main__":
     secondary_private_key = RSA.generate(4096)
     #generate random eFuse AES key
     print "Generating eFuse AES Key"
-    efuse_aes_key = binascii.a2b_hex("{0:x}".format(random.getrandbits(256)))
+    efuse_aes_key = binascii.a2b_hex("{0:0{64}x}".format(random.getrandbits(256)))
 
     #write RSA keys in PEM format
     authentication_key_pem = authentication_key.exportKey()
@@ -150,7 +150,7 @@ if __name__ == "__main__":
     #encrypt secure storage
     print "Encrypting secure storage data"
     secure_storage_str = json.dumps(secure_storage_data)
-    secure_storage_iv = binascii.a2b_hex("{0:x}".format(random.getrandbits(128)))
+    secure_storage_iv = binascii.a2b_hex("{0:0{32}x}".format(random.getrandbits(128)))
     gcm_cipher = AES.new(efuse_aes_key, AES.MODE_GCM, nonce=secure_storage_iv)
     secure_storage_ct = gcm_cipher.encrypt(secure_storage_str)
     secure_storage_tag = gcm_cipher.digest()

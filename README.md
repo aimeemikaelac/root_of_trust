@@ -13,6 +13,7 @@ The various scripts rely on certain Python packages, which in turn rely on certa
 
 Ubuntu packages:
 - **python2**
+- **python-dev**
 - **python-pip**
 
 Python packages (available in requirements.txt):

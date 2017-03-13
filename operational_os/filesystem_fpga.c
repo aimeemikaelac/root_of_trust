@@ -8,8 +8,8 @@ fpga_encrypt(PyObject *self, PyObject *args){
   Py_buffer data_to_encrypt_buffer;
   unsigned char data_out[16];
 
-  PyArg_ParseTuple(args, "O", *data_to_encrypt);
-  PyObject_GetBuffer(&data_to_encrypt, &data_to_encrypt_buffer);
+  PyArg_ParseTuple(args, "O", &data_to_encrypt);
+  PyObject_GetBuffer(&data_to_encrypt, &data_to_encrypt_buffer, PyBUF_SIMPLE);
   void *data_buffer = data_to_encrypt_buffer.buf;
   unsigned int data_len = data_to_encrypt_buffer.len;
 
@@ -17,7 +17,7 @@ fpga_encrypt(PyObject *self, PyObject *args){
   XAes_basic_Initialize(&encryptor, "aes_basic_0");
   //write to the aes device input. for now, assume we received 16 bytes
   // for(i=0; i<16; i++){
-  XAes_basic_Write_data_in_Bytes(&encryptor, i, data_buffer, 16)
+  XAes_basic_Write_data_in_Bytes(&encryptor, i, data_buffer, 16);
   // }
   XAes_basic_Start(&encryptor);
   while(!XAes_basic_IsDone(&encryptor)){
@@ -30,7 +30,7 @@ fpga_encrypt(PyObject *self, PyObject *args){
 }
 
 static PyMethodDef FPGAMethods[] = {
-  {"encrypt", fpga_encrypt, METH_VARGS, "Encrypt using FPGA"},
+  {"encrypt", fpga_encrypt, METH_VARARGS, "Encrypt using FPGA"},
   {NULL, NULL, 0, NULL}
 };
 

@@ -19,3 +19,4 @@ Ubuntu packages:
 Python packages (available in requirements.txt):
 - **pycryptodomex**
 - **jinja2**
+- **NumPy**

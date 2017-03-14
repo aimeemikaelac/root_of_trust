@@ -17,6 +17,7 @@ from fuse import FUSE, FuseOSError, Operations
 
 from Cryptodome.Cipher import AES
 from Cryptodome.Protocol import KDF
+from Cryptodome.Random import random
 
 
 class EncryptedFS(Operations):
@@ -36,7 +37,7 @@ class EncryptedFS(Operations):
         return path
 
     def _init_metadata(self, metadata_file):
-        self.metadata_dict = {"file_last_block":{}}
+        self.metadata_dict = {}
         self._write_metadata(metadata_file)
 
     def _parse_metadata(self, metadata_file):
@@ -112,8 +113,8 @@ class EncryptedFS(Operations):
             'f_frsize', 'f_namemax'))
 
     def unlink(self, path):
-        if path in self.metadata_dict["file_last_block"]:
-            del self.metadata_dict["file_last_block"][path]
+        if path in self.metadata_dict:
+            del self.metadata_dict[path]
             self._write_metadata(self.metadata_file)
         else:
             print "{} not in metadata when deleting".format(path)
@@ -125,8 +126,8 @@ class EncryptedFS(Operations):
 
     def rename(self, old, new):
         if old in self.metadata_dict["file_last_block"]:
-            self.metadata_dict["file_last_block"][new] = self.metadata_dict["file_last_block"][old]
-            del self.metadata_dict["file_last_block"][old]
+            self.metadata_dict[new] = self.metadata_dict[old]
+            del self.metadata_dict[old]
         else:
             print "When renaming {} to {}, {} was not in metadata".format(old, new, old)
         print "Renaming {} to {}".format(old, new)
@@ -147,26 +148,31 @@ class EncryptedFS(Operations):
 
     def create(self, path, mode, fi=None):
         full_path = self._full_path(path)
-        self.metadata_dict["file_last_block"][path] = binascii.hexlify('\0'*16)
+        self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
+        rand_iv = random.getrandbits(128)
+        self.metadata_dict[path]["iv"] = rand_iv
         self._write_metadata(self.metadata_file)
         print "Creating file {}".format(path)
         return os.open(full_path, os.O_WRONLY | os.O_CREAT, mode)
 
-    def _decrypt(self, ct):
-        cipher = AES.new(self.encryption_key, AES.MODE_ECB)
+    def _decrypt(self, ct, iv_int, offset_int):
+        nonce = iv_int + offset_int
+        nonce_str = binascii.a2b_hex("{0:032x}".format(nonce))
+        cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.decrypt(ct)
 
     def _decrypt_file(self, full_path, path):
         with open(full_path) as file_handle:
             encrypted_file_data = file_handle.read()
-            if path in self.metadata_dict["file_last_block"]:
-                last_block = binascii.unhexlify(self.metadata_dict["file_last_block"][path])
+            if path in self.metadata_dict:
+                last_block = binascii.unhexlify(self.metadata_dict[path]["file_last_block"])
+                iv = self.metadata_dict[path]["iv"]
             else:
                 print "Last encrypted block for file {} not in metadata. Unrecoverable error. Exiting.".format(path)
                 sys.exit(-1)
             last_block_start = len(encrypted_file_data) - len(encrypted_file_data) % 16
             encrypted_file_data = encrypted_file_data[0:last_block_start] + last_block
-            decrypted_file_data = self._decrypt(encrypted_file_data)
+            decrypted_file_data = self._decrypt(encrypted_file_data, iv, 0)
             return decrypted_file_data
 
     def read(self, path, length, offset, fh):
@@ -180,8 +186,10 @@ class EncryptedFS(Operations):
         print "Reading {}".format(path)
         return pt[offset:offset+length]
 
-    def _encrypt(self, pt):
-        cipher = AES.new(self.encryption_key, AES.MODE_ECB)
+    def _encrypt(self, pt, iv_int, offset_int):
+        nonce = iv_int + offset_int
+        nonce_str = binascii.a2b_hex("{0:032x}".format(nonce))
+        cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.encrypt(pt)
 
     def write(self, path, buf, offset, fh):
@@ -247,7 +255,8 @@ class EncryptedFS(Operations):
                     padding_added = padding_added + 1
         # print "here2"
         file_pt = ''.join(file_pt_list)
-        file_ct = self._encrypt(file_pt)
+        iv = self.metadata_dict[path]["iv"]
+        file_ct = self._encrypt(file_pt, iv, 0)
 
         # file_ct = self._encrypt(file_pt)
         last_block = ''
@@ -257,7 +266,7 @@ class EncryptedFS(Operations):
         for i in range(last_block_start, last_block_start + 16):
             last_block = last_block + file_ct[i]
 
-        self.metadata_dict["file_last_block"][path] = binascii.hexlify(last_block)
+        self.metadata_dict[path]["file_last_block"] = binascii.hexlify(last_block)
         self._write_metadata(self.metadata_file)
         #if padding was added, then we only need to subtract that from the length of the string and write the string without padding to the file_pt
 
@@ -343,7 +352,7 @@ class EncryptedFS(Operations):
                 pt = pt[0:length]
             self._write(path, pt, 0, fh)
         else:
-            self.metadata_dict["file_last_block"][path] = binascii.hexlify('\0'*16)
+            self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
             self._write_metadata(self.metadata_file)
         return os.ftruncate(fh, length)
 

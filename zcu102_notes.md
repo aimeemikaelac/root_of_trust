@@ -11,3 +11,19 @@
   - There doesn't seem to be a way to build it such that it will recognize a device tree that is not in the image, as the
   u-boot in boot.bin will only look at image
   - Petalinux can be used to boot a Linux OS on the other partition of the SD card, such as an [aarch linaro distro](https://releases.linaro.org/ubuntu/images/developer-arm64/15.12/linaro-vivid-developer-20151215-114.tar.gz)
+  - You can also use a different FSBl or u-boot .elf. Its only the device tree that can't be replaced
+- To boot without petalinux:
+  - Get a FSBL that is built for the rev1 ZCU102
+  - Build the Xilinx Linux kernel for arm64 and the xilinx_zynqmp_defconfig target (Image)
+  - Build the Xilinx u-boot for arm64 and the xilinx_zynqmp_zcu102_revB_defconfig target (u-boot.elf)
+  - Get a device tree and modify to taste, from one of the reference designs or Petalinux (system.dtb)
+    - The Xilinx u-boot overrides the bootargs in the device (the 'chosen' attribute in the device tree). This can be fixed by
+    specifying the bootargs by setting u-boot variables at the boot command line or with uEnv.txt
+  - **Most important** You need something in TrustZone to boot the kernel after the FSBL boots
+    - A boot image for the Zedboard can be built with material similar to the above items, but the ZCU102 requires a TrustZone
+    bootloader of some sort. Petalinux builds this for you, but you would never know since it does not come up anywhere in the
+    Xilinx documentation
+    - A TrustZone-compatible bootloader can be obtained from Petalinux too (bl31.elf)
+  - A bootgen .bif to create a boot image and put the different partitions in the right place
+    - The TrustZone bootloader needs to be loaded into TrustZone
+    - Examples/templates are available (or will be soon) in this repo somewhere

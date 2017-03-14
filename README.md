@@ -9,12 +9,13 @@ built with the XSDK. For example, to run the provisioning OS, the stage 1 boot b
 script called. In future, this will be done using a signed ramdisk image rather than the filesystem.
 
 ## Dependencies
-The various scripts rely on certain Python packages, which in turn rely on certain Ubuntu packages.
+The various scripts rely on certain Python packages, which in turn rely on certain Ubuntu packages. Also, your kernel needs to support Fuse.
 
 Ubuntu packages:
 - **python2**
 - **python-dev**
 - **python-pip**
+- **fuse**
 - **libfuse-dev**
 
 Python packages (available in requirements.txt):

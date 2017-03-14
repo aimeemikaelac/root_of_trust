@@ -19,110 +19,88 @@ uint32_t reverse(uint32_t x)
 static PyObject *
 fpga_encrypt(PyObject *self, PyObject *args){
   int i;
+  unsigned int word_to_write, ap_done, data_out_valid, current_out_word;
+  volatile unsigned int control_register;
   PyObject* data_to_encrypt;
   Py_buffer data_to_encrypt_buffer;
+  unsigned char *data_buffer;
   char data_out[16];
+  unsigned long int nonce_long;
+  unsigned int nonce_buf[4];
+  volatile unsigned int *device_memory;
 
-  // printf("Test 1\n");
-  PyArg_ParseTuple(args, "O", &data_to_encrypt);
-  // printf("Test 2\n");
+  //Parse variables passed from python
+  PyArg_ParseTuple(args, "Ok", &data_to_encrypt, &nonce_long);
   if(PyObject_CheckBuffer(data_to_encrypt) == 1){
-    // printf("Object supports buffer interface\n");
     PyObject_GetBuffer(data_to_encrypt, &data_to_encrypt_buffer, PyBUF_SIMPLE);
   } else{
     printf("Object does NOT support buffer interface. Quiting\n");
-    return NULL;
+    memset(data_out, 0, 16);
+    return Py_BuildValue("s#", data_out, 16);
   }
-  // printf("Test 3\n");
-  void *data_buffer = data_to_encrypt_buffer.buf;
-//  unsigned int data_len = data_to_encrypt_buffer.len;
-  // printf("Test 4\n");
 
-  // XAes_basic encryptor;
-  // if(XAes_basic_Initialize(&encryptor, "aes_basic_0") != XST_SUCCESS){
-  //   printf("Initialization failed\n");
-  //   return NULL;
-  // }
-  shared_memory device_registers = getSharedMemoryArea(DEVICE_BASE_ADDRESS, DEVICE_ADDRESS_WIDTH);
-  volatile unsigned int *device_memory = (volatile unsigned int*)device_registers->ptr;
-  // printf("Test 5\n");
-  //write to the aes device input. for now, assume we received 16 bytes
-  // for(i=0; i<16; i++){
-//  XAes_basic_Write_data_in_Bytes(&encryptor, 0, (char*)data_buffer, 16);
-	volatile unsigned int control_register = device_memory[0];
-	// printf("Control register: %08x\n", control_register);
+  //convert nonce to int array
+  memset(nonce_buf, 0, 4*sizeof(unsigned int));
+  nonce_buf[1] = (unsigned int)(nonce_long >> 32);
+  nonce_buf[0] = (unsigned int)(nonce_long);
+
+  //get reference to device registers
+  data_buffer = (unsigned char*)data_to_encrypt_buffer.buf;
+  shared_memory device_registers =
+      getSharedMemoryArea(DEVICE_BASE_ADDRESS, DEVICE_ADDRESS_WIDTH);
+  device_memory = (volatile unsigned int*)device_registers->ptr;
+
+  //start device
+	control_register = device_memory[0];
 	control_register |= 1;
 	device_memory[0] = control_register;
 	control_register = device_memory[0];
-	// printf("Control register after write: %08x\n", control_register);
 
+  //write counter to be encrypted
   for(i=0; i<4; i++){
-    unsigned int word_to_write =
-      ((unsigned char*)data_buffer)[15 - i*4]      << 0  |
-      ((unsigned char*)data_buffer)[15 - i*4 - 1] << 8  |
-      ((unsigned char*)data_buffer)[15 - i*4 - 2] << 16 |
-      ((unsigned char*)data_buffer)[15 - i*4 - 3] << 24;
-    // word_to_write = reverse(word_to_write);
-    // printf("Attempting to write word %08x in iteration %i\n", word_to_write, i);
-    device_memory[XAES_BASIC_AXILITES_ADDR_DATA_IN_V_DATA/4 + i] = word_to_write;
-    // XAes_basic_Write_data_in_Words(&encryptor, i, (int*)&word_to_write, 1);
-    // writeValueToAddress(word_to_write, DEVICE_BASE_ADDRESS + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE);
-    // writeValueToAddressUio(word_to_write, XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE, "/dev/uio0", DEVICE_ADDRESS_WIDTH);
-    // printf("Write word %08x in iteration %i\n", word_to_write, i);
-    unsigned int word_read = device_memory[XAES_BASIC_AXILITES_ADDR_DATA_IN_V_DATA/4 + i];
-    // getValueAtAddress(DEVICE_BASE_ADDRESS + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE, &word_read);
-    // getValueAtAddressUio(XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE, &word_read, "/dev/uio0", DEVICE_ADDRESS_WIDTH);
-    // printf("Read word from this location: %08x\n", word_read);
-  }
-	device_memory[XAES_BASIC_AXILITES_ADDR_DATA_IN_V_CTRL/4] = 1;
-/*  for(i=0; i<16; i++){
-    char to_write = 0xff;
-    printf("Attempting to write value %02x in iteration %i\n", to_write, i);
-//    XAes_basic_Write_data_in_Bytes(&encryptor, i, ((char*)data_buffer)[i], 1);
-//    printf("Wrote value %02x in iteration %i\n", ((char*)data_buffer)[i], i);
-    XAes_basic_Write_data_in_Bytes(&encryptor, i, &to_write, 1);
-    printf("Wrote value %02x in iteration %i\n", to_write, i);
-  }*/
+    word_to_write =
+      data_buffer[15 - i*4]     << 0  |
+      data_buffer[15 - i*4 - 1] << 8  |
+      data_buffer[15 - i*4 - 2] << 16 |
+      data_buffer[15 - i*4 - 3] << 24;
 
-  // printf("Test 6\n");
-  // }
-  // XAes_basic_Start(&encryptor);
-  // printf("Test 7\n");
-  // while(!XAes_basic_IsDone(&encryptor)){
-  //   //spin wait
-  //   printf("Waiting\n");
-  // }
-  unsigned int ap_done;
+    device_memory[XAES_BASIC_AXILITES_ADDR_DATA_IN_V_DATA/4 + i] =
+      nonce_buf[i];
+  }
+
+  //set the valid bit now that data is written
+	device_memory[XAES_BASIC_AXILITES_ADDR_DATA_IN_V_CTRL/4] = 1;
+
+  //wait till the device is done
   while((ap_done = control_register &0x2) == 0){
     __asm__("");
     asm("");
     //spin wait
     control_register = device_memory[0];
-    // printf("Waiting. Control register is: %08x\n", control_register);
   }
 
-  // printf("ap done: %08x\n", ap_done);
-  // printf("Test 7\n");
-  // XAes_basic_Read_data_out_Bytes(&encryptor, 0, data_out, 16);
-  // printf("Control register after finish: %08x\n", control_register);
-  unsigned int data_out_valid = device_memory[XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_CTRL/4];
-  // printf("Data out valid: %08x\n", data_out_valid);
-  unsigned int current_out_word;
+
+  //XOR the output of the encryption of the counter with the data to encrypt
+  // data_out_valid = device_memory[XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_CTRL/4];
   for(i=0; i<4; i++){
-    current_out_word = device_memory[XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_DATA/4 + i];
-    // current_out_word = reverse(current_out_word);
-    // printf("Data out at iteration %i: %08x\n", i, current_out_word);
-    data_out[15 - i*4] = current_out_word & 0xFF;
-    data_out[15 - i*4 - 1] = (current_out_word >> 8) & 0xFF;
-    data_out[15 - i*4 - 2] = (current_out_word >> 16) & 0xFF;
-    data_out[15 - i*4 - 3] = (current_out_word >> 24) & 0xFF;
+    current_out_word =
+      device_memory[XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_DATA/4 + i];
+    // printf("Result read in stage %i: %08x\n", i, current_out_word);
+    data_out[15 - i*4]     = (current_out_word & 0xFF) ^
+                              data_buffer[15 - i*4];
+    data_out[15 - i*4 - 1] = ((current_out_word >> 8) & 0xFF) ^
+                              data_buffer[15 - i*4 - 1];
+    data_out[15 - i*4 - 2] = ((current_out_word >> 16) & 0xFF) ^
+                              data_buffer[15 - i*4 - 2];
+    data_out[15 - i*4 - 3] = ((current_out_word >> 24) & 0xFF) ^
+                              data_buffer[15 - i*4 - 3];
   }
 
-  // printf("Test 8\n");
-
-  PyObject *data_out_str = Py_BuildValue("s#", data_out, 16);
+  //cleanup memory reference
   cleanupSharedMemoryPointer(device_registers);
-  return data_out_str;
+
+  //return the encrypted data as a string
+  return Py_BuildValue("s#", data_out, 16);
 }
 
 static PyMethodDef FPGAMethods[] = {

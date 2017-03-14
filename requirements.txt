@@ -1,3 +1,4 @@
 pycryptodomex
 jinja2
 numpy
+fusepy

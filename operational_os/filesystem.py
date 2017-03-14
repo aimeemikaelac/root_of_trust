@@ -15,7 +15,7 @@ import json
 
 from fuse import FUSE, FuseOSError, Operations
 
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 from Cryptodome.Protocol import KDF
 
 

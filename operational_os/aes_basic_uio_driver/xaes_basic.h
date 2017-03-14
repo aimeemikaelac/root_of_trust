@@ -49,6 +49,20 @@ typedef struct {
     u32 IsReady;
 } XAes_basic;
 
+typedef struct {
+    u32 word_0;
+    u32 word_1;
+    u32 word_2;
+    u32 word_3;
+} XAes_basic_Data_in_v;
+
+typedef struct {
+    u32 word_0;
+    u32 word_1;
+    u32 word_2;
+    u32 word_3;
+} XAes_basic_Data_out_v;
+
 /***************** Macros (Inline Functions) Definitions *********************/
 #ifndef __linux__
 #define XAes_basic_WriteReg(BaseAddress, RegOffset, Data) \
@@ -88,24 +102,10 @@ void XAes_basic_EnableAutoRestart(XAes_basic *InstancePtr);
 void XAes_basic_DisableAutoRestart(XAes_basic *InstancePtr);
 u32 XAes_basic_Get_return(XAes_basic *InstancePtr);
 
-u32 XAes_basic_Get_data_in_BaseAddress(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_in_HighAddress(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_in_TotalBytes(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_in_BitWidth(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_in_Depth(XAes_basic *InstancePtr);
-u32 XAes_basic_Write_data_in_Words(XAes_basic *InstancePtr, int offset, int *data, int length);
-u32 XAes_basic_Read_data_in_Words(XAes_basic *InstancePtr, int offset, int *data, int length);
-u32 XAes_basic_Write_data_in_Bytes(XAes_basic *InstancePtr, int offset, char *data, int length);
-u32 XAes_basic_Read_data_in_Bytes(XAes_basic *InstancePtr, int offset, char *data, int length);
-u32 XAes_basic_Get_data_out_BaseAddress(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_out_HighAddress(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_out_TotalBytes(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_out_BitWidth(XAes_basic *InstancePtr);
-u32 XAes_basic_Get_data_out_Depth(XAes_basic *InstancePtr);
-u32 XAes_basic_Write_data_out_Words(XAes_basic *InstancePtr, int offset, int *data, int length);
-u32 XAes_basic_Read_data_out_Words(XAes_basic *InstancePtr, int offset, int *data, int length);
-u32 XAes_basic_Write_data_out_Bytes(XAes_basic *InstancePtr, int offset, char *data, int length);
-u32 XAes_basic_Read_data_out_Bytes(XAes_basic *InstancePtr, int offset, char *data, int length);
+void XAes_basic_Set_data_in_V(XAes_basic *InstancePtr, XAes_basic_Data_in_v Data);
+XAes_basic_Data_in_v XAes_basic_Get_data_in_V(XAes_basic *InstancePtr);
+XAes_basic_Data_out_v XAes_basic_Get_data_out_V(XAes_basic *InstancePtr);
+u32 XAes_basic_Get_data_out_V_vld(XAes_basic *InstancePtr);
 
 void XAes_basic_InterruptGlobalEnable(XAes_basic *InstancePtr);
 void XAes_basic_InterruptGlobalDisable(XAes_basic *InstancePtr);

@@ -26,32 +26,37 @@
 //        others - reserved
 // 0x10 : Data signal of ap_return
 //        bit 31~0 - ap_return[31:0] (Read)
-// 0x20 ~
-// 0x2f : Memory 'data_in' (16 * 8b)
-//        Word n : bit [ 7: 0] - data_in[4n]
-//                 bit [15: 8] - data_in[4n+1]
-//                 bit [23:16] - data_in[4n+2]
-//                 bit [31:24] - data_in[4n+3]
-// 0x30 ~
-// 0x3f : Memory 'data_out' (16 * 8b)
-//        Word n : bit [ 7: 0] - data_out[4n]
-//                 bit [15: 8] - data_out[4n+1]
-//                 bit [23:16] - data_out[4n+2]
-//                 bit [31:24] - data_out[4n+3]
+// 0x18 : Data signal of data_in_V
+//        bit 31~0 - data_in_V[31:0] (Read/Write)
+// 0x1c : Data signal of data_in_V
+//        bit 31~0 - data_in_V[63:32] (Read/Write)
+// 0x20 : Data signal of data_in_V
+//        bit 31~0 - data_in_V[95:64] (Read/Write)
+// 0x24 : Data signal of data_in_V
+//        bit 31~0 - data_in_V[127:96] (Read/Write)
+// 0x28 : reserved
+// 0x2c : Data signal of data_out_V
+//        bit 31~0 - data_out_V[31:0] (Read)
+// 0x30 : Data signal of data_out_V
+//        bit 31~0 - data_out_V[63:32] (Read)
+// 0x34 : Data signal of data_out_V
+//        bit 31~0 - data_out_V[95:64] (Read)
+// 0x38 : Data signal of data_out_V
+//        bit 31~0 - data_out_V[127:96] (Read)
+// 0x3c : Control signal of data_out_V
+//        bit 0  - data_out_V_ap_vld (Read/COR)
+//        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XAES_BASIC_AXILITES_ADDR_AP_CTRL       0x00
-#define XAES_BASIC_AXILITES_ADDR_GIE           0x04
-#define XAES_BASIC_AXILITES_ADDR_IER           0x08
-#define XAES_BASIC_AXILITES_ADDR_ISR           0x0c
-#define XAES_BASIC_AXILITES_ADDR_AP_RETURN     0x10
-#define XAES_BASIC_AXILITES_BITS_AP_RETURN     32
-#define XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE  0x20
-#define XAES_BASIC_AXILITES_ADDR_DATA_IN_HIGH  0x2f
-#define XAES_BASIC_AXILITES_WIDTH_DATA_IN      8
-#define XAES_BASIC_AXILITES_DEPTH_DATA_IN      16
-#define XAES_BASIC_AXILITES_ADDR_DATA_OUT_BASE 0x30
-#define XAES_BASIC_AXILITES_ADDR_DATA_OUT_HIGH 0x3f
-#define XAES_BASIC_AXILITES_WIDTH_DATA_OUT     8
-#define XAES_BASIC_AXILITES_DEPTH_DATA_OUT     16
+#define XAES_BASIC_AXILITES_ADDR_AP_CTRL         0x00
+#define XAES_BASIC_AXILITES_ADDR_GIE             0x04
+#define XAES_BASIC_AXILITES_ADDR_IER             0x08
+#define XAES_BASIC_AXILITES_ADDR_ISR             0x0c
+#define XAES_BASIC_AXILITES_ADDR_AP_RETURN       0x10
+#define XAES_BASIC_AXILITES_BITS_AP_RETURN       32
+#define XAES_BASIC_AXILITES_ADDR_DATA_IN_V_DATA  0x18
+#define XAES_BASIC_AXILITES_BITS_DATA_IN_V_DATA  128
+#define XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_DATA 0x2c
+#define XAES_BASIC_AXILITES_BITS_DATA_OUT_V_DATA 128
+#define XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_CTRL 0x3c
 

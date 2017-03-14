@@ -15,8 +15,10 @@ Ubuntu packages:
 - **python2**
 - **python-dev**
 - **python-pip**
+- **libfuse-dev**
 
 Python packages (available in requirements.txt):
 - **pycryptodomex**
 - **jinja2**
 - **NumPy**
+- **fusepy**

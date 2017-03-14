@@ -146,18 +146,23 @@ class EncryptedFS(Operations):
         full_path = self._full_path(path)
         return os.open(full_path, flags)
 
-    def create(self, path, mode, fi=None):
-        full_path = self._full_path(path)
+    def _init_file_metadata(self, path):
+        self.metadata_dict[path] = {}
         self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
-        rand_iv = random.getrandbits(128)
+        rand_iv = random.getrandbits(64)
         self.metadata_dict[path]["iv"] = rand_iv
         self._write_metadata(self.metadata_file)
+
+    def create(self, path, mode, fi=None):
+        full_path = self._full_path(path)
+        self._init_file_metadata(path)
         print "Creating file {}".format(path)
         return os.open(full_path, os.O_WRONLY | os.O_CREAT, mode)
 
     def _decrypt(self, ct, iv_int, offset_int):
-        nonce = iv_int + offset_int
-        nonce_str = binascii.a2b_hex("{0:032x}".format(nonce))
+        nonce = iv_int + offset_int % 2**64
+        nonce_str = binascii.a2b_hex("{0:016x}".format(nonce))
+        print "nonce:\n{0:016x}\n len of str:{1}".format(nonce, len(nonce_str))
         cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.decrypt(ct)
 
@@ -187,8 +192,8 @@ class EncryptedFS(Operations):
         return pt[offset:offset+length]
 
     def _encrypt(self, pt, iv_int, offset_int):
-        nonce = iv_int + offset_int
-        nonce_str = binascii.a2b_hex("{0:032x}".format(nonce))
+        nonce = iv_int + offset_int % 2**56
+        nonce_str = binascii.a2b_hex("{0:014x}".format(nonce))
         cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.encrypt(pt)
 
@@ -352,8 +357,10 @@ class EncryptedFS(Operations):
                 pt = pt[0:length]
             self._write(path, pt, 0, fh)
         else:
-            self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
-            self._write_metadata(self.metadata_file)
+            # self.metadata_dict[path] = {}
+            # self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
+            # self._write_metadata(self.metadata_file)
+            self._init_file_metadata(path)
         return os.ftruncate(fh, length)
 
 

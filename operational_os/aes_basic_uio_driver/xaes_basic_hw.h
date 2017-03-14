@@ -34,7 +34,9 @@
 //        bit 31~0 - data_in_V[95:64] (Read/Write)
 // 0x24 : Data signal of data_in_V
 //        bit 31~0 - data_in_V[127:96] (Read/Write)
-// 0x28 : reserved
+// 0x28 : Control signal of data_in_V
+//        bit 0  - data_in_V_ap_vld (Read/Write/SC)
+//        others - reserved
 // 0x2c : Data signal of data_out_V
 //        bit 31~0 - data_out_V[31:0] (Read)
 // 0x30 : Data signal of data_out_V
@@ -56,6 +58,7 @@
 #define XAES_BASIC_AXILITES_BITS_AP_RETURN       32
 #define XAES_BASIC_AXILITES_ADDR_DATA_IN_V_DATA  0x18
 #define XAES_BASIC_AXILITES_BITS_DATA_IN_V_DATA  128
+#define XAES_BASIC_AXILITES_ADDR_DATA_IN_V_CTRL  0x28
 #define XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_DATA 0x2c
 #define XAES_BASIC_AXILITES_BITS_DATA_OUT_V_DATA 128
 #define XAES_BASIC_AXILITES_ADDR_DATA_OUT_V_CTRL 0x3c

@@ -104,6 +104,8 @@ u32 XAes_basic_Get_return(XAes_basic *InstancePtr);
 
 void XAes_basic_Set_data_in_V(XAes_basic *InstancePtr, XAes_basic_Data_in_v Data);
 XAes_basic_Data_in_v XAes_basic_Get_data_in_V(XAes_basic *InstancePtr);
+void XAes_basic_Set_data_in_V_vld(XAes_basic *InstancePtr);
+u32 XAes_basic_Get_data_in_V_vld(XAes_basic *InstancePtr);
 XAes_basic_Data_out_v XAes_basic_Get_data_out_V(XAes_basic *InstancePtr);
 u32 XAes_basic_Get_data_out_V_vld(XAes_basic *InstancePtr);
 

@@ -105,6 +105,23 @@ XAes_basic_Data_in_v XAes_basic_Get_data_in_V(XAes_basic *InstancePtr) {
     return Data;
 }
 
+void XAes_basic_Set_data_in_V_vld(XAes_basic *InstancePtr) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAes_basic_WriteReg(InstancePtr->Axilites_BaseAddress, XAES_BASIC_AXILITES_ADDR_DATA_IN_V_CTRL, 1);
+}
+
+u32 XAes_basic_Get_data_in_V_vld(XAes_basic *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XAes_basic_ReadReg(InstancePtr->Axilites_BaseAddress, XAES_BASIC_AXILITES_ADDR_DATA_IN_V_CTRL);
+    return Data & 0x1;
+}
+
 XAes_basic_Data_out_v XAes_basic_Get_data_out_V(XAes_basic *InstancePtr) {
     XAes_basic_Data_out_v Data;
 

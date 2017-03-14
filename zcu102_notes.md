@@ -19,6 +19,7 @@
   - Get a device tree and modify to taste, from one of the reference designs or Petalinux (system.dtb)
     - The Xilinx u-boot overrides the bootargs in the device (the 'chosen' attribute in the device tree). This can be fixed by
     specifying the bootargs by setting u-boot variables at the boot command line or with uEnv.txt
+  - A PMU firmware, which can be obtained from Petalinux
   - **Most important** You need something in TrustZone to boot the kernel after the FSBL boots
     - A boot image for the Zedboard can be built with material similar to the above items, but the ZCU102 requires a TrustZone
     bootloader of some sort. Petalinux builds this for you, but you would never know since it does not come up anywhere in the
@@ -27,3 +28,14 @@
   - A bootgen .bif to create a boot image and put the different partitions in the right place
     - The TrustZone bootloader needs to be loaded into TrustZone
     - Examples/templates are available (or will be soon) in this repo somewhere
+## Accssing the Board
+- Make sure to turn off hardware control flow for any serial terminal connections to the uart (use the first of the 4 provided consoles, such as /dev/ttyUSB. The others are usually connected to the pmufw, the real-time processor and the power management unit)
+-  The board does not seem to want to connect to all monitors. I've had success with a direct display port connection, but its impractical cause that is the monitor I connect to my laptop
+
+## Generating a boot image on the ZCU102
+- Xilinx for some reason will not disclose how to create a signed/encrypted boot image without bootgen
+- Bootgen can be run on the board using qemu to emulate x86_64, in either system or binary emulation
+  - In binary emulation, the needed x86_64 libraries (libc, etc...) need to be placed in the folders that the binary expects
+  on the aarch file system. qemu-x86_64 will then execute bootgen successfully (not too many libraries need to be ported as
+  bootgen appears to be statically linked)
+  - System emulation requires a disk iamge containing an x86_64 fs, which takes up a lot of space and is very slow

@@ -10,3 +10,4 @@
     - device tree (system.dtb)
   - There doesn't seem to be a way to build it such that it will recognize a device tree that is not in the image, as the
   u-boot in boot.bin will only look at image
+  - Petalinux can be used to boot a Linux OS on the other partition of the SD card, such as an [aarch linaro distro](https://releases.linaro.org/ubuntu/images/developer-arm64/15.12/linaro-vivid-developer-20151215-114.tar.gz)

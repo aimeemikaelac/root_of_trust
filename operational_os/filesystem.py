@@ -181,13 +181,9 @@ class EncryptedFS(Operations):
             return decrypted_file_data
 
     def read(self, path, length, offset, fh):
-        # os.lseek(fh, offset, os.SEEK_SET)
-        # return os.read(fh, length)
-        # return self._decrypt_file_at_offset(fh, offset, length)[0]
         full_path = self._full_path(path)
 
         pt = self._decrypt_file(full_path, path)
-        # print "pt:\n{}".format(pt)
         print "Reading {}".format(path)
         return pt[offset:offset+length]
 
@@ -198,20 +194,9 @@ class EncryptedFS(Operations):
         return cipher.encrypt(pt)
 
     def write(self, path, buf, offset, fh):
-        # os.lseek(fh, offset, os.SEEK_SET)
-        # return os.write(fh, buf)
-        # data_ct, block_begin, block_length = self._get_ct_at_offset(fh, offset, length)
         full_path = self._full_path(path)
         file_length = os.path.getsize(full_path)
-        # ct = self._encrypt_file_data_at_offset(fh, offset, len(buf), buf, file_length)
-
-        # os.lseek(fh, block_begin, os.SEEK_SET)
-        # return os.write(fh, data_ct
         block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, len(buf))
-        # print "Data begin: {}".format(data_begin)
-        # print "Data end: {}".format(data_end)
-        # print "Buf: {}".format(buf)
-        # print "Offset: {}".format(offset)
         file_pt = self._decrypt_file(full_path, path)
         starting_padding = len(file_pt) - file_length
         original_padding_start = len(file_pt) - starting_padding
@@ -220,17 +205,6 @@ class EncryptedFS(Operations):
         offset_into_block = data_begin
         padding_added = 0
         original_padding_overwritten = 0
-        # for i in range(data_begin, min(data_end, file_length)):
-        #     file_pt[i] = buf[index]
-        #     index = index + 1
-        #     offset_into_block = offset_into_block + 1
-        # for i in range(index, len(buf)):
-        #     file_pt = file_pt + buf[i]
-        #     offset_into_block = offset_into_block + 1
-        # for i in range(offset_into_block, block_length):
-        #     if i >
-        #     file_pt = file_pt + '\0'
-        #     padding_added = padding_added + 1
         #TODO: assume that are always adding to the end of the file or part of the existing file. Do not have to pad between the start of the data that is being placed and the end of the file
         starting_pt_len = len(file_pt)
         file_pt_list = list(file_pt)
@@ -238,12 +212,6 @@ class EncryptedFS(Operations):
         for i in range(block_begin, block_end):
             if i < starting_pt_len:
                 if i >= data_begin and i < data_end:
-                    # file_pt = file_pt[0:i] + buf[index]
-                    # if i+1 < starting_pt_len:
-                        # file_pt = file_pt[0:i] + buf[index] + file_pt[i+1:len(file_pt)]
-                    # else:
-                    # print "Buf len: {}".format(len(buf))
-                    # print "index: {}".format(index)
                     buf_cur = buf[index]
                     file_pt_list[i] = buf_cur
                     index = index + 1
@@ -251,23 +219,17 @@ class EncryptedFS(Operations):
                         original_padding_overwritten = original_padding_overwritten + 1
             else:
                 if i >= data_begin and i < data_end:
-                    # file_pt = file_pt + buf[index]
                     file_pt_list.append(buf[index])
                     index = index + 1
                 elif i >= data_end:
-                    # file_pt = file_pt + '\0'
                     file_pt_list.append('\0')
                     padding_added = padding_added + 1
-        # print "here2"
         file_pt = ''.join(file_pt_list)
         iv = self.metadata_dict[path]["iv"]
         file_ct = self._encrypt(file_pt, iv, 0)
 
-        # file_ct = self._encrypt(file_pt)
         last_block = ''
         last_block_start = len(file_ct) - 16
-        # print "Ct len: {}".format(len(file_ct))
-        # print "Last block start: {}".format(last_block_start)
         for i in range(last_block_start, last_block_start + 16):
             last_block = last_block + file_ct[i]
 
@@ -277,76 +239,24 @@ class EncryptedFS(Operations):
 
         #else, we need to figure out how much padding we overwrote
 
-        # print "here4"
         if padding_added > 0:
-            # print "here5"
             str_to_write = file_ct[0:(len(file_ct) - padding_added)]
-            # print "Str written:\n{}".format(str_to_write)
-            # os.write(fh, str_to_write)
             print "Updating file, padding added: {}".format(path)
             with open(full_path, 'w') as backing_file:
                 backing_file.write(str_to_write)
             return len(buf)
         else:
-            # print "here6"
             padding_remaining = starting_padding - original_padding_overwritten
             str_to_write = file_ct[0:(len(file_ct) - padding_remaining)]
             print "Updating file, no padding added: {}".format(path)
-            # print "Str written:\n{}".format(str_to_write)
             with open(full_path, 'w') as backing_file:
                 backing_file.write(str_to_write)
-            # os.write(fh, str_to_write)
             return len(buf)
-
-
 
 
     def truncate(self, path, length, fh=None):
         full_path = self._full_path(path)
-        # # with open(full_path, 'r+') as f:
-        # f = os.open(full_path, os.O_RDWR)
         file_length = os.path.getsize(full_path)
-        # last_block_data = array.array('B')
-        # if length < file_length:
-        #     if length % 16 != 0:
-        #         # last_block_data, block_start = self._get_block_at_offset(f, length - 1, file_length)
-        #         # decrypted_last_block = self._decrypt_block(last_block_data)
-        #         # data_end = length - block_start
-        #         #generate encrypted last block
-        #         # for i in range(length % 16):
-        #         #     last_block_data.append(decrypted_last_block[i])
-        #         # for i in range(data_end, len(last_block_data)):
-        #             # decrypted_last_block[i] = '\0'
-        #         # encrypted_last_block = self._encrypt_partial_block(last_block_data)
-        #         # os.lseek(f, block_start, os.SEEK_SET)
-        #         # os.write(f, encrypted_last_block)
-        #         new_last_block_begin = length - length % 16
-        #         new_last_block_data = self._decrypt_file_at_offset(f, new_last_block_begin, length - new_last_block_begin, file_length)
-        #         for i in range(length - new_last_block_begin, 16):
-        #             new_last_block_data[i] = ('\0')
-        #         self._encrypt_file_data_at_offset(f, new_last_block_begin, 16, new_last_block_data, file_length)
-        #     # return f.truncate(length)
-        # elif length > file_length:
-        #     # if length == file_length:
-        #         # return f.truncate(length)
-        #     # else:
-        #         # f.truncate(length)
-        #     # last_block_s = length - (length % 16)
-        #     # old_last_block = file_length - (file_length % 16)
-        #     # if file_length % 16
-        #     # if length % 16 != 0:
-        #     orig_last_block_begin = file_length - file_length % 16
-        #     # orig_block_after_last_begin = orig_last_block_begin + 16
-        #     # new_last_block_begin = length - length % 16
-        #     # num_full_blocks = (new_last_block_begin - orig_block_after_last_begin) / 16
-        #     # os.lseek(f, length-1, os.SEEK_SET)
-        #     # os.write(f, '\0'*(length - file_length))
-        #     last_block = self._decrypt_file_at_offset(f, orig_last_block_begin, file_length - orig_last_block_begin, file_length)
-        #     last_block_data.fromstring(last_block)[0]
-        #     for i in range(length - file_length):
-        #         last_block_data.append('\0')
-        #     self._encrypt_file_data_at_offset(f, orig_last_block_begin, length - orig_last_block_begin, last_block_data, file_length)
-        # return os.ftruncate(f, length)
         fh = os.open(full_path, os.O_RDWR)
         if length > 0:
             pt = self.read(path, file_length, 0, fh)
@@ -357,9 +267,6 @@ class EncryptedFS(Operations):
                 pt = pt[0:length]
             self._write(path, pt, 0, fh)
         else:
-            # self.metadata_dict[path] = {}
-            # self.metadata_dict[path]["file_last_block"] = binascii.hexlify('\0'*16)
-            # self._write_metadata(self.metadata_file)
             self._init_file_metadata(path)
         return os.ftruncate(fh, length)
 
@@ -383,129 +290,6 @@ class EncryptedFS(Operations):
         data_end = data_begin + length
         return block_begin, block_end, block_length, data_begin, data_end
 
-    #assume we are reading in the bounds of the file length
-    # def _get_ct_at_offset(self, file_handle, offset, length, file_length, path):
-    #     block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, length)
-    #
-    #     #are we in the last block of the file?
-    #     replace_last_block = False
-    #     last_block = ''
-    #     if block_end == (int(file_length/16)*16 + 16):
-    #         if path in self.metadata_dict["file_last_block"]:
-    #             last_block = self.metadata_dict["file_last_block"][path]
-    #         else:
-    #             print "Last encrypted block for file {} not in metadata. Unrecoverable error. Exiting.".format(path)
-    #             sys.exit(-1)
-    #         replace_last_block = True
-    #     # if block_begin >= file_length:
-    #         # return '\0'*block_length
-    #
-    #     os.lseek(file_handle, block_begin, os.SEEK_SET)
-    #     # if block_end >= file_length:
-    #         # ct = os.read(file_handle, file_length - block_begin)
-    #         # for i in range(block_end - file_length):
-    #             # ct = ct + '\0'
-    #     # else:
-    #     data_read_length = length
-    #     if offset % 16 != 0:
-    #         data_read_length = data_read_length + (data_begin - block_begin)
-    #     ct = os.read(file_handle, data_read_length)
-    #     if replace_last_block:
-    #         last_block_begin = (length - length % 16
-    #         ct_new = ct[0:last_block_begin] + last_block
-    #         return ct_new
-    #     else:
-    #         return ct
-
-    # def _encrypt_file_data_at_offset(self, file_handle, offset, length, data, file_length):
-    #     #TODO: handle when data is too much to store in memory
-    #     block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, length)
-    #
-    #     if block_end > file_length:
-    #         existing_data_length = file_length - block_begin
-    #     else:
-    #         existing_data_length = block_length
-    #     pt = self._decrypt_file_at_offset(file_handle, block_begin, existing_data_length, file_length)[1]
-    #
-    #     # pt[data_begin, data_end] = data
-    #     if block_end > file_length:
-    #         if data_end > file_length:
-    #             pt_new = pt[0:data_begin] + data
-    #             for i in range(data_end, block_end):
-    #                 pt_new = pt_new + '\0'
-    #         else:
-    #             pt_new = pt[0:data_begin] + data
-    #     else:
-    #         pt_new = pt[0:data_begin] + data + pt[data_end:len(pt)]
-    #
-    #     cipher = AES.new(self.encryption_key, AES.MODE_ECB)
-    #     ct = cipher.encrypt(pt_new)
-    #
-    #     return ct, block_begin, block_length
-
-
-    # def _decrypt_file_at_offset(self, file_handle, offset, length, file_length):
-    #     block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, length)
-    #
-    #     ct = self._get_ct_at_offset(file_handle, offset, length, file_length)
-    #
-    #     cipher = AES.new(self.encryption_key, AES.MODE_ECB)
-    #     pt = cipher.decrypt(ct)
-    #
-    #     return pt[data_begin:data_end], pt
-    #
-    # def _pad_partial_block(self, partial_block):
-    #     padded_block_data = array.array('B')
-    #     padded_block_data.extend(partial_block)
-    #     for i in range(16 - len(partial_block)):
-    #         padded_block_data.append('\0')
-    #     return padded_block_data
-    #
-    # def _encrypt_decrypt_partial_block(self, partial_block, encrypt=False):
-    #     padded_block_data = self._pad_partial_block(partial_block)
-    #     return self._encrypt_decrypt_block(padded_block_data, encrypt=encrypt)
-    #
-    # def _encrypt_decrypt_block(self, block, encrypt=False):
-    #     cipher = AES.new(self.encryption_key, AES.MODE_ECB)
-    #     cipher_data = array.array('B')
-    #     if encrypt:
-    #         ct = cipher.encrypt(padded_block_data.tostring())
-    #         cipher_data.fromstring(ct)
-    #     else:
-    #         pt = cipher.decrypt(padded_block_data.tostring())
-    #         cipher_data.fromstring(pt)
-    #
-    #     return cipher_data
-    #
-    # def _decrypt_block(self, block):
-    #     return self._encrypt_decrypt_block(block)
-    #
-    # def _decrypt_partial_block(self, partial_block):
-    #     return self._encrypt_decrypt_partial_block(partial_block)
-    #
-    # def _encrypt_block(self, block):
-    #     return self._encrypt_decrypt_block(block, encrypt=True)
-    #
-    # def _encrypt_partial_block(self, partial_block):
-    #     return self._encrypt_decrypt_partial_block(partial_block, encrypt=True)
-    #
-    # def _get_block_at_offset(self, fd, offset, file_length):
-    #     if offset >= file_length:
-    #         return None, None
-    #     block_begin = offset - offset%16
-    #     read_length = 16
-    #     os.lseek(fd, block_begin, os.SEEK_SET)
-    #     if block_begin + 16 >= file_length:
-    #         read_length = file_length - offset
-    #     block_data_str = os.read(fd, read_length)
-    #     block_data = array.array('B')
-    #     block_data.fromstring(block_data_str)
-    #     return block_data, block_begin
-
-
-# def main(mountpoint, root):
-
-    # FUSE(Passthrough(root), mountpoint, nothreads=True, foreground=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

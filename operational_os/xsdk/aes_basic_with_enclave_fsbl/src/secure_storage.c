@@ -3,16 +3,23 @@
 #include "xil_io.h"
 #include "stdlib.h"
 #include "secure_storage.h"
+#include "stdio.h"
 
+
+static FATFS fatfs;
+
+#define BBRAM_TEST_FILE "bbram.bin"
+
+#define SECURE_ENCLAVE 0xB0000000
 
 #define IMAGE_SRC 0xFFFF8000
 #define IMAGE_DST 0xFFFF9000
 #define IMAGE_TAG 0xFFFFa000
-#define IMAGE_TAG_LEN 16
-#define IMAGE_LEN 48
+//#define IMAGE_TAG_LEN 16
+//#define IMAGE_LEN 48
 #define BUFFER_LEN 0x1000
 
-#define SECURE_ENCLAVE_ATTEMTPS 5
+#define SECURE_ENCLAVE_ATTEMPTS 5
 //for now, storage only holds 3 16 values:
 //16 byte counter, 16 byte pin, 16 byte encryption key
 #define STORAGE_SIZE 48
@@ -56,7 +63,7 @@ int read_secure_enclave_file(SECURE_STORAGE *storage, const char* file_name){
 	unsigned int bytes_read;
 
 	//TODO: if we cannot read the file, we should reprovision
-	if(f_open(&secure_storage_handle, file_name, 'r') != FR_OK){
+	if(f_open(&secure_storage_handle, file_name, FA_READ) != FR_OK){
 		xil_printf("Could not open secure storage file: %s\n\r",
 				   file_name);
 		return -1;
@@ -109,6 +116,8 @@ int read_secure_enclave_file(SECURE_STORAGE *storage, const char* file_name){
 		return -1;
 	}
 
+	f_close(&secure_storage_handle);
+
 	return 0;
 }
 
@@ -118,7 +127,7 @@ int read_secure_storage_tag(SECURE_STORAGE_TAG *tag, const char* file_name){
 	unsigned int bytes_read;
 
 	//TODO: if we cannot read the file, we should reprovision
-	if(f_open(&secure_storage_tag_handle, file_name, 'r') != FR_OK){
+	if(f_open(&secure_storage_tag_handle, file_name, FA_READ) != FR_OK){
 		xil_printf("Could not open secure storage tag file: %s\n\r",
 				   file_name);
 		return -1;
@@ -146,6 +155,9 @@ int read_secure_storage_tag(SECURE_STORAGE_TAG *tag, const char* file_name){
 				   file_name);
 		return -1;
 	}
+
+	f_close(&secure_storage_tag_handle);
+
 	return 0;
 }
 
@@ -155,7 +167,7 @@ int read_secure_storage_iv(SECURE_STORAGE_IV *iv, const char* file_name){
 	unsigned int bytes_read;
 
 	//TODO: if we cannot read the file, we should reprovision
-	if(f_open(&secure_storage_iv_handle, file_name, 'r') != FR_OK){
+	if(f_open(&secure_storage_iv_handle, file_name, FA_READ) != FR_OK){
 		xil_printf("Could not open secure storage iv file: %s\n\r",
 				   file_name);
 		return -1;
@@ -183,6 +195,9 @@ int read_secure_storage_iv(SECURE_STORAGE_IV *iv, const char* file_name){
 				   file_name);
 		return -1;
 	}
+
+	f_close(&secure_storage_iv_handle);
+
 	return 0;
 }
 
@@ -200,83 +215,6 @@ static void XSecure_AesWaitForDone(XSecure_Aes *InstancePtr)
 	} while ((u32)Status & XSECURE_CSU_AES_STS_AES_BUSY);
 }
 
-static s32 XSecure_AesChunkDecrypt(XSecure_Aes *InstancePtr, const u8 *Src,
-					u32 Len)
-{
-	/* Assert validates the input arguments */
-	Xil_AssertNonvoid(InstancePtr != NULL);
-	Xil_AssertNonvoid(Len != 0U);
-
-	s32 Status = XST_SUCCESS;
-
-	u32 NumChunks = Len / (InstancePtr->ChunkSize);
-	u32 RemainingBytes = Len % (InstancePtr->ChunkSize);
-	u32 Index = 0U;
-	u32 StartAddrByte = (u32)(INTPTR)Src;
-
-	/*
-	 * Start the chunking process, copy encrypted chunks into OCM and push
-	 * decrypted data to PCAP
-	 */
-
-	for(Index = 0; Index < NumChunks; Index++)
-	{
-		Status = InstancePtr->DeviceCopy(StartAddrByte,
-					(UINTPTR)(InstancePtr->ReadBuffer),
-					InstancePtr->ChunkSize);
-
-		if (XST_SUCCESS != Status)
-		{
-			Status = XSECURE_CSU_AES_DEVICE_COPY_ERROR;
-			return Status;
-		}
-
-		XCsuDma_Transfer(InstancePtr->CsuDmaPtr, XCSUDMA_SRC_CHANNEL,
-					(UINTPTR)(InstancePtr->ReadBuffer),
-					(InstancePtr->ChunkSize)/4U, 0);
-
-		/*
-		 * wait for the SRC_DMA to complete
-		 */
-		XCsuDma_WaitForDone(InstancePtr->CsuDmaPtr, XCSUDMA_SRC_CHANNEL);
-
-		/* Acknowledge the transfers has completed */
-		XCsuDma_IntrClear(InstancePtr->CsuDmaPtr, XCSUDMA_SRC_CHANNEL,
-							XCSUDMA_IXR_DONE_MASK);
-
-		XSecure_PcapWaitForDone();
-
-		StartAddrByte += InstancePtr->ChunkSize;
-	}
-
-	if((RemainingBytes != 0))
-	{
-		Status = InstancePtr->DeviceCopy(StartAddrByte,
-				(UINTPTR)(InstancePtr->ReadBuffer), RemainingBytes);
-
-		if (XST_SUCCESS != Status)
-		{
-			Status = XSECURE_CSU_AES_DEVICE_COPY_ERROR;
-			return Status;
-		}
-
-		XCsuDma_Transfer(InstancePtr->CsuDmaPtr, XCSUDMA_SRC_CHANNEL,
-			(UINTPTR)(InstancePtr->ReadBuffer), RemainingBytes/4U, 0);
-
-		/* wait for the SRC_DMA to complete and the pcap to be IDLE */
-		XCsuDma_WaitForDone(InstancePtr->CsuDmaPtr,
-					XCSUDMA_SRC_CHANNEL);
-
-		/* Acknowledge the transfers have completed */
-		XCsuDma_IntrClear(InstancePtr->CsuDmaPtr, XCSUDMA_SRC_CHANNEL,
-							XCSUDMA_IXR_DONE_MASK);
-		XSecure_PcapWaitForDone();
-
-		StartAddrByte += RemainingBytes;
-	}
-	return Status;
-}
-
 static s32 XSecure_AesDecryptBlk(XSecure_Aes *InstancePtr, u8 *Dst,
 			const u8 *Src, const u8 *Tag, u32 Len, u32 Flag)
 {
@@ -287,7 +225,7 @@ static s32 XSecure_AesDecryptBlk(XSecure_Aes *InstancePtr, u8 *Dst,
 	volatile s32 Status = XST_SUCCESS;
 
 	u32 GcmStatus = 0U;
-	u32 StartAddrByte = (u32)(INTPTR)Src;
+//	u32 StartAddrByte = (u32)(INTPTR)Src;
 
 	/* Start the message. */
 	XSecure_WriteReg(InstancePtr->BaseAddress,
@@ -515,7 +453,6 @@ static s32 XSecure_AesDecryptBlk(XSecure_Aes *InstancePtr, u8 *Dst,
 
 	return Status;
 }
-
 //int decrypt_storage(SECURE_STORAGE *storage, SECURE_STORAGE_TAG *tag, SECURE_STORAGE_IV *iv){
 //	XSecure_Aes cipher;
 //	XCsuDma csu_dma;
@@ -704,8 +641,8 @@ int decrypt_storage(SECURE_STORAGE *storage_in_ct,
 
 	for(i=0; i<4; i++){
 		storage_out_pt->counter[i] = Xil_In32(IMAGE_DST + i*4);
-		storage_out_pt->encryption_key[i] = Xil_In32(IMAGE_DST + 16 + i*4);
-		storage_out_pt->pin[i] = Xil_In32(IMAGE_DST + 32 + i*4);
+		storage_out_pt->pin[i] = Xil_In32(IMAGE_DST + 16 + i*4);
+		storage_out_pt->encryption_key[i] = Xil_In32(IMAGE_DST + 32 + i*4);
 	}
 
 	return decryption_result;
@@ -715,8 +652,23 @@ int decrypt_storage(SECURE_STORAGE *storage_in_ct,
 
 int write_to_bbram(unsigned int *key){
 	//TODO: how to write too BBRAM?
-//	???
-	return -1;
+	//for now, write to test file
+	FIL bbram_file;
+	unsigned int bytes_written;
+	if(f_open(&bbram_file, BBRAM_TEST_FILE, FA_WRITE) != FR_OK){
+		print("Could not access BBRAM\n\r");
+		return -1;
+	}
+	if(f_truncate(&bbram_file) != FR_OK){
+		print("Could not clear BBRAM\n\r");
+		return -1;
+	}
+	if(f_write(&bbram_file, key, 16, &bytes_written) != FR_OK){
+		print("Could not update BBRAM\n\r");
+		return -1;
+	}
+	f_close(&bbram_file);
+	return 0;
 }
 
 //int encrypt_storage(SECURE_STORAGE *storage_to_encrypt,
@@ -748,7 +700,7 @@ int encrypt_memory(u32 src, u32 dst, SECURE_STORAGE_IV *iv, unsigned int *key){
 	XSecure_Aes cipher;
 	XCsuDma_Config *Config;
 	XCsuDma csu_dma;
-	XCsuDma_Configure ConfigurValues = {0};
+//	XCsuDma_Configure ConfigurValues = {0};
 
 	Config = XCsuDma_LookupConfig(0);
 	if (NULL == Config) {
@@ -828,8 +780,8 @@ int encrypt_storage(SECURE_STORAGE *storage_in_pt,
 
 	for(i=0; i<4; i++){
 		storage_out_ct->counter[i] = Xil_In32(IMAGE_DST + i*4);
-		storage_out_ct->encryption_key[i] = Xil_In32(IMAGE_DST + 16 + i*4);
-		storage_out_ct->pin[i] = Xil_In32(IMAGE_DST + 32 + i*4);
+		storage_out_ct->pin[i] = Xil_In32(IMAGE_DST + 16 + i*4);
+		storage_out_ct->encryption_key[i] = Xil_In32(IMAGE_DST + 32 + i*4);
 	}
 
 	return encryption_result;
@@ -852,41 +804,359 @@ int write_secure_enclave(SECURE_STORAGE *storage, SECURE_STORAGE_IV *iv, SECURE_
 	return -1;
 }
 
-void perform_secure_enclave(){
-	int i, attempt, read_storage, read_tag, read_iv;
-	char* storage_used = SECURE_STORAGE_PRIMARY;
-	unsigned int *key_new;
-	unsigned int *key_current = KEY_TEST;
-	//for number of iterations before lockout/max number of attempts
-	for(attempt=0; attempt<SECURE_ENCLAVE_ATTEMTPS; attempt++){
-		//read secure storage file and tag
-		SECURE_STORAGE current_storage_ct;
-		SECURE_STORAGE current_storage_pt;
-		SECURE_STORAGE_TAG current_tag;
-		SECURE_STORAGE_IV current_iv;
+int write_secure_storage_file(SECURE_STORAGE *storage_ct){
+	unsigned int bytes_written;
+	FIL storage_file;
+	if(f_open(&storage_file, SECURE_STORAGE_PRIMARY, FA_WRITE) != FR_OK){
+		print("Could not open storage file when opening for writing\n\r");
+		return -1;
+	}
+	if(f_truncate(&storage_file) != FR_OK){
+		print("Could not truncate storage file when writing\n\r");
+		return -1;
+	}
+	if(f_write(&storage_file, storage_ct->counter, 16, &bytes_written) != FR_OK){
+		print("Could not write encrypted counter to file\n\r");
+		return -1;
+	}
+	if(f_write(&storage_file, storage_ct->pin, 16, &bytes_written) != FR_OK){
+		print("Could not write encrypted pin to file\n\r");
+		return -1;
+	}
+	if(f_write(&storage_file, storage_ct->encryption_key, 16, &bytes_written) != FR_OK){
+		print("Could not write encrypted key to file\n\r");
+		return -1;
+	}
 
-		SECURE_STORAGE current_out_ct;
-		SECURE_STORAGE_TAG current_tag_out;
-		SECURE_STORAGE_IV current_iv_out;
+	f_close(&storage_file);
+	return 0;
+}
 
-		read_storage = read_secure_enclave_file(&current_storage_ct, SECURE_STORAGE_PRIMARY);
-		read_tag = read_secure_storage_tag(&current_tag, TAG_PRIMARY);
-		read_iv = read_secure_storage_iv(&current_iv, IV_PRIMARY);
+int write_secure_storage_tag(SECURE_STORAGE_TAG *storage_tag){
+	unsigned int bytes_written;
+	FIL storage_tag_file;
+	if(f_open(&storage_tag_file, TAG_PRIMARY, FA_WRITE) != FR_OK){
+		print("Could not open tag file when opening for writing\n\r");
+		return -1;
+	}
+	if(f_truncate(&storage_tag_file) != FR_OK){
+		print("Could not truncate tag file when writing\n\r");
+		return -1;
+	}
+	if(f_write(&storage_tag_file, storage_tag->tag, 16, &bytes_written) != FR_OK){
+		print("Could not write tag to file\n\r");
+		return -1;
+	}
+
+	f_close(&storage_tag_file);
+	return 0;
+}
+
+int write_secure_storage_iv(SECURE_STORAGE_IV *storage_iv){
+	unsigned int bytes_written;
+	FIL storage_iv_file;
+	if(f_open(&storage_iv_file, IV_PRIMARY, FA_WRITE) != FR_OK){
+		print("Could not open tag file when opening for writing\n\r");
+		return -1;
+	}
+	if(f_truncate(&storage_iv_file) != FR_OK){
+		print("Could not truncate tag file when writing\n\r");
+		return -1;
+	}
+	if(f_write(&storage_iv_file, storage_iv->iv, 16, &bytes_written) != FR_OK){
+		print("Could not write tag to file\n\r");
+		return -1;
+	}
+
+	f_close(&storage_iv_file);
+	return 0;
+}
+
+
+//rename old storage and create a new one with a random key and write to storage
+int roll_storage(SECURE_STORAGE *storage_pt_in,
+				 char *storage_used,
+				 char *iv_used,
+				 char *tag_used){
+//	int i;
+	SECURE_STORAGE_IV new_iv;
+	SECURE_STORAGE_TAG new_tag_out;
+	SECURE_STORAGE storage_ct_out;
+	srand(0);
+	unsigned int rand_ish_key [] = {
+			rand(), rand(), rand(), rand()
+	};
+//	key_new = rand_ish_key;
+	unsigned int rand_ish_iv[] = {
+			rand(), rand(), rand(), rand()
+	};
+//	for(i=0; i<4; i++){
+//		current_iv_out.iv[i] = rand_ish_iv[i];
+//	}
+	memcpy(new_iv.iv, rand_ish_iv, 16);
+//	memcpy(key_new, rand_ish_key, 16);
+
+	//move old secure storage, iv and tag to backup file
+	if(f_rename(storage_used, SECURE_STORAGE_BACKUP_A) != FR_OK){
+		//TODO: how to handle this error?
+		xil_printf("Could not backup current storage. Aborting\n\r");
+		return -1;
+	}
+
+	if(f_rename(tag_used, TAG_BACKUP_A) != FR_OK){
+		//TODO: how to handle this error?
+		xil_printf("Could not backup current tag. Aborting\n\r");
+		return -1;
+	}
+
+	if(f_rename(iv_used, IV_BACKUP_A) != FR_OK){
+		//TODO: how to handle this error?
+		xil_printf("Could not backup current iv. Aborting\n\r");
+		return -1;
+	}
+
+
+
+
+	//re-encrypt secure storage and write to file. also write new tag
+	//and iv to file
+
+	if(encrypt_storage(storage_pt_in,
+					   &storage_ct_out,
+					   &new_iv,
+					   &new_tag_out,
+					   rand_ish_key) < 0){
+		xil_printf("Could not encrypt new storage. Aborting\n\r");
+		return -1;
+	}
+
+	//TODO: write storage to file
+	if(write_secure_storage_file(&storage_ct_out) < 0){
+		print("Error when writing secure storage\n\r");
+		return -1;
+	}
+
+	//TODO: write iv to file
+	if(write_secure_storage_iv(&new_iv) < 0){
+		print("Error when writing iv\n\r");
+		return -1;
+	}
+
+	//TODO: write tag to file
+	if(write_secure_storage_tag(&new_tag_out) < 0){
+		print("Error when writing tag\n\r");
+		return -1;
+	}
+
+	//write BBRAM key to BBRAM
+	if(write_to_bbram(rand_ish_key) < 0){
+		xil_printf("Could not write new key to BBRAM. Aborting\n\r");
+		return -1;
+	}
+//	key_current = key_new;
+	return 0;
+}
+
+
+int run_enclave(SECURE_STORAGE *storage_pt,
+				 char *storage_used,
+				 char *iv_used,
+				 char *tag_used){
+	int i, roll_result, pin_high, pin_low;
+	char pin[6];
+
+	print("Prompting for pin\n\r");
+	print("Please input pin: ");
+	for(i=0; i<6; i++){
+		pin[i] = (char)getchar();
+	}
+	print("\n\r");
+
+	pin_high = ((int)pin[0] << 24) + ((int)pin[1] << 16) + ((int)pin[2] << 8) + (int)pin[3];
+	pin_low = ((int)pin[4] << 8) + (int)pin[5];
+
+	print("Starting secure enclave\n\r");
+	//first, write the storage since we don't have a control signal for it
+	//TODO: deal with endianness here
+	for(i=0; i<4; i++){
+		Xil_Out32(SECURE_ENCLAVE + 0x20 + i*4, storage_pt->pin[i]);
+		Xil_Out32(SECURE_ENCLAVE + 0x30 + i*4, storage_pt->encryption_key[i]);
+	}
+
+	//start the secure enclave
+	Xil_Out32(SECURE_ENCLAVE, 1);
+
+	//write the pin
+	Xil_Out32(SECURE_ENCLAVE + 0x40, pin_high);
+	Xil_Out32(SECURE_ENCLAVE + 0x44, pin_low);
+	Xil_Out32(SECURE_ENCLAVE + 0x48, 0);
+	Xil_Out32(SECURE_ENCLAVE + 0x4C, 0);
+	//write pin valid
+	Xil_Out32(SECURE_ENCLAVE + 0x50, 1);
+
+	//write counter in
+	//TODO: for now, use the first byte
+	Xil_Out32(SECURE_ENCLAVE + 0x80, storage_pt->counter[0]);
+	//write counter valid
+	Xil_Out32(SECURE_ENCLAVE + 0x84, 1);
+
+	unsigned int ap_control = Xil_In32(SECURE_ENCLAVE);
+	unsigned int ap_done = ap_control &= 0x2;
+	while(ap_done != 1 ){
+//				__asm("")__;
+		asm("");
+		ap_control = Xil_In32(SECURE_ENCLAVE);
+		ap_done = ap_control &= 0x2;
+		print("Waiting for secure enclave done\n\r");
+	}
+	unsigned int reset_counter = Xil_In32(SECURE_ENCLAVE + 0x90);
+	unsigned int reset_valid = Xil_In32(SECURE_ENCLAVE + 0x94);
+	if(reset_valid != 1){
+		print("Error: reset valid is not set but enclave is done\n\r");
+	}
+
+	//reset or increment counter
+	if(reset_counter == 1){
+		memset(storage_pt->counter, 0, 16);
+		print("Reset counter\n\r");
+	} else{
+		increment_counter(storage_pt);
+		print("Incrementing counter\n\r");
+	}
+
+	//read storage out from fpga
+	//TODO: ignore for now, since the enclave does not support it for now
+//	for(i=0; i<4; i++){
+//		storage_pt->pin[i] = Xil_In32(SECURE_ENCLAVE + 0x60 + i*4);
+//		storage_pt->encryption_key[i] = Xil_In32(SECURE_ENCLAVE + 0x70 + i*4);
+//	}
+
+
+	roll_result = roll_storage(storage_pt,
+							   storage_used,
+							   iv_used,
+							   tag_used);
+
+	if(roll_result < 0){
+		print("Could not roll storage in run secure enclave\n\r");
+		return -1;
+	}
+	return 0;
+}
+
+int read_storage(SECURE_STORAGE *current_storage_ct,
+				 SECURE_STORAGE_TAG *current_tag,
+				 SECURE_STORAGE_IV *current_iv,
+				 char *storage_used,
+				 char *iv_used,
+				 char *tag_used){
+	int read_storage, read_tag, read_iv;
+
+	//read secure storage file and tag
+	read_storage = read_secure_enclave_file(current_storage_ct, SECURE_STORAGE_PRIMARY);
+	read_tag = read_secure_storage_tag(current_tag, TAG_PRIMARY);
+	read_iv = read_secure_storage_iv(current_iv, IV_PRIMARY);
+	if(read_storage != 0 || read_tag != 0 || read_iv != 0){
+		//attempt to decrypt secure storage using bbram key
+		xil_printf("Could not read primary. Storage read: %i, Tag read: %i, IV read: %i\n\r",
+				   read_storage, read_tag, read_iv);
+		read_storage = read_secure_enclave_file(current_storage_ct, SECURE_STORAGE_BACKUP_A);
+		read_tag = read_secure_storage_tag(current_tag, TAG_BACKUP_A);
+		read_iv = read_secure_storage_iv(current_iv, IV_BACKUP_A);
 		if(read_storage != 0 || read_tag != 0 || read_iv != 0){
-			//attempt to decrypt secure storage using bbram key
-			xil_printf("Could not read primary. Storage read: %i, Tag read: %i, IV read: %i\n\r",
+			//attempt to decrypt backup secure storage
+			//TODO: reprovision here?
+			xil_printf("Could not read backup. Storage read: %i, Tag read: %i, IV read: %i. Aborting\n\r",
 					   read_storage, read_tag, read_iv);
-			read_storage = read_secure_enclave_file(&current_storage_ct, SECURE_STORAGE_BACKUP_A);
-			read_tag = read_secure_storage_tag(&current_tag, TAG_BACKUP_A);
-			read_iv = read_secure_storage_iv(&current_iv, IV_BACKUP_A);
-			if(read_storage != 0 || read_tag != 0 || read_iv != 0){
-				//attempt to decrypt backup secure storage
-				//TODO: reprovision here?
-				xil_printf("Could not read backup. Storage read: %i, Tag read: %i, IV read: %i. Aborting\n\r",
-						   read_storage, read_tag, read_iv);
-				return;
-			}
-			storage_used = SECURE_STORAGE_BACKUP_A;
+			return -1;
+		}
+		storage_used = SECURE_STORAGE_BACKUP_A;
+		iv_used = IV_BACKUP_A;
+		tag_used = TAG_BACKUP_A;
+	}
+	return 0;
+}
+
+int get_bbram_key(unsigned int *key_out){
+	int i;
+	FIL bbram_file;
+	unsigned int bytes_read;
+
+	//TODO: actually use bbram
+	//for now, read from test file
+	print("Attempting to access bbram\n\r");
+	if(f_open(&bbram_file, BBRAM_TEST_FILE, FA_READ) != FR_OK){
+		print("Could not access BBRAM\n\r");
+		return -1;
+	}
+	if(f_read(&bbram_file, key_out, 16, &bytes_read) != FR_OK){
+		print("Could not read key from BBRAM\n\r");
+		return -1;
+	}
+
+	print("Key read: 0x");
+	for(i=0; i<4; i++){
+		xil_printf("%08x", key_out[i]);
+	}
+	print("\n\r");
+
+	f_close(&bbram_file);
+	return 0;
+}
+
+int mount_storage(){
+	FRESULT rc;
+	char *path = "0:/";
+	print("Attempting to mount storage\n\r");
+	rc = f_mount(&fatfs, path, 0);
+	if(rc != FR_OK){
+		xil_printf("Error mounting storage: %08x\n\r", rc);
+		return -1;
+	}
+	return 0;
+}
+
+void perform_secure_enclave(){
+	int attempt, read_result, roll_result, bbram_result, mount_result;
+	char* storage_used = SECURE_STORAGE_PRIMARY;
+	char* tag_used = TAG_PRIMARY;
+	char* iv_used = IV_PRIMARY;
+//	unsigned int *key_new;
+	unsigned int key_current[16];
+
+	mount_result = mount_storage();
+	if(mount_storage() < 0){
+		print("Error mounting storage. Aborting\n\r");
+		return;
+	}
+	bbram_result = get_bbram_key(key_current);
+	if(bbram_result < 0){
+		print("Error accessing BBRAM. aborting\n\r");
+		return;
+	}
+//	unsigned int *iv_current = KEY_TEST;
+	SECURE_STORAGE current_storage_ct;
+	SECURE_STORAGE current_storage_pt;
+	SECURE_STORAGE_TAG current_tag;
+	SECURE_STORAGE_IV current_iv;
+
+//	SECURE_STORAGE current_out_ct;
+//	SECURE_STORAGE_TAG current_tag_out;
+//	SECURE_STORAGE_IV current_iv_out;
+
+	//for number of iterations before lockout/max number of attempts
+	for(attempt=0; attempt<SECURE_ENCLAVE_ATTEMPTS; attempt++){
+		read_result = read_storage(&current_storage_ct,
+								   &current_tag,
+								   &current_iv,
+								   storage_used,
+								   iv_used,
+								   tag_used);
+
+		if(read_result < 0){
+			print("Error reading storage\n\r");
+			//TODO: reprovision here to?
+			return;
 		}
 
 		if(decrypt_storage(&current_storage_ct,
@@ -904,57 +1174,35 @@ void perform_secure_enclave(){
 					//prompt for a new pin
 				//continue with boot
 		} else{
-			//generate new random BBRAM key
-			//TODO: need some sort of random number generator here
-			srand(0);
-			unsigned int rand_ish_key [] = {
-					rand(), rand(), rand(), rand()
-			};
-			key_new = rand_ish_key;
-			unsigned int rand_ish_iv[] = {
-					rand(), rand(), rand(), rand()
-			};
-			for(i=0; i<4; i++){
-				current_iv_out.iv[i] = rand_ish_iv[i];
-			}
-
-
-			//perform secure enclave interaction here
-
-
 
 			//increment counter and store
 			increment_counter(&current_storage_pt);
-			//move old secure storage and tag to backup file
-			if(f_rename(storage_used, SECURE_STORAGE_BACKUP_A) != FR_OK){
-				//TODO: how to handle this error?
-				xil_printf("Could not backup current storage. Aborting\n\r");
-				return;
-			}
-			//re-encrypt secure storage and write to file. also write new tag
-			//and iv to file
 
-			if(encrypt_storage(&current_storage_pt,
-							   &current_out_ct,
-							   &current_iv_out,
-							   &current_tag_out,
-							   key_new) < 0){
-				xil_printf("Could not encrypt new storage. Aborting\n\r");
+			//roll storage to new key with current counter and write bbram
+			roll_result = roll_storage(&current_storage_pt,
+									   storage_used,
+									   iv_used,
+									   tag_used);
+			if(roll_result < 0){
+				print("Failed to roll storage\n\r");
 				return;
 			}
 
-			//write BBRAM key to BBRAM
-			if(write_to_bbram(key_new) < 0){
-				xil_printf("Could not write new key to BBRAM. Aborting\n\r");
-				return;
-			}
-			key_current = key_new;
+			//call enclave. encrypt the storage after each attempt.
+			//callee will increment/reset counter as needed
+			run_enclave(&current_storage_pt,
+						storage_used,
+						iv_used,
+						tag_used);
+
 		}
 
 
 		//if not reprovisioning
 			//prompt for pin (TODO: this part should be pluggable based on the client
-//		getchar(); ?
+			//TODO: look for end of line. for now just wait for 6 chars
+		//create two ints from pin
+
 				//app. here the secure enclave wants to prompt for a pin. it should
 				//be the app (secure enclave) wants to prompt for something, based
 				//on a string it provides)
@@ -976,16 +1224,15 @@ void perform_secure_enclave(){
 			//TODO: can we use a new key written to BBRAM now, or do we need to reboot for it to work?
 			//TODO: if we need to reboot, cache the updated BBRAM key
 	}
-
 }
 
-void test_aes(){
-//	int i;
-//	SECURE_STORAGE test_plain_storage;
-//	for(i=0; i<4; i++){
-//		test_plain_storage.counter[i] = i;
-//		test_plain_storage.encryption_key[i] = i;
-//		test_plain_storage.pin[i] = i;
-//	}
-	xil_printf("Hello from fsbl!\n\r");
-}
+//void test_aes(){
+////	int i;
+////	SECURE_STORAGE test_plain_storage;
+////	for(i=0; i<4; i++){
+////		test_plain_storage.counter[i] = i;
+////		test_plain_storage.encryption_key[i] = i;
+////		test_plain_storage.pin[i] = i;
+////	}
+//	xil_printf("Hello from fsbl!\n\r");
+//}

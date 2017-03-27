@@ -55,9 +55,9 @@
 #include "xfsbl_hw.h"
 #include "xfsbl_main.h"
 #include "bspconfig.h"
-#include "ff.h"
-#include "xsecure_aes.h"
-#include "stdlib.h"
+//#include "ff.h"
+//#include "stdlib.h"
+#include "secure_storage.h"
 
 /************************** Constant Definitions *****************************/
 
@@ -252,7 +252,7 @@ int main(void )
 
 //						test_aes();
 
-						perform_secure_enclave();
+//						perform_secure_enclave();
 						//-----------------------------------------------------------------------
 
 					}

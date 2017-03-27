@@ -653,6 +653,8 @@ BEGIN LIBRARY
  PARAMETER LIBRARY_NAME = xilffs
  PARAMETER LIBRARY_VER = 3.5
  PARAMETER PROC_INSTANCE = psu_cortexa53_0
+ PARAMETER num_logical_vol = 1
+ PARAMETER use_lfn = true
  PARAMETER use_mkfs = false
 END
 

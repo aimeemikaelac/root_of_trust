@@ -1,0 +1,2503 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+rt_svc_descs_indices
+                    0x80              ./build/zynqmp/debug/bl31/runtime_svc.o
+psci_cpu_pd_nodes   0x40              ./build/zynqmp/debug/bl31/psci_common.o
+psci_caps           0x4               ./build/zynqmp/debug/bl31/psci_setup.o
+psci_plat_pm_ops    0x8               ./build/zynqmp/debug/bl31/psci_common.o
+zynqmp_sec_entry    0x8               ./build/zynqmp/debug/bl31/plat_psci.o
+percpu_data         0x200             ./build/zynqmp/debug/bl31/cpu_data_array.o
+psci_spd_pm         0x8               ./build/zynqmp/debug/bl31/psci_common.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/build_message.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/build_message.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/build_message.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cci.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cci.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cci.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_startup.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_startup.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_startup.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_topology.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_topology.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_topology.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_client.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_client.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/pm_client.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_main.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_main.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_main.o
+ .text.bl31_lib_init
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/bl31_main.o
+ .text.bl31_set_next_image_type
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/bl31_main.o
+ .text.bl31_get_next_image_type
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/bl31_main.o
+ .text.bl31_register_bl32_init
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/bl31_main.o
+ .rodata.__func__.2414
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/bl31_main.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .text.disable_intr_rm_local
+                0x0000000000000000       0x70 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .text.enable_intr_rm_local
+                0x0000000000000000       0x80 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .rodata.__func__.1686
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .rodata.__func__.1693
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .text.cm_set_context
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .text.cm_get_context_by_mpidr
+                0x0000000000000000       0x4c ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .text.cm_set_context_by_mpidr
+                0x0000000000000000       0x54 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .text.cm_init_context
+                0x0000000000000000       0x44 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.__func__.2326
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.__func__.2342
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.__func__.2348
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .text.handle_runtime_svc
+                0x0000000000000000       0xa0 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .rodata.__func__.1393
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_el1_sysregs_context_save
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_el1_sysregs_context_restore
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_set_elr_el3
+                0x0000000000000000       0x48 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_set_elr_spsr_el3
+                0x0000000000000000       0x4c ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_get_scr_el3
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_set_next_eret_context
+                0x0000000000000000       0x38 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2390
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2398
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2418
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2383
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2413
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2378
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_off.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_off.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_off.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_on.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_on.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_on.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_common.o
+ .text.psci_register_spd_pm_hook
+                0x0000000000000000       0x68 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.__func__.2708
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_main.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_main.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_main.o
+ .text.psci_version
+                0x0000000000000000        0x8 ./build/zynqmp/debug/bl31/psci_main.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_setup.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_setup.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_setup.o
+ .text.psci_prepare_next_non_secure_ctx
+                0x0000000000000000       0x40 ./build/zynqmp/debug/bl31/psci_setup.o
+ .rodata.__func__.2510
+                0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/psci_setup.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl_common.o
+ .text.is_mem_free
+                0x0000000000000000       0x50 ./build/zynqmp/debug/bl31/bl_common.o
+ .text.page_align
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/bl_common.o
+ .text.reserve_mem
+                0x0000000000000000      0x128 ./build/zynqmp/debug/bl31/bl_common.o
+ .text.image_size
+                0x0000000000000000       0xb4 ./build/zynqmp/debug/bl31/bl_common.o
+ .text.load_image
+                0x0000000000000000      0x250 ./build/zynqmp/debug/bl31/bl_common.o
+ .text.load_auth_image
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/bl_common.o
+ .rodata.__func__.2396
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/bl_common.o
+ .rodata.__func__.2406
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/bl_common.o
+ .rodata.__func__.2433
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/bl_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/tf_printf.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/tf_printf.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/tf_printf.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/abort.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/abort.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/abort.o
+ .text.abort    0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/abort.o
+ .rodata.str1.1
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/abort.o
+ .debug_info    0x0000000000000000       0xde ./build/zynqmp/debug/bl31/abort.o
+ .debug_abbrev  0x0000000000000000       0x7c ./build/zynqmp/debug/bl31/abort.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/abort.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/abort.o
+ .debug_line    0x0000000000000000       0x66 ./build/zynqmp/debug/bl31/abort.o
+ .debug_str     0x0000000000000000      0x1a3 ./build/zynqmp/debug/bl31/abort.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/abort.o
+ .debug_frame   0x0000000000000000       0x38 ./build/zynqmp/debug/bl31/abort.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/assert.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/assert.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/assert.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/exit.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/exit.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/exit.o
+ .text.exit     0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/exit.o
+ .rodata.str1.1
+                0x0000000000000000        0xf ./build/zynqmp/debug/bl31/exit.o
+ .debug_info    0x0000000000000000       0xeb ./build/zynqmp/debug/bl31/exit.o
+ .debug_abbrev  0x0000000000000000       0x8b ./build/zynqmp/debug/bl31/exit.o
+ .debug_loc     0x0000000000000000       0x39 ./build/zynqmp/debug/bl31/exit.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/exit.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/exit.o
+ .debug_line    0x0000000000000000       0x65 ./build/zynqmp/debug/bl31/exit.o
+ .debug_str     0x0000000000000000      0x1a1 ./build/zynqmp/debug/bl31/exit.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/exit.o
+ .debug_frame   0x0000000000000000       0x38 ./build/zynqmp/debug/bl31/exit.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/mem.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/mem.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/mem.o
+ .text.memcmp   0x0000000000000000       0x34 ./build/zynqmp/debug/bl31/mem.o
+ .text.memchr   0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/mem.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/printf.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/printf.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/printf.o
+ .text.printf   0x0000000000000000       0x94 ./build/zynqmp/debug/bl31/printf.o
+ .debug_info    0x0000000000000000      0x19d ./build/zynqmp/debug/bl31/printf.o
+ .debug_abbrev  0x0000000000000000      0x10e ./build/zynqmp/debug/bl31/printf.o
+ .debug_loc     0x0000000000000000       0x95 ./build/zynqmp/debug/bl31/printf.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/printf.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/printf.o
+ .debug_line    0x0000000000000000       0xcf ./build/zynqmp/debug/bl31/printf.o
+ .debug_str     0x0000000000000000      0x1ef ./build/zynqmp/debug/bl31/printf.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/printf.o
+ .debug_frame   0x0000000000000000       0x40 ./build/zynqmp/debug/bl31/printf.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/putchar.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/putchar.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/putchar.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/puts.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/puts.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/puts.o
+ .text.puts     0x0000000000000000       0x60 ./build/zynqmp/debug/bl31/puts.o
+ .debug_info    0x0000000000000000       0xf2 ./build/zynqmp/debug/bl31/puts.o
+ .debug_abbrev  0x0000000000000000       0xa7 ./build/zynqmp/debug/bl31/puts.o
+ .debug_loc     0x0000000000000000       0xcf ./build/zynqmp/debug/bl31/puts.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/puts.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/puts.o
+ .debug_line    0x0000000000000000       0x6e ./build/zynqmp/debug/bl31/puts.o
+ .debug_str     0x0000000000000000      0x19c ./build/zynqmp/debug/bl31/puts.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/puts.o
+ .debug_frame   0x0000000000000000       0x48 ./build/zynqmp/debug/bl31/puts.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sscanf.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sscanf.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/sscanf.o
+ .text.sscanf   0x0000000000000000       0x34 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_info    0x0000000000000000       0x98 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_abbrev  0x0000000000000000       0x80 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_loc     0x0000000000000000       0xb9 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_line    0x0000000000000000       0x4e ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_str     0x0000000000000000      0x11d ./build/zynqmp/debug/bl31/sscanf.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/sscanf.o
+ .debug_frame   0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/sscanf.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strchr.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strchr.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strchr.o
+ .text.strchr   0x0000000000000000       0x24 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_info    0x0000000000000000       0xd7 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_abbrev  0x0000000000000000       0x74 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_loc     0x0000000000000000       0x6f ./build/zynqmp/debug/bl31/strchr.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_line    0x0000000000000000       0x4e ./build/zynqmp/debug/bl31/strchr.o
+ .debug_str     0x0000000000000000      0x192 ./build/zynqmp/debug/bl31/strchr.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strchr.o
+ .debug_frame   0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/strchr.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strcmp.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strcmp.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strcmp.o
+ .text.strcmp   0x0000000000000000       0x2c ./build/zynqmp/debug/bl31/strcmp.o
+ .text.strcasecmp
+                0x0000000000000000       0x74 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_info    0x0000000000000000      0x12e ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_abbrev  0x0000000000000000       0x74 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_loc     0x0000000000000000      0x316 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_aranges
+                0x0000000000000000       0x40 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_ranges  0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_line    0x0000000000000000       0x65 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_str     0x0000000000000000      0x19d ./build/zynqmp/debug/bl31/strcmp.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strcmp.o
+ .debug_frame   0x0000000000000000       0x40 ./build/zynqmp/debug/bl31/strcmp.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strlen.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strlen.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strlen.o
+ .text.strlen   0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/strlen.o
+ .debug_info    0x0000000000000000       0xe8 ./build/zynqmp/debug/bl31/strlen.o
+ .debug_abbrev  0x0000000000000000       0x7f ./build/zynqmp/debug/bl31/strlen.o
+ .debug_loc     0x0000000000000000       0x6f ./build/zynqmp/debug/bl31/strlen.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strlen.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/strlen.o
+ .debug_line    0x0000000000000000       0x9b ./build/zynqmp/debug/bl31/strlen.o
+ .debug_str     0x0000000000000000      0x1ad ./build/zynqmp/debug/bl31/strlen.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strlen.o
+ .debug_frame   0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/strlen.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strncmp.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strncmp.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/strncmp.o
+ .text.strncmp  0x0000000000000000       0x38 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_info    0x0000000000000000       0xf5 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_abbrev  0x0000000000000000       0x72 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_loc     0x0000000000000000      0x15f ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_ranges  0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_line    0x0000000000000000       0x99 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_str     0x0000000000000000      0x1af ./build/zynqmp/debug/bl31/strncmp.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/strncmp.o
+ .debug_frame   0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/strncmp.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.snprintf_func
+                0x0000000000000000       0x2c ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.kvprintf
+                0x0000000000000000      0xddc ./build/zynqmp/debug/bl31/subr_prf.o
+ .rodata.kvprintf
+                0x0000000000000000       0xb0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.sprintf  0x0000000000000000       0x70 ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.vsprintf
+                0x0000000000000000       0x4c ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.vsnprintf
+                0x0000000000000000       0x5c ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.snprintf
+                0x0000000000000000       0x50 ./build/zynqmp/debug/bl31/subr_prf.o
+ .text.vsnrprintf
+                0x0000000000000000       0x60 ./build/zynqmp/debug/bl31/subr_prf.o
+ .rodata.hex2ascii_data
+                0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/subr_prf.o
+ .rodata.str1.1
+                0x0000000000000000       0x13 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_info    0x0000000000000000      0xdd0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_abbrev  0x0000000000000000      0x250 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_loc     0x0000000000000000     0x47a6 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_aranges
+                0x0000000000000000       0x90 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_ranges  0x0000000000000000      0x2d0 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_line    0x0000000000000000      0x68c ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_str     0x0000000000000000      0x393 ./build/zynqmp/debug/bl31/subr_prf.o
+ .comment       0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/subr_prf.o
+ .debug_frame   0x0000000000000000      0x168 ./build/zynqmp/debug/bl31/subr_prf.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .text.enable_mmu_el1
+                0x0000000000000000       0xb8 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .rodata.__func__.1981
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/delay_timer.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/delay_timer.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/delay_timer.o
+ .text.udelay   0x0000000000000000       0xbc ./build/zynqmp/debug/bl31/delay_timer.o
+ .text.mdelay   0x0000000000000000        0xc ./build/zynqmp/debug/bl31/delay_timer.o
+ .rodata.__func__.1274
+                0x0000000000000000        0x8 ./build/zynqmp/debug/bl31/delay_timer.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gic_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gic_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_isenabler
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_icenabler
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_ispendr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_icpendr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_isactiver
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_icactiver
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_ipriorityr
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_icfgr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_read_nsacr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_write_icpendr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_write_icactiver
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_write_nsacr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_get_igroupr
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_set_igroupr
+                0x0000000000000000       0x30 ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_set_icenabler
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_set_icpendr
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/gic_common.o
+ .text.gicd_set_icactiver
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/gic_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .text.gicv2_acknowledge_interrupt
+                0x0000000000000000       0x58 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .text.gicv2_end_of_interrupt
+                0x0000000000000000       0x58 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .text.gicv2_get_interrupt_group
+                0x0000000000000000       0x58 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2103
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2095
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2099
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_read_itargetsr
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_read_cpendsgir
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_read_spendsgir
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_write_itargetsr
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_write_cpendsgir
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_write_spendsgir
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicd_set_itargetsr
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text.gicv2_get_cpuif_id
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_cci.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_cci.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_cci.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_common.o
+ .text.arm_get_spsr_for_bl33_entry
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/arm_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .text.plat_arm_gic_cpuif_enable
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .text.plat_arm_gic_cpuif_disable
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .text.plat_arm_gic_pcpu_init
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .text.plat_ic_acknowledge_interrupt
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .text.plat_ic_get_interrupt_type
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .text.plat_ic_end_of_interrupt
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/plat_common.o
+ .text.bl32_plat_enable_mmu
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/plat_common.o
+ .text.bl31_plat_runtime_setup
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/plat_common.o
+ .text.platform_core_pos_helper
+                0x0000000000000000       0x38 ./build/zynqmp/debug/bl31/plat_common.o
+ .text.plat_get_syscnt_freq2
+                0x0000000000000000       0x3c ./build/zynqmp/debug/bl31/plat_common.o
+ .rodata.__func__.1604
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/plat_common.o
+ .rodata.str1.1
+                0x0000000000000000       0x3b ./build/zynqmp/debug/bl31/plat_common.o
+ .rodata.__func__.1599
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/plat_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/aem_generic.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/aem_generic.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/aem_generic.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .rodata.gic_reg_name
+                0x0000000000000000       0x93 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .rodata.cci_reg_name
+                0x0000000000000000       0x31 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.errata_a53_826319_wa
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.a53_disable_non_temporal_hint
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .text.platform_get_stack
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .rodata.str1.1
+                0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .text.platform_set_stack
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_data.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/spinlock.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/spinlock.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/spinlock.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .text.psci_entrypoint
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/context.o
+ .text.el1_sysregs_context_save
+                0x0000000000000000       0xb4 ./build/zynqmp/debug/bl31/context.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/debug.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/debug.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/debug.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .text.dcsw_op_level3
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.get_afflvl_shift
+                0x0000000000000000       0x14 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.mpidr_mask_lower_afflvls
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.eret     0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.smc      0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.memcpy16
+                0x0000000000000000       0x48 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.disable_mmu_el3
+                0x0000000000000000       0x1c ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text.disable_mmu_icache_el3
+                0x0000000000000000        0x8 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.platform_get_core_pos
+                0x0000000000000000       0x18 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.plat_report_exception
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.plat_crash_console_init
+                0x0000000000000000        0x8 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.plat_crash_console_putc
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.bl1_plat_prepare_exit
+                0x0000000000000000        0x4 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text.plat_error_handler
+                0x0000000000000000        0x8 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/console.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/console.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/console.o
+ .text.console_uninit
+                0x0000000000000000       0x10 ./build/zynqmp/debug/bl31/console.o
+ .text.console_getc
+                0x0000000000000000        0xc ./build/zynqmp/debug/bl31/console.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .text          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cdns_console.o
+ .data          0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cdns_console.o
+ .bss           0x0000000000000000        0x0 ./build/zynqmp/debug/bl31/cdns_console.o
+ .text.console_core_getc
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/cdns_console.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x00000000fffea000 0x0000000000015fff xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x00000000fffea000                . = 0xfffea000
+                0x0000000000000001                ASSERT ((. == ALIGN (0x1000)), BL31_BASE address is not aligned on a page boundary.)
+
+.text           0x00000000fffea000     0x7000
+                0x00000000fffea000                __TEXT_START__ = .
+ *bl31_entrypoint.o(.text*)
+ .text.bl31_entrypoint
+                0x00000000fffea000       0xf8 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+                0x00000000fffea000                bl31_entrypoint
+ .text.bl31_warm_entrypoint
+                0x00000000fffea0f8       0x70 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+                0x00000000fffea0f8                bl31_warm_entrypoint
+ *(.text*)
+ .text.cci_init
+                0x00000000fffea168       0xd8 ./build/zynqmp/debug/bl31/cci.o
+                0x00000000fffea168                cci_init
+ .text.cci_enable_snoop_dvm_reqs
+                0x00000000fffea240       0x9c ./build/zynqmp/debug/bl31/cci.o
+                0x00000000fffea240                cci_enable_snoop_dvm_reqs
+ .text.cci_disable_snoop_dvm_reqs
+                0x00000000fffea2dc       0x9c ./build/zynqmp/debug/bl31/cci.o
+                0x00000000fffea2dc                cci_disable_snoop_dvm_reqs
+ .text.plat_get_target_pwr_state
+                0x00000000fffea378       0x58 ./build/zynqmp/debug/bl31/plat_psci_common.o
+                0x00000000fffea378                plat_get_target_pwr_state
+ .text.zynqmp_el3_interrupt_handler
+                0x00000000fffea3d0       0x54 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .text.bl31_plat_get_next_image_ep_info
+                0x00000000fffea424       0x4c ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea424                bl31_plat_get_next_image_ep_info
+ .text.bl31_early_platform_setup
+                0x00000000fffea470      0x114 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea470                bl31_early_platform_setup
+ .text.zynqmp_request_intr_type_el3
+                0x00000000fffea584       0x3c ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea584                zynqmp_request_intr_type_el3
+ .text.bl31_platform_setup
+                0x00000000fffea5c0       0x14 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea5c0                bl31_platform_setup
+ .text.bl31_plat_runtime_setup
+                0x00000000fffea5d4       0x2c ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea5d4                bl31_plat_runtime_setup
+ .text.bl31_plat_arch_setup
+                0x00000000fffea600       0x6c ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                0x00000000fffea600                bl31_plat_arch_setup
+ .text.zynqmp_cpu_standby
+                0x00000000fffea66c        0xc ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000fffea66c                zynqmp_cpu_standby
+ .text.zynqmp_validate_ns_entrypoint
+                0x00000000fffea678        0x8 ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000fffea678                zynqmp_validate_ns_entrypoint
+ .text.zynqmp_get_sys_suspend_power_state
+                0x00000000fffea680       0x10 ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000fffea680                zynqmp_get_sys_suspend_power_state
+ .text.zynqmp_nopmu_system_reset
+                0x00000000fffea690       0x38 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_nopmu_system_off
+                0x00000000fffea6c8       0x1c ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_nopmu_pwr_domain_suspend_finish
+                0x00000000fffea6e4       0x3c ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_nopmu_pwr_domain_suspend
+                0x00000000fffea720       0x88 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_pwr_domain_on_finish
+                0x00000000fffea7a8       0x14 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_nopmu_pwr_domain_off
+                0x00000000fffea7bc       0x40 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_nopmu_pwr_domain_on
+                0x00000000fffea7fc       0xd0 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_system_reset
+                0x00000000fffea8cc       0x20 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_system_off
+                0x00000000fffea8ec       0x20 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_pwr_domain_suspend_finish
+                0x00000000fffea90c       0x48 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_pwr_domain_suspend
+                0x00000000fffea954       0x60 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_pwr_domain_off
+                0x00000000fffea9b4       0x38 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_pwr_domain_on
+                0x00000000fffea9ec       0x44 ./build/zynqmp/debug/bl31/plat_psci.o
+ .text.zynqmp_validate_power_state
+                0x00000000fffeaa30       0x58 ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000fffeaa30                zynqmp_validate_power_state
+ .text.plat_setup_psci_ops
+                0x00000000fffeaa88       0x48 ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000fffeaa88                plat_setup_psci_ops
+ .text.plat_core_pos_by_mpidr
+                0x00000000fffeaad0       0x20 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+                0x00000000fffeaad0                plat_core_pos_by_mpidr
+ .text.fsbl_atf_handover
+                0x00000000fffeaaf0      0x208 ./build/zynqmp/debug/bl31/plat_startup.o
+                0x00000000fffeaaf0                fsbl_atf_handover
+ .text.plat_get_power_domain_tree_desc
+                0x00000000fffeacf8        0xc ./build/zynqmp/debug/bl31/plat_topology.o
+                0x00000000fffeacf8                plat_get_power_domain_tree_desc
+ .text.sip_svc_setup
+                0x00000000fffead04       0x18 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .text.sip_svc_smc_handler
+                0x00000000fffead1c       0xb0 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+                0x00000000fffead1c                sip_svc_smc_handler
+ .text.ipi_fiq_handler
+                0x00000000fffeadcc       0x50 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .text.pm_setup
+                0x00000000fffeae1c       0x6c ./build/zynqmp/debug/bl31/pm_svc_main.o
+                0x00000000fffeae1c                pm_setup
+ .text.pm_smc_handler
+                0x00000000fffeae88      0x27c ./build/zynqmp/debug/bl31/pm_svc_main.o
+                0x00000000fffeae88                pm_smc_handler
+ .text.pm_self_suspend
+                0x00000000fffeb104       0x70 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb104                pm_self_suspend
+ .text.pm_req_suspend
+                0x00000000fffeb174       0x4c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb174                pm_req_suspend
+ .text.pm_req_wakeup
+                0x00000000fffeb1c0       0x84 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb1c0                pm_req_wakeup
+ .text.pm_force_powerdown
+                0x00000000fffeb244       0x48 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb244                pm_force_powerdown
+ .text.pm_abort_suspend
+                0x00000000fffeb28c       0x40 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb28c                pm_abort_suspend
+ .text.pm_set_wakeup_source
+                0x00000000fffeb2cc       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb2cc                pm_set_wakeup_source
+ .text.pm_system_shutdown
+                0x00000000fffeb2fc       0x2c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb2fc                pm_system_shutdown
+ .text.pm_req_node
+                0x00000000fffeb328       0x4c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb328                pm_req_node
+ .text.pm_set_requirement
+                0x00000000fffeb374       0x4c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb374                pm_set_requirement
+ .text.pm_release_node
+                0x00000000fffeb3c0       0x2c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb3c0                pm_release_node
+ .text.pm_set_max_latency
+                0x00000000fffeb3ec       0x2c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb3ec                pm_set_max_latency
+ .text.pm_get_api_version
+                0x00000000fffeb418       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb418                pm_get_api_version
+ .text.pm_set_configuration
+                0x00000000fffeb448        0x8 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb448                pm_set_configuration
+ .text.pm_get_node_status
+                0x00000000fffeb450       0x2c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb450                pm_get_node_status
+ .text.pm_register_notifier
+                0x00000000fffeb47c       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb47c                pm_register_notifier
+ .text.pm_get_op_characteristic
+                0x00000000fffeb4ac       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb4ac                pm_get_op_characteristic
+ .text.pm_reset_assert
+                0x00000000fffeb4dc       0x2c ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb4dc                pm_reset_assert
+ .text.pm_reset_get_status
+                0x00000000fffeb508       0x38 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb508                pm_reset_get_status
+ .text.pm_mmio_write
+                0x00000000fffeb540       0x38 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb540                pm_mmio_write
+ .text.pm_mmio_read
+                0x00000000fffeb578       0x38 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb578                pm_mmio_read
+ .text.pm_fpga_load
+                0x00000000fffeb5b0       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb5b0                pm_fpga_load
+ .text.pm_fpga_get_status
+                0x00000000fffeb5e0       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb5e0                pm_fpga_get_status
+ .text.pm_get_chipid
+                0x00000000fffeb610       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+                0x00000000fffeb610                pm_get_chipid
+ .text.ipi_fiq_handler
+                0x00000000fffeb640       0x84 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .text.pm_ipi_send_common.isra.3
+                0x00000000fffeb6c4       0x44 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .text.pm_ipi_init
+                0x00000000fffeb708       0x60 ./build/zynqmp/debug/bl31/pm_ipi.o
+                0x00000000fffeb708                pm_ipi_init
+ .text.pm_ipi_send
+                0x00000000fffeb768       0x54 ./build/zynqmp/debug/bl31/pm_ipi.o
+                0x00000000fffeb768                pm_ipi_send
+ .text.pm_ipi_send_sync
+                0x00000000fffeb7bc       0xac ./build/zynqmp/debug/bl31/pm_ipi.o
+                0x00000000fffeb7bc                pm_ipi_send_sync
+ .text.pm_get_proc
+                0x00000000fffeb868       0x24 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000fffeb868                pm_get_proc
+ .text.pm_get_proc_by_node
+                0x00000000fffeb88c       0x54 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000fffeb88c                pm_get_proc_by_node
+ .text.pm_client_suspend
+                0x00000000fffeb8e0      0x108 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000fffeb8e0                pm_client_suspend
+ .text.pm_client_abort_suspend
+                0x00000000fffeb9e8       0x50 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000fffeb9e8                pm_client_abort_suspend
+ .text.pm_client_wakeup
+                0x00000000fffeba38       0x5c ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000fffeba38                pm_client_wakeup
+ .text.get_arm_std_svc_args
+                0x00000000fffeba94       0x40 ./build/zynqmp/debug/bl31/bl31_main.o
+                0x00000000fffeba94                get_arm_std_svc_args
+ .text.bl31_prepare_next_image_entry
+                0x00000000fffebad4       0xc8 ./build/zynqmp/debug/bl31/bl31_main.o
+                0x00000000fffebad4                bl31_prepare_next_image_entry
+ .text.bl31_main
+                0x00000000fffebb9c       0x7c ./build/zynqmp/debug/bl31/bl31_main.o
+                0x00000000fffebb9c                bl31_main
+ .text.set_scr_el3_from_rm
+                0x00000000fffebc18       0x84 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .text.get_scr_el3_from_routing_model
+                0x00000000fffebc9c       0x60 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                0x00000000fffebc9c                get_scr_el3_from_routing_model
+ .text.set_routing_model
+                0x00000000fffebcfc       0xb0 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                0x00000000fffebcfc                set_routing_model
+ .text.register_interrupt_type_handler
+                0x00000000fffebdac       0x7c ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                0x00000000fffebdac                register_interrupt_type_handler
+ .text.get_interrupt_type_handler
+                0x00000000fffebe28       0x3c ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                0x00000000fffebe28                get_interrupt_type_handler
+ .text.cm_get_context
+                0x00000000fffebe64       0x3c ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+                0x00000000fffebe64                cm_get_context
+ .text.cm_get_context_by_index
+                0x00000000fffebea0       0x4c ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+                0x00000000fffebea0                cm_get_context_by_index
+ .text.cm_set_context_by_index
+                0x00000000fffebeec       0x50 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+                0x00000000fffebeec                cm_set_context_by_index
+ .text.runtime_svc_init
+                0x00000000fffebf3c      0x16c ./build/zynqmp/debug/bl31/runtime_svc.o
+                0x00000000fffebf3c                runtime_svc_init
+ .text.std_svc_smc_handler
+                0x00000000fffec0a8       0xb4 ./build/zynqmp/debug/bl31/std_svc_setup.o
+                0x00000000fffec0a8                std_svc_smc_handler
+ .text.std_svc_setup
+                0x00000000fffec15c       0x3c ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .text.cm_init_context_common
+                0x00000000fffec198      0x120 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_set_next_context
+                0x00000000fffec2b8       0x40 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .text.cm_init  0x00000000fffec2f8        0x4 ./build/zynqmp/debug/bl31/context_mgmt.o
+                0x00000000fffec2f8                cm_init
+ .text.cm_init_context_by_index
+                0x00000000fffec2fc       0x2c ./build/zynqmp/debug/bl31/context_mgmt.o
+                0x00000000fffec2fc                cm_init_context_by_index
+ .text.cm_init_my_context
+                0x00000000fffec328       0x2c ./build/zynqmp/debug/bl31/context_mgmt.o
+                0x00000000fffec328                cm_init_my_context
+ .text.cm_prepare_el3_exit
+                0x00000000fffec354       0xd8 ./build/zynqmp/debug/bl31/context_mgmt.o
+                0x00000000fffec354                cm_prepare_el3_exit
+ .text.cm_write_scr_el3_bit
+                0x00000000fffec42c       0x98 ./build/zynqmp/debug/bl31/context_mgmt.o
+                0x00000000fffec42c                cm_write_scr_el3_bit
+ .text.psci_do_cpu_off
+                0x00000000fffec4c4      0x124 ./build/zynqmp/debug/bl31/psci_off.o
+                0x00000000fffec4c4                psci_do_cpu_off
+ .text.psci_cpu_on_start
+                0x00000000fffec5e8      0x228 ./build/zynqmp/debug/bl31/psci_on.o
+                0x00000000fffec5e8                psci_cpu_on_start
+ .text.psci_cpu_on_finish
+                0x00000000fffec810       0xd0 ./build/zynqmp/debug/bl31/psci_on.o
+                0x00000000fffec810                psci_cpu_on_finish
+ .text.psci_cpu_suspend_start
+                0x00000000fffec8e0      0x178 ./build/zynqmp/debug/bl31/psci_suspend.o
+                0x00000000fffec8e0                psci_cpu_suspend_start
+ .text.psci_cpu_suspend_finish
+                0x00000000fffeca58       0xcc ./build/zynqmp/debug/bl31/psci_suspend.o
+                0x00000000fffeca58                psci_cpu_suspend_finish
+ .text.unlikely.psci_set_req_local_pwr_state.part.0
+                0x00000000fffecb24       0x28 ./build/zynqmp/debug/bl31/psci_common.o
+ .text.psci_validate_power_state
+                0x00000000fffecb4c       0x50 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecb4c                psci_validate_power_state
+ .text.psci_query_sys_suspend_pwrstate
+                0x00000000fffecb9c       0x3c ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecb9c                psci_query_sys_suspend_pwrstate
+ .text.psci_is_last_on_cpu
+                0x00000000fffecbd8       0x84 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecbd8                psci_is_last_on_cpu
+ .text.psci_init_req_local_pwr_states
+                0x00000000fffecc5c       0x14 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecc5c                psci_init_req_local_pwr_states
+ .text.psci_get_target_local_pwr_states
+                0x00000000fffecc70       0x88 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecc70                psci_get_target_local_pwr_states
+ .text.psci_get_parent_pwr_domain_nodes
+                0x00000000fffeccf8       0x48 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffeccf8                psci_get_parent_pwr_domain_nodes
+ .text.psci_set_pwr_domains_to_run
+                0x00000000fffecd40       0x90 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecd40                psci_set_pwr_domains_to_run
+ .text.psci_do_state_coordination
+                0x00000000fffecdd0       0xf0 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecdd0                psci_do_state_coordination
+ .text.psci_find_max_off_lvl
+                0x00000000fffecec0       0x2c ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecec0                psci_find_max_off_lvl
+ .text.psci_find_target_suspend_lvl
+                0x00000000fffeceec       0x24 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffeceec                psci_find_target_suspend_lvl
+ .text.psci_validate_suspend_req
+                0x00000000fffecf10       0xa4 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecf10                psci_validate_suspend_req
+ .text.psci_acquire_pwr_domain_locks
+                0x00000000fffecfb4       0x7c ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffecfb4                psci_acquire_pwr_domain_locks
+ .text.psci_release_pwr_domain_locks
+                0x00000000fffed030       0x74 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed030                psci_release_pwr_domain_locks
+ .text.psci_validate_mpidr
+                0x00000000fffed0a4       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed0a4                psci_validate_mpidr
+ .text.psci_validate_entry_point
+                0x00000000fffed0c4      0x104 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed0c4                psci_validate_entry_point
+ .text.psci_warmboot_entrypoint
+                0x00000000fffed1c8       0xa4 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed1c8                psci_warmboot_entrypoint
+ .text.psci_spd_migrate_info
+                0x00000000fffed26c       0x5c ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed26c                psci_spd_migrate_info
+ .text.psci_print_power_domain_map
+                0x00000000fffed2c8      0x114 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000fffed2c8                psci_print_power_domain_map
+ .text.psci_cpu_on
+                0x00000000fffed3dc       0x5c ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed3dc                psci_cpu_on
+ .text.psci_cpu_suspend
+                0x00000000fffed438      0x134 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed438                psci_cpu_suspend
+ .text.psci_system_suspend
+                0x00000000fffed56c       0xdc ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed56c                psci_system_suspend
+ .text.psci_cpu_off
+                0x00000000fffed648       0x40 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed648                psci_cpu_off
+ .text.psci_affinity_info
+                0x00000000fffed688       0x38 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed688                psci_affinity_info
+ .text.psci_migrate
+                0x00000000fffed6c0       0xc0 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed6c0                psci_migrate
+ .text.psci_migrate_info_type
+                0x00000000fffed780       0x18 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed780                psci_migrate_info_type
+ .text.psci_migrate_info_up_cpu
+                0x00000000fffed798       0x28 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed798                psci_migrate_info_up_cpu
+ .text.psci_node_hw_state
+                0x00000000fffed7c0       0x94 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed7c0                psci_node_hw_state
+ .text.psci_features
+                0x00000000fffed854       0x6c ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed854                psci_features
+ .text.psci_smc_handler
+                0x00000000fffed8c0      0x158 ./build/zynqmp/debug/bl31/psci_main.o
+                0x00000000fffed8c0                psci_smc_handler
+ .text.psci_arch_setup
+                0x00000000fffeda18       0x1c ./build/zynqmp/debug/bl31/psci_setup.o
+                0x00000000fffeda18                psci_arch_setup
+ .text.psci_setup
+                0x00000000fffeda34      0x344 ./build/zynqmp/debug/bl31/psci_setup.o
+                0x00000000fffeda34                psci_setup
+ .text.psci_system_off
+                0x00000000fffedd78       0x68 ./build/zynqmp/debug/bl31/psci_system_off.o
+                0x00000000fffedd78                psci_system_off
+ .text.psci_system_reset
+                0x00000000fffedde0       0x68 ./build/zynqmp/debug/bl31/psci_system_off.o
+                0x00000000fffedde0                psci_system_reset
+ .text.bakery_lock_get
+                0x00000000fffede48      0x11c ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+                0x00000000fffede48                bakery_lock_get
+ .text.bakery_lock_release
+                0x00000000fffedf64       0x84 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+                0x00000000fffedf64                bakery_lock_release
+ .text.print_entry_point_info
+                0x00000000fffedfe8       0x38 ./build/zynqmp/debug/bl31/bl_common.o
+                0x00000000fffedfe8                print_entry_point_info
+ .text.unsigned_num_print
+                0x00000000fffee020       0x74 ./build/zynqmp/debug/bl31/tf_printf.o
+ .text.tf_printf
+                0x00000000fffee094      0x304 ./build/zynqmp/debug/bl31/tf_printf.o
+                0x00000000fffee094                tf_printf
+ .text.__assert
+                0x00000000fffee398       0x1c ./build/zynqmp/debug/bl31/assert.o
+                0x00000000fffee398                __assert
+ .text.memset   0x00000000fffee3b4       0x1c ./build/zynqmp/debug/bl31/mem.o
+                0x00000000fffee3b4                memset
+ .text.memcpy   0x00000000fffee3d0       0x20 ./build/zynqmp/debug/bl31/mem.o
+                0x00000000fffee3d0                memcpy
+ .text.memmove  0x00000000fffee3f0       0x48 ./build/zynqmp/debug/bl31/mem.o
+                0x00000000fffee3f0                memmove
+ .text.putchar  0x00000000fffee438       0x2c ./build/zynqmp/debug/bl31/putchar.o
+                0x00000000fffee438                putchar
+ .text.init_xlation_table_inner
+                0x00000000fffee464      0x244 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .text.print_mmap
+                0x00000000fffee6a8        0x4 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+                0x00000000fffee6a8                print_mmap
+ .text.mmap_add_region
+                0x00000000fffee6ac      0x250 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+                0x00000000fffee6ac                mmap_add_region
+ .text.mmap_add
+                0x00000000fffee8fc       0x38 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+                0x00000000fffee8fc                mmap_add
+ .text.init_xlation_table
+                0x00000000fffee934       0x50 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+                0x00000000fffee934                init_xlation_table
+ .text.init_xlat_tables
+                0x00000000fffee984       0xcc ./build/zynqmp/debug/bl31/xlat_tables.o
+                0x00000000fffee984                init_xlat_tables
+ .text.enable_mmu_el3
+                0x00000000fffeea50       0xbc ./build/zynqmp/debug/bl31/xlat_tables.o
+                0x00000000fffeea50                enable_mmu_el3
+ .text.timer_init
+                0x00000000fffeeb0c       0x54 ./build/zynqmp/debug/bl31/delay_timer.o
+                0x00000000fffeeb0c                timer_init
+ .text.get_timer_value
+                0x00000000fffeeb60        0xc ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .text.generic_delay_timer_init_args
+                0x00000000fffeeb6c       0x20 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+                0x00000000fffeeb6c                generic_delay_timer_init_args
+ .text.generic_delay_timer_init
+                0x00000000fffeeb8c       0x48 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+                0x00000000fffeeb8c                generic_delay_timer_init
+ .text.gicd_read_igroupr
+                0x00000000fffeebd4       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeebd4                gicd_read_igroupr
+ .text.gicd_write_igroupr
+                0x00000000fffeebe8       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeebe8                gicd_write_igroupr
+ .text.gicd_write_isenabler
+                0x00000000fffeebfc       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeebfc                gicd_write_isenabler
+ .text.gicd_write_icenabler
+                0x00000000fffeec10       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec10                gicd_write_icenabler
+ .text.gicd_write_ispendr
+                0x00000000fffeec24       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec24                gicd_write_ispendr
+ .text.gicd_write_isactiver
+                0x00000000fffeec38       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec38                gicd_write_isactiver
+ .text.gicd_write_ipriorityr
+                0x00000000fffeec4c       0x10 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec4c                gicd_write_ipriorityr
+ .text.gicd_write_icfgr
+                0x00000000fffeec5c       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec5c                gicd_write_icfgr
+ .text.gicd_clr_igroupr
+                0x00000000fffeec70       0x30 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeec70                gicd_clr_igroupr
+ .text.gicd_set_isenabler
+                0x00000000fffeeca0        0xc ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeeca0                gicd_set_isenabler
+ .text.gicd_set_ispendr
+                0x00000000fffeecac        0xc ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeecac                gicd_set_ispendr
+ .text.gicd_set_isactiver
+                0x00000000fffeecb8        0xc ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeecb8                gicd_set_isactiver
+ .text.gicd_set_ipriorityr
+                0x00000000fffeecc4       0x14 ./build/zynqmp/debug/bl31/gic_common.o
+                0x00000000fffeecc4                gicd_set_ipriorityr
+ .text.gicv2_cpuif_enable
+                0x00000000fffeecd8       0x64 ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeecd8                gicv2_cpuif_enable
+ .text.gicv2_cpuif_disable
+                0x00000000fffeed3c       0x64 ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeed3c                gicv2_cpuif_disable
+ .text.gicv2_pcpu_distif_init
+                0x00000000fffeeda0       0x70 ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeeda0                gicv2_pcpu_distif_init
+ .text.gicv2_distif_init
+                0x00000000fffeee10       0xa8 ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeee10                gicv2_distif_init
+ .text.gicv2_driver_init
+                0x00000000fffeeeb8       0xc4 ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeeeb8                gicv2_driver_init
+ .text.gicv2_is_fiq_enabled
+                0x00000000fffeef7c       0x5c ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeef7c                gicv2_is_fiq_enabled
+ .text.gicv2_get_pending_interrupt_type
+                0x00000000fffeefd8       0x5c ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffeefd8                gicv2_get_pending_interrupt_type
+ .text.gicv2_get_pending_interrupt_id
+                0x00000000fffef034       0x6c ./build/zynqmp/debug/bl31/gicv2_main.o
+                0x00000000fffef034                gicv2_get_pending_interrupt_id
+ .text.gicv2_spis_configure_defaults
+                0x00000000fffef0a0       0x9c ./build/zynqmp/debug/bl31/gicv2_helpers.o
+                0x00000000fffef0a0                gicv2_spis_configure_defaults
+ .text.gicv2_secure_spis_configure
+                0x00000000fffef13c       0xbc ./build/zynqmp/debug/bl31/gicv2_helpers.o
+                0x00000000fffef13c                gicv2_secure_spis_configure
+ .text.gicv2_secure_ppi_sgi_setup
+                0x00000000fffef1f8       0xe8 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+                0x00000000fffef1f8                gicv2_secure_ppi_sgi_setup
+ .text.plat_arm_interconnect_init
+                0x00000000fffef2e0       0x14 ./build/zynqmp/debug/bl31/arm_cci.o
+                0x00000000fffef2e0                plat_arm_interconnect_init
+ .text.plat_arm_interconnect_enter_coherency
+                0x00000000fffef2f4        0xc ./build/zynqmp/debug/bl31/arm_cci.o
+                0x00000000fffef2f4                plat_arm_interconnect_enter_coherency
+ .text.plat_arm_interconnect_exit_coherency
+                0x00000000fffef300        0xc ./build/zynqmp/debug/bl31/arm_cci.o
+                0x00000000fffef300                plat_arm_interconnect_exit_coherency
+ .text.plat_get_ns_image_entrypoint
+                0x00000000fffef30c        0x8 ./build/zynqmp/debug/bl31/arm_common.o
+                0x00000000fffef30c                plat_get_ns_image_entrypoint
+ .text.arm_get_spsr_for_bl32_entry
+                0x00000000fffef314        0x8 ./build/zynqmp/debug/bl31/arm_common.o
+                0x00000000fffef314                arm_get_spsr_for_bl32_entry
+ .text.plat_arm_get_mmap
+                0x00000000fffef31c        0xc ./build/zynqmp/debug/bl31/arm_common.o
+                0x00000000fffef31c                plat_arm_get_mmap
+ .text.arm_setup_page_tables
+                0x00000000fffef328       0x94 ./build/zynqmp/debug/bl31/arm_common.o
+                0x00000000fffef328                arm_setup_page_tables
+ .text.plat_arm_gic_driver_init
+                0x00000000fffef3bc        0xc ./build/zynqmp/debug/bl31/arm_gicv2.o
+                0x00000000fffef3bc                plat_arm_gic_driver_init
+ .text.plat_arm_gic_init
+                0x00000000fffef3c8       0x18 ./build/zynqmp/debug/bl31/arm_gicv2.o
+                0x00000000fffef3c8                plat_arm_gic_init
+ .text.plat_ic_get_pending_interrupt_id
+                0x00000000fffef3e0       0x1c ./build/zynqmp/debug/bl31/plat_gicv2.o
+                0x00000000fffef3e0                plat_ic_get_pending_interrupt_id
+ .text.plat_ic_get_pending_interrupt_type
+                0x00000000fffef3fc       0x34 ./build/zynqmp/debug/bl31/plat_gicv2.o
+                0x00000000fffef3fc                plat_ic_get_pending_interrupt_type
+ .text.plat_interrupt_type_to_line
+                0x00000000fffef430       0x50 ./build/zynqmp/debug/bl31/plat_gicv2.o
+                0x00000000fffef430                plat_interrupt_type_to_line
+ .text.bl31_plat_enable_mmu
+                0x00000000fffef480        0x4 ./build/zynqmp/debug/bl31/plat_common.o
+                0x00000000fffef480                bl31_plat_enable_mmu
+ .text.zynqmp_get_silicon_ver
+                0x00000000fffef484       0x28 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .text.zynqmp_get_uart_clk
+                0x00000000fffef4ac       0x38 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000fffef4ac                zynqmp_get_uart_clk
+ .text.zynqmp_is_pmu_up
+                0x00000000fffef4e4        0xc ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000fffef4e4                zynqmp_is_pmu_up
+ .text.zynqmp_get_bootmode
+                0x00000000fffef4f0       0x14 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000fffef4f0                zynqmp_get_bootmode
+ .text.zynqmp_config_setup
+                0x00000000fffef504      0x138 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000fffef504                zynqmp_config_setup
+ .text.plat_get_syscnt_freq2
+                0x00000000fffef63c       0x58 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000fffef63c                plat_get_syscnt_freq2
+ .text.aem_generic_core_pwr_dwn
+                0x00000000fffef694       0x18 ./build/zynqmp/debug/bl31/aem_generic.o
+ .text.aem_generic_cluster_pwr_dwn
+                0x00000000fffef6ac       0x18 ./build/zynqmp/debug/bl31/aem_generic.o
+ .text.aem_generic_cpu_reg_dump
+                0x00000000fffef6c4        0x8 ./build/zynqmp/debug/bl31/aem_generic.o
+ .text.cortex_a53_disable_dcache
+                0x00000000fffef6cc       0x14 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.cortex_a53_disable_smp
+                0x00000000fffef6e0       0x18 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.cortex_a53_reset_func
+                0x00000000fffef6f8       0x24 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.cortex_a53_core_pwr_dwn
+                0x00000000fffef71c       0x18 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.cortex_a53_cluster_pwr_dwn
+                0x00000000fffef734       0x24 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .text.cortex_a53_cpu_reg_dump
+                0x00000000fffef758       0x14 ./build/zynqmp/debug/bl31/cortex_a53.o
+ *fill*         0x00000000fffef76c        0x4 
+ .text.plat_get_my_stack
+                0x00000000fffef770       0x20 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+                0x00000000fffef770                plat_get_my_stack
+ .text.plat_set_my_stack
+                0x00000000fffef790       0x10 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+                0x00000000fffef790                plat_set_my_stack
+ .text.smc_handler
+                0x00000000fffef7a0       0xb8 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .text.print_newline
+                0x00000000fffef858        0x8 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text.size_controlled_print
+                0x00000000fffef860       0x4c ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text.str_in_crash_buf_print
+                0x00000000fffef8ac       0x18 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text.report_unhandled_exception
+                0x00000000fffef8c4       0x28 ./build/zynqmp/debug/bl31/crash_reporting.o
+                0x00000000fffef8c4                report_unhandled_exception
+ .text.report_unhandled_interrupt
+                0x00000000fffef8ec       0x28 ./build/zynqmp/debug/bl31/crash_reporting.o
+                0x00000000fffef8ec                report_unhandled_interrupt
+ .text.el3_panic
+                0x00000000fffef914       0x2c ./build/zynqmp/debug/bl31/crash_reporting.o
+                0x00000000fffef914                el3_panic
+ .text.do_crash_reporting
+                0x00000000fffef940      0x204 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text.crash_panic
+                0x00000000fffefb44        0x4 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .text.init_cpu_data_ptr
+                0x00000000fffefb48       0x14 ./build/zynqmp/debug/bl31/cpu_data.o
+                0x00000000fffefb48                init_cpu_data_ptr
+ .text._cpu_data_by_index
+                0x00000000fffefb5c        0xc ./build/zynqmp/debug/bl31/cpu_data.o
+                0x00000000fffefb5c                _cpu_data_by_index
+ .text.reset_handler
+                0x00000000fffefb68       0x34 ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefb68                reset_handler
+ .text.prepare_core_pwr_dwn
+                0x00000000fffefb9c       0x24 ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefb9c                prepare_core_pwr_dwn
+ .text.prepare_cluster_pwr_dwn
+                0x00000000fffefbc0       0x24 ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefbc0                prepare_cluster_pwr_dwn
+ .text.init_cpu_ops
+                0x00000000fffefbe4       0x34 ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefbe4                init_cpu_ops
+ .text.do_cpu_reg_dump
+                0x00000000fffefc18       0x20 ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefc18                do_cpu_reg_dump
+ .text.get_cpu_ops_ptr
+                0x00000000fffefc38       0x3c ./build/zynqmp/debug/bl31/cpu_helpers.o
+                0x00000000fffefc38                get_cpu_ops_ptr
+ .text.spin_lock
+                0x00000000fffefc74       0x20 ./build/zynqmp/debug/bl31/spinlock.o
+                0x00000000fffefc74                spin_lock
+ .text.spin_unlock
+                0x00000000fffefc94        0x8 ./build/zynqmp/debug/bl31/spinlock.o
+                0x00000000fffefc94                spin_unlock
+ .text.psci_do_pwrdown_cache_maintenance
+                0x00000000fffefc9c       0x4c ./build/zynqmp/debug/bl31/psci_helpers.o
+                0x00000000fffefc9c                psci_do_pwrdown_cache_maintenance
+ .text.psci_do_pwrup_cache_maintenance
+                0x00000000fffefce8       0x34 ./build/zynqmp/debug/bl31/psci_helpers.o
+                0x00000000fffefce8                psci_do_pwrup_cache_maintenance
+ .text.psci_power_down_wfi
+                0x00000000fffefd1c        0xc ./build/zynqmp/debug/bl31/psci_helpers.o
+                0x00000000fffefd1c                psci_power_down_wfi
+ .text.el1_sysregs_context_restore
+                0x00000000fffefd28       0xb4 ./build/zynqmp/debug/bl31/context.o
+                0x00000000fffefd28                el1_sysregs_context_restore
+ .text.save_gp_registers
+                0x00000000fffefddc       0x48 ./build/zynqmp/debug/bl31/context.o
+                0x00000000fffefddc                save_gp_registers
+ .text.restore_gp_registers_eret
+                0x00000000fffefe24        0xc ./build/zynqmp/debug/bl31/context.o
+                0x00000000fffefe24                restore_gp_registers_eret
+ .text.restore_gp_registers_callee_eret
+                0x00000000fffefe30       0x40 ./build/zynqmp/debug/bl31/context.o
+                0x00000000fffefe30                restore_gp_registers_callee_eret
+ .text.el3_exit
+                0x00000000fffefe70       0x24 ./build/zynqmp/debug/bl31/context.o
+                0x00000000fffefe70                el3_exit
+ .text.asm_assert
+                0x00000000fffefe94       0x58 ./build/zynqmp/debug/bl31/debug.o
+                0x00000000fffefe94                asm_assert
+ .text.asm_print_str
+                0x00000000fffefeec       0x18 ./build/zynqmp/debug/bl31/debug.o
+                0x00000000fffefeec                asm_print_str
+ .text.asm_print_hex
+                0x00000000fffeff04       0x30 ./build/zynqmp/debug/bl31/debug.o
+                0x00000000fffeff04                asm_print_hex
+ .text.do_panic
+                0x00000000fffeff34       0x40 ./build/zynqmp/debug/bl31/debug.o
+                0x00000000fffeff34                do_panic
+ .text.flush_dcache_range
+                0x00000000fffeff74       0x34 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000fffeff74                flush_dcache_range
+ .text.clean_dcache_range
+                0x00000000fffeffa8       0x34 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000fffeffa8                clean_dcache_range
+ .text.inv_dcache_range
+                0x00000000fffeffdc       0x34 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000fffeffdc                inv_dcache_range
+ .text.do_dcsw_op
+                0x00000000ffff0010       0xdc ./build/zynqmp/debug/bl31/cache_helpers.o
+ .text.dcsw_op_louis
+                0x00000000ffff00ec       0x14 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000ffff00ec                dcsw_op_louis
+ .text.dcsw_op_all
+                0x00000000ffff0100       0x14 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000ffff0100                dcsw_op_all
+ .text.dcsw_op_level1
+                0x00000000ffff0114       0x10 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000ffff0114                dcsw_op_level1
+ .text.dcsw_op_level2
+                0x00000000ffff0124       0x10 ./build/zynqmp/debug/bl31/cache_helpers.o
+                0x00000000ffff0124                dcsw_op_level2
+ .text.zeromem16
+                0x00000000ffff0134       0x40 ./build/zynqmp/debug/bl31/misc_helpers.o
+                0x00000000ffff0134                zeromem16
+ .text.plat_reset_handler
+                0x00000000ffff0174        0x4 ./build/zynqmp/debug/bl31/platform_helpers.o
+                0x00000000ffff0174                plat_reset_handler
+ .text.plat_disable_acp
+                0x00000000ffff0178        0x4 ./build/zynqmp/debug/bl31/platform_helpers.o
+                0x00000000ffff0178                plat_disable_acp
+ .text.plat_panic_handler
+                0x00000000ffff017c        0x8 ./build/zynqmp/debug/bl31/platform_helpers.o
+                0x00000000ffff017c                plat_panic_handler
+ .text.console_init
+                0x00000000ffff0184       0x14 ./build/zynqmp/debug/bl31/console.o
+                0x00000000ffff0184                console_init
+ .text.console_putc
+                0x00000000ffff0198        0xc ./build/zynqmp/debug/bl31/console.o
+                0x00000000ffff0198                console_putc
+ .text.plat_my_core_pos
+                0x00000000ffff01a4        0x8 ./build/zynqmp/debug/bl31/arm_helpers.o
+                0x00000000ffff01a4                plat_my_core_pos
+ .text.plat_arm_calc_core_pos
+                0x00000000ffff01ac       0x10 ./build/zynqmp/debug/bl31/arm_helpers.o
+                0x00000000ffff01ac                plat_arm_calc_core_pos
+ .text.plat_crash_console_init
+                0x00000000ffff01bc       0x18 ./build/zynqmp/debug/bl31/arm_helpers.o
+                0x00000000ffff01bc                plat_crash_console_init
+ .text.plat_crash_console_putc
+                0x00000000ffff01d4        0x8 ./build/zynqmp/debug/bl31/arm_helpers.o
+                0x00000000ffff01d4                plat_crash_console_putc
+ .text.platform_mem_init
+                0x00000000ffff01dc        0x4 ./build/zynqmp/debug/bl31/arm_helpers.o
+                0x00000000ffff01dc                platform_mem_init
+ .text.plat_secondary_cold_boot_setup
+                0x00000000ffff01e0       0x28 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+                0x00000000ffff01e0                plat_secondary_cold_boot_setup
+ .text.plat_is_my_cpu_primary
+                0x00000000ffff0208       0x14 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+                0x00000000ffff0208                plat_is_my_cpu_primary
+ .text.console_core_init
+                0x00000000ffff021c       0x24 ./build/zynqmp/debug/bl31/cdns_console.o
+                0x00000000ffff021c                console_core_init
+ .text.console_core_putc
+                0x00000000ffff0240       0x34 ./build/zynqmp/debug/bl31/cdns_console.o
+                0x00000000ffff0240                console_core_putc
+ *(.vectors)
+ *fill*         0x00000000ffff0274      0x58c 
+ .vectors       0x00000000ffff0800      0x800 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+                0x00000000ffff0800                runtime_exceptions
+                0x00000000ffff1000                . = NEXT (0x1000)
+                0x00000000ffff1000                __TEXT_END__ = .
+
+.iplt           0x00000000ffff1000        0x0
+ .iplt          0x00000000ffff1000        0x0 ./build/zynqmp/debug/bl31/build_message.o
+
+.rodata         0x00000000ffff1000     0x3000
+                0x00000000ffff1000                __RODATA_START__ = .
+ *(.rodata*)
+ .rodata.version_string
+                0x00000000ffff1000       0x18 ./build/zynqmp/debug/bl31/build_message.o
+                0x00000000ffff1000                version_string
+ .rodata.build_message
+                0x00000000ffff1018       0x20 ./build/zynqmp/debug/bl31/build_message.o
+                0x00000000ffff1018                build_message
+ .rodata.__func__.1215
+                0x00000000ffff1038       0x20 ./build/zynqmp/debug/bl31/cci.o
+ .rodata.str1.1
+                0x00000000ffff1058      0x11d ./build/zynqmp/debug/bl31/cci.o
+                                        0x126 (size before relaxing)
+ *fill*         0x00000000ffff1175        0x3 
+ .rodata.__func__.1202
+                0x00000000ffff1178       0x10 ./build/zynqmp/debug/bl31/cci.o
+ .rodata.__func__.1207
+                0x00000000ffff1188       0x20 ./build/zynqmp/debug/bl31/cci.o
+ .rodata.__func__.1553
+                0x00000000ffff11a8       0x20 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .rodata.str1.1
+                0x00000000ffff11c8       0x24 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ *fill*         0x00000000ffff11ec        0x4 
+ .rodata.__func__.2459
+                0x00000000ffff11f0       0x20 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .rodata.str1.1
+                0x00000000ffff1210       0xab ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                                         0xbc (size before relaxing)
+ *fill*         0x00000000ffff12bb        0x5 
+ .rodata.__func__.2454
+                0x00000000ffff12c0       0x28 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .rodata.zynqmp_nopmu_psci_ops
+                0x00000000ffff12e8       0x78 ./build/zynqmp/debug/bl31/plat_psci.o
+ .rodata.str1.1
+                0x00000000ffff1360       0x5d ./build/zynqmp/debug/bl31/plat_psci.o
+ *fill*         0x00000000ffff13bd        0x3 
+ .rodata.zynqmp_psci_ops
+                0x00000000ffff13c0       0x78 ./build/zynqmp/debug/bl31/plat_psci.o
+ .rodata.__func__.2847
+                0x00000000ffff1438       0x20 ./build/zynqmp/debug/bl31/plat_psci.o
+ .rodata.str1.1
+                0x00000000ffff1458      0x1b0 ./build/zynqmp/debug/bl31/plat_startup.o
+ .rodata.__func__.2026
+                0x00000000ffff1608       0x18 ./build/zynqmp/debug/bl31/plat_startup.o
+ .rodata.plat_power_domain_tree_desc
+                0x00000000ffff1620        0x8 ./build/zynqmp/debug/bl31/plat_topology.o
+ .rodata.zynqmp_sip_uuid
+                0x00000000ffff1628       0x10 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .rodata.str1.1
+                0x00000000ffff1638       0x37 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .rodata.str1.1
+                0x00000000ffff166f       0x9a ./build/zynqmp/debug/bl31/pm_svc_main.o
+ *fill*         0x00000000ffff1709        0x7 
+ .rodata.apu_ipi
+                0x00000000ffff1710       0x18 ./build/zynqmp/debug/bl31/pm_ipi.o
+                0x00000000ffff1710                apu_ipi
+ .rodata.pm_procs_all
+                0x00000000ffff1728       0x40 ./build/zynqmp/debug/bl31/pm_client.o
+ .rodata.irq_node_map
+                0x00000000ffff1768      0x158 ./build/zynqmp/debug/bl31/pm_client.o
+ .rodata.psci_args.2403
+                0x00000000ffff18c0       0x10 ./build/zynqmp/debug/bl31/bl31_main.o
+ .rodata.str1.1
+                0x00000000ffff18d0      0x193 ./build/zynqmp/debug/bl31/bl31_main.o
+ *fill*         0x00000000ffff1a63        0x5 
+ .rodata.__func__.2404
+                0x00000000ffff1a68       0x18 ./build/zynqmp/debug/bl31/bl31_main.o
+ .rodata.__func__.2423
+                0x00000000ffff1a80       0x20 ./build/zynqmp/debug/bl31/bl31_main.o
+ .rodata.__func__.1667
+                0x00000000ffff1aa0       0x20 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .rodata.str1.1
+                0x00000000ffff1ac0       0x34 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                                         0x57 (size before relaxing)
+ *fill*         0x00000000ffff1af4        0x4 
+ .rodata.__func__.2337
+                0x00000000ffff1af8       0x18 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.str1.1
+                0x00000000ffff1b10       0x36 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+                                         0x59 (size before relaxing)
+ *fill*         0x00000000ffff1b46        0x2 
+ .rodata.__func__.2331
+                0x00000000ffff1b48       0x18 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.__func__.2321
+                0x00000000ffff1b60       0x10 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .rodata.str1.1
+                0x00000000ffff1b70       0xc8 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .rodata.__func__.1405
+                0x00000000ffff1c38       0x18 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .rodata.__func__.1502
+                0x00000000ffff1c50       0x10 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .rodata.str1.1
+                0x00000000ffff1c60       0x66 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ *fill*         0x00000000ffff1cc6        0x2 
+ .rodata.arm_svc_uid
+                0x00000000ffff1cc8       0x10 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .rodata.__func__.1998
+                0x00000000ffff1cd8       0x18 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.str1.1
+                0x00000000ffff1cf0       0x98 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2356
+                0x00000000ffff1d88       0x18 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2407
+                0x00000000ffff1da0       0x18 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2373
+                0x00000000ffff1db8       0x18 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .rodata.__func__.2458
+                0x00000000ffff1dd0       0x10 ./build/zynqmp/debug/bl31/psci_off.o
+ .rodata.str1.1
+                0x00000000ffff1de0       0x35 ./build/zynqmp/debug/bl31/psci_off.o
+ .rodata.str1.1
+                0x00000000ffff1e15      0x146 ./build/zynqmp/debug/bl31/psci_on.o
+                                        0x161 (size before relaxing)
+ *fill*         0x00000000ffff1f5b        0x5 
+ .rodata.__func__.2468
+                0x00000000ffff1f60       0x18 ./build/zynqmp/debug/bl31/psci_on.o
+ .rodata.__func__.2476
+                0x00000000ffff1f78       0x18 ./build/zynqmp/debug/bl31/psci_on.o
+ .rodata.__func__.2482
+                0x00000000ffff1f90       0x18 ./build/zynqmp/debug/bl31/psci_on.o
+ .rodata.__func__.2505
+                0x00000000ffff1fa8       0x18 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .rodata.__func__.2513
+                0x00000000ffff1fc0       0x18 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .rodata.str1.1
+                0x00000000ffff1fd8      0x101 ./build/zynqmp/debug/bl31/psci_suspend.o
+ *fill*         0x00000000ffff20d9        0x7 
+ .rodata.__func__.2548
+                0x00000000ffff20e0       0x18 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.__func__.2562
+                0x00000000ffff20f8       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.__func__.2624
+                0x00000000ffff2118       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.str1.1
+                0x00000000ffff2138      0x227 ./build/zynqmp/debug/bl31/psci_common.o
+                                        0x22e (size before relaxing)
+ *fill*         0x00000000ffff235f        0x1 
+ .rodata.__func__.2713
+                0x00000000ffff2360       0x18 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.psci_state_type_str.2720
+                0x00000000ffff2378       0x18 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.__func__.2542
+                0x00000000ffff2390       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.__func__.2538
+                0x00000000ffff23b0       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+ .rodata.psci_smc_handler
+                0x00000000ffff23d0       0x20 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.__func__.2506
+                0x00000000ffff23f0       0x18 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.str1.1
+                0x00000000ffff2408      0x256 ./build/zynqmp/debug/bl31/psci_main.o
+                                        0x2a3 (size before relaxing)
+ *fill*         0x00000000ffff265e        0x2 
+ .rodata.__func__.2466
+                0x00000000ffff2660       0x18 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.__func__.2474
+                0x00000000ffff2678       0x18 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.__func__.2480
+                0x00000000ffff2690       0x10 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.__func__.2491
+                0x00000000ffff26a0       0x10 ./build/zynqmp/debug/bl31/psci_main.o
+ .rodata.__func__.2503
+                0x00000000ffff26b0       0x10 ./build/zynqmp/debug/bl31/psci_setup.o
+ .rodata.str1.1
+                0x00000000ffff26c0       0xce ./build/zynqmp/debug/bl31/psci_setup.o
+ *fill*         0x00000000ffff278e        0x2 
+ .rodata.__func__.2489
+                0x00000000ffff2790       0x20 ./build/zynqmp/debug/bl31/psci_setup.o
+ .rodata.str1.1
+                0x00000000ffff27b0       0x57 ./build/zynqmp/debug/bl31/psci_system_off.o
+ *fill*         0x00000000ffff2807        0x1 
+ .rodata.__func__.2413
+                0x00000000ffff2808       0x10 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .rodata.__func__.2417
+                0x00000000ffff2818       0x18 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .rodata.__func__.2284
+                0x00000000ffff2830       0x10 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .rodata.__func__.2297
+                0x00000000ffff2840       0x18 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .rodata.str1.1
+                0x00000000ffff2858       0x76 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+                                         0xa2 (size before relaxing)
+ *fill*         0x00000000ffff28ce        0x2 
+ .rodata.__func__.2271
+                0x00000000ffff28d0       0x18 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .rodata.str1.1
+                0x00000000ffff28e8      0x3d9 ./build/zynqmp/debug/bl31/bl_common.o
+ *fill*         0x00000000ffff2cc1        0x3 
+ .rodata.tf_printf
+                0x00000000ffff2cc4       0x30 ./build/zynqmp/debug/bl31/tf_printf.o
+ .rodata.str1.1
+                0x00000000ffff2cf4        0x3 ./build/zynqmp/debug/bl31/tf_printf.o
+ .rodata.str1.1
+                0x00000000ffff2cf7       0x16 ./build/zynqmp/debug/bl31/assert.o
+ *fill*         0x00000000ffff2d0d        0x3 
+ .rodata.__func__.2063
+                0x00000000ffff2d10       0x10 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .rodata.str1.1
+                0x00000000ffff2d20      0x19a ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ *fill*         0x00000000ffff2eba        0x6 
+ .rodata.__func__.2078
+                0x00000000ffff2ec0       0x20 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .rodata.__func__.2035
+                0x00000000ffff2ee0       0x10 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .rodata.str1.1
+                0x00000000ffff2ef0       0xc8 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .rodata.__func__.1967
+                0x00000000ffff2fb8       0x20 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .rodata.__func__.1973
+                0x00000000ffff2fd8       0x18 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .rodata.__func__.1989
+                0x00000000ffff2ff0       0x10 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .rodata.__func__.1286
+                0x00000000ffff3000       0x10 ./build/zynqmp/debug/bl31/delay_timer.o
+ .rodata.str1.1
+                0x00000000ffff3010      0x101 ./build/zynqmp/debug/bl31/delay_timer.o
+ *fill*         0x00000000ffff3111        0x7 
+ .rodata.__func__.2072
+                0x00000000ffff3118       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2067
+                0x00000000ffff3130       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.str1.1
+                0x00000000ffff3148      0x147 ./build/zynqmp/debug/bl31/gicv2_main.o
+                                        0x1a1 (size before relaxing)
+ *fill*         0x00000000ffff328f        0x1 
+ .rodata.__func__.2077
+                0x00000000ffff3290       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2058
+                0x00000000ffff32a8       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2082
+                0x00000000ffff32c0       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2086
+                0x00000000ffff32d8       0x28 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2063
+                0x00000000ffff3300       0x18 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2091
+                0x00000000ffff3318       0x20 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .rodata.__func__.2116
+                0x00000000ffff3338       0x20 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .rodata.str1.1
+                0x00000000ffff3358       0x4b ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ *fill*         0x00000000ffff33a3        0x5 
+ .rodata.__func__.2128
+                0x00000000ffff33a8       0x20 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .rodata.cci_map
+                0x00000000ffff33c8        0x8 ./build/zynqmp/debug/bl31/arm_cci.o
+ .rodata.g0_interrupt_array
+                0x00000000ffff33d0       0x28 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .rodata.arm_gic_data
+                0x00000000ffff33f8       0x20 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .rodata.__func__.1176
+                0x00000000ffff3418       0x20 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .rodata.str1.1
+                0x00000000ffff3438       0x62 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .rodata.str1.1
+                0x00000000ffff349a       0xd5 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                                         0xda (size before relaxing)
+ *fill*         0x00000000ffff356f        0x1 
+ .rodata.zynqmp_devices
+                0x00000000ffff3570       0xb0 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .rodata.CSWTCH.21
+                0x00000000ffff3620       0x20 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .rodata.plat_arm_mmap
+                0x00000000ffff3640       0x80 ./build/zynqmp/debug/bl31/zynqmp_common.o
+                0x00000000ffff3640                plat_arm_mmap
+ .rodata.CSWTCH.18
+                0x00000000ffff36c0       0x10 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .rodata.aem_generic_regs
+                0x00000000ffff36d0        0x1 ./build/zynqmp/debug/bl31/aem_generic.o
+ .rodata.cortex_a53_regs
+                0x00000000ffff36d1       0x29 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .rodata.gic_reg_name
+                0x00000000ffff36fa       0x93 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .rodata.cci_reg_name
+                0x00000000ffff378d       0x31 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .rodata.crash_prints
+                0x00000000ffff37be      0x2b0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .rodata.str1.1
+                0x00000000ffff3a6e       0x1f ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .rodata.assert_str
+                0x00000000ffff3a8d       0x15 ./build/zynqmp/debug/bl31/debug.o
+ .rodata.panic_str
+                0x00000000ffff3aa2       0x11 ./build/zynqmp/debug/bl31/debug.o
+ .rodata.str1.1
+                0x00000000ffff3ab3       0x1b ./build/zynqmp/debug/bl31/misc_helpers.o
+                0x00000000ffff3ad0                . = ALIGN (0x8)
+ *fill*         0x00000000ffff3ace        0x2 
+                0x00000000ffff3ad0                __RT_SVC_DESCS_START__ = .
+ *(rt_svc_descs)
+ rt_svc_descs   0x00000000ffff3ad0       0x20 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ rt_svc_descs   0x00000000ffff3af0       0x20 ./build/zynqmp/debug/bl31/std_svc_setup.o
+                0x00000000ffff3b10                __RT_SVC_DESCS_END__ = .
+                0x00000000ffff3b10                . = ALIGN (0x8)
+                0x00000000ffff3b10                __CPU_OPS_START__ = .
+ *(cpu_ops)
+ cpu_ops        0x00000000ffff3b10       0x50 ./build/zynqmp/debug/bl31/aem_generic.o
+ cpu_ops        0x00000000ffff3b60       0x28 ./build/zynqmp/debug/bl31/cortex_a53.o
+                0x00000000ffff3b88                __CPU_OPS_END__ = .
+                0x00000000ffff4000                . = NEXT (0x1000)
+ *fill*         0x00000000ffff3b88      0x478 
+                0x00000000ffff4000                __RODATA_END__ = .
+                0x0000000000000001                ASSERT ((__CPU_OPS_END__ > __CPU_OPS_START__), cpu_ops not defined for this platform.)
+                0x00000000ffff4000                __RW_START__ = .
+
+.rela.dyn       0x00000000ffff4000        0x0
+ .rela.iplt     0x00000000ffff4000        0x0 ./build/zynqmp/debug/bl31/build_message.o
+
+.data           0x00000000ffff4000       0x20
+                0x00000000ffff4000                __DATA_START__ = .
+ *(.data*)
+ .data.pm_down  0x00000000ffff4000        0x4 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ *fill*         0x00000000ffff4004        0x4 
+ .data.primary_proc
+                0x00000000ffff4008        0x8 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000ffff4008                primary_proc
+ .data.next_image_type
+                0x00000000ffff4010        0x4 ./build/zynqmp/debug/bl31/bl31_main.o
+ *fill*         0x00000000ffff4014        0x4 
+ .data.console_base
+                0x00000000ffff4018        0x8 ./build/zynqmp/debug/bl31/console.o
+                0x00000000ffff4020                __DATA_END__ = .
+
+.igot.plt       0x00000000ffff4020        0x0
+ .igot.plt      0x00000000ffff4020        0x0 ./build/zynqmp/debug/bl31/build_message.o
+
+stacks          0x00000000ffff4040     0x1100
+                0x00000000ffff4040                __STACKS_START__ = .
+ *(tzfw_normal_stacks)
+ tzfw_normal_stacks
+                0x00000000ffff4040     0x1100 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+                0x00000000ffff5140                __STACKS_END__ = .
+
+.bss            0x00000000ffff5140     0x1214
+                0x00000000ffff5140                __BSS_START__ = .
+ *(.bss*)
+ .bss.g_max_master_id
+                0x00000000ffff5140        0x4 ./build/zynqmp/debug/bl31/cci.o
+ *fill*         0x00000000ffff5144        0x4 
+ .bss.g_cci_base
+                0x00000000ffff5148        0x8 ./build/zynqmp/debug/bl31/cci.o
+ .bss.g_cci_slave_if_map
+                0x00000000ffff5150        0x8 ./build/zynqmp/debug/bl31/cci.o
+ .bss.bl32_image_ep_info
+                0x00000000ffff5158       0x58 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .bss.bl33_image_ep_info
+                0x00000000ffff51b0       0x58 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .bss.type_el3_interrupt_table
+                0x00000000ffff5208      0x400 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .bss.pm_ctx    0x00000000ffff5608       0x20 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .bss.usr_fiq_handler
+                0x00000000ffff5628        0x8 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .bss.bl32_init
+                0x00000000ffff5630        0x8 ./build/zynqmp/debug/bl31/bl31_main.o
+ .bss.intr_type_descs
+                0x00000000ffff5638       0x48 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .bss.rt_svc_descs
+                0x00000000ffff5680        0x8 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .bss.psci_req_local_pwr_states
+                0x00000000ffff5688        0x8 ./build/zynqmp/debug/bl31/psci_common.o
+ .bss.psci_ns_context
+                0x00000000ffff5690      0x840 ./build/zynqmp/debug/bl31/psci_setup.o
+ .bss.mmap      0x00000000ffff5ed0      0x100 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .bss.xlat_max_va
+                0x00000000ffff5fd0        0x8 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .bss.xlat_max_pa
+                0x00000000ffff5fd8        0x8 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .bss.next_xlat
+                0x00000000ffff5fe0        0x4 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ *fill*         0x00000000ffff5fe4        0x4 
+ .bss.tcr_ps_bits
+                0x00000000ffff5fe8        0x8 ./build/zynqmp/debug/bl31/xlat_tables.o
+ *fill*         0x00000000ffff5ff0       0x10 
+ .bss.base_xlation_table
+                0x00000000ffff6000       0x20 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .bss.ops       0x00000000ffff6020        0x8 ./build/zynqmp/debug/bl31/delay_timer.o
+ .bss.ops       0x00000000ffff6028       0x10 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .bss.driver_data
+                0x00000000ffff6038        0x8 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .bss.ver.1686  0x00000000ffff6040        0x4 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .bss.zynqmp_pmufw_present
+                0x00000000ffff6044        0x4 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ *(COMMON)
+ COMMON         0x00000000ffff6048        0x8 ./build/zynqmp/debug/bl31/plat_psci.o
+                0x00000000ffff6048                zynqmp_sec_entry
+ COMMON         0x00000000ffff6050       0x80 ./build/zynqmp/debug/bl31/runtime_svc.o
+                0x00000000ffff6050                rt_svc_descs_indices
+ *fill*         0x00000000ffff60d0       0x30 
+ COMMON         0x00000000ffff6100      0x200 ./build/zynqmp/debug/bl31/cpu_data_array.o
+                0x00000000ffff6100                percpu_data
+ COMMON         0x00000000ffff6300       0x50 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000ffff6300                psci_cpu_pd_nodes
+                0x00000000ffff6340                psci_plat_pm_ops
+                0x00000000ffff6348                psci_spd_pm
+ COMMON         0x00000000ffff6350        0x4 ./build/zynqmp/debug/bl31/psci_setup.o
+                0x00000000ffff6350                psci_caps
+                0x00000000ffff6354                __BSS_END__ = .
+
+xlat_table      0x00000000ffff7000     0x5000
+ *(xlat_table)
+ xlat_table     0x00000000ffff7000     0x5000 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+
+coherent_ram    0x00000000ffffc000     0x1000
+                0x00000000ffffc000                __COHERENT_RAM_START__ = .
+ *(bakery_lock)
+ bakery_lock    0x00000000ffffc000        0x8 ./build/zynqmp/debug/bl31/pm_ipi.o
+                0x00000000ffffc000                pm_secure_lock
+ bakery_lock    0x00000000ffffc008        0x8 ./build/zynqmp/debug/bl31/pm_client.o
+                0x00000000ffffc008                pm_client_secure_lock
+ bakery_lock    0x00000000ffffc010       0x20 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000ffffc010                psci_locks
+ *(tzfw_coherent_mem)
+ tzfw_coherent_mem
+                0x00000000ffffc030       0x40 ./build/zynqmp/debug/bl31/psci_common.o
+                0x00000000ffffc030                psci_non_cpu_pd_nodes
+                0x00000000ffffc070                __COHERENT_RAM_END_UNALIGNED__ = .
+                0x00000000ffffd000                . = NEXT (0x1000)
+ *fill*         0x00000000ffffc070      0xf90 
+                0x00000000ffffd000                __COHERENT_RAM_END__ = .
+                0x00000000ffffd000                __RW_END__ = .
+                0x00000000ffffd000                __BL31_END__ = .
+                0x0000000000001214                __BSS_SIZE__ = SIZEOF (.bss)
+                0x0000000000000070                __COHERENT_RAM_UNALIGNED_SIZE__ = (__COHERENT_RAM_END_UNALIGNED__ - __COHERENT_RAM_START__)
+                0x0000000000000001                ASSERT ((. <= 0xffffffff), BL31 image has exceeded its limit.)
+LOAD ./build/zynqmp/debug/bl31/build_message.o
+LOAD ./build/zynqmp/debug/bl31/cci.o
+LOAD ./build/zynqmp/debug/bl31/plat_psci_common.o
+LOAD ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+LOAD ./build/zynqmp/debug/bl31/plat_psci.o
+LOAD ./build/zynqmp/debug/bl31/plat_zynqmp.o
+LOAD ./build/zynqmp/debug/bl31/plat_startup.o
+LOAD ./build/zynqmp/debug/bl31/plat_topology.o
+LOAD ./build/zynqmp/debug/bl31/sip_svc_setup.o
+LOAD ./build/zynqmp/debug/bl31/pm_svc_main.o
+LOAD ./build/zynqmp/debug/bl31/pm_api_sys.o
+LOAD ./build/zynqmp/debug/bl31/pm_ipi.o
+LOAD ./build/zynqmp/debug/bl31/pm_client.o
+LOAD ./build/zynqmp/debug/bl31/bl31_main.o
+LOAD ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+LOAD ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+LOAD ./build/zynqmp/debug/bl31/runtime_svc.o
+LOAD ./build/zynqmp/debug/bl31/std_svc_setup.o
+LOAD ./build/zynqmp/debug/bl31/cpu_data_array.o
+LOAD ./build/zynqmp/debug/bl31/context_mgmt.o
+LOAD ./build/zynqmp/debug/bl31/psci_off.o
+LOAD ./build/zynqmp/debug/bl31/psci_on.o
+LOAD ./build/zynqmp/debug/bl31/psci_suspend.o
+LOAD ./build/zynqmp/debug/bl31/psci_common.o
+LOAD ./build/zynqmp/debug/bl31/psci_main.o
+LOAD ./build/zynqmp/debug/bl31/psci_setup.o
+LOAD ./build/zynqmp/debug/bl31/psci_system_off.o
+LOAD ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+LOAD ./build/zynqmp/debug/bl31/bl_common.o
+LOAD ./build/zynqmp/debug/bl31/tf_printf.o
+LOAD ./build/zynqmp/debug/bl31/abort.o
+LOAD ./build/zynqmp/debug/bl31/assert.o
+LOAD ./build/zynqmp/debug/bl31/exit.o
+LOAD ./build/zynqmp/debug/bl31/mem.o
+LOAD ./build/zynqmp/debug/bl31/printf.o
+LOAD ./build/zynqmp/debug/bl31/putchar.o
+LOAD ./build/zynqmp/debug/bl31/puts.o
+LOAD ./build/zynqmp/debug/bl31/sscanf.o
+LOAD ./build/zynqmp/debug/bl31/strchr.o
+LOAD ./build/zynqmp/debug/bl31/strcmp.o
+LOAD ./build/zynqmp/debug/bl31/strlen.o
+LOAD ./build/zynqmp/debug/bl31/strncmp.o
+LOAD ./build/zynqmp/debug/bl31/subr_prf.o
+LOAD ./build/zynqmp/debug/bl31/xlat_tables_common.o
+LOAD ./build/zynqmp/debug/bl31/xlat_tables.o
+LOAD ./build/zynqmp/debug/bl31/delay_timer.o
+LOAD ./build/zynqmp/debug/bl31/generic_delay_timer.o
+LOAD ./build/zynqmp/debug/bl31/gic_common.o
+LOAD ./build/zynqmp/debug/bl31/gicv2_main.o
+LOAD ./build/zynqmp/debug/bl31/gicv2_helpers.o
+LOAD ./build/zynqmp/debug/bl31/arm_cci.o
+LOAD ./build/zynqmp/debug/bl31/arm_common.o
+LOAD ./build/zynqmp/debug/bl31/arm_gicv2.o
+LOAD ./build/zynqmp/debug/bl31/plat_gicv2.o
+LOAD ./build/zynqmp/debug/bl31/plat_common.o
+LOAD ./build/zynqmp/debug/bl31/zynqmp_common.o
+LOAD ./build/zynqmp/debug/bl31/aem_generic.o
+LOAD ./build/zynqmp/debug/bl31/cortex_a53.o
+LOAD ./build/zynqmp/debug/bl31/platform_mp_stack.o
+LOAD ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+LOAD ./build/zynqmp/debug/bl31/runtime_exceptions.o
+LOAD ./build/zynqmp/debug/bl31/crash_reporting.o
+LOAD ./build/zynqmp/debug/bl31/cpu_data.o
+LOAD ./build/zynqmp/debug/bl31/cpu_helpers.o
+LOAD ./build/zynqmp/debug/bl31/spinlock.o
+LOAD ./build/zynqmp/debug/bl31/psci_helpers.o
+LOAD ./build/zynqmp/debug/bl31/context.o
+LOAD ./build/zynqmp/debug/bl31/debug.o
+LOAD ./build/zynqmp/debug/bl31/cache_helpers.o
+LOAD ./build/zynqmp/debug/bl31/misc_helpers.o
+LOAD ./build/zynqmp/debug/bl31/platform_helpers.o
+LOAD ./build/zynqmp/debug/bl31/console.o
+LOAD ./build/zynqmp/debug/bl31/arm_helpers.o
+LOAD ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+LOAD ./build/zynqmp/debug/bl31/cdns_console.o
+OUTPUT(build/zynqmp/debug/bl31/bl31.elf elf64-littleaarch64)
+
+.debug_info     0x0000000000000000    0x169e5
+ .debug_info    0x0000000000000000       0x7c ./build/zynqmp/debug/bl31/build_message.o
+ .debug_info    0x000000000000007c      0x431 ./build/zynqmp/debug/bl31/cci.o
+ .debug_info    0x00000000000004ad      0x183 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_info    0x0000000000000630      0x816 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_info    0x0000000000000e46     0x127e ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_info    0x00000000000020c4       0xf7 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_info    0x00000000000021bb      0x6cc ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_info    0x0000000000002887       0x8a ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_info    0x0000000000002911      0x5e6 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_info    0x0000000000002ef7      0x932 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_info    0x0000000000003829      0xfd0 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_info    0x00000000000047f9      0xb9f ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_info    0x0000000000005398      0x94f ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_info    0x0000000000005ce7      0x7d2 ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_info    0x00000000000064b9      0x719 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_info    0x0000000000006bd2      0x98b ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_info    0x000000000000755d      0x608 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_info    0x0000000000007b65      0x6b8 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_info    0x000000000000821d      0x1b8 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .debug_info    0x00000000000083d5     0x10b5 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_info    0x000000000000948a      0x8b1 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_info    0x0000000000009d3b      0xbdf ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_info    0x000000000000a91a      0xd5e ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_info    0x000000000000b678     0x1c82 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_info    0x000000000000d2fa     0x1295 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_info    0x000000000000e58f      0xcc2 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_info    0x000000000000f251      0x547 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_info    0x000000000000f798      0x363 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_info    0x000000000000fafb      0xc28 ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_info    0x0000000000010723      0x2dc ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_info    0x00000000000109ff      0x11e ./build/zynqmp/debug/bl31/assert.o
+ .debug_info    0x0000000000010b1d      0x2fe ./build/zynqmp/debug/bl31/mem.o
+ .debug_info    0x0000000000010e1b       0xde ./build/zynqmp/debug/bl31/putchar.o
+ .debug_info    0x0000000000010ef9      0x71c ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_info    0x0000000000011615      0x855 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_info    0x0000000000011e6a      0x286 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_info    0x00000000000120f0      0x23a ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_info    0x000000000001232a      0xf0d ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_info    0x0000000000013237      0xc80 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_info    0x0000000000013eb7      0xa4a ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_info    0x0000000000014901      0x20b ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_info    0x0000000000014b0c      0x41b ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_info    0x0000000000014f27      0x273 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_info    0x000000000001519a      0x2d3 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_info    0x000000000001546d      0x2e9 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_info    0x0000000000015756      0x6fc ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .debug_info    0x0000000000015e52       0x99 ./build/zynqmp/debug/bl31/aem_generic.o
+ .debug_info    0x0000000000015eeb       0x98 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .debug_info    0x0000000000015f83       0xa2 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .debug_info    0x0000000000016025       0x99 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .debug_info    0x00000000000160be       0x9c ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .debug_info    0x000000000001615a       0x99 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .debug_info    0x00000000000161f3       0x9d ./build/zynqmp/debug/bl31/cpu_data.o
+ .debug_info    0x0000000000016290       0x99 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .debug_info    0x0000000000016329       0xa1 ./build/zynqmp/debug/bl31/spinlock.o
+ .debug_info    0x00000000000163ca       0x9a ./build/zynqmp/debug/bl31/psci_helpers.o
+ .debug_info    0x0000000000016464       0x9c ./build/zynqmp/debug/bl31/context.o
+ .debug_info    0x0000000000016500       0x91 ./build/zynqmp/debug/bl31/debug.o
+ .debug_info    0x0000000000016591       0x96 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .debug_info    0x0000000000016627       0x95 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .debug_info    0x00000000000166bc       0xa1 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .debug_info    0x000000000001675d       0x9c ./build/zynqmp/debug/bl31/console.o
+ .debug_info    0x00000000000167f9       0xa0 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .debug_info    0x0000000000016899       0xa6 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .debug_info    0x000000000001693f       0xa6 ./build/zynqmp/debug/bl31/cdns_console.o
+
+.debug_abbrev   0x0000000000000000     0x5959
+ .debug_abbrev  0x0000000000000000       0x43 ./build/zynqmp/debug/bl31/build_message.o
+ .debug_abbrev  0x0000000000000043      0x19d ./build/zynqmp/debug/bl31/cci.o
+ .debug_abbrev  0x00000000000001e0       0xe6 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_abbrev  0x00000000000002c6      0x224 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_abbrev  0x00000000000004ea      0x3b7 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_abbrev  0x00000000000008a1       0x8d ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_abbrev  0x000000000000092e      0x1ac ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_abbrev  0x0000000000000ada       0x6a ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_abbrev  0x0000000000000b44      0x1bd ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_abbrev  0x0000000000000d01      0x210 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_abbrev  0x0000000000000f11      0x192 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_abbrev  0x00000000000010a3      0x34d ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_abbrev  0x00000000000013f0      0x2dc ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_abbrev  0x00000000000016cc      0x2af ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_abbrev  0x000000000000197b      0x1ec ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_abbrev  0x0000000000001b67      0x287 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_abbrev  0x0000000000001dee      0x21f ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_abbrev  0x000000000000200d      0x205 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_abbrev  0x0000000000002212       0xb1 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .debug_abbrev  0x00000000000022c3      0x358 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_abbrev  0x000000000000261b      0x283 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_abbrev  0x000000000000289e      0x2af ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_abbrev  0x0000000000002b4d      0x2ff ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_abbrev  0x0000000000002e4c      0x432 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_abbrev  0x000000000000327e      0x3a8 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_abbrev  0x0000000000003626      0x304 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_abbrev  0x000000000000392a      0x11b ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_abbrev  0x0000000000003a45      0x1bb ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_abbrev  0x0000000000003c00      0x2d1 ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_abbrev  0x0000000000003ed1      0x190 ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_abbrev  0x0000000000004061       0x8e ./build/zynqmp/debug/bl31/assert.o
+ .debug_abbrev  0x00000000000040ef       0xea ./build/zynqmp/debug/bl31/mem.o
+ .debug_abbrev  0x00000000000041d9       0x8c ./build/zynqmp/debug/bl31/putchar.o
+ .debug_abbrev  0x0000000000004265      0x292 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_abbrev  0x00000000000044f7      0x1dd ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_abbrev  0x00000000000046d4      0x124 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_abbrev  0x00000000000047f8      0x16b ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_abbrev  0x0000000000004963      0x1ce ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_abbrev  0x0000000000004b31      0x1ff ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_abbrev  0x0000000000004d30      0x23a ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_abbrev  0x0000000000004f6a       0xf5 ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_abbrev  0x000000000000505f      0x18e ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_abbrev  0x00000000000051ed       0xe4 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_abbrev  0x00000000000052d1      0x12b ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_abbrev  0x00000000000053fc      0x11c ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_abbrev  0x0000000000005518      0x2eb ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .debug_abbrev  0x0000000000005803       0x12 ./build/zynqmp/debug/bl31/aem_generic.o
+ .debug_abbrev  0x0000000000005815       0x12 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .debug_abbrev  0x0000000000005827       0x12 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .debug_abbrev  0x0000000000005839       0x12 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .debug_abbrev  0x000000000000584b       0x12 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .debug_abbrev  0x000000000000585d       0x12 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .debug_abbrev  0x000000000000586f       0x12 ./build/zynqmp/debug/bl31/cpu_data.o
+ .debug_abbrev  0x0000000000005881       0x12 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .debug_abbrev  0x0000000000005893       0x12 ./build/zynqmp/debug/bl31/spinlock.o
+ .debug_abbrev  0x00000000000058a5       0x12 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .debug_abbrev  0x00000000000058b7       0x12 ./build/zynqmp/debug/bl31/context.o
+ .debug_abbrev  0x00000000000058c9       0x12 ./build/zynqmp/debug/bl31/debug.o
+ .debug_abbrev  0x00000000000058db       0x12 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .debug_abbrev  0x00000000000058ed       0x12 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .debug_abbrev  0x00000000000058ff       0x12 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .debug_abbrev  0x0000000000005911       0x12 ./build/zynqmp/debug/bl31/console.o
+ .debug_abbrev  0x0000000000005923       0x12 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .debug_abbrev  0x0000000000005935       0x12 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .debug_abbrev  0x0000000000005947       0x12 ./build/zynqmp/debug/bl31/cdns_console.o
+
+.debug_aranges  0x0000000000000000     0x1e50
+ .debug_aranges
+                0x0000000000000000       0x20 ./build/zynqmp/debug/bl31/build_message.o
+ .debug_aranges
+                0x0000000000000020       0x50 ./build/zynqmp/debug/bl31/cci.o
+ .debug_aranges
+                0x0000000000000070       0x30 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_aranges
+                0x00000000000000a0       0x90 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_aranges
+                0x0000000000000130      0x140 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_aranges
+                0x0000000000000270       0x30 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_aranges
+                0x00000000000002a0       0x30 ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_aranges
+                0x00000000000002d0       0x30 ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_aranges
+                0x0000000000000300       0x40 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_aranges
+                0x0000000000000340       0x50 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_aranges
+                0x0000000000000390      0x190 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_aranges
+                0x0000000000000520       0x70 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_aranges
+                0x0000000000000590       0x70 ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_aranges
+                0x0000000000000600       0x90 ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_aranges
+                0x0000000000000690       0x90 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_aranges
+                0x0000000000000720       0x90 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_aranges
+                0x00000000000007b0       0x40 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_aranges
+                0x00000000000007f0       0x40 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_aranges
+                0x0000000000000830       0x20 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .debug_aranges
+                0x0000000000000850       0xf0 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_aranges
+                0x0000000000000940       0x30 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_aranges
+                0x0000000000000970       0x40 ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_aranges
+                0x00000000000009b0       0x40 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_aranges
+                0x00000000000009f0      0x160 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_aranges
+                0x0000000000000b50       0xe0 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_aranges
+                0x0000000000000c30       0x50 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_aranges
+                0x0000000000000c80       0x40 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_aranges
+                0x0000000000000cc0       0x40 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_aranges
+                0x0000000000000d00       0x90 ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_aranges
+                0x0000000000000d90       0x40 ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_aranges
+                0x0000000000000dd0       0x30 ./build/zynqmp/debug/bl31/assert.o
+ .debug_aranges
+                0x0000000000000e00       0x70 ./build/zynqmp/debug/bl31/mem.o
+ .debug_aranges
+                0x0000000000000e70       0x30 ./build/zynqmp/debug/bl31/putchar.o
+ .debug_aranges
+                0x0000000000000ea0       0x70 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_aranges
+                0x0000000000000f10       0x50 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_aranges
+                0x0000000000000f60       0x50 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_aranges
+                0x0000000000000fb0       0x50 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_aranges
+                0x0000000000001000      0x200 ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_aranges
+                0x0000000000001200       0xd0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_aranges
+                0x00000000000012d0       0xd0 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_aranges
+                0x00000000000013a0       0x50 ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_aranges
+                0x00000000000013f0       0x70 ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_aranges
+                0x0000000000001460       0x70 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_aranges
+                0x00000000000014d0       0x80 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_aranges
+                0x0000000000001550       0x70 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_aranges
+                0x00000000000015c0       0x80 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .debug_aranges
+                0x0000000000001640       0x50 ./build/zynqmp/debug/bl31/aem_generic.o
+ .debug_aranges
+                0x0000000000001690       0xa0 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .debug_aranges
+                0x0000000000001730       0x60 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .debug_aranges
+                0x0000000000001790       0x40 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .debug_aranges
+                0x00000000000017d0       0x40 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .debug_aranges
+                0x0000000000001810       0xa0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .debug_aranges
+                0x00000000000018b0       0x40 ./build/zynqmp/debug/bl31/cpu_data.o
+ .debug_aranges
+                0x00000000000018f0       0x80 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .debug_aranges
+                0x0000000000001970       0x40 ./build/zynqmp/debug/bl31/spinlock.o
+ .debug_aranges
+                0x00000000000019b0       0x60 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .debug_aranges
+                0x0000000000001a10       0x80 ./build/zynqmp/debug/bl31/context.o
+ .debug_aranges
+                0x0000000000001a90       0x60 ./build/zynqmp/debug/bl31/debug.o
+ .debug_aranges
+                0x0000000000001af0       0xb0 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .debug_aranges
+                0x0000000000001ba0       0xa0 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .debug_aranges
+                0x0000000000001c40       0xb0 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .debug_aranges
+                0x0000000000001cf0       0x60 ./build/zynqmp/debug/bl31/console.o
+ .debug_aranges
+                0x0000000000001d50       0x70 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .debug_aranges
+                0x0000000000001dc0       0x40 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .debug_aranges
+                0x0000000000001e00       0x50 ./build/zynqmp/debug/bl31/cdns_console.o
+
+.debug_line     0x0000000000000000     0x6d92
+ .debug_line    0x0000000000000000       0x28 ./build/zynqmp/debug/bl31/build_message.o
+ .debug_line    0x0000000000000028      0x19e ./build/zynqmp/debug/bl31/cci.o
+ .debug_line    0x00000000000001c6       0xfb ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_line    0x00000000000002c1      0x29b ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_line    0x000000000000055c      0x529 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_line    0x0000000000000a85       0xc7 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_line    0x0000000000000b4c      0x1a3 ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_line    0x0000000000000cef       0x57 ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_line    0x0000000000000d46      0x172 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_line    0x0000000000000eb8      0x221 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_line    0x00000000000010d9      0x33f ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_line    0x0000000000001418      0x28d ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_line    0x00000000000016a5      0x263 ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_line    0x0000000000001908      0x28d ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_line    0x0000000000001b95      0x241 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_line    0x0000000000001dd6      0x27c ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_line    0x0000000000002052      0x1b4 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_line    0x0000000000002206      0x199 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_line    0x000000000000239f       0xd8 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .debug_line    0x0000000000002477      0x393 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_line    0x000000000000280a      0x1b7 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_line    0x00000000000029c1      0x245 ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_line    0x0000000000002c06      0x24c ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_line    0x0000000000002e52      0x616 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_line    0x0000000000003468      0x386 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_line    0x00000000000037ee      0x2c8 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_line    0x0000000000003ab6      0x129 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_line    0x0000000000003bdf      0x1c0 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_line    0x0000000000003d9f      0x29e ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_line    0x000000000000403d      0x20a ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_line    0x0000000000004247       0x66 ./build/zynqmp/debug/bl31/assert.o
+ .debug_line    0x00000000000042ad       0xfa ./build/zynqmp/debug/bl31/mem.o
+ .debug_line    0x00000000000043a7       0x69 ./build/zynqmp/debug/bl31/putchar.o
+ .debug_line    0x0000000000004410      0x272 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_line    0x0000000000004682      0x27d ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_line    0x00000000000048ff      0x152 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_line    0x0000000000004a51      0x157 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_line    0x0000000000004ba8      0x3bc ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_line    0x0000000000004f64      0x3b1 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_line    0x0000000000005315      0x2de ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_line    0x00000000000055f3      0x11b ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_line    0x000000000000570e      0x16f ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_line    0x000000000000587d      0x112 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_line    0x000000000000598f      0x159 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_line    0x0000000000005ae8      0x180 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_line    0x0000000000005c68      0x25b ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .debug_line    0x0000000000005ec3       0x84 ./build/zynqmp/debug/bl31/aem_generic.o
+ .debug_line    0x0000000000005f47      0x10d ./build/zynqmp/debug/bl31/cortex_a53.o
+ .debug_line    0x0000000000006054       0xa3 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .debug_line    0x00000000000060f7       0x82 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .debug_line    0x0000000000006179       0xc8 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .debug_line    0x0000000000006241      0x15a ./build/zynqmp/debug/bl31/crash_reporting.o
+ .debug_line    0x000000000000639b       0x70 ./build/zynqmp/debug/bl31/cpu_data.o
+ .debug_line    0x000000000000640b       0xe6 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .debug_line    0x00000000000064f1       0x75 ./build/zynqmp/debug/bl31/spinlock.o
+ .debug_line    0x0000000000006566       0xb3 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .debug_line    0x0000000000006619      0x13f ./build/zynqmp/debug/bl31/context.o
+ .debug_line    0x0000000000006758       0xb6 ./build/zynqmp/debug/bl31/debug.o
+ .debug_line    0x000000000000680e      0x113 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .debug_line    0x0000000000006921      0x104 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .debug_line    0x0000000000006a25      0x102 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .debug_line    0x0000000000006b27       0x9c ./build/zynqmp/debug/bl31/console.o
+ .debug_line    0x0000000000006bc3       0xb0 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .debug_line    0x0000000000006c73       0x7d ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .debug_line    0x0000000000006cf0       0xa2 ./build/zynqmp/debug/bl31/cdns_console.o
+
+.debug_str      0x0000000000000000     0x3d0d
+ .debug_str     0x0000000000000000      0x123 ./build/zynqmp/debug/bl31/build_message.o
+                                        0x128 (size before relaxing)
+ .debug_str     0x0000000000000123      0x14e ./build/zynqmp/debug/bl31/cci.o
+                                        0x2be (size before relaxing)
+ .debug_str     0x0000000000000271       0x67 ./build/zynqmp/debug/bl31/plat_psci_common.o
+                                        0x1ff (size before relaxing)
+ .debug_str     0x00000000000002d8      0x486 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+                                        0x6d5 (size before relaxing)
+ .debug_str     0x000000000000075e      0x7dd ./build/zynqmp/debug/bl31/plat_psci.o
+                                        0xb75 (size before relaxing)
+ .debug_str     0x0000000000000f3b       0x38 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+                                        0x20a (size before relaxing)
+ .debug_str     0x0000000000000f73      0x11a ./build/zynqmp/debug/bl31/plat_startup.o
+                                        0x439 (size before relaxing)
+ .debug_str     0x000000000000108d       0x5f ./build/zynqmp/debug/bl31/plat_topology.o
+                                        0x173 (size before relaxing)
+ .debug_str     0x00000000000010ec      0x35f ./build/zynqmp/debug/bl31/sip_svc_setup.o
+                                        0x5a2 (size before relaxing)
+ .debug_str     0x000000000000144b      0x323 ./build/zynqmp/debug/bl31/pm_svc_main.o
+                                        0x7a5 (size before relaxing)
+ .debug_str     0x000000000000176e      0x1ab ./build/zynqmp/debug/bl31/pm_api_sys.o
+                                        0xb7c (size before relaxing)
+ .debug_str     0x0000000000001919      0x108 ./build/zynqmp/debug/bl31/pm_ipi.o
+                                        0x7ab (size before relaxing)
+ .debug_str     0x0000000000001a21       0xd5 ./build/zynqmp/debug/bl31/pm_client.o
+                                        0x6d9 (size before relaxing)
+ .debug_str     0x0000000000001af6      0x187 ./build/zynqmp/debug/bl31/bl31_main.o
+                                        0x4ed (size before relaxing)
+ .debug_str     0x0000000000001c7d      0x162 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+                                        0x388 (size before relaxing)
+ .debug_str     0x0000000000001ddf      0x192 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+                                        0x4ce (size before relaxing)
+ .debug_str     0x0000000000001f71       0x9b ./build/zynqmp/debug/bl31/runtime_svc.o
+                                        0x3e4 (size before relaxing)
+ .debug_str     0x000000000000200c       0x86 ./build/zynqmp/debug/bl31/std_svc_setup.o
+                                        0x492 (size before relaxing)
+ .debug_str     0x0000000000002092       0x2d ./build/zynqmp/debug/bl31/cpu_data_array.o
+                                        0x2c6 (size before relaxing)
+ .debug_str     0x00000000000020bf      0x195 ./build/zynqmp/debug/bl31/context_mgmt.o
+                                        0x628 (size before relaxing)
+ .debug_str     0x0000000000002254      0x1df ./build/zynqmp/debug/bl31/psci_off.o
+                                        0x658 (size before relaxing)
+ .debug_str     0x0000000000002433       0xeb ./build/zynqmp/debug/bl31/psci_on.o
+                                        0x7b0 (size before relaxing)
+ .debug_str     0x000000000000251e      0x121 ./build/zynqmp/debug/bl31/psci_suspend.o
+                                        0x850 (size before relaxing)
+ .debug_str     0x000000000000263f      0x3be ./build/zynqmp/debug/bl31/psci_common.o
+                                        0xc6f (size before relaxing)
+ .debug_str     0x00000000000029fd      0x171 ./build/zynqmp/debug/bl31/psci_main.o
+                                        0x93f (size before relaxing)
+ .debug_str     0x0000000000002b6e      0x12e ./build/zynqmp/debug/bl31/psci_setup.o
+                                        0x948 (size before relaxing)
+ .debug_str     0x0000000000002c9c       0x1b ./build/zynqmp/debug/bl31/psci_system_off.o
+                                        0x498 (size before relaxing)
+ .debug_str     0x0000000000002cb7       0x70 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+                                        0x273 (size before relaxing)
+ .debug_str     0x0000000000002d27      0x1ca ./build/zynqmp/debug/bl31/bl_common.o
+                                        0x52e (size before relaxing)
+ .debug_str     0x0000000000002ef1       0xa1 ./build/zynqmp/debug/bl31/tf_printf.o
+                                        0x26c (size before relaxing)
+ .debug_str     0x0000000000002f92       0x2c ./build/zynqmp/debug/bl31/assert.o
+                                        0x1bb (size before relaxing)
+ .debug_str     0x0000000000002fbe       0x27 ./build/zynqmp/debug/bl31/mem.o
+                                        0x1cd (size before relaxing)
+ .debug_str     0x0000000000002fe5       0x22 ./build/zynqmp/debug/bl31/putchar.o
+                                        0x1a1 (size before relaxing)
+ .debug_str     0x0000000000003007      0x1d7 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+                                        0x41d (size before relaxing)
+ .debug_str     0x00000000000031de      0x143 ./build/zynqmp/debug/bl31/xlat_tables.o
+                                        0x37d (size before relaxing)
+ .debug_str     0x0000000000003321       0x7d ./build/zynqmp/debug/bl31/delay_timer.o
+                                        0x239 (size before relaxing)
+ .debug_str     0x000000000000339e       0x71 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+                                        0x26d (size before relaxing)
+ .debug_str     0x000000000000340f      0x23f ./build/zynqmp/debug/bl31/gic_common.o
+                                        0x45f (size before relaxing)
+ .debug_str     0x000000000000364e      0x25c ./build/zynqmp/debug/bl31/gicv2_main.o
+                                        0x4af (size before relaxing)
+ .debug_str     0x00000000000038aa       0xfc ./build/zynqmp/debug/bl31/gicv2_helpers.o
+                                        0x414 (size before relaxing)
+ .debug_str     0x00000000000039a6       0x1a ./build/zynqmp/debug/bl31/arm_cci.o
+                                        0x277 (size before relaxing)
+ .debug_str     0x00000000000039c0       0xa7 ./build/zynqmp/debug/bl31/arm_common.o
+                                        0x3ce (size before relaxing)
+ .debug_str     0x0000000000003a67       0x75 ./build/zynqmp/debug/bl31/arm_gicv2.o
+                                        0x30f (size before relaxing)
+ .debug_str     0x0000000000003adc       0x8e ./build/zynqmp/debug/bl31/plat_gicv2.o
+                                        0x31e (size before relaxing)
+ .debug_str     0x0000000000003b6a       0x89 ./build/zynqmp/debug/bl31/plat_common.o
+                                        0x2b1 (size before relaxing)
+ .debug_str     0x0000000000003bf3      0x11a ./build/zynqmp/debug/bl31/zynqmp_common.o
+                                        0x435 (size before relaxing)
+
+.comment        0x0000000000000000       0x2f
+ .comment       0x0000000000000000       0x2f ./build/zynqmp/debug/bl31/build_message.o
+                                         0x30 (size before relaxing)
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/cci.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_psci.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_startup.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_topology.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/pm_client.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/bl31_main.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/cpu_data_array.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_off.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_on.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_main.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_setup.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/bl_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/tf_printf.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/assert.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/mem.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/putchar.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/delay_timer.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/gic_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/arm_cci.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/arm_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/plat_common.o
+ .comment       0x000000000000002f       0x30 ./build/zynqmp/debug/bl31/zynqmp_common.o
+
+.debug_loc      0x0000000000000000    0x13474
+ .debug_loc     0x0000000000000000      0x4e2 ./build/zynqmp/debug/bl31/cci.o
+ .debug_loc     0x00000000000004e2      0x16f ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_loc     0x0000000000000651      0x32b ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_loc     0x000000000000097c      0xc58 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_loc     0x00000000000015d4       0x62 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_loc     0x0000000000001636      0x45e ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_loc     0x0000000000001a94      0x479 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_loc     0x0000000000001f0d     0x2043 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_loc     0x0000000000003f50     0x15b5 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_loc     0x0000000000005505      0x8b8 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_loc     0x0000000000005dbd      0x559 ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_loc     0x0000000000006316      0x107 ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_loc     0x000000000000641d      0x9b1 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_loc     0x0000000000006dce      0x7a3 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_loc     0x0000000000007571      0x543 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_loc     0x0000000000007ab4      0x4c2 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_loc     0x0000000000007f76      0xccc ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_loc     0x0000000000008c42      0x1f3 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_loc     0x0000000000008e35      0x261 ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_loc     0x0000000000009096      0x421 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_loc     0x00000000000094b7     0x1570 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_loc     0x000000000000aa27     0x1063 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_loc     0x000000000000ba8a      0x59c ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_loc     0x000000000000c026      0x28b ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_loc     0x000000000000c2b1      0xdde ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_loc     0x000000000000d08f      0x333 ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_loc     0x000000000000d3c2       0xf7 ./build/zynqmp/debug/bl31/assert.o
+ .debug_loc     0x000000000000d4b9      0x797 ./build/zynqmp/debug/bl31/mem.o
+ .debug_loc     0x000000000000dc50       0x6f ./build/zynqmp/debug/bl31/putchar.o
+ .debug_loc     0x000000000000dcbf      0xf04 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_loc     0x000000000000ebc3      0x3d7 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_loc     0x000000000000ef9a      0x165 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_loc     0x000000000000f0ff      0x147 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_loc     0x000000000000f246     0x2482 ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_loc     0x00000000000116c8      0x503 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_loc     0x0000000000011bcb      0xfff ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_loc     0x0000000000012bca       0x46 ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_loc     0x0000000000012c10      0x2fa ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_loc     0x0000000000012f0a      0x1b2 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_loc     0x00000000000130bc      0x117 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_loc     0x00000000000131d3      0x2a1 ./build/zynqmp/debug/bl31/zynqmp_common.o
+
+.debug_ranges   0x0000000000000000     0x2920
+ .debug_ranges  0x0000000000000000       0x80 ./build/zynqmp/debug/bl31/cci.o
+ .debug_ranges  0x0000000000000080       0x20 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_ranges  0x00000000000000a0       0x80 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_ranges  0x0000000000000120      0x430 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_ranges  0x0000000000000550       0x20 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_ranges  0x0000000000000570       0xe0 ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_ranges  0x0000000000000650       0x20 ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_ranges  0x0000000000000670       0x30 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_ranges  0x00000000000006a0       0x70 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_ranges  0x0000000000000710      0x180 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_ranges  0x0000000000000890      0x100 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_ranges  0x0000000000000990      0x220 ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_ranges  0x0000000000000bb0       0x80 ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_ranges  0x0000000000000c30      0x110 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_ranges  0x0000000000000d40       0x80 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_ranges  0x0000000000000dc0       0xa0 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_ranges  0x0000000000000e60       0x30 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_ranges  0x0000000000000e90      0x150 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_ranges  0x0000000000000fe0       0x60 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_ranges  0x0000000000001040       0x30 ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_ranges  0x0000000000001070       0x30 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_ranges  0x00000000000010a0      0x240 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_ranges  0x00000000000012e0       0xd0 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_ranges  0x00000000000013b0      0x110 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_ranges  0x00000000000014c0       0x30 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_ranges  0x00000000000014f0       0x60 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_ranges  0x0000000000001550       0xb0 ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_ranges  0x0000000000001600       0x30 ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_ranges  0x0000000000001630       0x20 ./build/zynqmp/debug/bl31/assert.o
+ .debug_ranges  0x0000000000001650       0x60 ./build/zynqmp/debug/bl31/mem.o
+ .debug_ranges  0x00000000000016b0       0x20 ./build/zynqmp/debug/bl31/putchar.o
+ .debug_ranges  0x00000000000016d0      0x160 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_ranges  0x0000000000001830       0x40 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_ranges  0x0000000000001870       0x40 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_ranges  0x00000000000018b0       0x40 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_ranges  0x00000000000018f0      0x220 ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_ranges  0x0000000000001b10       0xc0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_ranges  0x0000000000001bd0      0x150 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_ranges  0x0000000000001d20       0x40 ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_ranges  0x0000000000001d60       0x60 ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_ranges  0x0000000000001dc0       0x60 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_ranges  0x0000000000001e20       0x70 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_ranges  0x0000000000001e90       0x60 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_ranges  0x0000000000001ef0      0x220 ./build/zynqmp/debug/bl31/zynqmp_common.o
+ .debug_ranges  0x0000000000002110       0x50 ./build/zynqmp/debug/bl31/aem_generic.o
+ .debug_ranges  0x0000000000002160       0xa0 ./build/zynqmp/debug/bl31/cortex_a53.o
+ .debug_ranges  0x0000000000002200       0x60 ./build/zynqmp/debug/bl31/platform_mp_stack.o
+ .debug_ranges  0x0000000000002260       0x40 ./build/zynqmp/debug/bl31/bl31_entrypoint.o
+ .debug_ranges  0x00000000000022a0       0x40 ./build/zynqmp/debug/bl31/runtime_exceptions.o
+ .debug_ranges  0x00000000000022e0       0xa0 ./build/zynqmp/debug/bl31/crash_reporting.o
+ .debug_ranges  0x0000000000002380       0x40 ./build/zynqmp/debug/bl31/cpu_data.o
+ .debug_ranges  0x00000000000023c0       0x80 ./build/zynqmp/debug/bl31/cpu_helpers.o
+ .debug_ranges  0x0000000000002440       0x40 ./build/zynqmp/debug/bl31/spinlock.o
+ .debug_ranges  0x0000000000002480       0x60 ./build/zynqmp/debug/bl31/psci_helpers.o
+ .debug_ranges  0x00000000000024e0       0x80 ./build/zynqmp/debug/bl31/context.o
+ .debug_ranges  0x0000000000002560       0x60 ./build/zynqmp/debug/bl31/debug.o
+ .debug_ranges  0x00000000000025c0       0xb0 ./build/zynqmp/debug/bl31/cache_helpers.o
+ .debug_ranges  0x0000000000002670       0xa0 ./build/zynqmp/debug/bl31/misc_helpers.o
+ .debug_ranges  0x0000000000002710       0xb0 ./build/zynqmp/debug/bl31/platform_helpers.o
+ .debug_ranges  0x00000000000027c0       0x60 ./build/zynqmp/debug/bl31/console.o
+ .debug_ranges  0x0000000000002820       0x70 ./build/zynqmp/debug/bl31/arm_helpers.o
+ .debug_ranges  0x0000000000002890       0x40 ./build/zynqmp/debug/bl31/zynqmp_helpers.o
+ .debug_ranges  0x00000000000028d0       0x50 ./build/zynqmp/debug/bl31/cdns_console.o
+
+.debug_frame    0x0000000000000000     0x2b88
+ .debug_frame   0x0000000000000000       0x88 ./build/zynqmp/debug/bl31/cci.o
+ .debug_frame   0x0000000000000088       0x38 ./build/zynqmp/debug/bl31/plat_psci_common.o
+ .debug_frame   0x00000000000000c0      0x138 ./build/zynqmp/debug/bl31/bl31_zynqmp_setup.o
+ .debug_frame   0x00000000000001f8      0x2e8 ./build/zynqmp/debug/bl31/plat_psci.o
+ .debug_frame   0x00000000000004e0       0x28 ./build/zynqmp/debug/bl31/plat_zynqmp.o
+ .debug_frame   0x0000000000000508       0x58 ./build/zynqmp/debug/bl31/plat_startup.o
+ .debug_frame   0x0000000000000560       0x28 ./build/zynqmp/debug/bl31/plat_topology.o
+ .debug_frame   0x0000000000000588       0x68 ./build/zynqmp/debug/bl31/sip_svc_setup.o
+ .debug_frame   0x00000000000005f0       0xa0 ./build/zynqmp/debug/bl31/pm_svc_main.o
+ .debug_frame   0x0000000000000690      0x3c0 ./build/zynqmp/debug/bl31/pm_api_sys.o
+ .debug_frame   0x0000000000000a50      0x108 ./build/zynqmp/debug/bl31/pm_ipi.o
+ .debug_frame   0x0000000000000b58       0xe8 ./build/zynqmp/debug/bl31/pm_client.o
+ .debug_frame   0x0000000000000c40      0x108 ./build/zynqmp/debug/bl31/bl31_main.o
+ .debug_frame   0x0000000000000d48      0x180 ./build/zynqmp/debug/bl31/interrupt_mgmt.o
+ .debug_frame   0x0000000000000ec8      0x150 ./build/zynqmp/debug/bl31/bl31_context_mgmt.o
+ .debug_frame   0x0000000000001018       0x80 ./build/zynqmp/debug/bl31/runtime_svc.o
+ .debug_frame   0x0000000000001098       0x68 ./build/zynqmp/debug/bl31/std_svc_setup.o
+ .debug_frame   0x0000000000001100      0x248 ./build/zynqmp/debug/bl31/context_mgmt.o
+ .debug_frame   0x0000000000001348       0x48 ./build/zynqmp/debug/bl31/psci_off.o
+ .debug_frame   0x0000000000001390       0x88 ./build/zynqmp/debug/bl31/psci_on.o
+ .debug_frame   0x0000000000001418       0x88 ./build/zynqmp/debug/bl31/psci_suspend.o
+ .debug_frame   0x00000000000014a0      0x398 ./build/zynqmp/debug/bl31/psci_common.o
+ .debug_frame   0x0000000000001838      0x220 ./build/zynqmp/debug/bl31/psci_main.o
+ .debug_frame   0x0000000000001a58       0xb0 ./build/zynqmp/debug/bl31/psci_setup.o
+ .debug_frame   0x0000000000001b08       0x60 ./build/zynqmp/debug/bl31/psci_system_off.o
+ .debug_frame   0x0000000000001b68       0x70 ./build/zynqmp/debug/bl31/bakery_lock_coherent.o
+ .debug_frame   0x0000000000001bd8      0x130 ./build/zynqmp/debug/bl31/bl_common.o
+ .debug_frame   0x0000000000001d08       0x78 ./build/zynqmp/debug/bl31/tf_printf.o
+ .debug_frame   0x0000000000001d80       0x38 ./build/zynqmp/debug/bl31/assert.o
+ .debug_frame   0x0000000000001db8       0x88 ./build/zynqmp/debug/bl31/mem.o
+ .debug_frame   0x0000000000001e40       0x40 ./build/zynqmp/debug/bl31/putchar.o
+ .debug_frame   0x0000000000001e80      0x118 ./build/zynqmp/debug/bl31/xlat_tables_common.o
+ .debug_frame   0x0000000000001f98       0x88 ./build/zynqmp/debug/bl31/xlat_tables.o
+ .debug_frame   0x0000000000002020       0x88 ./build/zynqmp/debug/bl31/delay_timer.o
+ .debug_frame   0x00000000000020a8       0x70 ./build/zynqmp/debug/bl31/generic_delay_timer.o
+ .debug_frame   0x0000000000002118      0x310 ./build/zynqmp/debug/bl31/gic_common.o
+ .debug_frame   0x0000000000002428      0x1d0 ./build/zynqmp/debug/bl31/gicv2_main.o
+ .debug_frame   0x00000000000025f8      0x188 ./build/zynqmp/debug/bl31/gicv2_helpers.o
+ .debug_frame   0x0000000000002780       0x58 ./build/zynqmp/debug/bl31/arm_cci.o
+ .debug_frame   0x00000000000027d8       0xb0 ./build/zynqmp/debug/bl31/arm_common.o
+ .debug_frame   0x0000000000002888       0x98 ./build/zynqmp/debug/bl31/arm_gicv2.o
+ .debug_frame   0x0000000000002920       0xe0 ./build/zynqmp/debug/bl31/plat_gicv2.o
+ .debug_frame   0x0000000000002a00       0xa8 ./build/zynqmp/debug/bl31/plat_common.o
+ .debug_frame   0x0000000000002aa8       0xe0 ./build/zynqmp/debug/bl31/zynqmp_common.o

@@ -1353,7 +1353,8 @@ int test_provision(){
 	for(i=0; i<6; i++){
 		((char*)test_start.pin)[i] = '0';
 	}
-	memset(test_start.encryption_key, 0, 16);
+	memset(test_start.encryption_key, 0xFF, 8);
+	memset(test_start.encryption_key + 8, 0, 8);
 	memset(test_iv.iv, 0, 16);
 
 	if(encrypt_storage(&test_start,

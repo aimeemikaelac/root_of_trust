@@ -1,4 +1,5 @@
 from distutils.core import setup, Extension
+import numpy
 
 ext = Extension('fpga',
                 sources=["filesystem_fpga.c",
@@ -6,6 +7,6 @@ ext = Extension('fpga',
                          "aes_basic_uio_driver/xaes_basic_sinit.c",
                          "aes_basic_uio_driver/xaes_basic.c",
                          "user_mmap_driver/user_mmap_driver.c"],
-                include_dirs=['aes_basic_uio_driver', 'user_mmap_driver'])
+                include_dirs=['aes_basic_uio_driver', 'user_mmap_driver', numpy.get_include()])
 
 setup(name='fpga', version='1.0', description='FPGA extensions for AES encrypted FUSE filesystem', ext_modules=[ext])

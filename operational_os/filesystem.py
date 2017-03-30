@@ -118,7 +118,7 @@ class EncryptedFS(Operations):
             self._write_metadata(self.metadata_file)
         else:
             print "{} not in metadata when deleting".format(path)
-        print "Deleting {}".format(path)
+        # print "Deleting {}".format(path)
         return os.unlink(self._full_path(path))
 
     def symlink(self, name, target):
@@ -130,7 +130,7 @@ class EncryptedFS(Operations):
             del self.metadata_dict[old]
         else:
             print "When renaming {} to {}, {} was not in metadata".format(old, new, old)
-        print "Renaming {} to {}".format(old, new)
+        # print "Renaming {} to {}".format(old, new)
         return os.rename(self._full_path(old), self._full_path(new))
 
     def link(self, target, name):
@@ -156,13 +156,13 @@ class EncryptedFS(Operations):
     def create(self, path, mode, fi=None):
         full_path = self._full_path(path)
         self._init_file_metadata(path)
-        print "Creating file {}".format(path)
+        # print "Creating file {}".format(path)
         return os.open(full_path, os.O_WRONLY | os.O_CREAT, mode)
 
     def _decrypt(self, ct, iv_int, offset_int):
         nonce = iv_int + offset_int % 2**64
-        nonce_str = binascii.a2b_hex("{0:016x}".format(nonce))
-        print "nonce:\n{0:016x}\n len of str:{1}".format(nonce, len(nonce_str))
+        nonce_str = binascii.a2b_hex("{0:0{1}x}".format(nonce, 20))
+        # print "nonce:\n{0:016x}\n len of str:{1}".format(nonce, len(nonce_str))
         cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.decrypt(ct)
 
@@ -178,24 +178,32 @@ class EncryptedFS(Operations):
             last_block_start = len(encrypted_file_data) - len(encrypted_file_data) % 16
             encrypted_file_data = encrypted_file_data[0:last_block_start] + last_block
             decrypted_file_data = self._decrypt(encrypted_file_data, iv, 0)
+            # print "Decrypted: {}".format(binascii.hexlify(decrypted_file_data))
             return decrypted_file_data
 
     def read(self, path, length, offset, fh):
         full_path = self._full_path(path)
 
         pt = self._decrypt_file(full_path, path)
-        print "Reading {}".format(path)
+        # print "Reading {}".format(path)
         return pt[offset:offset+length]
 
     def _encrypt(self, pt, iv_int, offset_int):
         nonce = iv_int + offset_int % 2**56
-        nonce_str = binascii.a2b_hex("{0:014x}".format(nonce))
+        nonce_str = "{0:0{1}x}".format(nonce, 20)
+        # print "Nonce str: {}".format(nonce_str)
+        nonce_str = binascii.a2b_hex(nonce_str)
         cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         return cipher.encrypt(pt)
 
     def write(self, path, buf, offset, fh):
         full_path = self._full_path(path)
         file_length = os.path.getsize(full_path)
+        # new_file_length = offset + len(buf)
+        # print "Old file len: {}".format(file_length)
+        # print "New file len: {}".format(new_file_length)
+        # print "Pt: {}".format(binascii.hexlify(buf))
+
         block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, len(buf))
         file_pt = self._decrypt_file(full_path, path)
         starting_padding = len(file_pt) - file_length
@@ -226,7 +234,9 @@ class EncryptedFS(Operations):
                     padding_added = padding_added + 1
         file_pt = ''.join(file_pt_list)
         iv = self.metadata_dict[path]["iv"]
+        # print "pt before encrypt: {}".format(binascii.hexlify(file_pt))
         file_ct = self._encrypt(file_pt, iv, 0)
+        # print "ct: {}".format(binascii.hexlify(file_ct))
 
         last_block = ''
         last_block_start = len(file_ct) - 16
@@ -241,14 +251,16 @@ class EncryptedFS(Operations):
 
         if padding_added > 0:
             str_to_write = file_ct[0:(len(file_ct) - padding_added)]
-            print "Updating file, padding added: {}".format(path)
+            # print "Updating file, padding added: {}".format(path)
+            # print "writing: {}".format(binascii.hexlify(str_to_write))
             with open(full_path, 'w') as backing_file:
                 backing_file.write(str_to_write)
             return len(buf)
         else:
             padding_remaining = starting_padding - original_padding_overwritten
             str_to_write = file_ct[0:(len(file_ct) - padding_remaining)]
-            print "Updating file, no padding added: {}".format(path)
+            # print "writing: {}".format(binascii.hexlify(str_to_write))
+            # print "Updating file, no padding added: {}".format(path)
             with open(full_path, 'w') as backing_file:
                 backing_file.write(str_to_write)
             return len(buf)
@@ -285,7 +297,7 @@ class EncryptedFS(Operations):
         block_begin = int(math.floor(offset/16) * 16)
         block_end = int((math.floor((offset + length)/16) + 1) * 16)
         block_length = block_end - block_begin
-        data_begin = offset - block_begin
+        data_begin = offset# - block_begin
         # data_end = block_end - (offset + length)
         data_end = data_begin + length
         return block_begin, block_end, block_length, data_begin, data_end

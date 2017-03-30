@@ -96,7 +96,7 @@ def experiment(args, log_file_handle, experiment, data_file, repeat=DATA_REPEAT)
     kill_fs(experiment)
 
     with open(data_file, 'w+') as data_file_handle:
-        data_file_handle.write("Time,Bytes")
+        data_file_handle.write("Time,Bytes\n")
         for i in range(len(data)):
             data_bytes = data[i][0]
             data_time = data[i][1]

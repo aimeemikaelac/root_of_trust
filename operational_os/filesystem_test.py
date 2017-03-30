@@ -23,7 +23,7 @@ def kill_fs(experiment):
 
 
 def cleanup(experiment):
-    experiment_storage = "{}_{}".format(experiment, STORAGE_DIR)
+    experiment_storage = "/tmp/{}_{}".format(experiment, STORAGE_DIR)
     experiment_mount = "{}_{}".format(experiment, MOUNT_DIR)
     experiment_meta = "{}_{}".format(experiment, METADATA_FILE)
     kill_fs(experiment)
@@ -42,7 +42,7 @@ def cleanup(experiment):
 
 
 def init(experiment):
-    experiment_storage = "{}_{}".format(experiment, STORAGE_DIR)
+    experiment_storage = "/tmp/{}_{}".format(experiment, STORAGE_DIR)
     experiment_mount = "{}_{}".format(experiment, MOUNT_DIR)
     experiment_meta = "{}_{}".format(experiment, METADATA_FILE)
     os.mkdir(experiment_mount)
@@ -117,14 +117,14 @@ if __name__ == "__main__":
         python_data_file = "data/python_{}_{}.csv".format(TIMESTAMP, i)
         fpga_data_file = "data/fpga_{}_{}.csv".format(TIMESTAMP, i)
 
-        python_fs_call = "/usr/bin/python filesystem.py --mount_point python_{} --storage_dir python_{} --passphrase test --salt test --metadata_file python_{}".format(
+        python_fs_call = "/usr/bin/python filesystem.py --mount_point python_{} --storage_dir /tmp/python_{} --passphrase test --salt test --metadata_file python_{}".format(
             MOUNT_DIR, STORAGE_DIR, METADATA_FILE)
 
         elapsed_time_python = experiment(python_fs_call, None, "python", python_data_file, repeat=i)
 
         print "Python elapsed time: {}s".format(elapsed_time_python)
 
-        fpga_fs_call = "/usr/bin/python filesystem_fpga_naive.py --mount_point fpga_{} --storage_dir fpga_{} --metadata_file fpga_{}".format(
+        fpga_fs_call = "/usr/bin/python filesystem_fpga_naive.py --mount_point fpga_{} --storage_dir /tmp/fpga_{} --metadata_file fpga_{}".format(
             MOUNT_DIR, STORAGE_DIR, METADATA_FILE)
 
         elapsed_time_fpga = experiment(fpga_fs_call, None, "fpga", fpga_data_file, repeat=i)

@@ -2,7 +2,7 @@
 // #include "xaes_basic.h"
 #include "xaes_basic_hw.h"
 #include "user_mmap_driver.h"
-#include "numpy/arrayobject.h"
+// #include "numpy/arrayobject.h"
 
 #define DEVICE_BASE_ADDRESS 0x00000000a0000000
 #define DEVICE_ADDRESS_WIDTH 0x0000000000010000
@@ -22,8 +22,10 @@ fpga_encrypt(PyObject *self, PyObject *args){
   int i, buffer_index, buffer_length;
   unsigned int word_to_write, ap_done, data_out_valid, current_out_word;
   volatile unsigned int control_register;
-  PyArrayObject* data_to_encrypt;
-  Py_buffer data_to_encrypt_buffer;
+  // PyArrayObject* data_to_encrypt;
+  // Py_buffer data_to_encrypt_buffer;
+	PyObject *array_obj;
+  Py_buffer buffer_obj;
   unsigned char *data_buffer;
   char data_out[16];
   unsigned long int nonce_long;
@@ -31,11 +33,14 @@ fpga_encrypt(PyObject *self, PyObject *args){
   volatile unsigned int *device_memory;
 
   //Parse variables passed from python
-  int parse_result = PyArg_ParseTuple(args, "O!k", &data_to_encrypt, &nonce_long);
-
-  if(parse_result != 1){
+  if(!PyArg_ParseTuple(args, "Ok", &array_obj, &nonce_long)){
     printf("Parsing failed\n");
-    return Py_BuildValue("s#", data_out, 16);
+    return NULL;
+  }
+
+  if(PyObject_GetBuffer(array_obj, &buffer_obj, PyBUF_WRITABLE) < 0){
+    printf("failed to get buffer\n");
+    return NULL;
   }
 
   // if(PyObject_CheckBuffer(data_to_encrypt) == 1){
@@ -53,10 +58,14 @@ fpga_encrypt(PyObject *self, PyObject *args){
 
   //get reference to device registers
   // data_buffer = (unsigned char*)data_to_encrypt_buffer.buf;
-  data_buffer = (unsigned char*)data_to_encrypt->data;
-  buffer_length = data_to_encrypt_buffer.len;
-  shared_memory device_registers =
-      getSharedMemoryArea(DEVICE_BASE_ADDRESS, DEVICE_ADDRESS_WIDTH);
+  // data_buffer = (unsigned char*)data_to_encrypt->data;
+  // PyObject *pyaddr = PyTuple_GetItem(buffer_info, 0);
+  // PyObject *pylen = PyTuple_GetItem(buffer_info, 1);
+  data_buffer = (unsigned char*)buffer_obj.buf;
+  // buffer_length = data_to_encrypt_buffer.len;
+  // buffer_length = (int)PyLong_AsLong(pylen);
+  buffer_length = buffer_obj.len;
+  shared_memory device_registers = getSharedMemoryArea(DEVICE_BASE_ADDRESS, DEVICE_ADDRESS_WIDTH);
   device_memory = (volatile unsigned int*)device_registers->ptr;
 
 	//iterate over length of the input buffer. assume len is a multiple of 16
@@ -123,7 +132,10 @@ fpga_encrypt(PyObject *self, PyObject *args){
   //cleanup memory reference
   cleanupSharedMemoryPointer(device_registers);
 
-  return Py_BuildValue("i", buffer_length);
+  // return Py_BuildValue("i", buffer_length);
+  PyBuffer_Release(&buffer_obj);
+  Py_INCREF(Py_None);
+  return Py_None;
 }
 
 static PyMethodDef FPGAMethods[] = {

@@ -21,7 +21,7 @@ from Cryptodome.Random import random
 
 import fpga
 
-import numpy as np
+# import numpy as np
 
 
 class EncryptedFS(Operations):
@@ -171,28 +171,43 @@ class EncryptedFS(Operations):
     def _decrypt_file(self, full_path, path):
         # encrypted_file_data = np.fromfile(full_path, dtype=np.uint8)
         # encrypted_file_data = ""
+        # encrypted_file_data = array.array('B')
         with open(full_path) as enc_file:
-            encrypted_file_data = enc_file.read()
+            # encrypted_file_data = enc_file.read()
+            file_size = os.path.getsize(full_path)
+            # encrypted_file_data.fromfile(enc_file, file_size)
+            encrypted_file_data = bytearray(enc_file.read())
+            # print type(encrypted_file_data)
             if path in self.metadata_dict:
-                last_block = binascii.unhexlify(
-                    self.metadata_dict[path]["file_last_block"])
+                last_block = bytearray(binascii.unhexlify(
+                    self.metadata_dict[path]["file_last_block"]))
+                # print len(last_block)
+                # last_block = array.array('B')
+                # last_block.fromstring(last_block_str)
                 iv = self.metadata_dict[path]["iv"]
             else:
                 print "Last encrypted block for file {} not in metadata. Unrecoverable error. Exiting.".format(path)
                 sys.exit(-1)
             last_block_start = len(encrypted_file_data) - len(encrypted_file_data) % 16
-            encrypted_file_data = encrypted_file_data[0:last_block_start] + last_block
+            # print len(encrypted_file_data)
+            encrypted_file_data = bytearray(encrypted_file_data[0:last_block_start])
+            # print type(encrypted_file_data)
+            # print len(encrypted_file_data)
+            encrypted_file_data.extend(last_block)
+            # print len(encrypted_file_data)
+            # + last_block
         # last_block_start = encrypted_file_data.size - encrypted_file_data.size % 16
         # encrypted_file_data = encrypted_file_data[0:last_block_start]
         # encrypted_file_data = np.append(
             # encrypted_file_data, [ord(item) for item in list(last_block)])
 
         # encrypted_file_data = np.array(encrypted_file_data, np.uint8)
-            encrypted_file_data_np = np.fromstring(encrypted_file_data, dtype=np.uint8)
-            self._decrypt(encrypted_file_data_np, iv, 0)
+            # encrypted_file_data_np = np.fromstring(encrypted_file_data, dtype=np.uint8)
+            # print type(encrypted_file_data)
+            self._decrypt(encrypted_file_data, iv, 0)
 
         # encrypted_file_data = np.array(encrypted_file_data, np.uint8)
-            return encrypted_file_data_np
+            return encrypted_file_data
 
     def read(self, path, length, offset, fh):
         full_path = self._full_path(path)
@@ -201,7 +216,8 @@ class EncryptedFS(Operations):
         data = pt[offset:offset + length]
         # data_read = ''.join(chr(item)
         #                     for item in (pt[offset:offset + length]).tolist())
-        data_read = data.tobytes()
+        # data_read = data.tobytes()
+        data_read = str(data)
         return data_read
 
     # this will encrypt th pt in-place now
@@ -218,10 +234,11 @@ class EncryptedFS(Operations):
         # print "New file len: {}".format(new_file_length)
         block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(
             offset, len(buf))
-        file_pt_np = self._decrypt_file(full_path, path)
+        file_pt_arr = self._decrypt_file(full_path, path)
         # file_pt = ''.join(chr(item) for item in file_pt_np.tolist())
         # file_pt = file_pt_np.tolist()
-        file_pt = file_pt_np.tobytes()
+        # file_pt = file_pt_np.tobytes()
+        file_pt = file_pt_arr
         starting_padding = len(file_pt) - file_length
         original_padding_start = len(file_pt) - starting_padding
         original_length = file_length
@@ -233,8 +250,8 @@ class EncryptedFS(Operations):
         # the existing file. Do not have to pad between the start of the data
         # that is being placed and the end of the file
         starting_pt_len = len(file_pt)
-        # file_pt_list = file_pt
-        file_pt_list = list(file_pt)
+        file_pt_list = file_pt
+        # file_pt_list = list(file_pt)
         # print "block begin: {}".format(block_begin)
         # print "block end: {}".format(block_end)
         # print "data begin: {}".format(data_begin)
@@ -259,7 +276,7 @@ class EncryptedFS(Operations):
         # else:
         #     file_pt = np.array([ord(item) for item in file_pt_list], dtype=np.uint8)
         # file_pt = np.array([(lambda item: item if type(item) is int else ord(item))(item) for item in file_pt_list], dtype=np.uint8)
-        file_pt = np.fromstring(''.join(file_pt_list), np.uint8)
+        # file_pt = np.fromstring(''.join(file_pt_list), np.uint8)
         # for item in file_pt_list:
         #     try:
         #         ord(item)
@@ -272,13 +289,15 @@ class EncryptedFS(Operations):
         self._encrypt(file_pt, iv, 0)
         file_ct = file_pt
 
-        last_block = np.array([], dtype=np.uint8)
+        # last_block = array.array('B')#np.array([], dtype=np.uint8)
+        last_block = bytearray("")
         last_block_start = len(file_ct) - 16
         for i in range(last_block_start, last_block_start + 16):
-            last_block = np.append(last_block, file_ct[i])
+            # last_block = np.append(last_block, file_ct[i])
+            last_block.append(file_ct[i])
 
         self.metadata_dict[path][
-            "file_last_block"] = binascii.hexlify(last_block.tobytes())
+            "file_last_block"] = binascii.hexlify(last_block)
         self._write_metadata(self.metadata_file)
         # if padding was added, then we only need to subtract that from the
         # length of the string and write the string without padding to the
@@ -292,7 +311,11 @@ class EncryptedFS(Operations):
             # print str_to_write
             # print binascii.hexlify(file_ct[0:(len(file_ct) - padding_added)].tobytes())
             # print binascii.hexlify(file_ct.tobytes())
-            file_ct[0:(len(file_ct) - padding_added)].tofile(full_path)
+            # file_ct[0:(len(file_ct) - padding_added)].tofile(full_path)
+            # print "data: {}".format(binascii.hexlify(file_ct[0:(len(file_ct) - padding_added)]))
+            # print "len: {}".format(len(file_ct[0:(len(file_ct) - padding_added)]))
+            with open(full_path, 'w') as outfile:
+                outfile.write(file_ct[0:(len(file_ct) - padding_added)])
             # print "Updating file, padding added: {}".format(path)
             # with open(full_path, 'w') as backing_file:
             #     backing_file.write(str_to_write)
@@ -305,8 +328,10 @@ class EncryptedFS(Operations):
             # str_to_write = ''.join(chr(item) for item in (
             #     file_ct[0:(len(file_ct) - padding_remaining)]).tolist())
             # print binascii.hexlify(file_ct[0:(len(file_ct) - padding_remaining)].tobytes())
-            # print binascii.hexlify(file_ct.tobytes())
-            file_ct[0:(len(file_ct) - padding_remaining)].tofile(full_path)
+            # print "data: {}".format(binascii.hexlify(file_ct[0:(len(file_ct) - padding_remaining)]))
+            # file_ct[0:(len(file_ct) - padding_remaining)].tofile(full_path)
+            with open(full_path, 'w') as outfile:
+                outfile.write(file_ct[0:(len(file_ct) - padding_remaining)])
             # print "Updating file, no padding added: {}".format(path)
             # with open(full_path, 'w') as backing_file:
             #     backing_file.write(str_to_write)

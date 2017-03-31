@@ -6,9 +6,10 @@ import shutil
 import time
 import datetime
 import numpy
+import sys
 
 
-ITERATIONS = 100
+ITERATIONS = 25
 DATA_MAX = 512*1024*1024
 STORAGE_DIR = "/tmp/test_storage/"
 MOUNT_DIR = "test_mount/"
@@ -57,15 +58,15 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
 
     arg_tokens = shlex.split(args)
     process = subprocess.Popen(
-        arg_tokens, stdout=log_file_handle, stderr=log_file_handle)
+        arg_tokens)#, stdout=log_file_handle, stderr=log_file_handle)
 
     test_file = "{}test.txt".format(MOUNT_DIR)
 
-    print "Waiting",
+    # print "Waiting",
     for i in range(2):
         time.sleep(1)
-        print ".",
-    print ""
+        # print ".",
+    # print ""
 
     file_data = []
     # file_names = []
@@ -83,9 +84,11 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
     times = numpy.array([])
 
     start_time = time.time()
-    print "\nCurrent iteration in experiment {}, data size {}:".format(experiment, data_size),
+    print "\nIn experiment {}, data size {}\n".format(experiment, data_size),
     for i in range(ITERATIONS):
-        print "{} ".format(i),
+        print ".",
+        sys.stdout.write(".")
+        sys.stdout.flush()
         current_file_start = time.time()
         # current_call = "echo {2} >> {1}test{0}.txt".format(i, MOUNT_DIR, data)
         # current_call_args = shlex.split(current_call)
@@ -120,6 +123,8 @@ if __name__ == "__main__":
     experiment_dir = "data/{}/".format(TIMESTAMP)
     if not os.path.exists(experiment_dir):
         os.makedirs(experiment_dir)
+        os.makedirs("{}/python".format(experiment_dir))
+        os.makedirs("{}/fpga".format(experiment_dir))
 
     experiment_log = "{}/{}".format(experiment_dir, LOG_FILE)
     log_file_handle = open(LOG_FILE, 'w+')
@@ -128,7 +133,7 @@ if __name__ == "__main__":
     iteration = 0
 
     while data_size < DATA_MAX:
-        print "Experiment {}, data value: {}".format(iteration, data_size/1000)
+        print "Experiment {}, data value: {} kb".format(iteration, data_size/1024)
         print "============================================================"
 
         python_data_file = "{}/python/python_{}_{}.csv".format(experiment_dir, TIMESTAMP, data_size)
@@ -150,6 +155,6 @@ if __name__ == "__main__":
 
         print "============================================================\n\n"
         data_size = data_size*2
-        iteration = 0
+        iteration = iteration + 1
 
     # log_file_handle.close()

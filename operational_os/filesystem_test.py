@@ -5,6 +5,7 @@ import shlex
 import shutil
 import time
 import datetime
+import numpy
 
 
 ITERATIONS = 100
@@ -16,17 +17,17 @@ METADATA_FILE = "test_metadata.json"
 TIMESTAMP = datetime.datetime.now().isoformat()
 LOG_FILE = "experiment-{}.log".format(TIMESTAMP)
 
-def kill_fs(experiment):
+def kill_fs(experiment, log_file):
     experiment_mount = MOUNT_DIR#"{}_{}".format(experiment, MOUNT_DIR)
     kill_mount = "fusermount -u {}".format(experiment_mount)
-    subprocess.call(shlex.split(kill_mount))
+    subprocess.call(shlex.split(kill_mount), stdout=log_file, stderr=log_file)
 
 
-def cleanup(experiment):
+def cleanup(experiment, log_file_handle):
     experiment_storage = STORAGE_DIR#"/tmp/{}_{}".format(experiment, STORAGE_DIR)
     experiment_mount = MOUNT_DIR#"{}_{}".format(experiment, MOUNT_DIR)
     experiment_meta = "{}_{}".format(experiment, METADATA_FILE)
-    kill_fs(experiment)
+    kill_fs(experiment, log_file_handle)
 
     if os.path.exists(experiment_storage):
         shutil.rmtree(experiment_storage)
@@ -51,12 +52,12 @@ def init(experiment):
 
 
 def experiment(args, log_file_handle, experiment, data_file, data_size):
-    cleanup(experiment)
+    cleanup(experiment, log_file_handle)
     init(experiment)
 
     arg_tokens = shlex.split(args)
     process = subprocess.Popen(
-        arg_tokens)#, stdout=log_file_handle, stderr=log_file_handle)
+        arg_tokens, stdout=log_file_handle, stderr=log_file_handle)
 
     test_file = "{}test.txt".format(MOUNT_DIR)
 
@@ -79,25 +80,32 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
         file_data.append(os.urandom(data_size))
 
     data = []
+    times = numpy.array([])
 
     start_time = time.time()
+    print "\nCurrent iteration in experiment {}, data size {}:".format(experiment, data_size),
     for i in range(ITERATIONS):
+        print "{} ".format(i),
         current_file_start = time.time()
         # current_call = "echo {2} >> {1}test{0}.txt".format(i, MOUNT_DIR, data)
         # current_call_args = shlex.split(current_call)
         # subprocess.call(current_call_args)
-        with open(test_file, 'w+') as test_file:
-            test_file.write(file_data[i])
+        with open(test_file, 'w+') as test_handle:
+            test_handle.write(file_data[i])
         current_file_end = time.time()
         current_elapsed = current_file_end - current_file_start
-        print "Elapsed time for {}: {}s".format(file_names[i], current_elapsed)
+        # print "Elapsed time for {}: {}s".format(file_names[i], current_elapsed)
         data.append((len(file_data[i]), current_elapsed))
+        times = numpy.append(times, current_elapsed)
         os.remove(test_file)
+    print ""
     end_time = time.time()
     elapsed_time = end_time - start_time
     process.kill()
     process.wait()
-    kill_fs(experiment)
+    kill_fs(experiment, log_file_handle)
+
+    print "Experiment {}, Data size {}. Avg time: {}, Stdev: {}, Avg Thrpt: {}\n".format(experiment, data_size, numpy.average(times), numpy.std(times), data_size/numpy.average(times))
 
     with open(data_file, 'w+') as data_file_handle:
         data_file_handle.write("Time,Bytes\n")
@@ -109,36 +117,39 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
     return elapsed_time
 
 if __name__ == "__main__":
-    # log_file_handle = open(LOG_FILE, 'w+')
-
     experiment_dir = "data/{}/".format(TIMESTAMP)
     if not os.path.exists(experiment_dir):
         os.makedirs(experiment_dir)
 
+    experiment_log = "{}/{}".format(experiment_dir, LOG_FILE)
+    log_file_handle = open(LOG_FILE, 'w+')
+
     data_size = 1024
+    iteration = 0
 
     while data_size < DATA_MAX:
-        print "Experiment {}, repeat value: {}".format(i/1000, i)
+        print "Experiment {}, data value: {}".format(iteration, data_size/1000)
         print "============================================================"
 
-        python_data_file = "{}/python/python_{}_{}.csv".format(experiment_dir, TIMESTAMP, i)
-        fpga_data_file = "{}/fpga/fpga_{}_{}.csv".format(experiment_dir, TIMESTAMP, i)
+        python_data_file = "{}/python/python_{}_{}.csv".format(experiment_dir, TIMESTAMP, data_size)
+        fpga_data_file = "{}/fpga/fpga_{}_{}.csv".format(experiment_dir, TIMESTAMP, data_size)
 
-        python_fs_call = "/usr/bin/python filesystem.py --mount_point python_{} --storage_dir {} --passphrase test --salt test --metadata_file python_{}".format(
+        python_fs_call = "/usr/bin/python filesystem.py --mount_point {} --storage_dir {} --passphrase test --salt test --metadata_file python_{}".format(
             MOUNT_DIR, STORAGE_DIR, METADATA_FILE)
 
-        elapsed_time_python = experiment(python_fs_call, None, "python", python_data_file, data_size)
+        elapsed_time_python = experiment(python_fs_call, log_file_handle, "python", python_data_file, data_size)
 
         print "Python elapsed time: {}s".format(elapsed_time_python)
 
-        fpga_fs_call = "/usr/bin/python filesystem_fpga_naive.py --mount_point fpga_{} --storage_dir {} --metadata_file fpga_{}".format(
+        fpga_fs_call = "/usr/bin/python filesystem_fpga_naive.py --mount_point {} --storage_dir {} --metadata_file fpga_{}".format(
             MOUNT_DIR, STORAGE_DIR, METADATA_FILE)
 
-        elapsed_time_fpga = experiment(fpga_fs_call, None, "fpga", fpga_data_file, data_size)
+        elapsed_time_fpga = experiment(fpga_fs_call, log_file_handle, "fpga", fpga_data_file, data_size)
 
         print "FPGA elapsed time: {}s".format(elapsed_time_python)
 
         print "============================================================\n\n"
         data_size = data_size*2
+        iteration = 0
 
     # log_file_handle.close()

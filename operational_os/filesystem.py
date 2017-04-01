@@ -324,4 +324,4 @@ if __name__ == '__main__':
             sys.exit(-1)
         encryption_key = KDF.scrypt(args.passphrase, args.salt, 16, 16384, 8, 1)
     print "Finished with Key"
-    FUSE(EncryptedFS(args.storage_dir, encryption_key, args.metadata_file), args.mount_point, nothreads=True, foreground=True)
+    FUSE(EncryptedFS(args.storage_dir, encryption_key, args.metadata_file), args.mount_point, nothreads=True, foreground=True, big_writes=True, max_read=1000000000, max_write=1000000000)

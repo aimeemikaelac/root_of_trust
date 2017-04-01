@@ -58,7 +58,7 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
 
     arg_tokens = shlex.split(args)
     process = subprocess.Popen(
-        arg_tokens)#, stdout=log_file_handle, stderr=log_file_handle)
+        arg_tokens, stdout=log_file_handle, stderr=log_file_handle)
 
     test_file = "{}test.txt".format(MOUNT_DIR)
 

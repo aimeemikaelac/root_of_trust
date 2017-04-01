@@ -380,4 +380,4 @@ if __name__ == '__main__':
                         required=True)
     args = parser.parse_args()
     FUSE(EncryptedFS(args.storage_dir, args.metadata_file),
-         args.mount_point, nothreads=True, foreground=True)
+         args.mount_point, nothreads=True, foreground=True, big_writes=True, max_read=1000000000, max_write=1000000000)

@@ -11,7 +11,7 @@ import sys
 
 ITERATIONS = 25
 DATA_MAX = 512*1024*1024
-STORAGE_DIR = "/tmp/test_storage/"
+STORAGE_DIR = "test_storage/"
 MOUNT_DIR = "test_mount/"
 METADATA_FILE = "test_metadata.json"
 

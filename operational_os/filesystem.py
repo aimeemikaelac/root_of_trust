@@ -169,7 +169,7 @@ class EncryptedFS(Operations):
 
     def _decrypt_file(self, full_path, path, begin, end):
         # print "\n\n\n"
-        print "Attempting to read from {} to {}".format(begin, end)
+        # print "Attempting to read from {} to {}".format(begin, end)
         file_size = os.path.getsize(full_path)
         # print "Reading file with size: {}".format(file_size)
 
@@ -246,7 +246,7 @@ class EncryptedFS(Operations):
         # print "Attempting to read from {} to {}".format(offset, offset+length)
         pt = self._decrypt_file(full_path, path, offset, offset + length)
         # print "Reading {}".format(path)
-        return pt[offset:offset+length]
+        return pt#[offset:offset+length]
 
     def _encrypt(self, pt, iv_int, offset_int):
         nonce = iv_int + offset_int % 2**56

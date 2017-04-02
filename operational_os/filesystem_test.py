@@ -94,7 +94,17 @@ def experiment(args, log_file_handle, experiment, data_file, data_size):
         # current_call_args = shlex.split(current_call)
         # subprocess.call(current_call_args)
         with open(test_file, 'w+') as test_handle:
-            test_handle.write(file_data[i])
+            current_data = file_data[i]
+            data_len = len(current_data)
+            for chunk_begin in range(0, data_len, 1024):
+                # test_handle.write(file_data[i])
+                if chunk_begin + 1024 > data_len:
+                    end = data_len
+                else:
+                    end = chunk_begin + 1024
+                # print "Begin: {}".format(chunk_begin)
+                # print "End: {}".format(end)
+                test_handle.write(current_data[chunk_begin:end])
         current_file_end = time.time()
         current_elapsed = current_file_end - current_file_start
         # print "Elapsed time for {}: {}s".format(file_names[i], current_elapsed)
@@ -127,7 +137,7 @@ if __name__ == "__main__":
         os.makedirs("{}/fpga".format(experiment_dir))
 
     experiment_log = "{}/{}".format(experiment_dir, LOG_FILE)
-    log_file_handle = open(LOG_FILE, 'w+')
+    log_file_handle = open(experiment_log, 'w+')
 
     data_size = 1024
     iteration = 0

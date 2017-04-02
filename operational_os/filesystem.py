@@ -165,17 +165,15 @@ class EncryptedFS(Operations):
         # print "nonce:\n{0:016x}\n len of str:{1}".format(nonce, len(nonce_str))
         # cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         cipher = AES.new(self.encryption_key, AES.MODE_ECB)
-        return cipher.decrypt(ct)
+        return bytearray(cipher.decrypt(str(ct)))
 
     def _decrypt_file(self, full_path, path, begin, end):
-        # print "\n\n\n"
-        # print "Attempting to read from {} to {}".format(begin, end)
+        # encrypted_file_data = np.fromfile(full_path, dtype=np.uint8)
+        # encrypted_file_data = ""
+        # encrypted_file_data = array.array('B')
         file_size = os.path.getsize(full_path)
-        # print "Reading file with size: {}".format(file_size)
-
-        #corner case: if the file is empty, return nothing
         if file_size == 0:
-            return ""
+            return bytearray()
 
         if end > file_size:
             actual_end = file_size
@@ -185,68 +183,55 @@ class EncryptedFS(Operations):
         block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(begin, actual_end-begin)
 
 
+        with open(full_path) as enc_file:
+            # encrypted_file_data = enc_file.read()
+            enc_file.seek(block_begin)
 
-        # if end > file_size:
-        #     print "Error: attempting to read past file end"
-        #     print "File length: {}".format(file_size)
-        #     print "Begin: {}".format(begin)
-        #     print "End: {}".format(end)
-
-        with open(full_path) as file_handle:
-            file_handle.seek(block_begin)
+            # encrypted_file_data.fromfile(enc_file, file_size)
+            # encrypted_file_data = bytearray(enc_file.read())
             if block_begin + block_length > file_size:
                 read_length = file_size - block_begin
             else:
                 read_length = block_length
-            encrypted_file_data = file_handle.read(read_length)
+            encrypted_file_data = bytearray(enc_file.read(read_length))
+            # print type(encrypted_file_data)
 
-            # print "Read encrypted file data:\n{}".format(binascii.hexlify(encrypted_file_data))
-            # print "Block begin: {}, block end: {}, data begin: {}, data end: {}".format(block_begin, block_end, data_begin, data_end)
-
-            #assume this only occurs when the last block of the file is not 16 bytes in size
             if block_end > file_size:
                 replace_last_block = True
             else:
                 replace_last_block = False
 
+
+
             if path in self.metadata_dict:
-                last_block = binascii.unhexlify(self.metadata_dict[path]["file_last_block"])
+                last_block = bytearray(binascii.unhexlify(
+                    self.metadata_dict[path]["file_last_block"]))
                 iv = self.metadata_dict[path]["iv"]
             else:
                 print "Last encrypted block for file {} not in metadata. Unrecoverable error. Exiting.".format(path)
                 sys.exit(-1)
+
             if replace_last_block:
-                # print "Replacing last block"
-
-                # print "Last block:\n{}".format(binascii.hexlify(last_block))
-                # print "Last block end: {}".format(last_block_end)
                 last_block_start = len(encrypted_file_data) - len(encrypted_file_data) % 16
-
-                # print "Last block start: {}".format(last_block_start)
-
-                encrypted_file_data = encrypted_file_data[0:last_block_start] + last_block
+                encrypted_file_data = bytearray(encrypted_file_data[0:last_block_start])
+                encrypted_file_data.extend(last_block)
             iv_offset = int(block_begin/16)
-            # print "Iv offset: {}".format(iv_offset)
-            decrypted_file_data = self._decrypt(encrypted_file_data, iv, iv_offset)
-            # print "Decryted data: {}".format(binascii.hexlify(decrypted_file_data))
-            # print "Decrypted: {}".format(binascii.hexlify(decrypted_file_data))
-            return decrypted_file_data[data_begin-block_begin:data_end-block_end]
+            pt = self._decrypt(encrypted_file_data, iv, iv_offset)
 
-    # def _decrypt_file_segment(self, full_path, path, begin, end):
-
+            data_out = bytearray(pt[data_begin-block_begin:data_end-block_end])
+            # print type(data_out)
+            return data_out
 
     def read(self, path, length, offset, fh):
         full_path = self._full_path(path)
-        file_size = os.path.getsize(full_path)
-        # if offset + length > file_size:
-        #     print "Error: attempting to read past file end"
-        #     print "File length: {}".format(file_size)
-        #     print "Offset: {}".format(offset)
-        #     print "End: {}".format(length)
-        # print "Attempting to read from {} to {}".format(offset, offset+length)
+
         pt = self._decrypt_file(full_path, path, offset, offset + length)
-        # print "Reading {}".format(path)
-        return pt#[offset:offset+length]
+        data = pt#[offset:offset + length]
+        # data_read = ''.join(chr(item)
+        #                     for item in (pt[offset:offset + length]).tolist())
+        # data_read = data.tobytes()
+        data_read = str(data)
+        return data_read
 
     def _encrypt(self, pt, iv_int, offset_int):
         nonce = iv_int + offset_int % 2**56
@@ -255,32 +240,31 @@ class EncryptedFS(Operations):
         nonce_str = binascii.a2b_hex(nonce_str)
         # cipher = AES.new(self.encryption_key, AES.MODE_CTR, nonce=nonce_str)
         cipher = AES.new(self.encryption_key, AES.MODE_ECB)
-        return cipher.encrypt(pt)
+        data_out = bytearray(cipher.encrypt(str(pt)))
+        return data_out
 
     def write(self, path, buf, offset, fh):
-        # print "\n\n\n"
         full_path = self._full_path(path)
         file_length = os.path.getsize(full_path)
         # new_file_length = offset + len(buf)
         # print "Old file len: {}".format(file_length)
         # print "New file len: {}".format(new_file_length)
-        # print "Pt: {}".format(binascii.hexlify(buf))
-
-        # print "File length: {}".format(file_length)
-
-        block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(offset, len(buf))
-
-        last_block_start = file_length - file_length % 16
-        last_block_end = last_block_start + 16
+        block_begin, block_end, block_length, data_begin, data_end = self._get_encryption_offsets(
+            offset, len(buf))
 
         if block_end > file_length:
             #if the block end is outside of the file length
-            file_pt = self._decrypt_file(full_path, path, block_begin, file_length)
+            file_pt_arr = self._decrypt_file(full_path, path, block_begin, file_length)
+            # print type(file_pt_arr)
         else:
-            file_pt = self._decrypt_file(full_path, path, block_begin, block_end)
+            file_pt_arr = self._decrypt_file(full_path, path, block_begin, block_end)
+            # print type(file_pt_arr)
 
-        # print "PT: {}".format(file_pt)
-
+        # file_pt_arr = self._decrypt_file(full_path, path)
+        # file_pt = ''.join(chr(item) for item in file_pt_np.tolist())
+        # file_pt = file_pt_np.tolist()
+        # file_pt = file_pt_np.tobytes()
+        file_pt = file_pt_arr
         starting_padding = len(file_pt) - file_length
         original_padding_start = len(file_pt) - starting_padding
         original_length = file_length
@@ -288,10 +272,17 @@ class EncryptedFS(Operations):
         offset_into_block = data_begin
         padding_added = 0
         original_padding_overwritten = 0
-        #TODO: assume that are always adding to the end of the file or part of the existing file. Do not have to pad between the start of the data that is being placed and the end of the file
+        # TODO: assume that are always adding to the end of the file or part of
+        # the existing file. Do not have to pad between the start of the data
+        # that is being placed and the end of the file
         starting_pt_len = len(file_pt)
-        file_pt_list = list(file_pt)
-        # print "here"
+        file_pt_list = file_pt
+        # print type(file_pt_list)
+        # file_pt_list = list(file_pt)
+        # print "block begin: {}".format(block_begin)
+        # print "block end: {}".format(block_end)
+        # print "data begin: {}".format(data_begin)
+        # print "data end: {}".format(data_end)
         # for i in range(block_begin, block_end):
         #     if i < starting_pt_len:
         #         if i >= data_begin and i < data_end:
@@ -307,6 +298,19 @@ class EncryptedFS(Operations):
         #         elif i >= data_end:
         #             file_pt_list.append('\0')
         #             padding_added = padding_added + 1
+        # if type(file_pt_list[0]) is int:
+        #     file_pt = np.array([int(item) for item in file_pt_list], dtype=np.uint8)
+        # else:
+        #     file_pt = np.array([ord(item) for item in file_pt_list], dtype=np.uint8)
+        # file_pt = np.array([(lambda item: item if type(item) is int else ord(item))(item) for item in file_pt_list], dtype=np.uint8)
+        # file_pt = np.fromstring(''.join(file_pt_list), np.uint8)
+        # for item in file_pt_list:
+        #     try:
+        #         ord(item)
+        #     except:
+        #         # print type(item)
+        #         print str(item)
+
         index = 0
         original_pt_len = len(file_pt_list)
         file_index = data_begin
@@ -334,58 +338,70 @@ class EncryptedFS(Operations):
 
 
 
-        file_pt = ''.join(file_pt_list)
-        # print "New pt:\n{}".format(binascii.hexlify(file_pt))
-        # print "New pt len: {}".format(len(file_pt))
-
+        # file_pt = file_pt_list
         iv = self.metadata_dict[path]["iv"]
-        # print "pt before encrypt: {}".format(binascii.hexlify(file_pt))
         iv_offset = int(block_begin/16)
-        # print "Iv offset encryption: {}".format(iv_offset)
         file_ct = self._encrypt(file_pt, iv, iv_offset)
-        # print "ct:\n{}".format(binascii.hexlify(file_ct))
+        # file_ct = file_pt
 
-        last_block = ''
-        # print "CT len: {}".format(len(file_ct))
+        # last_block = array.array('B')#np.array([], dtype=np.uint8)
+        last_block = bytearray("")
+        # last_block_start = len(file_ct) - 16
         if len(file_ct)%16 == 0:
             last_block_start = len(file_ct) - 16
         else:
             # print "CT len % 16: {}".format(len(file_ct) % 16)
             # print "CT len % 16 *16: {}".format((len(file_ct)%16)*16)
             last_block_start = int(len(file_ct)/16)*16
-        # print "CT last block start: {}".format(last_block_start)
         for i in range(last_block_start, last_block_start + 16):
-            last_block = last_block + file_ct[i]
+            # last_block = np.append(last_block, file_ct[i])
+            last_block.append(file_ct[i])
 
-        # print "New last block:\n{}".format(binascii.hexlify(last_block))
-
-        self.metadata_dict[path]["file_last_block"] = binascii.hexlify(last_block)
+        self.metadata_dict[path][
+            "file_last_block"] = binascii.hexlify(last_block)
         self._write_metadata(self.metadata_file)
-        #if padding was added, then we only need to subtract that from the length of the string and write the string without padding to the file_pt
+        # if padding was added, then we only need to subtract that from the
+        # length of the string and write the string without padding to the
+        # file_pt
 
-        #else, we need to figure out how much padding we overwrote
+        # else, we need to figure out how much padding we overwrote
 
         # if padding_added > 0:
-        #     str_to_write = file_ct[0:(len(file_ct) - padding_added)]
+        #     # str_to_write = ''.join(chr(item) for item in (
+        #     #     file_ct[0:(len(file_ct) - padding_added)]).tolist())
+        #     # print str_to_write
+        #     # print binascii.hexlify(file_ct[0:(len(file_ct) - padding_added)].tobytes())
+        #     # print binascii.hexlify(file_ct.tobytes())
+        #     # file_ct[0:(len(file_ct) - padding_added)].tofile(full_path)
+        #     # print "data: {}".format(binascii.hexlify(file_ct[0:(len(file_ct) - padding_added)]))
+        #     # print "len: {}".format(len(file_ct[0:(len(file_ct) - padding_added)]))
+        #     with open(full_path, 'w') as outfile:
+        #         outfile.write(file_ct[0:(len(file_ct) - padding_added)])
         #     # print "Updating file, padding added: {}".format(path)
-        #     # print "writing: {}".format(binascii.hexlify(str_to_write))
-        #     with open(full_path, 'w') as backing_file:
-        #         backing_file.write(str_to_write)
+        #     # with open(full_path, 'w') as backing_file:
+        #     #     backing_file.write(str_to_write)
         #     return len(buf)
         # else:
         #     padding_remaining = starting_padding - original_padding_overwritten
-        #     str_to_write = file_ct[0:(len(file_ct) - padding_remaining)]
-        #     # print "writing: {}".format(binascii.hexlify(str_to_write))
+        #     # print "starting padding: {}".format(starting_padding)
+        #     # print "original padding overwritten: {}".format(original_padding_overwritten)
+        #     # print "padding remaining: {}".format(padding_remaining)
+        #     # str_to_write = ''.join(chr(item) for item in (
+        #     #     file_ct[0:(len(file_ct) - padding_remaining)]).tolist())
+        #     # print binascii.hexlify(file_ct[0:(len(file_ct) - padding_remaining)].tobytes())
+        #     # print "data: {}".format(binascii.hexlify(file_ct[0:(len(file_ct) - padding_remaining)]))
+        #     # file_ct[0:(len(file_ct) - padding_remaining)].tofile(full_path)
+        #     with open(full_path, 'w') as outfile:
+        #         outfile.write(file_ct[0:(len(file_ct) - padding_remaining)])
         #     # print "Updating file, no padding added: {}".format(path)
-        #     with open(full_path, 'w') as backing_file:
-        #         backing_file.write(str_to_write)
+        #     # with open(full_path, 'w') as backing_file:
+        #     #     backing_file.write(str_to_write)
         #     return len(buf)
         with open(full_path, 'r+') as backing_file:
             backing_file.seek(block_begin)
             # current_begin = 0
             current_end = data_end - block_begin
             data_to_write = file_ct[0:current_end]
-            # print "Writing data: {}".format(binascii.hexlify(data_to_write))
             backing_file.write(data_to_write)
         return len(buf)
 

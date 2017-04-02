@@ -17,6 +17,16 @@ uint32_t reverse(uint32_t x)
 	return x;
 }
 
+void increment_nonce(unsigned int *nonce, int nonce_len){
+  int i;
+  for(i=0; i<nonce_len; i++){
+    nonce[i] = nonce[i] + 1;
+    if(nonce[i] != 0){
+      break;
+    }
+  }
+}
+
 static PyObject *
 fpga_encrypt(PyObject *self, PyObject *args){
   int i, buffer_index, buffer_length;
@@ -127,6 +137,7 @@ fpga_encrypt(PyObject *self, PyObject *args){
       data_buffer[buffer_index + 15 - i*4 - 3] =
         ((current_out_word>>24)&0xFF)^data_buffer[buffer_index + 15 - i*4 - 3];
     }
+    increment_nonce(nonce_buf, 4);
   }
 
   //cleanup memory reference

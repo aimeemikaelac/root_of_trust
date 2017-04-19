@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+# IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+# Start of session at: Tue Mar 14 21:06:03 2017
+# Process ID: 6413
+# Current directory: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_axi_gpio_0_0_synth_1
+# Command line: vivado -log design_1_axi_gpio_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_gpio_0_0.tcl
+# Log file: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_axi_gpio_0_0_synth_1/design_1_axi_gpio_0_0.vds
+# Journal file: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_axi_gpio_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_axi_gpio_0_0.tcl -notrace

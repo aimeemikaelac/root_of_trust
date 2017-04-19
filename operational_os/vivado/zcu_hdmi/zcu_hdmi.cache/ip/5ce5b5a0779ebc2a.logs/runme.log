@@ -1,0 +1,52 @@
+
+*** Running vivado
+    with args -log design_1_zynq_ultra_ps_e_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_zynq_ultra_ps_e_0_0.tcl
+
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+  **** IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_zynq_ultra_ps_e_0_0.tcl -notrace
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:26 . Memory (MB): peak = 1481.449 ; gain = 550.973 ; free physical = 2042 ; free virtual = 15710
+INFO: [Synth 8-638] synthesizing module 'design_1_zynq_ultra_ps_e_0_0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/synth/design_1_zynq_ultra_ps_e_0_0.v:58]
+INFO: [Synth 8-638] synthesizing module 'zynq_ultra_ps_e_v2_0_1_zynq_ultra_ps_e' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v2_0_1.v:325]
+INFO: [Synth 8-638] synthesizing module 'BUFG_PS' [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:796]
+INFO: [Synth 8-256] done synthesizing module 'BUFG_PS' (1#1) [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:796]
+INFO: [Synth 8-638] synthesizing module 'PS8' [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:34428]
+INFO: [Synth 8-256] done synthesizing module 'PS8' (2#1) [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:34428]
+INFO: [Synth 8-256] done synthesizing module 'zynq_ultra_ps_e_v2_0_1_zynq_ultra_ps_e' (3#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v2_0_1.v:325]
+INFO: [Synth 8-256] done synthesizing module 'design_1_zynq_ultra_ps_e_0_0' (4#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/synth/design_1_zynq_ultra_ps_e_0_0.v:58]
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 1522.918 ; gain = 592.441 ; free physical = 1989 ; free virtual = 15657
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 1522.918 ; gain = 592.441 ; free physical = 1991 ; free virtual = 15644
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i-es2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2138.949 ; gain = 1.000 ; free physical = 980 ; free virtual = 14625
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:42 . Memory (MB): peak = 2138.949 ; gain = 1208.473 ; free physical = 811 ; free virtual = 14456
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:42 . Memory (MB): peak = 2138.949 ; gain = 1208.473 ; free physical = 811 ; free virtual = 14456
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:42 . Memory (MB): peak = 2138.949 ; gain = 1208.473 ; free physical = 811 ; free virtual = 14456
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:42 . Memory (MB): peak = 2138.949 ; gain = 1208.473 ; free physical = 807 ; free virtual = 14452
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:43 . Memory (MB): peak = 2138.949 ; gain = 1208.473 ; free physical = 799 ; free virtual = 14444
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:01:00 . Memory (MB): peak = 3936.520 ; gain = 3006.043 ; free physical = 218 ; free virtual = 12506
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:01:00 . Memory (MB): peak = 3962.527 ; gain = 3032.051 ; free physical = 191 ; free virtual = 12480
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:01:10 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2065 ; free virtual = 14322
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG_PS |     1|
+|2     |LUT1    |   394|
+|3     |PS8     |     1|
+|4     |FDRE    |     1|
++------+--------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 3982.699 ; gain = 3052.223 ; free physical = 2022 ; free virtual = 14285
+synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:01:12 . Memory (MB): peak = 4001.699 ; gain = 2650.758 ; free physical = 2004 ; free virtual = 14266

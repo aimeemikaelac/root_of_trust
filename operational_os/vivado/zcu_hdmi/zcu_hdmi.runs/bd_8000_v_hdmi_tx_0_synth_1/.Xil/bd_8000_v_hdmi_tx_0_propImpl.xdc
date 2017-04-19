@@ -1,0 +1,3 @@
+set_property SRC_FILE_INFO {cfile:/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc rfile:../../../zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc id:1 order:LATE scoped_inst:inst} [current_design]
+set_property src_info {type:SCOPED_XDC file:1 line:11 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay 15 -from [get_pins -hier -filter name=~*/aclk_dpram_reg*/*/CLK] -to [get_cells -hier -filter name=~*/bclk_dout_reg*] -datapath_only

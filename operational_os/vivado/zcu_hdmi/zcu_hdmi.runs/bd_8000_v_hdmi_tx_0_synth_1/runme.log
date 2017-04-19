@@ -1,0 +1,80 @@
+
+*** Running vivado
+    with args -log bd_8000_v_hdmi_tx_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_8000_v_hdmi_tx_0.tcl
+
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+  **** IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source bd_8000_v_hdmi_tx_0.tcl -notrace
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 1470.453 ; gain = 539.973 ; free physical = 2781 ; free virtual = 13925
+INFO: [Synth 8-638] synthesizing module 'bd_8000_v_hdmi_tx_0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/synth/bd_8000_v_hdmi_tx_0.sv:57]
+INFO: [Synth 8-638] synthesizing module 'RAM64X1S' [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:37233]
+INFO: [Synth 8-256] done synthesizing module 'RAM64X1S' (1#1) [/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:37233]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_async_rst' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:884]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_async_rst' (2#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:884]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_single' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:99]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_single' (8#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:99]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray' (12#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized0' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized0' (14#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized1' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized1' (14#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_single__parameterized0' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:99]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_single__parameterized0' (14#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:99]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized2' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized2' (16#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized3' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized3' (16#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized4' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized4' (17#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-638] synthesizing module 'xpm_cdc_gray__parameterized5' [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_gray__parameterized5' (17#1) [/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:204]
+INFO: [Synth 8-256] done synthesizing module 'bd_8000_v_hdmi_tx_0' (36#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/synth/bd_8000_v_hdmi_tx_0.sv:57]
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1595.922 ; gain = 665.441 ; free physical = 2510 ; free virtual = 13674
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1595.922 ; gain = 665.441 ; free physical = 2510 ; free virtual = 13675
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i-es2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2291.461 ; gain = 0.000 ; free physical = 1523 ; free virtual = 12810
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 2291.461 ; gain = 1360.980 ; free physical = 1484 ; free virtual = 12780
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 2291.461 ; gain = 1360.980 ; free physical = 1484 ; free virtual = 12780
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 2291.461 ; gain = 1360.980 ; free physical = 1478 ; free virtual = 12773
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:38 ; elapsed = 00:00:45 . Memory (MB): peak = 2291.461 ; gain = 1360.980 ; free physical = 974 ; free virtual = 12277
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:33 ; elapsed = 00:01:40 . Memory (MB): peak = 2333.625 ; gain = 1403.145 ; free physical = 2503 ; free virtual = 13816
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:45 ; elapsed = 00:01:52 . Memory (MB): peak = 3077.016 ; gain = 2146.535 ; free physical = 1775 ; free virtual = 13089
+Finished Timing Optimization : Time (s): cpu = 00:01:46 ; elapsed = 00:01:53 . Memory (MB): peak = 3086.016 ; gain = 2155.535 ; free physical = 1767 ; free virtual = 13080
+Finished Technology Mapping : Time (s): cpu = 00:01:53 ; elapsed = 00:02:01 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13005
+Finished IO Insertion : Time (s): cpu = 00:01:55 ; elapsed = 00:02:02 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:55 ; elapsed = 00:02:02 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY8   |    24|
+|2     |LUT1     |    95|
+|3     |LUT2     |   484|
+|4     |LUT3     |   555|
+|5     |LUT4     |   922|
+|6     |LUT5     |   996|
+|7     |LUT6     |  2265|
+|8     |MUXF7    |    70|
+|9     |RAM32M16 |    31|
+|10    |RAM64M8  |    73|
+|11    |RAM64X1S |     1|
+|12    |SRL16E   |   477|
+|13    |FDCE     |  1044|
+|14    |FDPE     |    48|
+|15    |FDRE     |  6611|
+|16    |FDSE     |   134|
++------+---------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 3163.102 ; gain = 2232.621 ; free physical = 1691 ; free virtual = 13004
+synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:02:01 . Memory (MB): peak = 3320.562 ; gain = 1919.105 ; free physical = 1651 ; free virtual = 12988

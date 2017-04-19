@@ -1,0 +1,288 @@
+16:02:24 **** Build of project fsbl_aes_custom_bsp ****
+make -k all 
+Running Make include in psu_cortexa53_0/libsrc/ddrcpsu_v1_1/src
+make -C psu_cortexa53_0/libsrc/ddrcpsu_v1_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/sdps_v3_1/src
+make -C psu_cortexa53_0/libsrc/sdps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/xilffs_v3_5/src
+make -C psu_cortexa53_0/libsrc/xilffs_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/ttcps_v3_2/src
+make -C psu_cortexa53_0/libsrc/ttcps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/emacps_v3_3/src
+make -C psu_cortexa53_0/libsrc/emacps_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/rtcpsu_v1_3/src
+make -C psu_cortexa53_0/libsrc/rtcpsu_v1_3/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/canps_v3_2/src
+make -C psu_cortexa53_0/libsrc/canps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/usbpsu_v1_1/src
+make -C psu_cortexa53_0/libsrc/usbpsu_v1_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/cpu_cortexa53_v1_2/src
+make -C psu_cortexa53_0/libsrc/cpu_cortexa53_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/wdtps_v3_0/src
+make -C psu_cortexa53_0/libsrc/wdtps_v3_0/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/scugic_v3_5/src
+make -C psu_cortexa53_0/libsrc/scugic_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/iicps_v3_4/src
+make -C psu_cortexa53_0/libsrc/iicps_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/axipmon_v6_5/src
+make -C psu_cortexa53_0/libsrc/axipmon_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/csudma_v1_1/src
+make -C psu_cortexa53_0/libsrc/csudma_v1_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/ipipsu_v2_1/src
+make -C psu_cortexa53_0/libsrc/ipipsu_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/xilsecure_v1_2/src
+make -C psu_cortexa53_0/libsrc/xilsecure_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/gpiops_v3_1/src
+make -C psu_cortexa53_0/libsrc/gpiops_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/standalone_v6_1/src
+make -C psu_cortexa53_0/libsrc/standalone_v6_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/uartps_v3_3/src
+make -C psu_cortexa53_0/libsrc/uartps_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/qspipsu_v1_3/src
+make -C psu_cortexa53_0/libsrc/qspipsu_v1_3/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/coresightps_dcc_v1_3/src
+make -C psu_cortexa53_0/libsrc/coresightps_dcc_v1_3/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/zdma_v1_1/src
+make -C psu_cortexa53_0/libsrc/zdma_v1_1/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/aes_basic_v1_0/src
+make -C psu_cortexa53_0/libsrc/aes_basic_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make include in psu_cortexa53_0/libsrc/sysmonpsu_v2_0/src
+make -C psu_cortexa53_0/libsrc/sysmonpsu_v2_0/src -s include  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Running Make libs in psu_cortexa53_0/libsrc/ddrcpsu_v1_1/src
+make -C psu_cortexa53_0/libsrc/ddrcpsu_v1_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling ddrcpsu
+aarch64-none-elf-ar: creating ../../../lib/libxil.a
+Running Make libs in psu_cortexa53_0/libsrc/sdps_v3_1/src
+make -C psu_cortexa53_0/libsrc/sdps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling sdps
+Running Make libs in psu_cortexa53_0/libsrc/xilffs_v3_5/src
+make -C psu_cortexa53_0/libsrc/xilffs_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling XilFFs Library
+Running Make libs in psu_cortexa53_0/libsrc/ttcps_v3_2/src
+make -C psu_cortexa53_0/libsrc/ttcps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling ttcps
+Running Make libs in psu_cortexa53_0/libsrc/emacps_v3_3/src
+make -C psu_cortexa53_0/libsrc/emacps_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling emacps
+Running Make libs in psu_cortexa53_0/libsrc/rtcpsu_v1_3/src
+make -C psu_cortexa53_0/libsrc/rtcpsu_v1_3/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling rtcpsu
+Running Make libs in psu_cortexa53_0/libsrc/canps_v3_2/src
+make -C psu_cortexa53_0/libsrc/canps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling canps
+Running Make libs in psu_cortexa53_0/libsrc/usbpsu_v1_1/src
+make -C psu_cortexa53_0/libsrc/usbpsu_v1_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling usbpsu
+Running Make libs in psu_cortexa53_0/libsrc/cpu_cortexa53_v1_2/src
+make -C psu_cortexa53_0/libsrc/cpu_cortexa53_v1_2/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling cpu_cortexa53
+Running Make libs in psu_cortexa53_0/libsrc/wdtps_v3_0/src
+make -C psu_cortexa53_0/libsrc/wdtps_v3_0/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling wdtps
+Running Make libs in psu_cortexa53_0/libsrc/scugic_v3_5/src
+make -C psu_cortexa53_0/libsrc/scugic_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling scugic
+Running Make libs in psu_cortexa53_0/libsrc/iicps_v3_4/src
+make -C psu_cortexa53_0/libsrc/iicps_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling iicps
+Running Make libs in psu_cortexa53_0/libsrc/axipmon_v6_5/src
+make -C psu_cortexa53_0/libsrc/axipmon_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling axipmon
+Running Make libs in psu_cortexa53_0/libsrc/csudma_v1_1/src
+make -C psu_cortexa53_0/libsrc/csudma_v1_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling csudma
+Running Make libs in psu_cortexa53_0/libsrc/ipipsu_v2_1/src
+make -C psu_cortexa53_0/libsrc/ipipsu_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling ipipsu
+Running Make libs in psu_cortexa53_0/libsrc/xilsecure_v1_2/src
+make -C psu_cortexa53_0/libsrc/xilsecure_v1_2/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling XilSecure Library
+Running Make libs in psu_cortexa53_0/libsrc/gpiops_v3_1/src
+make -C psu_cortexa53_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling gpiops
+Running Make libs in psu_cortexa53_0/libsrc/standalone_v6_1/src
+make -C psu_cortexa53_0/libsrc/standalone_v6_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling standalone A53
+Running Make libs in psu_cortexa53_0/libsrc/uartps_v3_3/src
+make -C psu_cortexa53_0/libsrc/uartps_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling uartps
+Running Make libs in psu_cortexa53_0/libsrc/qspipsu_v1_3/src
+make -C psu_cortexa53_0/libsrc/qspipsu_v1_3/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling qspipsu
+Running Make libs in psu_cortexa53_0/libsrc/coresightps_dcc_v1_3/src
+make -C psu_cortexa53_0/libsrc/coresightps_dcc_v1_3/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling coresightps_dcc
+Running Make libs in psu_cortexa53_0/libsrc/zdma_v1_1/src
+make -C psu_cortexa53_0/libsrc/zdma_v1_1/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling zdma
+Running Make libs in psu_cortexa53_0/libsrc/aes_basic_v1_0/src
+make -C psu_cortexa53_0/libsrc/aes_basic_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling aes_basic
+xaes_basic.c: In function 'XAes_basic_Write_data_in_Words':
+xaes_basic.c:133:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(int *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE + (offset + i)*4) = *(data + i);
+          ^
+xaes_basic.c: In function 'XAes_basic_Read_data_in_Words':
+xaes_basic.c:148:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(data + i) = *(int *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE + (offset + i)*4);
+                        ^
+xaes_basic.c: In function 'XAes_basic_Write_data_in_Bytes':
+xaes_basic.c:163:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(char *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE + offset + i) = *(data + i);
+          ^
+xaes_basic.c: In function 'XAes_basic_Read_data_in_Bytes':
+xaes_basic.c:178:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(data + i) = *(char *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_IN_BASE + offset + i);
+                        ^
+xaes_basic.c: In function 'XAes_basic_Write_data_out_Words':
+xaes_basic.c:228:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(int *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_OUT_BASE + (offset + i)*4) = *(data + i);
+          ^
+xaes_basic.c: In function 'XAes_basic_Read_data_out_Words':
+xaes_basic.c:243:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(data + i) = *(int *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_OUT_BASE + (offset + i)*4);
+                        ^
+xaes_basic.c: In function 'XAes_basic_Write_data_out_Bytes':
+xaes_basic.c:258:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(char *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_OUT_BASE + offset + i) = *(data + i);
+          ^
+xaes_basic.c: In function 'XAes_basic_Read_data_out_Bytes':
+xaes_basic.c:273:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+         *(data + i) = *(char *)(InstancePtr->Axilites_BaseAddress + XAES_BASIC_AXILITES_ADDR_DATA_OUT_BASE + offset + i);
+                        ^
+Running Make libs in psu_cortexa53_0/libsrc/sysmonpsu_v2_0/src
+make -C psu_cortexa53_0/libsrc/sysmonpsu_v2_0/src -s libs  "SHELL=/bin/sh" "COMPILER=aarch64-none-elf-gcc" "ARCHIVER=aarch64-none-elf-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"
+Compiling sysmonpsu
+Finished building libraries
+16:02:38 **** Build of configuration Debug for project fsbl_aes_custom ****
+make all 
+Building file: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0/psu_init.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/psu_init.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/psu_init.d" -MT"src/psu_init.o" -o "src/psu_init.o" "/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0/psu_init.c"
+Finished building: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0/psu_init.c
+ 
+Building file: ../src/xfsbl_authentication.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_authentication.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_authentication.d" -MT"src/xfsbl_authentication.o" -o "src/xfsbl_authentication.o" "../src/xfsbl_authentication.c"
+Finished building: ../src/xfsbl_authentication.c
+ 
+Building file: ../src/xfsbl_board.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_board.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_board.d" -MT"src/xfsbl_board.o" -o "src/xfsbl_board.o" "../src/xfsbl_board.c"
+Finished building: ../src/xfsbl_board.c
+ 
+Building file: ../src/xfsbl_bs.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_bs.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_bs.d" -MT"src/xfsbl_bs.o" -o "src/xfsbl_bs.o" "../src/xfsbl_bs.c"
+Finished building: ../src/xfsbl_bs.c
+ 
+Building file: ../src/xfsbl_csu_dma.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_csu_dma.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_csu_dma.d" -MT"src/xfsbl_csu_dma.o" -o "src/xfsbl_csu_dma.o" "../src/xfsbl_csu_dma.c"
+Finished building: ../src/xfsbl_csu_dma.c
+ 
+Building file: ../src/xfsbl_exit.S
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_exit.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_exit.d" -MT"src/xfsbl_exit.o" -o "src/xfsbl_exit.o" "../src/xfsbl_exit.S"
+Finished building: ../src/xfsbl_exit.S
+ 
+Building file: ../src/xfsbl_handoff.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_handoff.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_handoff.d" -MT"src/xfsbl_handoff.o" -o "src/xfsbl_handoff.o" "../src/xfsbl_handoff.c"
+Finished building: ../src/xfsbl_handoff.c
+ 
+Building file: ../src/xfsbl_hooks.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_hooks.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_hooks.d" -MT"src/xfsbl_hooks.o" -o "src/xfsbl_hooks.o" "../src/xfsbl_hooks.c"
+Finished building: ../src/xfsbl_hooks.c
+ 
+Building file: ../src/xfsbl_image_header.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_image_header.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_image_header.d" -MT"src/xfsbl_image_header.o" -o "src/xfsbl_image_header.o" "../src/xfsbl_image_header.c"
+Finished building: ../src/xfsbl_image_header.c
+ 
+Building file: ../src/xfsbl_initialization.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_initialization.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_initialization.d" -MT"src/xfsbl_initialization.o" -o "src/xfsbl_initialization.o" "../src/xfsbl_initialization.c"
+Finished building: ../src/xfsbl_initialization.c
+ 
+Building file: ../src/xfsbl_main.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_main.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_main.d" -MT"src/xfsbl_main.o" -o "src/xfsbl_main.o" "../src/xfsbl_main.c"
+Finished building: ../src/xfsbl_main.c
+ 
+Building file: ../src/xfsbl_misc.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_misc.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_misc.d" -MT"src/xfsbl_misc.o" -o "src/xfsbl_misc.o" "../src/xfsbl_misc.c"
+Finished building: ../src/xfsbl_misc.c
+ 
+Building file: ../src/xfsbl_misc_drivers.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_misc_drivers.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_misc_drivers.d" -MT"src/xfsbl_misc_drivers.o" -o "src/xfsbl_misc_drivers.o" "../src/xfsbl_misc_drivers.c"
+Finished building: ../src/xfsbl_misc_drivers.c
+ 
+Building file: ../src/xfsbl_nand.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_nand.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_nand.d" -MT"src/xfsbl_nand.o" -o "src/xfsbl_nand.o" "../src/xfsbl_nand.c"
+Finished building: ../src/xfsbl_nand.c
+ 
+Building file: ../src/xfsbl_partition_load.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_partition_load.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_partition_load.d" -MT"src/xfsbl_partition_load.o" -o "src/xfsbl_partition_load.o" "../src/xfsbl_partition_load.c"
+Finished building: ../src/xfsbl_partition_load.c
+ 
+Building file: ../src/xfsbl_qspi.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_qspi.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_qspi.d" -MT"src/xfsbl_qspi.o" -o "src/xfsbl_qspi.o" "../src/xfsbl_qspi.c"
+Finished building: ../src/xfsbl_qspi.c
+ 
+Building file: ../src/xfsbl_rsa_sha.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_rsa_sha.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_rsa_sha.d" -MT"src/xfsbl_rsa_sha.o" -o "src/xfsbl_rsa_sha.o" "../src/xfsbl_rsa_sha.c"
+Finished building: ../src/xfsbl_rsa_sha.c
+ 
+Building file: ../src/xfsbl_sd.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_sd.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_sd.d" -MT"src/xfsbl_sd.o" -o "src/xfsbl_sd.o" "../src/xfsbl_sd.c"
+Finished building: ../src/xfsbl_sd.c
+ 
+Building file: ../src/xfsbl_translation_table.S
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_translation_table.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_translation_table.d" -MT"src/xfsbl_translation_table.o" -o "src/xfsbl_translation_table.o" "../src/xfsbl_translation_table.S"
+Finished building: ../src/xfsbl_translation_table.S
+ 
+Building target: fsbl_aes_custom.elf
+Invoking: ARM A53 gcc linker
+aarch64-none-elf-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fsbl_aes_custom_bsp/psu_cortexa53_0/lib -o "fsbl_aes_custom.elf"  ./src/psu_init.o ./src/xfsbl_authentication.o ./src/xfsbl_board.o ./src/xfsbl_bs.o ./src/xfsbl_csu_dma.o ./src/xfsbl_exit.o ./src/xfsbl_handoff.o ./src/xfsbl_hooks.o ./src/xfsbl_image_header.o ./src/xfsbl_initialization.o ./src/xfsbl_main.o ./src/xfsbl_misc.o ./src/xfsbl_misc_drivers.o ./src/xfsbl_nand.o ./src/xfsbl_partition_load.o ./src/xfsbl_qspi.o ./src/xfsbl_rsa_sha.o ./src/xfsbl_sd.o ./src/xfsbl_translation_table.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilsecure,-lxil,-lgcc,-lc,--end-group
+Finished building target: fsbl_aes_custom.elf
+ 
+Invoking: ARM A53 Print Size
+aarch64-none-elf-size fsbl_aes_custom.elf  |tee "fsbl_aes_custom.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 128216	   2704	  18816	 149736	  248e8	fsbl_aes_custom.elf
+Finished building: fsbl_aes_custom.elf.size
+ 
+16:02:40 **** Auto Build of configuration Debug for project fsbl_aes_custom ****
+make all 
+make: Nothing to be done for 'all'.
+16:04:08 **** Auto Build of configuration Debug for project fsbl_aes_custom ****
+make all 
+Building file: ../src/xfsbl_initialization.c
+Invoking: ARM A53 gcc compiler
+aarch64-none-elf-gcc -DARMA53_64 -Wall -O0 -g3 -I"/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/xfsbl_initialization.o" -I../../fsbl_aes_custom_bsp/psu_cortexa53_0/include -MMD -MP -MF"src/xfsbl_initialization.d" -MT"src/xfsbl_initialization.o" -o "src/xfsbl_initialization.o" "../src/xfsbl_initialization.c"
+Finished building: ../src/xfsbl_initialization.c
+ 
+Building target: fsbl_aes_custom.elf
+Invoking: ARM A53 gcc linker
+aarch64-none-elf-gcc -Wl,-T -Wl,../src/lscript.ld -L../../fsbl_aes_custom_bsp/psu_cortexa53_0/lib -o "fsbl_aes_custom.elf"  ./src/psu_init.o ./src/xfsbl_authentication.o ./src/xfsbl_board.o ./src/xfsbl_bs.o ./src/xfsbl_csu_dma.o ./src/xfsbl_exit.o ./src/xfsbl_handoff.o ./src/xfsbl_hooks.o ./src/xfsbl_image_header.o ./src/xfsbl_initialization.o ./src/xfsbl_main.o ./src/xfsbl_misc.o ./src/xfsbl_misc_drivers.o ./src/xfsbl_nand.o ./src/xfsbl_partition_load.o ./src/xfsbl_qspi.o ./src/xfsbl_rsa_sha.o ./src/xfsbl_sd.o ./src/xfsbl_translation_table.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilsecure,-lxil,-lgcc,-lc,--end-group
+Finished building target: fsbl_aes_custom.elf
+ 
+Invoking: ARM A53 Print Size
+aarch64-none-elf-size fsbl_aes_custom.elf  |tee "fsbl_aes_custom.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 128680	   2704	  18816	 150200	  24ab8	fsbl_aes_custom.elf
+Finished building: fsbl_aes_custom.elf.size
+ 
+16:04:10 **** Incremental Build of configuration Debug for project fsbl_aes_custom ****
+make all 
+make: Nothing to be done for 'all'.

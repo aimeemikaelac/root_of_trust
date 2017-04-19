@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.4 (64-bit)
+# SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+# 
+# Start of session at: Mon Mar  6 16:55:40 2017
+# Process ID: 18297
+# Current directory: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/webtalk/webtalk.log
+# Journal file: /home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

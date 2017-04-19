@@ -1,0 +1,913 @@
+
+*** Running vivado
+    with args -log design_1_aes_basic_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_aes_basic_0_0.tcl
+
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+  **** IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_aes_basic_0_0.tcl -notrace
+Command: synth_design -top design_1_aes_basic_0_0 -part xczu9eg-ffvb1156-2-i-es2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-es2'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-es2'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10393 
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1463.445 ; gain = 532.973 ; free physical = 1270 ; free virtual = 14385
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_aes_basic_0_0' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/synth/design_1_aes_basic_0_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'aes_basic' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 42'b000000000000000000000000000000000000000001 
+	Parameter ap_ST_fsm_state2 bound to: 42'b000000000000000000000000000000000000000010 
+	Parameter ap_ST_fsm_state3 bound to: 42'b000000000000000000000000000000000000000100 
+	Parameter ap_ST_fsm_state4 bound to: 42'b000000000000000000000000000000000000001000 
+	Parameter ap_ST_fsm_state5 bound to: 42'b000000000000000000000000000000000000010000 
+	Parameter ap_ST_fsm_state6 bound to: 42'b000000000000000000000000000000000000100000 
+	Parameter ap_ST_fsm_state7 bound to: 42'b000000000000000000000000000000000001000000 
+	Parameter ap_ST_fsm_state8 bound to: 42'b000000000000000000000000000000000010000000 
+	Parameter ap_ST_fsm_state9 bound to: 42'b000000000000000000000000000000000100000000 
+	Parameter ap_ST_fsm_state10 bound to: 42'b000000000000000000000000000000001000000000 
+	Parameter ap_ST_fsm_state11 bound to: 42'b000000000000000000000000000000010000000000 
+	Parameter ap_ST_fsm_state12 bound to: 42'b000000000000000000000000000000100000000000 
+	Parameter ap_ST_fsm_state13 bound to: 42'b000000000000000000000000000001000000000000 
+	Parameter ap_ST_fsm_state14 bound to: 42'b000000000000000000000000000010000000000000 
+	Parameter ap_ST_fsm_state15 bound to: 42'b000000000000000000000000000100000000000000 
+	Parameter ap_ST_fsm_state16 bound to: 42'b000000000000000000000000001000000000000000 
+	Parameter ap_ST_fsm_state17 bound to: 42'b000000000000000000000000010000000000000000 
+	Parameter ap_ST_fsm_state18 bound to: 42'b000000000000000000000000100000000000000000 
+	Parameter ap_ST_fsm_state19 bound to: 42'b000000000000000000000001000000000000000000 
+	Parameter ap_ST_fsm_state20 bound to: 42'b000000000000000000000010000000000000000000 
+	Parameter ap_ST_fsm_state21 bound to: 42'b000000000000000000000100000000000000000000 
+	Parameter ap_ST_fsm_state22 bound to: 42'b000000000000000000001000000000000000000000 
+	Parameter ap_ST_fsm_state23 bound to: 42'b000000000000000000010000000000000000000000 
+	Parameter ap_ST_fsm_state24 bound to: 42'b000000000000000000100000000000000000000000 
+	Parameter ap_ST_fsm_state25 bound to: 42'b000000000000000001000000000000000000000000 
+	Parameter ap_ST_fsm_state26 bound to: 42'b000000000000000010000000000000000000000000 
+	Parameter ap_ST_fsm_state27 bound to: 42'b000000000000000100000000000000000000000000 
+	Parameter ap_ST_fsm_state28 bound to: 42'b000000000000001000000000000000000000000000 
+	Parameter ap_ST_fsm_state29 bound to: 42'b000000000000010000000000000000000000000000 
+	Parameter ap_ST_fsm_state30 bound to: 42'b000000000000100000000000000000000000000000 
+	Parameter ap_ST_fsm_state31 bound to: 42'b000000000001000000000000000000000000000000 
+	Parameter ap_ST_fsm_state32 bound to: 42'b000000000010000000000000000000000000000000 
+	Parameter ap_ST_fsm_state33 bound to: 42'b000000000100000000000000000000000000000000 
+	Parameter ap_ST_fsm_state34 bound to: 42'b000000001000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state35 bound to: 42'b000000010000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state36 bound to: 42'b000000100000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state37 bound to: 42'b000001000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state38 bound to: 42'b000010000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state39 bound to: 42'b000100000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state40 bound to: 42'b001000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state41 bound to: 42'b010000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state42 bound to: 42'b100000000000000000000000000000000000000000 
+	Parameter ap_const_lv32_0 bound to: 0 - type: integer 
+	Parameter C_S_AXI_AXILITES_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ap_const_int64_8 bound to: 8 - type: integer 
+	Parameter C_S_AXI_AXILITES_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ap_const_lv32_1 bound to: 1 - type: integer 
+	Parameter ap_const_lv32_2 bound to: 2 - type: integer 
+	Parameter ap_const_lv32_3 bound to: 3 - type: integer 
+	Parameter ap_const_lv32_4 bound to: 4 - type: integer 
+	Parameter ap_const_lv32_5 bound to: 5 - type: integer 
+	Parameter ap_const_lv32_6 bound to: 6 - type: integer 
+	Parameter ap_const_lv32_7 bound to: 7 - type: integer 
+	Parameter ap_const_lv32_8 bound to: 8 - type: integer 
+	Parameter ap_const_lv32_9 bound to: 9 - type: integer 
+	Parameter ap_const_lv32_A bound to: 10 - type: integer 
+	Parameter ap_const_lv32_B bound to: 11 - type: integer 
+	Parameter ap_const_lv32_C bound to: 12 - type: integer 
+	Parameter ap_const_lv32_D bound to: 13 - type: integer 
+	Parameter ap_const_lv32_E bound to: 14 - type: integer 
+	Parameter ap_const_lv32_F bound to: 15 - type: integer 
+	Parameter ap_const_lv32_1A bound to: 26 - type: integer 
+	Parameter ap_const_lv32_10 bound to: 16 - type: integer 
+	Parameter ap_const_lv32_17 bound to: 23 - type: integer 
+	Parameter ap_const_lv32_18 bound to: 24 - type: integer 
+	Parameter ap_const_lv64_0 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_const_lv64_1 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000001 
+	Parameter ap_const_lv64_2 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000010 
+	Parameter ap_const_lv64_3 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000011 
+	Parameter ap_const_lv64_4 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000100 
+	Parameter ap_const_lv64_5 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000101 
+	Parameter ap_const_lv64_6 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000110 
+	Parameter ap_const_lv64_7 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000111 
+	Parameter ap_const_lv64_8 bound to: 64'b0000000000000000000000000000000000000000000000000000000000001000 
+	Parameter ap_const_lv64_9 bound to: 64'b0000000000000000000000000000000000000000000000000000000000001001 
+	Parameter ap_const_lv64_A bound to: 64'b0000000000000000000000000000000000000000000000000000000000001010 
+	Parameter ap_const_lv64_B bound to: 64'b0000000000000000000000000000000000000000000000000000000000001011 
+	Parameter ap_const_lv64_C bound to: 64'b0000000000000000000000000000000000000000000000000000000000001100 
+	Parameter ap_const_lv64_D bound to: 64'b0000000000000000000000000000000000000000000000000000000000001101 
+	Parameter ap_const_lv64_E bound to: 64'b0000000000000000000000000000000000000000000000000000000000001110 
+	Parameter ap_const_lv64_F bound to: 64'b0000000000000000000000000000000000000000000000000000000000001111 
+	Parameter ap_const_lv32_1B bound to: 27 - type: integer 
+	Parameter ap_const_lv32_1C bound to: 28 - type: integer 
+	Parameter ap_const_lv32_1D bound to: 29 - type: integer 
+	Parameter ap_const_lv32_1E bound to: 30 - type: integer 
+	Parameter ap_const_lv32_1F bound to: 31 - type: integer 
+	Parameter ap_const_lv32_20 bound to: 32 - type: integer 
+	Parameter ap_const_lv32_21 bound to: 33 - type: integer 
+	Parameter ap_const_lv32_22 bound to: 34 - type: integer 
+	Parameter ap_const_lv32_23 bound to: 35 - type: integer 
+	Parameter ap_const_lv32_24 bound to: 36 - type: integer 
+	Parameter ap_const_lv32_25 bound to: 37 - type: integer 
+	Parameter ap_const_lv32_26 bound to: 38 - type: integer 
+	Parameter ap_const_lv32_27 bound to: 39 - type: integer 
+	Parameter ap_const_lv32_28 bound to: 40 - type: integer 
+	Parameter ap_const_lv32_29 bound to: 41 - type: integer 
+	Parameter ap_const_lv32_2F bound to: 47 - type: integer 
+	Parameter ap_const_lv32_30 bound to: 48 - type: integer 
+	Parameter ap_const_lv32_37 bound to: 55 - type: integer 
+	Parameter ap_const_lv32_38 bound to: 56 - type: integer 
+	Parameter ap_const_lv32_3F bound to: 63 - type: integer 
+	Parameter ap_const_lv32_40 bound to: 64 - type: integer 
+	Parameter ap_const_lv32_47 bound to: 71 - type: integer 
+	Parameter ap_const_lv32_48 bound to: 72 - type: integer 
+	Parameter ap_const_lv32_4F bound to: 79 - type: integer 
+	Parameter ap_const_lv32_50 bound to: 80 - type: integer 
+	Parameter ap_const_lv32_57 bound to: 87 - type: integer 
+	Parameter ap_const_lv32_58 bound to: 88 - type: integer 
+	Parameter ap_const_lv32_5F bound to: 95 - type: integer 
+	Parameter ap_const_lv32_60 bound to: 96 - type: integer 
+	Parameter ap_const_lv32_67 bound to: 103 - type: integer 
+	Parameter ap_const_lv32_68 bound to: 104 - type: integer 
+	Parameter ap_const_lv32_6F bound to: 111 - type: integer 
+	Parameter ap_const_lv32_70 bound to: 112 - type: integer 
+	Parameter ap_const_lv32_77 bound to: 119 - type: integer 
+	Parameter ap_const_lv32_78 bound to: 120 - type: integer 
+	Parameter ap_const_lv32_7F bound to: 127 - type: integer 
+	Parameter C_S_AXI_AXILITES_WSTRB_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic.v:184]
+INFO: [Synth 8-638] synthesizing module 'aes_basic_AXILiteS_s_axi' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic_AXILiteS_s_axi.v:9]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDR_AP_CTRL bound to: 6'b000000 
+	Parameter ADDR_GIE bound to: 6'b000100 
+	Parameter ADDR_IER bound to: 6'b001000 
+	Parameter ADDR_ISR bound to: 6'b001100 
+	Parameter ADDR_AP_RETURN_0 bound to: 6'b010000 
+	Parameter ADDR_DATA_IN_BASE bound to: 6'b100000 
+	Parameter ADDR_DATA_IN_HIGH bound to: 6'b101111 
+	Parameter ADDR_DATA_OUT_BASE bound to: 6'b110000 
+	Parameter ADDR_DATA_OUT_HIGH bound to: 6'b111111 
+	Parameter WRIDLE bound to: 2'b00 
+	Parameter WRDATA bound to: 2'b01 
+	Parameter WRRESP bound to: 2'b10 
+	Parameter RDIDLE bound to: 2'b00 
+	Parameter RDDATA bound to: 2'b01 
+	Parameter ADDR_BITS bound to: 6 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'aes_basic_AXILiteS_s_axi_ram' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic_AXILiteS_s_axi.v:506]
+	Parameter BYTES bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 4 - type: integer 
+	Parameter AWIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'aes_basic_AXILiteS_s_axi_ram' (1#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic_AXILiteS_s_axi.v:506]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic_AXILiteS_s_axi.v:286]
+INFO: [Synth 8-256] done synthesizing module 'aes_basic_AXILiteS_s_axi' (2#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic_AXILiteS_s_axi.v:9]
+INFO: [Synth 8-638] synthesizing module 'aes' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:10]
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 1'b1 
+	Parameter ap_const_lv32_0 bound to: 0 - type: integer 
+	Parameter ap_const_lv32_78 bound to: 120 - type: integer 
+	Parameter ap_const_lv32_7F bound to: 127 - type: integer 
+	Parameter ap_const_lv32_70 bound to: 112 - type: integer 
+	Parameter ap_const_lv32_77 bound to: 119 - type: integer 
+	Parameter ap_const_lv32_68 bound to: 104 - type: integer 
+	Parameter ap_const_lv32_6F bound to: 111 - type: integer 
+	Parameter ap_const_lv32_60 bound to: 96 - type: integer 
+	Parameter ap_const_lv32_67 bound to: 103 - type: integer 
+	Parameter ap_const_lv32_58 bound to: 88 - type: integer 
+	Parameter ap_const_lv32_5F bound to: 95 - type: integer 
+	Parameter ap_const_lv32_50 bound to: 80 - type: integer 
+	Parameter ap_const_lv32_57 bound to: 87 - type: integer 
+	Parameter ap_const_lv32_48 bound to: 72 - type: integer 
+	Parameter ap_const_lv32_4F bound to: 79 - type: integer 
+	Parameter ap_const_lv32_40 bound to: 64 - type: integer 
+	Parameter ap_const_lv32_47 bound to: 71 - type: integer 
+	Parameter ap_const_lv32_38 bound to: 56 - type: integer 
+	Parameter ap_const_lv32_3F bound to: 63 - type: integer 
+	Parameter ap_const_lv32_30 bound to: 48 - type: integer 
+	Parameter ap_const_lv32_37 bound to: 55 - type: integer 
+	Parameter ap_const_lv32_28 bound to: 40 - type: integer 
+	Parameter ap_const_lv32_2F bound to: 47 - type: integer 
+	Parameter ap_const_lv32_20 bound to: 32 - type: integer 
+	Parameter ap_const_lv32_27 bound to: 39 - type: integer 
+	Parameter ap_const_lv32_18 bound to: 24 - type: integer 
+	Parameter ap_const_lv32_1F bound to: 31 - type: integer 
+	Parameter ap_const_lv32_10 bound to: 16 - type: integer 
+	Parameter ap_const_lv32_17 bound to: 23 - type: integer 
+	Parameter ap_const_lv32_8 bound to: 8 - type: integer 
+	Parameter ap_const_lv32_F bound to: 15 - type: integer 
+	Parameter ap_const_lv8_1 bound to: 8'b00000001 
+	Parameter ap_const_lv32_7 bound to: 7 - type: integer 
+	Parameter ap_const_lv8_1B bound to: 8'b00011011 
+	Parameter ap_const_lv8_2 bound to: 8'b00000010 
+	Parameter ap_const_lv8_4 bound to: 8'b00000100 
+	Parameter ap_const_lv8_8 bound to: 8'b00001000 
+	Parameter ap_const_lv8_10 bound to: 8'b00010000 
+	Parameter ap_const_lv8_20 bound to: 8'b00100000 
+	Parameter ap_const_lv8_40 bound to: 8'b01000000 
+	Parameter ap_const_lv8_80 bound to: 8'b10000000 
+	Parameter ap_const_lv8_36 bound to: 8'b00110110 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:80]
+INFO: [Synth 8-638] synthesizing module 'aes_sboxes_0' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:168]
+	Parameter DataWidth bound to: 8 - type: integer 
+	Parameter AddressRange bound to: 256 - type: integer 
+	Parameter AddressWidth bound to: 8 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'aes_sboxes_0_rom' [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:9]
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter AWIDTH bound to: 8 - type: integer 
+	Parameter MEM_SIZE bound to: 256 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:48]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:49]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:50]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:51]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:52]
+INFO: [Synth 8-3876] $readmem data file './aes_sboxes_0_rom.dat' is read successfully [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:55]
+INFO: [Synth 8-3876] $readmem data file './aes_sboxes_0_rom.dat' is read successfully [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:56]
+INFO: [Synth 8-3876] $readmem data file './aes_sboxes_0_rom.dat' is read successfully [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:57]
+INFO: [Synth 8-3876] $readmem data file './aes_sboxes_0_rom.dat' is read successfully [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:58]
+INFO: [Synth 8-3876] $readmem data file './aes_sboxes_0_rom.dat' is read successfully [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:59]
+INFO: [Synth 8-256] done synthesizing module 'aes_sboxes_0_rom' (3#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:9]
+INFO: [Synth 8-256] done synthesizing module 'aes_sboxes_0' (4#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_sboxes_0.v:168]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5418]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5420]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5422]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5424]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5426]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5428]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5430]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5432]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5434]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5436]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5438]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5440]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5442]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5444]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5446]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5448]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5450]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5452]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5454]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5456]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5458]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5460]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5462]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5464]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5466]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5468]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5470]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5472]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5474]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5476]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5478]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5480]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5482]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5484]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5486]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5560]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5562]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5564]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5566]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5568]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5570]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5572]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5574]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5576]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5578]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5580]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5582]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5584]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5586]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5588]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5590]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5592]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5594]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5596]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5598]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5600]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5602]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5604]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5606]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5608]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5610]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5612]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5614]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5616]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5618]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5620]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5622]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5624]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5626]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5628]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5630]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5632]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5706]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5708]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5710]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5712]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5714]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5716]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5718]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5720]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5722]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5724]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5726]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5728]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5730]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5732]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5734]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5736]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5738]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5740]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5742]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5744]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5746]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5748]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5750]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5752]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5754]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5756]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5758]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:5760]
+INFO: [Common 17-14] Message 'Synth 8-589' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'aes' (5#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes.v:10]
+INFO: [Synth 8-256] done synthesizing module 'aes_basic' (6#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ipshared/fae0/hdl/verilog/aes_basic.v:12]
+INFO: [Synth 8-256] done synthesizing module 'design_1_aes_basic_0_0' (7#1) [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/synth/design_1_aes_basic_0_0.v:57]
+WARNING: [Synth 8-3331] design aes_sboxes_0 has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 1526.914 ; gain = 596.441 ; free physical = 1054 ; free virtual = 14174
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1526.914 ; gain = 596.441 ; free physical = 1038 ; free virtual = 14160
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i-es2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/constraints/aes_basic_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/constraints/aes_basic_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_aes_basic_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_aes_basic_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.10 . Memory (MB): peak = 2222.391 ; gain = 2.000 ; free physical = 152 ; free virtual = 12569
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 2222.391 ; gain = 1291.918 ; free physical = 182 ; free virtual = 12573
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-i-es2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 2222.391 ; gain = 1291.918 ; free physical = 182 ; free virtual = 12573
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 2222.391 ; gain = 1291.918 ; free physical = 182 ; free virtual = 12573
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5547] Trying to map ROM "ram0" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram0" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram1" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram1" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram2" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram2" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram3" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram3" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram4" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "ram4" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-3971] The signal gen_write[1].mem_reg was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 2222.391 ; gain = 1291.918 ; free physical = 174 ; free virtual = 12360
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      8 Bit         XORs := 496   
+	   3 Input      8 Bit         XORs := 45    
+	   4 Input      8 Bit         XORs := 92    
+	   5 Input      8 Bit         XORs := 24    
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               42 Bit    Registers := 1     
+	               32 Bit    Registers := 6     
+	                8 Bit    Registers := 398   
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 23    
++---RAMs : 
+	              128 Bit         RAMs := 2     
++---ROMs : 
+	                              ROMs := 200   
++---Muxes : 
+	  43 Input     42 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 144   
+	  16 Input      4 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module aes_basic_AXILiteS_s_axi_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
++---RAMs : 
+	              128 Bit         RAMs := 1     
+Module aes_basic_AXILiteS_s_axi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 3     
+	   6 Input      3 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+Module aes_sboxes_0_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 10    
++---ROMs : 
+	                              ROMs := 10    
+Module aes 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      8 Bit         XORs := 496   
+	   3 Input      8 Bit         XORs := 45    
+	   4 Input      8 Bit         XORs := 92    
+	   5 Input      8 Bit         XORs := 24    
++---Registers : 
+	                8 Bit    Registers := 168   
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 144   
+Module aes_basic 
+Detailed RTL Component Info : 
++---Registers : 
+	               42 Bit    Registers := 1     
+	                8 Bit    Registers := 30    
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  43 Input     42 Bit        Muxes := 1     
+	  16 Input      4 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3971] The signal aes_basic_AXILiteS_s_axi_U/int_data_in/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal aes_basic_AXILiteS_s_axi_U/int_data_out/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/grp_aes_fu_472/\ap_CS_fsm_reg[0] )
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[0]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[1]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[2]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[3]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[5]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[6]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[7]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[8]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[9]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[10]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[11]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[12]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[13]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[14]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[14]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[15]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[15]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[16]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[16]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[17]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[18]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[18]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[19]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[19]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[20]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[20]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[21]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[21]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[22]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[22]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[23]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[23]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[24]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[24]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[25]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[25]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[26]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[26]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[27]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[27]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[28]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[28]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[29]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[29]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[30]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[30]' (FDRE) to 'inst/aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[31] )
+WARNING: [Synth 8-3332] Sequential element (i_0) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_2) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_4) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_6) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_8) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_10) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_12) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_14) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_16) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_18) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_20) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_22) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_24) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_26) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_28) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_30) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_32) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_34) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_36) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_38) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_40) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_42) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_44) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_46) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_48) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_50) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_52) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_54) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_56) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_58) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_60) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_62) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (i_64) is unused and will be removed from module aes_basic.
+WARNING: [Synth 8-3332] Sequential element (ap_CS_fsm_reg[0]) is unused and will be removed from module aes.
+WARNING: [Synth 8-3332] Sequential element (ap_enable_reg_pp0_iter10_reg) is unused and will be removed from module aes.
+WARNING: [Synth 8-3332] Sequential element (aes_basic_AXILiteS_s_axi_U/int_ap_return_reg[31]) is unused and will be removed from module aes_basic.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:57 . Memory (MB): peak = 2222.391 ; gain = 1291.918 ; free physical = 158 ; free virtual = 10508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-----------------+------------+---------------+----------------+
+|Module Name      | RTL Object | Depth x Width | Implemented As | 
++-----------------+------------+---------------+----------------+
+|aes_sboxes_0_rom | q0_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q1_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q2_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q3_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q4_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q5_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q6_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q7_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q8_reg     | 256x8         | Block RAM      | 
+|aes_sboxes_0_rom | q9_reg     | 256x8         | Block RAM      | 
++-----------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++-----------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                  | RTL Object           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-----------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|aes_basic_AXILiteS_s_axi_ram | gen_write[1].mem_reg | 4 x 32(READ_FIRST)     | W | R | 4 x 32(READ_FIRST)     | W | R | Port A and B     | 0      | 1      | 
+|aes_basic_AXILiteS_s_axi_ram | gen_write[1].mem_reg | 4 x 32(READ_FIRST)     | W | R | 4 x 32(READ_FIRST)     | W | R | Port A and B     | 0      | 1      | 
++-----------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:29 . Memory (MB): peak = 2892.953 ; gain = 1962.480 ; free physical = 415 ; free virtual = 8390
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:33 . Memory (MB): peak = 2944.547 ; gain = 2014.074 ; free physical = 1922 ; free virtual = 9964
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance inst/aes_basic_AXILiteS_s_axi_U/int_data_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/aes_basic_AXILiteS_s_axi_U/int_data_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/aes_basic_AXILiteS_s_axi_U/int_data_out/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_0_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_1_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_2_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_3_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_4_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_5_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_6_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_7_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_8_U/aes_sboxes_0_rom_U/q8_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q0_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q2_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q4_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/grp_aes_fu_472/sboxes_9_U/aes_sboxes_0_rom_U/q6_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Common 17-14] Message 'Synth 8-4480' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:08 ; elapsed = 00:01:36 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 4028 ; free virtual = 12135
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:09 ; elapsed = 00:01:36 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 4003 ; free virtual = 12135
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:09 ; elapsed = 00:01:36 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 4003 ; free virtual = 12135
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:09 ; elapsed = 00:01:37 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 3987 ; free virtual = 12130
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:10 ; elapsed = 00:01:37 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 3985 ; free virtual = 12130
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:10 ; elapsed = 00:01:37 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 3965 ; free virtual = 12136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:10 ; elapsed = 00:01:37 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 3965 ; free virtual = 12136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |LUT1     |     1|
+|2     |LUT2     |  1221|
+|3     |LUT3     |   454|
+|4     |LUT4     |   461|
+|5     |LUT5     |   196|
+|6     |LUT6     |  1258|
+|7     |MUXF7    |     8|
+|8     |RAMB18E2 |   100|
+|9     |RAMB36E2 |     2|
+|10    |FDRE     |  1790|
+|11    |FDSE     |     1|
++------+---------+------+
+
+Report Instance Areas: 
++------+-------------------------------+--------------------------------+------+
+|      |Instance                       |Module                          |Cells |
++------+-------------------------------+--------------------------------+------+
+|1     |top                            |                                |  5492|
+|2     |  inst                         |aes_basic                       |  5492|
+|3     |    aes_basic_AXILiteS_s_axi_U |aes_basic_AXILiteS_s_axi        |   302|
+|4     |      int_data_in              |aes_basic_AXILiteS_s_axi_ram    |    46|
+|5     |      int_data_out             |aes_basic_AXILiteS_s_axi_ram_38 |   115|
+|6     |    grp_aes_fu_472             |aes                             |  4801|
+|7     |      sboxes_0_U               |aes_sboxes_0                    |   111|
+|8     |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_37             |   111|
+|9     |      sboxes_10_U              |aes_sboxes_0_0                  |   178|
+|10    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_36             |   178|
+|11    |      sboxes_11_U              |aes_sboxes_0_1                  |   167|
+|12    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_35             |   167|
+|13    |      sboxes_12_U              |aes_sboxes_0_2                  |    88|
+|14    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_34             |    88|
+|15    |      sboxes_13_U              |aes_sboxes_0_3                  |   102|
+|16    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_33             |   102|
+|17    |      sboxes_14_U              |aes_sboxes_0_4                  |   114|
+|18    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_32             |   114|
+|19    |      sboxes_15_U              |aes_sboxes_0_5                  |   103|
+|20    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_31             |   103|
+|21    |      sboxes_16_U              |aes_sboxes_0_6                  |   338|
+|22    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_30             |   338|
+|23    |      sboxes_17_U              |aes_sboxes_0_7                  |   357|
+|24    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_29             |   357|
+|25    |      sboxes_18_U              |aes_sboxes_0_8                  |   329|
+|26    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_28             |   329|
+|27    |      sboxes_19_U              |aes_sboxes_0_9                  |   356|
+|28    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_27             |   356|
+|29    |      sboxes_1_U               |aes_sboxes_0_10                 |   193|
+|30    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_26             |   193|
+|31    |      sboxes_2_U               |aes_sboxes_0_11                 |   134|
+|32    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_25             |   134|
+|33    |      sboxes_3_U               |aes_sboxes_0_12                 |   198|
+|34    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_24             |   198|
+|35    |      sboxes_4_U               |aes_sboxes_0_13                 |    90|
+|36    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_23             |    90|
+|37    |      sboxes_5_U               |aes_sboxes_0_14                 |   131|
+|38    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_22             |   131|
+|39    |      sboxes_6_U               |aes_sboxes_0_15                 |    71|
+|40    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_21             |    71|
+|41    |      sboxes_7_U               |aes_sboxes_0_16                 |   116|
+|42    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_20             |   116|
+|43    |      sboxes_8_U               |aes_sboxes_0_17                 |   137|
+|44    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom_19             |   137|
+|45    |      sboxes_9_U               |aes_sboxes_0_18                 |   135|
+|46    |        aes_sboxes_0_rom_U     |aes_sboxes_0_rom                |   135|
++------+-------------------------------+--------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:10 ; elapsed = 00:01:37 . Memory (MB): peak = 2954.531 ; gain = 2024.059 ; free physical = 3965 ; free virtual = 12136
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 36 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:51 ; elapsed = 00:01:14 . Memory (MB): peak = 2954.531 ; gain = 861.609 ; free physical = 3963 ; free virtual = 12136
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:01:38 . Memory (MB): peak = 2954.539 ; gain = 2024.066 ; free physical = 3963 ; free virtual = 12139
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/constraints/aes_basic_ooc.xdc] for cell 'inst'
+INFO: [Vivado 12-4761] HD.CLK_SRC property is set on port ap_clk. The net connecting to the port drives either clock PIN or hierarchical black box. Use the create_clock constraint to create a clock on this port prior to setting HD.CLK_SRC.  [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/constraints/aes_basic_ooc.xdc:6]
+Finished Parsing XDC File [/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.srcs/sources_1/bd/design_1/ip/design_1_aes_basic_0_0/constraints/aes_basic_ooc.xdc] for cell 'inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+186 Infos, 137 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:35 . Memory (MB): peak = 2990.805 ; gain = 1656.867 ; free physical = 3753 ; free virtual = 12061
+INFO: [Common 17-1381] The checkpoint '/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_aes_basic_0_0_synth_1/design_1_aes_basic_0_0.dcp' has been generated.

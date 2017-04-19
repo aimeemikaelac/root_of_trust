@@ -1,0 +1,192 @@
+
+*** Running vivado
+    with args -log design_1_axi_vdma_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_vdma_0_0.tcl
+
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+  **** IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_axi_vdma_0_0.tcl -notrace
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1475.539 ; gain = 545.059 ; free physical = 3105 ; free virtual = 16081
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_vdma_0_0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/synth/design_1_axi_vdma_0_0.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:69480]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_rst_module' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:16457]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_reset' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:14862]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_reset' (1#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:14862]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_rst_module' (2#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:16457]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_reg_if' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:39644]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_lite_if' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:16952]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_lite_if' (3#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:16952]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_reg_if' (4#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:39644]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_intrpt' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:40370]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_intrpt' (5#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:40370]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_mm2s_axis_dwidth_converter' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:68170]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axis_dwidth_converter' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1938]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axisc_upsizer' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1191]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axisc_upsizer' (6#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1191]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axisc_downsizer' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1558]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axisc_downsizer' (7#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1558]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axis_register_slice' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:979]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_axis2vector' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:63]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_axis2vector' (8#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:63]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axisc_register_slice' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:391]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axisc_register_slice' (9#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:391]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_vector2axis' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:228]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_vector2axis' (10#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:228]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axis_register_slice' (11#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:979]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axis_register_slice__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:979]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_axis2vector__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:63]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_axis2vector__parameterized0' (11#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:63]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axisc_register_slice__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:391]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axisc_register_slice__parameterized0' (11#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:391]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_vector2axis__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:228]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_infrastructure_v1_0_util_vector2axis__parameterized0' (11#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:228]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_register_slice_v1_0_axis_register_slice__parameterized0' (11#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:979]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_v6_2_10_axis_dwidth_converter_v1_0_axis_dwidth_converter' (12#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.v:1938]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_mm2s_axis_dwidth_converter' (13#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:68170]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_reg_module' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:38829]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_register' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:18712]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_register' (14#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:18712]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_regdirect' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:20526]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_regdirect' (15#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:20526]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_reg_mux' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:29591]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_reg_mux' (16#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:29591]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_reg_module' (17#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:38829]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_mngr_64' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:66110]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_sm' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:61558]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_sm' (18#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:61558]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_cmdsts_if' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:62697]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_cmdsts_if' (19#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:62697]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_sts_mngr' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:63204]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_sts_mngr' (20#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:63204]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_vidreg_module_64' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:56411]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_vregister_64' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:53916]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_vregister_64' (21#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:53916]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_vaddrreg_mux_64' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:55445]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_vaddrreg_mux_64' (22#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:55445]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_vidreg_module_64' (23#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:56411]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_genlock_mngr' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:58282]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_genlock_mux' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57020]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_genlock_mux' (24#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57020]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_greycoder' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57995]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_greycoder' (25#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57995]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_greycoder__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57995]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_greycoder__parameterized0' (25#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:57995]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_genlock_mngr' (26#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:58282]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_mngr_64' (27#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:66110]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_fsync_gen' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:52754]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_fsync_gen' (28#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:52754]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_vid_cdc' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:13249]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_vid_cdc' (29#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:13249]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_sof_gen' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:40980]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_sof_gen' (30#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:40980]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_mm2s_linebuf' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:45948]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_sfifo' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:41782]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_sfifo' (58#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:41782]
+INFO: [Synth 8-638] synthesizing module 'axi_vdma_skid_buf' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:41227]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_skid_buf' (59#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:41227]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma_mm2s_linebuf' (60#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:45948]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:48516]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_mm2s_full_wrap' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:46666]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_reset' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:153]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_reset' (61#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:153]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_cmd_status' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:2693]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_fifo' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'cntr_incr_decr_addn_f' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+INFO: [Synth 8-256] done synthesizing module 'cntr_incr_decr_addn_f' (62#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f' (63#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f' (64#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f' (65#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo' (66#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_fifo__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f__parameterized0' (66#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f__parameterized0' (66#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f__parameterized0' (66#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo__parameterized0' (66#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_cmd_status' (67#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:2693]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_rd_status_cntl' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:13741]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_rd_status_cntl' (68#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:13741]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_pcc' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:7411]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_strb_gen2' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:4337]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_strb_gen2' (69#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:4337]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_strb_gen2__parameterized0' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:4337]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_strb_gen2__parameterized0' (69#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:4337]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_pcc' (70#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:7411]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_addr_cntl' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:9995]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_fifo__parameterized1' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f__parameterized1' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f__parameterized1' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f__parameterized1' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f__parameterized1' (70#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f__parameterized1' (70#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f__parameterized1' (70#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo__parameterized1' (70#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_addr_cntl' (71#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:9995]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_rddata_cntl' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:12180]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_rdmux' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:10676]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_rdmux' (72#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:10676]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_fifo__parameterized2' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f__parameterized2' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f__parameterized2' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f__parameterized2' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f__parameterized2' (72#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f__parameterized2' (72#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f__parameterized2' (72#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_fifo__parameterized2' (72#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:1881]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_rddata_cntl' (73#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:12180]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_mm2s_full_wrap' (74#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:46666]
+INFO: [Synth 8-638] synthesizing module 'axi_datamover_s2mm_omit_wrap' [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:42721]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover_s2mm_omit_wrap' (75#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:42721]
+INFO: [Synth 8-256] done synthesizing module 'axi_datamover' (76#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/bf41/hdl/axi_datamover_v5_1_vh_rfs.vhd:48516]
+INFO: [Synth 8-256] done synthesizing module 'axi_vdma' (77#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ipshared/ed72/hdl/axi_vdma_v6_2_rfs.vhd:69480]
+INFO: [Synth 8-256] done synthesizing module 'design_1_axi_vdma_0_0' (78#1) [/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/synth/design_1_axi_vdma_0_0.vhd:106]
+Finished RTL Elaboration : Time (s): cpu = 00:03:02 ; elapsed = 00:03:07 . Memory (MB): peak = 1729.781 ; gain = 799.301 ; free physical = 3773 ; free virtual = 16894
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:03 ; elapsed = 00:03:07 . Memory (MB): peak = 1729.781 ; gain = 799.301 ; free physical = 3789 ; free virtual = 16894
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i-es2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2252.961 ; gain = 3.000 ; free physical = 3458 ; free virtual = 16547
+Finished Constraint Validation : Time (s): cpu = 00:03:15 ; elapsed = 00:03:19 . Memory (MB): peak = 2252.961 ; gain = 1322.480 ; free physical = 3445 ; free virtual = 16545
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:15 ; elapsed = 00:03:19 . Memory (MB): peak = 2252.961 ; gain = 1322.480 ; free physical = 3445 ; free virtual = 16545
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:15 ; elapsed = 00:03:19 . Memory (MB): peak = 2252.961 ; gain = 1322.480 ; free physical = 3445 ; free virtual = 16545
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:17 ; elapsed = 00:03:22 . Memory (MB): peak = 2252.961 ; gain = 1322.480 ; free physical = 3443 ; free virtual = 16538
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:25 ; elapsed = 00:03:30 . Memory (MB): peak = 2252.961 ; gain = 1322.480 ; free physical = 3414 ; free virtual = 16513
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:36 ; elapsed = 00:03:42 . Memory (MB): peak = 2856.555 ; gain = 1926.074 ; free physical = 2860 ; free virtual = 15928
+Finished Timing Optimization : Time (s): cpu = 00:03:38 ; elapsed = 00:03:43 . Memory (MB): peak = 2890.852 ; gain = 1960.371 ; free physical = 2826 ; free virtual = 15894
+Finished Technology Mapping : Time (s): cpu = 00:03:40 ; elapsed = 00:03:45 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2802 ; free virtual = 15869
+Finished IO Insertion : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY8   |    14|
+|2     |LUT1     |   348|
+|3     |LUT2     |   195|
+|4     |LUT3     |   303|
+|5     |LUT4     |   187|
+|6     |LUT5     |   258|
+|7     |LUT6     |   532|
+|8     |MUXCY    |    20|
+|9     |MUXF7    |     6|
+|10    |RAMB18E2 |     1|
+|11    |RAMB36E2 |     1|
+|12    |SRL16E   |   179|
+|13    |FDRE     |  2442|
+|14    |FDSE     |    39|
++------+---------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 2916.273 ; gain = 1985.793 ; free physical = 2801 ; free virtual = 15869
+synth_design: Time (s): cpu = 00:03:35 ; elapsed = 00:03:42 . Memory (MB): peak = 2963.289 ; gain = 1625.258 ; free physical = 2720 ; free virtual = 15789

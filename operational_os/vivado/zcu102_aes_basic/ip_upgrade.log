@@ -1,0 +1,197 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Tue Mar 14 21:30:41 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_secure_enclave_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_secure_enclave_0_0 (xilinx.com:hls:secure_enclave:1.0) from (Rev. 1703142118) to (Rev. 1703142128)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Tue Mar 14 21:20:03 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_secure_enclave_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_secure_enclave_0_0 (xilinx.com:hls:secure_enclave:1.0) from (Rev. 1703142116) to (Rev. 1703142118)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Tue Mar 14 21:17:07 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_secure_enclave_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_secure_enclave_0_0 (xilinx.com:hls:secure_enclave:1.0) from (Rev. 1703142112) to (Rev. 1703142116)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Tue Mar 14 21:13:32 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_secure_enclave_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_secure_enclave_0_0 (xilinx.com:hls:secure_enclave:1.0) from (Rev. 1703142055) to (Rev. 1703142112)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Mon Mar 13 23:53:32 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_aes_basic_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_aes_basic_0_1 (xilinx.com:hls:aes_basic:1.0) from (Rev. 1703132253) to (Rev. 1703132352)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Mon Mar 13 21:06:53 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_aes_basic_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_aes_basic_0_0 (xilinx.com:hls:aes_basic:1.0) from (Rev. 1703132103) to (Rev. 1703132106)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Mon Mar 13 20:47:13 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_aes_basic_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_aes_basic_0_0 (xilinx.com:hls:aes_basic:1.0) from (Rev. 1703051940) to (Rev. 1703132045)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
+| Date         : Sun Mar  5 19:41:30 2017
+| Host         : SchoolComputer running 64-bit Ubuntu 16.10
+| Command      : upgrade_ip
+| Device       : xczu9eg-ffvb1156-2-i-es2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_aes_basic_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of design_1_aes_basic_0_0 (xilinx.com:hls:aes_basic:1.0) from (Rev. 1703051932) to (Rev. 1703051940)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'design_1_aes_basic_0_0'.
+
+
+-Upgrade has removed interface 'ap_ctrl'
+
+-Upgrade has removed interface 'ap_return'
+
+-Upgrade has added interface 'interrupt' (xilinx.com:signal:interrupt:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'design_1_aes_basic_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ap_done'
+
+-Upgrade has removed port 'ap_idle'
+
+-Upgrade has removed port 'ap_ready'
+
+-Upgrade has removed port 'ap_return'
+
+-Upgrade has removed port 'ap_start'
+
+-Upgrade has added port 'interrupt'
+
+

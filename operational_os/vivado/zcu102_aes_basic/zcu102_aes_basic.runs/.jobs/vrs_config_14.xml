@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="design_1_secure_enclave_0_0_synth_1" LaunchDir="/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_secure_enclave_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_xbar_0_synth_1" LaunchDir="/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_xbar_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_gpio_0_0_synth_1" LaunchDir="/home/michael/xilinx_workspace/zcu102_aes_basic/zcu102_aes_basic.runs/design_1_axi_gpio_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

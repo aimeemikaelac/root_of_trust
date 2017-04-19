@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+# IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+# Start of session at: Tue Apr 18 20:28:10 2017
+# Process ID: 22567
+# Current directory: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1
+# Command line: vivado -log design_1_v_tpg_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_v_tpg_0_0.tcl
+# Log file: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/design_1_v_tpg_0_0.vds
+# Journal file: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_v_tpg_0_0.tcl -notrace
+compile_c: Time (s): cpu = 00:02:04 ; elapsed = 00:02:21 . Memory (MB): peak = 1412.969 ; gain = 5.516 ; free physical = 2093 ; free virtual = 12970
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_v_tpg_0_0, cache-ID = 945095f3f4301005.

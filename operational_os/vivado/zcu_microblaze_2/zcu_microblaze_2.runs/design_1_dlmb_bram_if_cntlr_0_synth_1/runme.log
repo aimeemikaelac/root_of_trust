@@ -1,0 +1,54 @@
+
+*** Running vivado
+    with args -log design_1_dlmb_bram_if_cntlr_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_dlmb_bram_if_cntlr_0.tcl
+
+
+****** Vivado v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source design_1_dlmb_bram_if_cntlr_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1492.816 ; gain = 0.000 ; free physical = 4045 ; free virtual = 16401
+INFO: [Synth 8-638] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/synth/design_1_dlmb_bram_if_cntlr_0.vhd:95]
+INFO: [Synth 8-638] synthesizing module 'lmb_bram_if_cntlr' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3106]
+INFO: [Synth 8-638] synthesizing module 'lmb_mux' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2601]
+INFO: [Synth 8-638] synthesizing module 'pselect_mask' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-256] done synthesizing module 'pselect_mask' (1#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-638] synthesizing module 'pselect_mask__parameterized1' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-256] done synthesizing module 'pselect_mask__parameterized1' (1#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2121]
+INFO: [Synth 8-256] done synthesizing module 'lmb_mux' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:2601]
+INFO: [Synth 8-256] done synthesizing module 'lmb_bram_if_cntlr' (3#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/5376/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3106]
+INFO: [Synth 8-256] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (4#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/synth/design_1_dlmb_bram_if_cntlr_0.vhd:95]
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.816 ; gain = 0.000 ; free physical = 4017 ; free virtual = 16392
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.816 ; gain = 0.000 ; free physical = 4000 ; free virtual = 16360
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.10 . Memory (MB): peak = 2055.957 ; gain = 1.000 ; free physical = 2113 ; free virtual = 14497
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 2055.957 ; gain = 563.141 ; free physical = 2055 ; free virtual = 14429
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 2055.957 ; gain = 563.141 ; free physical = 2055 ; free virtual = 14429
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 2055.957 ; gain = 563.141 ; free physical = 2049 ; free virtual = 14423
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 2055.957 ; gain = 563.141 ; free physical = 2027 ; free virtual = 14401
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 2055.957 ; gain = 563.141 ; free physical = 1951 ; free virtual = 14334
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2651.934 ; gain = 1159.117 ; free physical = 312 ; free virtual = 12075
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2662.949 ; gain = 1170.133 ; free physical = 308 ; free virtual = 12071
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 307 ; free virtual = 12070
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 569 ; free virtual = 12440
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 569 ; free virtual = 12440
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 564 ; free virtual = 12435
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 564 ; free virtual = 12435
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 564 ; free virtual = 12435
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 564 ; free virtual = 12435
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     1|
+|2     |LUT3 |     9|
+|3     |LUT4 |     1|
+|4     |LUT5 |    66|
+|5     |LUT6 |     4|
+|6     |FDRE |    74|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 2672.965 ; gain = 1180.148 ; free physical = 564 ; free virtual = 12435
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 2725.980 ; gain = 1296.672 ; free physical = 577 ; free virtual = 12338

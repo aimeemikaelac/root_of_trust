@@ -1,0 +1,82 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Mon May  1 13:24:34 2017
+# Process ID: 13806
+# Current directory: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.runs/design_1_xbar_0_synth_1
+# Command line: vivado -log design_1_xbar_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_xbar_0.tcl
+# Log file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.runs/design_1_xbar_0_synth_1/design_1_xbar_0.vds
+# Journal file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.runs/design_1_xbar_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_xbar_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1492.812 ; gain = 0.000 ; free physical = 4015 ; free virtual = 16390
+INFO: [Synth 8-638] synthesizing module 'design_1_xbar_0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:59]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_axi_crossbar' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_crossbar_sasd' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:1240]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_addr_decoder' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_carry_and' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_carry_and' (1#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized0' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized1' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized1' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized2' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized2' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_addr_decoder' (3#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_decerr_slave' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_decerr_slave' (4#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_addr_arbiter_sasd' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:65]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_addr_arbiter_sasd' (5#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:65]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_splitter' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_splitter' (6#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_13_splitter__parameterized0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_splitter__parameterized0' (6#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' (7#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' (7#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' (7#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_12_axic_register_slice' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0e33/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_12_axic_register_slice' (8#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0e33/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' (8#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_crossbar_sasd' (9#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:1240]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_13_axi_crossbar' (10#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/78eb/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-256] done synthesizing module 'design_1_xbar_0' (11#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:59]
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1492.812 ; gain = 0.000 ; free physical = 3569 ; free virtual = 15927
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1492.812 ; gain = 0.000 ; free physical = 3545 ; free virtual = 15905
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2078.023 ; gain = 0.000 ; free physical = 1797 ; free virtual = 14171
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.023 ; gain = 585.211 ; free physical = 1845 ; free virtual = 14232
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.023 ; gain = 585.211 ; free physical = 1845 ; free virtual = 14232
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.023 ; gain = 585.211 ; free physical = 1846 ; free virtual = 14233
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2078.023 ; gain = 585.211 ; free physical = 1817 ; free virtual = 14203
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2078.023 ; gain = 585.211 ; free physical = 1550 ; free virtual = 13936
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 2677.961 ; gain = 1185.148 ; free physical = 576 ; free virtual = 12336
+Finished Timing Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 556 ; free virtual = 12319
+Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 418 ; free virtual = 12181
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 418 ; free virtual = 12184
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 416 ; free virtual = 12182
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 434 ; free virtual = 12200
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 435 ; free virtual = 12201
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 486 ; free virtual = 12252
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 498 ; free virtual = 12264
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     3|
+|2     |LUT2 |    14|
+|3     |LUT3 |    10|
+|4     |LUT4 |   131|
+|5     |LUT5 |   159|
+|6     |LUT6 |   171|
+|7     |FDRE |   401|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2726.047 ; gain = 1233.234 ; free physical = 501 ; free virtual = 12267
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 2770.062 ; gain = 1340.758 ; free physical = 1942 ; free virtual = 13709

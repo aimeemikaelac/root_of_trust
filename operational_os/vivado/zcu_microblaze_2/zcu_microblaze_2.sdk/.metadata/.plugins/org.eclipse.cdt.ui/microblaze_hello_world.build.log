@@ -1,0 +1,26 @@
+18:17:59 **** Auto Build of configuration Release for project microblaze_hello_world ****
+make all 
+Building file: ../src/helloworld.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../microblaze_hello_world_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/platform.o" -I../../microblaze_hello_world_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: microblaze_hello_world.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../microblaze_hello_world_bsp/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "microblaze_hello_world.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: microblaze_hello_world.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size microblaze_hello_world.elf  |tee "microblaze_hello_world.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2576	    268	   3108	   5952	   1740	microblaze_hello_world.elf
+Finished building: microblaze_hello_world.elf.size
+ 
+
+18:17:59 Build Finished (took 174ms)
+

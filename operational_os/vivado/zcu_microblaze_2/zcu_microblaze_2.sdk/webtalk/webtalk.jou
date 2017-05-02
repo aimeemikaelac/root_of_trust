@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# 
+# Start of session at: Mon May  1 13:15:20 2017
+# Process ID: 5976
+# Current directory: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.sdk/webtalk/webtalk.log
+# Journal file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

@@ -1,0 +1,87 @@
+
+*** Running vivado
+    with args -log design_1_axi_uart16550_1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_uart16550_1_0.tcl
+
+
+****** Vivado v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source design_1_axi_uart16550_1_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1490.816 ; gain = 0.000 ; free physical = 4911 ; free virtual = 16960
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_uart16550_1_0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_1_0/synth/design_1_axi_uart16550_1_0.vhd:99]
+INFO: [Synth 8-638] synthesizing module 'axi_uart16550' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:4680]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (1#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (3#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'xuart' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:4204]
+INFO: [Synth 8-638] synthesizing module 'uart16550' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:2317]
+INFO: [Synth 8-638] synthesizing module 'xuart_tx_load_sm' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:310]
+INFO: [Synth 8-256] done synthesizing module 'xuart_tx_load_sm' (4#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:310]
+INFO: [Synth 8-638] synthesizing module 'rx16550' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:1303]
+INFO: [Synth 8-256] done synthesizing module 'rx16550' (5#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:1303]
+INFO: [Synth 8-638] synthesizing module 'tx16550' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:681]
+INFO: [Synth 8-256] done synthesizing module 'tx16550' (6#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:681]
+INFO: [Synth 8-638] synthesizing module 'tx_fifo_block' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:542]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'cntr_incr_decr_addn_f' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+INFO: [Synth 8-256] done synthesizing module 'cntr_incr_decr_addn_f' (7#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f' (8#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f' (9#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'tx_fifo_block' (10#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:542]
+INFO: [Synth 8-638] synthesizing module 'rx_fifo_block' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:1129]
+INFO: [Synth 8-638] synthesizing module 'rx_fifo_control' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:104]
+INFO: [Synth 8-256] done synthesizing module 'rx_fifo_control' (11#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f__parameterized0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f__parameterized0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f__parameterized0' (11#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f__parameterized0' (11#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'rx_fifo_block' (12#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:1129]
+INFO: [Synth 8-256] done synthesizing module 'uart16550' (13#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:2317]
+INFO: [Synth 8-638] synthesizing module 'ipic_if' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:3880]
+INFO: [Synth 8-256] done synthesizing module 'ipic_if' (14#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:3880]
+INFO: [Synth 8-256] done synthesizing module 'xuart' (15#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:4204]
+INFO: [Synth 8-256] done synthesizing module 'axi_uart16550' (16#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ipshared/a009/hdl/axi_uart16550_v2_0_vh_rfs.vhd:4680]
+INFO: [Synth 8-256] done synthesizing module 'design_1_axi_uart16550_1_0' (17#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_2/zcu_microblaze_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_1_0/synth/design_1_axi_uart16550_1_0.vhd:99]
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1490.816 ; gain = 0.000 ; free physical = 4749 ; free virtual = 16804
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1490.816 ; gain = 0.000 ; free physical = 4726 ; free virtual = 16779
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2067.988 ; gain = 1.000 ; free physical = 2705 ; free virtual = 14778
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 2067.988 ; gain = 577.172 ; free physical = 2817 ; free virtual = 14864
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 2067.988 ; gain = 577.172 ; free physical = 2818 ; free virtual = 14864
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 2067.988 ; gain = 577.172 ; free physical = 2821 ; free virtual = 14867
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:27 . Memory (MB): peak = 2067.988 ; gain = 577.172 ; free physical = 2733 ; free virtual = 14780
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 2067.988 ; gain = 577.172 ; free physical = 2534 ; free virtual = 14580
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 2666.926 ; gain = 1176.109 ; free physical = 1491 ; free virtual = 13540
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 2700.004 ; gain = 1209.188 ; free physical = 1439 ; free virtual = 13487
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1440 ; free virtual = 13489
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1393 ; free virtual = 13442
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1393 ; free virtual = 13441
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1384 ; free virtual = 13432
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1383 ; free virtual = 13432
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1381 ; free virtual = 13430
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1381 ; free virtual = 13429
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |LUT1   |     4|
+|2     |LUT2   |    48|
+|3     |LUT3   |    45|
+|4     |LUT4   |    53|
+|5     |LUT5   |    85|
+|6     |LUT6   |   157|
+|7     |MUXF7  |     5|
+|8     |ODDRE1 |     1|
+|9     |SRL16E |    19|
+|10    |FDRE   |   260|
+|11    |FDSE   |    47|
++------+-------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 2710.020 ; gain = 1219.203 ; free physical = 1381 ; free virtual = 13429
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:48 . Memory (MB): peak = 2758.035 ; gain = 1330.727 ; free physical = 1399 ; free virtual = 13449

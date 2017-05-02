@@ -1,0 +1,6 @@
+18:18:21 **** Incremental Build of configuration Release for project microblaze_hello_world_2 ****
+make all 
+make: Nothing to be done for 'all'.
+
+18:18:21 Build Finished (took 65ms)
+

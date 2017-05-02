@@ -175,11 +175,11 @@ class DevMem:
         mem.seek(virt_base_addr + offset)
 
         # Read until the end of our aligned address
-        for i in range(0, len(din), self.word):
+        for i in range(0, len(din)):#, self.word):
             self.debug('writing at position = {0}: 0x{1:x}'.
                         format(self.mem.tell(), din[i]))
             # Write one word at a time
-            mem.write(struct.pack('I', din[i]))
+            mem.write(struct.pack('B', din[i]))
 
     def debug_set(self, value):
         self._debug = value

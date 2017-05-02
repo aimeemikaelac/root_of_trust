@@ -49,10 +49,10 @@ def get_program_segments(program_headers, elf_file):
             #                                             current_word[2],
             #                                             current_word[1],
             #                                             current_word[0]))
-            elf_data.append(current_word[3])
-            elf_data.append(current_word[2])
-            elf_data.append(current_word[1])
             elf_data.append(current_word[0])
+            elf_data.append(current_word[1])
+            elf_data.append(current_word[2])
+            elf_data.append(current_word[3])
         # elf_data = bytearray(elf_file_handle.read())
         for segment in program_headers:
             offset = segment[0]

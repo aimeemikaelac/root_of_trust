@@ -1,0 +1,37 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port SERIAL_DATA_EN -pg 1 -y 420 -defaultsOSRD
+preplace port SERIAL_DATA_LINE_IN -pg 1 -y 470 -defaultsOSRD
+preplace port SERIAL_CLK_EN -pg 1 -y 360 -defaultsOSRD
+preplace port SERIAL_DATA_LED -pg 1 -y 260 -defaultsOSRD
+preplace port IIC -pg 1 -y 340 -defaultsOSRD
+preplace port SERIAL_DATA_LINE_OUT -pg 1 -y 380 -defaultsOSRD
+preplace port SERIAL_CLK_LED -pg 1 -y 290 -defaultsOSRD
+preplace port SERIAL_CLK_OUT -pg 1 -y 320 -defaultsOSRD
+preplace inst ps8_0_axi_periph_1 -pg 1 -lvl 3 -y 340 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 4 -y 380 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 2 -y 110 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 3 -y 120 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace netloc ps8_0_axi_periph_1_M00_AXI 1 3 1 1450
+preplace netloc axi_iic_0_sda_o 1 4 1 1740J
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 1 3 100 20 1130 470 1450
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 2 1 1120
+preplace netloc sda_i_1 1 0 5 NJ 470 NJ 470 1110J 510 NJ 510 1720
+preplace netloc axi_iic_0_scl_o 1 4 1 1720
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 2 2 1150 460 1460J
+preplace netloc axi_iic_0_sda_t 1 4 1 N
+preplace netloc axi_iic_0_IIC 1 4 1 1730J
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 2 90 0 1110
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 2 1 N
+preplace netloc axi_iic_0_scl_t 1 4 1 N
+preplace netloc rst_ps8_0_99M_interconnect_aresetn 1 2 1 1140
+levelinfo -pg 1 -180 70 800 1300 1590 1760 -top -240 -bot 530
+",
+}
+{
+   da_axi4_cnt: "3",
+   da_board_cnt: "1",
+   da_zynq_ultra_ps_e_cnt: "1",
+}

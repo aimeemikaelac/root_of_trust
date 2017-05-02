@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# 
+# Start of session at: Sun Apr 23 21:33:15 2017
+# Process ID: 19522
+# Current directory: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zedboard_pmod/zedboard_pmod.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zedboard_pmod/zedboard_pmod.sdk/webtalk/webtalk.log
+# Journal file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zedboard_pmod/zedboard_pmod.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

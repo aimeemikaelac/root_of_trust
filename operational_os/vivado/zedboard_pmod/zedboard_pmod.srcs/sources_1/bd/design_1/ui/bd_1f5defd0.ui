@@ -1,0 +1,38 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -y 50 -defaultsOSRD
+preplace port SERIAL_DATA_LINE_IN -pg 1 -y 470 -defaultsOSRD
+preplace port SERIAL_DATA_EN -pg 1 -y 290 -defaultsOSRD
+preplace port SERIAL_CLK_IN -pg 1 -y 450 -defaultsOSRD
+preplace port SERIAL_CLK_EN -pg 1 -y 230 -defaultsOSRD
+preplace port SERIAL_DATA_LED -pg 1 -y 250 -defaultsOSRD
+preplace port SERIAL_DATA_LINE_OUT -pg 1 -y 270 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 70 -defaultsOSRD
+preplace port SERIAL_CLK_LED -pg 1 -y 190 -defaultsOSRD
+preplace port SERIAL_CLK_OUT -pg 1 -y 210 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 3 -y 250 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 230 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 360 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 130 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 50 NJ 50 NJ
+preplace netloc axi_iic_0_sda_o 1 3 1 1070
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 470
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 480 460 800J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 270 450
+preplace netloc sda_i_1 1 0 4 NJ 470 NJ 470 NJ 470 1060
+preplace netloc axi_iic_0_scl_o 1 3 1 1070
+preplace netloc axi_iic_0_sda_t 1 3 1 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 70 NJ 70 NJ
+preplace netloc axi_iic_0_scl_t 1 3 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 260 470 350 790
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 N
+preplace netloc scl_i_1 1 0 4 NJ 450 NJ 450 780J 120 1060
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 1 460
+levelinfo -pg 1 0 240 630 930 1090 -top 0 -bot 490
+",
+}
+{
+   da_axi4_cnt: "2",
+   da_ps7_cnt: "1",
+}

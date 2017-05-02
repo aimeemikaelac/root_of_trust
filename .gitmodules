@@ -1,4 +1,0 @@
-[submodule "aes-gcm"]
-	path = aes-gcm
-	url = https://github.com/michaeljclark/aes-gcm.git
-	branch = master

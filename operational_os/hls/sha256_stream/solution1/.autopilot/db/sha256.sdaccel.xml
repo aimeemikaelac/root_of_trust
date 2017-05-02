@@ -1,0 +1,194 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'sha256'" level="0">
+<item name = "Date">Mon May  1 20:16:18 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">sha256_stream</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-1-i-es1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Target clock period (ns)">10.00</item>
+<item name = "Clock uncertainty (ns)">1.25</item>
+<item name = "Estimated clock period (ns)">4.73</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_update_fu_256">update, 2, 2488, 2, 2488, none</column>
+<column name="grp_final_fu_269">final, ?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">?, ?, 133 ~ 2619, -, -, ?, no</column>
+<column name=" + Loop 1.1">128, 128, 2, -, -, 64, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 78, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">17, -, 2025, 5664, -</column>
+<column name="Memory">3, -, 16, 8, -</column>
+<column name="Multiplexer">-, -, -, 453, -</column>
+<column name="Register">-, -, 204, -, -</column>
+<specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, ~0, 2, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="grp_final_fu_269">final, 5, 0, 745, 2024</column>
+<column name="sha256_AXILiteS_s_axi_U">sha256_AXILiteS_s_axi, 2, 0, 148, 174</column>
+<column name="grp_update_fu_256">update, 10, 0, 1132, 3466</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="cipher_m_block_U">sha256_cipher_m_bdEe, 1, 0, 0, 128, 8, 1, 1024</column>
+<column name="cipher_m_h_U">sha256_cipher_m_h, 2, 0, 0, 8, 32, 1, 256</column>
+<column name="data_buffer_U">sha256_data_buffer, 0, 16, 8, 64, 8, 1, 512</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="block_counter_1_fu_292_p2">+, 0, 0, 38, 31, 1</column>
+<column name="data_index_1_fu_304_p2">+, 0, 0, 15, 7, 1</column>
+<column name="stream_in_V_0_load_A">and, 0, 0, 2, 1, 1</column>
+<column name="stream_in_V_0_load_B">and, 0, 0, 2, 1, 1</column>
+<column name="exitcond_fu_298_p2">icmp, 0, 0, 4, 7, 8</column>
+<column name="stream_in_V_0_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
+<column name="tmp_fu_287_p2">icmp, 0, 0, 16, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">47, 10, 1, 10</column>
+<column name="block_counter_reg_233">9, 2, 31, 62</column>
+<column name="cipher_m_block_address0">15, 3, 7, 21</column>
+<column name="cipher_m_block_address1">15, 3, 7, 21</column>
+<column name="cipher_m_block_ce0">15, 3, 1, 3</column>
+<column name="cipher_m_block_ce1">15, 3, 1, 3</column>
+<column name="cipher_m_block_d0">15, 3, 8, 24</column>
+<column name="cipher_m_block_we0">15, 3, 1, 3</column>
+<column name="cipher_m_h_address0">38, 7, 3, 21</column>
+<column name="cipher_m_h_address1">27, 5, 3, 15</column>
+<column name="cipher_m_h_ce0">21, 4, 1, 4</column>
+<column name="cipher_m_h_d0">38, 7, 32, 224</column>
+<column name="cipher_m_h_d1">27, 5, 32, 160</column>
+<column name="cipher_m_h_we0">21, 4, 1, 4</column>
+<column name="cipher_m_len_reg_209">9, 2, 32, 64</column>
+<column name="cipher_m_tot_len_reg_221">9, 2, 32, 64</column>
+<column name="data_buffer_address0">15, 3, 6, 18</column>
+<column name="data_buffer_ce0">15, 3, 1, 3</column>
+<column name="data_buffer_ce1">9, 2, 1, 2</column>
+<column name="data_index_reg_244">9, 2, 7, 14</column>
+<column name="num_blocks_ap_vld_in_sig">9, 2, 1, 2</column>
+<column name="num_blocks_ap_vld_preg">9, 2, 1, 2</column>
+<column name="num_blocks_blk_n">9, 2, 1, 2</column>
+<column name="num_blocks_in_sig">9, 2, 32, 64</column>
+<column name="stream_in_V_0_data_out">9, 2, 8, 16</column>
+<column name="stream_in_V_0_state">15, 3, 2, 6</column>
+<column name="stream_in_V_TDATA_blk_n">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">9, 0, 9, 0</column>
+<column name="ap_reg_grp_final_fu_269_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_update_fu_256_ap_start">1, 0, 1, 0</column>
+<column name="block_counter_1_reg_331">31, 0, 31, 0</column>
+<column name="block_counter_reg_233">31, 0, 31, 0</column>
+<column name="cipher_m_len_reg_209">32, 0, 32, 0</column>
+<column name="cipher_m_tot_len_reg_221">32, 0, 32, 0</column>
+<column name="data_index_1_reg_339">7, 0, 7, 0</column>
+<column name="data_index_reg_244">7, 0, 7, 0</column>
+<column name="num_blocks_ap_vld_preg">1, 0, 1, 0</column>
+<column name="num_blocks_preg">32, 0, 32, 0</column>
+<column name="stream_in_V_0_payload_A">8, 0, 8, 0</column>
+<column name="stream_in_V_0_payload_B">8, 0, 8, 0</column>
+<column name="stream_in_V_0_sel_rd">1, 0, 1, 0</column>
+<column name="stream_in_V_0_sel_wr">1, 0, 1, 0</column>
+<column name="stream_in_V_0_state">2, 0, 2, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWADDR">in, 6, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARADDR">in, 6, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, sha256, return value</column>
+<column name="stream_in_V_TDATA">in, 8, axis, stream_in_V, pointer</column>
+<column name="stream_in_V_TVALID">in, 1, axis, stream_in_V, pointer</column>
+<column name="stream_in_V_TREADY">out, 1, axis, stream_in_V, pointer</column>
+</table>
+</item>
+</section>
+
+<section name = "Critical Path" level="0">
+<item name = "Max Delay">2.42</item>
+<item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
+<keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
+<column name="'cipher.m_len'">phi, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, &apos;cipher.m_len&apos;, sha256_stream/src/sha256_stream.cpp:145</column>
+<column name="sha256_stream/src/sha256_stream.cpp:147">call, 2.42, 2.42, -, -, -, -, -, -, -, -, -, final, -</column>
+</table>
+</item>
+</section>
+</profile>

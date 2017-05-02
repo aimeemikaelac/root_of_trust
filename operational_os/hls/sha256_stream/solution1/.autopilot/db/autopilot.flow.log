@@ -1,0 +1,977 @@
+INFO: [HLS 200-0] Workspace /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1 opened at Mon May 01 20:16:13 MDT 2017
+INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
+INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.lib 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.lib 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_old.lib 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_vivado.lib 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/dsp48e2.hlp 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -speed medium 
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.14 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.15 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.15 sec.
+INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
+INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv7.lib 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_hp.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_hp.hlp 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     set_part xczu9eg-ffvb1156-1-i-es1 
+INFO: [HLS 200-100] Execute       add_library xilinx/zynquplus/zynquplus:xczu9eg:-ffvb1156:-1-i-es1 
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         license_isbetapart xczu9eg-es1 
+INFO: [HLS 200-100] Command         license_isbetapart returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         license_exists xczu9eg-es1 
+INFO: [LICQ 200-103] Checked out feature [xczu9eg-es1]
+INFO: [LIC 200-101] Checked out feature [xczu9eg-es1]
+INFO: [HLS 200-100] Command         license_exists returned 0; 0.24 sec.
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0.24 sec.
+INFO: [HLS 200-100] Execute       add_library xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
+INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-1-i-es1'
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command     set_part returned 0; 0.28 sec.
+INFO: [HLS 200-100] Execute     get_default_platform 
+INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.49 sec.
+INFO: [HLS 200-100] Execute   set_part xczu9eg-ffvb1156-1-i-es1 -tool vivado 
+INFO: [HLS 200-100] Execute     add_library xilinx/zynquplus/zynquplus:xczu9eg:-ffvb1156:-1-i-es1 
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       license_isbetapart xczu9eg-es1 
+INFO: [HLS 200-100] Command       license_isbetapart returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       license_exists xczu9eg-es1 
+INFO: [HLS 200-100] Command       license_exists returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     add_library xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command     add_library returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute     get_default_platform 
+INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command   set_part returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute   create_clock -period 10 -name default 
+INFO: [HLS 200-100] Command   create_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Execute   csynth_design 
+INFO: [HLS 200-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
+INFO: [HLS 200-10] Analyzing design file 'sha256_stream/src/sha256_stream.cpp' ... 
+INFO: [HLS 200-0] Compiling one TU...
+INFO: [HLS 200-100] Execute       is_m_axi_addr64 
+INFO: [HLS 200-100] Command       is_m_axi_addr64 returned 0; 0 sec.
+INFO: [HLS 200-0] Handling sha256_stream/src/sha256_stream.cpp as C++
+INFO: [HLS 200-0] Syntax Checking before pre-processing...
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__   -I "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include" -I "/Xilinx/Vivado_HLS/2017.1/include" -I "/Xilinx/Vivado_HLS/2017.1/include/ap_sysc" -fexceptions -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "sha256_stream/src/sha256_stream.cpp"  -o "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.00.o" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -I /Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include -I /Xilinx/Vivado_HLS/2017.1/include -I /Xilinx/Vivado_HLS/2017.1/include/ap_sysc -fexceptions -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -include etc/autopilot_ssdm_op.h sha256_stream/src/sha256_stream.cpp -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.00.o
+INFO: [HLS 200-100] Command       clang returned 0; 0.15 sec.
+INFO: [HLS 200-100] Execute       is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.00.o 
+INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "sha256_stream/src/sha256_stream.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E sha256_stream/src/sha256_stream.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.04 sec.
+INFO: [HLS 200-0] GCC PP time: 0 seconds per iteration
+INFO: [HLS 200-100] Execute       list_core -type functional_unit 
+INFO: [HLS 200-100] Command       list_core returned 0; 0 sec.
+INFO: [HLS 200-0] CDT Preprocessing...
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp.ap-line.cpp /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp.ap-line.cpp.CXX 1
+INFO: [HLS 200-0] Converting Markers to Pragmas...
+INFO: [HLS 200-100] Execute       cdt  "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp.ap-line.cpp"  -m "sha256" -o "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/solution1.directive --source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/src/sha256_stream.cpp --error /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_fulldsp HAddSub_meddsp HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db --ca --es --gf --pd --p2d /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db --sd --scff /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/.systemc_flag --ad 
+INFO: [HLS 200-100] Command       cdt returned 0; 0.78 sec.
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pp.0.cpp.ap-cdt.cpp /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.0.cpp /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.0.cpp.ap-line.CXX 0
+INFO: [HLS 200-0] Converting Pragmas to Markers...
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/pragma.status.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Pragma Handling...
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.2.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.2.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.04 sec.
+INFO: [HLS 200-0] Processing labels
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.g.bc" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.g.bc
+INFO: [HLS 200-100] Command       clang returned 0; 0.04 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/ve_warning.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/pragma.status.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 399.035 ; gain = 63.508 ; free physical = 4302 ; free virtual = 17178
+INFO: [HLS 200-0] Linking Release ...
+INFO: [HLS 200-100] Execute       llvm-ld /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lm_basic -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o 
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       disassemble /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o 
+INFO: [HLS 200-100] Execute         is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.bc 
+INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.02 sec.
+INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
+INFO: [HLS 200-0] Linking Debug ...
+INFO: [HLS 200-100] Execute       llvm-ld /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256_stream.g.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lm_basic -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g 
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       disassemble /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g 
+INFO: [HLS 200-100] Execute         is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.bc 
+INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.03 sec.
+INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 399.035 ; gain = 63.508 ; free physical = 4301 ; free virtual = 17177
+INFO: [HLS 200-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+INFO: [HLS 200-100] Execute         cleanup_all_models 
+INFO: [HLS 200-100] Command         cleanup_all_models returned 0; 0 sec.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-100] Execute         transform -promote-dbg-pointer /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.pp.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.pp.0.bc -f 
+INFO: [HLS 200-100] Command         transform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         llvm-ld /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lfloatconversion -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.0 
+INFO: [HLS 200-100] Command         llvm-ld returned 0; 0.03 sec.
+INFO: [HLS 200-0] Running Standard Transforms...
+INFO: [HLS 200-100] Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top sha256 -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.0.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-100] Command         transform returned 0; 0.04 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1 
+INFO: [HLS 200-100] Execute           is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.02 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 399.055 ; gain = 63.527 ; free physical = 4299 ; free virtual = 17175
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-0] Checking Synthesizability 1/2..
+INFO: [HLS 200-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO: [XFORM 203-602] Inlining function '_memcpy' into 'SHA256::update' (sha256_stream/src/sha256_stream.cpp:94) automatically.
+INFO: [XFORM 203-602] Inlining function '_memset' into 'SHA256::final' (sha256_stream/src/sha256_stream.cpp:120) automatically.
+INFO: [XFORM 203-602] Inlining function 'SHA256::init' into 'sha256' (sha256_stream/src/sha256_stream.cpp:138) automatically.
+INFO: [HLS 200-100] Command         transform returned 0; 0.03 sec.
+INFO: [HLS 200-0] Checking Synthesizability 2/2..
+INFO: [HLS 200-100] Execute         transform -syn-check /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-100] Command         transform returned 0; 0 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 399.059 ; gain = 63.531 ; free physical = 4298 ; free virtual = 17174
+INFO: [HLS 200-0] Compiler optimizing ...
+INFO: [HLS 200-0] Share syncheck's 1.bc for syn flow: copy /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.g.1.bc to /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.1.bc
+INFO: [HLS 200-0] Presyn 1...
+INFO: [HLS 200-100] Execute         transform -hls -tmp /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.1.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-602] Inlining function '_memcpy' into 'SHA256::update' (sha256_stream/src/sha256_stream.cpp:94) automatically.
+INFO: [XFORM 203-602] Inlining function '_memset' into 'SHA256::final' (sha256_stream/src/sha256_stream.cpp:120) automatically.
+INFO: [XFORM 203-602] Inlining function 'SHA256::init' into 'sha256' (sha256_stream/src/sha256_stream.cpp:138) automatically.
+INFO: [HLS 200-100] Command         transform returned 0; 0.14 sec.
+INFO: [HLS 200-0] Presyn 2...
+INFO: [HLS 200-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-11] Balancing expressions in function 'SHA256::transform.1' (sha256_stream/src/sha256_stream.cpp:37:28)...10 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'SHA256::transform' (sha256_stream/src/sha256_stream.cpp:35)...10 expression(s) balanced.
+INFO: [HLS 200-100] Command         transform returned 0; 0.07 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.2 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.2 
+INFO: [HLS 200-100] Execute           is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.2.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.03 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 527.035 ; gain = 191.508 ; free physical = 4276 ; free virtual = 17153
+INFO: [HLS 200-0] Building ssdm...
+INFO: [HLS 200-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -validate-dataflow -cdfg-build /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.2.bc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-631] Renaming function 'SHA256::update' (sha256_stream/src/sha256_stream.cpp:87) into update.
+WARNING: [XFORM 203-631] Renaming function 'SHA256::transform.1' (sha256_stream/src/sha256_stream.cpp:37:28) into transform.1.
+WARNING: [XFORM 203-631] Renaming function 'SHA256::transform' (sha256_stream/src/sha256_stream.cpp:35) into transform.
+WARNING: [XFORM 203-631] Renaming function 'SHA256::final' (sha256_stream/src/sha256_stream.cpp:110) into final.
+INFO: [HLS 200-100] Command         transform returned 0; 0.25 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.3 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.3 
+INFO: [HLS 200-100] Execute           is_encrypted /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.o.3.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.02 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 527.035 ; gain = 191.508 ; free physical = 4252 ; free virtual = 17124
+INFO: [HLS 200-0] Finish building internal data model.
+INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 0.66 sec.
+INFO: [HLS 200-100] Command     elaborate returned 0; 1.84 sec.
+INFO: [HLS 200-100] Execute     autosyn 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-0] Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'sha256' ...
+INFO: [HLS 200-100] Execute       ap_set_top_model sha256 
+WARNING: [SYN 201-103] Legalizing function name 'transform.1' to 'transform_1'.
+INFO: [HLS 200-100] Command       ap_set_top_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_model_list sha256 -filter all-wo-channel -topdown 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model sha256 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model final 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model update 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model transform.1 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model transform 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_model_list sha256 -filter all-wo-channel 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for configure: transform transform.1 update final sha256
+INFO: [HLS 200-0] Configuring Module : transform ...
+INFO: [HLS 200-100] Execute       set_default_model transform 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit transform 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Configuring Module : transform.1 ...
+INFO: [HLS 200-100] Execute       set_default_model transform.1 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit transform.1 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Configuring Module : update ...
+INFO: [HLS 200-100] Execute       set_default_model update 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit update 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Configuring Module : final ...
+INFO: [HLS 200-100] Execute       set_default_model final 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit final 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Configuring Module : sha256 ...
+INFO: [HLS 200-100] Execute       set_default_model sha256 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit sha256 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for preprocess: transform transform.1 update final sha256
+INFO: [HLS 200-0] Preprocessing Module: transform ...
+INFO: [HLS 200-100] Execute       set_default_model transform 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model transform 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess transform 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing Module: transform.1 ...
+INFO: [HLS 200-100] Execute       set_default_model transform.1 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model transform.1 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess transform.1 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing Module: update ...
+INFO: [HLS 200-100] Execute       set_default_model update 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model update 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess update 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing Module: final ...
+INFO: [HLS 200-100] Execute       set_default_model final 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model final 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess final 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing Module: sha256 ...
+INFO: [HLS 200-100] Execute       set_default_model sha256 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model sha256 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess sha256 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for synthesis: transform transform.1 update final sha256
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'transform' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model transform 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model transform 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.08 sec.
+INFO: [HLS 200-111]  Elapsed time: 2.81 seconds; current allocated memory: 104.014 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-0] Finish scheduling transform.
+INFO: [HLS 200-100] Execute       set_default_model transform 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model transform 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=transform
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.04 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 104.765 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.06 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-0] Finish binding transform.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'transform_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model transform.1 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model transform.1 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.09 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 105.496 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
+INFO: [HLS 200-0] Finish scheduling transform.1.
+INFO: [HLS 200-100] Execute       set_default_model transform.1 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model transform.1 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=transform.1
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.05 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 106.228 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.08 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-0] Finish binding transform.1.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'update' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model update 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model update 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 106.466 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0 sec.
+INFO: [HLS 200-0] Finish scheduling update.
+INFO: [HLS 200-100] Execute       set_default_model update 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model update 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=update
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.11 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 106.765 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.15 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0 sec.
+INFO: [HLS 200-0] Finish binding update.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'final' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model final 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model final 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.04 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 107.139 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
+INFO: [HLS 200-0] Finish scheduling final.
+INFO: [HLS 200-100] Execute       set_default_model final 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model final 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=final
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.04 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 107.510 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.11 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0 sec.
+INFO: [HLS 200-0] Finish binding final.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'sha256' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model sha256 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model sha256 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 0.02 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 107.809 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
+INFO: [HLS 200-0] Finish scheduling sha256.
+INFO: [HLS 200-100] Execute       set_default_model sha256 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model sha256 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=sha256
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.17 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 108.095 MB.
+INFO: [HLS 200-100] Execute       report -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.24 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0 sec.
+INFO: [HLS 200-0] Finish binding sha256.
+INFO: [HLS 200-100] Execute       get_model_list sha256 -filter all-wo-channel 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing for RTLGen ...
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess transform 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess transform.1 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess update 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess final 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess sha256 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for RTL generation: transform transform.1 update final sha256
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'transform' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model transform -vendor xilinx -mg_file /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'transform_SHA256_sha256_k' to 'transform_SHA256_bkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'transform'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 109.306 MB.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/systemc/transform -synmodules transform transform.1 update final sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform -style xilinx -f -lang vhdl -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/vhdl/transform 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform -style xilinx -f -lang vlog -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/verilog/transform 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info transform -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform -p /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       report -model transform -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/transform_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model transform -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/transform_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       report -model transform -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.08 sec.
+INFO: [HLS 200-100] Execute       db_write -model transform -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.04 sec.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'transform_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model transform.1 -vendor xilinx -mg_file /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'transform_1_SHA256_sha256_k' to 'transform_1_SHA25cud' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'transform_1'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 113.056 MB.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform.1 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/systemc/transform_1 -synmodules transform transform.1 update final sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform.1 -style xilinx -f -lang vhdl -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/vhdl/transform_1 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl transform.1 -style xilinx -f -lang vlog -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/verilog/transform_1 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info transform.1 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1 -p /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model transform.1 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/transform_1_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       report -model transform.1 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/transform_1_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model transform.1 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
+INFO: [HLS 200-100] Execute       db_write -model transform.1 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.04 sec.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'update' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model update -vendor xilinx -mg_file /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'update'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.01 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 116.370 MB.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl update -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/systemc/update -synmodules transform transform.1 update final sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl update -style xilinx -f -lang vhdl -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/vhdl/update 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl update -style xilinx -f -lang vlog -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/verilog/update 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info update -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update -p /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       report -model update -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/update_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model update -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/update_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model update -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.15 sec.
+INFO: [HLS 200-100] Execute       db_write -model update -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.01 sec.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'final' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model final -vendor xilinx -mg_file /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'final'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.01 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 118.049 MB.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl final -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/systemc/final -synmodules transform transform.1 update final sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl final -style xilinx -f -lang vhdl -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/vhdl/final 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl final -style xilinx -f -lang vlog -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/verilog/final 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info final -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final -p /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model final -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/final_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model final -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/final_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       report -model final -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.1 sec.
+INFO: [HLS 200-100] Execute       db_write -model final -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sha256' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model sha256 -vendor xilinx -mg_file /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/stream_in_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/num_blocks' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sha256/digest_out' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sha256' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Global array 'SHA256_sha256_k' will not be exposed as RTL port.
+INFO: [RTGEN 206-100] Bundling port 'num_blocks' and 'digest_out' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'sha256_cipher_m_block' to 'sha256_cipher_m_bdEe' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sha256'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 120.163 MB.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl sha256 -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/systemc/sha256 -synmodules transform transform.1 update final sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl sha256 -istop -style xilinx -f -lang vhdl -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/vhdl/sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       gen_rtl sha256 -istop -style xilinx -f -lang vlog -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/verilog/sha256 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       export_constraint_db -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.constraint.tcl -f -tool general 
+INFO: [HLS 200-100] Command       export_constraint_db returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.design.xml -verbose -f -dv 
+INFO: [HLS 200-100] Command       report returned 0; 0.16 sec.
+INFO: [HLS 200-100] Execute       report -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.sdaccel.xml -verbose -f -sdaccel 
+INFO: [HLS 200-100] Command       report returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256 -p /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/sha256_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       report -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/syn/report/sha256_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       report -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.25 sec.
+INFO: [HLS 200-100] Execute       db_write -model sha256 -o /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       sc_get_clocks sha256 
+INFO: [HLS 200-100] Command       sc_get_clocks returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       sc_get_portdomain sha256 
+INFO: [HLS 200-100] Command       sc_get_portdomain returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for RTL component generation: transform transform.1 update final sha256
+INFO: [HLS 200-0] Handling components in module [transform] ... 
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.compgen.tcl 
+INFO: [HLS 200-0] Found component transform_SHA256_bkb.
+INFO: [HLS 200-0] Append model transform_SHA256_bkb
+INFO: [HLS 200-0] Found component transform_w.
+INFO: [HLS 200-0] Append model transform_w
+INFO: [HLS 200-0] Found component transform_wv.
+INFO: [HLS 200-0] Append model transform_wv
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Handling components in module [transform_1] ... 
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Handling components in module [update] ... 
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Handling components in module [final] ... 
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Handling components in module [sha256] ... 
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.compgen.tcl 
+INFO: [HLS 200-0] Found component sha256_data_buffer.
+INFO: [HLS 200-0] Append model sha256_data_buffer
+INFO: [HLS 200-0] Found component sha256_cipher_m_bdEe.
+INFO: [HLS 200-0] Append model sha256_cipher_m_bdEe
+INFO: [HLS 200-0] Found component sha256_cipher_m_h.
+INFO: [HLS 200-0] Append model sha256_cipher_m_h
+INFO: [HLS 200-0] Found component sha256_AXILiteS_s_axi.
+INFO: [HLS 200-0] Append model sha256_AXILiteS_s_axi
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Append model transform
+INFO: [HLS 200-0] Append model transform_1
+INFO: [HLS 200-0] Append model update
+INFO: [HLS 200-0] Append model final
+INFO: [HLS 200-0] Append model sha256
+INFO: [HLS 200-0] Generating RTL model list ...
+INFO: [HLS 200-0] All models in this session: transform_SHA256_bkb transform_w transform_wv sha256_data_buffer sha256_cipher_m_bdEe sha256_cipher_m_h sha256_AXILiteS_s_axi transform transform_1 update final sha256
+INFO: [HLS 200-0] To file: write model transform_SHA256_bkb
+INFO: [HLS 200-0] To file: write model transform_w
+INFO: [HLS 200-0] To file: write model transform_wv
+INFO: [HLS 200-0] To file: write model sha256_data_buffer
+INFO: [HLS 200-0] To file: write model sha256_cipher_m_bdEe
+INFO: [HLS 200-0] To file: write model sha256_cipher_m_h
+INFO: [HLS 200-0] To file: write model sha256_AXILiteS_s_axi
+INFO: [HLS 200-0] To file: write model transform
+INFO: [HLS 200-0] To file: write model transform_1
+INFO: [HLS 200-0] To file: write model update
+INFO: [HLS 200-0] To file: write model final
+INFO: [HLS 200-0] To file: write model sha256
+INFO: [HLS 200-0] Finished generating RTL model list.
+
+
+INFO: [HLS 200-0] RTL Generation done.
+INFO: [HLS 200-0] CAS Generation done.
+INFO: [HLS 200-0] CBC Generation done.
+INFO: [HLS 200-100] Execute       export_ssdm /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/a.export.ll 
+INFO: [HLS 200-100] Command       export_ssdm returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/common.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/APCoreGen.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op_simcore.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/interface.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
+INFO: [HLS 200-100] Execute               source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
+INFO: [HLS 200-100] Command               ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute               source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command               ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform.compgen.tcl 
+INFO: [RTMG 210-279] Implementing memory 'transform_SHA256_bkb_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'transform_w_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'transform_wv_ram' using block RAMs.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/transform_1.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/update.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/final.compgen.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/solution1/.autopilot/db/sha256.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'sha256_data_buffer_ram' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sha256_cipher_m_bdEe_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sha256_cipher_m_h_ram' using block RAMs.
+INFO: [HLS 200-100] Execute         source ./AXILiteS.slave.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.04 sec.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 527.035 ; gain = 191.508 ; free physical = 4221 ; free virtual = 17103
+INFO: [SYSC 207-301] Generating SystemC RTL for sha256.
+INFO: [VHDL 208-304] Generating VHDL RTL for sha256.
+INFO: [VLOG 209-307] Generating Verilog RTL for sha256.
+INFO: [HLS 200-100] Command     autosyn returned 0; 3.2 sec.
+INFO: [HLS 200-100] Command   csynth_design returned 0; 5.04 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 5.57 sec.
+INFO: [HLS 200-100] Execute cleanup_all 
+INFO: [HLS 200-100] Command cleanup_all returned 0; 0.02 sec.

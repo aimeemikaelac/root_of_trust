@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'SHA256_sha256_k' will not be exposed as RTL port." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:18.602-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'transform.1' to 'transform_1'." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:16.188-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::final' (sha256_stream/src/sha256_stream.cpp:110) into final." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:16.133-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::transform' (sha256_stream/src/sha256_stream.cpp:35) into transform." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:15.919-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::transform.1' (sha256_stream/src/sha256_stream.cpp:37:28) into transform.1." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:15.915-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::update' (sha256_stream/src/sha256_stream.cpp:87) into update." projectName="sha256_stream" solutionName="solution1" date="2017-05-01T20:16:15.908-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="sha256_stream.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/src/sha256_stream.cpp"/>
+    <originFiles name="sha256_stream.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/sha256_stream/src/sha256_stream.h"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

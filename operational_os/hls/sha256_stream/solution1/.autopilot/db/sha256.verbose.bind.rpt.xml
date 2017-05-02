@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'sha256'" level="0">
+<item name = "Date">Mon May  1 20:16:17 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">sha256_stream</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-1-i-es1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 4.73, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_update_fu_256">update, 2, 2488, 2, 2488, none</column>
+<column name="grp_final_fu_269">final, ?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">?, ?, 133 ~ 2619, -, -, ?, no</column>
+<column name=" + Loop 1.1">128, 128, 2, -, -, 64, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

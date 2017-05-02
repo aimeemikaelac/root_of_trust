@@ -56,8 +56,8 @@ module design_1_vid_phy_controller_0_0_top #
 		// HDMI
         parameter integer C_NIDRU                       = 0,   // MAGS: Propagate to GUI 
         parameter integer C_NIDRU_REFCLK_SEL            = 0,    // MAGS: Propagate to GUI as part of DRU clock selection 
-        parameter integer C_TX_REFCLK_SEL               = 1,    // MAGS: PHY XGUI Parameter --> propagate to Top level and Wizard
-        parameter integer C_RX_REFCLK_SEL               = 0,    // MAGS: PHY XGUI Parameter --> propagate to Top level and Wizard		
+        parameter integer C_TX_REFCLK_SEL               = 0,    // MAGS: PHY XGUI Parameter --> propagate to Top level and Wizard
+        parameter integer C_RX_REFCLK_SEL               = 1,    // MAGS: PHY XGUI Parameter --> propagate to Top level and Wizard		
 	
         parameter integer C_SupportLevel                = 0,
 		parameter integer C_TransceiverControl			= "false",

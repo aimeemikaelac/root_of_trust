@@ -827,7 +827,7 @@ txresetdone_out
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_QPLL_FRACN_NUMERATOR">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_RECCLK_OUTPUT"/>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_REFCLK_FREQUENCY">297</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_REFCLK_SOURCE">X1Y12 clk0 X1Y13 clk0 X1Y14 clk0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_REFCLK_SOURCE">X1Y12 clk1 X1Y13 clk1 X1Y14 clk1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_SLIDE_MODE">OFF</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_SSC_PPM">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RX_TERMINATION">PROGRAMMABLE</spirit:configurableElementValue>
@@ -854,7 +854,7 @@ txresetdone_out
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_PLL_TYPE">CPLL</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_QPLL_FRACN_NUMERATOR">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_REFCLK_FREQUENCY">297</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_REFCLK_SOURCE">X1Y12 clk1 X1Y13 clk1 X1Y14 clk1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_REFCLK_SOURCE">X1Y12 clk0 X1Y13 clk0 X1Y14 clk0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TX_USER_DATA_WIDTH">40</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.USB_ENABLE">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PORT_ENABLEMENT.bgbypassb_in">false</spirit:configurableElementValue>

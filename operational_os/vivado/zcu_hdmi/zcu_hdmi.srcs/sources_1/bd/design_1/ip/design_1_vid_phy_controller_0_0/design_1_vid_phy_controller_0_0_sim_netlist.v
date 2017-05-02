@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
-// Date        : Mon Apr 17 19:56:21 2017
+// Date        : Thu Apr 20 20:47:16 2017
 // Host        : SchoolComputer running 64-bit Ubuntu 16.10
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_vid_phy_controller_0_0 -prefix
-//               design_1_vid_phy_controller_0_0_ design_1_vid_phy_controller_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0_sim_netlist.v
 // Design      : design_1_vid_phy_controller_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,8 @@ module design_1_vid_phy_controller_0_0
     tx_video_clk,
     tx_tmds_clk_p,
     tx_tmds_clk_n,
-    mgtrefclk1_pad_p_in,
-    mgtrefclk1_pad_n_in,
+    mgtrefclk0_pad_p_in,
+    mgtrefclk0_pad_n_in,
     phy_txn_out,
     phy_txp_out,
     txoutclk,
@@ -72,8 +72,8 @@ module design_1_vid_phy_controller_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 tx_video_clk CLK" *) output tx_video_clk;
   output tx_tmds_clk_p;
   output tx_tmds_clk_n;
-  input mgtrefclk1_pad_p_in;
-  input mgtrefclk1_pad_n_in;
+  input mgtrefclk0_pad_p_in;
+  input mgtrefclk0_pad_n_in;
   output [2:0]phy_txn_out;
   output [2:0]phy_txp_out;
   output txoutclk;
@@ -122,8 +122,8 @@ module design_1_vid_phy_controller_0_0
 
   wire drpclk;
   wire irq;
-  wire mgtrefclk1_pad_n_in;
-  wire mgtrefclk1_pad_p_in;
+  wire mgtrefclk0_pad_n_in;
+  wire mgtrefclk0_pad_p_in;
   wire [2:0]phy_txn_out;
   wire [2:0]phy_txp_out;
   wire tx_refclk_rdy;
@@ -205,14 +205,14 @@ module design_1_vid_phy_controller_0_0
   (* C_NIDRU = "0" *) 
   (* C_NIDRU_REFCLK_SEL = "0" *) 
   (* C_RX_PLL_SELECTION = "6" *) 
-  (* C_RX_REFCLK_SEL = "0" *) 
+  (* C_RX_REFCLK_SEL = "1" *) 
   (* C_Rx_No_Of_Channels = "3" *) 
   (* C_Rx_Protocol = "3" *) 
   (* C_SILICON_REVISION = "0" *) 
   (* C_SPEEDGRADE = "-2" *) 
   (* C_SupportLevel = "1" *) 
   (* C_TX_PLL_SELECTION = "0" *) 
-  (* C_TX_REFCLK_SEL = "1" *) 
+  (* C_TX_REFCLK_SEL = "0" *) 
   (* C_TransceiverControl = "0" *) 
   (* C_Tx_No_Of_Channels = "3" *) 
   (* C_Tx_Protocol = "1" *) 
@@ -270,12 +270,12 @@ module design_1_vid_phy_controller_0_0
         .irq(irq),
         .mgtrefclk0_in(1'b0),
         .mgtrefclk0_odiv2_in(1'b0),
-        .mgtrefclk0_pad_n_in(1'b0),
-        .mgtrefclk0_pad_p_in(1'b0),
+        .mgtrefclk0_pad_n_in(mgtrefclk0_pad_n_in),
+        .mgtrefclk0_pad_p_in(mgtrefclk0_pad_p_in),
         .mgtrefclk1_in(1'b0),
         .mgtrefclk1_odiv2_in(1'b0),
-        .mgtrefclk1_pad_n_in(mgtrefclk1_pad_n_in),
-        .mgtrefclk1_pad_p_in(mgtrefclk1_pad_p_in),
+        .mgtrefclk1_pad_n_in(1'b0),
+        .mgtrefclk1_pad_p_in(1'b0),
         .phy_rxn_in({1'b0,1'b0,1'b1}),
         .phy_rxp_in({1'b0,1'b0,1'b0}),
         .phy_txn_out(phy_txn_out),
@@ -366,6 +366,7 @@ module design_1_vid_phy_controller_0_0
         .vid_phy_tx_axi4s_ch3_tvalid(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_clkdet" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
    (D,
     clk_rx_freq_lock,
@@ -397,14 +398,14 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
     clk_tx_freq,
     clk_dru_freq_lock_reg_0,
     clk_dru_freq,
-    mgtrefclk1_odiv2_i,
+    mgtrefclk0_odiv2_i,
     tx_refclk_rdy,
     vid_phy_axi4lite_aclk,
     out,
     cfg_phy_mem_map_control,
-    \cfg_phy_mem_map_control_b0_reg[603] ,
-    i_reg_clkdet_run_reg,
     \cfg_phy_mem_map_control_b0_reg[604] ,
+    i_reg_clkdet_run_reg,
+    \cfg_phy_mem_map_control_b0_reg[603] ,
     b0_clkdet_ctrl_run,
     Q,
     S,
@@ -450,14 +451,14 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   output [17:0]clk_tx_freq;
   output clk_dru_freq_lock_reg_0;
   output [17:0]clk_dru_freq;
-  input mgtrefclk1_odiv2_i;
+  input mgtrefclk0_odiv2_i;
   input tx_refclk_rdy;
   input vid_phy_axi4lite_aclk;
   input out;
   input [30:0]cfg_phy_mem_map_control;
-  input \cfg_phy_mem_map_control_b0_reg[603] ;
-  input i_reg_clkdet_run_reg;
   input \cfg_phy_mem_map_control_b0_reg[604] ;
+  input i_reg_clkdet_run_reg;
+  input \cfg_phy_mem_map_control_b0_reg[603] ;
   input b0_clkdet_ctrl_run;
   input [0:0]Q;
   input [3:0]S;
@@ -1140,7 +1141,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   wire i_reg_clkdet_run_reg;
   wire [0:0]i_reg_clkdet_run_reg_0;
   wire [0:0]i_reg_clkdet_run_reg_1;
-  wire mgtrefclk1_odiv2_i;
+  wire mgtrefclk0_odiv2_i;
   wire out;
   wire [7:0]p_0_in;
   wire [17:0]p_0_in__0;
@@ -1364,7 +1365,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   design_1_vid_phy_controller_0_0_xpm_cdc_array_single__parameterized1 TXCLK_FREQ_CAP_INST
        (.dest_clk(vid_phy_axi4lite_aclk),
         .dest_out({TXCLK_FREQ_CAP_INST_n_0,TXCLK_FREQ_CAP_INST_n_1,TXCLK_FREQ_CAP_INST_n_2,TXCLK_FREQ_CAP_INST_n_3,TXCLK_FREQ_CAP_INST_n_4,TXCLK_FREQ_CAP_INST_n_5,TXCLK_FREQ_CAP_INST_n_6,TXCLK_FREQ_CAP_INST_n_7,TXCLK_FREQ_CAP_INST_n_8,TXCLK_FREQ_CAP_INST_n_9,TXCLK_FREQ_CAP_INST_n_10,TXCLK_FREQ_CAP_INST_n_11,TXCLK_FREQ_CAP_INST_n_12,TXCLK_FREQ_CAP_INST_n_13,TXCLK_FREQ_CAP_INST_n_14,TXCLK_FREQ_CAP_INST_n_15,TXCLK_FREQ_CAP_INST_n_16,TXCLK_FREQ_CAP_INST_n_17}),
-        .src_clk(mgtrefclk1_odiv2_i),
+        .src_clk(mgtrefclk0_odiv2_i),
         .src_in(txclk_freq_cnt_reg));
   (* DEF_VAL = "1'b1" *) 
   (* DEST_SYNC_FF = "3" *) 
@@ -1375,7 +1376,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   (* XPM_MODULE = "TRUE" *) 
   design_1_vid_phy_controller_0_0_xpm_cdc_async_rst__parameterized0 TXCLK_RST_INST
        (.dest_arst(txclk_rst),
-        .dest_clk(mgtrefclk1_odiv2_i),
+        .dest_clk(mgtrefclk0_odiv2_i),
         .src_arst(clk_tx_freq_rst));
   (* DEST_SYNC_FF = "3" *) 
   (* SIM_ASSERT_CHK = "0" *) 
@@ -1384,7 +1385,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   (* XPM_CDC = "SINGLE" *) 
   (* XPM_MODULE = "TRUE" *) 
   design_1_vid_phy_controller_0_0_xpm_cdc_single__494 TXCLK_RUN_SYNC_INST
-       (.dest_clk(mgtrefclk1_odiv2_i),
+       (.dest_clk(mgtrefclk0_odiv2_i),
         .dest_out(txclk_run),
         .src_clk(vid_phy_axi4lite_aclk),
         .src_in(clk_tx_freq_run));
@@ -1405,7 +1406,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   design_1_vid_phy_controller_0_0_xpm_cdc_single__493 TX_LOCK_CAP_INST
        (.dest_clk(vid_phy_axi4lite_aclk),
         .dest_out(D[3]),
-        .src_clk(mgtrefclk1_odiv2_i),
+        .src_clk(mgtrefclk0_odiv2_i),
         .src_in(tx_refclk_rdy));
   design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_lib_edge_v1_0_2 TX_TMR_END_EDGE_INST
        (.D(D[4]),
@@ -2430,97 +2431,97 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_15),
         .Q(clk_rx_flt_a[18]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[19] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_14),
         .Q(clk_rx_flt_a[19]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[20] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_13),
         .Q(clk_rx_flt_a[20]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[21] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_12),
         .Q(clk_rx_flt_a[21]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[22] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_11),
         .Q(clk_rx_flt_a[22]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[23] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_10),
         .Q(clk_rx_flt_a[23]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[24] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_9),
         .Q(clk_rx_flt_a[24]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[25] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_8),
         .Q(clk_rx_flt_a[25]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[26] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_7),
         .Q(clk_rx_flt_a[26]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[27] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_6),
         .Q(clk_rx_flt_a[27]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[28] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_5),
         .Q(clk_rx_flt_a[28]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[29] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_4),
         .Q(clk_rx_flt_a[29]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[30] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_3),
         .Q(clk_rx_flt_a[30]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[31] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_2),
         .Q(clk_rx_flt_a[31]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[32] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_1),
         .Q(clk_rx_flt_a[32]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_a_reg[33] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(RXCLK_FREQ_CAP_INST_n_0),
         .Q(clk_rx_flt_a[33]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   LUT2 #(
     .INIT(4'h6)) 
     \clk_rx_flt_b[23]_i_2 
@@ -2646,37 +2647,37 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[18]),
         .Q(p_0_in__0[0]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[19] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[19]),
         .Q(p_0_in__0[1]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[20] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[20]),
         .Q(p_0_in__0[2]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[21] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[21]),
         .Q(p_0_in__0[3]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[22] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[22]),
         .Q(p_0_in__0[4]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[23] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[23]),
         .Q(p_0_in__0[5]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_b_reg[23]_i_1 
        (.CI(1'b0),
         .CI_TOP(1'b0),
@@ -2689,49 +2690,49 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[24]),
         .Q(p_0_in__0[6]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[25] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[25]),
         .Q(p_0_in__0[7]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[26] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[26]),
         .Q(p_0_in__0[8]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[27] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[27]),
         .Q(p_0_in__0[9]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[28] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[28]),
         .Q(p_0_in__0[10]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[29] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[29]),
         .Q(p_0_in__0[11]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[30] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[30]),
         .Q(p_0_in__0[12]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[31] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[31]),
         .Q(p_0_in__0[13]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_b_reg[31]_i_1 
        (.CI(\clk_rx_flt_b_reg[23]_i_1_n_0 ),
         .CI_TOP(1'b0),
@@ -2744,25 +2745,25 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[32]),
         .Q(p_0_in__0[14]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[33] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[33]),
         .Q(p_0_in__0[15]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[34] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[34]),
         .Q(p_0_in__0[16]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_b_reg[35] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(clk_rx_flt_b00_out[35]),
         .Q(p_0_in__0[17]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_b_reg[35]_i_3 
        (.CI(\clk_rx_flt_b_reg[31]_i_1_n_0 ),
         .CI_TOP(1'b0),
@@ -3365,7 +3366,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
   LUT6 #(
     .INIT(64'hAAAEAAAAAAAAAAAA)) 
     \clk_rx_flt_lock_cnt[7]_i_1 
-       (.I0(\cfg_phy_mem_map_control_b0_reg[603] ),
+       (.I0(\cfg_phy_mem_map_control_b0_reg[604] ),
         .I1(\clk_rx_flt_lock_cnt[7]_i_4_n_0 ),
         .I2(clk_sm_cur[0]),
         .I3(clk_sm_cur[1]),
@@ -3592,43 +3593,43 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[0]),
         .Q(\clk_rx_flt_q_reg[0]__0 [0]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][10] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[10]),
         .Q(\clk_rx_flt_q_reg[0]__0 [10]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][11] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[11]),
         .Q(\clk_rx_flt_q_reg[0]__0 [11]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][12] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[12]),
         .Q(\clk_rx_flt_q_reg[0]__0 [12]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][13] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[13]),
         .Q(\clk_rx_flt_q_reg[0]__0 [13]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][14] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[14]),
         .Q(\clk_rx_flt_q_reg[0]__0 [14]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][15] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[15]),
         .Q(\clk_rx_flt_q_reg[0]__0 [15]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_q_reg[0][15]_i_1 
        (.CI(\clk_rx_flt_q_reg[0][7]_i_1_n_0 ),
         .CI_TOP(1'b0),
@@ -3641,13 +3642,13 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[16]),
         .Q(\clk_rx_flt_q_reg[0]__0 [16]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][17] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[17]),
         .Q(\clk_rx_flt_q_reg[0]__0 [17]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_q_reg[0][17]_i_1 
        (.CI(\clk_rx_flt_q_reg[0][15]_i_1_n_0 ),
         .CI_TOP(1'b0),
@@ -3660,43 +3661,43 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[1]),
         .Q(\clk_rx_flt_q_reg[0]__0 [1]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][2] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[2]),
         .Q(\clk_rx_flt_q_reg[0]__0 [2]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][3] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[3]),
         .Q(\clk_rx_flt_q_reg[0]__0 [3]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][4] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[4]),
         .Q(\clk_rx_flt_q_reg[0]__0 [4]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][5] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[5]),
         .Q(\clk_rx_flt_q_reg[0]__0 [5]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][6] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[6]),
         .Q(\clk_rx_flt_q_reg[0]__0 [6]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][7] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[7]),
         .Q(\clk_rx_flt_q_reg[0]__0 [7]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   CARRY8 \clk_rx_flt_q_reg[0][7]_i_1 
        (.CI(1'b0),
         .CI_TOP(1'b0),
@@ -3709,13 +3710,13 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[8]),
         .Q(\clk_rx_flt_q_reg[0]__0 [8]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_flt_q_reg[0][9] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(p_2_in[9]),
         .Q(\clk_rx_flt_q_reg[0]__0 [9]),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE clk_rx_freq_evt_reg
        (.C(vid_phy_axi4lite_aclk),
         .CE(1'b1),
@@ -3772,109 +3773,109 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [0]),
         .Q(\cfg_phy_mem_map_status_reg[280] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[12] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [1]),
         .Q(\cfg_phy_mem_map_status_reg[281] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[13] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [2]),
         .Q(\cfg_phy_mem_map_status_reg[282] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[14] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [3]),
         .Q(\cfg_phy_mem_map_status_reg[283] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[15] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [4]),
         .Q(\cfg_phy_mem_map_status_reg[284] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[16] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [5]),
         .Q(\cfg_phy_mem_map_status_reg[285] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[17] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [6]),
         .Q(\cfg_phy_mem_map_status_reg[286] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[18] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [7]),
         .Q(\cfg_phy_mem_map_status_reg[287] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[19] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [8]),
         .Q(\cfg_phy_mem_map_status_reg[288] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[20] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [9]),
         .Q(\cfg_phy_mem_map_status_reg[289] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[21] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [10]),
         .Q(\cfg_phy_mem_map_status_reg[290] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[22] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [11]),
         .Q(\cfg_phy_mem_map_status_reg[291] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[23] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [12]),
         .Q(\cfg_phy_mem_map_status_reg[292] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[24] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [13]),
         .Q(\cfg_phy_mem_map_status_reg[293] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[25] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [14]),
         .Q(\cfg_phy_mem_map_status_reg[294] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[26] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [15]),
         .Q(\cfg_phy_mem_map_status_reg[295] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[27] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [16]),
         .Q(\cfg_phy_mem_map_status_reg[296] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   FDRE \clk_rx_freq_reg[28] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_rx_flt_b[35]_i_2_n_0 ),
         .D(\clk_rx_flt_q_reg[0]__0 [17]),
         .Q(\cfg_phy_mem_map_status_reg[297] ),
-        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'hE)) 
@@ -4428,115 +4429,115 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(D[3]),
         .Q(D[2]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[11] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_17),
         .Q(clk_tx_freq[0]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[12] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_16),
         .Q(clk_tx_freq[1]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[13] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_15),
         .Q(clk_tx_freq[2]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[14] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_14),
         .Q(clk_tx_freq[3]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[15] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_13),
         .Q(clk_tx_freq[4]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[16] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_12),
         .Q(clk_tx_freq[5]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[17] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_11),
         .Q(clk_tx_freq[6]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[18] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_10),
         .Q(clk_tx_freq[7]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[19] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_9),
         .Q(clk_tx_freq[8]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[20] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_8),
         .Q(clk_tx_freq[9]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[21] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_7),
         .Q(clk_tx_freq[10]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[22] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_6),
         .Q(clk_tx_freq[11]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[23] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_5),
         .Q(clk_tx_freq[12]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[24] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_4),
         .Q(clk_tx_freq[13]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[25] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_3),
         .Q(clk_tx_freq[14]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[26] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_2),
         .Q(clk_tx_freq[15]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[27] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_1),
         .Q(clk_tx_freq[16]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   FDRE \clk_tx_freq_reg[28] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(\clk_tx_freq[28]_i_2_n_0 ),
         .D(TXCLK_FREQ_CAP_INST_n_0),
         .Q(clk_tx_freq[17]),
-        .R(\cfg_phy_mem_map_control_b0_reg[604] ));
+        .R(\cfg_phy_mem_map_control_b0_reg[603] ));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'hE)) 
@@ -5266,7 +5267,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
        (.I0(txclk_freq_cnt_reg[8]),
         .O(\txclk_freq_cnt[8]_i_9_n_0 ));
   FDCE \txclk_freq_cnt_reg[0] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_15 ),
@@ -5279,43 +5280,43 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .O({\txclk_freq_cnt_reg[0]_i_1_n_8 ,\txclk_freq_cnt_reg[0]_i_1_n_9 ,\txclk_freq_cnt_reg[0]_i_1_n_10 ,\txclk_freq_cnt_reg[0]_i_1_n_11 ,\txclk_freq_cnt_reg[0]_i_1_n_12 ,\txclk_freq_cnt_reg[0]_i_1_n_13 ,\txclk_freq_cnt_reg[0]_i_1_n_14 ,\txclk_freq_cnt_reg[0]_i_1_n_15 }),
         .S({\txclk_freq_cnt[0]_i_2_n_0 ,\txclk_freq_cnt[0]_i_3_n_0 ,\txclk_freq_cnt[0]_i_4_n_0 ,\txclk_freq_cnt[0]_i_5_n_0 ,\txclk_freq_cnt[0]_i_6_n_0 ,\txclk_freq_cnt[0]_i_7_n_0 ,\txclk_freq_cnt[0]_i_8_n_0 ,\txclk_freq_cnt[0]_i_9_n_0 }));
   FDCE \txclk_freq_cnt_reg[10] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_13 ),
         .Q(txclk_freq_cnt_reg[10]));
   FDCE \txclk_freq_cnt_reg[11] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_12 ),
         .Q(txclk_freq_cnt_reg[11]));
   FDCE \txclk_freq_cnt_reg[12] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_11 ),
         .Q(txclk_freq_cnt_reg[12]));
   FDCE \txclk_freq_cnt_reg[13] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_10 ),
         .Q(txclk_freq_cnt_reg[13]));
   FDCE \txclk_freq_cnt_reg[14] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_9 ),
         .Q(txclk_freq_cnt_reg[14]));
   FDCE \txclk_freq_cnt_reg[15] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_8 ),
         .Q(txclk_freq_cnt_reg[15]));
   FDCE \txclk_freq_cnt_reg[16] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[16]_i_1_n_15 ),
@@ -5328,55 +5329,55 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .O({\NLW_txclk_freq_cnt_reg[16]_i_1_O_UNCONNECTED [7:2],\txclk_freq_cnt_reg[16]_i_1_n_14 ,\txclk_freq_cnt_reg[16]_i_1_n_15 }),
         .S({\NLW_txclk_freq_cnt_reg[16]_i_1_S_UNCONNECTED [7:2],\txclk_freq_cnt[16]_i_2_n_0 ,\txclk_freq_cnt[16]_i_3_n_0 }));
   FDCE \txclk_freq_cnt_reg[17] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[16]_i_1_n_14 ),
         .Q(txclk_freq_cnt_reg[17]));
   FDCE \txclk_freq_cnt_reg[1] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_14 ),
         .Q(txclk_freq_cnt_reg[1]));
   FDCE \txclk_freq_cnt_reg[2] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_13 ),
         .Q(txclk_freq_cnt_reg[2]));
   FDCE \txclk_freq_cnt_reg[3] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_12 ),
         .Q(txclk_freq_cnt_reg[3]));
   FDCE \txclk_freq_cnt_reg[4] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_11 ),
         .Q(txclk_freq_cnt_reg[4]));
   FDCE \txclk_freq_cnt_reg[5] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_10 ),
         .Q(txclk_freq_cnt_reg[5]));
   FDCE \txclk_freq_cnt_reg[6] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_9 ),
         .Q(txclk_freq_cnt_reg[6]));
   FDCE \txclk_freq_cnt_reg[7] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[0]_i_1_n_8 ),
         .Q(txclk_freq_cnt_reg[7]));
   FDCE \txclk_freq_cnt_reg[8] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_15 ),
@@ -5389,13 +5390,14 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_clkdet
         .O({\txclk_freq_cnt_reg[8]_i_1_n_8 ,\txclk_freq_cnt_reg[8]_i_1_n_9 ,\txclk_freq_cnt_reg[8]_i_1_n_10 ,\txclk_freq_cnt_reg[8]_i_1_n_11 ,\txclk_freq_cnt_reg[8]_i_1_n_12 ,\txclk_freq_cnt_reg[8]_i_1_n_13 ,\txclk_freq_cnt_reg[8]_i_1_n_14 ,\txclk_freq_cnt_reg[8]_i_1_n_15 }),
         .S({\txclk_freq_cnt[8]_i_2_n_0 ,\txclk_freq_cnt[8]_i_3_n_0 ,\txclk_freq_cnt[8]_i_4_n_0 ,\txclk_freq_cnt[8]_i_5_n_0 ,\txclk_freq_cnt[8]_i_6_n_0 ,\txclk_freq_cnt[8]_i_7_n_0 ,\txclk_freq_cnt[8]_i_8_n_0 ,\txclk_freq_cnt[8]_i_9_n_0 }));
   FDCE \txclk_freq_cnt_reg[9] 
-       (.C(mgtrefclk1_odiv2_i),
+       (.C(mgtrefclk0_odiv2_i),
         .CE(txclk_run),
         .CLR(txclk_rst),
         .D(\txclk_freq_cnt_reg[8]_i_1_n_14 ),
         .Q(txclk_freq_cnt_reg[9]));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gt_usrclk_source_8series" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk_source_8series
    (E,
     b0_MMCM_TX_DRP_LOCKED_DLY9_out,
@@ -5403,7 +5405,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
     MMCM_TX_DRP_SRDY,
     tx_tmds_clk_p,
     tx_tmds_clk_n,
-    gtrefclk1_in,
+    gtrefclk0_in,
     CLK_IN,
     txoutclk,
     tx_tmds_clk,
@@ -5419,8 +5421,8 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
     \b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[0] ,
     \b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[23] ,
     vid_phy_axi4lite_aclk,
-    mgtrefclk1_pad_p_in,
-    mgtrefclk1_pad_n_in,
+    mgtrefclk0_pad_p_in,
+    mgtrefclk0_pad_n_in,
     txoutclk_out);
   output [0:0]E;
   output b0_MMCM_TX_DRP_LOCKED_DLY9_out;
@@ -5428,7 +5430,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
   output MMCM_TX_DRP_SRDY;
   output tx_tmds_clk_p;
   output tx_tmds_clk_n;
-  output [0:0]gtrefclk1_in;
+  output [0:0]gtrefclk0_in;
   output CLK_IN;
   output txoutclk;
   output tx_tmds_clk;
@@ -5444,14 +5446,14 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
   input [7:0]\b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[0] ;
   input [6:0]\b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[23] ;
   input vid_phy_axi4lite_aclk;
-  input mgtrefclk1_pad_p_in;
-  input mgtrefclk1_pad_n_in;
+  input mgtrefclk0_pad_p_in;
+  input mgtrefclk0_pad_n_in;
   input [0:0]txoutclk_out;
 
-  wire CESYNC_gtrefclk1_odiv2;
+  wire CESYNC_gtrefclk0_odiv2;
   wire CESYNC_tx_usrclk;
   wire CLK_IN;
-  wire CLRSYNC_gtrefclk1_odiv2;
+  wire CLRSYNC_gtrefclk0_odiv2;
   wire CLRSYNC_tx_usrclk;
   wire [23:0]D;
   wire [0:0]E;
@@ -5476,14 +5478,14 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
   wire \b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[5] ;
   wire [70:0]\cfg_phy_mem_map_control_b0_reg[940] ;
   wire gt0_txmmcm_clkout1_oddr_data_i;
-  wire [0:0]gtrefclk1_in;
+  wire [0:0]gtrefclk0_in;
   (* async_reg = "true" *) wire gtwiz_userclk_rx_active_meta;
   (* async_reg = "true" *) wire gtwiz_userclk_rx_active_sync;
   (* async_reg = "true" *) wire gtwiz_userclk_tx_active_meta;
   (* async_reg = "true" *) wire gtwiz_userclk_tx_active_sync;
-  wire mgtrefclk1_pad_n_in;
-  wire mgtrefclk1_pad_p_in;
-  wire q0_clk1_gtrefclk_div1_i;
+  wire mgtrefclk0_pad_n_in;
+  wire mgtrefclk0_pad_p_in;
+  wire q0_clk0_gtrefclk_div1_i;
   wire tx_tmds_clk;
   wire tx_tmds_clk_n;
   wire tx_tmds_clk_p;
@@ -5502,28 +5504,28 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
     .REFCLK_EN_TX_PATH(1'b0),
     .REFCLK_HROW_CK_SEL(2'b00),
     .REFCLK_ICNTL_RX(2'b00)) 
-    IBUFDS_GTE4_MGTREFCLK1_INST
+    IBUFDS_GTE4_MGTREFCLK0_INST
        (.CEB(\cfg_phy_mem_map_control_b0_reg[940] [67]),
-        .I(mgtrefclk1_pad_p_in),
-        .IB(mgtrefclk1_pad_n_in),
-        .O(gtrefclk1_in),
-        .ODIV2(q0_clk1_gtrefclk_div1_i));
+        .I(mgtrefclk0_pad_p_in),
+        .IB(mgtrefclk0_pad_n_in),
+        .O(gtrefclk0_in),
+        .ODIV2(q0_clk0_gtrefclk_div1_i));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  BUFG_GT bufg_gt_gtrefclk1_odiv2_inst
-       (.CE(CESYNC_gtrefclk1_odiv2),
+  BUFG_GT bufg_gt_gtrefclk0_odiv2_inst
+       (.CE(CESYNC_gtrefclk0_odiv2),
         .CEMASK(1'b0),
-        .CLR(CLRSYNC_gtrefclk1_odiv2),
+        .CLR(CLRSYNC_gtrefclk0_odiv2),
         .CLRMASK(1'b0),
         .DIV({1'b0,1'b0,1'b0}),
-        .I(q0_clk1_gtrefclk_div1_i),
+        .I(q0_clk0_gtrefclk_div1_i),
         .O(CLK_IN));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  BUFG_GT_SYNC bufg_gt_sync_gtrefclk1_odiv2_inst
+  BUFG_GT_SYNC bufg_gt_sync_gtrefclk0_odiv2_inst
        (.CE(1'b1),
-        .CESYNC(CESYNC_gtrefclk1_odiv2),
-        .CLK(q0_clk1_gtrefclk_div1_i),
+        .CESYNC(CESYNC_gtrefclk0_odiv2),
+        .CLK(q0_clk0_gtrefclk_div1_i),
         .CLR(1'b0),
-        .CLRSYNC(CLRSYNC_gtrefclk1_odiv2));
+        .CLRSYNC(CLRSYNC_gtrefclk0_odiv2));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDCE #(
@@ -5788,6 +5790,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk
         .tx_video_clk(tx_video_clk));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gthe4_common" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_common
    (drprdy_common_out,
     qpll0clk_in,
@@ -5806,7 +5809,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_com
     gtnorthrefclk01_in,
     gtnorthrefclk10_in,
     gtnorthrefclk11_in,
-    gtrefclk1_in,
+    gtrefclk0_in,
     gtsouthrefclk00_in,
     gtsouthrefclk01_in,
     gtsouthrefclk10_in,
@@ -5838,7 +5841,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_com
   input gtnorthrefclk01_in;
   input gtnorthrefclk10_in;
   input gtnorthrefclk11_in;
-  input [0:0]gtrefclk1_in;
+  input [0:0]gtrefclk0_in;
   input gtsouthrefclk00_in;
   input gtsouthrefclk01_in;
   input gtsouthrefclk10_in;
@@ -6063,7 +6066,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_com
   wire gtnorthrefclk01_in;
   wire gtnorthrefclk10_in;
   wire gtnorthrefclk11_in;
-  wire [0:0]gtrefclk1_in;
+  wire [0:0]gtrefclk0_in;
   wire gtsouthrefclk00_in;
   wire gtsouthrefclk01_in;
   wire gtsouthrefclk10_in;
@@ -6425,10 +6428,10 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_com
         .GTNORTHREFCLK01(gtnorthrefclk01_in),
         .GTNORTHREFCLK10(gtnorthrefclk10_in),
         .GTNORTHREFCLK11(gtnorthrefclk11_in),
-        .GTREFCLK00(1'b0),
-        .GTREFCLK01(1'b0),
-        .GTREFCLK10(gtrefclk1_in),
-        .GTREFCLK11(gtrefclk1_in),
+        .GTREFCLK00(gtrefclk0_in),
+        .GTREFCLK01(gtrefclk0_in),
+        .GTREFCLK10(1'b0),
+        .GTREFCLK11(1'b0),
         .GTSOUTHREFCLK00(gtsouthrefclk00_in),
         .GTSOUTHREFCLK01(gtsouthrefclk01_in),
         .GTSOUTHREFCLK10(gtsouthrefclk10_in),
@@ -6496,7 +6499,8 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gthe4_com
         .TCONRSVDOUT0(\gthe4_common_gen.GTHE4_COMMON_PRIM_INST_n_13 ));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_vid_phy_controller_0_0_gtwrapper,design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top,Vivado 2016.4" *) 
+(* CHECK_LICENSE_TYPE = "design_1_vid_phy_controller_0_0_gtwrapper,design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gtwrapper" *) 
+(* X_CORE_INFO = "design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top,Vivado 2016.4" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
    (gtwiz_userclk_tx_active_in,
     gtwiz_userclk_rx_active_in,
@@ -7493,6 +7497,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
         .ubtxuart_out(NLW_inst_ubtxuart_out_UNCONNECTED[0]));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gtwrapper_gthe4_channel_wrapper" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper_gthe4_channel_wrapper
    (rst_in0,
     cplllock_out,
@@ -8803,6 +8808,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
         .txusrclk_in(txusrclk_in));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gtwrapper_gthe4_common_wrapper" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper_gthe4_common_wrapper
    (drprdy_common_out,
     qpll0clk_in,
@@ -8821,7 +8827,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
     gtnorthrefclk01_in,
     gtnorthrefclk10_in,
     gtnorthrefclk11_in,
-    gtrefclk1_in,
+    gtrefclk0_in,
     gtsouthrefclk00_in,
     gtsouthrefclk01_in,
     gtsouthrefclk10_in,
@@ -8853,7 +8859,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
   input gtnorthrefclk01_in;
   input gtnorthrefclk10_in;
   input gtnorthrefclk11_in;
-  input [0:0]gtrefclk1_in;
+  input [0:0]gtrefclk0_in;
   input gtsouthrefclk00_in;
   input gtsouthrefclk01_in;
   input gtsouthrefclk10_in;
@@ -8890,7 +8896,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
   wire gtnorthrefclk01_in;
   wire gtnorthrefclk10_in;
   wire gtnorthrefclk11_in;
-  wire [0:0]gtrefclk1_in;
+  wire [0:0]gtrefclk0_in;
   wire gtsouthrefclk00_in;
   wire gtsouthrefclk01_in;
   wire gtsouthrefclk10_in;
@@ -8924,7 +8930,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
         .gtnorthrefclk01_in(gtnorthrefclk01_in),
         .gtnorthrefclk10_in(gtnorthrefclk10_in),
         .gtnorthrefclk11_in(gtnorthrefclk11_in),
-        .gtrefclk1_in(gtrefclk1_in),
+        .gtrefclk0_in(gtrefclk0_in),
         .gtsouthrefclk00_in(gtsouthrefclk00_in),
         .gtsouthrefclk01_in(gtsouthrefclk01_in),
         .gtsouthrefclk10_in(gtsouthrefclk10_in),
@@ -8937,6 +8943,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
         .qpll1refclk_in(qpll1refclk_in));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_gthe4" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_gthe4
    (txsyncdone_out,
     txphaligndone_out,
@@ -10400,6 +10407,7 @@ endmodule
 (* C_TX_REFCLK_FREQUENCY = "297.000000" *) (* C_TX_USER_CLOCKING_CONTENTS = "0" *) (* C_TX_USER_CLOCKING_INSTANCE_CTRL = "0" *) 
 (* C_TX_USER_CLOCKING_RATIO_FSRC_FUSRCLK = "1" *) (* C_TX_USER_CLOCKING_RATIO_FUSRCLK_FUSRCLK2 = "1" *) (* C_TX_USER_CLOCKING_SOURCE = "0" *) 
 (* C_TX_USER_DATA_WIDTH = "40" *) (* C_TX_USRCLK2_FREQUENCY = "148.500000" *) (* C_TX_USRCLK_FREQUENCY = "148.500000" *) 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_top
    (gtwiz_userclk_tx_reset_in,
     gtwiz_userclk_tx_active_in,
@@ -12318,48 +12326,48 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gtwrapper
 endmodule
 
 (* ADDRESS = "4'b0100" *) (* BITMASK = "4'b0110" *) (* BITSET = "4'b0111" *) 
-(* RESTART = "4'b0001" *) (* S1_BANDWIDTH = "LOW" *) (* S1_CLKFBOUT = "38'b00000000000000100000000000000010000011" *) 
-(* S1_CLKFBOUT_FRAC = "125" *) (* S1_CLKFBOUT_FRAC_CALC = "38'b11100100011000000000000000000010000001" *) (* S1_CLKFBOUT_FRAC_EN = "1" *) 
-(* S1_CLKFBOUT_MULT = "5" *) (* S1_CLKFBOUT_PHASE = "0" *) (* S1_CLKOUT0 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT0_DIVIDE = "1" *) (* S1_CLKOUT0_DUTY = "50000" *) (* S1_CLKOUT0_FRAC = "125" *) 
-(* S1_CLKOUT0_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) (* S1_CLKOUT0_FRAC_EN = "1" *) (* S1_CLKOUT0_FRAC_REG1 = "16'b0000000000111111" *) 
-(* S1_CLKOUT0_FRAC_REG2 = "16'b0001100000000000" *) (* S1_CLKOUT0_FRAC_REGSHARED = "6'b111001" *) (* S1_CLKOUT0_PHASE = "0" *) 
-(* S1_CLKOUT0_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT0_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT1 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT1_DIVIDE = "1" *) (* S1_CLKOUT1_DUTY = "50000" *) (* S1_CLKOUT1_PHASE = "0" *) 
-(* S1_CLKOUT1_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT1_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT2 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT2_DIVIDE = "1" *) (* S1_CLKOUT2_DUTY = "50000" *) (* S1_CLKOUT2_PHASE = "0" *) 
-(* S1_CLKOUT2_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT2_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT3 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT3_DIVIDE = "1" *) (* S1_CLKOUT3_DUTY = "50000" *) (* S1_CLKOUT3_PHASE = "0" *) 
-(* S1_CLKOUT3_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT3_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT4 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT4_DIVIDE = "1" *) (* S1_CLKOUT4_DUTY = "50000" *) (* S1_CLKOUT4_PHASE = "0" *) 
-(* S1_CLKOUT4_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT4_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT5 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT5_DIVIDE = "1" *) (* S1_CLKOUT5_DUTY = "50000" *) (* S1_CLKOUT5_PHASE = "0" *) 
-(* S1_CLKOUT5_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT5_REG2 = "16'b0000000001000000" *) (* S1_CLKOUT6 = "38'b00000000000000010000000000000001000001" *) 
-(* S1_CLKOUT6_DIVIDE = "1" *) (* S1_CLKOUT6_DUTY = "50000" *) (* S1_CLKOUT6_PHASE = "0" *) 
-(* S1_CLKOUT6_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT6_REG2 = "16'b0000000001000000" *) (* S1_DIGITAL_FILT = "10'b0010111111" *) 
-(* S1_DIVCLK = "38'b00000000000000010000000000000001000001" *) (* S1_DIVCLK_DIVIDE = "1" *) (* S1_LOCK = "40'b0111001110111110100011111010010000000001" *) 
-(* S2_BANDWIDTH = "LOW" *) (* S2_CLKFBOUT = "38'b00000000000000010000000000000001000001" *) (* S2_CLKFBOUT_FRAC = "125" *) 
-(* S2_CLKFBOUT_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) (* S2_CLKFBOUT_FRAC_EN = "1" *) (* S2_CLKFBOUT_MULT = "1" *) 
-(* S2_CLKFBOUT_PHASE = "0" *) (* S2_CLKOUT0 = "38'b00000000000000010000000000000001000001" *) (* S2_CLKOUT0_DIVIDE = "1" *) 
-(* S2_CLKOUT0_DUTY = "50000" *) (* S2_CLKOUT0_FRAC = "125" *) (* S2_CLKOUT0_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) 
-(* S2_CLKOUT0_FRAC_CALC_REG1 = "16'b0000000000111111" *) (* S2_CLKOUT0_FRAC_CALC_REG2 = "16'b0001100000000000" *) (* S2_CLKOUT0_FRAC_CALC_REGSHARED = "16'b0001100000000000" *) 
-(* S2_CLKOUT0_FRAC_EN = "1" *) (* S2_CLKOUT0_PHASE = "0" *) (* S2_CLKOUT0_REG1 = "16'b0000000001000001" *) 
-(* S2_CLKOUT0_REG2 = "16'b0000000001000000" *) (* S2_CLKOUT1 = "38'b00000000000000000000000000000001000001" *) (* S2_CLKOUT1_DIVIDE = "2" *) 
-(* S2_CLKOUT1_DUTY = "50000" *) (* S2_CLKOUT1_PHASE = "0" *) (* S2_CLKOUT1_REG1 = "16'b0000000001000001" *) 
-(* S2_CLKOUT1_REG2 = "16'b0000000000000000" *) (* S2_CLKOUT2 = "38'b00000000000000100000000000000001000010" *) (* S2_CLKOUT2_DIVIDE = "3" *) 
-(* S2_CLKOUT2_DUTY = "50000" *) (* S2_CLKOUT2_PHASE = "0" *) (* S2_CLKOUT2_REG1 = "16'b0000000001000010" *) 
-(* S2_CLKOUT2_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT3 = "38'b00000000000000000000000000000010000010" *) (* S2_CLKOUT3_DIVIDE = "4" *) 
-(* S2_CLKOUT3_DUTY = "50000" *) (* S2_CLKOUT3_PHASE = "0" *) (* S2_CLKOUT3_REG1 = "16'b0000000010000010" *) 
-(* S2_CLKOUT3_REG2 = "16'b0000000000000000" *) (* S2_CLKOUT4 = "38'b00000000000000100000000000000010000011" *) (* S2_CLKOUT4_DIVIDE = "5" *) 
-(* S2_CLKOUT4_DUTY = "50000" *) (* S2_CLKOUT4_PHASE = "0" *) (* S2_CLKOUT4_REG1 = "16'b0000000010000011" *) 
-(* S2_CLKOUT4_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT5 = "38'b00000000000000100000000000000010000011" *) (* S2_CLKOUT5_DIVIDE = "5" *) 
-(* S2_CLKOUT5_DUTY = "50000" *) (* S2_CLKOUT5_PHASE = "0" *) (* S2_CLKOUT5_REG1 = "16'b0000000010000011" *) 
-(* S2_CLKOUT5_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT6 = "38'b00000000000000100001010000000010000011" *) (* S2_CLKOUT6_DIVIDE = "5" *) 
-(* S2_CLKOUT6_DUTY = "50000" *) (* S2_CLKOUT6_PHASE = "-90" *) (* S2_CLKOUT6_REG1 = "16'b0000000010000011" *) 
-(* S2_CLKOUT6_REG2 = "16'b0000000010000101" *) (* S2_DIGITAL_FILT = "10'b0010111111" *) (* S2_DIVCLK = "38'b00000000000000010000000000000001000001" *) 
-(* S2_DIVCLK_DIVIDE = "1" *) (* S2_LOCK = "40'b0011000110111110100011111010010000000001" *) (* STATE_COUNT_CONST = "23" *) 
-(* WAIT_A_DRDY = "4'b0101" *) (* WAIT_DRDY = "4'b1001" *) (* WAIT_LOCK = "4'b0010" *) 
-(* WAIT_SEN = "4'b0011" *) (* WRITE = "4'b1000" *) 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_mmcme3_drp" *) (* RESTART = "4'b0001" *) (* S1_BANDWIDTH = "LOW" *) 
+(* S1_CLKFBOUT = "38'b00000000000000100000000000000010000011" *) (* S1_CLKFBOUT_FRAC = "125" *) (* S1_CLKFBOUT_FRAC_CALC = "38'b11100100011000000000000000000010000001" *) 
+(* S1_CLKFBOUT_FRAC_EN = "1" *) (* S1_CLKFBOUT_MULT = "5" *) (* S1_CLKFBOUT_PHASE = "0" *) 
+(* S1_CLKOUT0 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT0_DIVIDE = "1" *) (* S1_CLKOUT0_DUTY = "50000" *) 
+(* S1_CLKOUT0_FRAC = "125" *) (* S1_CLKOUT0_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) (* S1_CLKOUT0_FRAC_EN = "1" *) 
+(* S1_CLKOUT0_FRAC_REG1 = "16'b0000000000111111" *) (* S1_CLKOUT0_FRAC_REG2 = "16'b0001100000000000" *) (* S1_CLKOUT0_FRAC_REGSHARED = "6'b111001" *) 
+(* S1_CLKOUT0_PHASE = "0" *) (* S1_CLKOUT0_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT0_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT1 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT1_DIVIDE = "1" *) (* S1_CLKOUT1_DUTY = "50000" *) 
+(* S1_CLKOUT1_PHASE = "0" *) (* S1_CLKOUT1_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT1_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT2 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT2_DIVIDE = "1" *) (* S1_CLKOUT2_DUTY = "50000" *) 
+(* S1_CLKOUT2_PHASE = "0" *) (* S1_CLKOUT2_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT2_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT3 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT3_DIVIDE = "1" *) (* S1_CLKOUT3_DUTY = "50000" *) 
+(* S1_CLKOUT3_PHASE = "0" *) (* S1_CLKOUT3_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT3_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT4 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT4_DIVIDE = "1" *) (* S1_CLKOUT4_DUTY = "50000" *) 
+(* S1_CLKOUT4_PHASE = "0" *) (* S1_CLKOUT4_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT4_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT5 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT5_DIVIDE = "1" *) (* S1_CLKOUT5_DUTY = "50000" *) 
+(* S1_CLKOUT5_PHASE = "0" *) (* S1_CLKOUT5_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT5_REG2 = "16'b0000000001000000" *) 
+(* S1_CLKOUT6 = "38'b00000000000000010000000000000001000001" *) (* S1_CLKOUT6_DIVIDE = "1" *) (* S1_CLKOUT6_DUTY = "50000" *) 
+(* S1_CLKOUT6_PHASE = "0" *) (* S1_CLKOUT6_REG1 = "16'b0000000001000001" *) (* S1_CLKOUT6_REG2 = "16'b0000000001000000" *) 
+(* S1_DIGITAL_FILT = "10'b0010111111" *) (* S1_DIVCLK = "38'b00000000000000010000000000000001000001" *) (* S1_DIVCLK_DIVIDE = "1" *) 
+(* S1_LOCK = "40'b0111001110111110100011111010010000000001" *) (* S2_BANDWIDTH = "LOW" *) (* S2_CLKFBOUT = "38'b00000000000000010000000000000001000001" *) 
+(* S2_CLKFBOUT_FRAC = "125" *) (* S2_CLKFBOUT_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) (* S2_CLKFBOUT_FRAC_EN = "1" *) 
+(* S2_CLKFBOUT_MULT = "1" *) (* S2_CLKFBOUT_PHASE = "0" *) (* S2_CLKOUT0 = "38'b00000000000000010000000000000001000001" *) 
+(* S2_CLKOUT0_DIVIDE = "1" *) (* S2_CLKOUT0_DUTY = "50000" *) (* S2_CLKOUT0_FRAC = "125" *) 
+(* S2_CLKOUT0_FRAC_CALC = "38'b11100100011000000000000000000000111111" *) (* S2_CLKOUT0_FRAC_CALC_REG1 = "16'b0000000000111111" *) (* S2_CLKOUT0_FRAC_CALC_REG2 = "16'b0001100000000000" *) 
+(* S2_CLKOUT0_FRAC_CALC_REGSHARED = "16'b0001100000000000" *) (* S2_CLKOUT0_FRAC_EN = "1" *) (* S2_CLKOUT0_PHASE = "0" *) 
+(* S2_CLKOUT0_REG1 = "16'b0000000001000001" *) (* S2_CLKOUT0_REG2 = "16'b0000000001000000" *) (* S2_CLKOUT1 = "38'b00000000000000000000000000000001000001" *) 
+(* S2_CLKOUT1_DIVIDE = "2" *) (* S2_CLKOUT1_DUTY = "50000" *) (* S2_CLKOUT1_PHASE = "0" *) 
+(* S2_CLKOUT1_REG1 = "16'b0000000001000001" *) (* S2_CLKOUT1_REG2 = "16'b0000000000000000" *) (* S2_CLKOUT2 = "38'b00000000000000100000000000000001000010" *) 
+(* S2_CLKOUT2_DIVIDE = "3" *) (* S2_CLKOUT2_DUTY = "50000" *) (* S2_CLKOUT2_PHASE = "0" *) 
+(* S2_CLKOUT2_REG1 = "16'b0000000001000010" *) (* S2_CLKOUT2_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT3 = "38'b00000000000000000000000000000010000010" *) 
+(* S2_CLKOUT3_DIVIDE = "4" *) (* S2_CLKOUT3_DUTY = "50000" *) (* S2_CLKOUT3_PHASE = "0" *) 
+(* S2_CLKOUT3_REG1 = "16'b0000000010000010" *) (* S2_CLKOUT3_REG2 = "16'b0000000000000000" *) (* S2_CLKOUT4 = "38'b00000000000000100000000000000010000011" *) 
+(* S2_CLKOUT4_DIVIDE = "5" *) (* S2_CLKOUT4_DUTY = "50000" *) (* S2_CLKOUT4_PHASE = "0" *) 
+(* S2_CLKOUT4_REG1 = "16'b0000000010000011" *) (* S2_CLKOUT4_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT5 = "38'b00000000000000100000000000000010000011" *) 
+(* S2_CLKOUT5_DIVIDE = "5" *) (* S2_CLKOUT5_DUTY = "50000" *) (* S2_CLKOUT5_PHASE = "0" *) 
+(* S2_CLKOUT5_REG1 = "16'b0000000010000011" *) (* S2_CLKOUT5_REG2 = "16'b0000000010000000" *) (* S2_CLKOUT6 = "38'b00000000000000100001010000000010000011" *) 
+(* S2_CLKOUT6_DIVIDE = "5" *) (* S2_CLKOUT6_DUTY = "50000" *) (* S2_CLKOUT6_PHASE = "-90" *) 
+(* S2_CLKOUT6_REG1 = "16'b0000000010000011" *) (* S2_CLKOUT6_REG2 = "16'b0000000010000101" *) (* S2_DIGITAL_FILT = "10'b0010111111" *) 
+(* S2_DIVCLK = "38'b00000000000000010000000000000001000001" *) (* S2_DIVCLK_DIVIDE = "1" *) (* S2_LOCK = "40'b0011000110111110100011111010010000000001" *) 
+(* STATE_COUNT_CONST = "23" *) (* WAIT_A_DRDY = "4'b0101" *) (* WAIT_DRDY = "4'b1001" *) 
+(* WAIT_LOCK = "4'b0010" *) (* WAIT_SEN = "4'b0011" *) (* WRITE = "4'b1000" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_mmcme3_drp
    (SADDR,
     SEN,
@@ -19356,10 +19364,10 @@ endmodule
 
 (* C_COMPONENT_NAME = "design_1_vid_phy_controller_0_0" *) (* C_DEVICE = "xczu9eg" *) (* C_FAMILY = "zynquplus" *) 
 (* C_Hdmi_Fast_Switch = "1" *) (* C_INPUT_PIXELS_PER_CLOCK = "2" *) (* C_NIDRU = "0" *) 
-(* C_NIDRU_REFCLK_SEL = "0" *) (* C_RX_PLL_SELECTION = "6" *) (* C_RX_REFCLK_SEL = "0" *) 
+(* C_NIDRU_REFCLK_SEL = "0" *) (* C_RX_PLL_SELECTION = "6" *) (* C_RX_REFCLK_SEL = "1" *) 
 (* C_Rx_No_Of_Channels = "3" *) (* C_Rx_Protocol = "3" *) (* C_SILICON_REVISION = "0" *) 
 (* C_SPEEDGRADE = "-2" *) (* C_SupportLevel = "1" *) (* C_TX_PLL_SELECTION = "0" *) 
-(* C_TX_REFCLK_SEL = "1" *) (* C_TransceiverControl = "0" *) (* C_Tx_No_Of_Channels = "3" *) 
+(* C_TX_REFCLK_SEL = "0" *) (* C_TransceiverControl = "0" *) (* C_Tx_No_Of_Channels = "3" *) 
 (* C_Tx_Protocol = "1" *) (* C_vid_phy_axi4lite_ADDR_WIDTH = "10" *) (* C_vid_phy_axi4lite_DATA_WIDTH = "32" *) 
 (* C_vid_phy_control_sb_rx_TDATA_WIDTH = "1" *) (* C_vid_phy_control_sb_tx_TDATA_WIDTH = "1" *) (* C_vid_phy_rx_axi4s_ch_INT_TDATA_WIDTH = "40" *) 
 (* C_vid_phy_rx_axi4s_ch_TDATA_WIDTH = "40" *) (* C_vid_phy_rx_axi4s_ch_TUSER_WIDTH = "1" *) (* C_vid_phy_status_sb_rx_TDATA_WIDTH = "1" *) 
@@ -19368,8 +19376,9 @@ endmodule
 (* GTEASTREFCLK1 = "7" *) (* GTNORTHREFCLK0 = "2" *) (* GTNORTHREFCLK1 = "3" *) 
 (* GTREFCLK0 = "0" *) (* GTREFCLK1 = "1" *) (* GTSOUTHREFCLK0 = "4" *) 
 (* GTSOUTHREFCLK1 = "5" *) (* GTWESTREFCLK0 = "8" *) (* GTWESTREFCLK1 = "9" *) 
-(* Tx_Buffer_Bypass = "1" *) (* c_sub_core_name = "design_1_vid_phy_controller_0_0_gtwrapper" *) (* pBANK0 = "5'b00000" *) 
-(* pBANK1 = "5'b00001" *) (* pBANK2 = "5'b00010" *) (* pBANK3 = "5'b00011" *) 
+(* ORIG_REF_NAME = "design_1_vid_phy_controller_0_0_top" *) (* Tx_Buffer_Bypass = "1" *) (* c_sub_core_name = "design_1_vid_phy_controller_0_0_gtwrapper" *) 
+(* pBANK0 = "5'b00000" *) (* pBANK1 = "5'b00001" *) (* pBANK2 = "5'b00010" *) 
+(* pBANK3 = "5'b00011" *) 
 module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
    (mgtrefclk0_pad_n_in,
     mgtrefclk0_pad_p_in,
@@ -19976,7 +19985,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[596] ;
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[597] ;
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[598] ;
-  wire \cfg_phy_mem_map_control_b0_reg_n_0_[603] ;
+  wire \cfg_phy_mem_map_control_b0_reg_n_0_[604] ;
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[940] ;
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[942] ;
   wire \cfg_phy_mem_map_control_b0_reg_n_0_[943] ;
@@ -20296,10 +20305,10 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
   wire gtwiz_userclk_tx_reset_in;
   wire irq;
   wire [8:0]loopback_in;
-  wire mgtrefclk1_i;
-  wire mgtrefclk1_odiv2_i;
-  wire mgtrefclk1_pad_n_in;
-  wire mgtrefclk1_pad_p_in;
+  wire mgtrefclk0_i;
+  wire mgtrefclk0_odiv2_i;
+  wire mgtrefclk0_pad_n_in;
+  wire mgtrefclk0_pad_p_in;
   wire p_0_in;
   wire p_0_in14_in;
   wire p_0_in15_in;
@@ -23525,13 +23534,13 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
        (.C(vid_phy_axi4lite_aclk),
         .CE(cfg_phy_mem_map_status),
         .D(vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_45),
-        .Q(\cfg_phy_mem_map_control_b0_reg_n_0_[603] ),
+        .Q(p_0_in),
         .R(1'b0));
   FDRE \cfg_phy_mem_map_control_b0_reg[604] 
        (.C(vid_phy_axi4lite_aclk),
         .CE(cfg_phy_mem_map_status),
         .D(vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_44),
-        .Q(p_0_in),
+        .Q(\cfg_phy_mem_map_control_b0_reg_n_0_[604] ),
         .R(1'b0));
   FDRE \cfg_phy_mem_map_control_b0_reg[605] 
        (.C(vid_phy_axi4lite_aclk),
@@ -24661,8 +24670,8 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .b0_clkdet_rx_tmr_evt_clr(b0_clkdet_rx_tmr_evt_clr),
         .b0_clkdet_tx_tmr_evt_clr(b0_clkdet_tx_tmr_evt_clr),
         .cfg_phy_mem_map_control({b0_clkdet_freq_cntr_timeout,b0_clkdet_ctrl_lock_cntr_threshold,b0_clkdet_ctrl_rx_tmr_clr,b0_clkdet_ctrl_tx_tmr_clr}),
-        .\cfg_phy_mem_map_control_b0_reg[603] (vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_389),
-        .\cfg_phy_mem_map_control_b0_reg[604] (vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_390),
+        .\cfg_phy_mem_map_control_b0_reg[603] (vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_390),
+        .\cfg_phy_mem_map_control_b0_reg[604] (vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_389),
         .\cfg_phy_mem_map_status_reg[280] (clock_detector_inst_n_11),
         .\cfg_phy_mem_map_status_reg[281] (clock_detector_inst_n_12),
         .\cfg_phy_mem_map_status_reg[282] (clock_detector_inst_n_13),
@@ -24695,7 +24704,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .i_reg_clkdet_run_reg(vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_319),
         .i_reg_clkdet_run_reg_0(clk_rx_tmr),
         .i_reg_clkdet_run_reg_1(vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_2),
-        .mgtrefclk1_odiv2_i(mgtrefclk1_odiv2_i),
+        .mgtrefclk0_odiv2_i(mgtrefclk0_odiv2_i),
         .out(b0_clkdet_dru_refclk),
         .\slv_reg_0x11C_reg[7] ({p_0_in15_in,p_0_in14_in}),
         .\slv_reg_0x214_reg[31] ({vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_320,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_321,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_322,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_323,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_324,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_325,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_326,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_327,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_328,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_329,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_330,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_331,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_332,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_333,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_334,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_335,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_336,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_337,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_338,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_339,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_340,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_341,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_342,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_343,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_344,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_345,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_346,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_347,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_348,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_349,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_350,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_351}),
@@ -24789,7 +24798,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .gtnorthrefclk01_in(gtnorthrefclk01_in),
         .gtnorthrefclk10_in(gtnorthrefclk10_in),
         .gtnorthrefclk11_in(gtnorthrefclk11_in),
-        .gtrefclk1_in(mgtrefclk1_i),
+        .gtrefclk0_in(mgtrefclk0_i),
         .gtsouthrefclk00_in(gtsouthrefclk00_in),
         .gtsouthrefclk01_in(gtsouthrefclk01_in),
         .gtsouthrefclk10_in(gtsouthrefclk10_in),
@@ -24801,7 +24810,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .qpll1clk_in(qpll1outclk_out),
         .qpll1refclk_in(qpll1outrefclk_out));
   design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_gt_usrclk_source_8series gt_usrclk_source_inst
-       (.CLK_IN(mgtrefclk1_odiv2_i),
+       (.CLK_IN(mgtrefclk0_odiv2_i),
         .D({gt_usrclk_source_inst_n_2,gt_usrclk_source_inst_n_3,gt_usrclk_source_inst_n_4,gt_usrclk_source_inst_n_5,gt_usrclk_source_inst_n_6,gt_usrclk_source_inst_n_7,gt_usrclk_source_inst_n_8,gt_usrclk_source_inst_n_9,gt_usrclk_source_inst_n_10,gt_usrclk_source_inst_n_11,gt_usrclk_source_inst_n_12,gt_usrclk_source_inst_n_13,gt_usrclk_source_inst_n_14,gt_usrclk_source_inst_n_15,gt_usrclk_source_inst_n_16,gt_usrclk_source_inst_n_17,gt_usrclk_source_inst_n_18,gt_usrclk_source_inst_n_19,gt_usrclk_source_inst_n_20,gt_usrclk_source_inst_n_21,gt_usrclk_source_inst_n_22,gt_usrclk_source_inst_n_23,gt_usrclk_source_inst_n_24,gt_usrclk_source_inst_n_25}),
         .E(b0_MMCM_TX_DRP_LOCKED_DLY_CNT0),
         .MMCM_TX_DRP_SRDY(b0_MMCM_TX_DRP_SRDY),
@@ -24814,10 +24823,10 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .\b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[4] (b0_MMCM_TX_DRP_LOCKED_DLY_i_3_n_0),
         .\b0_MMCM_TX_DRP_LOCKED_DLY_CNT_reg[5] (b0_MMCM_TX_DRP_LOCKED_DLY_i_2_n_0),
         .\cfg_phy_mem_map_control_b0_reg[940] ({\cfg_phy_mem_map_control_b0_reg_n_0_[940] ,b0_OBUFTDS_TX_EN,b0_MMCM_TX_PWRDN,p_0_in,gtwiz_userclk_rx_reset_in,\cfg_phy_mem_map_control_b0_reg_n_0_[598] ,\cfg_phy_mem_map_control_b0_reg_n_0_[597] ,\cfg_phy_mem_map_control_b0_reg_n_0_[596] ,gtwiz_userclk_tx_reset_in,b0_MMCM_TX_DRP_RESET,b0_MMCM_TX_DRP_SEN,b0_PROG_TX_CLKOUT0_FRAC,b0_PROG_TX_CLKOUT0_DIVIDE,b0_PROG_TX_CLKOUT1_DIVIDE,b0_PROG_TX_CLKOUT2_DIVIDE,b0_PROG_TX_CLKFBOUT_FRAC,b0_PROG_TX_CLKFBOUT_MULT,b0_PROG_TX_DIVCLK_DIVIDE}),
-        .gtrefclk1_in(mgtrefclk1_i),
+        .gtrefclk0_in(mgtrefclk0_i),
         .i_in_meta_reg(gtwiz_userclk_rx_active_in),
-        .mgtrefclk1_pad_n_in(mgtrefclk1_pad_n_in),
-        .mgtrefclk1_pad_p_in(mgtrefclk1_pad_p_in),
+        .mgtrefclk0_pad_n_in(mgtrefclk0_pad_n_in),
+        .mgtrefclk0_pad_p_in(mgtrefclk0_pad_p_in),
         .out(gtwiz_userclk_tx_active_in),
         .tx_tmds_clk(tx_tmds_clk),
         .tx_tmds_clk_n(tx_tmds_clk_n),
@@ -24848,8 +24857,8 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .gthtxp_out(phy_txp_out),
         .gtnorthrefclk0_in({gtnorthrefclk0_in,gtnorthrefclk0_in,gtnorthrefclk0_in}),
         .gtnorthrefclk1_in({gtnorthrefclk1_in,gtnorthrefclk1_in,gtnorthrefclk1_in}),
-        .gtrefclk0_in({1'b0,1'b0,1'b0}),
-        .gtrefclk1_in({mgtrefclk1_i,mgtrefclk1_i,mgtrefclk1_i}),
+        .gtrefclk0_in({mgtrefclk0_i,mgtrefclk0_i,mgtrefclk0_i}),
+        .gtrefclk1_in({1'b0,1'b0,1'b0}),
         .gtrefclkmonitor_out(NLW_gt_wrapper_inst_gtrefclkmonitor_out_UNCONNECTED[2:0]),
         .gtsouthrefclk0_in({gtsouthrefclk0_in,gtsouthrefclk0_in,gtsouthrefclk0_in}),
         .gtsouthrefclk1_in({gtsouthrefclk1_in,gtsouthrefclk1_in,gtsouthrefclk1_in}),
@@ -24936,7 +24945,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .b0_clkdet_tx_tmr_evt_clr(b0_clkdet_tx_tmr_evt_clr),
         .cfg_phy_mem_map_control({vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_4,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_5,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_6,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_7,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_8,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_9,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_10,b0_clkdet_freq_cntr_timeout,b0_clkdet_ctrl_lock_cntr_threshold,b0_clkdet_ctrl_rx_tmr_clr,b0_clkdet_ctrl_tx_tmr_clr,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_42,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_43,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_44,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_45,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_46,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_47,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_48,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_49,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_50,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_51,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_52,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_53,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_54,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_55,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_56,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_57,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_58,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_59,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_60,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_61,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_62,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_63,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_64,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_65,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_66,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_67,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_68,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_69,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_70,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_71,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_72,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_73,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_74,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_75,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_76,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_77,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_78,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_79,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_80,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_81,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_82,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_83,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_84,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_85,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_86,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_87,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_88,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_89,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_90,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_91,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_92,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_93,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_94,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_95,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_96,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_97,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_98,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_99,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_100,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_101,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_102,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_103,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_104,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_105,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_106,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_107,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_108,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_109,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_110,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_111,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_112,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_113,DRP_Config_common[31:16],DRP_Config_common[13:0],vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_144,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_145,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_146,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_147,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_148,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_149,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_150,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_151,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_152,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_153,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_154,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_155,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_156,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_157,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_158,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_159,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_160,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_161,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_162,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_163,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_164,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_165,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_166,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_167,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_168,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_169,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_170,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_171,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_172,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_173,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_174,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_175,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_176,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_177,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_178,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_179,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_180,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_181,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_182,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_183,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_184,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_185,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_186,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_187,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_188,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_189,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_190,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_191,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_192,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_193,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_194,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_195,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_196,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_197,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_198,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_199,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_200,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_201,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_202,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_203,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_204,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_205,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_206,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_207,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_208,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_209,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_210,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_211,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_212,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_213,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_214,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_215,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_216,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_217,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_218,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_219,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_220,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_221,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_222,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_223,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_224,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_225,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_226,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_227,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_228,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_229,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_230,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_231,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_232,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_233,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_234,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_235,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_236,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_237,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_238,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_239,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_240,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_241,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_242,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_243,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_244,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_245,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_246,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_247,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_248,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_249,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_250,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_251,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_252,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_253,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_254,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_255,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_256,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_257,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_258,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_259,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_260,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_261,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_262,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_263,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_264,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_265,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_266,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_267,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_268,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_269,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_270,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_271,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_272,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_273,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_274,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_275,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_276,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_277,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_278,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_279,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_280,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_281,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_282,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_283,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_284,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_285,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_286,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_287,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_288,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_289,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_290,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_291,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_292,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_293,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_294,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_295,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_296,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_297,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_298,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_299,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_300,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_301,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_302,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_303,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_304,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_305,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_306,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_307,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_308,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_309,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_310,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_311,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_312,vid_phy_controller_v2_0_4_vid_phy_axi4lite_inst_n_313}),
         .\cfg_phy_mem_map_control_b0_reg[532] (data35),
-        .\cfg_phy_mem_map_control_b0_reg[604] ({p_0_in,\cfg_phy_mem_map_control_b0_reg_n_0_[603] }),
+        .\cfg_phy_mem_map_control_b0_reg[604] ({\cfg_phy_mem_map_control_b0_reg_n_0_[604] ,p_0_in}),
         .cfg_phy_mem_map_status(cfg_phy_mem_map_status),
         .\cfg_phy_mem_map_status_reg[248] (\cfg_phy_mem_map_status_reg_n_0_[248] ),
         .\cfg_phy_mem_map_status_reg[249] (\cfg_phy_mem_map_status_reg_n_0_[249] ),
@@ -25663,6 +25672,7 @@ module design_1_vid_phy_controller_0_0_design_1_vid_phy_controller_0_0_top
         .src_in(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_bit_synchronizer" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_bit_synchronizer
    (rxresetdone_sync,
     rxresetdone_out,
@@ -27358,6 +27368,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_bit_synchroniz
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_gthe4_channel" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gthe4_channel
    (rst_in0,
     cplllock_out,
@@ -30892,6 +30903,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gthe4_channel
         .O(rst_in0));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_gtwiz_buffbypass_tx" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gtwiz_buffbypass_tx
    (gtwiz_buffbypass_tx_done_out,
     gtwiz_buffbypass_tx_error_out,
@@ -31045,6 +31057,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gtwiz_buffbypa
         .O(GTHE4_CHANNEL_TXSYNCALLIN));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_gtwiz_reset" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gtwiz_reset
    (gtwiz_reset_tx_done_out,
     GTHE4_CHANNEL_TXPROGDIVRESET,
@@ -32917,6 +32930,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_gtwiz_reset
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_reset_inv_synchronizer" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_reset_inv_synchronizer
    (gtwiz_buffbypass_tx_resetdone_sync_int,
     \gen_gtwiz_buffbypass_tx_main.gen_auto_mode.txdlysreset_out_reg[2] ,
@@ -33186,6 +33200,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_reset_inv_sync
         .Q(rst_in_sync3));
 endmodule
 
+(* ORIG_REF_NAME = "gtwizard_ultrascale_v1_6_5_reset_synchronizer" *) 
 module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_reset_synchronizer
    (SR,
     gtwiz_reset_clk_freerun_in,
@@ -33819,6 +33834,7 @@ module design_1_vid_phy_controller_0_0_gtwizard_ultrascale_v1_6_5_reset_synchron
         .Q(rst_in_sync3));
 endmodule
 
+(* ORIG_REF_NAME = "vid_phy_controller_v2_0_4_CLOCK_MODULE_8series" *) 
 module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_CLOCK_MODULE_8series
    (E,
     b0_MMCM_TX_DRP_LOCKED_DLY9_out,
@@ -34281,6 +34297,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_CLOCK_MODULE_8s
         .O(txoutclk_mmcm0_reset_i));
 endmodule
 
+(* ORIG_REF_NAME = "vid_phy_controller_v2_0_4_axi4lite" *) 
 module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_axi4lite
    (E,
     b0_clkdet_ctrl_run,
@@ -45892,7 +45909,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_axi4lite
   LUT2 #(
     .INIT(4'hB)) 
     \clk_rx_flt_b[35]_i_1 
-       (.I0(\cfg_phy_mem_map_control_b0_reg[604] [0]),
+       (.I0(\cfg_phy_mem_map_control_b0_reg[604] [1]),
         .I1(b0_clkdet_ctrl_run),
         .O(\clk_rx_flt_b_reg[35] ));
   LUT4 #(
@@ -46220,7 +46237,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_axi4lite
   LUT2 #(
     .INIT(4'hB)) 
     \clk_tx_freq[28]_i_1 
-       (.I0(\cfg_phy_mem_map_control_b0_reg[604] [1]),
+       (.I0(\cfg_phy_mem_map_control_b0_reg[604] [0]),
         .I1(b0_clkdet_ctrl_run),
         .O(clk_tx_freq_lock_reg));
   LUT4 #(
@@ -57813,6 +57830,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_axi4lite
         .R(i_reg_clkdet_rx_tmr_ld));
 endmodule
 
+(* ORIG_REF_NAME = "vid_phy_controller_v2_0_4_drp_control_hdmi" *) 
 module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_drp_control_hdmi
    (src_in,
     DRP_Status_common,
@@ -61838,6 +61856,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_drp_control_hdm
         .src_arst(p_0_in));
 endmodule
 
+(* ORIG_REF_NAME = "vid_phy_controller_v2_0_4_interrupts" *) 
 module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_interrupts
    (D,
     r_gt_status_tx_resetdone_updated_sticky_reg_0,
@@ -63035,6 +63054,7 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_interrupts
         .R(r_gt_status_tx_resetdone_updated_sticky_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "vid_phy_controller_v2_0_4_lib_edge_v1_0" *) 
 module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_lib_edge_v1_0
    (clk_rx_freq_evt_reg,
     clk_rx_freq_lock_reg,
@@ -63384,9 +63404,9 @@ module design_1_vid_phy_controller_0_0_vid_phy_controller_v2_0_4_lib_edge_v1_0_2
         .O(clk_tx_tmr_evt_reg));
 endmodule
 
-(* DEST_SYNC_FF = "3" *) (* SIM_ASSERT_CHK = "0" *) (* SRC_INPUT_REG = "0" *) 
-(* VERSION = "0" *) (* WIDTH = "33" *) (* XPM_MODULE = "TRUE" *) 
-(* xpm_cdc = "ARRAY_SINGLE" *) 
+(* DEST_SYNC_FF = "3" *) (* ORIG_REF_NAME = "xpm_cdc_array_single" *) (* SIM_ASSERT_CHK = "0" *) 
+(* SRC_INPUT_REG = "0" *) (* VERSION = "0" *) (* WIDTH = "33" *) 
+(* XPM_MODULE = "TRUE" *) (* xpm_cdc = "ARRAY_SINGLE" *) 
 module design_1_vid_phy_controller_0_0_xpm_cdc_array_single
    (src_clk,
     src_in,
@@ -67728,8 +67748,8 @@ module design_1_vid_phy_controller_0_0_xpm_cdc_array_single__xdcDup__3
 endmodule
 
 (* DEF_VAL = "1'b1" *) (* DEST_SYNC_FF = "4" *) (* INIT = "1" *) 
-(* RST_ACTIVE_HIGH = "1" *) (* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) 
-(* xpm_cdc = "ASYNC_RST" *) 
+(* ORIG_REF_NAME = "xpm_cdc_async_rst" *) (* RST_ACTIVE_HIGH = "1" *) (* VERSION = "0" *) 
+(* XPM_MODULE = "TRUE" *) (* xpm_cdc = "ASYNC_RST" *) 
 module design_1_vid_phy_controller_0_0_xpm_cdc_async_rst
    (src_arst,
     dest_clk,
@@ -68138,8 +68158,9 @@ module design_1_vid_phy_controller_0_0_xpm_cdc_async_rst__parameterized2
         .O(dest_arst));
 endmodule
 
-(* DEST_SYNC_FF = "3" *) (* SIM_ASSERT_CHK = "0" *) (* SRC_INPUT_REG = "0" *) 
-(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* xpm_cdc = "SINGLE" *) 
+(* DEST_SYNC_FF = "3" *) (* ORIG_REF_NAME = "xpm_cdc_single" *) (* SIM_ASSERT_CHK = "0" *) 
+(* SRC_INPUT_REG = "0" *) (* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) 
+(* xpm_cdc = "SINGLE" *) 
 module design_1_vid_phy_controller_0_0_xpm_cdc_single
    (src_clk,
     src_in,

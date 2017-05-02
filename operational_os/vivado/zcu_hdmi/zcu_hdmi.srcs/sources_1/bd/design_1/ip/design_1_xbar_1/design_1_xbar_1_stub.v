@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
-// Date        : Tue Apr 18 21:54:48 2017
+// Date        : Tue Apr 18 21:54:47 2017
 // Host        : SchoolComputer running 64-bit Ubuntu 16.10
-// Command     : write_verilog -force -mode synth_stub
-//               /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top design_1_xbar_1 -prefix
+//               design_1_xbar_1_ design_1_xbar_1_stub.v
 // Design      : design_1_xbar_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu9eg-ffvb1156-2-i-es2

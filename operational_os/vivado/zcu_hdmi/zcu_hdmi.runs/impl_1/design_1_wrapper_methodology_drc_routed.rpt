@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
-| Date         : Tue Apr 18 22:59:45 2017
+| Date         : Thu Apr 20 21:16:27 2017
 | Host         : SchoolComputer running 64-bit Ubuntu 16.10
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 13
+             Violations found: 12
 +-----------+----------+-------------------------------------------------+------------+
 | Rule      | Severity | Description                                     | Violations |
 +-----------+----------+-------------------------------------------------+------------+
 | TIMING-1  | Warning  | Invalid clock waveform on Clock Modifying Block | 1          |
 | TIMING-3  | Warning  | Invalid primary clock on Clock Modifying Block  | 3          |
-| TIMING-18 | Warning  | Missing input or output delay                   | 5          |
+| TIMING-18 | Warning  | Missing input or output delay                   | 4          |
 | XDCB-1    | Warning  | Runtime intensive exceptions                    | 1          |
 | XDCB-2    | Warning  | Clock defined on multiple objects               | 1          |
 | CLKC-11   | Advisory | MMCME4 divide could be done by BUFG_GT          | 1          |
@@ -70,17 +70,12 @@ Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An output delay is missing on SI5324_RST[0] relative to clock(s) clk_pl_0 
+An output delay is missing on TX_CLK_N_OUT relative to clock(s) clk_pl_0 mgtrefclk0_pad_p_in 
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on TX_CLK_N_OUT relative to clock(s) clk_pl_0 mgtrefclk1_pad_p_in 
-Related violations: <none>
-
-TIMING-18#5 Warning
-Missing input or output delay  
-An output delay is missing on TX_CLK_P_OUT relative to clock(s) clk_pl_0 mgtrefclk1_pad_p_in 
+An output delay is missing on TX_CLK_P_OUT relative to clock(s) clk_pl_0 mgtrefclk0_pad_p_in 
 Related violations: <none>
 
 XDCB-1#1 Warning
@@ -88,24 +83,24 @@ Runtime intensive exceptions
 The following constraint contains more than 1000 objects. To preserve runtime and memory performance, it is recommended to include minimum number of objects. Check whether this list can be simplified.
 -to = expands to 1976 design objects. 
 set_max_delay -datapath_only -from [get_clocks -of [get_ports -scoped_to_current_instance s_axi_aclk]] -to [all_registers -clock [get_clocks -of [get_...
-/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc (Line: 6)
+/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc (Line: 6)
 Related violations: <none>
 
 XDCB-2#1 Warning
 Clock defined on multiple objects  
 The clock design_1_i/vid_phy_controller_0/inst/gt_wrapper_inst/inst/gen_gtwizard_gthe4_top.design_1_vid_phy_controller_0_0_gtwrapper_gtwizard_gthe4_inst/gen_gtwizard_gthe4.gen_channel_container[27].gen_enabled_channel.gthe4_channel_wrapper_inst/channel_inst/gthe4_channel_gen.gen_gthe4_channel_inst[0].GTHE4_CHANNEL_PRIM_INST/TXOUTCLK is defined on multiple objects. Although this is logically functional for timing analysis, it cannot exist in hardware. It is recommended to define a primary clock on a single object.
 create_clock -period 6.734 [get_pins -hier -filter name=~*design_1_vid_phy_controller_0_0_*GTHE4_CHANNEL_PRIM_INST/TXOUTCLK]
-/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc (Line: 47)
+/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc (Line: 47)
 Related violations: <none>
 
 CLKC-11#1 Advisory
 MMCME4 divide could be done by BUFG_GT  
-The MMCME4 cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/tx_mmcm.txoutclk_mmcm0_i/mmcm_adv_inst driven by BUFG_GT cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/bufg_gt_gtrefclk1_odiv2_inst uses CLKOUT* output(s) with a DIVIDE value of [1..8] which could be accomplished using a BUFG_GT divide capability. Consider using BUFG_GT(s) to accomplish the desired divide(s).
+The MMCME4 cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/tx_mmcm.txoutclk_mmcm0_i/mmcm_adv_inst driven by BUFG_GT cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/bufg_gt_gtrefclk0_odiv2_inst uses CLKOUT* output(s) with a DIVIDE value of [1..8] which could be accomplished using a BUFG_GT divide capability. Consider using BUFG_GT(s) to accomplish the desired divide(s).
 Related violations: <none>
 
 CLKC-40#1 Advisory
 Substitute PLLE4 for MMCME4 check  
-The MMCME4 cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/tx_mmcm.txoutclk_mmcm0_i/mmcm_adv_inst has a single input clock whose source driver, BUFG_GT design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/bufg_gt_gtrefclk1_odiv2_inst, is not optimally located and the MMCM has a configuration which could be accommodated by a PLL.  Consider changing the MMCM to a PLL which could align better with the input clock driver.
+The MMCME4 cell design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/tx_mmcm.txoutclk_mmcm0_i/mmcm_adv_inst has a single input clock whose source driver, BUFG_GT design_1_i/vid_phy_controller_0/inst/gt_usrclk_source_inst/bufg_gt_gtrefclk0_odiv2_inst, is not optimally located and the MMCM has a configuration which could be accommodated by a PLL.  Consider changing the MMCM to a PLL which could align better with the input clock driver.
 Related violations: <none>
 
 

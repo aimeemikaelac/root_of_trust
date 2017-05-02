@@ -59,8 +59,8 @@ module design_1_vid_phy_controller_0_0 (
   tx_video_clk,
   tx_tmds_clk_p,
   tx_tmds_clk_n,
-  mgtrefclk1_pad_p_in,
-  mgtrefclk1_pad_n_in,
+  mgtrefclk0_pad_p_in,
+  mgtrefclk0_pad_n_in,
   phy_txn_out,
   phy_txp_out,
   txoutclk,
@@ -115,8 +115,8 @@ output wire tx_tmds_clk;
 output wire tx_video_clk;
 output wire tx_tmds_clk_p;
 output wire tx_tmds_clk_n;
-input wire mgtrefclk1_pad_p_in;
-input wire mgtrefclk1_pad_n_in;
+input wire mgtrefclk0_pad_p_in;
+input wire mgtrefclk0_pad_n_in;
 output wire [2 : 0] phy_txn_out;
 output wire [2 : 0] phy_txp_out;
 output wire txoutclk;
@@ -219,9 +219,9 @@ input wire drpclk;
     .C_Tx_No_Of_Channels(3),  // No Of Tx Channels
     .C_Rx_No_Of_Channels(3),  // No Of Rx Channels
     .C_TX_PLL_SELECTION(0),  // Tx PLL Selection
-    .C_TX_REFCLK_SEL(1),  // Tx Ref Clk Selection
+    .C_TX_REFCLK_SEL(0),  // Tx Ref Clk Selection
     .C_RX_PLL_SELECTION(6),  // Rx PLL Selection
-    .C_RX_REFCLK_SEL(0),  // Rx Ref Clk Selection
+    .C_RX_REFCLK_SEL(1),  // Rx Ref Clk Selection
     .C_NIDRU_REFCLK_SEL(0),  // Ni DRU Ref Clk Selection
     .C_vid_phy_tx_axi4s_ch_TDATA_WIDTH(40),  // Tx Data Width
     .C_vid_phy_tx_axi4s_ch_INT_TDATA_WIDTH(40),  // Tx Int Data Width
@@ -249,10 +249,10 @@ input wire drpclk;
     .rx_video_clk(),
     .rx_tmds_clk_p(),
     .rx_tmds_clk_n(),
-    .mgtrefclk0_pad_p_in(1'B0),
-    .mgtrefclk0_pad_n_in(1'B0),
-    .mgtrefclk1_pad_p_in(mgtrefclk1_pad_p_in),
-    .mgtrefclk1_pad_n_in(mgtrefclk1_pad_n_in),
+    .mgtrefclk0_pad_p_in(mgtrefclk0_pad_p_in),
+    .mgtrefclk0_pad_n_in(mgtrefclk0_pad_n_in),
+    .mgtrefclk1_pad_p_in(1'B0),
+    .mgtrefclk1_pad_n_in(1'B0),
     .mgtrefclk0_in(1'B0),
     .mgtrefclk1_in(1'B0),
     .mgtrefclk0_odiv2_in(1'B0),

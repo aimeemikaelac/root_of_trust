@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x804A3D34EDA259EB" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-i-es2" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.4" bd:top="bd_8000" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x804A3D344281A990" bd:bdsource="SBD" bd:device="xczu9eg-ffvb1156-2-i-es2" bd:isScoped="true" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2016.4" bd:top="bd_8000" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -93,7 +93,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
+            <spirit:value>148500000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -111,7 +111,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>CLK_DOMAIN</spirit:name>
-            <spirit:value>design_1_zynq_ultra_ps_e_0_0_pl_clk0</spirit:value>
+            <spirit:value>design_1_vid_phy_controller_0_0_txoutclk</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default_prop"/>
@@ -209,7 +209,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
+            <spirit:value>148500000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -227,7 +227,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>CLK_DOMAIN</spirit:name>
-            <spirit:value>design_1_zynq_ultra_ps_e_0_0_pl_clk0</spirit:value>
+            <spirit:value>design_1_vid_phy_controller_0_0_txoutclk</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default_prop"/>
@@ -325,7 +325,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
+            <spirit:value>148500000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -343,7 +343,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>CLK_DOMAIN</spirit:name>
-            <spirit:value>design_1_zynq_ultra_ps_e_0_0_pl_clk0</spirit:value>
+            <spirit:value>design_1_vid_phy_controller_0_0_txoutclk</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default_prop"/>
@@ -853,7 +853,7 @@
             <spirit:value>0.000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
+                <bd:configElementInfo bd:valueSource="default_prop"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -1183,7 +1183,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
+            <spirit:value>148500000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -1201,7 +1201,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>CLK_DOMAIN</spirit:name>
-            <spirit:value>design_1_zynq_ultra_ps_e_0_0_pl_clk0</spirit:value>
+            <spirit:value>design_1_vid_phy_controller_0_0_txoutclk</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default_prop"/>
@@ -1251,7 +1251,7 @@
             <spirit:value>0.000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
+                <bd:configElementInfo bd:valueSource="default_prop"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -1304,7 +1304,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
+            <spirit:value>297000000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -1322,7 +1322,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>CLK_DOMAIN</spirit:name>
-            <spirit:value>design_1_zynq_ultra_ps_e_0_0_pl_clk0</spirit:value>
+            <spirit:value>design_1_vid_phy_controller_0_0_tx_video_clk</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default_prop"/>

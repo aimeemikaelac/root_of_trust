@@ -53,7 +53,7 @@
 (* X_CORE_INFO = "design_1_vid_phy_controller_0_0_top,Vivado 2016.4" *)
 (* CHECK_LICENSE_TYPE = "design_1_vid_phy_controller_0_0,design_1_vid_phy_controller_0_0_top,{}" *)
 (* CORE_GENERATION_INFO = "design_1_vid_phy_controller_0_0,design_1_vid_phy_controller_0_0_top,{x_ipProduct=Vivado 2016.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=vid_phy_controller,x_ipVersion=2.0,x_ipCoreRevision=4,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_COMPONENT_NAME=design_1_vid_phy_controller_0_0,C_FAMILY=zynquplus,C_DEVICE=xczu9eg,C_SILICON_REVISION=0,C_SPEEDGRADE=-2,C_SupportLevel=1,C_TransceiverControl=false,c_sub_core_name=design_1_vid_phy_controller_0_0_gtwrapper,C_Tx_Protocol=1,C_Rx_Protocol=3,C_Tx_N\
-o_Of_Channels=3,C_Rx_No_Of_Channels=3,C_TX_PLL_SELECTION=0,C_TX_REFCLK_SEL=1,C_RX_PLL_SELECTION=6,C_RX_REFCLK_SEL=0,C_NIDRU_REFCLK_SEL=0,C_vid_phy_tx_axi4s_ch_TDATA_WIDTH=40,C_vid_phy_tx_axi4s_ch_INT_TDATA_WIDTH=40,C_vid_phy_tx_axi4s_ch_TUSER_WIDTH=1,C_vid_phy_rx_axi4s_ch_TDATA_WIDTH=40,C_vid_phy_rx_axi4s_ch_INT_TDATA_WIDTH=40,C_vid_phy_rx_axi4s_ch_TUSER_WIDTH=1,C_vid_phy_control_sb_tx_TDATA_WIDTH=1,C_vid_phy_status_sb_tx_TDATA_WIDTH=2,C_vid_phy_control_sb_rx_TDATA_WIDTH=1,C_vid_phy_status_sb_rx\
+o_Of_Channels=3,C_Rx_No_Of_Channels=3,C_TX_PLL_SELECTION=0,C_TX_REFCLK_SEL=0,C_RX_PLL_SELECTION=6,C_RX_REFCLK_SEL=1,C_NIDRU_REFCLK_SEL=0,C_vid_phy_tx_axi4s_ch_TDATA_WIDTH=40,C_vid_phy_tx_axi4s_ch_INT_TDATA_WIDTH=40,C_vid_phy_tx_axi4s_ch_TUSER_WIDTH=1,C_vid_phy_rx_axi4s_ch_TDATA_WIDTH=40,C_vid_phy_rx_axi4s_ch_INT_TDATA_WIDTH=40,C_vid_phy_rx_axi4s_ch_TUSER_WIDTH=1,C_vid_phy_control_sb_tx_TDATA_WIDTH=1,C_vid_phy_status_sb_tx_TDATA_WIDTH=2,C_vid_phy_control_sb_rx_TDATA_WIDTH=1,C_vid_phy_status_sb_rx\
 _TDATA_WIDTH=1,C_vid_phy_axi4lite_DATA_WIDTH=32,C_vid_phy_axi4lite_ADDR_WIDTH=10,C_NIDRU=0,Tx_Buffer_Bypass=1,C_INPUT_PIXELS_PER_CLOCK=2,C_Hdmi_Fast_Switch=1}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_vid_phy_controller_0_0 (
@@ -62,8 +62,8 @@ module design_1_vid_phy_controller_0_0 (
   tx_video_clk,
   tx_tmds_clk_p,
   tx_tmds_clk_n,
-  mgtrefclk1_pad_p_in,
-  mgtrefclk1_pad_n_in,
+  mgtrefclk0_pad_p_in,
+  mgtrefclk0_pad_n_in,
   phy_txn_out,
   phy_txp_out,
   txoutclk,
@@ -118,8 +118,8 @@ output wire tx_tmds_clk;
 output wire tx_video_clk;
 output wire tx_tmds_clk_p;
 output wire tx_tmds_clk_n;
-input wire mgtrefclk1_pad_p_in;
-input wire mgtrefclk1_pad_n_in;
+input wire mgtrefclk0_pad_p_in;
+input wire mgtrefclk0_pad_n_in;
 output wire [2 : 0] phy_txn_out;
 output wire [2 : 0] phy_txp_out;
 output wire txoutclk;
@@ -222,9 +222,9 @@ input wire drpclk;
     .C_Tx_No_Of_Channels(3),  // No Of Tx Channels
     .C_Rx_No_Of_Channels(3),  // No Of Rx Channels
     .C_TX_PLL_SELECTION(0),  // Tx PLL Selection
-    .C_TX_REFCLK_SEL(1),  // Tx Ref Clk Selection
+    .C_TX_REFCLK_SEL(0),  // Tx Ref Clk Selection
     .C_RX_PLL_SELECTION(6),  // Rx PLL Selection
-    .C_RX_REFCLK_SEL(0),  // Rx Ref Clk Selection
+    .C_RX_REFCLK_SEL(1),  // Rx Ref Clk Selection
     .C_NIDRU_REFCLK_SEL(0),  // Ni DRU Ref Clk Selection
     .C_vid_phy_tx_axi4s_ch_TDATA_WIDTH(40),  // Tx Data Width
     .C_vid_phy_tx_axi4s_ch_INT_TDATA_WIDTH(40),  // Tx Int Data Width
@@ -252,10 +252,10 @@ input wire drpclk;
     .rx_video_clk(),
     .rx_tmds_clk_p(),
     .rx_tmds_clk_n(),
-    .mgtrefclk0_pad_p_in(1'B0),
-    .mgtrefclk0_pad_n_in(1'B0),
-    .mgtrefclk1_pad_p_in(mgtrefclk1_pad_p_in),
-    .mgtrefclk1_pad_n_in(mgtrefclk1_pad_n_in),
+    .mgtrefclk0_pad_p_in(mgtrefclk0_pad_p_in),
+    .mgtrefclk0_pad_n_in(mgtrefclk0_pad_n_in),
+    .mgtrefclk1_pad_p_in(1'B0),
+    .mgtrefclk1_pad_n_in(1'B0),
     .mgtrefclk0_in(1'B0),
     .mgtrefclk1_in(1'B0),
     .mgtrefclk0_odiv2_in(1'B0),

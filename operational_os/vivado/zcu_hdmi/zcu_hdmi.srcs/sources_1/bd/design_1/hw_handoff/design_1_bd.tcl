@@ -166,28 +166,6 @@ proc create_root_design { parentCell } {
   set TX_REFCLK_N_IN [ create_bd_port -dir I TX_REFCLK_N_IN ]
   set TX_REFCLK_P_IN [ create_bd_port -dir I TX_REFCLK_P_IN ]
 
-  # Create instance: axi_interconnect_0, and set properties
-  set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
-  set_property -dict [ list \
-CONFIG.NUM_MI {1} \
- ] $axi_interconnect_0
-
-  # Create instance: axi_vdma_0, and set properties
-  set axi_vdma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vdma:6.2 axi_vdma_0 ]
-  set_property -dict [ list \
-CONFIG.c_addr_width {64} \
-CONFIG.c_include_s2mm {0} \
-CONFIG.c_m_axis_mm2s_tdata_width {40} \
-CONFIG.c_s2mm_genlock_mode {0} \
- ] $axi_vdma_0
-
-  # Create instance: ps8_0_axi_periph, and set properties
-  set ps8_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph ]
-  set_property -dict [ list \
-CONFIG.NUM_MI {2} \
-CONFIG.NUM_SI {1} \
- ] $ps8_0_axi_periph
-
   # Create instance: ps8_0_axi_periph_1, and set properties
   set ps8_0_axi_periph_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph_1 ]
   set_property -dict [ list \
@@ -223,12 +201,17 @@ CONFIG.MAX_ROWS {1080} \
   set_property -dict [ list \
 CONFIG.CHANNEL_ENABLE {X1Y12 X1Y13 X1Y14} \
 CONFIG.C_RX_PLL_SELECTION {6} \
+CONFIG.C_RX_REFCLK_SEL {1} \
 CONFIG.C_Rx_Protocol {None} \
 CONFIG.C_TX_PLL_SELECTION {0} \
+CONFIG.C_TX_REFCLK_SEL {0} \
 CONFIG.C_Tx_Protocol {HDMI} \
 CONFIG.Tx_Max_GT_Line_Rate {5.94} \
 CONFIG.check_pll_selection {0} \
  ] $vid_phy_controller_0
+
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
 
   # Create instance: zynq_ultra_ps_e_0, and set properties
   set zynq_ultra_ps_e_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:2.0 zynq_ultra_ps_e_0 ]
@@ -2431,27 +2414,23 @@ CONFIG.PSU__VIDEO_REF_CLK__IO.VALUE_SRC {DEFAULT} \
  ] $zynq_ultra_ps_e_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_pins axi_interconnect_0/M00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HPC0_FPD]
-  connect_bd_intf_net -intf_net axi_vdma_0_M_AXI_MM2S [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins axi_vdma_0/M_AXI_MM2S]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_1_M00_AXI [get_bd_intf_pins ps8_0_axi_periph_1/M00_AXI] [get_bd_intf_pins v_tpg_0/s_axi_CTRL]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_1_M01_AXI [get_bd_intf_pins ps8_0_axi_periph_1/M01_AXI] [get_bd_intf_pins v_hdmi_tx_ss_0/S_AXI_CPU_IN]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_1_M02_AXI [get_bd_intf_pins ps8_0_axi_periph_1/M02_AXI] [get_bd_intf_pins vid_phy_controller_0/vid_phy_axi4lite]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins axi_vdma_0/S_AXI_LITE] [get_bd_intf_pins ps8_0_axi_periph/M01_AXI]
   connect_bd_intf_net -intf_net v_hdmi_tx_ss_0_LINK_DATA0_OUT [get_bd_intf_pins v_hdmi_tx_ss_0/LINK_DATA0_OUT] [get_bd_intf_pins vid_phy_controller_0/vid_phy_tx_axi4s_ch0]
   connect_bd_intf_net -intf_net v_hdmi_tx_ss_0_LINK_DATA1_OUT [get_bd_intf_pins v_hdmi_tx_ss_0/LINK_DATA1_OUT] [get_bd_intf_pins vid_phy_controller_0/vid_phy_tx_axi4s_ch1]
   connect_bd_intf_net -intf_net v_hdmi_tx_ss_0_LINK_DATA2_OUT [get_bd_intf_pins v_hdmi_tx_ss_0/LINK_DATA2_OUT] [get_bd_intf_pins vid_phy_controller_0/vid_phy_tx_axi4s_ch2]
   connect_bd_intf_net -intf_net v_tpg_0_m_axis_video [get_bd_intf_pins v_hdmi_tx_ss_0/VIDEO_IN] [get_bd_intf_pins v_tpg_0/m_axis_video]
   connect_bd_intf_net -intf_net vid_phy_controller_0_vid_phy_status_sb_tx [get_bd_intf_pins v_hdmi_tx_ss_0/SB_STATUS_IN] [get_bd_intf_pins vid_phy_controller_0/vid_phy_status_sb_tx]
-  connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins ps8_0_axi_periph/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM1_FPD [get_bd_intf_pins ps8_0_axi_periph_1/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
 
   # Create port connections
   connect_bd_net -net Op1_1 [get_bd_ports SI5324_LOL] [get_bd_pins util_vector_logic_0/Op1]
+  connect_bd_net -net TX_REFCLK_N_IN_1 [get_bd_ports TX_REFCLK_N_IN] [get_bd_pins vid_phy_controller_0/mgtrefclk0_pad_n_in]
+  connect_bd_net -net TX_REFCLK_P_IN_1 [get_bd_ports TX_REFCLK_P_IN] [get_bd_pins vid_phy_controller_0/mgtrefclk0_pad_p_in]
   connect_bd_net -net hpd_1 [get_bd_ports TX_HPD] [get_bd_pins v_hdmi_tx_ss_0/hpd]
-  connect_bd_net -net mgtrefclk1_pad_n_in_1 [get_bd_ports TX_REFCLK_N_IN] [get_bd_pins vid_phy_controller_0/mgtrefclk1_pad_n_in]
-  connect_bd_net -net mgtrefclk1_pad_p_in_1 [get_bd_ports TX_REFCLK_P_IN] [get_bd_pins vid_phy_controller_0/mgtrefclk1_pad_p_in]
-  connect_bd_net -net rst_ps8_0_100M_interconnect_aresetn [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph_1/ARESETN] [get_bd_pins rst_ps8_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps8_0_100M_peripheral_aresetn [get_bd_ports SI5324_RST] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins ps8_0_axi_periph_1/M00_ARESETN] [get_bd_pins ps8_0_axi_periph_1/M01_ARESETN] [get_bd_pins ps8_0_axi_periph_1/M02_ARESETN] [get_bd_pins ps8_0_axi_periph_1/S00_ARESETN] [get_bd_pins rst_ps8_0_100M/peripheral_aresetn] [get_bd_pins v_hdmi_tx_ss_0/s_axi_cpu_aresetn] [get_bd_pins v_tpg_0/ap_rst_n] [get_bd_pins vid_phy_controller_0/vid_phy_axi4lite_aresetn] [get_bd_pins vid_phy_controller_0/vid_phy_sb_aresetn]
+  connect_bd_net -net rst_ps8_0_100M_interconnect_aresetn [get_bd_pins ps8_0_axi_periph_1/ARESETN] [get_bd_pins rst_ps8_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_ps8_0_100M_peripheral_aresetn [get_bd_pins ps8_0_axi_periph_1/M00_ARESETN] [get_bd_pins ps8_0_axi_periph_1/M01_ARESETN] [get_bd_pins ps8_0_axi_periph_1/M02_ARESETN] [get_bd_pins ps8_0_axi_periph_1/S00_ARESETN] [get_bd_pins rst_ps8_0_100M/peripheral_aresetn] [get_bd_pins v_hdmi_tx_ss_0/s_axi_cpu_aresetn] [get_bd_pins v_hdmi_tx_ss_0/s_axis_audio_aresetn] [get_bd_pins v_hdmi_tx_ss_0/s_axis_video_aresetn] [get_bd_pins v_tpg_0/ap_rst_n] [get_bd_pins vid_phy_controller_0/vid_phy_axi4lite_aresetn] [get_bd_pins vid_phy_controller_0/vid_phy_sb_aresetn] [get_bd_pins vid_phy_controller_0/vid_phy_tx_axi4s_aresetn]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins util_vector_logic_0/Res] [get_bd_pins vid_phy_controller_0/tx_refclk_rdy]
   connect_bd_net -net vid_phy_controller_0_phy_txn_out [get_bd_ports TX_N_OUT] [get_bd_pins vid_phy_controller_0/phy_txn_out]
   connect_bd_net -net vid_phy_controller_0_phy_txp_out [get_bd_ports TX_P_OUT] [get_bd_pins vid_phy_controller_0/phy_txp_out]
@@ -2459,76 +2438,62 @@ CONFIG.PSU__VIDEO_REF_CLK__IO.VALUE_SRC {DEFAULT} \
   connect_bd_net -net vid_phy_controller_0_tx_tmds_clk_p [get_bd_ports TX_CLK_P_OUT] [get_bd_pins vid_phy_controller_0/tx_tmds_clk_p]
   connect_bd_net -net vid_phy_controller_0_tx_video_clk [get_bd_pins v_hdmi_tx_ss_0/video_clk] [get_bd_pins vid_phy_controller_0/tx_video_clk]
   connect_bd_net -net vid_phy_controller_0_txoutclk [get_bd_pins v_hdmi_tx_ss_0/link_clk] [get_bd_pins vid_phy_controller_0/txoutclk] [get_bd_pins vid_phy_controller_0/vid_phy_tx_axi4s_aclk]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins ps8_0_axi_periph_1/ACLK] [get_bd_pins ps8_0_axi_periph_1/M00_ACLK] [get_bd_pins ps8_0_axi_periph_1/M01_ACLK] [get_bd_pins ps8_0_axi_periph_1/M02_ACLK] [get_bd_pins ps8_0_axi_periph_1/S00_ACLK] [get_bd_pins rst_ps8_0_100M/slowest_sync_clk] [get_bd_pins v_hdmi_tx_ss_0/s_axi_cpu_aclk] [get_bd_pins v_hdmi_tx_ss_0/s_axis_audio_aclk] [get_bd_pins v_hdmi_tx_ss_0/s_axis_video_aclk] [get_bd_pins v_tpg_0/ap_clk] [get_bd_pins vid_phy_controller_0/drpclk] [get_bd_pins vid_phy_controller_0/vid_phy_axi4lite_aclk] [get_bd_pins vid_phy_controller_0/vid_phy_sb_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihpc0_fpd_aclk]
+  connect_bd_net -net xlconstant_0_dout [get_bd_ports SI5324_RST] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins ps8_0_axi_periph_1/ACLK] [get_bd_pins ps8_0_axi_periph_1/M00_ACLK] [get_bd_pins ps8_0_axi_periph_1/M01_ACLK] [get_bd_pins ps8_0_axi_periph_1/M02_ACLK] [get_bd_pins ps8_0_axi_periph_1/S00_ACLK] [get_bd_pins rst_ps8_0_100M/slowest_sync_clk] [get_bd_pins v_hdmi_tx_ss_0/s_axi_cpu_aclk] [get_bd_pins v_hdmi_tx_ss_0/s_axis_audio_aclk] [get_bd_pins v_hdmi_tx_ss_0/s_axis_video_aclk] [get_bd_pins v_tpg_0/ap_clk] [get_bd_pins vid_phy_controller_0/drpclk] [get_bd_pins vid_phy_controller_0/vid_phy_axi4lite_aclk] [get_bd_pins vid_phy_controller_0/vid_phy_sb_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihpc0_fpd_aclk]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_100M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
-  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces axi_vdma_0/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] SEG_zynq_ultra_ps_e_0_HPC0_DDR_LOW
-  create_bd_addr_seg -range 0x00008000 -offset 0xAFFF8000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_vdma_0/S_AXI_LITE/Reg] SEG_axi_vdma_0_Reg
   create_bd_addr_seg -range 0x00020000 -offset 0xB0020000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs v_hdmi_tx_ss_0/S_AXI_CPU_IN/Reg] SEG_v_hdmi_tx_ss_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0xB0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs v_tpg_0/s_axi_CTRL/Reg] SEG_v_tpg_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0xB0010000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs vid_phy_controller_0/vid_phy_axi4lite/Reg] SEG_vid_phy_controller_0_Reg
-
-  # Exclude Address Segments
-  create_bd_addr_seg -range 0x01000000 -offset 0xFF000000 [get_bd_addr_spaces axi_vdma_0/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM] SEG_zynq_ultra_ps_e_0_HPC0_LPS_OCM
-  exclude_bd_addr_seg [get_bd_addr_segs axi_vdma_0/Data_MM2S/SEG_zynq_ultra_ps_e_0_HPC0_LPS_OCM]
-
-  create_bd_addr_seg -range 0x20000000 -offset 0xC0000000 [get_bd_addr_spaces axi_vdma_0/Data_MM2S] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP0/HPC0_QSPI] SEG_zynq_ultra_ps_e_0_HPC0_QSPI
-  exclude_bd_addr_seg [get_bd_addr_segs axi_vdma_0/Data_MM2S/SEG_zynq_ultra_ps_e_0_HPC0_QSPI]
-
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port TX_HPD -pg 1 -y 220 -defaultsOSRD
-preplace port TX_CLK_P_OUT -pg 1 -y 550 -defaultsOSRD
-preplace port TX_CLK_N_OUT -pg 1 -y 570 -defaultsOSRD
-preplace port TX_REFCLK_P_IN -pg 1 -y 540 -defaultsOSRD
-preplace port TX_REFCLK_N_IN -pg 1 -y 550 -defaultsOSRD
-preplace portBus SI5324_RST -pg 1 -y 840 -defaultsOSRD
-preplace portBus TX_P_OUT -pg 1 -y 610 -defaultsOSRD
-preplace portBus SI5324_LOL -pg 1 -y 560 -defaultsOSRD
-preplace portBus TX_N_OUT -pg 1 -y 590 -defaultsOSRD
-preplace inst ps8_0_axi_periph_1 -pg 1 -lvl 5 -y 420 -defaultsOSRD
-preplace inst axi_vdma_0 -pg 1 -lvl 2 -y 760 -defaultsOSRD
-preplace inst ps8_0_axi_periph -pg 1 -lvl 1 -y 700 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 4 -y 390 -defaultsOSRD
-preplace inst v_tpg_0 -pg 1 -lvl 6 -y 310 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 7 -y 520 -defaultsOSRD
-preplace inst v_hdmi_tx_ss_0 -pg 1 -lvl 7 -y 210 -defaultsOSRD
-preplace inst rst_ps8_0_100M -pg 1 -lvl 7 -y 690 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 3 -y 720 -defaultsOSRD
-preplace inst vid_phy_controller_0 -pg 1 -lvl 8 -y 570 -defaultsOSRD
-preplace netloc Op1_1 1 0 7 NJ 560 NJ 560 NJ 560 NJ 560 1670J 590 2000J 520 NJ
-preplace netloc v_tpg_0_m_axis_video 1 6 1 2360
-preplace netloc ps8_0_axi_periph_1_M00_AXI 1 5 1 2000
-preplace netloc vid_phy_controller_0_phy_txn_out 1 8 1 NJ
-preplace netloc vid_phy_controller_0_vid_phy_status_sb_tx 1 6 3 2400 420 2760J 390 3190
-preplace netloc v_hdmi_tx_ss_0_LINK_DATA2_OUT 1 7 1 2770
-preplace netloc vid_phy_controller_0_phy_txp_out 1 8 1 NJ
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 8 20 130 320 130 750 130 1040 130 1720 130 2020 130 2380 600 2760
-preplace netloc ps8_0_axi_periph_1_M01_AXI 1 5 2 N 420 2350J
-preplace netloc axi_vdma_0_M_AXI_MM2S 1 2 1 740
-preplace netloc vid_phy_controller_0_tx_tmds_clk_n 1 8 1 NJ
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 0 5 40 240 NJ 240 NJ 240 NJ 240 1700
-preplace netloc util_vector_logic_0_Res 1 7 1 NJ
-preplace netloc vid_phy_controller_0_tx_tmds_clk_p 1 8 1 NJ
-preplace netloc mgtrefclk1_pad_n_in_1 1 0 8 NJ 550 NJ 550 NJ 550 NJ 550 1680J 600 2030J 590 NJ 590 2790J
-preplace netloc rst_ps8_0_100M_peripheral_aresetn 1 0 9 40 840 330 530 730J 840 NJ 840 1710 840 2020 840 2390 840 2790 840 NJ
-preplace netloc ps8_0_axi_periph_M01_AXI 1 1 1 N
-preplace netloc mgtrefclk1_pad_p_in_1 1 0 8 NJ 540 NJ 540 NJ 540 NJ 540 1720J 580 2010J 570 NJ 570 2770J
-preplace netloc vid_phy_controller_0_txoutclk 1 6 3 2410 580 2780 750 3180
-preplace netloc ps8_0_axi_periph_1_M02_AXI 1 5 3 NJ 440 NJ 440 N
-preplace netloc v_hdmi_tx_ss_0_LINK_DATA1_OUT 1 7 1 2780
-preplace netloc hpd_1 1 0 7 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 2370J
-preplace netloc rst_ps8_0_100M_interconnect_aresetn 1 0 8 30 860 NJ 860 760 860 NJ 860 1700 860 NJ 860 NJ 860 2770
-preplace netloc axi_interconnect_0_M00_AXI 1 3 1 1050
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 4 3 1690 670 NJ 670 NJ
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 4 1 N
-preplace netloc v_hdmi_tx_ss_0_LINK_DATA0_OUT 1 7 1 2790
-preplace netloc vid_phy_controller_0_tx_video_clk 1 6 3 2420 780 NJ 780 3190
-levelinfo -pg 1 0 180 540 900 1360 1860 2190 2590 2990 3210 -top 0 -bot 870
+preplace port TX_HPD -pg 1 -y 320 -defaultsOSRD
+preplace port TX_CLK_P_OUT -pg 1 -y 360 -defaultsOSRD
+preplace port TX_CLK_N_OUT -pg 1 -y 380 -defaultsOSRD
+preplace port TX_REFCLK_P_IN -pg 1 -y 10 -defaultsOSRD
+preplace port TX_REFCLK_N_IN -pg 1 -y 380 -defaultsOSRD
+preplace portBus SI5324_RST -pg 1 -y 620 -defaultsOSRD
+preplace portBus TX_P_OUT -pg 1 -y 420 -defaultsOSRD
+preplace portBus TX_N_OUT -pg 1 -y 400 -defaultsOSRD
+preplace portBus SI5324_LOL -pg 1 -y 370 -defaultsOSRD
+preplace inst ps8_0_axi_periph_1 -pg 1 -lvl 2 -y 550 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -y 520 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -y 620 -defaultsOSRD
+preplace inst v_tpg_0 -pg 1 -lvl 3 -y 440 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 4 -y 460 -defaultsOSRD
+preplace inst v_hdmi_tx_ss_0 -pg 1 -lvl 4 -y 220 -defaultsOSRD
+preplace inst rst_ps8_0_100M -pg 1 -lvl 1 -y 760 -defaultsOSRD
+preplace inst vid_phy_controller_0 -pg 1 -lvl 5 -y 380 -defaultsOSRD
+preplace netloc Op1_1 1 0 4 NJ 370 NJ 370 NJ 370 1320J
+preplace netloc v_tpg_0_m_axis_video 1 3 1 1310
+preplace netloc ps8_0_axi_periph_1_M00_AXI 1 2 1 970
+preplace netloc vid_phy_controller_0_phy_txn_out 1 5 1 NJ
+preplace netloc vid_phy_controller_0_vid_phy_status_sb_tx 1 3 3 1350 560 NJ 560 2170
+preplace netloc v_hdmi_tx_ss_0_LINK_DATA2_OUT 1 4 1 1740
+preplace netloc vid_phy_controller_0_phy_txp_out 1 5 1 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 5 20 140 670 140 980 140 1330 520 1750
+preplace netloc ps8_0_axi_periph_1_M01_AXI 1 2 2 NJ 550 1300
+preplace netloc vid_phy_controller_0_tx_tmds_clk_n 1 5 1 NJ
+preplace netloc util_vector_logic_0_Res 1 4 1 1710J
+preplace netloc TX_REFCLK_P_IN_1 1 0 5 NJ 10 NJ 10 NJ 10 NJ 10 1760J
+preplace netloc vid_phy_controller_0_tx_tmds_clk_p 1 5 1 NJ
+preplace netloc rst_ps8_0_100M_peripheral_aresetn 1 1 4 680 800 980 800 1340 800 1770
+preplace netloc vid_phy_controller_0_txoutclk 1 3 3 1360 670 1760 670 2150
+preplace netloc ps8_0_axi_periph_1_M02_AXI 1 2 3 NJ 570 NJ 570 1720
+preplace netloc v_hdmi_tx_ss_0_LINK_DATA1_OUT 1 4 1 1750
+preplace netloc xlconstant_0_dout 1 5 1 NJ
+preplace netloc hpd_1 1 0 4 NJ 320 NJ 320 NJ 320 NJ
+preplace netloc rst_ps8_0_100M_interconnect_aresetn 1 1 1 660
+preplace netloc TX_REFCLK_N_IN_1 1 0 5 NJ 380 NJ 380 960J 720 NJ 720 1740J
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 30 660 650
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 1 1 N
+preplace netloc v_hdmi_tx_ss_0_LINK_DATA0_OUT 1 4 1 1770
+preplace netloc vid_phy_controller_0_tx_video_clk 1 3 3 1370 550 1730J 570 2160
+levelinfo -pg 1 0 340 820 1140 1550 1960 2190 -top 0 -bot 850
 ",
 }
 

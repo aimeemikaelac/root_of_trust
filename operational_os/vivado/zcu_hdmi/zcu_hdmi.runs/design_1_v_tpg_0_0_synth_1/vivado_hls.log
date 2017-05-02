@@ -6,26 +6,26 @@ awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
   Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 ================================================================
 INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2016.4/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'michael' on host 'SchoolComputer' (Linux_x86_64 version 4.8.0-46-generic) on Tue Apr 18 20:28:34 MDT 2017
+INFO: [HLS 200-10] For user 'michael' on host 'SchoolComputer' (Linux_x86_64 version 4.8.0-46-generic) on Thu Apr 20 19:35:37 MDT 2017
 INFO: [HLS 200-10] On os Ubuntu 16.10
-INFO: [HLS 200-10] In directory '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1'
-INFO: [HLS 200-10] Creating and opening project '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/design_1_v_tpg_0_0'.
-INFO: [HLS 200-10] Adding design file '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg_config.h' to the project
-INFO: [HLS 200-10] Adding design file '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp' to the project
-INFO: [HLS 200-10] Adding design file '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.h' to the project
-INFO: [HLS 200-10] Adding design file '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg_zoneplate.h' to the project
-INFO: [HLS 200-10] Creating and opening solution '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/design_1_v_tpg_0_0/prj'.
+INFO: [HLS 200-10] In directory '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1'
+INFO: [HLS 200-10] Creating and opening project '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/design_1_v_tpg_0_0'.
+INFO: [HLS 200-10] Adding design file '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg_config.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp' to the project
+INFO: [HLS 200-10] Adding design file '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg_zoneplate.h' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_tpg_0_0_synth_1/design_1_v_tpg_0_0/prj'.
 INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-2-i-es2'
 INFO: [SYN 201-201] Setting up clock 'ap_clk' with a period of 10ns.
-INFO: [HLS 200-10] Analyzing design file '/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp' ... 
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 326.785 ; gain = 12.586 ; free physical = 633 ; free virtual = 13000
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 326.785 ; gain = 12.586 ; free physical = 570 ; free virtual = 12895
+INFO: [HLS 200-10] Analyzing design file '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp' ... 
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 326.781 ; gain = 12.586 ; free physical = 3448 ; free virtual = 16745
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 326.781 ; gain = 12.586 ; free physical = 3447 ; free virtual = 16746
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 454.910 ; gain = 140.711 ; free physical = 341 ; free virtual = 12653
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 454.910 ; gain = 140.715 ; free physical = 3410 ; free virtual = 16690
 INFO: [HLS 200-10] Checking synthesizability ...
-WARNING: [SYNCHK 200-23] /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:900: variable-indexed range selection may cause suboptimal QoR.
+WARNING: [SYNCHK 200-23] /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:900: variable-indexed range selection may cause suboptimal QoR.
 INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 454.910 ; gain = 140.711 ; free physical = 270 ; free virtual = 12597
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:25 ; elapsed = 00:00:34 . Memory (MB): peak = 454.910 ; gain = 140.715 ; free physical = 3399 ; free virtual = 16680
 INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'tpgPatternZonePlate'.
 INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'tpgPatternVerticalRamp'.
 INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'tpgPatternVerticalHorizontalRamp'.
@@ -50,7 +50,7 @@ INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'tpgPattern
 INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'tpgPRBS'.
 INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' in function 'tpgForeground' for pipelining.
 INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' in function 'tpgBackground' for pipelining.
-INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:864) in function 'MultiPixStream2AXIvideo' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:864) in function 'MultiPixStream2AXIvideo' for pipelining.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1' in function 'tpgPatternZonePlate' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1' in function 'tpgPatternVerticalRamp' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1' in function 'tpgPatternVerticalHorizontalRamp' completely.
@@ -101,8 +101,8 @@ INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.17' in function 'tpgBackground' c
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.18' in function 'tpgBackground' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.19' in function 'tpgBackground' completely.
 INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot/hls/hls_video_core.h:171) in function 'MultiPixStream2AXIvideo' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2' (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:888) in function 'MultiPixStream2AXIvideo' completely.
-INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2.1' (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:890) in function 'MultiPixStream2AXIvideo' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2' (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:888) in function 'MultiPixStream2AXIvideo' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2.1' (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:890) in function 'MultiPixStream2AXIvideo' completely.
 INFO: [XFORM 203-102] Partitioning array 'xCount.V.3' automatically.
 INFO: [XFORM 203-102] Partitioning array 'xCount.V.2' automatically.
 INFO: [XFORM 203-102] Partitioning array 'xCount.V.1' automatically.
@@ -112,9 +112,9 @@ INFO: [XFORM 203-102] Partitioning array 'hBarSel.5' automatically.
 INFO: [XFORM 203-102] Partitioning array 'hBarSel.4' automatically.
 INFO: [XFORM 203-102] Partitioning array 'hBarSel.3' automatically.
 INFO: [XFORM 203-102] Partitioning array 'hBarSel' automatically.
-INFO: [XFORM 203-102] Automatically partitioning streamed array 'ovrlayYUV.V.val.V' .
 INFO: [XFORM 203-102] Automatically partitioning streamed array 'bckgndYUV.V.val.V' .
-INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:819) in dimension 1 completely.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'ovrlayYUV.V.val.V' .
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:819) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'tmp.val.V'  in dimension 1 completely.
 INFO: [XFORM 203-712] Applying dataflow to function 'v_tpg', detected/extracted 3 process function(s):
 	 'tpgBackground'
@@ -136,10 +136,10 @@ INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'tpgPat
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'tpgPatternCheckerBoard'... converting 13 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'tpgPatternBox'... converting 5 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'tpgPRBS'... converting 6 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:865:10) to (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:864:53) in function 'MultiPixStream2AXIvideo'... converting 13 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:865:10) to (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:864:53) in function 'MultiPixStream2AXIvideo'... converting 13 basic blocks.
 INFO: [XFORM 203-11] Balancing expressions in function 'tpgPatternRainbow'...3 expression(s) balanced.
 INFO: [XFORM 203-11] Balancing expressions in function 'tpgPatternBox'...3 expression(s) balanced.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 582.910 ; gain = 268.711 ; free physical = 167 ; free virtual = 12004
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 582.910 ; gain = 268.715 ; free physical = 3213 ; free virtual = 16499
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternVerticalRamp' into tpgPatternVerticalRa.
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternVerticalHorizontalRamp' into tpgPatternVerticalHo.
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternTemporalRamp' into tpgPatternTemporalRa.
@@ -149,11 +149,11 @@ WARNING: [XFORM 203-631] Renaming function 'tpgPatternDPColorSquare' into tpgPat
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternDPColorRamp' into tpgPatternDPColorRam.
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternDPBlackWhiteVerticalLine' into tpgPatternDPBlackWhi.
 WARNING: [XFORM 203-631] Renaming function 'tpgPatternCheckerBoard' into tpgPatternCheckerBoa.
-WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo' (/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:171:53) into MultiPixStream2AXIvi.
+WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo' (/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:171:53) into MultiPixStream2AXIvi.
 WARNING: [SYN 201-506] Unknown intrinsic op [_ssdm_op_SpecLicense]
 WARNING: [SYN 201-506] Unknown intrinsic op [_ssdm_op_SpecLicense]
 WARNING: [SYN 201-506] Unknown intrinsic op [_ssdm_op_SpecLicense]
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 982.914 ; gain = 668.715 ; free physical = 2016 ; free virtual = 13706
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:38 ; elapsed = 00:00:47 . Memory (MB): peak = 982.914 ; gain = 668.719 ; free physical = 2873 ; free virtual = 16163
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'v_tpg' ...
 WARNING: [SYN 201-103] Legalizing function name 'reg<int>' to 'reg_int_s'.
@@ -194,13 +194,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 56.09 seconds; current allocated memory: 604.732 MB.
+INFO: [HLS 200-111]  Elapsed time: 47.53 seconds; current allocated memory: 604.819 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.38 seconds; current allocated memory: 605.190 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 605.293 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternDPBlackWhi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -237,13 +237,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 605.246 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 605.367 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 605.284 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 605.405 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternDPColorRam' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -280,13 +280,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 605.442 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 605.554 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 605.575 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 605.687 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPRBS' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -323,13 +323,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 605.714 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 605.852 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 605.874 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 606.012 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternCheckerBoa' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -366,13 +366,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 606.294 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 606.438 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 606.628 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 606.772 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternVerticalHo' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -409,51 +409,51 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 606.762 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 606.893 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 606.835 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 606.966 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternRainbow' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('b', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1098)
+INFO: [SYN 201-351]    a  'select' operation ('b', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1098)
    b  constant -21
-   c  'mul' operation ('tmp_206_cast', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
+   c  'mul' operation ('tmp_206_cast', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
 INFO: [SYN 201-351]   DSP48 Expression: tmp4 = tmp_206_cast + tmp_194_cast_cast_ca * -21
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('p_tmp_s', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1096)
+INFO: [SYN 201-351]    a  'select' operation ('p_tmp_s', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1096)
    b  constant -43
-   c  'add' operation ('tmp2', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1111)
+   c  'add' operation ('tmp2', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1111)
 INFO: [SYN 201-351]   DSP48 Expression: tmp_66 = tmp2 + tmp_190_cast5_cast1 * -43
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('g', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1097)
+INFO: [SYN 201-351]    a  'select' operation ('g', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1097)
    b  constant -85
    c  constant -32640
 INFO: [SYN 201-351]   DSP48 Expression: tmp2 = tmp_192_cast * -85 + -32640
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('b', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1098)
+INFO: [SYN 201-351]    a  'select' operation ('b', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1098)
    b  constant 29
-   c  'add' operation ('tmp_62', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1110)
+   c  'add' operation ('tmp_62', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1110)
 INFO: [SYN 201-351]   DSP48 Expression: tmp_63 = tmp_194_cast_cast_ca * 29 + tmp_197_cast
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('g', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1097)
+INFO: [SYN 201-351]    a  'select' operation ('g', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1097)
    b  constant 150
-   c  'add' operation ('tmp_61', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1110)
+   c  'add' operation ('tmp_61', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1110)
 INFO: [SYN 201-351]   DSP48 Expression: tmp_62 = tmp_192_cast * 150 + tmp_196_cast
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'select' operation ('p_tmp_s', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1096)
+INFO: [SYN 201-351]    a  'select' operation ('p_tmp_s', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1096)
    b  constant 77
    c  constant 4224
 INFO: [SYN 201-351]   DSP48 Expression: tmp_61 = tmp_190_cast5_cast1 * 77 + 4224
 INFO: [SYN 201-351] The following objects are mapped to a ternary adder tree.
-INFO: [SYN 201-351]    a  'add' operation ('tmp4', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
+INFO: [SYN 201-351]    a  'add' operation ('tmp4', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
    b  constant 32896
-   c  'bitconcatenate' operation ('tmp_68', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
+   c  'bitconcatenate' operation ('tmp_68', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112)
 INFO: [SYN 201-351] 
 ###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
 ####	 14	0	10	61	22	2.2	3	2.1	3	16	0
@@ -487,22 +487,22 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 WARNING: [SCHED 204-21] Estimated clock period (9.82ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
 WARNING: [SCHED 204-21] The critical path consists of the following:
-	'mul' operation ('tmp_207_cast', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (2.39 ns)
-	'add' operation ('tmp4', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (2.7 ns)
-	'add' operation ('tmp_69', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (1.27 ns)
-	'icmp' operation ('phitmp3', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (1.33 ns)
-	'and' operation ('sel_tmp2', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (0.71 ns)
-	'select' operation ('tmp_87', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (0.71 ns)
-	'select' operation ('Scalar<3, ap_uint<8> >.val[1].V', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1133) (0.71 ns)
+	'mul' operation ('tmp_207_cast', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (2.39 ns)
+	'add' operation ('tmp4', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (2.7 ns)
+	'add' operation ('tmp_69', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1112) (1.27 ns)
+	'icmp' operation ('phitmp3', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (1.33 ns)
+	'and' operation ('sel_tmp2', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (0.71 ns)
+	'select' operation ('tmp_87', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1115) (0.71 ns)
+	'select' operation ('Scalar<3, ap_uint<8> >.val[1].V', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1133) (0.71 ns)
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 607.407 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 607.577 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.41 seconds; current allocated memory: 607.759 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 607.946 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternCrossHatch' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -539,13 +539,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.48 seconds; current allocated memory: 608.172 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 608.363 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 608.452 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 608.641 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternTartanColo' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -582,13 +582,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.45 seconds; current allocated memory: 608.871 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 609.081 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.38 seconds; current allocated memory: 609.199 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 609.408 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'reg_int_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -625,30 +625,30 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.54 seconds; current allocated memory: 609.263 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 609.457 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 609.300 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 609.494 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternZonePlate' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
-INFO: [SYN 201-351]    a  'load' operation ('tpgSinTableArray_loa', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) on array 'tpgSinTableArray'
+INFO: [SYN 201-351]    a  'load' operation ('tpgSinTableArray_loa', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) on array 'tpgSinTableArray'
    b  constant 221
 INFO: [SYN 201-351]   DSP48 Expression: tmp_32_tr = 221 * tmp_18
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
 INFO: [SYN 201-351]    a  wire read on port 'Zplate_Hor_Control_S'
    b  wire read on port 'x'
-   c  'add' operation ('tmp1', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170)
+   c  'add' operation ('tmp1', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170)
 INFO: [SYN 201-351]   DSP48 Expression: tmp_15 = tmp1 + Zplate_Hor_Control_S_1 * x_read
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
 INFO: [SYN 201-351]    a  wire read on port 'Zplate_Hor_Control_D'
-   b  'call' operation ('tmp_11', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) to 'reg<int>'
-   c  'phi' operation ('zonePlateVAddr_loc_1', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1152) with incoming values : ('zonePlateVAddr_load', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1161) ('tmp_5', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1161) ('tmp_2', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1152)
+   b  'call' operation ('tmp_11', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) to 'reg<int>'
+   c  'phi' operation ('zonePlateVAddr_loc_1', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1152) with incoming values : ('zonePlateVAddr_load', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1161) ('tmp_5', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1161) ('tmp_2', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1152)
 INFO: [SYN 201-351]   DSP48 Expression: tmp1 = Zplate_Hor_Control_D_1 * tmp_12 + zonePlateVAddr_loc_1
 INFO: [SYN 201-351] The following objects are mapped to a DSP48.
 INFO: [SYN 201-351]    a  constant -1
@@ -687,29 +687,29 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 WARNING: [SCHED 204-21] Estimated clock period (10.2ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
 WARNING: [SCHED 204-21] The critical path consists of the following:
-	'call' operation ('tmp_11', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) to 'reg<int>' (0 ns)
-	'mul' operation ('tmp_13', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) (2.39 ns)
-	'add' operation ('tmp1', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170) (2.7 ns)
-	'add' operation ('tmp_15', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170) (2.7 ns)
-	'getelementptr' operation ('tpgSinTableArray_add', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) (0 ns)
-	'load' operation ('tpgSinTableArray_loa', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) on array 'tpgSinTableArray' (2.39 ns)
+	'call' operation ('tmp_11', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) to 'reg<int>' (0 ns)
+	'mul' operation ('tmp_13', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1166) (2.39 ns)
+	'add' operation ('tmp1', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170) (2.7 ns)
+	'add' operation ('tmp_15', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1170) (2.7 ns)
+	'getelementptr' operation ('tpgSinTableArray_add', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) (0 ns)
+	'load' operation ('tpgSinTableArray_loa', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1172) on array 'tpgSinTableArray' (2.39 ns)
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 609.536 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 609.756 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 609.769 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 609.990 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternColorBars' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SYN 201-351] The following objects are mapped to a ternary adder tree.
-INFO: [SYN 201-351]    a  'load' operation ('xBar_V_0_load', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1071) on static variable 'xBar_V_0'
+INFO: [SYN 201-351]    a  'load' operation ('xBar_V_0_load', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1071) on static variable 'xBar_V_0'
    b  constant 1
-   c  'partselect' operation ('barWidth.V', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1062)
+   c  'partselect' operation ('barWidth.V', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:1062)
 INFO: [SYN 201-351] 
 ###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
 ####	 5	0	4	52	10	2.5	3	2.5	3	7	0
@@ -743,13 +743,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 610.021 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 610.255 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.29 seconds; current allocated memory: 610.282 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 610.516 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternSolidWhite' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -786,13 +786,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 610.417 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 610.654 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 610.495 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 610.734 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternSolidBlack' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -829,13 +829,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 610.578 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 610.836 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 610.653 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 610.911 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternSolidBlue' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -872,13 +872,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 610.758 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.004 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 610.842 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.088 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternSolidGreen' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -915,13 +915,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 610.931 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.181 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 611.014 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 611.265 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternSolidRed' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -958,13 +958,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 611.106 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.377 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 611.192 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.463 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternTemporalRa' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1001,13 +1001,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 611.250 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.508 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 611.292 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 611.549 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternVerticalRa' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1044,13 +1044,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 611.382 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 611.643 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 611.472 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.733 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternHorizontal' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1087,13 +1087,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 611.534 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 611.798 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 611.597 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 611.861 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgBackground' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1130,16 +1130,16 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 WARNING: [SCHED 204-21] Estimated clock period (9.82ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
 WARNING: [SCHED 204-21] The critical path consists of the following:
-	'call' operation ('call_ret12', /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:563) to 'tpgPatternRainbow' (9.82 ns)
+	'call' operation ('call_ret12', /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/src/v_tpg.cpp:563) to 'tpgPatternRainbow' (9.82 ns)
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 612.510 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 612.805 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 2.69 seconds; current allocated memory: 614.140 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.05 seconds; current allocated memory: 614.433 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternBox' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1176,13 +1176,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.49 seconds; current allocated memory: 614.461 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.34 seconds; current allocated memory: 614.771 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 614.758 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 615.069 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternCrossHair' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1219,13 +1219,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 614.932 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 615.248 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 615.059 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 615.375 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgPatternMask' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1262,13 +1262,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 615.144 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 615.464 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 615.223 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 615.543 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'tpgForeground' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1305,13 +1305,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 615.503 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 615.831 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 615.911 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 616.239 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'reg_unsigned_short_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1346,13 +1346,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 615.958 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 616.301 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 615.995 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 616.337 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'MultiPixStream2AXIvi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1389,13 +1389,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 616.222 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 616.556 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 616.472 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 616.807 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Implementing module 'v_tpg' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1430,13 +1430,13 @@ INFO: [SCHED 204-11] Finished scheduling optimization.
 INFO: [SCHED 204-11] Start constructing STG ...
 INFO: [SCHED 204-11] Finished constructing STG.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 616.737 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 617.075 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.85 seconds; current allocated memory: 617.863 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.6 seconds; current allocated memory: 618.216 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternDPColorSqu' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1458,14 +1458,14 @@ INFO: [SYN 201-210] Renamed object name 'tpgPatternDPColorSqu_DPtpgBarSelYuv_709
 INFO: [SYN 201-210] Renamed object name 'tpgPatternDPColorSqu_DPtpgBarSelYuv_709_v' to 'tpgPatternDPColorncg' due to the length limit 20
 WARNING: [RTGEN 206-101] Register 'xCount_V_0' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternDPColorSqu'.
-INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 618.827 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 619.166 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternDPBlackWhi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternDPBlackWhi'.
-INFO: [HLS 200-111]  Elapsed time: 0.53 seconds; current allocated memory: 619.064 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.43 seconds; current allocated memory: 619.421 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1473,7 +1473,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternDPColorRam'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'rampVal_1' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternDPColorRam'.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 619.405 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 619.763 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1483,7 +1483,7 @@ WARNING: [RTGEN 206-101] Register 'rSerie_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'gSerie_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'bSerie_V' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPRBS'.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 619.778 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 620.137 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1501,7 +1501,7 @@ INFO: [SYN 201-210] Renamed object name 'tpgPatternCheckerBoa_tpgBarSelYuv_u255'
 INFO: [SYN 201-210] Renamed object name 'tpgPatternCheckerBoa_tpgBarSelRgb_b267' to 'tpgPatternCheckerudo' due to the length limit 20
 WARNING: [RTGEN 206-101] Register 'xCount_V_1_0' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternCheckerBoa'.
-INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 620.484 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 620.844 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1509,7 +1509,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternVerticalHo'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'hdata' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternVerticalHo'.
-INFO: [HLS 200-111]  Elapsed time: 0.48 seconds; current allocated memory: 620.705 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 621.066 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1529,7 +1529,7 @@ INFO: [RTGEN 206-100] Generating core module 'v_tpg_mac_muladd_xdS': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'v_tpg_mac_muladd_yd2': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'v_tpg_mac_muladd_zec': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternRainbow'.
-INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 621.456 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 621.817 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1541,7 +1541,7 @@ INFO: [SYN 201-210] Renamed object name 'tpgPatternCrossHatch_whiYuv_1' to 'tpgP
 INFO: [SYN 201-210] Renamed object name 'tpgPatternCrossHatch_blkYuv_1' to 'tpgPatternCrossHaDeQ' due to the length limit 20
 WARNING: [RTGEN 206-101] Register 'xCount_V_2_0' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternCrossHatch'.
-INFO: [HLS 200-111]  Elapsed time: 0.5 seconds; current allocated memory: 622.018 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.33 seconds; current allocated memory: 622.380 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1559,14 +1559,14 @@ INFO: [SYN 201-210] Renamed object name 'tpgPatternTartanColo_tpgBarSelYuv_u254'
 INFO: [SYN 201-210] Renamed object name 'tpgPatternTartanColo_tpgBarSelRgb_b266' to 'tpgPatternTartanCKfY' due to the length limit 20
 WARNING: [RTGEN 206-101] Register 'xCount_V_3_0' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternTartanColo'.
-INFO: [HLS 200-111]  Elapsed time: 0.56 seconds; current allocated memory: 622.711 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.33 seconds; current allocated memory: 623.075 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'reg_int_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_int_s'.
-INFO: [HLS 200-111]  Elapsed time: 0.34 seconds; current allocated memory: 622.821 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 623.201 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternZonePlate' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1582,7 +1582,7 @@ INFO: [RTGEN 206-100] Generating core module 'v_tpg_mac_muladd_Ngs': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'v_tpg_mac_muladd_OgC': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'v_tpg_mul_mul_9nsPgM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternZonePlate'.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 623.373 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 623.754 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1597,7 +1597,7 @@ INFO: [SYN 201-210] Renamed object name 'tpgPatternColorBars_tpgBarSelYuv_u253' 
 INFO: [SYN 201-210] Renamed object name 'tpgPatternColorBars_tpgBarSelRgb_b265' to 'tpgPatternColorBaVhK' due to the length limit 20
 WARNING: [RTGEN 206-101] Register 'xBar_V_0' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternColorBars'.
-INFO: [HLS 200-111]  Elapsed time: 0.38 seconds; current allocated memory: 623.878 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 624.275 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1605,7 +1605,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternSolidWhite'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternSolidWhite_whiYuv' to 'tpgPatternSolidWhWhU' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternSolidWhite'.
-INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 624.153 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 624.552 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1613,7 +1613,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternSolidBlack'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternSolidBlack_blkYuv' to 'tpgPatternSolidBlXh4' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternSolidBlack'.
-INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 624.453 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 624.853 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1621,7 +1621,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternSolidBlue'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternSolidBlue_bluYuv' to 'tpgPatternSolidBlYie' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternSolidBlue'.
-INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 624.726 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 625.127 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1629,7 +1629,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternSolidGreen'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternSolidGreen_grnYuv' to 'tpgPatternSolidGrZio' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternSolidGreen'.
-INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 625.000 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 625.402 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1637,14 +1637,14 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternSolidRed'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternSolidRed_redYuv' to 'tpgPatternSolidRe0iy' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternSolidRed'.
-INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 625.278 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 625.682 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternTemporalRa' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternTemporalRa'.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 625.419 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 625.825 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1652,7 +1652,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternVerticalRa'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'rampVal_2' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternVerticalRa'.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 625.660 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 626.068 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1660,7 +1660,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternHorizontal'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'rampVal' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternHorizontal'.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 625.870 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 626.279 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1668,7 +1668,7 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgBackground'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'rampStart' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgBackground'.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 627.895 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 628.305 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1679,7 +1679,7 @@ WARNING: [RTGEN 206-101] Register 'boxVCoord' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'hDir' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'vDir' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternBox'.
-INFO: [HLS 200-111]  Elapsed time: 0.68 seconds; current allocated memory: 628.427 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.49 seconds; current allocated memory: 628.837 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1687,33 +1687,33 @@ INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternCrossHair'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'tpgPatternCrossHair_whiYuv_2' to 'tpgPatternCrossHa1iI' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternCrossHair'.
-INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 628.755 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 629.167 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgPatternMask' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgPatternMask'.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 628.992 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 629.405 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tpgForeground' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'tpgForeground'.
-INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 629.705 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 630.120 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'reg_unsigned_short_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_unsigned_short_s'.
-INFO: [HLS 200-111]  Elapsed time: 0.35 seconds; current allocated memory: 629.840 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 630.255 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'MultiPixStream2AXIvi' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'MultiPixStream2AXIvi'.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 630.812 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 631.229 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'v_tpg' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1753,7 +1753,7 @@ INFO: [SYN 201-210] Renamed object name 'v_tpg_ovrlayYUV_V_val_0_V' to 'v_tpg_ov
 INFO: [SYN 201-210] Renamed object name 'v_tpg_ovrlayYUV_V_val_1_V' to 'v_tpg_ovrlayYUV_V6jw' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'v_tpg_ovrlayYUV_V_val_2_V' to 'v_tpg_ovrlayYUV_V7jG' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'v_tpg'.
-INFO: [HLS 200-111]  Elapsed time: 0.54 seconds; current allocated memory: 632.227 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 632.633 MB.
 INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
 INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
 INFO: [RTMG 210-279] Implementing memory 'design_1_v_tpg_0_0_tpgPatternDPColorbkb_rom' using distributed ROMs.
@@ -1782,7 +1782,7 @@ INFO: [RTMG 210-279] Implementing memory 'design_1_v_tpg_0_0_tpgPatternSolidBlYi
 INFO: [RTMG 210-279] Implementing memory 'design_1_v_tpg_0_0_tpgPatternSolidGrZio_rom' using distributed ROMs.
 INFO: [RTMG 210-279] Implementing memory 'design_1_v_tpg_0_0_tpgPatternSolidRe0iy_rom' using distributed ROMs.
 INFO: [RTMG 210-279] Implementing memory 'design_1_v_tpg_0_0_tpgPatternCrossHa1iI_rom' using distributed ROMs.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:13 ; elapsed = 00:01:20 . Memory (MB): peak = 1046.914 ; gain = 732.715 ; free physical = 1113 ; free virtual = 12822
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:50 ; elapsed = 00:01:01 . Memory (MB): peak = 1046.914 ; gain = 732.719 ; free physical = 2801 ; free virtual = 16108
 INFO: [SYSC 207-301] Generating SystemC RTL for v_tpg with prefix design_1_v_tpg_0_0_.
 INFO: [VHDL 208-304] Generating VHDL RTL for v_tpg with prefix design_1_v_tpg_0_0_.
 INFO: [VLOG 209-307] Generating Verilog RTL for v_tpg with prefix design_1_v_tpg_0_0_.
@@ -1798,5 +1798,5 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/Xilinx/Vivado/2016.4/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 18 20:30:17 2017...
-INFO: [HLS 200-112] Total elapsed time: 138.15 seconds; peak allocated memory: 632.227 MB.
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 20 19:36:48 2017...
+INFO: [HLS 200-112] Total elapsed time: 92.48 seconds; peak allocated memory: 632.633 MB.

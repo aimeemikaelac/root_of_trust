@@ -54,4 +54,4 @@ create_clock -period 6.734 [get_pins -hier -filter {name=~*design_1_vid_phy_cont
 # GTX, GTP
 
 # GTHE3/4
-create_clock -name mgtrefclk1_pad_p_in -period 3.367 [get_ports mgtrefclk1_pad_p_in]
+create_clock -name mgtrefclk0_pad_p_in -period 3.367 [get_ports mgtrefclk0_pad_p_in]

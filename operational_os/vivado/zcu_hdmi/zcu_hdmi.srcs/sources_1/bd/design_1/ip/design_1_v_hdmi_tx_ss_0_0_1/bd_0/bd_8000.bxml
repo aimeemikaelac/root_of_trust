@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="bd_8000" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1492574011"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1492574011"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1492574011"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1492744123"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1492744123"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1492744123"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/ip_0/bd_8000_v_hdmi_tx_0.xci" Type="IP">
         <Instance HierarchyPath="v_hdmi_tx"/>

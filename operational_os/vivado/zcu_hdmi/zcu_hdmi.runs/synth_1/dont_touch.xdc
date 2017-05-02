@@ -9,20 +9,8 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1 || ORI
 # IP: bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==design_1_zynq_ultra_ps_e_0_0}]
 
-# IP: bd/design_1/ip/design_1_ps8_0_axi_periph_0/design_1_ps8_0_axi_periph_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_ps8_0_axi_periph_0 || ORIG_REF_NAME==design_1_ps8_0_axi_periph_0}]
-
 # IP: bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_rst_ps8_0_100M_0 || ORIG_REF_NAME==design_1_rst_ps8_0_100M_0}]
-
-# IP: bd/design_1/ip/design_1_xbar_0/design_1_xbar_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xbar_0 || ORIG_REF_NAME==design_1_xbar_0}]
-
-# IP: bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_vdma_0_0 || ORIG_REF_NAME==design_1_axi_vdma_0_0}]
-
-# IP: bd/design_1/ip/design_1_axi_interconnect_0_0/design_1_axi_interconnect_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_interconnect_0_0 || ORIG_REF_NAME==design_1_axi_interconnect_0_0}]
 
 # IP: bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_v_tpg_0_0 || ORIG_REF_NAME==design_1_v_tpg_0_0}]
@@ -42,14 +30,8 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_vid_ph
 # IP: bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_util_vector_logic_0_0 || ORIG_REF_NAME==design_1_util_vector_logic_0_0}]
 
-# IP: bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_ds_0 || ORIG_REF_NAME==design_1_auto_ds_0}]
-
-# IP: bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_0 || ORIG_REF_NAME==design_1_auto_pc_0}]
-
-# IP: bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_us_0 || ORIG_REF_NAME==design_1_auto_us_0}]
+# IP: bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xlconstant_0_0 || ORIG_REF_NAME==design_1_xlconstant_0_0}]
 
 # IP: bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_ds_1 || ORIG_REF_NAME==design_1_auto_ds_1}]

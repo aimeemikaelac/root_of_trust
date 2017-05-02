@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc rfile:../../../zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc rfile:../../../zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:24 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN AF6 [get_ports TX_CLK_P_OUT]
 set_property src_info {type:XDC file:1 line:27 export:INPUT save:INPUT read:READ} [current_design]

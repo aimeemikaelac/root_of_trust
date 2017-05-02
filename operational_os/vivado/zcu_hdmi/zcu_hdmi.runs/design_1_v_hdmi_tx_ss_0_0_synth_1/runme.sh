@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1'
+HD_PWD='/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

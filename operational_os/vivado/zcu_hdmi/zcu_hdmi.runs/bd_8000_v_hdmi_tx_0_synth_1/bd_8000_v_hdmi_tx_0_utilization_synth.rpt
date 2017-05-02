@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1733598 Wed Dec 14 22:35:42 MST 2016
-| Date         : Tue Apr 18 21:56:12 2017
+| Date         : Thu Apr 20 19:37:46 2017
 | Host         : SchoolComputer running 64-bit Ubuntu 16.10
 | Command      : report_utilization -file bd_8000_v_hdmi_tx_0_utilization_synth.rpt -pb bd_8000_v_hdmi_tx_0_utilization_synth.pb
 | Design       : bd_8000_v_hdmi_tx_0

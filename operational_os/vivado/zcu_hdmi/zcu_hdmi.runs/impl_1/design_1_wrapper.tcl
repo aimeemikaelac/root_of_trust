@@ -42,6 +42,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
@@ -53,82 +54,66 @@ set rc [catch {
   set_property board_part xilinx.com:zcu102:part0:2.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.cache/wt [current_project]
-  set_property parent.project_path /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.xpr [current_project]
+  set_property webtalk.parent_dir /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.cache/wt [current_project]
+  set_property parent.project_path /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.xpr [current_project]
   set_property ip_repo_paths /home/michael/xilinx_workspace/hdmi_pattern_generator [current_project]
-  set_property ip_output_repo /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.cache/ip [current_project]
+  set_property ip_output_repo /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/synth_1/design_1_wrapper.dcp
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_3/bd_8000_util_vector_logic_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_3/bd_8000_util_vector_logic_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_4/bd_8000_axi_crossbar_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_4/bd_8000_axi_crossbar_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1.dcp]
-  add_files -quiet /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp
-  set_property netlist_only true [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp]
-  read_xdc -ref design_1_zynq_ultra_ps_e_0_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.xdc]
-  read_xdc -prop_thru_buffers -ref design_1_rst_ps8_0_100M_0 -cells U0 /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0_board.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0_board.xdc]
-  read_xdc -ref design_1_rst_ps8_0_100M_0 -cells U0 /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.xdc]
-  read_xdc -ref design_1_axi_vdma_0_0 -cells U0 /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0.xdc]
-  read_xdc -ref design_1_vid_phy_controller_0_0_gtwrapper -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/ip_0/synth/design_1_vid_phy_controller_0_0_gtwrapper.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/ip_0/synth/design_1_vid_phy_controller_0_0_gtwrapper.xdc]
-  read_xdc -ref design_1_vid_phy_controller_0_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc
-  set_property processing_order EARLY [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc]
-  read_xdc /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc
-  read_xdc -ref design_1_axi_vdma_0_0 -cells U0 /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_axi_vdma_0_0/design_1_axi_vdma_0_0_clocks.xdc]
-  read_xdc -ref design_1_v_tpg_0_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.xdc]
-  read_xdc -ref bd_8000_v_hdmi_tx_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc]
-  read_xdc -ref bd_8000_v_tc_0 -cells U0 /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc]
-  read_xdc -ref bd_8000_v_axi4s_vid_out_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0_clocks.xdc]
-  read_xdc -ref design_1_vid_phy_controller_0_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0_clocks.xdc]
-  read_xdc -ref design_1_auto_ds_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_clocks.xdc]
-  read_xdc -ref design_1_auto_us_0 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
-  read_xdc -ref design_1_auto_ds_1 -cells inst /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1_clocks.xdc
-  set_property processing_order LATE [get_files /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1_clocks.xdc]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_3/bd_8000_util_vector_logic_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_3/bd_8000_util_vector_logic_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_4/bd_8000_axi_crossbar_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_4/bd_8000_axi_crossbar_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1.dcp]
+  add_files -quiet /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp
+  set_property netlist_only true [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp]
+  read_xdc -ref design_1_zynq_ultra_ps_e_0_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.xdc
+  set_property processing_order EARLY [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0/design_1_zynq_ultra_ps_e_0_0.xdc]
+  read_xdc -prop_thru_buffers -ref design_1_rst_ps8_0_100M_0 -cells U0 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0_board.xdc
+  set_property processing_order EARLY [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0_board.xdc]
+  read_xdc -ref design_1_rst_ps8_0_100M_0 -cells U0 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.xdc
+  set_property processing_order EARLY [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_100M_0/design_1_rst_ps8_0_100M_0.xdc]
+  read_xdc -ref design_1_vid_phy_controller_0_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc
+  set_property processing_order EARLY [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/vid_phy_controller_xdc.xdc]
+  read_xdc -ref design_1_vid_phy_controller_0_0_gtwrapper -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/ip_0/synth/design_1_vid_phy_controller_0_0_gtwrapper.xdc
+  set_property processing_order EARLY [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/ip_0/synth/design_1_vid_phy_controller_0_0_gtwrapper.xdc]
+  read_xdc /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/constrs_1/new/zcu_contraints.xdc
+  read_xdc -ref design_1_v_tpg_0_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_tpg_0_0/design_1_v_tpg_0_0.xdc]
+  read_xdc -ref bd_8000_v_hdmi_tx_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_0/bd_8000_v_hdmi_tx_0_core.xdc]
+  read_xdc -ref bd_8000_v_tc_0 -cells U0 /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_1/bd_8000_v_tc_0_clocks.xdc]
+  read_xdc -ref bd_8000_v_axi4s_vid_out_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0_clocks.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/bd_0/ip/ip_2/bd_8000_v_axi4s_vid_out_0_clocks.xdc]
+  read_xdc -ref design_1_vid_phy_controller_0_0 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0_clocks.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_vid_phy_controller_0_0/design_1_vid_phy_controller_0_0_clocks.xdc]
+  read_xdc -ref design_1_auto_ds_1 -cells inst /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1_clocks.xdc
+  set_property processing_order LATE [get_files /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.srcs/sources_1/bd/design_1/ip/design_1_auto_ds_1/design_1_auto_ds_1_clocks.xdc]
   link_design -top design_1_wrapper -part xczu9eg-ffvb1156-2-i-es2
   write_hwdef -file design_1_wrapper.hwdef
   close_msg_db -file init_design.pb

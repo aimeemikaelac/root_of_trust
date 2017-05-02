@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="design_1_v_hdmi_tx_ss_0_0_synth_1" LaunchPart="xczu9eg-ffvb1156-2-i-es2" LaunchTime="1492574026">
+<GenRun Id="design_1_v_hdmi_tx_ss_0_0_synth_1" LaunchPart="xczu9eg-ffvb1156-2-i-es2" LaunchTime="1492744129">
   <File Type="VDS-TIMING-PB" Name="design_1_v_hdmi_tx_ss_0_0_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="design_1_v_hdmi_tx_ss_0_0_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="design_1_v_hdmi_tx_ss_0_0.dcp"/>
@@ -11,9 +11,11 @@
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_1_v_hdmi_tx_ss_0_0">
     <File Path="$PSRCDIR/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="ProcessingOrder" Val="EARLY"/>
       </FileInfo>
     </File>
     <Config>
@@ -24,9 +26,11 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_1_v_hdmi_tx_ss_0_0">
     <File Path="$PSRCDIR/sources_1/bd/design_1/ip/design_1_v_hdmi_tx_ss_0_0_1/design_1_v_hdmi_tx_ss_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="ProcessingOrder" Val="EARLY"/>
       </FileInfo>
     </File>
     <Config>
@@ -35,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

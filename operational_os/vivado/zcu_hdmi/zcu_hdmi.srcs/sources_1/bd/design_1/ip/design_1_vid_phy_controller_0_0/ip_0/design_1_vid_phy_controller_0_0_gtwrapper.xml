@@ -21,7 +21,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>1fe8268d</spirit:value>
+            <spirit:value>5fda6f2f</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -41,7 +41,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 19 03:53:36 UTC 2017</spirit:value>
+            <spirit:value>Fri Apr 21 02:44:46 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -53,7 +53,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>1fe8268d</spirit:value>
+            <spirit:value>5fda6f2f</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -72,7 +72,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 19 03:53:36 UTC 2017</spirit:value>
+            <spirit:value>Fri Apr 21 02:44:46 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -84,7 +84,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>1fe8268d</spirit:value>
+            <spirit:value>5fda6f2f</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -104,7 +104,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 19 03:53:39 UTC 2017</spirit:value>
+            <spirit:value>Fri Apr 21 02:44:48 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -116,7 +116,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>0d0b8751</spirit:value>
+            <spirit:value>7f333897</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -135,7 +135,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 19 03:53:39 UTC 2017</spirit:value>
+            <spirit:value>Fri Apr 21 02:44:49 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -147,7 +147,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>0d0b8751</spirit:value>
+            <spirit:value>7f333897</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -17775,13 +17775,13 @@ txresetdone_out
       <spirit:name>RX_REFCLK_SOURCE</spirit:name>
       <spirit:displayName>Receiver reference clock source</spirit:displayName>
       <spirit:description>Select a reference clock input to drive the PLL chosen for receiver operation</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_REFCLK_SOURCE" spirit:order="151">X1Y12 clk0 X1Y13 clk0 X1Y14 clk0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.RX_REFCLK_SOURCE" spirit:order="151">X1Y12 clk1 X1Y13 clk1 X1Y14 clk1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TX_REFCLK_SOURCE</spirit:name>
       <spirit:displayName>Transmitter reference clock source</spirit:displayName>
       <spirit:description>Select a reference clock input to drive the PLL chosen for transmitter operation</spirit:description>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_REFCLK_SOURCE" spirit:order="152">X1Y12 clk1 X1Y13 clk1 X1Y14 clk1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.TX_REFCLK_SOURCE" spirit:order="152">X1Y12 clk0 X1Y13 clk0 X1Y14 clk0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>RX_RECCLK_OUTPUT</spirit:name>

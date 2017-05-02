@@ -2,11 +2,11 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
 # IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
-# Start of session at: Tue Apr 18 21:56:14 2017
-# Process ID: 4323
-# Current directory: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1
+# Start of session at: Thu Apr 20 21:08:49 2017
+# Process ID: 8953
+# Current directory: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1
 # Command line: vivado -log design_1_v_hdmi_tx_ss_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_v_hdmi_tx_ss_0_0.tcl
-# Log file: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1/design_1_v_hdmi_tx_ss_0_0.vds
-# Journal file: /home/michael/xilinx_workspace/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1/vivado.jou
+# Log file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1/design_1_v_hdmi_tx_ss_0_0.vds
+# Journal file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_hdmi/zcu_hdmi.runs/design_1_v_hdmi_tx_ss_0_0_synth_1/vivado.jou
 #-----------------------------------------------------------
 source design_1_v_hdmi_tx_ss_0_0.tcl -notrace

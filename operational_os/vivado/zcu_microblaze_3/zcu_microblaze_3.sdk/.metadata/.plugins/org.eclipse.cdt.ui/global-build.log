@@ -1,0 +1,3 @@
+16:22:47 **** Incremental Build of configuration Release for project microblaze_ed25519 ****
+make all 
+make: Nothing to be done for 'all'.

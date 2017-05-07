@@ -56,9 +56,9 @@ def get_program_segments(program_headers, elf_file):
         # elf_data = bytearray(elf_file_handle.read())
         for segment in program_headers:
             offset = segment[0]
-            print offset
+            print "Offset: {:08x}".format(offset)
             length = segment[3]
-            print length
+            print "Length: {:08x}".format(length)
             current_data = bytearray(elf_data[offset:offset+length])
             elf_segments.append(current_data)
     # for i in range(len(elf_segments[0])):
@@ -67,20 +67,23 @@ def get_program_segments(program_headers, elf_file):
     #     print "{:02x}".format(elf_segments[0][i]),
     return elf_segments
 
-def write_segements_to_memory(program_headers, elf_segments, base_address):
-    end_memory = 0
-    for header in program_headers:
-        virt_offset = header[1]
+def write_segments_to_memory(program_headers, elf_segments, base_address):
+    # end_memory = 0
+    for header_index in range(length(program_headers)):
+        header = program_headers[header_index]
+        phys_offset = header[1]
         mem_length = header[4]
-        current_end = virt_offset + mem_length
-        if current_end > end_memory:
-            end_memory = current_end
-    memory_handle = DevMem(base_address, length=current_end)
-    for i in range(len(program_headers)):
-        virt_offset = program_headers[i][1]
-        phys_offset = program_headers[i][2]
-        mem_length = program_headers[i][4]
-        memory_handle.write(phys_offset, elf_segments[i])
+        memory_handle = DevMem(base_address + phys_offset, length=mem_length)
+        memory_handle.write(0, elf_segments[header_index])
+        # current_end = virt_offset + mem_length
+        # if current_end > end_memory:
+            # end_memory = current_end
+    # memory_handle = DevMem(base_address, length=current_end)
+    # for i in range(len(program_headers)):
+    #     virt_offset = program_headers[i][1]
+    #     phys_offset = program_headers[i][2]
+    #     mem_length = program_headers[i][4]
+    #     memory_handle.write(phys_offset, elf_segments[i])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -90,4 +93,4 @@ if __name__ == "__main__":
     program_headers = get_program_headers(args.elf)
     elf_segments = get_program_segments(program_headers, args.elf)
     base_address = int(args.base_address, 16)
-    write_segements_to_memory(program_headers, elf_segments, base_address)
+    write_segments_to_memory(program_headers, elf_segments, base_address)

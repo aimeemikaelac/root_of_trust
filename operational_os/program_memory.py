@@ -69,7 +69,7 @@ def get_program_segments(program_headers, elf_file):
 
 def write_segments_to_memory(program_headers, elf_segments, base_address):
     # end_memory = 0
-    for header_index in range(length(program_headers)):
+    for header_index in range(len(program_headers)):
         header = program_headers[header_index]
         phys_offset = header[1]
         mem_length = header[4]

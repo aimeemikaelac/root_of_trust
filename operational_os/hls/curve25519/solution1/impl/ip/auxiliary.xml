@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="curve25519_donna" xd:componentRef="curve25519_donna" xd:initiationInterval="502159" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:returnValue xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x10" xd:statusOffset="0x14" xd:dataWidth="32"/>
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="mypublic_in[]" xd:originalName="mypublic_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:arg xd:name="secret_in[]" xd:originalName="secret_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x40" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:arg xd:name="basepoint_in[]" xd:originalName="basepoint_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x60" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:arg xd:name="mypublic_out[]" xd:originalName="mypublic_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x80" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:arg xd:name="secret_out[]" xd:originalName="secret_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0xA0" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:arg xd:name="basepoint_out[]" xd:originalName="basepoint_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0xC0" xd:arraySize="32" xd:dataWidth="8"/>
+  <xd:latencyEstimates xd:best-case="502158" xd:worst-case="502158" xd:average-case="502158"/>
+  <xd:resourceEstimates xd:LUT="35276" xd:FF="34322" xd:BRAM="95" xd:DSP="39"/>
+</xd:acceleratorMap>

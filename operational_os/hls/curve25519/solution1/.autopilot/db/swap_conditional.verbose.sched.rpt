@@ -1,0 +1,214 @@
+
+
+================================================================
+== Vivado HLS Report for 'swap_conditional'
+================================================================
+* Date:           Wed May 31 17:58:30 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        curve25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.58|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   21|   21|   21|   21|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   20|   20|         2|          -|          -|    10|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_1)
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: iswap_read (4)  [1/1] 0.00ns
+:0  %iswap_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %iswap)
+
+ST_1: swap_cast (5)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:777
+:1  %swap_cast = select i1 %iswap_read, i32 -1, i32 0
+
+ST_1: StgValue_6 (6)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:779
+:2  br label %1
+
+
+ <State 2>: 1.24ns
+ST_2: i (8)  [1/1] 0.00ns
+:0  %i = phi i4 [ 0, %0 ], [ %i_1, %2 ]
+
+ST_2: tmp_1 (9)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:779
+:1  %tmp_1 = icmp eq i4 %i, -6
+
+ST_2: empty (10)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)
+
+ST_2: i_1 (11)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:779
+:3  %i_1 = add i4 %i, 1
+
+ST_2: StgValue_11 (12)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:779
+:4  br i1 %tmp_1, label %3, label %2
+
+ST_2: tmp_2 (14)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780
+:0  %tmp_2 = zext i4 %i to i64
+
+ST_2: a_addr (15)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780
+:1  %a_addr = getelementptr [19 x i64]* %a, i64 0, i64 %tmp_2
+
+ST_2: a_load (16)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:780
+:2  %a_load = load i64* %a_addr, align 8
+
+ST_2: b_addr (18)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780
+:4  %b_addr = getelementptr [19 x i64]* %b, i64 0, i64 %tmp_2
+
+ST_2: b_load (19)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:780
+:5  %b_load = load i64* %b_addr, align 8
+
+ST_2: StgValue_17 (31)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:784
+:0  ret void
+
+
+ <State 3>: 2.58ns
+ST_3: a_load (16)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:780
+:2  %a_load = load i64* %a_addr, align 8
+
+ST_3: tmp (17)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780
+:3  %tmp = trunc i64 %a_load to i32
+
+ST_3: b_load (19)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:780
+:5  %b_load = load i64* %b_addr, align 8
+
+ST_3: tmp_3 (20)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780
+:6  %tmp_3 = trunc i64 %b_load to i32
+
+ST_3: tmp_5 (21)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:780 (grouped into LUT with out node x)
+:7  %tmp_5 = xor i32 %tmp_3, %tmp
+
+ST_3: x (22)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:780 (out node of the LUT)
+:8  %x = and i32 %tmp_5, %swap_cast
+
+ST_3: tmp_6 (23)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:781
+:9  %tmp_6 = xor i32 %x, %tmp
+
+ST_3: tmp_7 (24)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:781
+:10  %tmp_7 = sext i32 %tmp_6 to i64
+
+ST_3: StgValue_26 (25)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:781
+:11  store i64 %tmp_7, i64* %a_addr, align 8
+
+ST_3: tmp_9 (26)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:782
+:12  %tmp_9 = xor i32 %tmp_3, %x
+
+ST_3: tmp_s (27)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:782
+:13  %tmp_s = sext i32 %tmp_9 to i64
+
+ST_3: StgValue_29 (28)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:782
+:14  store i64 %tmp_s, i64* %b_addr, align 8
+
+ST_3: StgValue_30 (29)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:779
+:15  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:779) [8]  (0.656 ns)
+
+ <State 2>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:779) [8]  (0 ns)
+	'getelementptr' operation ('a_addr', curve25519/src/curve25519-donna.c:780) [15]  (0 ns)
+	'load' operation ('a_load', curve25519/src/curve25519-donna.c:780) on array 'a' [16]  (1.24 ns)
+
+ <State 3>: 2.58ns
+The critical path consists of the following:
+	'load' operation ('a_load', curve25519/src/curve25519-donna.c:780) on array 'a' [16]  (1.24 ns)
+	'xor' operation ('tmp_5', curve25519/src/curve25519-donna.c:780) [21]  (0 ns)
+	'and' operation ('x', curve25519/src/curve25519-donna.c:780) [22]  (0.051 ns)
+	'xor' operation ('tmp_6', curve25519/src/curve25519-donna.c:781) [23]  (0.051 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:781) of variable 'tmp_7', curve25519/src/curve25519-donna.c:781 on array 'a' [25]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

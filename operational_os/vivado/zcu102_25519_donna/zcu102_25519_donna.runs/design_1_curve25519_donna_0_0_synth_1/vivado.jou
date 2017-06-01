@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed May 31 18:02:02 2017
+# Process ID: 20427
+# Current directory: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.runs/design_1_curve25519_donna_0_0_synth_1
+# Command line: vivado -log design_1_curve25519_donna_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_curve25519_donna_0_0.tcl
+# Log file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.runs/design_1_curve25519_donna_0_0_synth_1/design_1_curve25519_donna_0_0.vds
+# Journal file: /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.runs/design_1_curve25519_donna_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_curve25519_donna_0_0.tcl -notrace

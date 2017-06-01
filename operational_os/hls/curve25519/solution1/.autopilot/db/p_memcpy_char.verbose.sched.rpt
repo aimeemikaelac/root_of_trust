@@ -1,0 +1,177 @@
+
+
+================================================================
+== Vivado HLS Report for 'p_memcpy_char'
+================================================================
+* Date:           Wed May 31 17:58:30 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        curve25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      1.35|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   65|   65|   65|   65|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   64|   64|         2|          -|          -|    32|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: empty (3)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([32 x i8]* %dst, [1 x i8]* @p_str14, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str14, i32 -1, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14)
+
+ST_1: empty_260 (4)  [1/1] 0.00ns
+:1  %empty_260 = call i32 (...)* @_ssdm_op_SpecMemCore([32 x i8]* %src, [1 x i8]* @p_str11, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str11, i32 -1, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11)
+
+ST_1: StgValue_6 (5)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:68
+:2  br label %1
+
+
+ <State 2>: 1.11ns
+ST_2: i (7)  [1/1] 0.00ns
+:0  %i = phi i6 [ 0, %0 ], [ %i_27, %2 ]
+
+ST_2: exitcond (8)  [1/1] 0.71ns  loc: curve25519/src/curve25519-donna.c:68
+:1  %exitcond = icmp eq i6 %i, -32
+
+ST_2: empty_261 (9)  [1/1] 0.00ns
+:2  %empty_261 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_2: i_27 (10)  [1/1] 1.11ns  loc: curve25519/src/curve25519-donna.c:68
+:3  %i_27 = add i6 %i, 1
+
+ST_2: StgValue_11 (11)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:68
+:4  br i1 %exitcond, label %3, label %2
+
+ST_2: tmp (13)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:69
+:0  %tmp = zext i6 %i to i64
+
+ST_2: src_addr (14)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:69
+:1  %src_addr = getelementptr [32 x i8]* %src, i64 0, i64 %tmp
+
+ST_2: src_load (15)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:69
+:2  %src_load = load i8* %src_addr, align 1
+
+ST_2: StgValue_15 (20)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:71
+:0  ret void
+
+
+ <State 3>: 1.35ns
+ST_3: src_load (15)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:69
+:2  %src_load = load i8* %src_addr, align 1
+
+ST_3: dst_addr (16)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:69
+:3  %dst_addr = getelementptr [32 x i8]* %dst, i64 0, i64 %tmp
+
+ST_3: StgValue_18 (17)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:69
+:4  store i8 %src_load, i8* %dst_addr, align 1
+
+ST_3: StgValue_19 (18)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:68
+:5  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:68) [7]  (0.656 ns)
+
+ <State 2>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:68) [7]  (0 ns)
+	'add' operation ('i', curve25519/src/curve25519-donna.c:68) [10]  (1.11 ns)
+
+ <State 3>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('src_load', curve25519/src/curve25519-donna.c:69) on array 'src' [15]  (0.677 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:69) of variable 'src_load', curve25519/src/curve25519-donna.c:69 on array 'dst' [17]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

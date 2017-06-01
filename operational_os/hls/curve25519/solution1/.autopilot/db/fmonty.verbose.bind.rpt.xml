@@ -1,0 +1,59 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'fmonty'" level="0">
+<item name = "Date">Wed May 31 17:58:32 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">curve25519</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.11, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1297, 1297, 1297, 1297, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_fsquare_fu_331">fsquare, 136, 136, 136, 136, none</column>
+<column name="grp_fsquare_fu_338">fsquare, 136, 136, 136, 136, none</column>
+<column name="grp_fproduct_fu_345">fproduct, 100, 100, 100, 100, none</column>
+<column name="grp_fproduct_1_fu_358">fproduct_1, 100, 100, 100, 100, none</column>
+<column name="grp_freduce_degree_fu_366">freduce_degree, 13, 13, 13, 13, none</column>
+<column name="grp_freduce_coefficients_fu_373">freduce_coefficients, 18, 18, 18, 18, none</column>
+<column name="grp_fsum_fu_380">fsum, 11, 11, 11, 11, none</column>
+<column name="grp_fdifference_1_fu_390">fdifference_1, 21, 21, 21, 21, none</column>
+<column name="grp_p_memcpy_fu_398">p_memcpy, 21, 21, 21, 21, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">20, 20, 2, -, -, 10, no</column>
+<column name="- Loop 2">20, 20, 2, -, -, 10, no</column>
+<column name="- Loop 3">20, 20, 2, -, -, 10, no</column>
+<column name="- Loop 4">18, 18, 2, -, -, 9, no</column>
+<column name="- Loop 5">30, 30, 3, -, -, 10, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

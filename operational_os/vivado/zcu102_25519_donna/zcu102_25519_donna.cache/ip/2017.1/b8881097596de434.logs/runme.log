@@ -1,0 +1,62 @@
+
+*** Running vivado
+    with args -log design_1_rst_ps8_0_99M_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_rst_ps8_0_99M_0.tcl
+
+
+****** Vivado v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source design_1_rst_ps8_0_99M_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1501.902 ; gain = 0.000 ; free physical = 14808 ; free virtual = 25583
+INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps8_0_99M_0' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_99M_0/synth/design_1_rst_ps8_0_99M_0.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-638] synthesizing module 'lpf' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'SRL16' [/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:43657]
+INFO: [Synth 8-256] done synthesizing module 'SRL16' (1#1) [/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:43657]
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (2#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (3#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'sequence_psr' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-638] synthesizing module 'upcnt_n' [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (4#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (5#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (6#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-256] done synthesizing module 'design_1_rst_ps8_0_99M_0' (7#1) [/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu102_25519_donna/zcu102_25519_donna.srcs/sources_1/bd/design_1/ip/design_1_rst_ps8_0_99M_0/synth/design_1_rst_ps8_0_99M_0.vhd:74]
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1501.902 ; gain = 0.000 ; free physical = 14751 ; free virtual = 25528
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1501.902 ; gain = 0.000 ; free physical = 14724 ; free virtual = 25502
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2059.004 ; gain = 1.000 ; free physical = 13502 ; free virtual = 24411
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2059.004 ; gain = 557.102 ; free physical = 13130 ; free virtual = 24040
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2059.004 ; gain = 557.102 ; free physical = 13130 ; free virtual = 24040
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2059.004 ; gain = 557.102 ; free physical = 13132 ; free virtual = 24042
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2059.004 ; gain = 557.102 ; free physical = 13108 ; free virtual = 24018
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2059.004 ; gain = 557.102 ; free physical = 13101 ; free virtual = 24012
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2652.980 ; gain = 1151.078 ; free physical = 11901 ; free virtual = 22844
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2652.980 ; gain = 1151.078 ; free physical = 11893 ; free virtual = 22836
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11891 ; free virtual = 22835
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |LUT1  |     5|
+|2     |LUT2  |     9|
+|3     |LUT3  |     1|
+|4     |LUT4  |     6|
+|5     |LUT5  |     3|
+|6     |LUT6  |     1|
+|7     |SRL16 |     1|
+|8     |FDR   |     8|
+|9     |FDRE  |    28|
+|10    |FDSE  |     4|
++------+------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 2672.012 ; gain = 1170.109 ; free physical = 11886 ; free virtual = 22830
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 2726.660 ; gain = 1290.422 ; free physical = 11862 ; free virtual = 22807

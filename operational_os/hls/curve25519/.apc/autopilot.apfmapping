@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="curve25519-donna.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/curve25519/src/curve25519-donna.c"/>
+  </source>
+  <testbench>
+    <originFiles name="donna_tb.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/curve25519/src/donna_tb.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

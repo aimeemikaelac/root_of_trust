@@ -1,0 +1,1789 @@
+
+
+================================================================
+== Vivado HLS Report for 'fcontract'
+================================================================
+* Date:           Wed May 31 17:58:37 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        curve25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.97|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  214|  214|  214|  214|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   20|   20|         2|          -|          -|    10|    no    |
+        |- Loop 2     |   60|   60|        30|          -|          -|     2|    no    |
+        | + Loop 2.1  |   27|   27|         3|          -|          -|     9|    no    |
+        |- Loop 3     |   60|   60|        30|          -|          -|     2|    no    |
+        | + Loop 3.1  |   27|   27|         3|          -|          -|     9|    no    |
+        |- Loop 4     |   18|   18|         2|          -|          -|     9|    no    |
+        |- Loop 5     |   18|   18|         2|          -|          -|     9|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 50
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond6)
+	4  / (exitcond6)
+3 --> 
+	2  / true
+4 --> 
+	9  / (exitcond5)
+	5  / (!exitcond5)
+5 --> 
+	6  / (!exitcond4)
+	8  / (exitcond4)
+6 --> 
+	7  / true
+7 --> 
+	5  / true
+8 --> 
+	4  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / (!exitcond3)
+	15  / (exitcond3)
+11 --> 
+	12  / (!exitcond2)
+	14  / (exitcond2)
+12 --> 
+	13  / true
+13 --> 
+	11  / true
+14 --> 
+	10  / true
+15 --> 
+	16  / (!exitcond1)
+	17  / (exitcond1)
+16 --> 
+	15  / true
+17 --> 
+	18  / (!exitcond)
+	19  / (exitcond)
+18 --> 
+	17  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: empty (3)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([32 x i8]* %output_r, [1 x i8]* @p_str11, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str11, i32 -1, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11, [1 x i8]* @p_str11)
+
+ST_1: output_addr (4)  [1/1] 0.00ns
+:1  %output_addr = getelementptr [32 x i8]* %output_r, i64 0, i64 0
+
+ST_1: input (5)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:528
+:2  %input = alloca [10 x i32], align 16
+
+ST_1: StgValue_54 (6)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:532
+:3  br label %1
+
+
+ <State 2>: 1.12ns
+ST_2: i (8)  [1/1] 0.00ns
+:0  %i = phi i4 [ 0, %0 ], [ %i_6, %2 ]
+
+ST_2: exitcond6 (9)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:532
+:1  %exitcond6 = icmp eq i4 %i, -6
+
+ST_2: empty_27 (10)  [1/1] 0.00ns
+:2  %empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)
+
+ST_2: i_6 (11)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:532
+:3  %i_6 = add i4 %i, 1
+
+ST_2: StgValue_59 (12)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:532
+:4  br i1 %exitcond6, label %.preheader8.preheader, label %2
+
+ST_2: tmp (14)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:533
+:0  %tmp = zext i4 %i to i64
+
+ST_2: input_limbs_addr (15)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:533
+:1  %input_limbs_addr = getelementptr [11 x i64]* %input_limbs, i64 0, i64 %tmp
+
+ST_2: input_limbs_load (16)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:533
+:2  %input_limbs_load = load i64* %input_limbs_addr, align 8
+
+ST_2: input_addr (22)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:556
+.preheader8.preheader:0  %input_addr = getelementptr inbounds [10 x i32]* %input, i64 0, i64 9
+
+ST_2: input_addr_31 (23)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:559
+.preheader8.preheader:1  %input_addr_31 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 0
+
+ST_2: StgValue_65 (24)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:536
+.preheader8.preheader:2  br label %.preheader8
+
+
+ <State 3>: 1.35ns
+ST_3: input_limbs_load (16)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:533
+:2  %input_limbs_load = load i64* %input_limbs_addr, align 8
+
+ST_3: tmp_881 (17)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:533
+:3  %tmp_881 = trunc i64 %input_limbs_load to i32
+
+ST_3: input_addr_32 (18)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:533
+:4  %input_addr_32 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp
+
+ST_3: StgValue_69 (19)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:533
+:5  store i32 %tmp_881, i32* %input_addr_32, align 4
+
+ST_3: StgValue_70 (20)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:532
+:6  br label %1
+
+
+ <State 4>: 0.88ns
+ST_4: j (26)  [1/1] 0.00ns
+.preheader8:0  %j = phi i2 [ %j_2, %7 ], [ 0, %.preheader8.preheader ]
+
+ST_4: exitcond5 (27)  [1/1] 0.09ns  loc: curve25519/src/curve25519-donna.c:536
+.preheader8:1  %exitcond5 = icmp eq i2 %j, -2
+
+ST_4: empty_28 (28)  [1/1] 0.00ns
+.preheader8:2  %empty_28 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
+
+ST_4: j_2 (29)  [1/1] 0.88ns  loc: curve25519/src/curve25519-donna.c:536
+.preheader8:3  %j_2 = add i2 %j, 1
+
+ST_4: StgValue_75 (30)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:536
+.preheader8:4  br i1 %exitcond5, label %8, label %.preheader7.preheader
+
+ST_4: StgValue_76 (32)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:537
+.preheader7.preheader:0  br label %.preheader7
+
+ST_4: input_load (91)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:580
+:0  %input_load = load i32* %input_addr_31, align 16
+
+ST_4: input_addr_33 (100)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:583
+:9  %input_addr_33 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 1
+
+ST_4: input_load_32 (101)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:583
+:10  %input_load_32 = load i32* %input_addr_33, align 4
+
+
+ <State 5>: 1.12ns
+ST_5: i_1 (34)  [1/1] 0.00ns
+.preheader7:0  %i_1 = phi i4 [ %i_7, %6 ], [ 0, %.preheader7.preheader ]
+
+ST_5: tmp_883 (35)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:537
+.preheader7:1  %tmp_883 = trunc i4 %i_1 to i1
+
+ST_5: exitcond4 (36)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:537
+.preheader7:2  %exitcond4 = icmp eq i4 %i_1, -7
+
+ST_5: empty_29 (37)  [1/1] 0.00ns
+.preheader7:3  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+
+ST_5: i_7 (38)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:537
+.preheader7:4  %i_7 = add i4 1, %i_1
+
+ST_5: StgValue_85 (39)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:537
+.preheader7:5  br i1 %exitcond4, label %7, label %3
+
+ST_5: tmp_758 (41)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:546
+:0  %tmp_758 = zext i4 %i_1 to i64
+
+ST_5: input_addr_34 (42)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:546
+:1  %input_addr_34 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_758
+
+ST_5: input_load_35 (43)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:546
+:2  %input_load_35 = load i32* %input_addr_34, align 4
+
+ST_5: input_load_33 (75)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:556
+:0  %input_load_33 = load i32* %input_addr, align 4
+
+ST_5: input_load_34 (84)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:559
+:9  %input_load_34 = load i32* %input_addr_31, align 16
+
+
+ <State 6>: 2.78ns
+ST_6: input_load_35 (43)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:546
+:2  %input_load_35 = load i32* %input_addr_34, align 4
+
+ST_6: tmp_886 (44)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:546 (grouped into LUT with out node tmp_759)
+:3  %tmp_886 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %input_load_35, i32 31)
+
+ST_6: mask_4 (45)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:546 (grouped into LUT with out node tmp_759)
+:4  %mask_4 = select i1 %tmp_886, i32 -1, i32 0
+
+ST_6: tmp_759 (46)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:547 (out node of the LUT)
+:5  %tmp_759 = and i32 %input_load_35, %mask_4
+
+ST_6: StgValue_95 (47)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:538
+:6  br i1 %tmp_883, label %4, label %5
+
+ST_6: tmp_387 (49)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:547
+:0  %tmp_387 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_759, i32 26, i32 31)
+
+ST_6: p_shl3 (51)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:548
+:2  %p_shl3 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_387, i26 0)
+
+ST_6: tmp_765 (52)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:548
+:3  %tmp_765 = sub i32 %input_load_35, %p_shl3
+
+ST_6: StgValue_99 (53)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:548
+:4  store i32 %tmp_765, i32* %input_addr_34, align 4
+
+ST_6: tmp_766 (54)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:549
+:5  %tmp_766 = zext i4 %i_7 to i64
+
+ST_6: input_addr_35 (55)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:549
+:6  %input_addr_35 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_766
+
+ST_6: input_load_36 (56)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:549
+:7  %input_load_36 = load i32* %input_addr_35, align 4
+
+ST_6: tmp_389 (61)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:542
+:0  %tmp_389 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_759, i32 25, i32 31)
+
+ST_6: p_shl (63)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:543
+:2  %p_shl = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_389, i25 0)
+
+ST_6: tmp_761 (64)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:543
+:3  %tmp_761 = sub i32 %input_load_35, %p_shl
+
+ST_6: StgValue_106 (65)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:543
+:4  store i32 %tmp_761, i32* %input_addr_34, align 4
+
+ST_6: tmp_762 (66)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:544
+:5  %tmp_762 = zext i4 %i_7 to i64
+
+ST_6: input_addr_36 (67)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:544
+:6  %input_addr_36 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_762
+
+ST_6: input_load_37 (68)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:544
+:7  %input_load_37 = load i32* %input_addr_36, align 4
+
+
+ <State 7>: 2.70ns
+ST_7: tmp_764 (50)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:547
+:1  %tmp_764 = sext i6 %tmp_387 to i32
+
+ST_7: input_load_36 (56)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:549
+:7  %input_load_36 = load i32* %input_addr_35, align 4
+
+ST_7: tmp_767 (57)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:549
+:8  %tmp_767 = add nsw i32 %input_load_36, %tmp_764
+
+ST_7: StgValue_113 (58)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:549
+:9  store i32 %tmp_767, i32* %input_addr_35, align 4
+
+ST_7: StgValue_114 (59)  [1/1] 0.00ns
+:10  br label %6
+
+ST_7: tmp_760 (62)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:542
+:1  %tmp_760 = sext i7 %tmp_389 to i32
+
+ST_7: input_load_37 (68)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:544
+:7  %input_load_37 = load i32* %input_addr_36, align 4
+
+ST_7: tmp_763 (69)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:544
+:8  %tmp_763 = add nsw i32 %input_load_37, %tmp_760
+
+ST_7: StgValue_118 (70)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:544
+:9  store i32 %tmp_763, i32* %input_addr_36, align 4
+
+ST_7: StgValue_119 (71)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:545
+:10  br label %6
+
+ST_7: StgValue_120 (73)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:537
+:0  br label %.preheader7
+
+
+ <State 8>: 3.97ns
+ST_8: input_load_33 (75)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:556
+:0  %input_load_33 = load i32* %input_addr, align 4
+
+ST_8: tmp_885 (76)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:556 (grouped into LUT with out node tmp_754)
+:1  %tmp_885 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %input_load_33, i32 31)
+
+ST_8: mask_3 (77)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:556 (grouped into LUT with out node tmp_754)
+:2  %mask_3 = select i1 %tmp_885, i32 -1, i32 0
+
+ST_8: tmp_754 (78)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:557 (out node of the LUT)
+:3  %tmp_754 = and i32 %input_load_33, %mask_3
+
+ST_8: tmp_383 (79)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:557
+:4  %tmp_383 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_754, i32 25, i32 31)
+
+ST_8: tmp_935_cast (80)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:558
+:5  %tmp_935_cast = sext i7 %tmp_383 to i13
+
+ST_8: p_shl2 (81)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:558
+:6  %p_shl2 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_383, i25 0)
+
+ST_8: tmp_755 (82)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:558
+:7  %tmp_755 = sub i32 %input_load_33, %p_shl2
+
+ST_8: StgValue_129 (83)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:558
+:8  store i32 %tmp_755, i32* %input_addr, align 4
+
+ST_8: input_load_34 (84)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:559
+:9  %input_load_34 = load i32* %input_addr_31, align 16
+
+ST_8: tmp_756 (85)  [1/1] 0.49ns  loc: curve25519/src/curve25519-donna.c:559
+:10  %tmp_756 = mul i13 19, %tmp_935_cast
+
+ST_8: tmp_937_cast (86)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:559
+:11  %tmp_937_cast = sext i13 %tmp_756 to i32
+
+ST_8: tmp_757 (87)  [1/1] 2.04ns  loc: curve25519/src/curve25519-donna.c:559
+:12  %tmp_757 = add i32 %input_load_34, %tmp_937_cast
+
+ST_8: StgValue_134 (88)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:559
+:13  store i32 %tmp_757, i32* %input_addr_31, align 16
+
+ST_8: StgValue_135 (89)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:536
+:14  br label %.preheader8
+
+
+ <State 9>: 2.78ns
+ST_9: input_load (91)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:580
+:0  %input_load = load i32* %input_addr_31, align 16
+
+ST_9: tmp_882 (92)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:580 (grouped into LUT with out node tmp_s)
+:1  %tmp_882 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %input_load, i32 31)
+
+ST_9: mask (93)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:580 (grouped into LUT with out node tmp_s)
+:2  %mask = select i1 %tmp_882, i32 -1, i32 0
+
+ST_9: tmp_s (94)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:581 (out node of the LUT)
+:3  %tmp_s = and i32 %input_load, %mask
+
+ST_9: tmp_379 (95)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:581
+:4  %tmp_379 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_s, i32 26, i32 31)
+
+ST_9: tmp_751 (96)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:581
+:5  %tmp_751 = sext i6 %tmp_379 to i32
+
+ST_9: p_shl1 (97)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:582
+:6  %p_shl1 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_379, i26 0)
+
+ST_9: tmp_752 (98)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:582
+:7  %tmp_752 = sub i32 %input_load, %p_shl1
+
+ST_9: StgValue_144 (99)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:582
+:8  store i32 %tmp_752, i32* %input_addr_31, align 16
+
+ST_9: input_load_32 (101)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:583
+:10  %input_load_32 = load i32* %input_addr_33, align 4
+
+ST_9: tmp_753 (102)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:583
+:11  %tmp_753 = add nsw i32 %input_load_32, %tmp_751
+
+ST_9: StgValue_147 (103)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:583
+:12  store i32 %tmp_753, i32* %input_addr_33, align 4
+
+ST_9: StgValue_148 (104)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:588
+:13  br label %9
+
+
+ <State 10>: 2.08ns
+ST_10: a_assign (106)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:582
+:0  %a_assign = phi i32 [ %tmp_752, %8 ], [ %tmp_772, %14 ]
+
+ST_10: j_1 (107)  [1/1] 0.00ns
+:1  %j_1 = phi i2 [ 0, %8 ], [ %j_3, %14 ]
+
+ST_10: exitcond3 (108)  [1/1] 0.09ns  loc: curve25519/src/curve25519-donna.c:588
+:2  %exitcond3 = icmp eq i2 %j_1, -2
+
+ST_10: empty_30 (109)  [1/1] 0.00ns
+:3  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
+
+ST_10: j_3 (110)  [1/1] 0.88ns  loc: curve25519/src/curve25519-donna.c:588
+:4  %j_3 = add i2 %j_1, 1
+
+ST_10: StgValue_154 (111)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:588
+:5  br i1 %exitcond3, label %15, label %.preheader.preheader
+
+ST_10: StgValue_155 (113)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:589
+.preheader.preheader:0  br label %.preheader
+
+ST_10: a_assign_1 (166)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:515->curve25519/src/curve25519-donna.c:618
+:0  %a_assign_1 = add nsw i32 -67108845, %a_assign
+
+ST_10: tmp_884 (167)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618 (grouped into LUT with out node mask_2_cast)
+:1  %tmp_884 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %a_assign_1, i32 31)
+
+ST_10: mask_2 (168)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618 (grouped into LUT with out node mask_2_cast)
+:2  %mask_2 = xor i1 %tmp_884, true
+
+ST_10: mask_2_cast (169)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618 (out node of the LUT)
+:3  %mask_2_cast = select i1 %mask_2, i32 -1, i32 0
+
+ST_10: StgValue_160 (170)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:619
+:4  br label %16
+
+
+ <State 11>: 1.12ns
+ST_11: i_2 (115)  [1/1] 0.00ns
+.preheader:0  %i_2 = phi i4 [ %i_9, %13 ], [ 0, %.preheader.preheader ]
+
+ST_11: tmp_887 (116)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:589
+.preheader:1  %tmp_887 = trunc i4 %i_2 to i1
+
+ST_11: exitcond2 (117)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:589
+.preheader:2  %exitcond2 = icmp eq i4 %i_2, -7
+
+ST_11: empty_31 (118)  [1/1] 0.00ns
+.preheader:3  %empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+
+ST_11: i_9 (119)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:589
+.preheader:4  %i_9 = add i4 1, %i_2
+
+ST_11: StgValue_166 (120)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:589
+.preheader:5  br i1 %exitcond2, label %14, label %10
+
+ST_11: tmp_773 (122)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:595
+:0  %tmp_773 = zext i4 %i_2 to i64
+
+ST_11: input_addr_37 (123)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:595
+:1  %input_addr_37 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_773
+
+ST_11: input_load_40 (124)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:595
+:2  %input_load_40 = load i32* %input_addr_37, align 4
+
+ST_11: input_load_38 (153)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:602
+:0  %input_load_38 = load i32* %input_addr, align 4
+
+ST_11: input_load_39 (161)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:604
+:8  %input_load_39 = load i32* %input_addr_31, align 16
+
+
+ <State 12>: 1.35ns
+ST_12: input_load_40 (124)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:595
+:2  %input_load_40 = load i32* %input_addr_37, align 4
+
+ST_12: tmp_904 (125)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:590
+:3  %tmp_904 = trunc i32 %input_load_40 to i26
+
+ST_12: tmp_905 (126)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:590
+:4  %tmp_905 = trunc i32 %input_load_40 to i25
+
+ST_12: StgValue_175 (127)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:590
+:5  br i1 %tmp_887, label %11, label %12
+
+ST_12: tmp_393 (129)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:595
+:0  %tmp_393 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %input_load_40, i32 26, i32 31)
+
+ST_12: tmp_964_cast (131)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:596
+:2  %tmp_964_cast = zext i26 %tmp_904 to i32
+
+ST_12: StgValue_178 (132)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:596
+:3  store i32 %tmp_964_cast, i32* %input_addr_37, align 4
+
+ST_12: tmp_776 (133)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:597
+:4  %tmp_776 = zext i4 %i_9 to i64
+
+ST_12: input_addr_39 (134)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:597
+:5  %input_addr_39 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_776
+
+ST_12: input_load_42 (135)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:597
+:6  %input_load_42 = load i32* %input_addr_39, align 4
+
+ST_12: tmp_395 (140)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:591
+:0  %tmp_395 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %input_load_40, i32 25, i32 31)
+
+ST_12: tmp_968_cast (142)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:592
+:2  %tmp_968_cast = zext i25 %tmp_905 to i32
+
+ST_12: StgValue_184 (143)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:592
+:3  store i32 %tmp_968_cast, i32* %input_addr_37, align 4
+
+ST_12: tmp_774 (144)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:593
+:4  %tmp_774 = zext i4 %i_9 to i64
+
+ST_12: input_addr_40 (145)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:593
+:5  %input_addr_40 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_774
+
+ST_12: input_load_43 (146)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:593
+:6  %input_load_43 = load i32* %input_addr_40, align 4
+
+
+ <State 13>: 2.70ns
+ST_13: carry_1 (130)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:595
+:1  %carry_1 = sext i6 %tmp_393 to i32
+
+ST_13: input_load_42 (135)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:597
+:6  %input_load_42 = load i32* %input_addr_39, align 4
+
+ST_13: tmp_777 (136)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:597
+:7  %tmp_777 = add nsw i32 %input_load_42, %carry_1
+
+ST_13: StgValue_191 (137)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:597
+:8  store i32 %tmp_777, i32* %input_addr_39, align 4
+
+ST_13: StgValue_192 (138)  [1/1] 0.00ns
+:9  br label %13
+
+ST_13: carry (141)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:591
+:1  %carry = sext i7 %tmp_395 to i32
+
+ST_13: input_load_43 (146)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:593
+:6  %input_load_43 = load i32* %input_addr_40, align 4
+
+ST_13: tmp_775 (147)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:593
+:7  %tmp_775 = add nsw i32 %input_load_43, %carry
+
+ST_13: StgValue_196 (148)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:593
+:8  store i32 %tmp_775, i32* %input_addr_40, align 4
+
+ST_13: StgValue_197 (149)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:594
+:9  br label %13
+
+ST_13: StgValue_198 (151)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:589
+:0  br label %.preheader
+
+
+ <State 14>: 3.89ns
+ST_14: input_load_38 (153)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:602
+:0  %input_load_38 = load i32* %input_addr, align 4
+
+ST_14: tmp_903 (154)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:602
+:1  %tmp_903 = trunc i32 %input_load_38 to i25
+
+ST_14: tmp_391 (155)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:602
+:2  %tmp_391 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %input_load_38, i32 25, i32 31)
+
+ST_14: carry_cast (156)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:602
+:3  %carry_cast = sext i7 %tmp_391 to i13
+
+ST_14: tmp_954_cast (157)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:603
+:4  %tmp_954_cast = zext i25 %tmp_903 to i32
+
+ST_14: StgValue_204 (158)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:603
+:5  store i32 %tmp_954_cast, i32* %input_addr, align 4
+
+ST_14: tmp_771 (159)  [1/1] 0.49ns  loc: curve25519/src/curve25519-donna.c:604
+:6  %tmp_771 = mul i13 19, %carry_cast
+
+ST_14: tmp_955_cast (160)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:604
+:7  %tmp_955_cast = sext i13 %tmp_771 to i32
+
+ST_14: input_load_39 (161)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:604
+:8  %input_load_39 = load i32* %input_addr_31, align 16
+
+ST_14: tmp_772 (162)  [1/1] 2.04ns  loc: curve25519/src/curve25519-donna.c:604
+:9  %tmp_772 = add nsw i32 %tmp_955_cast, %input_load_39
+
+ST_14: StgValue_209 (163)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:604
+:10  store i32 %tmp_772, i32* %input_addr_31, align 16
+
+ST_14: StgValue_210 (164)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:588
+:11  br label %9
+
+
+ <State 15>: 2.02ns
+ST_15: i_3 (172)  [1/1] 0.00ns
+:0  %i_3 = phi i4 [ 1, %15 ], [ %i_8, %_ifconv ]
+
+ST_15: mask4 (173)  [1/1] 0.00ns
+:1  %mask4 = phi i32 [ %mask_2_cast, %15 ], [ %mask_1, %_ifconv ]
+
+ST_15: exitcond1 (174)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:619
+:2  %exitcond1 = icmp eq i4 %i_3, -6
+
+ST_15: empty_32 (175)  [1/1] 0.00ns
+:3  %empty_32 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+
+ST_15: StgValue_215 (176)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:619
+:4  br i1 %exitcond1, label %17, label %_ifconv
+
+ST_15: tmp_770 (178)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:623
+_ifconv:0  %tmp_770 = zext i4 %i_3 to i64
+
+ST_15: input_addr_38 (179)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:623
+_ifconv:1  %input_addr_38 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_770
+
+ST_15: input_load_41 (180)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:623
+_ifconv:2  %input_load_41 = load i32* %input_addr_38, align 4
+
+ST_15: tmp_888 (212)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:619
+:0  %tmp_888 = trunc i32 %mask4 to i26
+
+ST_15: tmp_597 (213)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618
+:1  %tmp_597 = call i21 @_ssdm_op_PartSelect.i21.i32.i32.i32(i32 %mask4, i32 5, i32 25)
+
+ST_15: tmp_598 (214)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618
+:2  %tmp_598 = call i2 @_ssdm_op_PartSelect.i2.i32.i32.i32(i32 %mask4, i32 2, i32 3)
+
+ST_15: tmp_889 (215)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618
+:3  %tmp_889 = trunc i32 %mask4 to i1
+
+ST_15: tmp_768 (216)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:629
+:4  %tmp_768 = call i26 @_ssdm_op_BitConcatenate.i26.i21.i1.i2.i1.i1(i21 %tmp_597, i1 false, i2 %tmp_598, i1 false, i1 %tmp_889)
+
+ST_15: tmp_953_cast (217)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:629
+:5  %tmp_953_cast = zext i26 %tmp_768 to i32
+
+ST_15: tmp_769 (218)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:629
+:6  %tmp_769 = sub nsw i32 %a_assign, %tmp_953_cast
+
+ST_15: StgValue_226 (219)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:629
+:7  store i32 %tmp_769, i32* %input_addr_31, align 16
+
+ST_15: StgValue_227 (220)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:631
+:8  br label %18
+
+
+ <State 16>: 1.12ns
+ST_16: input_load_41 (180)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:623
+_ifconv:2  %input_load_41 = load i32* %input_addr_38, align 4
+
+ST_16: a_assign_3 (181)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:503->curve25519/src/curve25519-donna.c:623
+_ifconv:3  %a_assign_3 = xor i32 %input_load_41, -67108864
+
+ST_16: tmp_890 (182)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:504->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node a_assign_4)
+_ifconv:4  %tmp_890 = shl i32 %a_assign_3, 16
+
+ST_16: a_assign_4 (183)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:504->curve25519/src/curve25519-donna.c:623 (out node of the LUT)
+_ifconv:5  %a_assign_4 = and i32 %tmp_890, %a_assign_3
+
+ST_16: tmp_891 (184)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:505->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node a_assign_5)
+_ifconv:6  %tmp_891 = shl i32 %a_assign_4, 8
+
+ST_16: a_assign_5 (185)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:505->curve25519/src/curve25519-donna.c:623 (out node of the LUT)
+_ifconv:7  %a_assign_5 = and i32 %tmp_891, %a_assign_4
+
+ST_16: tmp_892 (186)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:506->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node a_assign_6)
+_ifconv:8  %tmp_892 = shl i32 %a_assign_5, 4
+
+ST_16: a_assign_6 (187)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:506->curve25519/src/curve25519-donna.c:623 (out node of the LUT)
+_ifconv:9  %a_assign_6 = and i32 %tmp_892, %a_assign_5
+
+ST_16: tmp_893 (188)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:507->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node a_assign_7)
+_ifconv:10  %tmp_893 = shl i32 %a_assign_6, 2
+
+ST_16: a_assign_7 (189)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:507->curve25519/src/curve25519-donna.c:623 (out node of the LUT)
+_ifconv:11  %a_assign_7 = and i32 %tmp_893, %a_assign_6
+
+ST_16: tmp_894 (190)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:508->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node mask_1)
+_ifconv:12  %tmp_894 = shl i32 %a_assign_7, 1
+
+ST_16: a_assign_8 (191)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:508->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node mask_1)
+_ifconv:13  %a_assign_8 = and i32 %tmp_894, %a_assign_7
+
+ST_16: a_assign_9 (192)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:503->curve25519/src/curve25519-donna.c:621
+_ifconv:14  %a_assign_9 = xor i32 %input_load_41, -33554432
+
+ST_16: tmp_895 (193)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:504->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node a_assign_s)
+_ifconv:15  %tmp_895 = shl i32 %a_assign_9, 16
+
+ST_16: a_assign_s (194)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:504->curve25519/src/curve25519-donna.c:621 (out node of the LUT)
+_ifconv:16  %a_assign_s = and i32 %tmp_895, %a_assign_9
+
+ST_16: tmp_896 (195)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:505->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node a_assign_2)
+_ifconv:17  %tmp_896 = shl i32 %a_assign_s, 8
+
+ST_16: a_assign_2 (196)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:505->curve25519/src/curve25519-donna.c:621 (out node of the LUT)
+_ifconv:18  %a_assign_2 = and i32 %tmp_896, %a_assign_s
+
+ST_16: tmp_897 (197)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:506->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node a_assign_10)
+_ifconv:19  %tmp_897 = shl i32 %a_assign_2, 4
+
+ST_16: a_assign_10 (198)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:506->curve25519/src/curve25519-donna.c:621 (out node of the LUT)
+_ifconv:20  %a_assign_10 = and i32 %tmp_897, %a_assign_2
+
+ST_16: tmp_898 (199)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:507->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node a_assign_11)
+_ifconv:21  %tmp_898 = shl i32 %a_assign_10, 2
+
+ST_16: a_assign_11 (200)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:507->curve25519/src/curve25519-donna.c:621 (out node of the LUT)
+_ifconv:22  %a_assign_11 = and i32 %tmp_898, %a_assign_10
+
+ST_16: tmp_899 (201)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:508->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node mask_1)
+_ifconv:23  %tmp_899 = shl i32 %a_assign_11, 1
+
+ST_16: a_assign_12 (202)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:508->curve25519/src/curve25519-donna.c:621 (grouped into LUT with out node mask_1)
+_ifconv:24  %a_assign_12 = and i32 %tmp_899, %a_assign_11
+
+ST_16: tmp_900 (203)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:509->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node mask_1)
+_ifconv:25  %tmp_900 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %a_assign_12, i32 31)
+
+ST_16: tmp_901 (204)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:509->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node mask_1)
+_ifconv:26  %tmp_901 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %a_assign_8, i32 31)
+
+ST_16: tmp_902 (205)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:619 (grouped into LUT with out node mask_1)
+_ifconv:27  %tmp_902 = trunc i4 %i_3 to i1
+
+ST_16: tmp_612 (206)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:619 (grouped into LUT with out node mask_1)
+_ifconv:28  %tmp_612 = select i1 %tmp_902, i1 %tmp_900, i1 %tmp_901
+
+ST_16: p_pn (207)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:509->curve25519/src/curve25519-donna.c:623 (grouped into LUT with out node mask_1)
+_ifconv:29  %p_pn = select i1 %tmp_612, i32 -1, i32 0
+
+ST_16: mask_1 (208)  [1/1] 0.08ns  loc: curve25519/src/curve25519-donna.c:621 (out node of the LUT)
+_ifconv:30  %mask_1 = and i32 %p_pn, %mask4
+
+ST_16: i_8 (209)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:619
+_ifconv:31  %i_8 = add i4 1, %i_3
+
+ST_16: StgValue_258 (210)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:619
+_ifconv:32  br label %16
+
+
+ <State 17>: 0.68ns
+ST_17: i_4 (222)  [1/1] 0.00ns
+:0  %i_4 = phi i4 [ 1, %17 ], [ %i_13, %19 ]
+
+ST_17: exitcond (223)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:631
+:1  %exitcond = icmp eq i4 %i_4, -6
+
+ST_17: empty_33 (224)  [1/1] 0.00ns
+:2  %empty_33 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+
+ST_17: StgValue_262 (225)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:631
+:3  br i1 %exitcond, label %20, label %19
+
+ST_17: tmp_824 (227)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:635
+:0  %tmp_824 = zext i4 %i_4 to i64
+
+ST_17: input_addr_48 (228)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:635
+:1  %input_addr_48 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 %tmp_824
+
+ST_17: input_load_54 (229)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:635
+:2  %input_load_54 = load i32* %input_addr_48, align 4
+
+ST_17: input_load_44 (239)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:639
+:0  %input_load_44 = load i32* %input_addr_33, align 4
+
+
+ <State 18>: 2.70ns
+ST_18: input_load_54 (229)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:635
+:2  %input_load_54 = load i32* %input_addr_48, align 4
+
+ST_18: tmp_924 (230)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:631 (grouped into LUT with out node storemerge)
+:3  %tmp_924 = trunc i4 %i_4 to i1
+
+ST_18: tmp_1121_pn_v (231)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:632 (grouped into LUT with out node storemerge)
+:4  %tmp_1121_pn_v = select i1 %tmp_924, i26 33554431, i26 -1
+
+ST_18: tmp_1121_pn (232)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:632 (grouped into LUT with out node storemerge)
+:5  %tmp_1121_pn = and i26 %tmp_888, %tmp_1121_pn_v
+
+ST_18: tmp_1121_pn_cast (233)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:632 (grouped into LUT with out node storemerge)
+:6  %tmp_1121_pn_cast = zext i26 %tmp_1121_pn to i32
+
+ST_18: storemerge (234)  [1/1] 1.34ns  loc: curve25519/src/curve25519-donna.c:635 (out node of the LUT)
+:7  %storemerge = sub nsw i32 %input_load_54, %tmp_1121_pn_cast
+
+ST_18: StgValue_273 (235)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:635
+:8  store i32 %storemerge, i32* %input_addr_48, align 4
+
+ST_18: i_13 (236)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:631
+:9  %i_13 = add i4 1, %i_4
+
+ST_18: StgValue_275 (237)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:631
+:10  br label %18
+
+
+ <State 19>: 1.35ns
+ST_19: input_load_44 (239)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:639
+:0  %input_load_44 = load i32* %input_addr_33, align 4
+
+ST_19: input_addr_42 (246)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:641
+:7  %input_addr_42 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 3
+
+ST_19: input_load_46 (247)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:641
+:8  %input_load_46 = load i32* %input_addr_42, align 4
+
+ST_19: tmp_915 (281)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:639
+:42  %tmp_915 = trunc i32 %input_load_44 to i6
+
+ST_19: tmp_783 (285)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:46  %tmp_783 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_44, i32 6, i32 13)
+
+ST_19: output_addr_160 (286)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:47  %output_addr_160 = getelementptr [32 x i8]* %output_r, i64 0, i64 4
+
+ST_19: StgValue_282 (287)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:655
+:48  store i8 %tmp_783, i8* %output_addr_160, align 1
+
+ST_19: tmp_784 (288)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:49  %tmp_784 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_44, i32 14, i32 21)
+
+ST_19: tmp_785 (291)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:52  %tmp_785 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_44, i32 22, i32 29)
+
+
+ <State 20>: 0.68ns
+ST_20: input_addr_41 (242)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:640
+:3  %input_addr_41 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 2
+
+ST_20: input_load_45 (243)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:640
+:4  %input_load_45 = load i32* %input_addr_41, align 8
+
+ST_20: input_load_46 (247)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:641
+:8  %input_load_46 = load i32* %input_addr_42, align 4
+
+ST_20: input_addr_44 (254)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:643
+:15  %input_addr_44 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 6
+
+ST_20: input_load_48 (255)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:643
+:16  %input_load_48 = load i32* %input_addr_44, align 8
+
+ST_20: output_addr_161 (289)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:50  %output_addr_161 = getelementptr [32 x i8]* %output_r, i64 0, i64 5
+
+ST_20: StgValue_291 (290)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:655
+:51  store i8 %tmp_784, i8* %output_addr_161, align 1
+
+ST_20: tmp_917 (305)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:641
+:66  %tmp_917 = trunc i32 %input_load_46 to i3
+
+ST_20: tmp_793 (309)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:70  %tmp_793 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_46, i32 3, i32 10)
+
+ST_20: tmp_794 (312)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:73  %tmp_794 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_46, i32 11, i32 18)
+
+ST_20: tmp_795 (315)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:76  %tmp_795 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_46, i32 19, i32 26)
+
+
+ <State 21>: 1.41ns
+ST_21: input_load_45 (243)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:640
+:4  %input_load_45 = load i32* %input_addr_41, align 8
+
+ST_21: input_load_48 (255)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:643
+:16  %input_load_48 = load i32* %input_addr_44, align 8
+
+ST_21: input_addr_46 (262)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:645
+:23  %input_addr_46 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 8
+
+ST_21: input_load_50 (263)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:645
+:24  %input_load_50 = load i32* %input_addr_46, align 16
+
+ST_21: output_addr_162 (292)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:53  %output_addr_162 = getelementptr [32 x i8]* %output_r, i64 0, i64 6
+
+ST_21: tmp_916 (293)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:640
+:54  %tmp_916 = trunc i32 %input_load_45 to i5
+
+ST_21: tmp_786 (294)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:55  %tmp_786 = call i8 @_ssdm_op_BitConcatenate.i8.i5.i3(i5 %tmp_916, i3 0)
+
+ST_21: tmp_787 (295)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:656
+:56  %tmp_787 = or i8 %tmp_786, %tmp_785
+
+ST_21: StgValue_304 (296)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:656
+:57  store i8 %tmp_787, i8* %output_addr_162, align 1
+
+ST_21: tmp_788 (297)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:58  %tmp_788 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_45, i32 5, i32 12)
+
+ST_21: tmp_789 (300)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:61  %tmp_789 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_45, i32 13, i32 20)
+
+ST_21: tmp_790 (303)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:64  %tmp_790 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_45, i32 21, i32 28)
+
+ST_21: tmp_791 (306)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:67  %tmp_791 = call i8 @_ssdm_op_BitConcatenate.i8.i3.i5(i3 %tmp_917, i5 0)
+
+ST_21: tmp_792 (307)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:657
+:68  %tmp_792 = or i8 %tmp_791, %tmp_790
+
+ST_21: tmp_920 (342)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:643
+:103  %tmp_920 = trunc i32 %input_load_48 to i7
+
+ST_21: tmp_806 (346)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:107  %tmp_806 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_48, i32 7, i32 14)
+
+ST_21: tmp_807 (349)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:110  %tmp_807 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_48, i32 15, i32 22)
+
+ST_21: tmp_808 (352)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:113  %tmp_808 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_48, i32 23, i32 30)
+
+
+ <State 22>: 0.68ns
+ST_22: input_load_50 (263)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:645
+:24  %input_load_50 = load i32* %input_addr_46, align 16
+
+ST_22: input_load_52 (270)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:654
+:31  %input_load_52 = load i32* %input_addr_31, align 16
+
+ST_22: output_addr_163 (298)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:59  %output_addr_163 = getelementptr [32 x i8]* %output_r, i64 0, i64 7
+
+ST_22: StgValue_317 (299)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:656
+:60  store i8 %tmp_788, i8* %output_addr_163, align 1
+
+ST_22: tmp_922 (366)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:645
+:127  %tmp_922 = trunc i32 %input_load_50 to i4
+
+ST_22: tmp_816 (370)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:131  %tmp_816 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_50, i32 4, i32 11)
+
+ST_22: tmp_817 (373)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:134  %tmp_817 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_50, i32 12, i32 19)
+
+ST_22: tmp_818 (376)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:137  %tmp_818 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_50, i32 20, i32 27)
+
+
+ <State 23>: 1.35ns
+ST_23: tmp_906 (240)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:639
+:1  %tmp_906 = shl i32 %input_load_44, 2
+
+ST_23: StgValue_323 (241)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:639
+:2  store i32 %tmp_906, i32* %input_addr_33, align 4
+
+ST_23: input_load_52 (270)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:654
+:31  %input_load_52 = load i32* %input_addr_31, align 16
+
+ST_23: tmp_914 (271)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:32  %tmp_914 = trunc i32 %input_load_52 to i8
+
+ST_23: StgValue_326 (272)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:654
+:33  store i8 %tmp_914, i8* %output_addr, align 1
+
+ST_23: tmp_778 (273)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:34  %tmp_778 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_52, i32 8, i32 15)
+
+ST_23: tmp_779 (276)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:37  %tmp_779 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_52, i32 16, i32 23)
+
+ST_23: tmp_780 (279)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:40  %tmp_780 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_52, i32 24, i32 31)
+
+ST_23: tmp_781 (282)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:655
+:43  %tmp_781 = call i8 @_ssdm_op_BitConcatenate.i8.i6.i2(i6 %tmp_915, i2 0)
+
+ST_23: tmp_782 (283)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:655
+:44  %tmp_782 = or i8 %tmp_780, %tmp_781
+
+
+ <State 24>: 0.68ns
+ST_24: tmp_908 (248)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:641
+:9  %tmp_908 = shl i32 %input_load_46, 5
+
+ST_24: StgValue_333 (249)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:641
+:10  store i32 %tmp_908, i32* %input_addr_42, align 4
+
+ST_24: output_addr_157 (274)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:35  %output_addr_157 = getelementptr [32 x i8]* %output_r, i64 0, i64 1
+
+ST_24: StgValue_335 (275)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:654
+:36  store i8 %tmp_778, i8* %output_addr_157, align 1
+
+
+ <State 25>: 0.68ns
+ST_25: tmp_910 (256)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:643
+:17  %tmp_910 = shl i32 %input_load_48, 1
+
+ST_25: StgValue_337 (257)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:643
+:18  store i32 %tmp_910, i32* %input_addr_44, align 8
+
+ST_25: output_addr_158 (277)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:38  %output_addr_158 = getelementptr [32 x i8]* %output_r, i64 0, i64 2
+
+ST_25: StgValue_339 (278)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:654
+:39  store i8 %tmp_779, i8* %output_addr_158, align 1
+
+
+ <State 26>: 0.68ns
+ST_26: tmp_912 (264)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:645
+:25  %tmp_912 = shl i32 %input_load_50, 4
+
+ST_26: StgValue_341 (265)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:645
+:26  store i32 %tmp_912, i32* %input_addr_46, align 16
+
+ST_26: output_addr_159 (280)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:654
+:41  %output_addr_159 = getelementptr [32 x i8]* %output_r, i64 0, i64 3
+
+ST_26: StgValue_343 (284)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:655
+:45  store i8 %tmp_782, i8* %output_addr_159, align 1
+
+
+ <State 27>: 0.68ns
+ST_27: output_addr_164 (301)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:62  %output_addr_164 = getelementptr [32 x i8]* %output_r, i64 0, i64 8
+
+ST_27: StgValue_345 (302)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:656
+:63  store i8 %tmp_789, i8* %output_addr_164, align 1
+
+
+ <State 28>: 0.68ns
+ST_28: output_addr_165 (304)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:656
+:65  %output_addr_165 = getelementptr [32 x i8]* %output_r, i64 0, i64 9
+
+ST_28: StgValue_347 (308)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:657
+:69  store i8 %tmp_792, i8* %output_addr_165, align 1
+
+
+ <State 29>: 0.68ns
+ST_29: output_addr_166 (310)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:71  %output_addr_166 = getelementptr [32 x i8]* %output_r, i64 0, i64 10
+
+ST_29: StgValue_349 (311)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:657
+:72  store i8 %tmp_793, i8* %output_addr_166, align 1
+
+
+ <State 30>: 0.68ns
+ST_30: input_addr_43 (250)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:642
+:11  %input_addr_43 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 4
+
+ST_30: input_load_47 (251)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:642
+:12  %input_load_47 = load i32* %input_addr_43, align 16
+
+ST_30: output_addr_167 (313)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:74  %output_addr_167 = getelementptr [32 x i8]* %output_r, i64 0, i64 11
+
+ST_30: StgValue_353 (314)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:657
+:75  store i8 %tmp_794, i8* %output_addr_167, align 1
+
+
+ <State 31>: 1.41ns
+ST_31: input_load_47 (251)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:642
+:12  %input_load_47 = load i32* %input_addr_43, align 16
+
+ST_31: input_addr_45 (258)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:644
+:19  %input_addr_45 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 7
+
+ST_31: input_load_49 (259)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:644
+:20  %input_load_49 = load i32* %input_addr_45, align 4
+
+ST_31: output_addr_168 (316)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:657
+:77  %output_addr_168 = getelementptr [32 x i8]* %output_r, i64 0, i64 12
+
+ST_31: tmp_918 (317)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:642
+:78  %tmp_918 = trunc i32 %input_load_47 to i2
+
+ST_31: tmp_796 (318)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:79  %tmp_796 = call i8 @_ssdm_op_BitConcatenate.i8.i2.i6(i2 %tmp_918, i6 0)
+
+ST_31: tmp_797 (319)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:658
+:80  %tmp_797 = or i8 %tmp_796, %tmp_795
+
+ST_31: StgValue_361 (320)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:658
+:81  store i8 %tmp_797, i8* %output_addr_168, align 1
+
+ST_31: tmp_798 (321)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:82  %tmp_798 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_47, i32 2, i32 9)
+
+ST_31: tmp_799 (324)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:85  %tmp_799 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_47, i32 10, i32 17)
+
+ST_31: tmp_800 (327)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:88  %tmp_800 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_47, i32 18, i32 25)
+
+
+ <State 32>: 0.73ns
+ST_32: input_load_49 (259)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:644
+:20  %input_load_49 = load i32* %input_addr_45, align 4
+
+ST_32: input_load_51 (266)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:646
+:27  %input_load_51 = load i32* %input_addr, align 4
+
+ST_32: output_addr_169 (322)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:83  %output_addr_169 = getelementptr [32 x i8]* %output_r, i64 0, i64 13
+
+ST_32: StgValue_368 (323)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:658
+:84  store i8 %tmp_798, i8* %output_addr_169, align 1
+
+ST_32: tmp_921 (354)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:644
+:115  %tmp_921 = trunc i32 %input_load_49 to i5
+
+ST_32: tmp_809 (355)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:116  %tmp_809 = call i8 @_ssdm_op_BitConcatenate.i8.i5.i3(i5 %tmp_921, i3 0)
+
+ST_32: tmp_810 (356)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:661
+:117  %tmp_810 = or i8 %tmp_809, %tmp_808
+
+ST_32: tmp_811 (358)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:119  %tmp_811 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_49, i32 5, i32 12)
+
+ST_32: tmp_812 (361)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:122  %tmp_812 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_49, i32 13, i32 20)
+
+ST_32: tmp_813 (364)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:125  %tmp_813 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_49, i32 21, i32 28)
+
+ST_32: tmp_814 (367)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:128  %tmp_814 = call i8 @_ssdm_op_BitConcatenate.i8.i4.i4(i4 %tmp_922, i4 0)
+
+ST_32: tmp_815 (368)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:662
+:129  %tmp_815 = or i8 %tmp_814, %tmp_813
+
+
+ <State 33>: 0.73ns
+ST_33: input_load_51 (266)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:646
+:27  %input_load_51 = load i32* %input_addr, align 4
+
+ST_33: output_addr_170 (325)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:86  %output_addr_170 = getelementptr [32 x i8]* %output_r, i64 0, i64 14
+
+ST_33: StgValue_379 (326)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:658
+:87  store i8 %tmp_799, i8* %output_addr_170, align 1
+
+ST_33: input_addr_47 (330)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:91  %input_addr_47 = getelementptr inbounds [10 x i32]* %input, i64 0, i64 5
+
+ST_33: input_load_53 (331)  [2/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:659
+:92  %input_load_53 = load i32* %input_addr_47, align 4
+
+ST_33: tmp_923 (378)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:646
+:139  %tmp_923 = trunc i32 %input_load_51 to i2
+
+ST_33: tmp_819 (379)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:140  %tmp_819 = call i8 @_ssdm_op_BitConcatenate.i8.i2.i6(i2 %tmp_923, i6 0)
+
+ST_33: tmp_820 (380)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:663
+:141  %tmp_820 = or i8 %tmp_819, %tmp_818
+
+ST_33: tmp_821 (382)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:143  %tmp_821 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_51, i32 2, i32 9)
+
+ST_33: tmp_822 (385)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:146  %tmp_822 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_51, i32 10, i32 17)
+
+ST_33: tmp_823 (388)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:149  %tmp_823 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_51, i32 18, i32 25)
+
+
+ <State 34>: 0.73ns
+ST_34: tmp_907 (244)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:640
+:5  %tmp_907 = shl i32 %input_load_45, 3
+
+ST_34: StgValue_389 (245)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:640
+:6  store i32 %tmp_907, i32* %input_addr_41, align 8
+
+ST_34: output_addr_171 (328)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:658
+:89  %output_addr_171 = getelementptr [32 x i8]* %output_r, i64 0, i64 15
+
+ST_34: StgValue_391 (329)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:658
+:90  store i8 %tmp_800, i8* %output_addr_171, align 1
+
+ST_34: input_load_53 (331)  [1/2] 0.68ns  loc: curve25519/src/curve25519-donna.c:659
+:92  %input_load_53 = load i32* %input_addr_47, align 4
+
+ST_34: tmp_919 (332)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:93  %tmp_919 = trunc i32 %input_load_53 to i8
+
+ST_34: tmp_801 (334)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:95  %tmp_801 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_53, i32 8, i32 15)
+
+ST_34: tmp_802 (337)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:98  %tmp_802 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_53, i32 16, i32 23)
+
+ST_34: tmp_803 (340)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:101  %tmp_803 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_load_53, i32 24, i32 31)
+
+ST_34: tmp_804 (343)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:104  %tmp_804 = call i8 @_ssdm_op_BitConcatenate.i8.i7.i1(i7 %tmp_920, i1 false)
+
+ST_34: tmp_805 (344)  [1/1] 0.05ns  loc: curve25519/src/curve25519-donna.c:660
+:105  %tmp_805 = or i8 %tmp_803, %tmp_804
+
+
+ <State 35>: 0.68ns
+ST_35: tmp_909 (252)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:642
+:13  %tmp_909 = shl i32 %input_load_47, 6
+
+ST_35: StgValue_400 (253)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:642
+:14  store i32 %tmp_909, i32* %input_addr_43, align 16
+
+ST_35: output_addr_156 (269)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:653
+:30  %output_addr_156 = getelementptr [32 x i8]* %output_r, i64 0, i64 16
+
+ST_35: StgValue_402 (333)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:659
+:94  store i8 %tmp_919, i8* %output_addr_156, align 1
+
+
+ <State 36>: 0.68ns
+ST_36: tmp_911 (260)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:644
+:21  %tmp_911 = shl i32 %input_load_49, 3
+
+ST_36: StgValue_404 (261)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:644
+:22  store i32 %tmp_911, i32* %input_addr_45, align 4
+
+ST_36: output_addr_172 (335)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:96  %output_addr_172 = getelementptr [32 x i8]* %output_r, i64 0, i64 17
+
+ST_36: StgValue_406 (336)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:659
+:97  store i8 %tmp_801, i8* %output_addr_172, align 1
+
+
+ <State 37>: 0.68ns
+ST_37: tmp_913 (267)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:646
+:28  %tmp_913 = shl i32 %input_load_51, 6
+
+ST_37: StgValue_408 (268)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:646
+:29  store i32 %tmp_913, i32* %input_addr, align 4
+
+ST_37: output_addr_173 (338)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:99  %output_addr_173 = getelementptr [32 x i8]* %output_r, i64 0, i64 18
+
+ST_37: StgValue_410 (339)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:659
+:100  store i8 %tmp_802, i8* %output_addr_173, align 1
+
+
+ <State 38>: 0.68ns
+ST_38: output_addr_174 (341)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:659
+:102  %output_addr_174 = getelementptr [32 x i8]* %output_r, i64 0, i64 19
+
+ST_38: StgValue_412 (345)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:660
+:106  store i8 %tmp_805, i8* %output_addr_174, align 1
+
+
+ <State 39>: 0.68ns
+ST_39: output_addr_175 (347)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:108  %output_addr_175 = getelementptr [32 x i8]* %output_r, i64 0, i64 20
+
+ST_39: StgValue_414 (348)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:660
+:109  store i8 %tmp_806, i8* %output_addr_175, align 1
+
+
+ <State 40>: 0.68ns
+ST_40: output_addr_176 (350)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:111  %output_addr_176 = getelementptr [32 x i8]* %output_r, i64 0, i64 21
+
+ST_40: StgValue_416 (351)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:660
+:112  store i8 %tmp_807, i8* %output_addr_176, align 1
+
+
+ <State 41>: 0.68ns
+ST_41: output_addr_177 (353)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:660
+:114  %output_addr_177 = getelementptr [32 x i8]* %output_r, i64 0, i64 22
+
+ST_41: StgValue_418 (357)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:661
+:118  store i8 %tmp_810, i8* %output_addr_177, align 1
+
+
+ <State 42>: 0.68ns
+ST_42: output_addr_178 (359)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:120  %output_addr_178 = getelementptr [32 x i8]* %output_r, i64 0, i64 23
+
+ST_42: StgValue_420 (360)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:661
+:121  store i8 %tmp_811, i8* %output_addr_178, align 1
+
+
+ <State 43>: 0.68ns
+ST_43: output_addr_179 (362)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:123  %output_addr_179 = getelementptr [32 x i8]* %output_r, i64 0, i64 24
+
+ST_43: StgValue_422 (363)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:661
+:124  store i8 %tmp_812, i8* %output_addr_179, align 1
+
+
+ <State 44>: 0.68ns
+ST_44: output_addr_180 (365)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:661
+:126  %output_addr_180 = getelementptr [32 x i8]* %output_r, i64 0, i64 25
+
+ST_44: StgValue_424 (369)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:662
+:130  store i8 %tmp_815, i8* %output_addr_180, align 1
+
+
+ <State 45>: 0.68ns
+ST_45: output_addr_181 (371)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:132  %output_addr_181 = getelementptr [32 x i8]* %output_r, i64 0, i64 26
+
+ST_45: StgValue_426 (372)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:662
+:133  store i8 %tmp_816, i8* %output_addr_181, align 1
+
+
+ <State 46>: 0.68ns
+ST_46: output_addr_182 (374)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:135  %output_addr_182 = getelementptr [32 x i8]* %output_r, i64 0, i64 27
+
+ST_46: StgValue_428 (375)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:662
+:136  store i8 %tmp_817, i8* %output_addr_182, align 1
+
+
+ <State 47>: 0.68ns
+ST_47: output_addr_183 (377)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:662
+:138  %output_addr_183 = getelementptr [32 x i8]* %output_r, i64 0, i64 28
+
+ST_47: StgValue_430 (381)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:663
+:142  store i8 %tmp_820, i8* %output_addr_183, align 1
+
+
+ <State 48>: 0.68ns
+ST_48: output_addr_184 (383)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:144  %output_addr_184 = getelementptr [32 x i8]* %output_r, i64 0, i64 29
+
+ST_48: StgValue_432 (384)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:663
+:145  store i8 %tmp_821, i8* %output_addr_184, align 1
+
+
+ <State 49>: 0.68ns
+ST_49: output_addr_185 (386)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:147  %output_addr_185 = getelementptr [32 x i8]* %output_r, i64 0, i64 30
+
+ST_49: StgValue_434 (387)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:663
+:148  store i8 %tmp_822, i8* %output_addr_185, align 1
+
+
+ <State 50>: 0.68ns
+ST_50: output_addr_186 (389)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:663
+:150  %output_addr_186 = getelementptr [32 x i8]* %output_r, i64 0, i64 31
+
+ST_50: StgValue_436 (390)  [1/1] 0.68ns  loc: curve25519/src/curve25519-donna.c:663
+:151  store i8 %tmp_823, i8* %output_addr_186, align 1
+
+ST_50: StgValue_437 (391)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:665
+:152  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:532) [8]  (0.656 ns)
+
+ <State 2>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:532) [8]  (0 ns)
+	'add' operation ('i', curve25519/src/curve25519-donna.c:532) [11]  (1.12 ns)
+
+ <State 3>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('input_limbs_load', curve25519/src/curve25519-donna.c:533) on array 'input_limbs' [16]  (0.677 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:533) of variable 'tmp_881', curve25519/src/curve25519-donna.c:533 on array 'input', curve25519/src/curve25519-donna.c:528 [19]  (0.677 ns)
+
+ <State 4>: 0.876ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', curve25519/src/curve25519-donna.c:536) [26]  (0 ns)
+	'add' operation ('j', curve25519/src/curve25519-donna.c:536) [29]  (0.876 ns)
+
+ <State 5>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:537) [34]  (0 ns)
+	'add' operation ('i', curve25519/src/curve25519-donna.c:537) [38]  (1.12 ns)
+
+ <State 6>: 2.78ns
+The critical path consists of the following:
+	'load' operation ('input_load_35', curve25519/src/curve25519-donna.c:546) on array 'input', curve25519/src/curve25519-donna.c:528 [43]  (0.677 ns)
+	'and' operation ('tmp_759', curve25519/src/curve25519-donna.c:547) [46]  (0.081 ns)
+	'sub' operation ('tmp_761', curve25519/src/curve25519-donna.c:543) [64]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:543) of variable 'tmp_761', curve25519/src/curve25519-donna.c:543 on array 'input', curve25519/src/curve25519-donna.c:528 [65]  (0.677 ns)
+
+ <State 7>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('input_load_36', curve25519/src/curve25519-donna.c:549) on array 'input', curve25519/src/curve25519-donna.c:528 [56]  (0.677 ns)
+	'add' operation ('tmp_767', curve25519/src/curve25519-donna.c:549) [57]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:549) of variable 'tmp_767', curve25519/src/curve25519-donna.c:549 on array 'input', curve25519/src/curve25519-donna.c:528 [58]  (0.677 ns)
+
+ <State 8>: 3.97ns
+The critical path consists of the following:
+	'load' operation ('input_load_33', curve25519/src/curve25519-donna.c:556) on array 'input', curve25519/src/curve25519-donna.c:528 [75]  (0.677 ns)
+	'and' operation ('tmp_754', curve25519/src/curve25519-donna.c:557) [78]  (0.081 ns)
+	'mul' operation ('tmp_756', curve25519/src/curve25519-donna.c:559) [85]  (0.494 ns)
+	'add' operation ('tmp_757', curve25519/src/curve25519-donna.c:559) [87]  (2.04 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:559) of variable 'tmp_757', curve25519/src/curve25519-donna.c:559 on array 'input', curve25519/src/curve25519-donna.c:528 [88]  (0.677 ns)
+
+ <State 9>: 2.78ns
+The critical path consists of the following:
+	'load' operation ('input_load', curve25519/src/curve25519-donna.c:580) on array 'input', curve25519/src/curve25519-donna.c:528 [91]  (0.677 ns)
+	'and' operation ('tmp_s', curve25519/src/curve25519-donna.c:581) [94]  (0.081 ns)
+	'sub' operation ('tmp_752', curve25519/src/curve25519-donna.c:582) [98]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:582) of variable 'tmp_752', curve25519/src/curve25519-donna.c:582 on array 'input', curve25519/src/curve25519-donna.c:528 [99]  (0.677 ns)
+
+ <State 10>: 2.08ns
+The critical path consists of the following:
+	'phi' operation ('a', curve25519/src/curve25519-donna.c:582) with incoming values : ('tmp_752', curve25519/src/curve25519-donna.c:582) ('tmp_772', curve25519/src/curve25519-donna.c:604) [106]  (0 ns)
+	'add' operation ('a', curve25519/src/curve25519-donna.c:515->curve25519/src/curve25519-donna.c:618) [166]  (1.34 ns)
+	'xor' operation ('mask', curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618) [168]  (0 ns)
+	'select' operation ('mask_2_cast', curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618) [169]  (0.081 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:619) [172]  (0.656 ns)
+
+ <State 11>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:589) [115]  (0 ns)
+	'add' operation ('i', curve25519/src/curve25519-donna.c:589) [119]  (1.12 ns)
+
+ <State 12>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('input_load_40', curve25519/src/curve25519-donna.c:595) on array 'input', curve25519/src/curve25519-donna.c:528 [124]  (0.677 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:592) of variable 'tmp_968_cast', curve25519/src/curve25519-donna.c:592 on array 'input', curve25519/src/curve25519-donna.c:528 [143]  (0.677 ns)
+
+ <State 13>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('input_load_42', curve25519/src/curve25519-donna.c:597) on array 'input', curve25519/src/curve25519-donna.c:528 [135]  (0.677 ns)
+	'add' operation ('tmp_777', curve25519/src/curve25519-donna.c:597) [136]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:597) of variable 'tmp_777', curve25519/src/curve25519-donna.c:597 on array 'input', curve25519/src/curve25519-donna.c:528 [137]  (0.677 ns)
+
+ <State 14>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('input_load_38', curve25519/src/curve25519-donna.c:602) on array 'input', curve25519/src/curve25519-donna.c:528 [153]  (0.677 ns)
+	'mul' operation ('tmp_771', curve25519/src/curve25519-donna.c:604) [159]  (0.494 ns)
+	'add' operation ('tmp_772', curve25519/src/curve25519-donna.c:604) [162]  (2.04 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:604) of variable 'tmp_772', curve25519/src/curve25519-donna.c:604 on array 'input', curve25519/src/curve25519-donna.c:528 [163]  (0.677 ns)
+
+ <State 15>: 2.02ns
+The critical path consists of the following:
+	'phi' operation ('mask') with incoming values : ('mask_2_cast', curve25519/src/curve25519-donna.c:517->curve25519/src/curve25519-donna.c:618) ('mask', curve25519/src/curve25519-donna.c:621) [173]  (0 ns)
+	'sub' operation ('tmp_769', curve25519/src/curve25519-donna.c:629) [218]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:629) of variable 'tmp_769', curve25519/src/curve25519-donna.c:629 on array 'input', curve25519/src/curve25519-donna.c:528 [219]  (0.677 ns)
+
+ <State 16>: 1.12ns
+The critical path consists of the following:
+	'add' operation ('i', curve25519/src/curve25519-donna.c:619) [209]  (1.12 ns)
+
+ <State 17>: 0.677ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:631) [222]  (0 ns)
+	'getelementptr' operation ('input_addr_48', curve25519/src/curve25519-donna.c:635) [228]  (0 ns)
+	'load' operation ('input_load_54', curve25519/src/curve25519-donna.c:635) on array 'input', curve25519/src/curve25519-donna.c:528 [229]  (0.677 ns)
+
+ <State 18>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('input_load_54', curve25519/src/curve25519-donna.c:635) on array 'input', curve25519/src/curve25519-donna.c:528 [229]  (0.677 ns)
+	'sub' operation ('storemerge', curve25519/src/curve25519-donna.c:635) [234]  (1.34 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:635) of variable 'storemerge', curve25519/src/curve25519-donna.c:635 on array 'input', curve25519/src/curve25519-donna.c:528 [235]  (0.677 ns)
+
+ <State 19>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('input_load_44', curve25519/src/curve25519-donna.c:639) on array 'input', curve25519/src/curve25519-donna.c:528 [239]  (0.677 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:655) of variable 'tmp_783', curve25519/src/curve25519-donna.c:655 on array 'output_r' [287]  (0.677 ns)
+
+ <State 20>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('input_addr_41', curve25519/src/curve25519-donna.c:640) [242]  (0 ns)
+	'load' operation ('input_load_45', curve25519/src/curve25519-donna.c:640) on array 'input', curve25519/src/curve25519-donna.c:528 [243]  (0.677 ns)
+
+ <State 21>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('input_load_45', curve25519/src/curve25519-donna.c:640) on array 'input', curve25519/src/curve25519-donna.c:528 [243]  (0.677 ns)
+	'or' operation ('tmp_787', curve25519/src/curve25519-donna.c:656) [295]  (0.051 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:656) of variable 'tmp_787', curve25519/src/curve25519-donna.c:656 on array 'output_r' [296]  (0.677 ns)
+
+ <State 22>: 0.677ns
+The critical path consists of the following:
+	'load' operation ('input_load_50', curve25519/src/curve25519-donna.c:645) on array 'input', curve25519/src/curve25519-donna.c:528 [263]  (0.677 ns)
+
+ <State 23>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('input_load_52', curve25519/src/curve25519-donna.c:654) on array 'input', curve25519/src/curve25519-donna.c:528 [270]  (0.677 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:654) of variable 'tmp_914', curve25519/src/curve25519-donna.c:654 on array 'output_r' [272]  (0.677 ns)
+
+ <State 24>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_908', curve25519/src/curve25519-donna.c:641) [248]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:641) of variable 'tmp_908', curve25519/src/curve25519-donna.c:641 on array 'input', curve25519/src/curve25519-donna.c:528 [249]  (0.677 ns)
+
+ <State 25>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_910', curve25519/src/curve25519-donna.c:643) [256]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:643) of variable 'tmp_910', curve25519/src/curve25519-donna.c:643 on array 'input', curve25519/src/curve25519-donna.c:528 [257]  (0.677 ns)
+
+ <State 26>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_912', curve25519/src/curve25519-donna.c:645) [264]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:645) of variable 'tmp_912', curve25519/src/curve25519-donna.c:645 on array 'input', curve25519/src/curve25519-donna.c:528 [265]  (0.677 ns)
+
+ <State 27>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_164', curve25519/src/curve25519-donna.c:656) [301]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:656) of variable 'tmp_789', curve25519/src/curve25519-donna.c:656 on array 'output_r' [302]  (0.677 ns)
+
+ <State 28>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_165', curve25519/src/curve25519-donna.c:656) [304]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:657) of variable 'tmp_792', curve25519/src/curve25519-donna.c:657 on array 'output_r' [308]  (0.677 ns)
+
+ <State 29>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_166', curve25519/src/curve25519-donna.c:657) [310]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:657) of variable 'tmp_793', curve25519/src/curve25519-donna.c:657 on array 'output_r' [311]  (0.677 ns)
+
+ <State 30>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('input_addr_43', curve25519/src/curve25519-donna.c:642) [250]  (0 ns)
+	'load' operation ('input_load_47', curve25519/src/curve25519-donna.c:642) on array 'input', curve25519/src/curve25519-donna.c:528 [251]  (0.677 ns)
+
+ <State 31>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('input_load_47', curve25519/src/curve25519-donna.c:642) on array 'input', curve25519/src/curve25519-donna.c:528 [251]  (0.677 ns)
+	'or' operation ('tmp_797', curve25519/src/curve25519-donna.c:658) [319]  (0.051 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:658) of variable 'tmp_797', curve25519/src/curve25519-donna.c:658 on array 'output_r' [320]  (0.677 ns)
+
+ <State 32>: 0.728ns
+The critical path consists of the following:
+	'load' operation ('input_load_49', curve25519/src/curve25519-donna.c:644) on array 'input', curve25519/src/curve25519-donna.c:528 [259]  (0.677 ns)
+	'or' operation ('tmp_810', curve25519/src/curve25519-donna.c:661) [356]  (0.051 ns)
+
+ <State 33>: 0.728ns
+The critical path consists of the following:
+	'load' operation ('input_load_51', curve25519/src/curve25519-donna.c:646) on array 'input', curve25519/src/curve25519-donna.c:528 [266]  (0.677 ns)
+	'or' operation ('tmp_820', curve25519/src/curve25519-donna.c:663) [380]  (0.051 ns)
+
+ <State 34>: 0.728ns
+The critical path consists of the following:
+	'load' operation ('input_load_53', curve25519/src/curve25519-donna.c:659) on array 'input', curve25519/src/curve25519-donna.c:528 [331]  (0.677 ns)
+	'or' operation ('tmp_805', curve25519/src/curve25519-donna.c:660) [344]  (0.051 ns)
+
+ <State 35>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_909', curve25519/src/curve25519-donna.c:642) [252]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:642) of variable 'tmp_909', curve25519/src/curve25519-donna.c:642 on array 'input', curve25519/src/curve25519-donna.c:528 [253]  (0.677 ns)
+
+ <State 36>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_911', curve25519/src/curve25519-donna.c:644) [260]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:644) of variable 'tmp_911', curve25519/src/curve25519-donna.c:644 on array 'input', curve25519/src/curve25519-donna.c:528 [261]  (0.677 ns)
+
+ <State 37>: 0.677ns
+The critical path consists of the following:
+	'shl' operation ('tmp_913', curve25519/src/curve25519-donna.c:646) [267]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:646) of variable 'tmp_913', curve25519/src/curve25519-donna.c:646 on array 'input', curve25519/src/curve25519-donna.c:528 [268]  (0.677 ns)
+
+ <State 38>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_174', curve25519/src/curve25519-donna.c:659) [341]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:660) of variable 'tmp_805', curve25519/src/curve25519-donna.c:660 on array 'output_r' [345]  (0.677 ns)
+
+ <State 39>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_175', curve25519/src/curve25519-donna.c:660) [347]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:660) of variable 'tmp_806', curve25519/src/curve25519-donna.c:660 on array 'output_r' [348]  (0.677 ns)
+
+ <State 40>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_176', curve25519/src/curve25519-donna.c:660) [350]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:660) of variable 'tmp_807', curve25519/src/curve25519-donna.c:660 on array 'output_r' [351]  (0.677 ns)
+
+ <State 41>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_177', curve25519/src/curve25519-donna.c:660) [353]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:661) of variable 'tmp_810', curve25519/src/curve25519-donna.c:661 on array 'output_r' [357]  (0.677 ns)
+
+ <State 42>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_178', curve25519/src/curve25519-donna.c:661) [359]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:661) of variable 'tmp_811', curve25519/src/curve25519-donna.c:661 on array 'output_r' [360]  (0.677 ns)
+
+ <State 43>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_179', curve25519/src/curve25519-donna.c:661) [362]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:661) of variable 'tmp_812', curve25519/src/curve25519-donna.c:661 on array 'output_r' [363]  (0.677 ns)
+
+ <State 44>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_180', curve25519/src/curve25519-donna.c:661) [365]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:662) of variable 'tmp_815', curve25519/src/curve25519-donna.c:662 on array 'output_r' [369]  (0.677 ns)
+
+ <State 45>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_181', curve25519/src/curve25519-donna.c:662) [371]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:662) of variable 'tmp_816', curve25519/src/curve25519-donna.c:662 on array 'output_r' [372]  (0.677 ns)
+
+ <State 46>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_182', curve25519/src/curve25519-donna.c:662) [374]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:662) of variable 'tmp_817', curve25519/src/curve25519-donna.c:662 on array 'output_r' [375]  (0.677 ns)
+
+ <State 47>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_183', curve25519/src/curve25519-donna.c:662) [377]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:663) of variable 'tmp_820', curve25519/src/curve25519-donna.c:663 on array 'output_r' [381]  (0.677 ns)
+
+ <State 48>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_184', curve25519/src/curve25519-donna.c:663) [383]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:663) of variable 'tmp_821', curve25519/src/curve25519-donna.c:663 on array 'output_r' [384]  (0.677 ns)
+
+ <State 49>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_185', curve25519/src/curve25519-donna.c:663) [386]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:663) of variable 'tmp_822', curve25519/src/curve25519-donna.c:663 on array 'output_r' [387]  (0.677 ns)
+
+ <State 50>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_186', curve25519/src/curve25519-donna.c:663) [389]  (0 ns)
+	'store' operation (curve25519/src/curve25519-donna.c:663) of variable 'tmp_823', curve25519/src/curve25519-donna.c:663 on array 'output_r' [390]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

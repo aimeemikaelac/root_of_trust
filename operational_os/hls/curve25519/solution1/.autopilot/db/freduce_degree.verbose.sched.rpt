@@ -1,0 +1,575 @@
+
+
+================================================================
+== Vivado HLS Report for 'freduce_degree'
+================================================================
+* Date:           Wed May 31 17:58:31 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        curve25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.06|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   13|   13|   13|   13|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 14
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+* FSM state operations: 
+
+ <State 1>: 1.24ns
+ST_1: output_addr_54 (3)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:234
+:1  %output_addr_54 = getelementptr [19 x i64]* %output_r, i64 0, i64 18
+
+ST_1: output_load (4)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:234
+:2  %output_load = load i64* %output_addr_54, align 8
+
+ST_1: output_addr_55 (6)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:234
+:4  %output_addr_55 = getelementptr [19 x i64]* %output_r, i64 0, i64 8
+
+ST_1: output_load_2 (7)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:234
+:5  %output_load_2 = load i64* %output_addr_55, align 8
+
+
+ <State 2>: 3.06ns
+ST_2: output_load (4)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:234
+:2  %output_load = load i64* %output_addr_54, align 8
+
+ST_2: tmp (5)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:234 (grouped into LUT with out node tmp2)
+:3  %tmp = shl i64 %output_load, 4
+
+ST_2: output_load_2 (7)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:234
+:5  %output_load_2 = load i64* %output_addr_55, align 8
+
+ST_2: tmp_379 (8)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:235 (grouped into LUT with out node tmp2)
+:6  %tmp_379 = shl i64 %output_load, 1
+
+ST_2: tmp1 (9)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:236
+:7  %tmp1 = add i64 %output_load_2, %output_load
+
+ST_2: tmp2 (10)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:236 (out node of the LUT)
+:8  %tmp2 = add i64 %tmp, %tmp_379
+
+ST_2: tmp_291 (11)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:236
+:9  %tmp_291 = add nsw i64 %tmp2, %tmp1
+
+ST_2: output_addr_56 (13)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:237
+:11  %output_addr_56 = getelementptr [19 x i64]* %output_r, i64 0, i64 17
+
+ST_2: output_load_3 (14)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:237
+:12  %output_load_3 = load i64* %output_addr_56, align 8
+
+ST_2: output_addr_57 (16)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:237
+:14  %output_addr_57 = getelementptr [19 x i64]* %output_r, i64 0, i64 7
+
+ST_2: output_load_4 (17)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:237
+:15  %output_load_4 = load i64* %output_addr_57, align 8
+
+
+ <State 3>: 3.06ns
+ST_3: output_load_3 (14)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:237
+:12  %output_load_3 = load i64* %output_addr_56, align 8
+
+ST_3: tmp_380 (15)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:237 (grouped into LUT with out node tmp4)
+:13  %tmp_380 = shl i64 %output_load_3, 4
+
+ST_3: output_load_4 (17)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:237
+:15  %output_load_4 = load i64* %output_addr_57, align 8
+
+ST_3: tmp_381 (18)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:238 (grouped into LUT with out node tmp4)
+:16  %tmp_381 = shl i64 %output_load_3, 1
+
+ST_3: tmp3 (19)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:239
+:17  %tmp3 = add i64 %output_load_4, %output_load_3
+
+ST_3: tmp4 (20)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:239 (out node of the LUT)
+:18  %tmp4 = add i64 %tmp_380, %tmp_381
+
+ST_3: tmp_292 (21)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:239
+:19  %tmp_292 = add nsw i64 %tmp4, %tmp3
+
+ST_3: output_addr_58 (23)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:240
+:21  %output_addr_58 = getelementptr [19 x i64]* %output_r, i64 0, i64 16
+
+ST_3: output_load_5 (24)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:240
+:22  %output_load_5 = load i64* %output_addr_58, align 8
+
+ST_3: output_addr_59 (26)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:240
+:24  %output_addr_59 = getelementptr [19 x i64]* %output_r, i64 0, i64 6
+
+ST_3: output_load_6 (27)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:240
+:25  %output_load_6 = load i64* %output_addr_59, align 8
+
+
+ <State 4>: 3.06ns
+ST_4: output_load_5 (24)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:240
+:22  %output_load_5 = load i64* %output_addr_58, align 8
+
+ST_4: tmp_382 (25)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:240 (grouped into LUT with out node tmp6)
+:23  %tmp_382 = shl i64 %output_load_5, 4
+
+ST_4: output_load_6 (27)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:240
+:25  %output_load_6 = load i64* %output_addr_59, align 8
+
+ST_4: tmp_383 (28)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:241 (grouped into LUT with out node tmp6)
+:26  %tmp_383 = shl i64 %output_load_5, 1
+
+ST_4: tmp5 (29)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:242
+:27  %tmp5 = add i64 %output_load_6, %output_load_5
+
+ST_4: tmp6 (30)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:242 (out node of the LUT)
+:28  %tmp6 = add i64 %tmp_382, %tmp_383
+
+ST_4: tmp_293 (31)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:242
+:29  %tmp_293 = add nsw i64 %tmp6, %tmp5
+
+ST_4: output_addr_60 (33)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:243
+:31  %output_addr_60 = getelementptr [19 x i64]* %output_r, i64 0, i64 15
+
+ST_4: output_load_7 (34)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:243
+:32  %output_load_7 = load i64* %output_addr_60, align 8
+
+ST_4: output_addr_61 (36)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:243
+:34  %output_addr_61 = getelementptr [19 x i64]* %output_r, i64 0, i64 5
+
+ST_4: output_load_8 (37)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:243
+:35  %output_load_8 = load i64* %output_addr_61, align 8
+
+
+ <State 5>: 3.06ns
+ST_5: output_load_7 (34)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:243
+:32  %output_load_7 = load i64* %output_addr_60, align 8
+
+ST_5: tmp_384 (35)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:243 (grouped into LUT with out node tmp8)
+:33  %tmp_384 = shl i64 %output_load_7, 4
+
+ST_5: output_load_8 (37)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:243
+:35  %output_load_8 = load i64* %output_addr_61, align 8
+
+ST_5: tmp_385 (38)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:244 (grouped into LUT with out node tmp8)
+:36  %tmp_385 = shl i64 %output_load_7, 1
+
+ST_5: tmp7 (39)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:245
+:37  %tmp7 = add i64 %output_load_8, %output_load_7
+
+ST_5: tmp8 (40)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:245 (out node of the LUT)
+:38  %tmp8 = add i64 %tmp_384, %tmp_385
+
+ST_5: tmp_294 (41)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:245
+:39  %tmp_294 = add nsw i64 %tmp8, %tmp7
+
+ST_5: output_addr_62 (43)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:246
+:41  %output_addr_62 = getelementptr [19 x i64]* %output_r, i64 0, i64 14
+
+ST_5: output_load_9 (44)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:246
+:42  %output_load_9 = load i64* %output_addr_62, align 8
+
+ST_5: output_addr_63 (46)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:246
+:44  %output_addr_63 = getelementptr [19 x i64]* %output_r, i64 0, i64 4
+
+ST_5: output_load_10 (47)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:246
+:45  %output_load_10 = load i64* %output_addr_63, align 8
+
+
+ <State 6>: 3.06ns
+ST_6: output_load_9 (44)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:246
+:42  %output_load_9 = load i64* %output_addr_62, align 8
+
+ST_6: tmp_386 (45)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:246 (grouped into LUT with out node tmp10)
+:43  %tmp_386 = shl i64 %output_load_9, 4
+
+ST_6: output_load_10 (47)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:246
+:45  %output_load_10 = load i64* %output_addr_63, align 8
+
+ST_6: tmp_387 (48)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:247 (grouped into LUT with out node tmp10)
+:46  %tmp_387 = shl i64 %output_load_9, 1
+
+ST_6: tmp9 (49)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:248
+:47  %tmp9 = add i64 %output_load_10, %output_load_9
+
+ST_6: tmp10 (50)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:248 (out node of the LUT)
+:48  %tmp10 = add i64 %tmp_386, %tmp_387
+
+ST_6: tmp_295 (51)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:248
+:49  %tmp_295 = add nsw i64 %tmp10, %tmp9
+
+ST_6: output_addr_64 (53)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:249
+:51  %output_addr_64 = getelementptr [19 x i64]* %output_r, i64 0, i64 13
+
+ST_6: output_load_11 (54)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:249
+:52  %output_load_11 = load i64* %output_addr_64, align 8
+
+ST_6: output_addr_65 (56)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:249
+:54  %output_addr_65 = getelementptr [19 x i64]* %output_r, i64 0, i64 3
+
+ST_6: output_load_12 (57)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:249
+:55  %output_load_12 = load i64* %output_addr_65, align 8
+
+
+ <State 7>: 3.06ns
+ST_7: output_load_11 (54)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:249
+:52  %output_load_11 = load i64* %output_addr_64, align 8
+
+ST_7: tmp_388 (55)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:249 (grouped into LUT with out node tmp12)
+:53  %tmp_388 = shl i64 %output_load_11, 4
+
+ST_7: output_load_12 (57)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:249
+:55  %output_load_12 = load i64* %output_addr_65, align 8
+
+ST_7: tmp_389 (58)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:250 (grouped into LUT with out node tmp12)
+:56  %tmp_389 = shl i64 %output_load_11, 1
+
+ST_7: tmp11 (59)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:251
+:57  %tmp11 = add i64 %output_load_12, %output_load_11
+
+ST_7: tmp12 (60)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:251 (out node of the LUT)
+:58  %tmp12 = add i64 %tmp_388, %tmp_389
+
+ST_7: tmp_s (61)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:251
+:59  %tmp_s = add nsw i64 %tmp12, %tmp11
+
+ST_7: output_addr_66 (63)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:252
+:61  %output_addr_66 = getelementptr [19 x i64]* %output_r, i64 0, i64 12
+
+ST_7: output_load_13 (64)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:252
+:62  %output_load_13 = load i64* %output_addr_66, align 8
+
+ST_7: output_addr_67 (66)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:252
+:64  %output_addr_67 = getelementptr [19 x i64]* %output_r, i64 0, i64 2
+
+ST_7: output_load_14 (67)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:252
+:65  %output_load_14 = load i64* %output_addr_67, align 8
+
+
+ <State 8>: 3.06ns
+ST_8: output_load_13 (64)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:252
+:62  %output_load_13 = load i64* %output_addr_66, align 8
+
+ST_8: tmp_390 (65)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:252 (grouped into LUT with out node tmp14)
+:63  %tmp_390 = shl i64 %output_load_13, 4
+
+ST_8: output_load_14 (67)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:252
+:65  %output_load_14 = load i64* %output_addr_67, align 8
+
+ST_8: tmp_391 (68)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:253 (grouped into LUT with out node tmp14)
+:66  %tmp_391 = shl i64 %output_load_13, 1
+
+ST_8: tmp13 (69)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:254
+:67  %tmp13 = add i64 %output_load_14, %output_load_13
+
+ST_8: tmp14 (70)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:254 (out node of the LUT)
+:68  %tmp14 = add i64 %tmp_390, %tmp_391
+
+ST_8: tmp_296 (71)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:254
+:69  %tmp_296 = add nsw i64 %tmp14, %tmp13
+
+ST_8: output_addr_68 (73)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:255
+:71  %output_addr_68 = getelementptr [19 x i64]* %output_r, i64 0, i64 11
+
+ST_8: output_load_15 (74)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:255
+:72  %output_load_15 = load i64* %output_addr_68, align 8
+
+ST_8: output_addr_69 (76)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:255
+:74  %output_addr_69 = getelementptr [19 x i64]* %output_r, i64 0, i64 1
+
+ST_8: output_load_16 (77)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:255
+:75  %output_load_16 = load i64* %output_addr_69, align 8
+
+
+ <State 9>: 3.06ns
+ST_9: output_addr (2)  [1/1] 0.00ns
+:0  %output_addr = getelementptr [19 x i64]* %output_r, i64 0, i64 0
+
+ST_9: output_load_15 (74)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:255
+:72  %output_load_15 = load i64* %output_addr_68, align 8
+
+ST_9: tmp_392 (75)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:255 (grouped into LUT with out node tmp16)
+:73  %tmp_392 = shl i64 %output_load_15, 4
+
+ST_9: output_load_16 (77)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:255
+:75  %output_load_16 = load i64* %output_addr_69, align 8
+
+ST_9: tmp_393 (78)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:256 (grouped into LUT with out node tmp16)
+:76  %tmp_393 = shl i64 %output_load_15, 1
+
+ST_9: tmp15 (79)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:257
+:77  %tmp15 = add i64 %output_load_16, %output_load_15
+
+ST_9: tmp16 (80)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:257 (out node of the LUT)
+:78  %tmp16 = add i64 %tmp_392, %tmp_393
+
+ST_9: tmp_297 (81)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:257
+:79  %tmp_297 = add nsw i64 %tmp16, %tmp15
+
+ST_9: output_addr_70 (83)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:258
+:81  %output_addr_70 = getelementptr [19 x i64]* %output_r, i64 0, i64 10
+
+ST_9: output_load_17 (84)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:258
+:82  %output_load_17 = load i64* %output_addr_70, align 8
+
+ST_9: output_load_18 (86)  [2/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:258
+:84  %output_load_18 = load i64* %output_addr, align 8
+
+
+ <State 10>: 3.06ns
+ST_10: StgValue_107 (12)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:236
+:10  store i64 %tmp_291, i64* %output_addr_55, align 8
+
+ST_10: StgValue_108 (22)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:239
+:20  store i64 %tmp_292, i64* %output_addr_57, align 8
+
+ST_10: output_load_17 (84)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:258
+:82  %output_load_17 = load i64* %output_addr_70, align 8
+
+ST_10: tmp_394 (85)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:258 (grouped into LUT with out node tmp18)
+:83  %tmp_394 = shl i64 %output_load_17, 4
+
+ST_10: output_load_18 (86)  [1/2] 1.24ns  loc: curve25519/src/curve25519-donna.c:258
+:84  %output_load_18 = load i64* %output_addr, align 8
+
+ST_10: tmp_395 (87)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:259 (grouped into LUT with out node tmp18)
+:85  %tmp_395 = shl i64 %output_load_17, 1
+
+ST_10: tmp17 (88)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:260
+:86  %tmp17 = add i64 %output_load_18, %output_load_17
+
+ST_10: tmp18 (89)  [1/1] 1.41ns  loc: curve25519/src/curve25519-donna.c:260 (out node of the LUT)
+:87  %tmp18 = add i64 %tmp_394, %tmp_395
+
+ST_10: tmp_298 (90)  [1/1] 0.41ns  loc: curve25519/src/curve25519-donna.c:260
+:88  %tmp_298 = add nsw i64 %tmp18, %tmp17
+
+
+ <State 11>: 1.24ns
+ST_11: StgValue_116 (32)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:242
+:30  store i64 %tmp_293, i64* %output_addr_59, align 8
+
+ST_11: StgValue_117 (42)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:245
+:40  store i64 %tmp_294, i64* %output_addr_61, align 8
+
+
+ <State 12>: 1.24ns
+ST_12: StgValue_118 (52)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:248
+:50  store i64 %tmp_295, i64* %output_addr_63, align 8
+
+ST_12: StgValue_119 (62)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:251
+:60  store i64 %tmp_s, i64* %output_addr_65, align 8
+
+
+ <State 13>: 1.24ns
+ST_13: StgValue_120 (72)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:254
+:70  store i64 %tmp_296, i64* %output_addr_67, align 8
+
+ST_13: StgValue_121 (82)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:257
+:80  store i64 %tmp_297, i64* %output_addr_69, align 8
+
+
+ <State 14>: 1.24ns
+ST_14: StgValue_122 (91)  [1/1] 1.24ns  loc: curve25519/src/curve25519-donna.c:260
+:89  store i64 %tmp_298, i64* %output_addr, align 8
+
+ST_14: StgValue_123 (92)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:261
+:90  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('output_addr_54', curve25519/src/curve25519-donna.c:234) [3]  (0 ns)
+	'load' operation ('output_load', curve25519/src/curve25519-donna.c:234) on array 'output_r' [4]  (1.24 ns)
+
+ <State 2>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load', curve25519/src/curve25519-donna.c:234) on array 'output_r' [4]  (1.24 ns)
+	'shl' operation ('tmp', curve25519/src/curve25519-donna.c:234) [5]  (0 ns)
+	'add' operation ('tmp2', curve25519/src/curve25519-donna.c:236) [10]  (1.41 ns)
+	'add' operation ('tmp_291', curve25519/src/curve25519-donna.c:236) [11]  (0.409 ns)
+
+ <State 3>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_3', curve25519/src/curve25519-donna.c:237) on array 'output_r' [14]  (1.24 ns)
+	'shl' operation ('tmp_380', curve25519/src/curve25519-donna.c:237) [15]  (0 ns)
+	'add' operation ('tmp4', curve25519/src/curve25519-donna.c:239) [20]  (1.41 ns)
+	'add' operation ('tmp_292', curve25519/src/curve25519-donna.c:239) [21]  (0.409 ns)
+
+ <State 4>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_5', curve25519/src/curve25519-donna.c:240) on array 'output_r' [24]  (1.24 ns)
+	'shl' operation ('tmp_382', curve25519/src/curve25519-donna.c:240) [25]  (0 ns)
+	'add' operation ('tmp6', curve25519/src/curve25519-donna.c:242) [30]  (1.41 ns)
+	'add' operation ('tmp_293', curve25519/src/curve25519-donna.c:242) [31]  (0.409 ns)
+
+ <State 5>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_7', curve25519/src/curve25519-donna.c:243) on array 'output_r' [34]  (1.24 ns)
+	'shl' operation ('tmp_384', curve25519/src/curve25519-donna.c:243) [35]  (0 ns)
+	'add' operation ('tmp8', curve25519/src/curve25519-donna.c:245) [40]  (1.41 ns)
+	'add' operation ('tmp_294', curve25519/src/curve25519-donna.c:245) [41]  (0.409 ns)
+
+ <State 6>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_9', curve25519/src/curve25519-donna.c:246) on array 'output_r' [44]  (1.24 ns)
+	'shl' operation ('tmp_386', curve25519/src/curve25519-donna.c:246) [45]  (0 ns)
+	'add' operation ('tmp10', curve25519/src/curve25519-donna.c:248) [50]  (1.41 ns)
+	'add' operation ('tmp_295', curve25519/src/curve25519-donna.c:248) [51]  (0.409 ns)
+
+ <State 7>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_11', curve25519/src/curve25519-donna.c:249) on array 'output_r' [54]  (1.24 ns)
+	'shl' operation ('tmp_388', curve25519/src/curve25519-donna.c:249) [55]  (0 ns)
+	'add' operation ('tmp12', curve25519/src/curve25519-donna.c:251) [60]  (1.41 ns)
+	'add' operation ('tmp_s', curve25519/src/curve25519-donna.c:251) [61]  (0.409 ns)
+
+ <State 8>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_13', curve25519/src/curve25519-donna.c:252) on array 'output_r' [64]  (1.24 ns)
+	'shl' operation ('tmp_390', curve25519/src/curve25519-donna.c:252) [65]  (0 ns)
+	'add' operation ('tmp14', curve25519/src/curve25519-donna.c:254) [70]  (1.41 ns)
+	'add' operation ('tmp_296', curve25519/src/curve25519-donna.c:254) [71]  (0.409 ns)
+
+ <State 9>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_15', curve25519/src/curve25519-donna.c:255) on array 'output_r' [74]  (1.24 ns)
+	'shl' operation ('tmp_392', curve25519/src/curve25519-donna.c:255) [75]  (0 ns)
+	'add' operation ('tmp16', curve25519/src/curve25519-donna.c:257) [80]  (1.41 ns)
+	'add' operation ('tmp_297', curve25519/src/curve25519-donna.c:257) [81]  (0.409 ns)
+
+ <State 10>: 3.06ns
+The critical path consists of the following:
+	'load' operation ('output_load_17', curve25519/src/curve25519-donna.c:258) on array 'output_r' [84]  (1.24 ns)
+	'shl' operation ('tmp_394', curve25519/src/curve25519-donna.c:258) [85]  (0 ns)
+	'add' operation ('tmp18', curve25519/src/curve25519-donna.c:260) [89]  (1.41 ns)
+	'add' operation ('tmp_298', curve25519/src/curve25519-donna.c:260) [90]  (0.409 ns)
+
+ <State 11>: 1.24ns
+The critical path consists of the following:
+	'store' operation (curve25519/src/curve25519-donna.c:242) of variable 'tmp_293', curve25519/src/curve25519-donna.c:242 on array 'output_r' [32]  (1.24 ns)
+
+ <State 12>: 1.24ns
+The critical path consists of the following:
+	'store' operation (curve25519/src/curve25519-donna.c:248) of variable 'tmp_295', curve25519/src/curve25519-donna.c:248 on array 'output_r' [52]  (1.24 ns)
+
+ <State 13>: 1.24ns
+The critical path consists of the following:
+	'store' operation (curve25519/src/curve25519-donna.c:254) of variable 'tmp_296', curve25519/src/curve25519-donna.c:254 on array 'output_r' [72]  (1.24 ns)
+
+ <State 14>: 1.24ns
+The critical path consists of the following:
+	'store' operation (curve25519/src/curve25519-donna.c:260) of variable 'tmp_298', curve25519/src/curve25519-donna.c:260 on array 'output_r' [91]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

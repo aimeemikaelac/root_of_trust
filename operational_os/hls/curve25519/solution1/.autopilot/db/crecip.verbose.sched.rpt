@@ -1,0 +1,1352 @@
+
+
+================================================================
+== Vivado HLS Report for 'crecip'
+================================================================
+* Date:           Wed May 31 17:58:36 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        curve25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.10|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  36767|  36767|  36767|  36767|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |          |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   1104|   1104|       276|          -|          -|     4|    no    |
+        |- Loop 2  |   2484|   2484|       276|          -|          -|     9|    no    |
+        |- Loop 3  |   1104|   1104|       276|          -|          -|     4|    no    |
+        |- Loop 4  |   6624|   6624|       276|          -|          -|    24|    no    |
+        |- Loop 5  |  13524|  13524|       276|          -|          -|    49|    no    |
+        |- Loop 6  |   6624|   6624|       276|          -|          -|    24|    no    |
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 92
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / (tmp)
+	35  / (!tmp)
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	31  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / (tmp_s)
+	44  / (!tmp_s)
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	40  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / (tmp_828)
+	53  / (!tmp_828)
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	49  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / (tmp_829)
+	62  / (!tmp_829)
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	58  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / (tmp_830)
+	71  / (!tmp_830)
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	67  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / (tmp_831)
+	80  / (!tmp_831)
+77 --> 
+	78  / true
+78 --> 
+	79  / true
+79 --> 
+	76  / true
+80 --> 
+	81  / true
+81 --> 
+	82  / true
+82 --> 
+	83  / true
+83 --> 
+	84  / true
+84 --> 
+	85  / true
+85 --> 
+	86  / true
+86 --> 
+	87  / true
+87 --> 
+	88  / true
+88 --> 
+	89  / true
+89 --> 
+	90  / true
+90 --> 
+	91  / true
+91 --> 
+	92  / true
+92 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: z2 (3)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:888
+:0  %z2 = alloca [10 x i64], align 16
+
+ST_1: z9 (4)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:889
+:1  %z9 = alloca [10 x i64], align 16
+
+ST_1: z11 (5)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:890
+:2  %z11 = alloca [10 x i64], align 16
+
+ST_1: z2_5_0 (6)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:891
+:3  %z2_5_0 = alloca [10 x i64], align 16
+
+ST_1: z2_10_0 (7)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:892
+:4  %z2_10_0 = alloca [10 x i64], align 16
+
+ST_1: z2_20_0 (8)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:893
+:5  %z2_20_0 = alloca [10 x i64], align 16
+
+ST_1: z2_50_0 (9)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:894
+:6  %z2_50_0 = alloca [10 x i64], align 16
+
+ST_1: z2_100_0 (10)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:895
+:7  %z2_100_0 = alloca [10 x i64], align 16
+
+ST_1: t0 (11)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:896
+:8  %t0 = alloca [10 x i64], align 16
+
+ST_1: t1 (12)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:897
+:9  %t1 = alloca [10 x i64], align 16
+
+ST_1: StgValue_103 (15)  [2/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:900
+:12  call fastcc void @fsquare.2([10 x i64]* %z2, [11 x i64]* %z)
+
+
+ <State 2>: 0.00ns
+ST_2: StgValue_104 (15)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:900
+:12  call fastcc void @fsquare.2([10 x i64]* %z2, [11 x i64]* %z)
+
+
+ <State 3>: 1.77ns
+ST_3: StgValue_105 (16)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:901
+:13  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %z2)
+
+
+ <State 4>: 0.00ns
+ST_4: StgValue_106 (16)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:901
+:13  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %z2)
+
+
+ <State 5>: 1.77ns
+ST_5: StgValue_107 (17)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:902
+:14  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 6>: 0.00ns
+ST_6: StgValue_108 (17)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:902
+:14  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 7>: 0.00ns
+ST_7: StgValue_109 (18)  [2/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:903
+:15  call fastcc void @fmul.1([10 x i64]* %z9, [10 x i64]* %t0, [11 x i64]* %z)
+
+
+ <State 8>: 0.00ns
+ST_8: StgValue_110 (18)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:903
+:15  call fastcc void @fmul.1([10 x i64]* %z9, [10 x i64]* %t0, [11 x i64]* %z)
+
+
+ <State 9>: 0.89ns
+ST_9: StgValue_111 (19)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:904
+:16  call fastcc void @fmul([10 x i64]* %z11, [10 x i64]* %z9, [10 x i64]* %z2)
+
+
+ <State 10>: 0.00ns
+ST_10: StgValue_112 (19)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:904
+:16  call fastcc void @fmul([10 x i64]* %z11, [10 x i64]* %z9, [10 x i64]* %z2)
+
+
+ <State 11>: 1.77ns
+ST_11: StgValue_113 (20)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:905
+:17  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z11)
+
+
+ <State 12>: 0.00ns
+ST_12: StgValue_114 (20)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:905
+:17  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z11)
+
+
+ <State 13>: 0.89ns
+ST_13: StgValue_115 (21)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:906
+:18  call fastcc void @fmul([10 x i64]* %z2_5_0, [10 x i64]* %t0, [10 x i64]* %z9)
+
+
+ <State 14>: 0.00ns
+ST_14: StgValue_116 (21)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:906
+:18  call fastcc void @fmul([10 x i64]* %z2_5_0, [10 x i64]* %t0, [10 x i64]* %z9)
+
+
+ <State 15>: 1.77ns
+ST_15: StgValue_117 (22)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:908
+:19  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_5_0)
+
+
+ <State 16>: 0.00ns
+ST_16: StgValue_118 (22)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:908
+:19  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_5_0)
+
+
+ <State 17>: 1.77ns
+ST_17: StgValue_119 (23)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:909
+:20  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 18>: 0.00ns
+ST_18: StgValue_120 (23)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:909
+:20  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 19>: 1.77ns
+ST_19: StgValue_121 (24)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:910
+:21  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 20>: 0.00ns
+ST_20: StgValue_122 (24)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:910
+:21  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 21>: 1.77ns
+ST_21: StgValue_123 (25)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:911
+:22  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 22>: 0.00ns
+ST_22: StgValue_124 (25)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:911
+:22  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 23>: 1.77ns
+ST_23: StgValue_125 (26)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:912
+:23  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 24>: 0.00ns
+ST_24: StgValue_126 (26)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:912
+:23  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 25>: 0.89ns
+ST_25: StgValue_127 (27)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:913
+:24  call fastcc void @fmul([10 x i64]* %z2_10_0, [10 x i64]* %t0, [10 x i64]* %z2_5_0)
+
+
+ <State 26>: 0.00ns
+ST_26: StgValue_128 (27)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:913
+:24  call fastcc void @fmul([10 x i64]* %z2_10_0, [10 x i64]* %t0, [10 x i64]* %z2_5_0)
+
+
+ <State 27>: 1.77ns
+ST_27: StgValue_129 (28)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:915
+:25  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_10_0)
+
+
+ <State 28>: 0.00ns
+ST_28: StgValue_130 (28)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:915
+:25  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_10_0)
+
+
+ <State 29>: 1.77ns
+ST_29: StgValue_131 (29)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:916
+:26  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 30>: 0.66ns
+ST_30: StgValue_132 (13)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:886
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_30: StgValue_133 (14)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:887
+:11  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str8, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_30: StgValue_134 (29)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:916
+:26  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_30: StgValue_135 (30)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:917
+:27  br label %1
+
+
+ <State 31>: 1.77ns
+ST_31: i (32)  [1/1] 0.00ns
+:0  %i = phi i4 [ 2, %0 ], [ %i_15, %2 ]
+
+ST_31: tmp (33)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:917
+:1  %tmp = icmp ult i4 %i, -6
+
+ST_31: empty (34)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_31: StgValue_139 (35)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:917
+:3  br i1 %tmp, label %2, label %3
+
+ST_31: StgValue_140 (37)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:917
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_31: i_15 (39)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:917
+:2  %i_15 = add i4 %i, 2
+
+ST_31: StgValue_142 (42)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:918
+:0  call fastcc void @fmul([10 x i64]* %z2_20_0, [10 x i64]* %t1, [10 x i64]* %z2_10_0)
+
+
+ <State 32>: 0.00ns
+ST_32: StgValue_143 (37)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:917
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 33>: 1.77ns
+ST_33: StgValue_144 (38)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:917
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 34>: 0.00ns
+ST_34: StgValue_145 (38)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:917
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_34: StgValue_146 (40)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:917
+:3  br label %1
+
+
+ <State 35>: 0.00ns
+ST_35: StgValue_147 (42)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:918
+:0  call fastcc void @fmul([10 x i64]* %z2_20_0, [10 x i64]* %t1, [10 x i64]* %z2_10_0)
+
+
+ <State 36>: 1.77ns
+ST_36: StgValue_148 (43)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:920
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_20_0)
+
+
+ <State 37>: 0.00ns
+ST_37: StgValue_149 (43)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:920
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_20_0)
+
+
+ <State 38>: 1.77ns
+ST_38: StgValue_150 (44)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:921
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 39>: 0.66ns
+ST_39: StgValue_151 (44)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:921
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_39: StgValue_152 (45)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:922
+:3  br label %4
+
+
+ <State 40>: 1.77ns
+ST_40: i_1 (47)  [1/1] 0.00ns
+:0  %i_1 = phi i5 [ 2, %3 ], [ %i_16, %5 ]
+
+ST_40: tmp_s (48)  [1/1] 0.39ns  loc: curve25519/src/curve25519-donna.c:922
+:1  %tmp_s = icmp ult i5 %i_1, -12
+
+ST_40: empty_45 (49)  [1/1] 0.00ns
+:2  %empty_45 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+
+ST_40: StgValue_156 (50)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:922
+:3  br i1 %tmp_s, label %5, label %6
+
+ST_40: StgValue_157 (52)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:922
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_40: i_16 (54)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:922
+:2  %i_16 = add i5 %i_1, 2
+
+ST_40: StgValue_159 (57)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:923
+:0  call fastcc void @fmul([10 x i64]* %t0, [10 x i64]* %t1, [10 x i64]* %z2_20_0)
+
+
+ <State 41>: 0.00ns
+ST_41: StgValue_160 (52)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:922
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 42>: 1.77ns
+ST_42: StgValue_161 (53)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:922
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 43>: 0.00ns
+ST_43: StgValue_162 (53)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:922
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_43: StgValue_163 (55)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:922
+:3  br label %4
+
+
+ <State 44>: 0.00ns
+ST_44: StgValue_164 (57)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:923
+:0  call fastcc void @fmul([10 x i64]* %t0, [10 x i64]* %t1, [10 x i64]* %z2_20_0)
+
+
+ <State 45>: 1.77ns
+ST_45: StgValue_165 (58)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:925
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 46>: 0.00ns
+ST_46: StgValue_166 (58)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:925
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 47>: 1.77ns
+ST_47: StgValue_167 (59)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:926
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 48>: 0.66ns
+ST_48: StgValue_168 (59)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:926
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_48: StgValue_169 (60)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:927
+:3  br label %7
+
+
+ <State 49>: 1.77ns
+ST_49: i_2 (62)  [1/1] 0.00ns
+:0  %i_2 = phi i4 [ 2, %6 ], [ %i_17, %8 ]
+
+ST_49: tmp_828 (63)  [1/1] 0.44ns  loc: curve25519/src/curve25519-donna.c:927
+:1  %tmp_828 = icmp ult i4 %i_2, -6
+
+ST_49: empty_46 (64)  [1/1] 0.00ns
+:2  %empty_46 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_49: StgValue_173 (65)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:927
+:3  br i1 %tmp_828, label %8, label %9
+
+ST_49: StgValue_174 (67)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:927
+:0  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_49: i_17 (69)  [1/1] 1.12ns  loc: curve25519/src/curve25519-donna.c:927
+:2  %i_17 = add i4 %i_2, 2
+
+ST_49: StgValue_176 (72)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:928
+:0  call fastcc void @fmul([10 x i64]* %z2_50_0, [10 x i64]* %t0, [10 x i64]* %z2_10_0)
+
+
+ <State 50>: 0.00ns
+ST_50: StgValue_177 (67)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:927
+:0  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 51>: 1.77ns
+ST_51: StgValue_178 (68)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:927
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 52>: 0.00ns
+ST_52: StgValue_179 (68)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:927
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_52: StgValue_180 (70)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:927
+:3  br label %7
+
+
+ <State 53>: 0.00ns
+ST_53: StgValue_181 (72)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:928
+:0  call fastcc void @fmul([10 x i64]* %z2_50_0, [10 x i64]* %t0, [10 x i64]* %z2_10_0)
+
+
+ <State 54>: 1.77ns
+ST_54: StgValue_182 (73)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:930
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_50_0)
+
+
+ <State 55>: 0.00ns
+ST_55: StgValue_183 (73)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:930
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %z2_50_0)
+
+
+ <State 56>: 1.77ns
+ST_56: StgValue_184 (74)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:931
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 57>: 0.66ns
+ST_57: StgValue_185 (74)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:931
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_57: StgValue_186 (75)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:932
+:3  br label %10
+
+
+ <State 58>: 1.77ns
+ST_58: i_3 (77)  [1/1] 0.00ns
+:0  %i_3 = phi i6 [ 2, %9 ], [ %i_18, %11 ]
+
+ST_58: tmp_829 (78)  [1/1] 0.71ns  loc: curve25519/src/curve25519-donna.c:932
+:1  %tmp_829 = icmp ult i6 %i_3, -14
+
+ST_58: empty_47 (79)  [1/1] 0.00ns
+:2  %empty_47 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 24, i64 24, i64 24)
+
+ST_58: StgValue_190 (80)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:932
+:3  br i1 %tmp_829, label %11, label %12
+
+ST_58: StgValue_191 (82)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:932
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_58: i_18 (84)  [1/1] 1.11ns  loc: curve25519/src/curve25519-donna.c:932
+:2  %i_18 = add i6 %i_3, 2
+
+ST_58: StgValue_193 (87)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:933
+:0  call fastcc void @fmul([10 x i64]* %z2_100_0, [10 x i64]* %t1, [10 x i64]* %z2_50_0)
+
+
+ <State 59>: 0.00ns
+ST_59: StgValue_194 (82)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:932
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 60>: 1.77ns
+ST_60: StgValue_195 (83)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:932
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 61>: 0.00ns
+ST_61: StgValue_196 (83)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:932
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_61: StgValue_197 (85)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:932
+:3  br label %10
+
+
+ <State 62>: 0.00ns
+ST_62: StgValue_198 (87)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:933
+:0  call fastcc void @fmul([10 x i64]* %z2_100_0, [10 x i64]* %t1, [10 x i64]* %z2_50_0)
+
+
+ <State 63>: 1.77ns
+ST_63: StgValue_199 (88)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:935
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %z2_100_0)
+
+
+ <State 64>: 0.00ns
+ST_64: StgValue_200 (88)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:935
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %z2_100_0)
+
+
+ <State 65>: 1.77ns
+ST_65: StgValue_201 (89)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:936
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 66>: 0.66ns
+ST_66: StgValue_202 (89)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:936
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_66: StgValue_203 (90)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:937
+:3  br label %13
+
+
+ <State 67>: 1.77ns
+ST_67: i_4 (92)  [1/1] 0.00ns
+:0  %i_4 = phi i7 [ 2, %12 ], [ %i_19, %14 ]
+
+ST_67: tmp_830 (93)  [1/1] 0.56ns  loc: curve25519/src/curve25519-donna.c:937
+:1  %tmp_830 = icmp ult i7 %i_4, -28
+
+ST_67: empty_48 (94)  [1/1] 0.00ns
+:2  %empty_48 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 49, i64 49, i64 49)
+
+ST_67: StgValue_207 (95)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:937
+:3  br i1 %tmp_830, label %14, label %15
+
+ST_67: StgValue_208 (97)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:937
+:0  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_67: i_19 (99)  [1/1] 1.10ns  loc: curve25519/src/curve25519-donna.c:937
+:2  %i_19 = add i7 %i_4, 2
+
+ST_67: StgValue_210 (102)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:938
+:0  call fastcc void @fmul([10 x i64]* %t1, [10 x i64]* %t0, [10 x i64]* %z2_100_0)
+
+
+ <State 68>: 0.00ns
+ST_68: StgValue_211 (97)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:937
+:0  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 69>: 1.77ns
+ST_69: StgValue_212 (98)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:937
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 70>: 0.00ns
+ST_70: StgValue_213 (98)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:937
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_70: StgValue_214 (100)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:937
+:3  br label %13
+
+
+ <State 71>: 0.00ns
+ST_71: StgValue_215 (102)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:938
+:0  call fastcc void @fmul([10 x i64]* %t1, [10 x i64]* %t0, [10 x i64]* %z2_100_0)
+
+
+ <State 72>: 1.77ns
+ST_72: StgValue_216 (103)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:940
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 73>: 0.00ns
+ST_73: StgValue_217 (103)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:940
+:1  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 74>: 1.77ns
+ST_74: StgValue_218 (104)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:941
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 75>: 0.66ns
+ST_75: StgValue_219 (104)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:941
+:2  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_75: StgValue_220 (105)  [1/1] 0.66ns  loc: curve25519/src/curve25519-donna.c:942
+:3  br label %16
+
+
+ <State 76>: 1.77ns
+ST_76: i_5 (107)  [1/1] 0.00ns
+:0  %i_5 = phi i6 [ 2, %15 ], [ %i_20, %17 ]
+
+ST_76: tmp_831 (108)  [1/1] 0.71ns  loc: curve25519/src/curve25519-donna.c:942
+:1  %tmp_831 = icmp ult i6 %i_5, -14
+
+ST_76: empty_49 (109)  [1/1] 0.00ns
+:2  %empty_49 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 24, i64 24, i64 24)
+
+ST_76: StgValue_224 (110)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:942
+:3  br i1 %tmp_831, label %17, label %18
+
+ST_76: StgValue_225 (112)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:942
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+ST_76: i_20 (114)  [1/1] 1.11ns  loc: curve25519/src/curve25519-donna.c:942
+:2  %i_20 = add i6 %i_5, 2
+
+ST_76: StgValue_227 (117)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:943
+:0  call fastcc void @fmul([10 x i64]* %t0, [10 x i64]* %t1, [10 x i64]* %z2_50_0)
+
+
+ <State 77>: 0.00ns
+ST_77: StgValue_228 (112)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:942
+:0  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 78>: 1.77ns
+ST_78: StgValue_229 (113)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:942
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 79>: 0.00ns
+ST_79: StgValue_230 (113)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:942
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+ST_79: StgValue_231 (115)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:942
+:3  br label %16
+
+
+ <State 80>: 0.00ns
+ST_80: StgValue_232 (117)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:943
+:0  call fastcc void @fmul([10 x i64]* %t0, [10 x i64]* %t1, [10 x i64]* %z2_50_0)
+
+
+ <State 81>: 1.77ns
+ST_81: StgValue_233 (118)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:945
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 82>: 0.00ns
+ST_82: StgValue_234 (118)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:945
+:1  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 83>: 1.77ns
+ST_83: StgValue_235 (119)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:946
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 84>: 0.00ns
+ST_84: StgValue_236 (119)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:946
+:2  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 85>: 1.77ns
+ST_85: StgValue_237 (120)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:947
+:3  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 86>: 0.00ns
+ST_86: StgValue_238 (120)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:947
+:3  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 87>: 1.77ns
+ST_87: StgValue_239 (121)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:948
+:4  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 88>: 0.00ns
+ST_88: StgValue_240 (121)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:948
+:4  call fastcc void @fsquare.1([10 x i64]* %t0, [10 x i64]* %t1)
+
+
+ <State 89>: 1.77ns
+ST_89: StgValue_241 (122)  [2/2] 1.77ns  loc: curve25519/src/curve25519-donna.c:949
+:5  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 90>: 0.00ns
+ST_90: StgValue_242 (122)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:949
+:5  call fastcc void @fsquare.1([10 x i64]* %t1, [10 x i64]* %t0)
+
+
+ <State 91>: 0.89ns
+ST_91: StgValue_243 (123)  [2/2] 0.89ns  loc: curve25519/src/curve25519-donna.c:950
+:6  call fastcc void @fmul([10 x i64]* %out_r, [10 x i64]* %t1, [10 x i64]* %z11)
+
+
+ <State 92>: 0.00ns
+ST_92: StgValue_244 (123)  [1/2] 0.00ns  loc: curve25519/src/curve25519-donna.c:950
+:6  call fastcc void @fmul([10 x i64]* %out_r, [10 x i64]* %t1, [10 x i64]* %z11)
+
+ST_92: StgValue_245 (124)  [1/1] 0.00ns  loc: curve25519/src/curve25519-donna.c:951
+:7  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:901) to 'fsquare.1' [16]  (1.77 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:902) to 'fsquare.1' [17]  (1.77 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0.887ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:904) to 'fmul' [19]  (0.887 ns)
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:905) to 'fsquare.1' [20]  (1.77 ns)
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+ <State 13>: 0.887ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:906) to 'fmul' [21]  (0.887 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+ <State 15>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:908) to 'fsquare.1' [22]  (1.77 ns)
+
+ <State 16>: 0ns
+The critical path consists of the following:
+
+ <State 17>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:909) to 'fsquare.1' [23]  (1.77 ns)
+
+ <State 18>: 0ns
+The critical path consists of the following:
+
+ <State 19>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:910) to 'fsquare.1' [24]  (1.77 ns)
+
+ <State 20>: 0ns
+The critical path consists of the following:
+
+ <State 21>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:911) to 'fsquare.1' [25]  (1.77 ns)
+
+ <State 22>: 0ns
+The critical path consists of the following:
+
+ <State 23>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:912) to 'fsquare.1' [26]  (1.77 ns)
+
+ <State 24>: 0ns
+The critical path consists of the following:
+
+ <State 25>: 0.887ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:913) to 'fmul' [27]  (0.887 ns)
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+ <State 27>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:915) to 'fsquare.1' [28]  (1.77 ns)
+
+ <State 28>: 0ns
+The critical path consists of the following:
+
+ <State 29>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:916) to 'fsquare.1' [29]  (1.77 ns)
+
+ <State 30>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:917) [32]  (0.656 ns)
+
+ <State 31>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:917) to 'fsquare.1' [37]  (1.77 ns)
+
+ <State 32>: 0ns
+The critical path consists of the following:
+
+ <State 33>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:917) to 'fsquare.1' [38]  (1.77 ns)
+
+ <State 34>: 0ns
+The critical path consists of the following:
+
+ <State 35>: 0ns
+The critical path consists of the following:
+
+ <State 36>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:920) to 'fsquare.1' [43]  (1.77 ns)
+
+ <State 37>: 0ns
+The critical path consists of the following:
+
+ <State 38>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:921) to 'fsquare.1' [44]  (1.77 ns)
+
+ <State 39>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:922) [47]  (0.656 ns)
+
+ <State 40>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:922) to 'fsquare.1' [52]  (1.77 ns)
+
+ <State 41>: 0ns
+The critical path consists of the following:
+
+ <State 42>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:922) to 'fsquare.1' [53]  (1.77 ns)
+
+ <State 43>: 0ns
+The critical path consists of the following:
+
+ <State 44>: 0ns
+The critical path consists of the following:
+
+ <State 45>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:925) to 'fsquare.1' [58]  (1.77 ns)
+
+ <State 46>: 0ns
+The critical path consists of the following:
+
+ <State 47>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:926) to 'fsquare.1' [59]  (1.77 ns)
+
+ <State 48>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:927) [62]  (0.656 ns)
+
+ <State 49>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:927) to 'fsquare.1' [67]  (1.77 ns)
+
+ <State 50>: 0ns
+The critical path consists of the following:
+
+ <State 51>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:927) to 'fsquare.1' [68]  (1.77 ns)
+
+ <State 52>: 0ns
+The critical path consists of the following:
+
+ <State 53>: 0ns
+The critical path consists of the following:
+
+ <State 54>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:930) to 'fsquare.1' [73]  (1.77 ns)
+
+ <State 55>: 0ns
+The critical path consists of the following:
+
+ <State 56>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:931) to 'fsquare.1' [74]  (1.77 ns)
+
+ <State 57>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:932) [77]  (0.656 ns)
+
+ <State 58>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:932) to 'fsquare.1' [82]  (1.77 ns)
+
+ <State 59>: 0ns
+The critical path consists of the following:
+
+ <State 60>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:932) to 'fsquare.1' [83]  (1.77 ns)
+
+ <State 61>: 0ns
+The critical path consists of the following:
+
+ <State 62>: 0ns
+The critical path consists of the following:
+
+ <State 63>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:935) to 'fsquare.1' [88]  (1.77 ns)
+
+ <State 64>: 0ns
+The critical path consists of the following:
+
+ <State 65>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:936) to 'fsquare.1' [89]  (1.77 ns)
+
+ <State 66>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:937) [92]  (0.656 ns)
+
+ <State 67>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:937) to 'fsquare.1' [97]  (1.77 ns)
+
+ <State 68>: 0ns
+The critical path consists of the following:
+
+ <State 69>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:937) to 'fsquare.1' [98]  (1.77 ns)
+
+ <State 70>: 0ns
+The critical path consists of the following:
+
+ <State 71>: 0ns
+The critical path consists of the following:
+
+ <State 72>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:940) to 'fsquare.1' [103]  (1.77 ns)
+
+ <State 73>: 0ns
+The critical path consists of the following:
+
+ <State 74>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:941) to 'fsquare.1' [104]  (1.77 ns)
+
+ <State 75>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', curve25519/src/curve25519-donna.c:942) [107]  (0.656 ns)
+
+ <State 76>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:942) to 'fsquare.1' [112]  (1.77 ns)
+
+ <State 77>: 0ns
+The critical path consists of the following:
+
+ <State 78>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:942) to 'fsquare.1' [113]  (1.77 ns)
+
+ <State 79>: 0ns
+The critical path consists of the following:
+
+ <State 80>: 0ns
+The critical path consists of the following:
+
+ <State 81>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:945) to 'fsquare.1' [118]  (1.77 ns)
+
+ <State 82>: 0ns
+The critical path consists of the following:
+
+ <State 83>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:946) to 'fsquare.1' [119]  (1.77 ns)
+
+ <State 84>: 0ns
+The critical path consists of the following:
+
+ <State 85>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:947) to 'fsquare.1' [120]  (1.77 ns)
+
+ <State 86>: 0ns
+The critical path consists of the following:
+
+ <State 87>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:948) to 'fsquare.1' [121]  (1.77 ns)
+
+ <State 88>: 0ns
+The critical path consists of the following:
+
+ <State 89>: 1.77ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:949) to 'fsquare.1' [122]  (1.77 ns)
+
+ <State 90>: 0ns
+The critical path consists of the following:
+
+ <State 91>: 0.887ns
+The critical path consists of the following:
+	'call' operation (curve25519/src/curve25519-donna.c:950) to 'fmul' [123]  (0.887 ns)
+
+ <State 92>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

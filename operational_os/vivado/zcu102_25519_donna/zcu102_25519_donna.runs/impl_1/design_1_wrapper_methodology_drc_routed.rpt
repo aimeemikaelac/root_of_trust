@@ -1,0 +1,40 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
+| Date         : Wed May 31 18:15:30 2017
+| Host         : Alienware running 64-bit Ubuntu 17.04
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xczu9eg-ffvb1156-2-i
+| Speed File   : -2
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 1
++-----------+----------+-----------------------------+------------+
+| Rule      | Severity | Description                 | Violations |
++-----------+----------+-----------------------------+------------+
+| TIMING-17 | Warning  | Non-clocked sequential cell | 1          |
++-----------+----------+-----------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-17#1 Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/rst_ps8_0_99M/U0/ACTIVE_LOW_PR_OUT_DFF[0].peripheral_aresetn_reg[0]_bufg_place/I is not reached by a timing clock
+Related violations: <none>
+
+

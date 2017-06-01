@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [BIND 205-102] The specified resource core for memory 'secret' will be ignored if a simpler one can be used." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:37.835-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'curve25519_donna': cannot find any callsite of 'fproduct'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.292-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'curve25519_donna': cannot find any callsite of 'fsquare_inner'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.274-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'curve25519_donna': cannot find any callsite of 'fsquare'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.271-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'crecip': cannot find any operation of 'mul'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.267-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'fsquare.1': cannot find any operation of 'mul'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.264-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'fsquare.2': cannot find any operation of 'mul'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.261-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'cmult': cannot find any operation of 'mul'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.259-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'fsquare': cannot find any operation of 'mul'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.256-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fmul.2' to 'fmul_2'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.253-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fproduct.2' to 'fproduct_2'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.250-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fmul.1' to 'fmul_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.247-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fproduct.3' to 'fproduct_3'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.245-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fsquare.1' to 'fsquare_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.242-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fsquare_inner.1' to 'fsquare_inner_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.240-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fsquare.2' to 'fsquare_2'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.238-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name '_memcpy.1' to 'p_memcpy_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.235-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fproduct.1' to 'fproduct_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.232-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fsquare_inner.2' to 'fsquare_inner_2'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.230-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'fdifference.1' to 'fdifference_1'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.227-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name '_memcpy' to 'p_memcpy'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.225-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name '_memcpy_char' to 'p_memcpy_char'." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:30.222-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] curve25519/src/curve25519-donna.c:804:25: warning: passing 'const limb *' (aka 'const long *') to parameter of type 'limb *' (aka 'long *') discards qualifiers [-Wincompatible-pointer-types]&#xA;  _memcpy((limb*)nqpqx, q, 10);&#xA;                        ^&#xA;curve25519/src/curve25519-donna.c:59:31: note: passing argument to parameter 'src' here&#xA;void _memcpy(limb* dst, limb* src, unsigned int len){&#xA;                              ^&#xA;1 warning generated." projectName="curve25519" solutionName="solution1" date="2017-05-31T17:58:22.012-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

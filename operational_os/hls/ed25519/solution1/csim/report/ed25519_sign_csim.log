@@ -1,0 +1,9 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+make: 'csim.exe' is up to date.
+R:
+265a5a5518abf2681cfc7b18597983d8a89f723df59bb1f4a47e8c33f4ff39b5262199a57a13f79cd7e8138d6857e9bd611d61537b1183053fbb96e98559f498
+Sig out:
+097a227ee09dd58f991d51a976a765852cd97fbcf90f281c25c4d93975f479c11699f26b8dd334b76f221f627dc7ccc4cf85e588b317ba4d61d1c693de9fc209
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

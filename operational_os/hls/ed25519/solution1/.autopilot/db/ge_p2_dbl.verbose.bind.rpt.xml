@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'ge_p2_dbl'" level="0">
+<item name = "Date">Thu Jun  1 23:26:52 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">ed25519</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 6.91, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">414, 414, 414, 414, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_fe_add_fu_402">fe_add, 9, 9, 9, 9, none</column>
+<column name="grp_fe_sub_fu_495">fe_sub, 9, 9, 9, 9, none</column>
+<column name="grp_fe_sq_fu_545">fe_sq, 128, 128, 128, 128, none</column>
+<column name="grp_fe_sq2_fu_602">fe_sq2, 115, 115, 115, 115, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

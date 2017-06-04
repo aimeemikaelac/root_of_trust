@@ -1,0 +1,6 @@
+INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'michael' on host 'Alienware' (Linux_x86_64 version 4.10.0-21-generic) on Sat Jun 03 22:25:33 MDT 2017
+INFO: [HLS 200-10] On os Ubuntu 17.04
+INFO: [HLS 200-10] In directory '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/215641496550333211097
+INFO: [APCC 202-1] APCC is done.

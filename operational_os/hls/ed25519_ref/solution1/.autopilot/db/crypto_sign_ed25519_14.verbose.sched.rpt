@@ -1,0 +1,672 @@
+
+
+================================================================
+== Vivado HLS Report for 'crypto_sign_ed25519_14'
+================================================================
+* Date:           Sat Jun  3 22:30:10 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.54|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  224|  224|  224|  224|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   50|   50|         5|          -|          -|    10|    no    |
+        |- Loop 2  |  168|  168|         2|          -|          -|    84|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 12
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+	7  / (exitcond1)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	2  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / (!exitcond)
+	12  / (exitcond)
+11 --> 
+	10  / true
+12 --> 
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: StgValue_13 (3)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:215
+:0  br label %1
+
+
+ <State 2>: 2.35ns
+ST_2: i (5)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:215
+:0  %i = phi i4 [ 0, %0 ], [ %tmp_782, %2 ]
+
+ST_2: i_cast (6)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:215
+:1  %i_cast = zext i4 %i to i7
+
+ST_2: exitcond1 (7)  [1/1] 0.44ns  loc: ed25519_ref/src/sc25519.c:215
+:2  %exitcond1 = icmp eq i4 %i, -6
+
+ST_2: empty (8)  [1/1] 0.00ns
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)
+
+ST_2: tmp_782 (9)  [1/1] 1.12ns  loc: ed25519_ref/src/sc25519.c:215
+:4  %tmp_782 = add i4 %i, 1
+
+ST_2: StgValue_19 (10)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:215
+:5  br i1 %exitcond1, label %3, label %2
+
+ST_2: p_shl (12)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:0  %p_shl = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %i, i2 0)
+
+ST_2: p_shl_cast (13)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:1  %p_shl_cast = zext i6 %p_shl to i7
+
+ST_2: tmp_749 (14)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:217
+:2  %tmp_749 = sub i7 %p_shl_cast, %i_cast
+
+ST_2: tmp_776_cast (15)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:3  %tmp_776_cast = sext i7 %tmp_749 to i32
+
+ST_2: tmp_750 (16)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:4  %tmp_750 = zext i32 %tmp_776_cast to i64
+
+ST_2: s_v_addr_2 (17)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:5  %s_v_addr_2 = getelementptr [32 x i32]* %s_v, i64 0, i64 %tmp_750
+
+ST_2: s_v_load_2 (18)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:217
+:6  %s_v_load_2 = load i32* %s_v_addr_2, align 4
+
+ST_2: s_v_addr (85)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:228
+:0  %s_v_addr = getelementptr [32 x i32]* %s_v, i64 0, i64 30
+
+ST_2: s_v_load (86)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:228
+:1  %s_v_load = load i32* %s_v_addr, align 4
+
+
+ <State 3>: 2.34ns
+ST_3: s_v_load_2 (18)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:217
+:6  %s_v_load_2 = load i32* %s_v_addr_2, align 4
+
+ST_3: tmp_792 (19)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:7  %tmp_792 = trunc i32 %s_v_load_2 to i3
+
+ST_3: tmp_779_cast (20)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:8  %tmp_779_cast = zext i3 %tmp_792 to i8
+
+ST_3: tmp_751 (21)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:9  %tmp_751 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i, i3 0)
+
+ST_3: tmp_752 (22)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:10  %tmp_752 = zext i7 %tmp_751 to i64
+
+ST_3: r_addr_5 (23)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:217
+:11  %r_addr_5 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_752
+
+ST_3: StgValue_35 (24)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:217
+:12  store i8 %tmp_779_cast, i8* %r_addr_5, align 1
+
+ST_3: tmp_783_cast (25)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:218
+:13  %tmp_783_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_2, i32 3, i32 5)
+
+ST_3: tmp_784_cast (26)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:218
+:14  %tmp_784_cast = zext i3 %tmp_783_cast to i8
+
+ST_3: tmp_754 (27)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:218
+:15  %tmp_754 = or i7 %tmp_751, 1
+
+ST_3: tmp_755 (28)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:218
+:16  %tmp_755 = zext i7 %tmp_754 to i64
+
+ST_3: r_addr_6 (29)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:218
+:17  %r_addr_6 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_755
+
+ST_3: StgValue_41 (30)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:218
+:18  store i8 %tmp_784_cast, i8* %r_addr_6, align 1
+
+ST_3: tmp_788_cast (31)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:219
+:19  %tmp_788_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_2, i32 6, i32 8)
+
+ST_3: tmp_759 (35)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:220
+:23  %tmp_759 = add i7 1, %tmp_749
+
+ST_3: tmp_792_cast (36)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:24  %tmp_792_cast = sext i7 %tmp_759 to i32
+
+ST_3: tmp_760 (37)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:25  %tmp_760 = zext i32 %tmp_792_cast to i64
+
+ST_3: s_v_addr_3 (38)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:26  %s_v_addr_3 = getelementptr [32 x i32]* %s_v, i64 0, i64 %tmp_760
+
+ST_3: s_v_load_3 (39)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:220
+:27  %s_v_load_3 = load i32* %s_v_addr_3, align 4
+
+ST_3: tmp_772 (61)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:224
+:49  %tmp_772 = add i7 2, %tmp_749
+
+ST_3: tmp_813_cast (62)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:50  %tmp_813_cast = sext i7 %tmp_772 to i32
+
+ST_3: tmp_773 (63)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:51  %tmp_773 = zext i32 %tmp_813_cast to i64
+
+ST_3: s_v_addr_4 (64)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:52  %s_v_addr_4 = getelementptr [32 x i32]* %s_v, i64 0, i64 %tmp_773
+
+ST_3: s_v_load_4 (65)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:224
+:53  %s_v_load_4 = load i32* %s_v_addr_4, align 4
+
+
+ <State 4>: 1.96ns
+ST_4: tmp_757 (32)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:219
+:20  %tmp_757 = or i7 %tmp_751, 2
+
+ST_4: tmp_758 (33)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:219
+:21  %tmp_758 = zext i7 %tmp_757 to i64
+
+ST_4: r_addr_7 (34)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:219
+:22  %r_addr_7 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_758
+
+ST_4: s_v_load_3 (39)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:220
+:27  %s_v_load_3 = load i32* %s_v_addr_3, align 4
+
+ST_4: tmp_793 (40)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:28  %tmp_793 = trunc i32 %s_v_load_3 to i1
+
+ST_4: tmp_761 (41)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:29  %tmp_761 = call i3 @_ssdm_op_BitConcatenate.i3.i1.i2(i1 %tmp_793, i2 0)
+
+ST_4: tmp_762 (42)  [1/1] 0.05ns  loc: ed25519_ref/src/sc25519.c:220
+:30  %tmp_762 = xor i3 %tmp_761, %tmp_788_cast
+
+ST_4: tmp_797_cast (43)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:220
+:31  %tmp_797_cast = zext i3 %tmp_762 to i8
+
+ST_4: StgValue_61 (44)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:220
+:32  store i8 %tmp_797_cast, i8* %r_addr_7, align 1
+
+ST_4: tmp_799_cast (45)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:221
+:33  %tmp_799_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_3, i32 1, i32 3)
+
+ST_4: tmp_800_cast (46)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:221
+:34  %tmp_800_cast = zext i3 %tmp_799_cast to i8
+
+ST_4: tmp_764 (47)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:221
+:35  %tmp_764 = or i7 %tmp_751, 3
+
+ST_4: tmp_765 (48)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:221
+:36  %tmp_765 = zext i7 %tmp_764 to i64
+
+ST_4: r_addr_8 (49)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:221
+:37  %r_addr_8 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_765
+
+ST_4: StgValue_67 (50)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:221
+:38  store i8 %tmp_800_cast, i8* %r_addr_8, align 1
+
+ST_4: tmp_804_cast (51)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:222
+:39  %tmp_804_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_3, i32 4, i32 6)
+
+ST_4: tmp_809_cast (57)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:223
+:45  %tmp_809_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_3, i32 7, i32 9)
+
+ST_4: s_v_load_4 (65)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:224
+:53  %s_v_load_4 = load i32* %s_v_addr_4, align 4
+
+ST_4: tmp_794 (66)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:54  %tmp_794 = trunc i32 %s_v_load_4 to i2
+
+ST_4: tmp_774 (67)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:55  %tmp_774 = call i3 @_ssdm_op_BitConcatenate.i3.i2.i1(i2 %tmp_794, i1 false)
+
+ST_4: tmp_775 (68)  [1/1] 0.05ns  loc: ed25519_ref/src/sc25519.c:224
+:56  %tmp_775 = xor i3 %tmp_774, %tmp_809_cast
+
+ST_4: tmp_820_cast (71)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:225
+:59  %tmp_820_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_4, i32 2, i32 4)
+
+ST_4: tmp_825_cast (77)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:226
+:65  %tmp_825_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_4, i32 5, i32 7)
+
+
+ <State 5>: 0.67ns
+ST_5: tmp_805_cast (52)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:222
+:40  %tmp_805_cast = zext i3 %tmp_804_cast to i8
+
+ST_5: tmp_767 (53)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:222
+:41  %tmp_767 = or i7 %tmp_751, 4
+
+ST_5: tmp_768 (54)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:222
+:42  %tmp_768 = zext i7 %tmp_767 to i64
+
+ST_5: r_addr_9 (55)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:222
+:43  %r_addr_9 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_768
+
+ST_5: StgValue_80 (56)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:222
+:44  store i8 %tmp_805_cast, i8* %r_addr_9, align 1
+
+ST_5: tmp_770 (58)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:223
+:46  %tmp_770 = or i7 %tmp_751, 5
+
+ST_5: tmp_771 (59)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:223
+:47  %tmp_771 = zext i7 %tmp_770 to i64
+
+ST_5: r_addr_10 (60)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:223
+:48  %r_addr_10 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_771
+
+ST_5: tmp_818_cast (69)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:224
+:57  %tmp_818_cast = zext i3 %tmp_775 to i8
+
+ST_5: StgValue_85 (70)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:224
+:58  store i8 %tmp_818_cast, i8* %r_addr_10, align 1
+
+
+ <State 6>: 0.67ns
+ST_6: tmp_821_cast (72)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:225
+:60  %tmp_821_cast = zext i3 %tmp_820_cast to i8
+
+ST_6: tmp_777 (73)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:225
+:61  %tmp_777 = or i7 %tmp_751, 6
+
+ST_6: tmp_778 (74)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:225
+:62  %tmp_778 = zext i7 %tmp_777 to i64
+
+ST_6: r_addr_11 (75)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:225
+:63  %r_addr_11 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_778
+
+ST_6: StgValue_90 (76)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:225
+:64  store i8 %tmp_821_cast, i8* %r_addr_11, align 1
+
+ST_6: tmp_826_cast (78)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:226
+:66  %tmp_826_cast = zext i3 %tmp_825_cast to i8
+
+ST_6: tmp_780 (79)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:226
+:67  %tmp_780 = or i7 %tmp_751, 7
+
+ST_6: tmp_781 (80)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:226
+:68  %tmp_781 = zext i7 %tmp_780 to i64
+
+ST_6: r_addr_12 (81)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:226
+:69  %r_addr_12 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_781
+
+ST_6: StgValue_95 (82)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:226
+:70  store i8 %tmp_826_cast, i8* %r_addr_12, align 1
+
+ST_6: StgValue_96 (83)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:215
+:71  br label %1
+
+
+ <State 7>: 1.91ns
+ST_7: s_v_load (86)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:228
+:1  %s_v_load = load i32* %s_v_addr, align 4
+
+ST_7: tmp (87)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:228
+:2  %tmp = trunc i32 %s_v_load to i3
+
+ST_7: tmp_cast (88)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:228
+:3  %tmp_cast = zext i3 %tmp to i8
+
+ST_7: r_addr (89)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:228
+:4  %r_addr = getelementptr [85 x i8]* %r, i64 0, i64 80
+
+ST_7: StgValue_101 (90)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:228
+:5  store i8 %tmp_cast, i8* %r_addr, align 1
+
+ST_7: tmp_761_cast (91)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:229
+:6  %tmp_761_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load, i32 3, i32 5)
+
+ST_7: tmp_762_cast (92)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:229
+:7  %tmp_762_cast = zext i3 %tmp_761_cast to i8
+
+ST_7: r_addr_1 (93)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:229
+:8  %r_addr_1 = getelementptr [85 x i8]* %r, i64 0, i64 81
+
+ST_7: StgValue_105 (94)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:229
+:9  store i8 %tmp_762_cast, i8* %r_addr_1, align 1
+
+ST_7: tmp_764_cast (95)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:230
+:10  %tmp_764_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load, i32 6, i32 8)
+
+ST_7: s_v_addr_1 (97)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:231
+:12  %s_v_addr_1 = getelementptr [32 x i32]* %s_v, i64 0, i64 31
+
+ST_7: s_v_load_1 (98)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:231
+:13  %s_v_load_1 = load i32* %s_v_addr_1, align 4
+
+
+ <State 8>: 1.96ns
+ST_8: r_addr_2 (96)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:230
+:11  %r_addr_2 = getelementptr [85 x i8]* %r, i64 0, i64 82
+
+ST_8: s_v_load_1 (98)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:231
+:13  %s_v_load_1 = load i32* %s_v_addr_1, align 4
+
+ST_8: tmp_791 (99)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:231
+:14  %tmp_791 = trunc i32 %s_v_load_1 to i1
+
+ST_8: tmp_745 (100)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:231
+:15  %tmp_745 = call i3 @_ssdm_op_BitConcatenate.i3.i1.i2(i1 %tmp_791, i2 0)
+
+ST_8: tmp_746 (101)  [1/1] 0.05ns  loc: ed25519_ref/src/sc25519.c:231
+:16  %tmp_746 = xor i3 %tmp_745, %tmp_764_cast
+
+ST_8: tmp_769_cast (102)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:231
+:17  %tmp_769_cast = zext i3 %tmp_746 to i8
+
+ST_8: StgValue_115 (103)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:231
+:18  store i8 %tmp_769_cast, i8* %r_addr_2, align 1
+
+ST_8: tmp_771_cast (104)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:232
+:19  %tmp_771_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_1, i32 1, i32 3)
+
+ST_8: tmp_772_cast (105)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:232
+:20  %tmp_772_cast = zext i3 %tmp_771_cast to i8
+
+ST_8: r_addr_3 (106)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:232
+:21  %r_addr_3 = getelementptr [85 x i8]* %r, i64 0, i64 83
+
+ST_8: StgValue_119 (107)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:232
+:22  store i8 %tmp_772_cast, i8* %r_addr_3, align 1
+
+ST_8: tmp_774_cast (108)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:233
+:23  %tmp_774_cast = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_v_load_1, i32 4, i32 6)
+
+
+ <State 9>: 0.67ns
+ST_9: tmp_775_cast (109)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:233
+:24  %tmp_775_cast = zext i3 %tmp_774_cast to i8
+
+ST_9: r_addr_4 (110)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:233
+:25  %r_addr_4 = getelementptr [85 x i8]* %r, i64 0, i64 84
+
+ST_9: StgValue_123 (111)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:233
+:26  store i8 %tmp_775_cast, i8* %r_addr_4, align 1
+
+ST_9: StgValue_124 (112)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:237
+:27  br label %4
+
+
+ <State 10>: 1.78ns
+ST_10: carry (114)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:242
+:0  %carry = phi i1 [ false, %3 ], [ %tmp_796, %5 ]
+
+ST_10: i_1 (115)  [1/1] 0.00ns
+:1  %i_1 = phi i7 [ 0, %3 ], [ %i_56, %5 ]
+
+ST_10: carry_cast (116)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:237
+:2  %carry_cast = zext i1 %carry to i8
+
+ST_10: exitcond (117)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:237
+:3  %exitcond = icmp eq i7 %i_1, -44
+
+ST_10: empty_71 (118)  [1/1] 0.00ns
+:4  %empty_71 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 84, i64 84, i64 84)
+
+ST_10: i_56 (119)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:240
+:5  %i_56 = add i7 %i_1, 1
+
+ST_10: StgValue_131 (120)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:237
+:6  br i1 %exitcond, label %6, label %5
+
+ST_10: tmp_784 (122)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:239
+:0  %tmp_784 = zext i7 %i_1 to i64
+
+ST_10: r_addr_13 (123)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:239
+:1  %r_addr_13 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_784
+
+ST_10: r_load_1 (124)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:239
+:2  %r_load_1 = load i8* %r_addr_13, align 1
+
+ST_10: tmp_786 (130)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:240
+:8  %tmp_786 = zext i7 %i_56 to i64
+
+ST_10: r_addr_14 (131)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:240
+:9  %r_addr_14 = getelementptr [85 x i8]* %r, i64 0, i64 %tmp_786
+
+ST_10: r_load_2 (132)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:240
+:10  %r_load_2 = load i8* %r_addr_14, align 1
+
+ST_10: r_load (145)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:245
+:0  %r_load = load i8* %r_addr_4, align 1
+
+
+ <State 11>: 3.54ns
+ST_11: r_load_1 (124)  [1/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:239
+:2  %r_load_1 = load i8* %r_addr_13, align 1
+
+ST_11: tmp_795 (125)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:239
+:3  %tmp_795 = trunc i8 %r_load_1 to i3
+
+ST_11: tmp_77 (126)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:242
+:4  %tmp_77 = zext i1 %carry to i3
+
+ST_11: tmp_785 (127)  [1/1] 1.09ns  loc: ed25519_ref/src/sc25519.c:239
+:5  %tmp_785 = add i8 %carry_cast, %r_load_1
+
+ST_11: tmp_832_cast (128)  [1/1] 1.00ns  loc: ed25519_ref/src/sc25519.c:240
+:6  %tmp_832_cast = add i3 %tmp_795, %tmp_77
+
+ST_11: tmp_9 (129)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:240
+:7  %tmp_9 = call i5 @_ssdm_op_PartSelect.i5.i8.i32.i32(i8 %tmp_785, i32 3, i32 7)
+
+ST_11: r_load_2 (132)  [1/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:240
+:10  %r_load_2 = load i8* %r_addr_14, align 1
+
+ST_11: tmp_787 (133)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:240
+:11  %tmp_787 = sext i5 %tmp_9 to i8
+
+ST_11: tmp_788 (134)  [1/1] 1.09ns  loc: ed25519_ref/src/sc25519.c:240
+:12  %tmp_788 = add i8 %tmp_787, %r_load_2
+
+ST_11: StgValue_148 (135)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:240
+:13  store i8 %tmp_788, i8* %r_addr_14, align 1
+
+ST_11: tmp_836_cast1 (136)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:241
+:14  %tmp_836_cast1 = zext i3 %tmp_832_cast to i5
+
+ST_11: tmp_796 (137)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:242
+:15  %tmp_796 = call i1 @_ssdm_op_BitSelect.i1.i3.i32(i3 %tmp_832_cast, i32 2)
+
+ST_11: tmp_s (138)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:243
+:16  %tmp_s = call i4 @_ssdm_op_BitConcatenate.i4.i1.i3(i1 %tmp_796, i3 0)
+
+ST_11: tmp_838_cast (139)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:243
+:17  %tmp_838_cast = zext i4 %tmp_s to i5
+
+ST_11: tmp_790 (140)  [1/1] 1.12ns  loc: ed25519_ref/src/sc25519.c:243
+:18  %tmp_790 = sub i5 %tmp_836_cast1, %tmp_838_cast
+
+ST_11: tmp_839_cast (141)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:243
+:19  %tmp_839_cast = sext i5 %tmp_790 to i8
+
+ST_11: StgValue_155 (142)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:243
+:20  store i8 %tmp_839_cast, i8* %r_addr_13, align 1
+
+ST_11: StgValue_156 (143)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:237
+:21  br label %4
+
+
+ <State 12>: 2.44ns
+ST_12: r_load (145)  [1/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:245
+:0  %r_load = load i8* %r_addr_4, align 1
+
+ST_12: tmp_783 (146)  [1/1] 1.09ns  loc: ed25519_ref/src/sc25519.c:245
+:1  %tmp_783 = add i8 %r_load, %carry_cast
+
+ST_12: StgValue_159 (147)  [1/1] 0.67ns  loc: ed25519_ref/src/sc25519.c:245
+:2  store i8 %tmp_783, i8* %r_addr_4, align 1
+
+ST_12: StgValue_160 (148)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:246
+:3  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i', ed25519_ref/src/sc25519.c:215) with incoming values : ('tmp_782', ed25519_ref/src/sc25519.c:215) [5]  (0.656 ns)
+
+ <State 2>: 2.35ns
+The critical path consists of the following:
+	'phi' operation ('i', ed25519_ref/src/sc25519.c:215) with incoming values : ('tmp_782', ed25519_ref/src/sc25519.c:215) [5]  (0 ns)
+	'sub' operation ('tmp_749', ed25519_ref/src/sc25519.c:217) [14]  (1.11 ns)
+	'getelementptr' operation ('s_v_addr_2', ed25519_ref/src/sc25519.c:217) [17]  (0 ns)
+	'load' operation ('s_v_load_2', ed25519_ref/src/sc25519.c:217) on array 's_v' [18]  (1.24 ns)
+
+ <State 3>: 2.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_759', ed25519_ref/src/sc25519.c:220) [35]  (1.1 ns)
+	'getelementptr' operation ('s_v_addr_3', ed25519_ref/src/sc25519.c:220) [38]  (0 ns)
+	'load' operation ('s_v_load_3', ed25519_ref/src/sc25519.c:220) on array 's_v' [39]  (1.24 ns)
+
+ <State 4>: 1.96ns
+The critical path consists of the following:
+	'load' operation ('s_v_load_3', ed25519_ref/src/sc25519.c:220) on array 's_v' [39]  (1.24 ns)
+	'xor' operation ('tmp_762', ed25519_ref/src/sc25519.c:220) [42]  (0.051 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:220) of variable 'tmp_797_cast', ed25519_ref/src/sc25519.c:220 on array 'r' [44]  (0.675 ns)
+
+ <State 5>: 0.675ns
+The critical path consists of the following:
+	'store' operation (ed25519_ref/src/sc25519.c:222) of variable 'tmp_805_cast', ed25519_ref/src/sc25519.c:222 on array 'r' [56]  (0.675 ns)
+
+ <State 6>: 0.675ns
+The critical path consists of the following:
+	'store' operation (ed25519_ref/src/sc25519.c:225) of variable 'tmp_821_cast', ed25519_ref/src/sc25519.c:225 on array 'r' [76]  (0.675 ns)
+
+ <State 7>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('s_v_load', ed25519_ref/src/sc25519.c:228) on array 's_v' [86]  (1.24 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:228) of variable 'tmp_cast', ed25519_ref/src/sc25519.c:228 on array 'r' [90]  (0.675 ns)
+
+ <State 8>: 1.96ns
+The critical path consists of the following:
+	'load' operation ('s_v_load_1', ed25519_ref/src/sc25519.c:231) on array 's_v' [98]  (1.24 ns)
+	'xor' operation ('tmp_746', ed25519_ref/src/sc25519.c:231) [101]  (0.051 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:231) of variable 'tmp_769_cast', ed25519_ref/src/sc25519.c:231 on array 'r' [103]  (0.675 ns)
+
+ <State 9>: 0.675ns
+The critical path consists of the following:
+	'store' operation (ed25519_ref/src/sc25519.c:233) of variable 'tmp_775_cast', ed25519_ref/src/sc25519.c:233 on array 'r' [111]  (0.675 ns)
+
+ <State 10>: 1.78ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:240) [115]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:240) [119]  (1.1 ns)
+	'getelementptr' operation ('r_addr_14', ed25519_ref/src/sc25519.c:240) [131]  (0 ns)
+	'load' operation ('r_load_2', ed25519_ref/src/sc25519.c:240) on array 'r' [132]  (0.675 ns)
+
+ <State 11>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('r_load_1', ed25519_ref/src/sc25519.c:239) on array 'r' [124]  (0.675 ns)
+	'add' operation ('tmp_785', ed25519_ref/src/sc25519.c:239) [127]  (1.09 ns)
+	'add' operation ('tmp_788', ed25519_ref/src/sc25519.c:240) [134]  (1.09 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:240) of variable 'tmp_788', ed25519_ref/src/sc25519.c:240 on array 'r' [135]  (0.675 ns)
+
+ <State 12>: 2.44ns
+The critical path consists of the following:
+	'load' operation ('r_load', ed25519_ref/src/sc25519.c:245) on array 'r' [145]  (0.675 ns)
+	'add' operation ('tmp_783', ed25519_ref/src/sc25519.c:245) [146]  (1.09 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:245) of variable 'tmp_783', ed25519_ref/src/sc25519.c:245 on array 'r' [147]  (0.675 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

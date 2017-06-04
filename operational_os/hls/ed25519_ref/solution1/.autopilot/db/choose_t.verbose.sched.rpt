@@ -1,0 +1,1861 @@
+
+
+================================================================
+== Vivado HLS Report for 'choose_t'
+================================================================
+* Date:           Sat Jun  3 22:30:10 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      5.01|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  1096|  1096|  1096|  1096|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 2  |   32|   32|         1|          -|          -|    32|    no    |
+        |- Loop 3  |   64|   64|         2|          -|          -|    32|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 31
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / (!exitcond_i)
+	28  / (exitcond_i)
+27 --> 
+	26  / true
+28 --> 
+	29  / (exitcond_i_i)
+	28  / (!exitcond_i_i)
+29 --> 
+	30  / true
+30 --> 
+	31  / (!exitcond_i5)
+31 --> 
+	30  / true
+* FSM state operations: 
+
+ <State 1>: 2.34ns
+ST_1: pos_read (8)  [1/1] 0.00ns
+:1  %pos_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %pos_r)
+
+ST_1: t_v (9)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:161->ed25519_ref/src/ge25519.c:170
+:2  %t_v = alloca [32 x i32], align 4
+
+ST_1: v_v (10)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:164
+:3  %v_v = alloca [32 x i32], align 4
+
+ST_1: pos_cast4 (11)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:4  %pos_cast4 = zext i7 %pos_read to i9
+
+ST_1: p_shl (12)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:5  %p_shl = call i9 @_ssdm_op_BitConcatenate.i9.i7.i2(i7 %pos_read, i2 0)
+
+ST_1: tmp (13)  [1/1] 1.10ns  loc: ed25519_ref/src/ge25519.c:165
+:6  %tmp = add i9 %p_shl, %pos_cast4
+
+ST_1: tmp_792 (14)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:7  %tmp_792 = call i14 @_ssdm_op_BitConcatenate.i14.i9.i5(i9 %tmp, i5 0)
+
+ST_1: tmp_793 (15)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:8  %tmp_793 = zext i14 %tmp_792 to i64
+
+ST_1: ge25519_base_multipl (16)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:9  %ge25519_base_multipl = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_793
+
+ST_1: tmp_794 (17)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:10  %tmp_794 = or i14 %tmp_792, 1
+
+ST_1: tmp_795 (18)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:11  %tmp_795 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_794)
+
+ST_1: ge25519_base_multipl_2 (19)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:12  %ge25519_base_multipl_2 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_795
+
+ST_1: ge25519_base_multipl_33 (110)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:103  %ge25519_base_multipl_33 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_793
+
+ST_1: ge25519_base_multipl_34 (111)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:104  %ge25519_base_multipl_34 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_795
+
+ST_1: ge25519_base_multipl_65 (143)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:136  %ge25519_base_multipl_65 = load i32* %ge25519_base_multipl, align 16
+
+ST_1: ge25519_base_multipl_66 (146)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:139  %ge25519_base_multipl_66 = load i32* %ge25519_base_multipl_2, align 4
+
+ST_1: ge25519_base_multipl_97 (239)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:232  %ge25519_base_multipl_97 = load i32* %ge25519_base_multipl_33, align 16
+
+ST_1: ge25519_base_multipl_98 (242)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:235  %ge25519_base_multipl_98 = load i32* %ge25519_base_multipl_34, align 4
+
+
+ <State 2>: 2.47ns
+ST_2: tmp_796 (20)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:13  %tmp_796 = or i14 %tmp_792, 2
+
+ST_2: tmp_797 (21)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:14  %tmp_797 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_796)
+
+ST_2: ge25519_base_multipl_3 (22)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:15  %ge25519_base_multipl_3 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_797
+
+ST_2: tmp_798 (23)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:16  %tmp_798 = or i14 %tmp_792, 3
+
+ST_2: tmp_799 (24)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:17  %tmp_799 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_798)
+
+ST_2: ge25519_base_multipl_4 (25)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:18  %ge25519_base_multipl_4 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_799
+
+ST_2: ge25519_base_multipl_35 (112)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:105  %ge25519_base_multipl_35 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_797
+
+ST_2: ge25519_base_multipl_36 (113)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:106  %ge25519_base_multipl_36 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_799
+
+ST_2: t_x_v_addr (142)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:135  %t_x_v_addr = getelementptr [32 x i32]* %t_x_v, i64 0, i64 0
+
+ST_2: ge25519_base_multipl_65 (143)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:136  %ge25519_base_multipl_65 = load i32* %ge25519_base_multipl, align 16
+
+ST_2: StgValue_60 (144)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:137  store i32 %ge25519_base_multipl_65, i32* %t_x_v_addr, align 4
+
+ST_2: t_x_v_addr_1 (145)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:138  %t_x_v_addr_1 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 1
+
+ST_2: ge25519_base_multipl_66 (146)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:139  %ge25519_base_multipl_66 = load i32* %ge25519_base_multipl_2, align 4
+
+ST_2: StgValue_63 (147)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:140  store i32 %ge25519_base_multipl_66, i32* %t_x_v_addr_1, align 4
+
+ST_2: ge25519_base_multipl_67 (149)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:142  %ge25519_base_multipl_67 = load i32* %ge25519_base_multipl_3, align 8
+
+ST_2: ge25519_base_multipl_68 (152)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:145  %ge25519_base_multipl_68 = load i32* %ge25519_base_multipl_4, align 4
+
+ST_2: t_y_v_addr (238)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:231  %t_y_v_addr = getelementptr [32 x i32]* %t_y_v, i64 0, i64 0
+
+ST_2: ge25519_base_multipl_97 (239)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:232  %ge25519_base_multipl_97 = load i32* %ge25519_base_multipl_33, align 16
+
+ST_2: StgValue_68 (240)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:233  store i32 %ge25519_base_multipl_97, i32* %t_y_v_addr, align 4
+
+ST_2: t_y_v_addr_1 (241)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:234  %t_y_v_addr_1 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 1
+
+ST_2: ge25519_base_multipl_98 (242)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:235  %ge25519_base_multipl_98 = load i32* %ge25519_base_multipl_34, align 4
+
+ST_2: StgValue_71 (243)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:236  store i32 %ge25519_base_multipl_98, i32* %t_y_v_addr_1, align 4
+
+ST_2: ge25519_base_multipl_99 (245)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:238  %ge25519_base_multipl_99 = load i32* %ge25519_base_multipl_35, align 8
+
+ST_2: ge25519_base_multipl_100 (248)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:241  %ge25519_base_multipl_100 = load i32* %ge25519_base_multipl_36, align 4
+
+
+ <State 3>: 2.47ns
+ST_3: tmp_800 (26)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:19  %tmp_800 = or i14 %tmp_792, 4
+
+ST_3: tmp_801 (27)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:20  %tmp_801 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_800)
+
+ST_3: ge25519_base_multipl_5 (28)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:21  %ge25519_base_multipl_5 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_801
+
+ST_3: tmp_802 (29)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:22  %tmp_802 = or i14 %tmp_792, 5
+
+ST_3: tmp_803 (30)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:23  %tmp_803 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_802)
+
+ST_3: ge25519_base_multipl_6 (31)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:24  %ge25519_base_multipl_6 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_803
+
+ST_3: ge25519_base_multipl_37 (114)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:107  %ge25519_base_multipl_37 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_801
+
+ST_3: ge25519_base_multipl_38 (115)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:108  %ge25519_base_multipl_38 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_803
+
+ST_3: t_x_v_addr_2 (148)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:141  %t_x_v_addr_2 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 2
+
+ST_3: ge25519_base_multipl_67 (149)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:142  %ge25519_base_multipl_67 = load i32* %ge25519_base_multipl_3, align 8
+
+ST_3: StgValue_84 (150)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:143  store i32 %ge25519_base_multipl_67, i32* %t_x_v_addr_2, align 4
+
+ST_3: t_x_v_addr_3 (151)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:144  %t_x_v_addr_3 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 3
+
+ST_3: ge25519_base_multipl_68 (152)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:145  %ge25519_base_multipl_68 = load i32* %ge25519_base_multipl_4, align 4
+
+ST_3: StgValue_87 (153)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:146  store i32 %ge25519_base_multipl_68, i32* %t_x_v_addr_3, align 4
+
+ST_3: ge25519_base_multipl_69 (155)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:148  %ge25519_base_multipl_69 = load i32* %ge25519_base_multipl_5, align 16
+
+ST_3: ge25519_base_multipl_70 (158)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:151  %ge25519_base_multipl_70 = load i32* %ge25519_base_multipl_6, align 4
+
+ST_3: t_y_v_addr_2 (244)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:237  %t_y_v_addr_2 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 2
+
+ST_3: ge25519_base_multipl_99 (245)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:238  %ge25519_base_multipl_99 = load i32* %ge25519_base_multipl_35, align 8
+
+ST_3: StgValue_92 (246)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:239  store i32 %ge25519_base_multipl_99, i32* %t_y_v_addr_2, align 4
+
+ST_3: t_y_v_addr_3 (247)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:240  %t_y_v_addr_3 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 3
+
+ST_3: ge25519_base_multipl_100 (248)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:241  %ge25519_base_multipl_100 = load i32* %ge25519_base_multipl_36, align 4
+
+ST_3: StgValue_95 (249)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:242  store i32 %ge25519_base_multipl_100, i32* %t_y_v_addr_3, align 4
+
+ST_3: ge25519_base_multipl_101 (251)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:244  %ge25519_base_multipl_101 = load i32* %ge25519_base_multipl_37, align 16
+
+ST_3: ge25519_base_multipl_102 (254)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:247  %ge25519_base_multipl_102 = load i32* %ge25519_base_multipl_38, align 4
+
+
+ <State 4>: 2.47ns
+ST_4: tmp_804 (32)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:25  %tmp_804 = or i14 %tmp_792, 6
+
+ST_4: tmp_805 (33)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:26  %tmp_805 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_804)
+
+ST_4: ge25519_base_multipl_7 (34)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:27  %ge25519_base_multipl_7 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_805
+
+ST_4: tmp_806 (35)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:28  %tmp_806 = or i14 %tmp_792, 7
+
+ST_4: tmp_807 (36)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:29  %tmp_807 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_806)
+
+ST_4: ge25519_base_multipl_8 (37)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:30  %ge25519_base_multipl_8 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_807
+
+ST_4: ge25519_base_multipl_39 (116)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:109  %ge25519_base_multipl_39 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_805
+
+ST_4: ge25519_base_multipl_40 (117)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:110  %ge25519_base_multipl_40 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_807
+
+ST_4: t_x_v_addr_4 (154)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:147  %t_x_v_addr_4 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 4
+
+ST_4: ge25519_base_multipl_69 (155)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:148  %ge25519_base_multipl_69 = load i32* %ge25519_base_multipl_5, align 16
+
+ST_4: StgValue_108 (156)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:149  store i32 %ge25519_base_multipl_69, i32* %t_x_v_addr_4, align 4
+
+ST_4: t_x_v_addr_5 (157)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:150  %t_x_v_addr_5 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 5
+
+ST_4: ge25519_base_multipl_70 (158)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:151  %ge25519_base_multipl_70 = load i32* %ge25519_base_multipl_6, align 4
+
+ST_4: StgValue_111 (159)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:152  store i32 %ge25519_base_multipl_70, i32* %t_x_v_addr_5, align 4
+
+ST_4: ge25519_base_multipl_71 (161)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:154  %ge25519_base_multipl_71 = load i32* %ge25519_base_multipl_7, align 8
+
+ST_4: ge25519_base_multipl_72 (164)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:157  %ge25519_base_multipl_72 = load i32* %ge25519_base_multipl_8, align 4
+
+ST_4: t_y_v_addr_4 (250)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:243  %t_y_v_addr_4 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 4
+
+ST_4: ge25519_base_multipl_101 (251)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:244  %ge25519_base_multipl_101 = load i32* %ge25519_base_multipl_37, align 16
+
+ST_4: StgValue_116 (252)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:245  store i32 %ge25519_base_multipl_101, i32* %t_y_v_addr_4, align 4
+
+ST_4: t_y_v_addr_5 (253)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:246  %t_y_v_addr_5 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 5
+
+ST_4: ge25519_base_multipl_102 (254)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:247  %ge25519_base_multipl_102 = load i32* %ge25519_base_multipl_38, align 4
+
+ST_4: StgValue_119 (255)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:248  store i32 %ge25519_base_multipl_102, i32* %t_y_v_addr_5, align 4
+
+ST_4: ge25519_base_multipl_103 (257)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:250  %ge25519_base_multipl_103 = load i32* %ge25519_base_multipl_39, align 8
+
+ST_4: ge25519_base_multipl_104 (260)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:253  %ge25519_base_multipl_104 = load i32* %ge25519_base_multipl_40, align 4
+
+
+ <State 5>: 2.47ns
+ST_5: tmp_808 (38)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:31  %tmp_808 = or i14 %tmp_792, 8
+
+ST_5: tmp_809 (39)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:32  %tmp_809 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_808)
+
+ST_5: ge25519_base_multipl_9 (40)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:33  %ge25519_base_multipl_9 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_809
+
+ST_5: tmp_810 (41)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:34  %tmp_810 = or i14 %tmp_792, 9
+
+ST_5: tmp_811 (42)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:35  %tmp_811 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_810)
+
+ST_5: ge25519_base_multipl_10 (43)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:36  %ge25519_base_multipl_10 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_811
+
+ST_5: ge25519_base_multipl_41 (118)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:111  %ge25519_base_multipl_41 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_809
+
+ST_5: ge25519_base_multipl_42 (119)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:112  %ge25519_base_multipl_42 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_811
+
+ST_5: t_x_v_addr_6 (160)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:153  %t_x_v_addr_6 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 6
+
+ST_5: ge25519_base_multipl_71 (161)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:154  %ge25519_base_multipl_71 = load i32* %ge25519_base_multipl_7, align 8
+
+ST_5: StgValue_132 (162)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:155  store i32 %ge25519_base_multipl_71, i32* %t_x_v_addr_6, align 4
+
+ST_5: t_x_v_addr_7 (163)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:156  %t_x_v_addr_7 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 7
+
+ST_5: ge25519_base_multipl_72 (164)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:157  %ge25519_base_multipl_72 = load i32* %ge25519_base_multipl_8, align 4
+
+ST_5: StgValue_135 (165)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:158  store i32 %ge25519_base_multipl_72, i32* %t_x_v_addr_7, align 4
+
+ST_5: ge25519_base_multipl_73 (167)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:160  %ge25519_base_multipl_73 = load i32* %ge25519_base_multipl_9, align 16
+
+ST_5: ge25519_base_multipl_74 (170)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:163  %ge25519_base_multipl_74 = load i32* %ge25519_base_multipl_10, align 4
+
+ST_5: t_y_v_addr_6 (256)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:249  %t_y_v_addr_6 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 6
+
+ST_5: ge25519_base_multipl_103 (257)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:250  %ge25519_base_multipl_103 = load i32* %ge25519_base_multipl_39, align 8
+
+ST_5: StgValue_140 (258)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:251  store i32 %ge25519_base_multipl_103, i32* %t_y_v_addr_6, align 4
+
+ST_5: t_y_v_addr_7 (259)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:252  %t_y_v_addr_7 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 7
+
+ST_5: ge25519_base_multipl_104 (260)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:253  %ge25519_base_multipl_104 = load i32* %ge25519_base_multipl_40, align 4
+
+ST_5: StgValue_143 (261)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:254  store i32 %ge25519_base_multipl_104, i32* %t_y_v_addr_7, align 4
+
+ST_5: ge25519_base_multipl_105 (263)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:256  %ge25519_base_multipl_105 = load i32* %ge25519_base_multipl_41, align 16
+
+ST_5: ge25519_base_multipl_106 (266)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:259  %ge25519_base_multipl_106 = load i32* %ge25519_base_multipl_42, align 4
+
+
+ <State 6>: 2.47ns
+ST_6: tmp_812 (44)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:37  %tmp_812 = or i14 %tmp_792, 10
+
+ST_6: tmp_813 (45)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:38  %tmp_813 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_812)
+
+ST_6: ge25519_base_multipl_11 (46)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:39  %ge25519_base_multipl_11 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_813
+
+ST_6: tmp_814 (47)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:40  %tmp_814 = or i14 %tmp_792, 11
+
+ST_6: tmp_815 (48)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:41  %tmp_815 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_814)
+
+ST_6: ge25519_base_multipl_12 (49)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:42  %ge25519_base_multipl_12 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_815
+
+ST_6: ge25519_base_multipl_43 (120)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:113  %ge25519_base_multipl_43 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_813
+
+ST_6: ge25519_base_multipl_44 (121)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:114  %ge25519_base_multipl_44 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_815
+
+ST_6: t_x_v_addr_8 (166)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:159  %t_x_v_addr_8 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 8
+
+ST_6: ge25519_base_multipl_73 (167)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:160  %ge25519_base_multipl_73 = load i32* %ge25519_base_multipl_9, align 16
+
+ST_6: StgValue_156 (168)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:161  store i32 %ge25519_base_multipl_73, i32* %t_x_v_addr_8, align 4
+
+ST_6: t_x_v_addr_9 (169)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:162  %t_x_v_addr_9 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 9
+
+ST_6: ge25519_base_multipl_74 (170)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:163  %ge25519_base_multipl_74 = load i32* %ge25519_base_multipl_10, align 4
+
+ST_6: StgValue_159 (171)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:164  store i32 %ge25519_base_multipl_74, i32* %t_x_v_addr_9, align 4
+
+ST_6: ge25519_base_multipl_75 (173)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:166  %ge25519_base_multipl_75 = load i32* %ge25519_base_multipl_11, align 8
+
+ST_6: ge25519_base_multipl_76 (176)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:169  %ge25519_base_multipl_76 = load i32* %ge25519_base_multipl_12, align 4
+
+ST_6: t_y_v_addr_8 (262)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:255  %t_y_v_addr_8 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 8
+
+ST_6: ge25519_base_multipl_105 (263)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:256  %ge25519_base_multipl_105 = load i32* %ge25519_base_multipl_41, align 16
+
+ST_6: StgValue_164 (264)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:257  store i32 %ge25519_base_multipl_105, i32* %t_y_v_addr_8, align 4
+
+ST_6: t_y_v_addr_9 (265)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:258  %t_y_v_addr_9 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 9
+
+ST_6: ge25519_base_multipl_106 (266)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:259  %ge25519_base_multipl_106 = load i32* %ge25519_base_multipl_42, align 4
+
+ST_6: StgValue_167 (267)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:260  store i32 %ge25519_base_multipl_106, i32* %t_y_v_addr_9, align 4
+
+ST_6: ge25519_base_multipl_107 (269)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:262  %ge25519_base_multipl_107 = load i32* %ge25519_base_multipl_43, align 8
+
+ST_6: ge25519_base_multipl_108 (272)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:265  %ge25519_base_multipl_108 = load i32* %ge25519_base_multipl_44, align 4
+
+
+ <State 7>: 2.47ns
+ST_7: tmp_816 (50)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:43  %tmp_816 = or i14 %tmp_792, 12
+
+ST_7: tmp_817 (51)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:44  %tmp_817 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_816)
+
+ST_7: ge25519_base_multipl_13 (52)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:45  %ge25519_base_multipl_13 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_817
+
+ST_7: tmp_818 (53)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:46  %tmp_818 = or i14 %tmp_792, 13
+
+ST_7: tmp_819 (54)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:47  %tmp_819 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_818)
+
+ST_7: ge25519_base_multipl_14 (55)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:48  %ge25519_base_multipl_14 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_819
+
+ST_7: ge25519_base_multipl_45 (122)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:115  %ge25519_base_multipl_45 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_817
+
+ST_7: ge25519_base_multipl_46 (123)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:116  %ge25519_base_multipl_46 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_819
+
+ST_7: t_x_v_addr_10 (172)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:165  %t_x_v_addr_10 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 10
+
+ST_7: ge25519_base_multipl_75 (173)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:166  %ge25519_base_multipl_75 = load i32* %ge25519_base_multipl_11, align 8
+
+ST_7: StgValue_180 (174)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:167  store i32 %ge25519_base_multipl_75, i32* %t_x_v_addr_10, align 4
+
+ST_7: t_x_v_addr_11 (175)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:168  %t_x_v_addr_11 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 11
+
+ST_7: ge25519_base_multipl_76 (176)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:169  %ge25519_base_multipl_76 = load i32* %ge25519_base_multipl_12, align 4
+
+ST_7: StgValue_183 (177)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:170  store i32 %ge25519_base_multipl_76, i32* %t_x_v_addr_11, align 4
+
+ST_7: ge25519_base_multipl_77 (179)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:172  %ge25519_base_multipl_77 = load i32* %ge25519_base_multipl_13, align 16
+
+ST_7: ge25519_base_multipl_78 (182)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:175  %ge25519_base_multipl_78 = load i32* %ge25519_base_multipl_14, align 4
+
+ST_7: t_y_v_addr_10 (268)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:261  %t_y_v_addr_10 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 10
+
+ST_7: ge25519_base_multipl_107 (269)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:262  %ge25519_base_multipl_107 = load i32* %ge25519_base_multipl_43, align 8
+
+ST_7: StgValue_188 (270)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:263  store i32 %ge25519_base_multipl_107, i32* %t_y_v_addr_10, align 4
+
+ST_7: t_y_v_addr_11 (271)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:264  %t_y_v_addr_11 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 11
+
+ST_7: ge25519_base_multipl_108 (272)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:265  %ge25519_base_multipl_108 = load i32* %ge25519_base_multipl_44, align 4
+
+ST_7: StgValue_191 (273)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:266  store i32 %ge25519_base_multipl_108, i32* %t_y_v_addr_11, align 4
+
+ST_7: ge25519_base_multipl_109 (275)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:268  %ge25519_base_multipl_109 = load i32* %ge25519_base_multipl_45, align 16
+
+ST_7: ge25519_base_multipl_110 (278)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:271  %ge25519_base_multipl_110 = load i32* %ge25519_base_multipl_46, align 4
+
+
+ <State 8>: 2.47ns
+ST_8: tmp_820 (56)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:49  %tmp_820 = or i14 %tmp_792, 14
+
+ST_8: tmp_821 (57)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:50  %tmp_821 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_820)
+
+ST_8: ge25519_base_multipl_15 (58)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:51  %ge25519_base_multipl_15 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_821
+
+ST_8: tmp_822 (59)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:52  %tmp_822 = or i14 %tmp_792, 15
+
+ST_8: tmp_823 (60)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:53  %tmp_823 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_822)
+
+ST_8: ge25519_base_multipl_16 (61)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:54  %ge25519_base_multipl_16 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_823
+
+ST_8: ge25519_base_multipl_47 (124)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:117  %ge25519_base_multipl_47 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_821
+
+ST_8: ge25519_base_multipl_48 (125)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:118  %ge25519_base_multipl_48 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_823
+
+ST_8: t_x_v_addr_12 (178)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:171  %t_x_v_addr_12 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 12
+
+ST_8: ge25519_base_multipl_77 (179)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:172  %ge25519_base_multipl_77 = load i32* %ge25519_base_multipl_13, align 16
+
+ST_8: StgValue_204 (180)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:173  store i32 %ge25519_base_multipl_77, i32* %t_x_v_addr_12, align 4
+
+ST_8: t_x_v_addr_13 (181)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:174  %t_x_v_addr_13 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 13
+
+ST_8: ge25519_base_multipl_78 (182)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:175  %ge25519_base_multipl_78 = load i32* %ge25519_base_multipl_14, align 4
+
+ST_8: StgValue_207 (183)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:176  store i32 %ge25519_base_multipl_78, i32* %t_x_v_addr_13, align 4
+
+ST_8: ge25519_base_multipl_79 (185)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:178  %ge25519_base_multipl_79 = load i32* %ge25519_base_multipl_15, align 8
+
+ST_8: ge25519_base_multipl_80 (188)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:181  %ge25519_base_multipl_80 = load i32* %ge25519_base_multipl_16, align 4
+
+ST_8: t_y_v_addr_12 (274)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:267  %t_y_v_addr_12 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 12
+
+ST_8: ge25519_base_multipl_109 (275)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:268  %ge25519_base_multipl_109 = load i32* %ge25519_base_multipl_45, align 16
+
+ST_8: StgValue_212 (276)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:269  store i32 %ge25519_base_multipl_109, i32* %t_y_v_addr_12, align 4
+
+ST_8: t_y_v_addr_13 (277)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:270  %t_y_v_addr_13 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 13
+
+ST_8: ge25519_base_multipl_110 (278)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:271  %ge25519_base_multipl_110 = load i32* %ge25519_base_multipl_46, align 4
+
+ST_8: StgValue_215 (279)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:272  store i32 %ge25519_base_multipl_110, i32* %t_y_v_addr_13, align 4
+
+ST_8: ge25519_base_multipl_111 (281)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:274  %ge25519_base_multipl_111 = load i32* %ge25519_base_multipl_47, align 8
+
+ST_8: ge25519_base_multipl_112 (284)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:277  %ge25519_base_multipl_112 = load i32* %ge25519_base_multipl_48, align 4
+
+
+ <State 9>: 2.47ns
+ST_9: tmp_824 (62)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:55  %tmp_824 = or i14 %tmp_792, 16
+
+ST_9: tmp_825 (63)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:56  %tmp_825 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_824)
+
+ST_9: ge25519_base_multipl_17 (64)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:57  %ge25519_base_multipl_17 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_825
+
+ST_9: tmp_826 (65)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:58  %tmp_826 = or i14 %tmp_792, 17
+
+ST_9: tmp_827 (66)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:59  %tmp_827 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_826)
+
+ST_9: ge25519_base_multipl_18 (67)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:60  %ge25519_base_multipl_18 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_827
+
+ST_9: ge25519_base_multipl_49 (126)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:119  %ge25519_base_multipl_49 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_825
+
+ST_9: ge25519_base_multipl_50 (127)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:120  %ge25519_base_multipl_50 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_827
+
+ST_9: t_x_v_addr_14 (184)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:177  %t_x_v_addr_14 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 14
+
+ST_9: ge25519_base_multipl_79 (185)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:178  %ge25519_base_multipl_79 = load i32* %ge25519_base_multipl_15, align 8
+
+ST_9: StgValue_228 (186)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:179  store i32 %ge25519_base_multipl_79, i32* %t_x_v_addr_14, align 4
+
+ST_9: t_x_v_addr_15 (187)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:180  %t_x_v_addr_15 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 15
+
+ST_9: ge25519_base_multipl_80 (188)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:181  %ge25519_base_multipl_80 = load i32* %ge25519_base_multipl_16, align 4
+
+ST_9: StgValue_231 (189)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:182  store i32 %ge25519_base_multipl_80, i32* %t_x_v_addr_15, align 4
+
+ST_9: ge25519_base_multipl_81 (191)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:184  %ge25519_base_multipl_81 = load i32* %ge25519_base_multipl_17, align 16
+
+ST_9: ge25519_base_multipl_82 (194)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:187  %ge25519_base_multipl_82 = load i32* %ge25519_base_multipl_18, align 4
+
+ST_9: t_y_v_addr_14 (280)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:273  %t_y_v_addr_14 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 14
+
+ST_9: ge25519_base_multipl_111 (281)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:274  %ge25519_base_multipl_111 = load i32* %ge25519_base_multipl_47, align 8
+
+ST_9: StgValue_236 (282)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:275  store i32 %ge25519_base_multipl_111, i32* %t_y_v_addr_14, align 4
+
+ST_9: t_y_v_addr_15 (283)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:276  %t_y_v_addr_15 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 15
+
+ST_9: ge25519_base_multipl_112 (284)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:277  %ge25519_base_multipl_112 = load i32* %ge25519_base_multipl_48, align 4
+
+ST_9: StgValue_239 (285)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:278  store i32 %ge25519_base_multipl_112, i32* %t_y_v_addr_15, align 4
+
+ST_9: ge25519_base_multipl_113 (287)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:280  %ge25519_base_multipl_113 = load i32* %ge25519_base_multipl_49, align 16
+
+ST_9: ge25519_base_multipl_114 (290)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:283  %ge25519_base_multipl_114 = load i32* %ge25519_base_multipl_50, align 4
+
+
+ <State 10>: 2.47ns
+ST_10: tmp_828 (68)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:61  %tmp_828 = or i14 %tmp_792, 18
+
+ST_10: tmp_829 (69)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:62  %tmp_829 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_828)
+
+ST_10: ge25519_base_multipl_19 (70)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:63  %ge25519_base_multipl_19 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_829
+
+ST_10: tmp_830 (71)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:64  %tmp_830 = or i14 %tmp_792, 19
+
+ST_10: tmp_831 (72)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:65  %tmp_831 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_830)
+
+ST_10: ge25519_base_multipl_20 (73)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:66  %ge25519_base_multipl_20 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_831
+
+ST_10: ge25519_base_multipl_51 (128)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:121  %ge25519_base_multipl_51 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_829
+
+ST_10: ge25519_base_multipl_52 (129)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:122  %ge25519_base_multipl_52 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_831
+
+ST_10: t_x_v_addr_16 (190)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:183  %t_x_v_addr_16 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 16
+
+ST_10: ge25519_base_multipl_81 (191)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:184  %ge25519_base_multipl_81 = load i32* %ge25519_base_multipl_17, align 16
+
+ST_10: StgValue_252 (192)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:185  store i32 %ge25519_base_multipl_81, i32* %t_x_v_addr_16, align 4
+
+ST_10: t_x_v_addr_17 (193)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:186  %t_x_v_addr_17 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 17
+
+ST_10: ge25519_base_multipl_82 (194)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:187  %ge25519_base_multipl_82 = load i32* %ge25519_base_multipl_18, align 4
+
+ST_10: StgValue_255 (195)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:188  store i32 %ge25519_base_multipl_82, i32* %t_x_v_addr_17, align 4
+
+ST_10: ge25519_base_multipl_83 (197)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:190  %ge25519_base_multipl_83 = load i32* %ge25519_base_multipl_19, align 8
+
+ST_10: ge25519_base_multipl_84 (200)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:193  %ge25519_base_multipl_84 = load i32* %ge25519_base_multipl_20, align 4
+
+ST_10: t_y_v_addr_16 (286)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:279  %t_y_v_addr_16 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 16
+
+ST_10: ge25519_base_multipl_113 (287)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:280  %ge25519_base_multipl_113 = load i32* %ge25519_base_multipl_49, align 16
+
+ST_10: StgValue_260 (288)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:281  store i32 %ge25519_base_multipl_113, i32* %t_y_v_addr_16, align 4
+
+ST_10: t_y_v_addr_17 (289)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:282  %t_y_v_addr_17 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 17
+
+ST_10: ge25519_base_multipl_114 (290)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:283  %ge25519_base_multipl_114 = load i32* %ge25519_base_multipl_50, align 4
+
+ST_10: StgValue_263 (291)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:284  store i32 %ge25519_base_multipl_114, i32* %t_y_v_addr_17, align 4
+
+ST_10: ge25519_base_multipl_115 (293)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:286  %ge25519_base_multipl_115 = load i32* %ge25519_base_multipl_51, align 8
+
+ST_10: ge25519_base_multipl_116 (296)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:289  %ge25519_base_multipl_116 = load i32* %ge25519_base_multipl_52, align 4
+
+
+ <State 11>: 2.47ns
+ST_11: tmp_832 (74)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:67  %tmp_832 = or i14 %tmp_792, 20
+
+ST_11: tmp_833 (75)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:68  %tmp_833 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_832)
+
+ST_11: ge25519_base_multipl_21 (76)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:69  %ge25519_base_multipl_21 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_833
+
+ST_11: tmp_834 (77)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:70  %tmp_834 = or i14 %tmp_792, 21
+
+ST_11: tmp_835 (78)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:71  %tmp_835 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_834)
+
+ST_11: ge25519_base_multipl_22 (79)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:72  %ge25519_base_multipl_22 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_835
+
+ST_11: ge25519_base_multipl_53 (130)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:123  %ge25519_base_multipl_53 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_833
+
+ST_11: ge25519_base_multipl_54 (131)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:124  %ge25519_base_multipl_54 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_835
+
+ST_11: t_x_v_addr_18 (196)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:189  %t_x_v_addr_18 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 18
+
+ST_11: ge25519_base_multipl_83 (197)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:190  %ge25519_base_multipl_83 = load i32* %ge25519_base_multipl_19, align 8
+
+ST_11: StgValue_276 (198)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:191  store i32 %ge25519_base_multipl_83, i32* %t_x_v_addr_18, align 4
+
+ST_11: t_x_v_addr_19 (199)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:192  %t_x_v_addr_19 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 19
+
+ST_11: ge25519_base_multipl_84 (200)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:193  %ge25519_base_multipl_84 = load i32* %ge25519_base_multipl_20, align 4
+
+ST_11: StgValue_279 (201)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:194  store i32 %ge25519_base_multipl_84, i32* %t_x_v_addr_19, align 4
+
+ST_11: ge25519_base_multipl_85 (203)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:196  %ge25519_base_multipl_85 = load i32* %ge25519_base_multipl_21, align 16
+
+ST_11: ge25519_base_multipl_86 (206)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:199  %ge25519_base_multipl_86 = load i32* %ge25519_base_multipl_22, align 4
+
+ST_11: t_y_v_addr_18 (292)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:285  %t_y_v_addr_18 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 18
+
+ST_11: ge25519_base_multipl_115 (293)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:286  %ge25519_base_multipl_115 = load i32* %ge25519_base_multipl_51, align 8
+
+ST_11: StgValue_284 (294)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:287  store i32 %ge25519_base_multipl_115, i32* %t_y_v_addr_18, align 4
+
+ST_11: t_y_v_addr_19 (295)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:288  %t_y_v_addr_19 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 19
+
+ST_11: ge25519_base_multipl_116 (296)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:289  %ge25519_base_multipl_116 = load i32* %ge25519_base_multipl_52, align 4
+
+ST_11: StgValue_287 (297)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:290  store i32 %ge25519_base_multipl_116, i32* %t_y_v_addr_19, align 4
+
+ST_11: ge25519_base_multipl_117 (299)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:292  %ge25519_base_multipl_117 = load i32* %ge25519_base_multipl_53, align 16
+
+ST_11: ge25519_base_multipl_118 (302)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:295  %ge25519_base_multipl_118 = load i32* %ge25519_base_multipl_54, align 4
+
+
+ <State 12>: 2.47ns
+ST_12: tmp_836 (80)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:73  %tmp_836 = or i14 %tmp_792, 22
+
+ST_12: tmp_837 (81)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:74  %tmp_837 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_836)
+
+ST_12: ge25519_base_multipl_23 (82)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:75  %ge25519_base_multipl_23 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_837
+
+ST_12: tmp_838 (83)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:76  %tmp_838 = or i14 %tmp_792, 23
+
+ST_12: tmp_839 (84)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:77  %tmp_839 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_838)
+
+ST_12: ge25519_base_multipl_24 (85)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:78  %ge25519_base_multipl_24 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_839
+
+ST_12: ge25519_base_multipl_55 (132)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:125  %ge25519_base_multipl_55 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_837
+
+ST_12: ge25519_base_multipl_56 (133)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:126  %ge25519_base_multipl_56 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_839
+
+ST_12: t_x_v_addr_20 (202)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:195  %t_x_v_addr_20 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 20
+
+ST_12: ge25519_base_multipl_85 (203)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:196  %ge25519_base_multipl_85 = load i32* %ge25519_base_multipl_21, align 16
+
+ST_12: StgValue_300 (204)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:197  store i32 %ge25519_base_multipl_85, i32* %t_x_v_addr_20, align 4
+
+ST_12: t_x_v_addr_21 (205)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:198  %t_x_v_addr_21 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 21
+
+ST_12: ge25519_base_multipl_86 (206)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:199  %ge25519_base_multipl_86 = load i32* %ge25519_base_multipl_22, align 4
+
+ST_12: StgValue_303 (207)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:200  store i32 %ge25519_base_multipl_86, i32* %t_x_v_addr_21, align 4
+
+ST_12: ge25519_base_multipl_87 (209)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:202  %ge25519_base_multipl_87 = load i32* %ge25519_base_multipl_23, align 8
+
+ST_12: ge25519_base_multipl_88 (212)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:205  %ge25519_base_multipl_88 = load i32* %ge25519_base_multipl_24, align 4
+
+ST_12: t_y_v_addr_20 (298)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:291  %t_y_v_addr_20 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 20
+
+ST_12: ge25519_base_multipl_117 (299)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:292  %ge25519_base_multipl_117 = load i32* %ge25519_base_multipl_53, align 16
+
+ST_12: StgValue_308 (300)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:293  store i32 %ge25519_base_multipl_117, i32* %t_y_v_addr_20, align 4
+
+ST_12: t_y_v_addr_21 (301)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:294  %t_y_v_addr_21 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 21
+
+ST_12: ge25519_base_multipl_118 (302)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:295  %ge25519_base_multipl_118 = load i32* %ge25519_base_multipl_54, align 4
+
+ST_12: StgValue_311 (303)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:296  store i32 %ge25519_base_multipl_118, i32* %t_y_v_addr_21, align 4
+
+ST_12: ge25519_base_multipl_119 (305)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:298  %ge25519_base_multipl_119 = load i32* %ge25519_base_multipl_55, align 8
+
+ST_12: ge25519_base_multipl_120 (308)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:301  %ge25519_base_multipl_120 = load i32* %ge25519_base_multipl_56, align 4
+
+
+ <State 13>: 2.47ns
+ST_13: tmp_840 (86)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:79  %tmp_840 = or i14 %tmp_792, 24
+
+ST_13: tmp_841 (87)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:80  %tmp_841 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_840)
+
+ST_13: ge25519_base_multipl_25 (88)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:81  %ge25519_base_multipl_25 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_841
+
+ST_13: tmp_842 (89)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:82  %tmp_842 = or i14 %tmp_792, 25
+
+ST_13: tmp_843 (90)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:83  %tmp_843 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_842)
+
+ST_13: ge25519_base_multipl_26 (91)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:84  %ge25519_base_multipl_26 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_843
+
+ST_13: ge25519_base_multipl_57 (134)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:127  %ge25519_base_multipl_57 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_841
+
+ST_13: ge25519_base_multipl_58 (135)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:128  %ge25519_base_multipl_58 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_843
+
+ST_13: t_x_v_addr_22 (208)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:201  %t_x_v_addr_22 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 22
+
+ST_13: ge25519_base_multipl_87 (209)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:202  %ge25519_base_multipl_87 = load i32* %ge25519_base_multipl_23, align 8
+
+ST_13: StgValue_324 (210)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:203  store i32 %ge25519_base_multipl_87, i32* %t_x_v_addr_22, align 4
+
+ST_13: t_x_v_addr_23 (211)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:204  %t_x_v_addr_23 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 23
+
+ST_13: ge25519_base_multipl_88 (212)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:205  %ge25519_base_multipl_88 = load i32* %ge25519_base_multipl_24, align 4
+
+ST_13: StgValue_327 (213)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:206  store i32 %ge25519_base_multipl_88, i32* %t_x_v_addr_23, align 4
+
+ST_13: ge25519_base_multipl_89 (215)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:208  %ge25519_base_multipl_89 = load i32* %ge25519_base_multipl_25, align 16
+
+ST_13: ge25519_base_multipl_90 (218)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:211  %ge25519_base_multipl_90 = load i32* %ge25519_base_multipl_26, align 4
+
+ST_13: t_y_v_addr_22 (304)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:297  %t_y_v_addr_22 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 22
+
+ST_13: ge25519_base_multipl_119 (305)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:298  %ge25519_base_multipl_119 = load i32* %ge25519_base_multipl_55, align 8
+
+ST_13: StgValue_332 (306)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:299  store i32 %ge25519_base_multipl_119, i32* %t_y_v_addr_22, align 4
+
+ST_13: t_y_v_addr_23 (307)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:300  %t_y_v_addr_23 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 23
+
+ST_13: ge25519_base_multipl_120 (308)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:301  %ge25519_base_multipl_120 = load i32* %ge25519_base_multipl_56, align 4
+
+ST_13: StgValue_335 (309)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:302  store i32 %ge25519_base_multipl_120, i32* %t_y_v_addr_23, align 4
+
+ST_13: ge25519_base_multipl_121 (311)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:304  %ge25519_base_multipl_121 = load i32* %ge25519_base_multipl_57, align 16
+
+ST_13: ge25519_base_multipl_122 (314)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:307  %ge25519_base_multipl_122 = load i32* %ge25519_base_multipl_58, align 4
+
+
+ <State 14>: 2.47ns
+ST_14: tmp_844 (92)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:85  %tmp_844 = or i14 %tmp_792, 26
+
+ST_14: tmp_845 (93)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:86  %tmp_845 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_844)
+
+ST_14: ge25519_base_multipl_27 (94)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:87  %ge25519_base_multipl_27 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_845
+
+ST_14: tmp_846 (95)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:88  %tmp_846 = or i14 %tmp_792, 27
+
+ST_14: tmp_847 (96)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:89  %tmp_847 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_846)
+
+ST_14: ge25519_base_multipl_28 (97)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:90  %ge25519_base_multipl_28 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_847
+
+ST_14: ge25519_base_multipl_59 (136)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:129  %ge25519_base_multipl_59 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_845
+
+ST_14: ge25519_base_multipl_60 (137)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:130  %ge25519_base_multipl_60 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_847
+
+ST_14: t_x_v_addr_24 (214)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:207  %t_x_v_addr_24 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 24
+
+ST_14: ge25519_base_multipl_89 (215)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:208  %ge25519_base_multipl_89 = load i32* %ge25519_base_multipl_25, align 16
+
+ST_14: StgValue_348 (216)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:209  store i32 %ge25519_base_multipl_89, i32* %t_x_v_addr_24, align 4
+
+ST_14: t_x_v_addr_25 (217)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:210  %t_x_v_addr_25 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 25
+
+ST_14: ge25519_base_multipl_90 (218)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:211  %ge25519_base_multipl_90 = load i32* %ge25519_base_multipl_26, align 4
+
+ST_14: StgValue_351 (219)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:212  store i32 %ge25519_base_multipl_90, i32* %t_x_v_addr_25, align 4
+
+ST_14: ge25519_base_multipl_91 (221)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:214  %ge25519_base_multipl_91 = load i32* %ge25519_base_multipl_27, align 8
+
+ST_14: ge25519_base_multipl_92 (224)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:217  %ge25519_base_multipl_92 = load i32* %ge25519_base_multipl_28, align 4
+
+ST_14: t_y_v_addr_24 (310)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:303  %t_y_v_addr_24 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 24
+
+ST_14: ge25519_base_multipl_121 (311)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:304  %ge25519_base_multipl_121 = load i32* %ge25519_base_multipl_57, align 16
+
+ST_14: StgValue_356 (312)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:305  store i32 %ge25519_base_multipl_121, i32* %t_y_v_addr_24, align 4
+
+ST_14: t_y_v_addr_25 (313)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:306  %t_y_v_addr_25 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 25
+
+ST_14: ge25519_base_multipl_122 (314)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:307  %ge25519_base_multipl_122 = load i32* %ge25519_base_multipl_58, align 4
+
+ST_14: StgValue_359 (315)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:308  store i32 %ge25519_base_multipl_122, i32* %t_y_v_addr_25, align 4
+
+ST_14: ge25519_base_multipl_123 (317)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:310  %ge25519_base_multipl_123 = load i32* %ge25519_base_multipl_59, align 8
+
+ST_14: ge25519_base_multipl_124 (320)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:313  %ge25519_base_multipl_124 = load i32* %ge25519_base_multipl_60, align 4
+
+
+ <State 15>: 2.47ns
+ST_15: tmp_848 (98)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:91  %tmp_848 = or i14 %tmp_792, 28
+
+ST_15: tmp_849 (99)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:92  %tmp_849 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_848)
+
+ST_15: ge25519_base_multipl_29 (100)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:93  %ge25519_base_multipl_29 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_849
+
+ST_15: tmp_850 (101)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:94  %tmp_850 = or i14 %tmp_792, 29
+
+ST_15: tmp_851 (102)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:95  %tmp_851 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_850)
+
+ST_15: ge25519_base_multipl_30 (103)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:96  %ge25519_base_multipl_30 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_851
+
+ST_15: ge25519_base_multipl_61 (138)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:131  %ge25519_base_multipl_61 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_849
+
+ST_15: ge25519_base_multipl_62 (139)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:132  %ge25519_base_multipl_62 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_851
+
+ST_15: t_x_v_addr_26 (220)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:213  %t_x_v_addr_26 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 26
+
+ST_15: ge25519_base_multipl_91 (221)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:214  %ge25519_base_multipl_91 = load i32* %ge25519_base_multipl_27, align 8
+
+ST_15: StgValue_372 (222)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:215  store i32 %ge25519_base_multipl_91, i32* %t_x_v_addr_26, align 4
+
+ST_15: t_x_v_addr_27 (223)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:216  %t_x_v_addr_27 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 27
+
+ST_15: ge25519_base_multipl_92 (224)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:217  %ge25519_base_multipl_92 = load i32* %ge25519_base_multipl_28, align 4
+
+ST_15: StgValue_375 (225)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:218  store i32 %ge25519_base_multipl_92, i32* %t_x_v_addr_27, align 4
+
+ST_15: ge25519_base_multipl_93 (227)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:220  %ge25519_base_multipl_93 = load i32* %ge25519_base_multipl_29, align 16
+
+ST_15: ge25519_base_multipl_94 (230)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:223  %ge25519_base_multipl_94 = load i32* %ge25519_base_multipl_30, align 4
+
+ST_15: t_y_v_addr_26 (316)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:309  %t_y_v_addr_26 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 26
+
+ST_15: ge25519_base_multipl_123 (317)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:310  %ge25519_base_multipl_123 = load i32* %ge25519_base_multipl_59, align 8
+
+ST_15: StgValue_380 (318)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:311  store i32 %ge25519_base_multipl_123, i32* %t_y_v_addr_26, align 4
+
+ST_15: t_y_v_addr_27 (319)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:312  %t_y_v_addr_27 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 27
+
+ST_15: ge25519_base_multipl_124 (320)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:313  %ge25519_base_multipl_124 = load i32* %ge25519_base_multipl_60, align 4
+
+ST_15: StgValue_383 (321)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:314  store i32 %ge25519_base_multipl_124, i32* %t_y_v_addr_27, align 4
+
+ST_15: ge25519_base_multipl_125 (323)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:316  %ge25519_base_multipl_125 = load i32* %ge25519_base_multipl_61, align 16
+
+ST_15: ge25519_base_multipl_126 (326)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:319  %ge25519_base_multipl_126 = load i32* %ge25519_base_multipl_62, align 4
+
+
+ <State 16>: 2.47ns
+ST_16: tmp_852 (104)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:97  %tmp_852 = or i14 %tmp_792, 30
+
+ST_16: tmp_853 (105)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:98  %tmp_853 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_852)
+
+ST_16: ge25519_base_multipl_31 (106)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:99  %ge25519_base_multipl_31 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_853
+
+ST_16: tmp_854 (107)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:100  %tmp_854 = or i14 %tmp_792, 31
+
+ST_16: tmp_855 (108)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:101  %tmp_855 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %tmp_854)
+
+ST_16: ge25519_base_multipl_32 (109)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:102  %ge25519_base_multipl_32 = getelementptr [13600 x i32]* @ge25519_base_multipl_1, i64 0, i64 %tmp_855
+
+ST_16: ge25519_base_multipl_63 (140)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:133  %ge25519_base_multipl_63 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_853
+
+ST_16: ge25519_base_multipl_64 (141)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:134  %ge25519_base_multipl_64 = getelementptr [13600 x i32]* @ge25519_base_multipl, i64 0, i64 %tmp_855
+
+ST_16: t_x_v_addr_28 (226)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:219  %t_x_v_addr_28 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 28
+
+ST_16: ge25519_base_multipl_93 (227)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:220  %ge25519_base_multipl_93 = load i32* %ge25519_base_multipl_29, align 16
+
+ST_16: StgValue_396 (228)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:221  store i32 %ge25519_base_multipl_93, i32* %t_x_v_addr_28, align 4
+
+ST_16: t_x_v_addr_29 (229)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:222  %t_x_v_addr_29 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 29
+
+ST_16: ge25519_base_multipl_94 (230)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:223  %ge25519_base_multipl_94 = load i32* %ge25519_base_multipl_30, align 4
+
+ST_16: StgValue_399 (231)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:224  store i32 %ge25519_base_multipl_94, i32* %t_x_v_addr_29, align 4
+
+ST_16: ge25519_base_multipl_95 (233)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:226  %ge25519_base_multipl_95 = load i32* %ge25519_base_multipl_31, align 8
+
+ST_16: ge25519_base_multipl_96 (236)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:229  %ge25519_base_multipl_96 = load i32* %ge25519_base_multipl_32, align 4
+
+ST_16: t_y_v_addr_28 (322)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:315  %t_y_v_addr_28 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 28
+
+ST_16: ge25519_base_multipl_125 (323)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:316  %ge25519_base_multipl_125 = load i32* %ge25519_base_multipl_61, align 16
+
+ST_16: StgValue_404 (324)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:317  store i32 %ge25519_base_multipl_125, i32* %t_y_v_addr_28, align 4
+
+ST_16: t_y_v_addr_29 (325)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:318  %t_y_v_addr_29 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 29
+
+ST_16: ge25519_base_multipl_126 (326)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:319  %ge25519_base_multipl_126 = load i32* %ge25519_base_multipl_62, align 4
+
+ST_16: StgValue_407 (327)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:320  store i32 %ge25519_base_multipl_126, i32* %t_y_v_addr_29, align 4
+
+ST_16: ge25519_base_multipl_127 (329)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:322  %ge25519_base_multipl_127 = load i32* %ge25519_base_multipl_63, align 8
+
+ST_16: ge25519_base_multipl_128 (332)  [2/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:325  %ge25519_base_multipl_128 = load i32* %ge25519_base_multipl_64, align 4
+
+
+ <State 17>: 2.47ns
+ST_17: t_x_v_addr_30 (232)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:225  %t_x_v_addr_30 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 30
+
+ST_17: ge25519_base_multipl_95 (233)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:226  %ge25519_base_multipl_95 = load i32* %ge25519_base_multipl_31, align 8
+
+ST_17: StgValue_412 (234)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:227  store i32 %ge25519_base_multipl_95, i32* %t_x_v_addr_30, align 4
+
+ST_17: t_x_v_addr_31 (235)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:228  %t_x_v_addr_31 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 31
+
+ST_17: ge25519_base_multipl_96 (236)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:229  %ge25519_base_multipl_96 = load i32* %ge25519_base_multipl_32, align 4
+
+ST_17: StgValue_415 (237)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:230  store i32 %ge25519_base_multipl_96, i32* %t_x_v_addr_31, align 4
+
+ST_17: t_y_v_addr_30 (328)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:321  %t_y_v_addr_30 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 30
+
+ST_17: ge25519_base_multipl_127 (329)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:322  %ge25519_base_multipl_127 = load i32* %ge25519_base_multipl_63, align 8
+
+ST_17: StgValue_418 (330)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:323  store i32 %ge25519_base_multipl_127, i32* %t_y_v_addr_30, align 4
+
+ST_17: t_y_v_addr_31 (331)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:165
+:324  %t_y_v_addr_31 = getelementptr [32 x i32]* %t_y_v, i64 0, i64 31
+
+ST_17: ge25519_base_multipl_128 (332)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:325  %ge25519_base_multipl_128 = load i32* %ge25519_base_multipl_64, align 4
+
+ST_17: StgValue_421 (333)  [1/1] 1.24ns  loc: ed25519_ref/src/ge25519.c:165
+:326  store i32 %ge25519_base_multipl_128, i32* %t_y_v_addr_31, align 4
+
+
+ <State 18>: 1.92ns
+ST_18: b_read (7)  [1/1] 0.00ns
+:0  %b_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %b)
+
+ST_18: tmp_s (334)  [1/1] 1.10ns  loc: ed25519_ref/src/ge25519.c:166
+:327  %tmp_s = add i9 %tmp, 1
+
+ST_18: x (335)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:166 (grouped into LUT with out node y)
+:328  %x = xor i8 %b_read, 1
+
+ST_18: y_cast (336)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:166 (grouped into LUT with out node y)
+:329  %y_cast = zext i8 %x to i9
+
+ST_18: y (337)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:166 (out node of the LUT)
+:330  %y = add i9 %y_cast, -1
+
+ST_18: tmp_862 (338)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:166
+:331  %tmp_862 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y, i32 8)
+
+ST_18: x_8 (339)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:166 (grouped into LUT with out node y_1)
+:332  %x_8 = xor i8 %b_read, -1
+
+ST_18: y_3_cast (340)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:166 (grouped into LUT with out node y_1)
+:333  %y_3_cast = zext i8 %x_8 to i9
+
+ST_18: y_1 (341)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:166 (out node of the LUT)
+:334  %y_1 = add i9 %y_3_cast, -1
+
+ST_18: tmp_863 (342)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:166
+:335  %tmp_863 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_1, i32 8)
+
+ST_18: tmp_856 (343)  [1/1] 0.05ns  loc: ed25519_ref/src/ge25519.c:166
+:336  %tmp_856 = or i1 %tmp_863, %tmp_862
+
+ST_18: StgValue_433 (344)  [2/2] 0.77ns  loc: ed25519_ref/src/ge25519.c:166
+:337  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_s, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_s, i1 %tmp_856)
+
+
+ <State 19>: 0.00ns
+ST_19: StgValue_434 (344)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:166
+:337  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_s, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_s, i1 %tmp_856)
+
+
+ <State 20>: 1.92ns
+ST_20: tmp_857 (345)  [1/1] 1.10ns  loc: ed25519_ref/src/ge25519.c:167
+:338  %tmp_857 = add i9 %tmp, 2
+
+ST_20: x_9 (346)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:167 (grouped into LUT with out node y_2)
+:339  %x_9 = xor i8 %b_read, 2
+
+ST_20: y_6_cast (347)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:167 (grouped into LUT with out node y_2)
+:340  %y_6_cast = zext i8 %x_9 to i9
+
+ST_20: y_2 (348)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:167 (out node of the LUT)
+:341  %y_2 = add i9 %y_6_cast, -1
+
+ST_20: tmp_864 (349)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:167
+:342  %tmp_864 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_2, i32 8)
+
+ST_20: x_10 (350)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:167 (grouped into LUT with out node y_3)
+:343  %x_10 = xor i8 %b_read, -2
+
+ST_20: y_9_cast (351)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:167 (grouped into LUT with out node y_3)
+:344  %y_9_cast = zext i8 %x_10 to i9
+
+ST_20: y_3 (352)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:167 (out node of the LUT)
+:345  %y_3 = add i9 %y_9_cast, -1
+
+ST_20: tmp_865 (353)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:167
+:346  %tmp_865 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_3, i32 8)
+
+ST_20: tmp_858 (354)  [1/1] 0.05ns  loc: ed25519_ref/src/ge25519.c:167
+:347  %tmp_858 = or i1 %tmp_865, %tmp_864
+
+ST_20: StgValue_445 (355)  [2/2] 0.77ns  loc: ed25519_ref/src/ge25519.c:167
+:348  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_857, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_857, i1 %tmp_858)
+
+
+ <State 21>: 0.00ns
+ST_21: StgValue_446 (355)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:167
+:348  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_857, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_857, i1 %tmp_858)
+
+
+ <State 22>: 1.92ns
+ST_22: tmp_859 (356)  [1/1] 1.10ns  loc: ed25519_ref/src/ge25519.c:168
+:349  %tmp_859 = add i9 %tmp, 3
+
+ST_22: x_11 (357)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:168 (grouped into LUT with out node y_4)
+:350  %x_11 = xor i8 %b_read, 3
+
+ST_22: y_12_cast (358)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:168 (grouped into LUT with out node y_4)
+:351  %y_12_cast = zext i8 %x_11 to i9
+
+ST_22: y_4 (359)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:168 (out node of the LUT)
+:352  %y_4 = add i9 %y_12_cast, -1
+
+ST_22: tmp_866 (360)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:168
+:353  %tmp_866 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_4, i32 8)
+
+ST_22: x_12 (361)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:168 (grouped into LUT with out node y_5)
+:354  %x_12 = xor i8 %b_read, -3
+
+ST_22: y_15_cast (362)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:168 (grouped into LUT with out node y_5)
+:355  %y_15_cast = zext i8 %x_12 to i9
+
+ST_22: y_5 (363)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:168 (out node of the LUT)
+:356  %y_5 = add i9 %y_15_cast, -1
+
+ST_22: tmp_867 (364)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:168
+:357  %tmp_867 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_5, i32 8)
+
+ST_22: tmp_860 (365)  [1/1] 0.05ns  loc: ed25519_ref/src/ge25519.c:168
+:358  %tmp_860 = or i1 %tmp_867, %tmp_866
+
+ST_22: StgValue_457 (366)  [2/2] 0.77ns  loc: ed25519_ref/src/ge25519.c:168
+:359  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_859, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_859, i1 %tmp_860)
+
+
+ <State 23>: 0.00ns
+ST_23: StgValue_458 (366)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:168
+:359  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_859, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_859, i1 %tmp_860)
+
+
+ <State 24>: 1.88ns
+ST_24: tmp_861 (367)  [1/1] 1.10ns  loc: ed25519_ref/src/ge25519.c:169
+:360  %tmp_861 = add i9 %tmp, 4
+
+ST_24: x_13 (368)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:169 (grouped into LUT with out node y_6)
+:361  %x_13 = xor i8 %b_read, -4
+
+ST_24: y_18_cast (369)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:148->ed25519_ref/src/ge25519.c:169 (grouped into LUT with out node y_6)
+:362  %y_18_cast = zext i8 %x_13 to i9
+
+ST_24: y_6 (370)  [1/1] 1.09ns  loc: ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:169 (out node of the LUT)
+:363  %y_6 = add i9 %y_18_cast, -1
+
+ST_24: tmp_868 (371)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:150->ed25519_ref/src/ge25519.c:169
+:364  %tmp_868 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %y_6, i32 8)
+
+ST_24: StgValue_464 (372)  [2/2] 0.77ns  loc: ed25519_ref/src/ge25519.c:169
+:365  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_861, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_861, i1 %tmp_868)
+
+
+ <State 25>: 0.66ns
+ST_25: StgValue_465 (372)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:169
+:365  call fastcc void @cmov_aff([32 x i32]* %t_x_v, [32 x i32]* %t_y_v, [13600 x i32]* @ge25519_base_multipl_1, i9 %tmp_861, [13600 x i32]* @ge25519_base_multipl, i9 %tmp_861, i1 %tmp_868)
+
+ST_25: StgValue_466 (373)  [1/1] 0.66ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:366  br label %1
+
+
+ <State 26>: 1.24ns
+ST_26: i_i (375)  [1/1] 0.00ns
+:0  %i_i = phi i6 [ 0, %0 ], [ %i, %2 ]
+
+ST_26: exitcond_i (376)  [1/1] 0.71ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:1  %exitcond_i = icmp eq i6 %i_i, -32
+
+ST_26: empty (377)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_26: i (378)  [1/1] 1.11ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:3  %i = add i6 %i_i, 1
+
+ST_26: StgValue_471 (379)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:4  br i1 %exitcond_i, label %.preheader.preheader, label %2
+
+ST_26: tmp_i1 (381)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:0  %tmp_i1 = zext i6 %i_i to i64
+
+ST_26: t_x_v_addr_32 (382)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:1  %t_x_v_addr_32 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 %tmp_i1
+
+ST_26: t_x_v_load (383)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:2  %t_x_v_load = load i32* %t_x_v_addr_32, align 4
+
+ST_26: StgValue_475 (388)  [1/1] 0.66ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+.preheader.preheader:0  br label %.preheader
+
+
+ <State 27>: 2.47ns
+ST_27: t_x_v_load (383)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:2  %t_x_v_load = load i32* %t_x_v_addr_32, align 4
+
+ST_27: t_v_addr (384)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:3  %t_v_addr = getelementptr [32 x i32]* %t_v, i64 0, i64 %tmp_i1
+
+ST_27: StgValue_478 (385)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:4  store i32 %t_x_v_load, i32* %t_v_addr, align 4
+
+ST_27: StgValue_479 (386)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170
+:5  br label %1
+
+
+ <State 28>: 1.24ns
+ST_28: i_i_i (390)  [1/1] 0.00ns
+.preheader:0  %i_i_i = phi i6 [ %i_82, %3 ], [ 0, %.preheader.preheader ]
+
+ST_28: exitcond_i_i (391)  [1/1] 0.71ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+.preheader:1  %exitcond_i_i = icmp eq i6 %i_i_i, -32
+
+ST_28: empty_101 (392)  [1/1] 0.00ns
+.preheader:2  %empty_101 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_28: i_82 (393)  [1/1] 1.11ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+.preheader:3  %i_82 = add i6 %i_i_i, 1
+
+ST_28: StgValue_484 (394)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+.preheader:4  br i1 %exitcond_i_i, label %crypto_sign_ed25519_ref_fe25519_neg.exit, label %3
+
+ST_28: tmp_i_i (396)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+:0  %tmp_i_i = zext i6 %i_i_i to i64
+
+ST_28: v_v_addr (397)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+:1  %v_v_addr = getelementptr [32 x i32]* %v_v, i64 0, i64 %tmp_i_i
+
+ST_28: StgValue_487 (398)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+:2  store i32 0, i32* %v_v_addr, align 4
+
+ST_28: StgValue_488 (399)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170
+:3  br label %.preheader
+
+ST_28: StgValue_489 (401)  [2/2] 0.00ns
+crypto_sign_ed25519_ref_fe25519_neg.exit:0  call fastcc void @crypto_sign_ed25519_.7([32 x i32]* %v_v, [32 x i32]* %t_v)
+
+ST_28: tmp_869 (402)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:157->ed25519_ref/src/ge25519.c:171
+crypto_sign_ed25519_ref_fe25519_neg.exit:1  %tmp_869 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %b_read, i32 7)
+
+
+ <State 29>: 0.66ns
+ST_29: StgValue_491 (401)  [1/2] 0.00ns
+crypto_sign_ed25519_ref_fe25519_neg.exit:0  call fastcc void @crypto_sign_ed25519_.7([32 x i32]* %v_v, [32 x i32]* %t_v)
+
+ST_29: mask (403)  [1/1] 0.08ns  loc: ed25519_ref/src/fe25519.c:135->ed25519_ref/src/ge25519.c:171
+crypto_sign_ed25519_ref_fe25519_neg.exit:2  %mask = select i1 %tmp_869, i32 -1, i32 0
+
+ST_29: StgValue_493 (404)  [1/1] 0.66ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+crypto_sign_ed25519_ref_fe25519_neg.exit:3  br label %4
+
+
+ <State 30>: 1.24ns
+ST_30: i_i5 (406)  [1/1] 0.00ns
+:0  %i_i5 = phi i6 [ 0, %crypto_sign_ed25519_ref_fe25519_neg.exit ], [ %i_83, %5 ]
+
+ST_30: exitcond_i5 (407)  [1/1] 0.71ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:1  %exitcond_i5 = icmp eq i6 %i_i5, -32
+
+ST_30: empty_102 (408)  [1/1] 0.00ns
+:2  %empty_102 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_30: i_83 (409)  [1/1] 1.11ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:3  %i_83 = add i6 %i_i5, 1
+
+ST_30: StgValue_498 (410)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:4  br i1 %exitcond_i5, label %crypto_sign_ed25519_ref_fe25519_cmov.1.exit, label %5
+
+ST_30: tmp_i (412)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:0  %tmp_i = zext i6 %i_i5 to i64
+
+ST_30: v_v_addr_1 (413)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:1  %v_v_addr_1 = getelementptr [32 x i32]* %v_v, i64 0, i64 %tmp_i
+
+ST_30: v_v_load (414)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:2  %v_v_load = load i32* %v_v_addr_1, align 4
+
+ST_30: t_x_v_addr_33 (415)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:3  %t_x_v_addr_33 = getelementptr [32 x i32]* %t_x_v, i64 0, i64 %tmp_i
+
+ST_30: t_x_v_load_1 (416)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:4  %t_x_v_load_1 = load i32* %t_x_v_addr_33, align 4
+
+ST_30: StgValue_504 (423)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:172
+crypto_sign_ed25519_ref_fe25519_cmov.1.exit:0  ret void
+
+
+ <State 31>: 2.53ns
+ST_31: v_v_load (414)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:2  %v_v_load = load i32* %v_v_addr_1, align 4
+
+ST_31: t_x_v_load_1 (416)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:4  %t_x_v_load_1 = load i32* %t_x_v_addr_33, align 4
+
+ST_31: tmp_894_i (417)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171 (grouped into LUT with out node tmp_896_i)
+:5  %tmp_894_i = xor i32 %t_x_v_load_1, %v_v_load
+
+ST_31: tmp_895_i (418)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171 (grouped into LUT with out node tmp_896_i)
+:6  %tmp_895_i = and i32 %tmp_894_i, %mask
+
+ST_31: tmp_896_i (419)  [1/1] 0.05ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171 (out node of the LUT)
+:7  %tmp_896_i = xor i32 %t_x_v_load_1, %tmp_895_i
+
+ST_31: StgValue_510 (420)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:8  store i32 %tmp_896_i, i32* %t_x_v_addr_33, align 4
+
+ST_31: StgValue_511 (421)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171
+:9  br label %4
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.34ns
+The critical path consists of the following:
+	wire read on port 'pos_r' [8]  (0 ns)
+	'add' operation ('tmp', ed25519_ref/src/ge25519.c:165) [13]  (1.1 ns)
+	'getelementptr' operation ('ge25519_base_multipl_33', ed25519_ref/src/ge25519.c:165) [110]  (0 ns)
+	'load' operation ('ge25519_base_multipl_97', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl' [239]  (1.24 ns)
+
+ <State 2>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_65', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [143]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_65', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [144]  (1.24 ns)
+
+ <State 3>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_67', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [149]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_67', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [150]  (1.24 ns)
+
+ <State 4>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_69', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [155]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_69', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [156]  (1.24 ns)
+
+ <State 5>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_71', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [161]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_71', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [162]  (1.24 ns)
+
+ <State 6>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_73', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [167]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_73', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [168]  (1.24 ns)
+
+ <State 7>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_75', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [173]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_75', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [174]  (1.24 ns)
+
+ <State 8>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_77', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [179]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_77', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [180]  (1.24 ns)
+
+ <State 9>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_79', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [185]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_79', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [186]  (1.24 ns)
+
+ <State 10>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_81', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [191]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_81', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [192]  (1.24 ns)
+
+ <State 11>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_83', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [197]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_83', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [198]  (1.24 ns)
+
+ <State 12>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_85', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [203]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_85', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [204]  (1.24 ns)
+
+ <State 13>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_87', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [209]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_87', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [210]  (1.24 ns)
+
+ <State 14>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_89', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [215]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_89', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [216]  (1.24 ns)
+
+ <State 15>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_91', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [221]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_91', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [222]  (1.24 ns)
+
+ <State 16>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_93', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [227]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_93', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [228]  (1.24 ns)
+
+ <State 17>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('ge25519_base_multipl_95', ed25519_ref/src/ge25519.c:165) on array 'ge25519_base_multipl_1' [233]  (1.24 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:165) of variable 'ge25519_base_multipl_95', ed25519_ref/src/ge25519.c:165 on array 't_x_v' [234]  (1.24 ns)
+
+ <State 18>: 1.92ns
+The critical path consists of the following:
+	wire read on port 'b' [7]  (0 ns)
+	'xor' operation ('x', ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:166) [335]  (0 ns)
+	'add' operation ('y', ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:166) [337]  (1.09 ns)
+	'or' operation ('tmp_856', ed25519_ref/src/ge25519.c:166) [343]  (0.051 ns)
+	'call' operation (ed25519_ref/src/ge25519.c:166) to 'cmov_aff' [344]  (0.774 ns)
+
+ <State 19>: 0ns
+The critical path consists of the following:
+
+ <State 20>: 1.92ns
+The critical path consists of the following:
+	'xor' operation ('x', ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:167) [346]  (0 ns)
+	'add' operation ('y', ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:167) [348]  (1.09 ns)
+	'or' operation ('tmp_858', ed25519_ref/src/ge25519.c:167) [354]  (0.051 ns)
+	'call' operation (ed25519_ref/src/ge25519.c:167) to 'cmov_aff' [355]  (0.774 ns)
+
+ <State 21>: 0ns
+The critical path consists of the following:
+
+ <State 22>: 1.92ns
+The critical path consists of the following:
+	'xor' operation ('x', ed25519_ref/src/ge25519.c:147->ed25519_ref/src/ge25519.c:168) [357]  (0 ns)
+	'add' operation ('y', ed25519_ref/src/ge25519.c:149->ed25519_ref/src/ge25519.c:168) [359]  (1.09 ns)
+	'or' operation ('tmp_860', ed25519_ref/src/ge25519.c:168) [365]  (0.051 ns)
+	'call' operation (ed25519_ref/src/ge25519.c:168) to 'cmov_aff' [366]  (0.774 ns)
+
+ <State 23>: 0ns
+The critical path consists of the following:
+
+ <State 24>: 1.88ns
+The critical path consists of the following:
+	'add' operation ('tmp_861', ed25519_ref/src/ge25519.c:169) [367]  (1.1 ns)
+	'call' operation (ed25519_ref/src/ge25519.c:169) to 'cmov_aff' [372]  (0.774 ns)
+
+ <State 25>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) [375]  (0.656 ns)
+
+ <State 26>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) [375]  (0 ns)
+	'getelementptr' operation ('t_x_v_addr_32', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) [382]  (0 ns)
+	'load' operation ('t_x_v_load', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) on array 't_x_v' [383]  (1.24 ns)
+
+ <State 27>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('t_x_v_load', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) on array 't_x_v' [383]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170) of variable 't_x_v_load', ed25519_ref/src/fe25519.c:163->ed25519_ref/src/ge25519.c:170 on array 't.v', ed25519_ref/src/fe25519.c:161->ed25519_ref/src/ge25519.c:170 [385]  (1.24 ns)
+
+ <State 28>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170) [390]  (0 ns)
+	'getelementptr' operation ('v_v_addr', ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170) [397]  (0 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:156->ed25519_ref/src/fe25519.c:164->ed25519_ref/src/ge25519.c:170) of constant 0 on array 'r.v', ed25519_ref/src/ge25519.c:164 [398]  (1.24 ns)
+
+ <State 29>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [406]  (0.656 ns)
+
+ <State 30>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [406]  (0 ns)
+	'getelementptr' operation ('v_v_addr_1', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [413]  (0 ns)
+	'load' operation ('v_v_load', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) on array 'r.v', ed25519_ref/src/ge25519.c:164 [414]  (1.24 ns)
+
+ <State 31>: 2.53ns
+The critical path consists of the following:
+	'load' operation ('v_v_load', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) on array 'r.v', ed25519_ref/src/ge25519.c:164 [414]  (1.24 ns)
+	'xor' operation ('tmp_894_i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [417]  (0 ns)
+	'and' operation ('tmp_895_i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [418]  (0 ns)
+	'xor' operation ('tmp_896_i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) [419]  (0.051 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171) of variable 'tmp_896_i', ed25519_ref/src/fe25519.c:136->ed25519_ref/src/ge25519.c:171 on array 't_x_v' [420]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

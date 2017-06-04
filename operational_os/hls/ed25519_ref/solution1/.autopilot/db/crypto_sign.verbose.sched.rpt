@@ -1,0 +1,1698 @@
+
+
+================================================================
+== Vivado HLS Report for 'crypto_sign'
+================================================================
+* Date:           Sat Jun  3 22:30:14 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.75|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                    |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- memset_signature  |   63|   63|         1|          -|          -|    64|    no    |
+        |- Loop 2            |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 3            |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 4            |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 4.1         |  256|  256|         2|          -|          -|   128|    no    |
+        |- Loop 5            |  128|  128|         2|          -|          -|    64|    no    |
+        |- Loop 6            |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 6.1         |  256|  256|         2|          -|          -|   128|    no    |
+        |- Loop 7            |  128|  128|         2|          -|          -|    64|    no    |
+        |- Loop 8            |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 9            |   32|   32|         1|          -|          -|    32|    no    |
+        |- Loop 10           |   64|   64|         2|          -|          -|    32|    no    |
+        |- Loop 11           |  128|  128|         2|          -|          -|    64|    no    |
+        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 74
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!tmp_s)
+	3  / (tmp_s)
+3 --> 
+	4  / (!exitcond_i_i)
+	5  / (exitcond_i_i)
+4 --> 
+	3  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / (!exitcond_i_i1)
+	14  / (exitcond_i_i1)
+13 --> 
+	12  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / (!exitcond3)
+	27  / (exitcond3)
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / (!exitcond2)
+	26  / (exitcond2)
+25 --> 
+	24  / true
+26 --> 
+	17  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / (!exitcond_i)
+	30  / (exitcond_i)
+29 --> 
+	28  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / (!exitcond1)
+	59  / (exitcond1)
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / (!exitcond)
+	58  / (exitcond)
+57 --> 
+	56  / true
+58 --> 
+	49  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / (!exitcond_i1)
+	62  / (exitcond_i1)
+61 --> 
+	60  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / (!exitcond1_i)
+	65  / (exitcond1_i)
+64 --> 
+	63  / true
+65 --> 
+	66  / (exitcond_i2)
+	65  / (!exitcond_i2)
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / (!exitcond_i3)
+	73  / (exitcond_i3)
+72 --> 
+	71  / true
+73 --> 
+	74  / (!exitcond_i4)
+74 --> 
+	73  / true
+* FSM state operations: 
+
+ <State 1>: 1.00ns
+ST_1: num_blocks_read (11)  [1/1] 1.00ns
+:0  %num_blocks_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %num_blocks)
+
+ST_1: t_11 (12)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:95->ed25519_ref/src/sign.c:142
+:1  %t_11 = alloca [64 x i32], align 16
+
+ST_1: t_10 (13)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:110->ed25519_ref/src/sign.c:141
+:2  %t_10 = alloca [64 x i32], align 16
+
+ST_1: tx_v (14)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:236->ed25519_ref/src/sign.c:117
+:3  %tx_v = alloca [32 x i32], align 4
+
+ST_1: ty_v (15)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:236->ed25519_ref/src/sign.c:117
+:4  %ty_v = alloca [32 x i32], align 4
+
+ST_1: zi_v (16)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:236->ed25519_ref/src/sign.c:117
+:5  %zi_v = alloca [32 x i32], align 4
+
+ST_1: t (17)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:110->ed25519_ref/src/sign.c:114
+:6  %t = alloca [64 x i32], align 16
+
+ST_1: StgValue_82 (18)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %mem), !map !133
+
+ST_1: StgValue_83 (19)  [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i32 %num_blocks) nounwind, !map !139
+
+ST_1: StgValue_84 (20)  [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap([64 x i8]* %sk) nounwind, !map !145
+
+ST_1: StgValue_85 (21)  [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap([64 x i8]* %signature_out) nounwind, !map !151
+
+ST_1: StgValue_86 (22)  [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !155
+
+ST_1: StgValue_87 (23)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @crypto_sign_str) nounwind
+
+ST_1: pk (24)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:65
+:13  %pk = alloca [32 x i8], align 16
+
+ST_1: az (25)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:66
+:14  %az = alloca [64 x i8], align 16
+
+ST_1: nonce (26)  [1/1] 0.00ns
+:15  %nonce = alloca [64 x i8], align 16
+
+ST_1: hram (27)  [1/1] 0.00ns
+:16  %hram = alloca [64 x i8], align 16
+
+ST_1: signature (28)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:70
+:17  %signature = alloca [64 x i8], align 16
+
+ST_1: temp_buf (29)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:71
+:18  %temp_buf = alloca [128 x i8], align 16
+
+ST_1: sck_v (30)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:73
+:19  %sck_v = alloca [32 x i32], align 4
+
+ST_1: scs_v (31)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:73
+:20  %scs_v = alloca [32 x i32], align 4
+
+ST_1: scsk_v (32)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:73
+:21  %scsk_v = alloca [32 x i32], align 4
+
+ST_1: ger_x_v (33)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:74
+:22  %ger_x_v = alloca [32 x i32], align 4
+
+ST_1: ger_y_v (34)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:74
+:23  %ger_y_v = alloca [32 x i32], align 4
+
+ST_1: ger_z_v (35)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:74
+:24  %ger_z_v = alloca [32 x i32], align 4
+
+ST_1: ger_t_v (36)  [1/1] 0.00ns
+:25  %ger_t_v = alloca [32 x i32], align 4
+
+ST_1: hash_state (37)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:75
+:26  %hash_state = alloca [8 x i64], align 8
+
+ST_1: hash_buf (38)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:75
+:27  %hash_buf = alloca [128 x i8], align 1
+
+ST_1: StgValue_103 (39)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:55
+:28  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: empty (40)  [1/1] 0.00ns
+:29  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %signature_out, [1 x i8]* @p_str13, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str13, i32 -1, [1 x i8]* @p_str13, [1 x i8]* @p_str13, [1 x i8]* @p_str13, [1 x i8]* @p_str13, [1 x i8]* @p_str13)
+
+ST_1: StgValue_105 (41)  [1/1] 0.00ns
+:30  call void (...)* @_ssdm_op_SpecInterface([64 x i8]* %signature_out, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: empty_82 (42)  [1/1] 0.00ns
+:31  %empty_82 = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %sk, [1 x i8]* @p_str12, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str12, i32 -1, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12)
+
+ST_1: StgValue_107 (43)  [1/1] 0.00ns
+:32  call void (...)* @_ssdm_op_SpecInterface([64 x i8]* %sk, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_108 (44)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:58
+:33  call void (...)* @_ssdm_op_SpecInterface(i32 %num_blocks, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_109 (45)  [1/1] 0.00ns
+:34  call void (...)* @_ssdm_op_SpecInterface(i8* %mem, [6 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 32768, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_1: StgValue_110 (46)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:60
+:35  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [17 x i8]* @p_str3, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_111 (47)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:61
+:36  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [18 x i8]* @p_str4, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_112 (48)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:62
+:37  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [13 x i8]* @p_str5, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_113 (49)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:63
+:38  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [12 x i8]* @p_str6, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_114 (50)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:64
+:39  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [9 x i8]* @p_str7, [1 x i8]* @p_str1) nounwind
+
+ST_1: empty_83 (51)  [1/1] 0.00ns
+:40  %empty_83 = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %signature, [1 x i8]* @p_str12, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str12, i32 -1, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12)
+
+ST_1: StgValue_116 (52)  [1/1] 0.66ns
+:41  br label %meminst
+
+
+ <State 2>: 1.11ns
+ST_2: invdar (54)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:70
+meminst:0  %invdar = phi i6 [ 0, %0 ], [ %indvarinc, %meminst ]
+
+ST_2: indvarinc (55)  [1/1] 1.11ns  loc: ed25519_ref/src/sign.c:70
+meminst:1  %indvarinc = add i6 %invdar, 1
+
+ST_2: tmp (56)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:70
+meminst:2  %tmp = zext i6 %invdar to i64
+
+ST_2: signature_addr (57)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:70
+meminst:3  %signature_addr = getelementptr [64 x i8]* %signature, i64 0, i64 %tmp
+
+ST_2: StgValue_121 (58)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:70
+meminst:4  store i8 0, i8* %signature_addr, align 1
+
+ST_2: tmp_s (59)  [1/1] 0.71ns  loc: ed25519_ref/src/sign.c:70
+meminst:5  %tmp_s = icmp eq i6 %invdar, -1
+
+ST_2: empty_84 (60)  [1/1] 0.00ns
+meminst:6  %empty_84 = call i32 (...)* @_ssdm_op_SpecLoopName([17 x i8]* @memset_signature_str) nounwind
+
+ST_2: empty_85 (61)  [1/1] 0.00ns
+meminst:7  %empty_85 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_2: StgValue_125 (62)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:70
+meminst:8  br i1 %tmp_s, label %.preheader109.preheader, label %meminst
+
+ST_2: StgValue_126 (64)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+.preheader109.preheader:0  br label %.preheader109
+
+
+ <State 3>: 1.11ns
+ST_3: i_i_i (66)  [1/1] 0.00ns
+.preheader109:0  %i_i_i = phi i6 [ %i_73, %1 ], [ 0, %.preheader109.preheader ]
+
+ST_3: exitcond_i_i (67)  [1/1] 0.71ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+.preheader109:1  %exitcond_i_i = icmp eq i6 %i_i_i, -32
+
+ST_3: empty_86 (68)  [1/1] 0.00ns
+.preheader109:2  %empty_86 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+
+ST_3: i_73 (69)  [1/1] 1.11ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+.preheader109:3  %i_73 = add i6 %i_i_i, 1
+
+ST_3: StgValue_131 (70)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+.preheader109:4  br i1 %exitcond_i_i, label %_memmove.1.exit, label %1
+
+ST_3: sum_i_i (73)  [1/1] 0.05ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:1  %sum_i_i = xor i6 %i_i_i, -32
+
+ST_3: sum_i_i_cast (74)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:2  %sum_i_i_cast = zext i6 %sum_i_i to i64
+
+ST_3: sk_addr (75)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:3  %sk_addr = getelementptr [64 x i8]* %sk, i64 0, i64 %sum_i_i_cast
+
+ST_3: sk_load (76)  [2/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:4  %sk_load = load i8* %sk_addr, align 1
+
+ST_3: StgValue_136 (81)  [2/2] 0.67ns  loc: ed25519_ref/src/sign.c:82
+_memmove.1.exit:0  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 4>: 1.35ns
+ST_4: tmp_i_i (72)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:0  %tmp_i_i = zext i6 %i_i_i to i64
+
+ST_4: sk_load (76)  [1/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:4  %sk_load = load i8* %sk_addr, align 1
+
+ST_4: pk_addr (77)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:5  %pk_addr = getelementptr [32 x i8]* %pk, i64 0, i64 %tmp_i_i
+
+ST_4: StgValue_140 (78)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:6  store i8 %sk_load, i8* %pk_addr, align 1
+
+ST_4: StgValue_141 (79)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78
+:7  br label %.preheader109
+
+
+ <State 5>: 0.00ns
+ST_5: StgValue_142 (81)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:82
+_memmove.1.exit:0  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 6>: 0.00ns
+ST_6: call_ret (82)  [2/2] 0.00ns  loc: ed25519_ref/src/sign.c:83
+_memmove.1.exit:1  %call_ret = call fastcc { i64, i64 } @sha512_update_32([8 x i64]* %hash_state, [128 x i8]* %hash_buf, [64 x i8]* %sk) nounwind
+
+
+ <State 7>: 0.00ns
+ST_7: call_ret (82)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:83
+_memmove.1.exit:1  %call_ret = call fastcc { i64, i64 } @sha512_update_32([8 x i64]* %hash_state, [128 x i8]* %hash_buf, [64 x i8]* %sk) nounwind
+
+ST_7: hash_length (83)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:83
+_memmove.1.exit:2  %hash_length = extractvalue { i64, i64 } %call_ret, 0
+
+ST_7: hash_curlen (84)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:83
+_memmove.1.exit:3  %hash_curlen = extractvalue { i64, i64 } %call_ret, 1
+
+
+ <State 8>: 2.09ns
+ST_8: StgValue_147 (86)  [2/2] 2.09ns  loc: ed25519_ref/src/sign.c:84
+_memmove.1.exit:5  call fastcc void @sha512_final(i64 %hash_length, [8 x i64]* %hash_state, i64 %hash_curlen, [128 x i8]* %hash_buf, [64 x i8]* %az) nounwind
+
+
+ <State 9>: 0.00ns
+ST_9: StgValue_148 (86)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:84
+_memmove.1.exit:5  call fastcc void @sha512_final(i64 %hash_length, [8 x i64]* %hash_state, i64 %hash_curlen, [128 x i8]* %hash_buf, [64 x i8]* %az) nounwind
+
+
+ <State 10>: 0.68ns
+ST_10: az_addr (85)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:84
+_memmove.1.exit:4  %az_addr = getelementptr inbounds [64 x i8]* %az, i64 0, i64 0
+
+ST_10: az_load (87)  [2/2] 0.68ns  loc: ed25519_ref/src/sign.c:86
+_memmove.1.exit:6  %az_load = load i8* %az_addr, align 16
+
+ST_10: az_addr_1 (91)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:87
+_memmove.1.exit:10  %az_addr_1 = getelementptr inbounds [64 x i8]* %az, i64 0, i64 31
+
+ST_10: az_load_1 (92)  [2/2] 0.68ns  loc: ed25519_ref/src/sign.c:87
+_memmove.1.exit:11  %az_load_1 = load i8* %az_addr_1, align 1
+
+
+ <State 11>: 1.35ns
+ST_11: az_load (87)  [1/2] 0.68ns  loc: ed25519_ref/src/sign.c:86
+_memmove.1.exit:6  %az_load = load i8* %az_addr, align 16
+
+ST_11: tmp_784 (88)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:86
+_memmove.1.exit:7  %tmp_784 = call i5 @_ssdm_op_PartSelect.i5.i8.i32.i32(i8 %az_load, i32 3, i32 7)
+
+ST_11: tmp_800 (89)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:86
+_memmove.1.exit:8  %tmp_800 = call i8 @_ssdm_op_BitConcatenate.i8.i5.i3(i5 %tmp_784, i3 0)
+
+ST_11: StgValue_156 (90)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:86
+_memmove.1.exit:9  store i8 %tmp_800, i8* %az_addr, align 16
+
+ST_11: az_load_1 (92)  [1/2] 0.68ns  loc: ed25519_ref/src/sign.c:87
+_memmove.1.exit:11  %az_load_1 = load i8* %az_addr_1, align 1
+
+ST_11: tmp_804 (93)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:87
+_memmove.1.exit:12  %tmp_804 = trunc i8 %az_load_1 to i6
+
+ST_11: tmp_801 (94)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:88
+_memmove.1.exit:13  %tmp_801 = call i7 @_ssdm_op_BitConcatenate.i7.i1.i6(i1 true, i6 %tmp_804)
+
+ST_11: tmp_894_cast (95)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:88
+_memmove.1.exit:14  %tmp_894_cast = zext i7 %tmp_801 to i8
+
+ST_11: StgValue_161 (96)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:88
+_memmove.1.exit:15  store i8 %tmp_894_cast, i8* %az_addr_1, align 1
+
+ST_11: StgValue_162 (97)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+_memmove.1.exit:16  br label %2
+
+
+ <State 12>: 1.11ns
+ST_12: i_i_i1 (99)  [1/1] 0.00ns
+:0  %i_i_i1 = phi i6 [ 0, %_memmove.1.exit ], [ %i_74, %3 ]
+
+ST_12: exitcond_i_i1 (100)  [1/1] 0.71ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:1  %exitcond_i_i1 = icmp eq i6 %i_i_i1, -32
+
+ST_12: empty_87 (101)  [1/1] 0.00ns
+:2  %empty_87 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+
+ST_12: i_74 (102)  [1/1] 1.11ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:3  %i_74 = add i6 %i_i_i1, 1
+
+ST_12: StgValue_167 (103)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:4  br i1 %exitcond_i_i1, label %_memmove.2.exit, label %3
+
+ST_12: sum3_i_i (105)  [1/1] 0.05ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:0  %sum3_i_i = xor i6 %i_i_i1, -32
+
+ST_12: sum3_i_i_cast (106)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:1  %sum3_i_i_cast = zext i6 %sum3_i_i to i64
+
+ST_12: az_addr_2 (107)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:2  %az_addr_2 = getelementptr [64 x i8]* %az, i64 0, i64 %sum3_i_i_cast
+
+ST_12: az_load_2 (108)  [2/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:3  %az_load_2 = load i8* %az_addr_2, align 1
+
+ST_12: StgValue_172 (113)  [2/2] 0.67ns  loc: ed25519_ref/src/sign.c:100
+_memmove.2.exit:0  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 13>: 1.35ns
+ST_13: az_load_2 (108)  [1/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:3  %az_load_2 = load i8* %az_addr_2, align 1
+
+ST_13: signature_addr_1 (109)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:4  %signature_addr_1 = getelementptr [64 x i8]* %signature, i64 0, i64 %sum3_i_i_cast
+
+ST_13: StgValue_175 (110)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:5  store i8 %az_load_2, i8* %signature_addr_1, align 1
+
+ST_13: StgValue_176 (111)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96
+:6  br label %2
+
+
+ <State 14>: 0.00ns
+ST_14: StgValue_177 (113)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:100
+_memmove.2.exit:0  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 15>: 1.97ns
+ST_15: tmp_10 (114)  [2/2] 1.97ns  loc: ed25519_ref/src/sign.c:102
+_memmove.2.exit:1  %tmp_10 = call fastcc { i64, i64 } @sha512_update_32.1(i64 0, [8 x i64]* %hash_state, i64 0, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 32) nounwind
+
+
+ <State 16>: 0.66ns
+ST_16: tmp_10 (114)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:102
+_memmove.2.exit:1  %tmp_10 = call fastcc { i64, i64 } @sha512_update_32.1(i64 0, [8 x i64]* %hash_state, i64 0, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 32) nounwind
+
+ST_16: hash_length_2 (115)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:102
+_memmove.2.exit:2  %hash_length_2 = extractvalue { i64, i64 } %tmp_10, 0
+
+ST_16: hash_curlen_2 (116)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:102
+_memmove.2.exit:3  %hash_curlen_2 = extractvalue { i64, i64 } %tmp_10, 1
+
+ST_16: StgValue_182 (117)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:104
+_memmove.2.exit:4  br label %4
+
+
+ <State 17>: 8.75ns
+ST_17: hash_curlen3 (119)  [1/1] 0.00ns
+:0  %hash_curlen3 = phi i64 [ %hash_curlen_2, %_memmove.2.exit ], [ %hash_curlen_5, %6 ]
+
+ST_17: hash_length3 (120)  [1/1] 0.00ns
+:1  %hash_length3 = phi i64 [ %hash_length_2, %_memmove.2.exit ], [ %hash_length_5, %6 ]
+
+ST_17: i (121)  [1/1] 0.00ns
+:2  %i = phi i32 [ 0, %_memmove.2.exit ], [ %i_75, %6 ]
+
+ST_17: exitcond3 (122)  [1/1] 0.60ns  loc: ed25519_ref/src/sign.c:104
+:3  %exitcond3 = icmp eq i32 %i, %num_blocks_read
+
+ST_17: i_75 (123)  [1/1] 1.34ns  loc: ed25519_ref/src/sign.c:104
+:4  %i_75 = add nsw i32 %i, 1
+
+ST_17: StgValue_188 (124)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:104
+:5  br i1 %exitcond3, label %7, label %.preheader4.preheader
+
+ST_17: tmp_806 (126)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:0  %tmp_806 = shl i32 %i, 7
+
+ST_17: tmp_80 (127)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:1  %tmp_80 = sext i32 %tmp_806 to i64
+
+ST_17: mem_addr (128)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:2  %mem_addr = getelementptr i8* %mem, i64 %tmp_80
+
+ST_17: mem_addr_rd_req (129)  [7/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+ST_17: StgValue_193 (149)  [2/2] 2.09ns  loc: ed25519_ref/src/sign.c:111
+:0  call fastcc void @sha512_final(i64 %hash_length3, [8 x i64]* %hash_state, i64 %hash_curlen3, [128 x i8]* %hash_buf, [64 x i8]* %nonce) nounwind
+
+
+ <State 18>: 8.75ns
+ST_18: mem_addr_rd_req (129)  [6/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+
+ <State 19>: 8.75ns
+ST_19: mem_addr_rd_req (129)  [5/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+
+ <State 20>: 8.75ns
+ST_20: mem_addr_rd_req (129)  [4/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+
+ <State 21>: 8.75ns
+ST_21: mem_addr_rd_req (129)  [3/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+
+ <State 22>: 8.75ns
+ST_22: mem_addr_rd_req (129)  [2/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+
+ <State 23>: 8.75ns
+ST_23: mem_addr_rd_req (129)  [1/7] 8.75ns  loc: ed25519_ref/src/sign.c:107
+.preheader4.preheader:3  %mem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 128)
+
+ST_23: StgValue_200 (130)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:106
+.preheader4.preheader:4  br label %.preheader4
+
+
+ <State 24>: 8.75ns
+ST_24: j (132)  [1/1] 0.00ns
+.preheader4:0  %j = phi i8 [ %j_3, %5 ], [ 0, %.preheader4.preheader ]
+
+ST_24: exitcond2 (133)  [1/1] 0.56ns  loc: ed25519_ref/src/sign.c:106
+.preheader4:1  %exitcond2 = icmp eq i8 %j, -128
+
+ST_24: empty_88 (134)  [1/1] 0.00ns
+.preheader4:2  %empty_88 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
+
+ST_24: j_3 (135)  [1/1] 1.09ns  loc: ed25519_ref/src/sign.c:106
+.preheader4:3  %j_3 = add i8 %j, 1
+
+ST_24: StgValue_205 (136)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:106
+.preheader4:4  br i1 %exitcond2, label %6, label %5
+
+ST_24: mem_addr_read (138)  [1/1] 8.75ns  loc: ed25519_ref/src/sign.c:107
+:0  %mem_addr_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_addr)
+
+ST_24: call_ret1 (144)  [2/2] 1.95ns  loc: ed25519_ref/src/sign.c:109
+:0  %call_ret1 = call fastcc { i64, i64 } @sha512_update_128(i64 %hash_length3, [8 x i64]* %hash_state, i64 %hash_curlen3, [128 x i8]* %hash_buf, [128 x i8]* %temp_buf) nounwind
+
+
+ <State 25>: 0.57ns
+ST_25: tmp_802 (139)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:107
+:1  %tmp_802 = zext i8 %j to i64
+
+ST_25: temp_buf_addr (140)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:107
+:2  %temp_buf_addr = getelementptr inbounds [128 x i8]* %temp_buf, i64 0, i64 %tmp_802
+
+ST_25: StgValue_210 (141)  [1/1] 0.57ns  loc: ed25519_ref/src/sign.c:107
+:3  store i8 %mem_addr_read, i8* %temp_buf_addr, align 1
+
+ST_25: StgValue_211 (142)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:106
+:4  br label %.preheader4
+
+
+ <State 26>: 0.00ns
+ST_26: call_ret1 (144)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:109
+:0  %call_ret1 = call fastcc { i64, i64 } @sha512_update_128(i64 %hash_length3, [8 x i64]* %hash_state, i64 %hash_curlen3, [128 x i8]* %hash_buf, [128 x i8]* %temp_buf) nounwind
+
+ST_26: hash_length_5 (145)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:109
+:1  %hash_length_5 = extractvalue { i64, i64 } %call_ret1, 0
+
+ST_26: hash_curlen_5 (146)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:109
+:2  %hash_curlen_5 = extractvalue { i64, i64 } %call_ret1, 1
+
+ST_26: StgValue_215 (147)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:104
+:3  br label %4
+
+
+ <State 27>: 0.66ns
+ST_27: StgValue_216 (149)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:111
+:0  call fastcc void @sha512_final(i64 %hash_length3, [8 x i64]* %hash_state, i64 %hash_curlen3, [128 x i8]* %hash_buf, [64 x i8]* %nonce) nounwind
+
+ST_27: StgValue_217 (150)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:1  br label %8
+
+
+ <State 28>: 1.10ns
+ST_28: i_i (152)  [1/1] 0.00ns
+:0  %i_i = phi i7 [ 0, %7 ], [ %i_2, %9 ]
+
+ST_28: exitcond_i (153)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:1  %exitcond_i = icmp eq i7 %i_i, -64
+
+ST_28: empty_89 (154)  [1/1] 0.00ns
+:2  %empty_89 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_28: i_2 (155)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:3  %i_2 = add i7 %i_i, 1
+
+ST_28: StgValue_222 (156)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:4  br i1 %exitcond_i, label %crypto_sign_ed25519_ref_sc25519_from64bytes.exit, label %9
+
+ST_28: tmp_i (158)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:0  %tmp_i = zext i7 %i_i to i64
+
+ST_28: nonce_addr (159)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:1  %nonce_addr = getelementptr [64 x i8]* %nonce, i64 0, i64 %tmp_i
+
+ST_28: nonce_load (160)  [2/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:2  %nonce_load = load i8* %nonce_addr, align 1
+
+ST_28: StgValue_226 (166)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:112->ed25519_ref/src/sign.c:114
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:0  call fastcc void @barrett_reduce([32 x i32]* %sck_v, [64 x i32]* %t) nounwind
+
+ST_28: StgValue_227 (179)  [2/2] 0.67ns  loc: ed25519_ref/src/sign.c:126
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:13  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 29>: 1.91ns
+ST_29: nonce_load (160)  [1/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:2  %nonce_load = load i8* %nonce_addr, align 1
+
+ST_29: tmp_i_90 (161)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:3  %tmp_i_90 = zext i8 %nonce_load to i32
+
+ST_29: t_addr (162)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:4  %t_addr = getelementptr inbounds [64 x i32]* %t, i64 0, i64 %tmp_i
+
+ST_29: StgValue_231 (163)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:5  store i32 %tmp_i_90, i32* %t_addr, align 4
+
+ST_29: StgValue_232 (164)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114
+:6  br label %8
+
+
+ <State 30>: 0.00ns
+ST_30: StgValue_233 (166)  [1/2] 0.00ns  loc: ed25519_ref/src/sc25519.c:112->ed25519_ref/src/sign.c:114
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:0  call fastcc void @barrett_reduce([32 x i32]* %sck_v, [64 x i32]* %t) nounwind
+
+ST_30: StgValue_234 (179)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:126
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:13  call fastcc void @sha512_init([8 x i64]* %hash_state) nounwind
+
+
+ <State 31>: 0.00ns
+ST_31: StgValue_235 (167)  [2/2] 0.00ns  loc: ed25519_ref/src/sign.c:115
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:1  call fastcc void @crypto_sign_ed25519_.13([32 x i32]* %ger_x_v, [32 x i32]* %ger_y_v, [32 x i32]* %ger_z_v, [32 x i32]* %ger_t_v, [32 x i32]* %sck_v) nounwind
+
+
+ <State 32>: 0.00ns
+ST_32: StgValue_236 (167)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:115
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:1  call fastcc void @crypto_sign_ed25519_.13([32 x i32]* %ger_x_v, [32 x i32]* %ger_y_v, [32 x i32]* %ger_z_v, [32 x i32]* %ger_t_v, [32 x i32]* %sck_v) nounwind
+
+
+ <State 33>: 0.00ns
+ST_33: StgValue_237 (168)  [2/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:237->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:2  call fastcc void @crypto_sign_ed25519_.19([32 x i32]* %zi_v, [32 x i32]* %ger_z_v) nounwind
+
+
+ <State 34>: 0.00ns
+ST_34: StgValue_238 (168)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:237->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:2  call fastcc void @crypto_sign_ed25519_.19([32 x i32]* %zi_v, [32 x i32]* %ger_z_v) nounwind
+
+
+ <State 35>: 0.66ns
+ST_35: StgValue_239 (169)  [2/2] 0.66ns
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:3  call fastcc void @crypto_sign_ed25519_.18([32 x i32]* %tx_v, [32 x i32]* %ger_x_v, [32 x i32]* %zi_v) nounwind
+
+
+ <State 36>: 0.00ns
+ST_36: StgValue_240 (169)  [1/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:3  call fastcc void @crypto_sign_ed25519_.18([32 x i32]* %tx_v, [32 x i32]* %ger_x_v, [32 x i32]* %zi_v) nounwind
+
+
+ <State 37>: 0.66ns
+ST_37: StgValue_241 (170)  [2/2] 0.66ns
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:4  call fastcc void @crypto_sign_ed25519_.18([32 x i32]* %ty_v, [32 x i32]* %ger_y_v, [32 x i32]* %zi_v) nounwind
+
+ST_37: tmp_i1 (172)  [2/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:6  %tmp_i1 = call fastcc i1 @crypto_sign_ed25519_.20([32 x i32]* %tx_v) nounwind
+
+
+ <State 38>: 1.24ns
+ST_38: StgValue_243 (170)  [1/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:4  call fastcc void @crypto_sign_ed25519_.18([32 x i32]* %ty_v, [32 x i32]* %ger_y_v, [32 x i32]* %zi_v) nounwind
+
+ST_38: tmp_i1 (172)  [1/2] 1.24ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:6  %tmp_i1 = call fastcc i1 @crypto_sign_ed25519_.20([32 x i32]* %tx_v) nounwind
+
+
+ <State 39>: 0.00ns
+ST_39: StgValue_245 (171)  [2/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:240->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:5  call fastcc void @crypto_sign_ed25519_.9([64 x i8]* %signature, [32 x i32]* %ty_v) nounwind
+
+
+ <State 40>: 0.00ns
+ST_40: StgValue_246 (171)  [1/2] 0.00ns  loc: ed25519_ref/src/ge25519.c:240->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:5  call fastcc void @crypto_sign_ed25519_.9([64 x i8]* %signature, [32 x i32]* %ty_v) nounwind
+
+
+ <State 41>: 0.68ns
+ST_41: signature_addr_2 (174)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:8  %signature_addr_2 = getelementptr [64 x i8]* %signature, i64 0, i64 31
+
+ST_41: signature_load (175)  [2/2] 0.68ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:9  %signature_load = load i8* %signature_addr_2, align 1
+
+
+ <State 42>: 1.41ns
+ST_42: tmp_i1_91 (173)  [1/1] 0.00ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:7  %tmp_i1_91 = call i8 @_ssdm_op_BitConcatenate.i8.i1.i7(i1 %tmp_i1, i7 0)
+
+ST_42: signature_load (175)  [1/2] 0.68ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:9  %signature_load = load i8* %signature_addr_2, align 1
+
+ST_42: tmp_863_i (176)  [1/1] 0.05ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:10  %tmp_863_i = xor i8 %signature_load, %tmp_i1_91
+
+ST_42: StgValue_252 (177)  [1/1] 0.68ns  loc: ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:11  store i8 %tmp_863_i, i8* %signature_addr_2, align 1
+
+
+ <State 43>: 0.00ns
+ST_43: StgValue_253 (178)  [2/2] 0.00ns  loc: ed25519_ref/src/sign.c:122
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:12  call fastcc void @_memmove([64 x i8]* %signature, [32 x i8]* %pk) nounwind
+
+
+ <State 44>: 0.00ns
+ST_44: StgValue_254 (178)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:122
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:12  call fastcc void @_memmove([64 x i8]* %signature, [32 x i8]* %pk) nounwind
+
+
+ <State 45>: 1.97ns
+ST_45: tmp_11 (180)  [2/2] 1.97ns  loc: ed25519_ref/src/sign.c:127
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:14  %tmp_11 = call fastcc { i64, i64 } @sha512_update_32.1(i64 0, [8 x i64]* %hash_state, i64 0, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 0) nounwind
+
+
+ <State 46>: 0.00ns
+ST_46: tmp_11 (180)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:127
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:14  %tmp_11 = call fastcc { i64, i64 } @sha512_update_32.1(i64 0, [8 x i64]* %hash_state, i64 0, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 0) nounwind
+
+ST_46: hash_length_3 (181)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:127
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:15  %hash_length_3 = extractvalue { i64, i64 } %tmp_11, 0
+
+ST_46: hash_curlen_3 (182)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:127
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:16  %hash_curlen_3 = extractvalue { i64, i64 } %tmp_11, 1
+
+
+ <State 47>: 1.97ns
+ST_47: tmp_12 (183)  [2/2] 1.97ns  loc: ed25519_ref/src/sign.c:128
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:17  %tmp_12 = call fastcc { i64, i64 } @sha512_update_32.1(i64 %hash_length_3, [8 x i64]* %hash_state, i64 %hash_curlen_3, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 32) nounwind
+
+
+ <State 48>: 0.66ns
+ST_48: tmp_12 (183)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:128
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:17  %tmp_12 = call fastcc { i64, i64 } @sha512_update_32.1(i64 %hash_length_3, [8 x i64]* %hash_state, i64 %hash_curlen_3, [128 x i8]* %hash_buf, [64 x i8]* %signature, i7 32) nounwind
+
+ST_48: hash_length_4 (184)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:128
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:18  %hash_length_4 = extractvalue { i64, i64 } %tmp_12, 0
+
+ST_48: hash_curlen_4 (185)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:128
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:19  %hash_curlen_4 = extractvalue { i64, i64 } %tmp_12, 1
+
+ST_48: StgValue_263 (186)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:130
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit:20  br label %10
+
+
+ <State 49>: 8.75ns
+ST_49: hash_curlen_1 (188)  [1/1] 0.00ns
+:0  %hash_curlen_1 = phi i64 [ %hash_curlen_4, %crypto_sign_ed25519_ref_sc25519_from64bytes.exit ], [ %hash_curlen_6, %12 ]
+
+ST_49: hash_length_1 (189)  [1/1] 0.00ns
+:1  %hash_length_1 = phi i64 [ %hash_length_4, %crypto_sign_ed25519_ref_sc25519_from64bytes.exit ], [ %hash_length_6, %12 ]
+
+ST_49: i_1 (190)  [1/1] 0.00ns
+:2  %i_1 = phi i32 [ 0, %crypto_sign_ed25519_ref_sc25519_from64bytes.exit ], [ %i_76, %12 ]
+
+ST_49: exitcond1 (191)  [1/1] 0.60ns  loc: ed25519_ref/src/sign.c:130
+:3  %exitcond1 = icmp eq i32 %i_1, %num_blocks_read
+
+ST_49: i_76 (192)  [1/1] 1.34ns  loc: ed25519_ref/src/sign.c:130
+:4  %i_76 = add nsw i32 %i_1, 1
+
+ST_49: StgValue_269 (193)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:130
+:5  br i1 %exitcond1, label %13, label %.preheader.preheader
+
+ST_49: tmp_807 (195)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:0  %tmp_807 = shl i32 %i_1, 7
+
+ST_49: tmp_808 (196)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:1  %tmp_808 = sext i32 %tmp_807 to i64
+
+ST_49: mem_addr_1 (197)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:2  %mem_addr_1 = getelementptr i8* %mem, i64 %tmp_808
+
+ST_49: p_rd_req (198)  [7/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+ST_49: StgValue_274 (218)  [2/2] 2.09ns  loc: ed25519_ref/src/sign.c:137
+:0  call fastcc void @sha512_final(i64 %hash_length_1, [8 x i64]* %hash_state, i64 %hash_curlen_1, [128 x i8]* %hash_buf, [64 x i8]* %hram) nounwind
+
+
+ <State 50>: 8.75ns
+ST_50: p_rd_req (198)  [6/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+
+ <State 51>: 8.75ns
+ST_51: p_rd_req (198)  [5/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+
+ <State 52>: 8.75ns
+ST_52: p_rd_req (198)  [4/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+
+ <State 53>: 8.75ns
+ST_53: p_rd_req (198)  [3/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+
+ <State 54>: 8.75ns
+ST_54: p_rd_req (198)  [2/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+
+ <State 55>: 8.75ns
+ST_55: p_rd_req (198)  [1/7] 8.75ns  loc: ed25519_ref/src/sign.c:133
+.preheader.preheader:3  %p_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr_1, i32 128)
+
+ST_55: StgValue_281 (199)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:132
+.preheader.preheader:4  br label %.preheader
+
+
+ <State 56>: 8.75ns
+ST_56: j_1 (201)  [1/1] 0.00ns
+.preheader:0  %j_1 = phi i8 [ %j_4, %11 ], [ 0, %.preheader.preheader ]
+
+ST_56: exitcond (202)  [1/1] 0.56ns  loc: ed25519_ref/src/sign.c:132
+.preheader:1  %exitcond = icmp eq i8 %j_1, -128
+
+ST_56: empty_92 (203)  [1/1] 0.00ns
+.preheader:2  %empty_92 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
+
+ST_56: j_4 (204)  [1/1] 1.09ns  loc: ed25519_ref/src/sign.c:132
+.preheader:3  %j_4 = add i8 %j_1, 1
+
+ST_56: StgValue_286 (205)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:132
+.preheader:4  br i1 %exitcond, label %12, label %11
+
+ST_56: mem_addr_1_read (207)  [1/1] 8.75ns  loc: ed25519_ref/src/sign.c:133
+:0  %mem_addr_1_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_addr_1)
+
+ST_56: call_ret2 (213)  [2/2] 1.95ns  loc: ed25519_ref/src/sign.c:135
+:0  %call_ret2 = call fastcc { i64, i64 } @sha512_update_128(i64 %hash_length_1, [8 x i64]* %hash_state, i64 %hash_curlen_1, [128 x i8]* %hash_buf, [128 x i8]* %temp_buf) nounwind
+
+
+ <State 57>: 0.57ns
+ST_57: tmp_803 (208)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:133
+:1  %tmp_803 = zext i8 %j_1 to i64
+
+ST_57: temp_buf_addr_6 (209)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:133
+:2  %temp_buf_addr_6 = getelementptr inbounds [128 x i8]* %temp_buf, i64 0, i64 %tmp_803
+
+ST_57: StgValue_291 (210)  [1/1] 0.57ns  loc: ed25519_ref/src/sign.c:133
+:3  store i8 %mem_addr_1_read, i8* %temp_buf_addr_6, align 1
+
+ST_57: StgValue_292 (211)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:132
+:4  br label %.preheader
+
+
+ <State 58>: 0.00ns
+ST_58: call_ret2 (213)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:135
+:0  %call_ret2 = call fastcc { i64, i64 } @sha512_update_128(i64 %hash_length_1, [8 x i64]* %hash_state, i64 %hash_curlen_1, [128 x i8]* %hash_buf, [128 x i8]* %temp_buf) nounwind
+
+ST_58: hash_length_6 (214)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:135
+:1  %hash_length_6 = extractvalue { i64, i64 } %call_ret2, 0
+
+ST_58: hash_curlen_6 (215)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:135
+:2  %hash_curlen_6 = extractvalue { i64, i64 } %call_ret2, 1
+
+ST_58: StgValue_296 (216)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:130
+:3  br label %10
+
+
+ <State 59>: 0.66ns
+ST_59: StgValue_297 (218)  [1/2] 0.00ns  loc: ed25519_ref/src/sign.c:137
+:0  call fastcc void @sha512_final(i64 %hash_length_1, [8 x i64]* %hash_state, i64 %hash_curlen_1, [128 x i8]* %hash_buf, [64 x i8]* %hram) nounwind
+
+ST_59: StgValue_298 (219)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:1  br label %14
+
+
+ <State 60>: 1.10ns
+ST_60: i_i1 (221)  [1/1] 0.00ns
+:0  %i_i1 = phi i7 [ 0, %13 ], [ %i_3, %15 ]
+
+ST_60: exitcond_i1 (222)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:1  %exitcond_i1 = icmp eq i7 %i_i1, -64
+
+ST_60: empty_93 (223)  [1/1] 0.00ns
+:2  %empty_93 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_60: i_3 (224)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:3  %i_3 = add i7 %i_i1, 1
+
+ST_60: StgValue_303 (225)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:4  br i1 %exitcond_i1, label %crypto_sign_ed25519_ref_sc25519_from64bytes.exit92, label %15
+
+ST_60: tmp_i2 (227)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:0  %tmp_i2 = zext i7 %i_i1 to i64
+
+ST_60: hram_addr (228)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:1  %hram_addr = getelementptr [64 x i8]* %hram, i64 0, i64 %tmp_i2
+
+ST_60: hram_load (229)  [2/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:2  %hram_load = load i8* %hram_addr, align 1
+
+ST_60: StgValue_307 (235)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:112->ed25519_ref/src/sign.c:141
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit92:0  call fastcc void @barrett_reduce([32 x i32]* %scs_v, [64 x i32]* %t_10) nounwind
+
+
+ <State 61>: 1.91ns
+ST_61: hram_load (229)  [1/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:2  %hram_load = load i8* %hram_addr, align 1
+
+ST_61: tmp_i2_94 (230)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:3  %tmp_i2_94 = zext i8 %hram_load to i32
+
+ST_61: t_10_addr (231)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:4  %t_10_addr = getelementptr inbounds [64 x i32]* %t_10, i64 0, i64 %tmp_i2
+
+ST_61: StgValue_311 (232)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:5  store i32 %tmp_i2_94, i32* %t_10_addr, align 4
+
+ST_61: StgValue_312 (233)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141
+:6  br label %14
+
+
+ <State 62>: 0.66ns
+ST_62: StgValue_313 (235)  [1/2] 0.00ns  loc: ed25519_ref/src/sc25519.c:112->ed25519_ref/src/sign.c:141
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit92:0  call fastcc void @barrett_reduce([32 x i32]* %scs_v, [64 x i32]* %t_10) nounwind
+
+ST_62: StgValue_314 (236)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+crypto_sign_ed25519_ref_sc25519_from64bytes.exit92:1  br label %16
+
+
+ <State 63>: 1.11ns
+ST_63: i_i2 (238)  [1/1] 0.00ns
+:0  %i_i2 = phi i6 [ 0, %crypto_sign_ed25519_ref_sc25519_from64bytes.exit92 ], [ %i_77, %17 ]
+
+ST_63: exitcond1_i (239)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:1  %exitcond1_i = icmp eq i6 %i_i2, -32
+
+ST_63: empty_95 (240)  [1/1] 0.00ns
+:2  %empty_95 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+
+ST_63: i_77 (241)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:3  %i_77 = add i6 %i_i2, 1
+
+ST_63: StgValue_319 (242)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:4  br i1 %exitcond1_i, label %.preheader.i.preheader, label %17
+
+ST_63: tmp_i3 (244)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:0  %tmp_i3 = zext i6 %i_i2 to i64
+
+ST_63: az_addr_3 (245)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:1  %az_addr_3 = getelementptr [64 x i8]* %az, i64 0, i64 %tmp_i3
+
+ST_63: az_load_3 (246)  [2/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:2  %az_load_3 = load i8* %az_addr_3, align 1
+
+ST_63: StgValue_323 (252)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+.preheader.i.preheader:0  br label %.preheader.i
+
+
+ <State 64>: 1.91ns
+ST_64: az_load_3 (246)  [1/2] 0.68ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:2  %az_load_3 = load i8* %az_addr_3, align 1
+
+ST_64: tmp_i3_96 (247)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:3  %tmp_i3_96 = zext i8 %az_load_3 to i32
+
+ST_64: t_11_addr (248)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:4  %t_11_addr = getelementptr inbounds [64 x i32]* %t_11, i64 0, i64 %tmp_i3
+
+ST_64: StgValue_327 (249)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:5  store i32 %tmp_i3_96, i32* %t_11_addr, align 4
+
+ST_64: StgValue_328 (250)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142
+:6  br label %16
+
+
+ <State 65>: 1.24ns
+ST_65: i_1_i (254)  [1/1] 0.00ns
+.preheader.i:0  %i_1_i = phi i7 [ %i_78, %18 ], [ 32, %.preheader.i.preheader ]
+
+ST_65: exitcond_i2 (255)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+.preheader.i:1  %exitcond_i2 = icmp eq i7 %i_1_i, -64
+
+ST_65: empty_97 (256)  [1/1] 0.00ns
+.preheader.i:2  %empty_97 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+
+ST_65: StgValue_332 (257)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+.preheader.i:3  br i1 %exitcond_i2, label %crypto_sign_ed25519_ref_sc25519_from32bytes.exit, label %18
+
+ST_65: tmp_858_i (259)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+:0  %tmp_858_i = zext i7 %i_1_i to i64
+
+ST_65: t_11_addr_1 (260)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+:1  %t_11_addr_1 = getelementptr inbounds [64 x i32]* %t_11, i64 0, i64 %tmp_858_i
+
+ST_65: StgValue_335 (261)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+:2  store i32 0, i32* %t_11_addr_1, align 4
+
+ST_65: i_78 (262)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+:3  %i_78 = add i7 %i_1_i, 1
+
+ST_65: StgValue_337 (263)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142
+:4  br label %.preheader.i
+
+ST_65: StgValue_338 (265)  [2/2] 0.67ns  loc: ed25519_ref/src/sc25519.c:98->ed25519_ref/src/sign.c:142
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:0  call fastcc void @barrett_reduce([32 x i32]* %scsk_v, [64 x i32]* %t_11) nounwind
+
+
+ <State 66>: 0.00ns
+ST_66: StgValue_339 (265)  [1/2] 0.00ns  loc: ed25519_ref/src/sc25519.c:98->ed25519_ref/src/sign.c:142
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:0  call fastcc void @barrett_reduce([32 x i32]* %scsk_v, [64 x i32]* %t_11) nounwind
+
+
+ <State 67>: 0.00ns
+ST_67: StgValue_340 (266)  [2/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:1  call fastcc void @crypto_sign_ed25519_.15([32 x i32]* %scs_v, [32 x i32]* %scsk_v) nounwind
+
+
+ <State 68>: 0.00ns
+ST_68: StgValue_341 (266)  [1/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:1  call fastcc void @crypto_sign_ed25519_.15([32 x i32]* %scs_v, [32 x i32]* %scsk_v) nounwind
+
+
+ <State 69>: 0.00ns
+ST_69: StgValue_342 (267)  [2/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:2  call fastcc void @crypto_sign_ed25519_.16([32 x i32]* %scs_v, [32 x i32]* %sck_v) nounwind
+
+
+ <State 70>: 0.66ns
+ST_70: StgValue_343 (267)  [1/2] 0.00ns
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:2  call fastcc void @crypto_sign_ed25519_.16([32 x i32]* %scs_v, [32 x i32]* %sck_v) nounwind
+
+ST_70: StgValue_344 (268)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+crypto_sign_ed25519_ref_sc25519_from32bytes.exit:3  br label %19
+
+
+ <State 71>: 1.24ns
+ST_71: i_i3 (270)  [1/1] 0.00ns
+:0  %i_i3 = phi i6 [ 0, %crypto_sign_ed25519_ref_sc25519_from32bytes.exit ], [ %i_79, %20 ]
+
+ST_71: exitcond_i3 (271)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:1  %exitcond_i3 = icmp eq i6 %i_i3, -32
+
+ST_71: empty_98 (272)  [1/1] 0.00ns
+:2  %empty_98 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32) nounwind
+
+ST_71: i_79 (273)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:3  %i_79 = add i6 %i_i3, 1
+
+ST_71: StgValue_349 (274)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:4  br i1 %exitcond_i3, label %crypto_sign_ed25519_ref_sc25519_to32bytes.exit.preheader, label %20
+
+ST_71: tmp_i4 (276)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:0  %tmp_i4 = zext i6 %i_i3 to i64
+
+ST_71: scs_v_addr (277)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:1  %scs_v_addr = getelementptr [32 x i32]* %scs_v, i64 0, i64 %tmp_i4
+
+ST_71: scs_v_load (278)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:2  %scs_v_load = load i32* %scs_v_addr, align 4
+
+ST_71: StgValue_353 (286)  [1/1] 0.66ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit.preheader:0  br label %crypto_sign_ed25519_ref_sc25519_to32bytes.exit
+
+
+ <State 72>: 1.91ns
+ST_72: scs_v_load (278)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:2  %scs_v_load = load i32* %scs_v_addr, align 4
+
+ST_72: tmp_809 (279)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:3  %tmp_809 = trunc i32 %scs_v_load to i8
+
+ST_72: sum_i (280)  [1/1] 0.05ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:4  %sum_i = xor i6 %i_i3, -32
+
+ST_72: sum_i_cast (281)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:5  %sum_i_cast = zext i6 %sum_i to i64
+
+ST_72: signature_addr_3 (282)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:6  %signature_addr_3 = getelementptr [64 x i8]* %signature, i64 0, i64 %sum_i_cast
+
+ST_72: StgValue_359 (283)  [1/1] 0.68ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:7  store i8 %tmp_809, i8* %signature_addr_3, align 1
+
+ST_72: StgValue_360 (284)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148
+:8  br label %19
+
+
+ <State 73>: 1.10ns
+ST_73: i_i4 (288)  [1/1] 0.00ns
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit:0  %i_i4 = phi i7 [ %i_80, %21 ], [ 0, %crypto_sign_ed25519_ref_sc25519_to32bytes.exit.preheader ]
+
+ST_73: exitcond_i4 (289)  [1/1] 0.56ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit:1  %exitcond_i4 = icmp eq i7 %i_i4, -64
+
+ST_73: empty_99 (290)  [1/1] 0.00ns
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit:2  %empty_99 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_73: i_80 (291)  [1/1] 1.10ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit:3  %i_80 = add i7 %i_i4, 1
+
+ST_73: StgValue_365 (292)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154
+crypto_sign_ed25519_ref_sc25519_to32bytes.exit:4  br i1 %exitcond_i4, label %_memcpy.2.exit, label %21
+
+ST_73: tmp_i5 (294)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:0  %tmp_i5 = zext i7 %i_i4 to i64
+
+ST_73: signature_addr_4 (295)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:1  %signature_addr_4 = getelementptr [64 x i8]* %signature, i64 0, i64 %tmp_i5
+
+ST_73: signature_load_1 (296)  [2/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:2  %signature_load_1 = load i8* %signature_addr_4, align 1
+
+ST_73: StgValue_369 (301)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:155
+_memcpy.2.exit:0  ret i32 0
+
+
+ <State 74>: 1.35ns
+ST_74: signature_load_1 (296)  [1/2] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:2  %signature_load_1 = load i8* %signature_addr_4, align 1
+
+ST_74: signature_out_addr (297)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:3  %signature_out_addr = getelementptr [64 x i8]* %signature_out, i64 0, i64 %tmp_i5
+
+ST_74: StgValue_372 (298)  [1/1] 0.68ns  loc: ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154
+:4  store i8 %signature_load_1, i8* %signature_out_addr, align 1
+
+ST_74: StgValue_373 (299)  [1/1] 0.00ns  loc: ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154
+:5  br label %crypto_sign_ed25519_ref_sc25519_to32bytes.exit
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1ns
+The critical path consists of the following:
+	s_axi read on port 'num_blocks' [11]  (1 ns)
+
+ <State 2>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('invdar', ed25519_ref/src/sign.c:70) with incoming values : ('indvarinc', ed25519_ref/src/sign.c:70) [54]  (0 ns)
+	'add' operation ('indvarinc', ed25519_ref/src/sign.c:70) [55]  (1.11 ns)
+
+ <State 3>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78) [66]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78) [69]  (1.11 ns)
+
+ <State 4>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sk_load', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78) on array 'sk' [76]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78) of variable 'sk_load', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:78 on array 'dst', ed25519_ref/src/sign.c:65 [78]  (0.677 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 2.09ns
+The critical path consists of the following:
+	'call' operation (ed25519_ref/src/sign.c:84) to 'sha512_final' [86]  (2.09 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('az_addr', ed25519_ref/src/sign.c:84) [85]  (0 ns)
+	'load' operation ('az_load', ed25519_ref/src/sign.c:86) on array 'az', ed25519_ref/src/sign.c:66 [87]  (0.677 ns)
+
+ <State 11>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('az_load', ed25519_ref/src/sign.c:86) on array 'az', ed25519_ref/src/sign.c:66 [87]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sign.c:86) of variable 'tmp_800', ed25519_ref/src/sign.c:86 on array 'az', ed25519_ref/src/sign.c:66 [90]  (0.677 ns)
+
+ <State 12>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96) [99]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96) [102]  (1.11 ns)
+
+ <State 13>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('az_load_2', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96) on array 'az', ed25519_ref/src/sign.c:66 [108]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96) of variable 'az_load_2', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:35->ed25519_ref/src/sign.c:96 on array 'signature', ed25519_ref/src/sign.c:70 [110]  (0.677 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+ <State 15>: 1.97ns
+The critical path consists of the following:
+	'call' operation ('tmp_10', ed25519_ref/src/sign.c:102) to 'sha512_update_32.1' [114]  (1.97 ns)
+
+ <State 16>: 0.656ns
+The critical path consists of the following:
+	'call' operation ('tmp_10', ed25519_ref/src/sign.c:102) to 'sha512_update_32.1' [114]  (0 ns)
+	multiplexor before 'phi' operation ('hash.curlen') with incoming values : ('hash.curlen', ed25519_ref/src/sign.c:102) ('hash.curlen', ed25519_ref/src/sign.c:109) [119]  (0.656 ns)
+
+ <State 17>: 8.75ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sign.c:104) [121]  (0 ns)
+	'shl' operation ('tmp_806', ed25519_ref/src/sign.c:107) [126]  (0 ns)
+	'getelementptr' operation ('mem_addr', ed25519_ref/src/sign.c:107) [128]  (0 ns)
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 18>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 19>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 20>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 21>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 22>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 23>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:107) [129]  (8.75 ns)
+
+ <State 24>: 8.75ns
+The critical path consists of the following:
+	bus read on port 'mem' (ed25519_ref/src/sign.c:107) [138]  (8.75 ns)
+
+ <State 25>: 0.571ns
+The critical path consists of the following:
+	'getelementptr' operation ('temp_buf_addr', ed25519_ref/src/sign.c:107) [140]  (0 ns)
+	'store' operation (ed25519_ref/src/sign.c:107) of variable 'mem_addr_read', ed25519_ref/src/sign.c:107 on array 'temp_buf', ed25519_ref/src/sign.c:71 [141]  (0.571 ns)
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+ <State 27>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114) [152]  (0.656 ns)
+
+ <State 28>: 1.1ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114) [152]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114) [155]  (1.1 ns)
+
+ <State 29>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('nonce_load', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114) on array 'nonce' [160]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114) of variable 'tmp_i_90', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:114 on array 't', ed25519_ref/src/sc25519.c:110->ed25519_ref/src/sign.c:114 [163]  (1.24 ns)
+
+ <State 30>: 0ns
+The critical path consists of the following:
+
+ <State 31>: 0ns
+The critical path consists of the following:
+
+ <State 32>: 0ns
+The critical path consists of the following:
+
+ <State 33>: 0ns
+The critical path consists of the following:
+
+ <State 34>: 0ns
+The critical path consists of the following:
+
+ <State 35>: 0.656ns
+The critical path consists of the following:
+	'call' operation to 'crypto_sign_ed25519_.18' [169]  (0.656 ns)
+
+ <State 36>: 0ns
+The critical path consists of the following:
+
+ <State 37>: 0.656ns
+The critical path consists of the following:
+	'call' operation to 'crypto_sign_ed25519_.18' [170]  (0.656 ns)
+
+ <State 38>: 1.24ns
+The critical path consists of the following:
+	'call' operation ('tmp_i1', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) to 'crypto_sign_ed25519_.20' [172]  (1.24 ns)
+
+ <State 39>: 0ns
+The critical path consists of the following:
+
+ <State 40>: 0ns
+The critical path consists of the following:
+
+ <State 41>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('signature_addr_2', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) [174]  (0 ns)
+	'load' operation ('signature_load', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) on array 'signature', ed25519_ref/src/sign.c:70 [175]  (0.677 ns)
+
+ <State 42>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('signature_load', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) on array 'signature', ed25519_ref/src/sign.c:70 [175]  (0.677 ns)
+	'xor' operation ('tmp_863_i', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) [176]  (0.051 ns)
+	'store' operation (ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117) of variable 'tmp_863_i', ed25519_ref/src/ge25519.c:241->ed25519_ref/src/sign.c:117 on array 'signature', ed25519_ref/src/sign.c:70 [177]  (0.677 ns)
+
+ <State 43>: 0ns
+The critical path consists of the following:
+
+ <State 44>: 0ns
+The critical path consists of the following:
+
+ <State 45>: 1.97ns
+The critical path consists of the following:
+	'call' operation ('tmp_11', ed25519_ref/src/sign.c:127) to 'sha512_update_32.1' [180]  (1.97 ns)
+
+ <State 46>: 0ns
+The critical path consists of the following:
+
+ <State 47>: 1.97ns
+The critical path consists of the following:
+	'call' operation ('tmp_12', ed25519_ref/src/sign.c:128) to 'sha512_update_32.1' [183]  (1.97 ns)
+
+ <State 48>: 0.656ns
+The critical path consists of the following:
+	'call' operation ('tmp_12', ed25519_ref/src/sign.c:128) to 'sha512_update_32.1' [183]  (0 ns)
+	multiplexor before 'phi' operation ('hash.curlen') with incoming values : ('hash.curlen', ed25519_ref/src/sign.c:128) ('hash.curlen', ed25519_ref/src/sign.c:135) [188]  (0.656 ns)
+
+ <State 49>: 8.75ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sign.c:130) [190]  (0 ns)
+	'shl' operation ('tmp_807', ed25519_ref/src/sign.c:133) [195]  (0 ns)
+	'getelementptr' operation ('mem_addr_1', ed25519_ref/src/sign.c:133) [197]  (0 ns)
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 50>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 51>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 52>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 53>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 54>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 55>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (ed25519_ref/src/sign.c:133) [198]  (8.75 ns)
+
+ <State 56>: 8.75ns
+The critical path consists of the following:
+	bus read on port 'mem' (ed25519_ref/src/sign.c:133) [207]  (8.75 ns)
+
+ <State 57>: 0.571ns
+The critical path consists of the following:
+	'getelementptr' operation ('temp_buf_addr_6', ed25519_ref/src/sign.c:133) [209]  (0 ns)
+	'store' operation (ed25519_ref/src/sign.c:133) of variable 'mem_addr_1_read', ed25519_ref/src/sign.c:133 on array 'temp_buf', ed25519_ref/src/sign.c:71 [210]  (0.571 ns)
+
+ <State 58>: 0ns
+The critical path consists of the following:
+
+ <State 59>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141) [221]  (0.656 ns)
+
+ <State 60>: 1.1ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141) [221]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141) [224]  (1.1 ns)
+
+ <State 61>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('hram_load', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141) on array 'hram' [229]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141) of variable 'tmp_i2_94', ed25519_ref/src/sc25519.c:111->ed25519_ref/src/sign.c:141 on array 't', ed25519_ref/src/sc25519.c:110->ed25519_ref/src/sign.c:141 [232]  (1.24 ns)
+
+ <State 62>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142) [238]  (0.656 ns)
+
+ <State 63>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142) [238]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142) [241]  (1.11 ns)
+
+ <State 64>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('az_load_3', ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142) on array 'az', ed25519_ref/src/sign.c:66 [246]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142) of variable 'tmp_i3_96', ed25519_ref/src/sc25519.c:96->ed25519_ref/src/sign.c:142 on array 't', ed25519_ref/src/sc25519.c:95->ed25519_ref/src/sign.c:142 [249]  (1.24 ns)
+
+ <State 65>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142) [254]  (0 ns)
+	'getelementptr' operation ('t_11_addr_1', ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142) [260]  (0 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:97->ed25519_ref/src/sign.c:142) of constant 0 on array 't', ed25519_ref/src/sc25519.c:95->ed25519_ref/src/sign.c:142 [261]  (1.24 ns)
+
+ <State 66>: 0ns
+The critical path consists of the following:
+
+ <State 67>: 0ns
+The critical path consists of the following:
+
+ <State 68>: 0ns
+The critical path consists of the following:
+
+ <State 69>: 0ns
+The critical path consists of the following:
+
+ <State 70>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) [270]  (0.656 ns)
+
+ <State 71>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) [270]  (0 ns)
+	'getelementptr' operation ('scs_v_addr', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) [277]  (0 ns)
+	'load' operation ('scs_v_load', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) on array 'scs.v', ed25519_ref/src/sign.c:73 [278]  (1.24 ns)
+
+ <State 72>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('scs_v_load', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) on array 'scs.v', ed25519_ref/src/sign.c:73 [278]  (1.24 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148) of variable 'tmp_809', ed25519_ref/src/sc25519.c:127->ed25519_ref/src/sign.c:148 on array 'signature', ed25519_ref/src/sign.c:70 [283]  (0.677 ns)
+
+ <State 73>: 1.1ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154) [288]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sign.c:15->ed25519_ref/src/sign.c:154) [291]  (1.1 ns)
+
+ <State 74>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('signature_load_1', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154) on array 'signature', ed25519_ref/src/sign.c:70 [296]  (0.677 ns)
+	'store' operation (ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154) of variable 'signature_load_1', ed25519_ref/src/sign.c:16->ed25519_ref/src/sign.c:154 on array 'signature_out' [298]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

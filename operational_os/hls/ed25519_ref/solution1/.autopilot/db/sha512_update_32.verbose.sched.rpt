@@ -1,0 +1,641 @@
+
+
+================================================================
+== Vivado HLS Report for 'sha512_update_32'
+================================================================
+* Date:           Sat Jun  3 22:30:07 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.77|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         3|          -|          -|     ?|    no    |
+        | + Loop 1.2  |  256|  256|         2|          -|          -|   128|    no    |
+        | + Loop 1.3  |  256|  256|         2|          -|          -|   128|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 18
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_1)
+3 --> 
+	4  / true
+4 --> 
+	5  / (!or_cond)
+	17  / (or_cond)
+5 --> 
+	6  / true
+6 --> 
+	7  / (!exitcond3)
+	9  / (exitcond3)
+7 --> 
+	8  / true
+8 --> 
+	6  / true
+9 --> 
+	10  / true
+10 --> 
+	16  / (!tmp_s)
+	11  / (tmp_s)
+11 --> 
+	12  / (!exitcond2)
+	13  / (exitcond2)
+12 --> 
+	11  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / (!exitcond)
+	16  / (exitcond)
+15 --> 
+	14  / true
+16 --> 
+	2  / true
+17 --> 
+	18  / true
+18 --> 
+	16  / true
+* FSM state operations: 
+
+ <State 1>: 0.67ns
+ST_1: p_01_idx (5)  [1/1] 0.00ns
+:0  %p_01_idx = alloca i64
+
+ST_1: inlen (6)  [1/1] 0.00ns
+:1  %inlen = alloca i64
+
+ST_1: md_curlen (7)  [1/1] 0.00ns
+:2  %md_curlen = alloca i64
+
+ST_1: md_length (8)  [1/1] 0.00ns
+:3  %md_length = alloca i64
+
+ST_1: empty (9)  [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str12, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str12, i32 -1, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12)
+
+ST_1: temp_buf (10)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:311
+:5  %temp_buf = alloca [128 x i8], align 16
+
+ST_1: StgValue_25 (11)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:300
+:6  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str8, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_26 (12)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:301
+:7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str210, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_27 (13)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:302
+:8  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str311, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_28 (14)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:303
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str412, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_29 (15)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:304
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str513, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_30 (16)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:305
+:11  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str614, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_31 (17)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:306
+:12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str715, [1 x i8]* @p_str19, [1 x i8]* @p_str19, [1 x i8]* @p_str19) nounwind
+
+ST_1: StgValue_32 (18)  [1/1] 0.67ns
+:13  store i64 0, i64* %md_length
+
+ST_1: StgValue_33 (19)  [1/1] 0.66ns
+:14  store i64 0, i64* %md_curlen
+
+ST_1: StgValue_34 (20)  [1/1] 0.67ns
+:15  store i64 32, i64* %inlen
+
+ST_1: StgValue_35 (21)  [1/1] 0.67ns
+:16  store i64 0, i64* %p_01_idx
+
+ST_1: StgValue_36 (22)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:315
+:17  br label %.backedge
+
+
+ <State 2>: 0.64ns
+ST_2: inlen_load (24)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:325
+.backedge:0  %inlen_load = load i64* %inlen
+
+ST_2: tmp_1 (25)  [1/1] 0.64ns  loc: ed25519_ref/src/sha512.c:318
+.backedge:1  %tmp_1 = icmp eq i64 %inlen_load, 0
+
+ST_2: StgValue_39 (26)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:318
+.backedge:2  br i1 %tmp_1, label %.loopexit, label %1
+
+ST_2: md_curlen_load_1 (127)  [1/1] 0.00ns
+.loopexit:0  %md_curlen_load_1 = load i64* %md_curlen
+
+ST_2: md_length_load_1 (128)  [1/1] 0.00ns
+.loopexit:1  %md_length_load_1 = load i64* %md_length
+
+ST_2: mrv (129)  [1/1] 0.00ns
+.loopexit:2  %mrv = insertvalue { i64, i64 } undef, i64 %md_length_load_1, 0
+
+ST_2: mrv_1 (130)  [1/1] 0.00ns
+.loopexit:3  %mrv_1 = insertvalue { i64, i64 } %mrv, i64 %md_curlen_load_1, 1
+
+ST_2: StgValue_44 (131)  [1/1] 0.00ns
+.loopexit:4  ret { i64, i64 } %mrv_1
+
+
+ <State 3>: 0.64ns
+ST_3: md_curlen_load_2 (28)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:319
+:0  %md_curlen_load_2 = load i64* %md_curlen
+
+ST_3: tmp_2 (29)  [1/1] 0.64ns  loc: ed25519_ref/src/sha512.c:319
+:1  %tmp_2 = icmp eq i64 %md_curlen_load_2, 0
+
+
+ <State 4>: 2.09ns
+ST_4: tmp (30)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:319
+:2  %tmp = call i57 @_ssdm_op_PartSelect.i57.i64.i32.i32(i64 %inlen_load, i32 7, i32 63)
+
+ST_4: icmp (31)  [1/1] 0.80ns  loc: ed25519_ref/src/sha512.c:319
+:3  %icmp = icmp ne i57 %tmp, 0
+
+ST_4: or_cond (32)  [1/1] 0.05ns  loc: ed25519_ref/src/sha512.c:319
+:4  %or_cond = and i1 %tmp_2, %icmp
+
+ST_4: StgValue_50 (33)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:319
+:5  br i1 %or_cond, label %2, label %._crit_edge
+
+ST_4: md_length_load (114)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:323
+:1  %md_length_load = load i64* %md_length
+
+ST_4: tmp_4 (116)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:323
+:3  %tmp_4 = add i64 %md_length_load, 1024
+
+ST_4: StgValue_53 (119)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:323
+:6  store i64 %tmp_4, i64* %md_length
+
+ST_4: StgValue_54 (120)  [1/1] 0.66ns
+:7  store i64 0, i64* %md_curlen
+
+
+ <State 5>: 2.14ns
+ST_5: tmp_6 (35)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:327
+._crit_edge:0  %tmp_6 = sub i64 128, %md_curlen_load_2
+
+ST_5: tmp_7 (36)  [1/1] 0.64ns  loc: ed25519_ref/src/sha512.c:327
+._crit_edge:1  %tmp_7 = icmp ult i64 %inlen_load, %tmp_6
+
+ST_5: n (37)  [1/1] 0.08ns  loc: ed25519_ref/src/sha512.c:327
+._crit_edge:2  %n = select i1 %tmp_7, i64 %inlen_load, i64 %tmp_6
+
+ST_5: StgValue_58 (38)  [1/1] 0.66ns  loc: ed25519_ref/src/sha512.c:329
+._crit_edge:3  br label %3
+
+
+ <State 6>: 1.41ns
+ST_6: i (40)  [1/1] 0.00ns
+:0  %i = phi i64 [ 0, %._crit_edge ], [ %i_1, %4 ]
+
+ST_6: tmp_16 (41)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:329
+:1  %tmp_16 = trunc i64 %i to i9
+
+ST_6: tmp_17 (42)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:329
+:2  %tmp_17 = trunc i64 %i to i8
+
+ST_6: exitcond3 (43)  [1/1] 0.64ns  loc: ed25519_ref/src/sha512.c:329
+:3  %exitcond3 = icmp eq i64 %i, %n
+
+ST_6: i_1 (44)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:329
+:4  %i_1 = add i64 1, %i
+
+ST_6: StgValue_64 (45)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:329
+:5  br i1 %exitcond3, label %5, label %4
+
+
+ <State 7>: 1.77ns
+ST_7: p_01_idx_load_4 (47)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:318
+:0  %p_01_idx_load_4 = load i64* %p_01_idx
+
+ST_7: tmp_18 (49)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:318
+:2  %tmp_18 = trunc i64 %p_01_idx_load_4 to i8
+
+ST_7: sum2 (50)  [1/1] 1.09ns  loc: ed25519_ref/src/sha512.c:329
+:3  %sum2 = add i8 %tmp_17, %tmp_18
+
+ST_7: sum2_cast (51)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:329
+:4  %sum2_cast = zext i8 %sum2 to i64
+
+ST_7: in_addr (52)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:330
+:5  %in_addr = getelementptr [64 x i8]* %in_r, i64 0, i64 %sum2_cast
+
+ST_7: in_load (53)  [2/2] 0.68ns  loc: ed25519_ref/src/sha512.c:330
+:6  %in_load = load i8* %in_addr, align 1
+
+
+ <State 8>: 1.68ns
+ST_8: md_curlen_load (48)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:318
+:1  %md_curlen_load = load i64* %md_curlen
+
+ST_8: in_load (53)  [1/2] 0.68ns  loc: ed25519_ref/src/sha512.c:330
+:6  %in_load = load i8* %in_addr, align 1
+
+ST_8: tmp_19 (54)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:318
+:7  %tmp_19 = trunc i64 %md_curlen_load to i9
+
+ST_8: tmp_5 (55)  [1/1] 1.10ns  loc: ed25519_ref/src/sha512.c:330
+:8  %tmp_5 = add i9 %tmp_16, %tmp_19
+
+ST_8: tmp_5_cast (56)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:330
+:9  %tmp_5_cast = zext i9 %tmp_5 to i64
+
+ST_8: md_buf_addr (57)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:330
+:10  %md_buf_addr = getelementptr [128 x i8]* %md_buf, i64 0, i64 %tmp_5_cast
+
+ST_8: StgValue_77 (58)  [1/1] 0.57ns  loc: ed25519_ref/src/sha512.c:330
+:11  store i8 %in_load, i8* %md_buf_addr, align 1
+
+ST_8: StgValue_78 (59)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:329
+:12  br label %3
+
+
+ <State 9>: 1.41ns
+ST_9: md_curlen_load_3 (62)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:334
+:1  %md_curlen_load_3 = load i64* %md_curlen
+
+ST_9: tmp_8 (63)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:334
+:2  %tmp_8 = add i64 %n, %md_curlen_load_3
+
+
+ <State 10>: 2.09ns
+ST_10: p_01_idx_load_3 (61)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:335
+:0  %p_01_idx_load_3 = load i64* %p_01_idx
+
+ST_10: p_01_idx9 (64)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:335
+:3  %p_01_idx9 = add i64 %n, %p_01_idx_load_3
+
+ST_10: inlen_2 (65)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:336
+:4  %inlen_2 = sub i64 %inlen_load, %n
+
+ST_10: tmp_s (66)  [1/1] 0.64ns  loc: ed25519_ref/src/sha512.c:337
+:5  %tmp_s = icmp eq i64 %tmp_8, 128
+
+ST_10: StgValue_85 (67)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:337
+:6  br i1 %tmp_s, label %.preheader5.preheader, label %.backedge.backedge.pre
+
+ST_10: StgValue_86 (69)  [1/1] 0.66ns  loc: ed25519_ref/src/sha512.c:334
+.backedge.backedge.pre:0  store i64 %tmp_8, i64* %md_curlen
+
+ST_10: StgValue_87 (70)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:336
+.backedge.backedge.pre:1  store i64 %inlen_2, i64* %inlen
+
+ST_10: StgValue_88 (71)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:335
+.backedge.backedge.pre:2  store i64 %p_01_idx9, i64* %p_01_idx
+
+ST_10: StgValue_89 (72)  [1/1] 0.00ns
+.backedge.backedge.pre:3  br label %.backedge.backedge
+
+ST_10: StgValue_90 (74)  [1/1] 0.66ns  loc: ed25519_ref/src/sha512.c:338
+.preheader5.preheader:0  br label %.preheader5
+
+
+ <State 11>: 1.09ns
+ST_11: temp_index (76)  [1/1] 0.00ns
+.preheader5:0  %temp_index = phi i8 [ %temp_index_2, %6 ], [ 0, %.preheader5.preheader ]
+
+ST_11: exitcond2 (77)  [1/1] 0.56ns  loc: ed25519_ref/src/sha512.c:338
+.preheader5:1  %exitcond2 = icmp eq i8 %temp_index, -128
+
+ST_11: empty_21 (78)  [1/1] 0.00ns
+.preheader5:2  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+ST_11: temp_index_2 (79)  [1/1] 1.09ns  loc: ed25519_ref/src/sha512.c:338
+.preheader5:3  %temp_index_2 = add i8 %temp_index, 1
+
+ST_11: StgValue_95 (80)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:338
+.preheader5:4  br i1 %exitcond2, label %7, label %6
+
+ST_11: tmp_9 (82)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:339
+:0  %tmp_9 = zext i8 %temp_index to i64
+
+ST_11: md_buf_addr_1 (83)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:339
+:1  %md_buf_addr_1 = getelementptr [128 x i8]* %md_buf, i64 0, i64 %tmp_9
+
+ST_11: md_buf_load (84)  [2/2] 0.57ns  loc: ed25519_ref/src/sha512.c:339
+:2  %md_buf_load = load i8* %md_buf_addr_1, align 1
+
+ST_11: StgValue_99 (89)  [2/2] 0.00ns  loc: ed25519_ref/src/sha512.c:341
+:0  call fastcc void @sha512_compress_128([8 x i64]* %md_state, [128 x i8]* %temp_buf)
+
+
+ <State 12>: 1.14ns
+ST_12: md_buf_load (84)  [1/2] 0.57ns  loc: ed25519_ref/src/sha512.c:339
+:2  %md_buf_load = load i8* %md_buf_addr_1, align 1
+
+ST_12: temp_buf_addr_1 (85)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:339
+:3  %temp_buf_addr_1 = getelementptr inbounds [128 x i8]* %temp_buf, i64 0, i64 %tmp_9
+
+ST_12: StgValue_102 (86)  [1/1] 0.57ns  loc: ed25519_ref/src/sha512.c:339
+:4  store i8 %md_buf_load, i8* %temp_buf_addr_1, align 1
+
+ST_12: StgValue_103 (87)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:338
+:5  br label %.preheader5
+
+
+ <State 13>: 0.66ns
+ST_13: StgValue_104 (89)  [1/2] 0.00ns  loc: ed25519_ref/src/sha512.c:341
+:0  call fastcc void @sha512_compress_128([8 x i64]* %md_state, [128 x i8]* %temp_buf)
+
+ST_13: StgValue_105 (90)  [1/1] 0.66ns  loc: ed25519_ref/src/sha512.c:341
+:1  br label %.preheader
+
+
+ <State 14>: 1.09ns
+ST_14: temp_index_1 (92)  [1/1] 0.00ns
+.preheader:0  %temp_index_1 = phi i8 [ %temp_index_3, %8 ], [ 0, %7 ]
+
+ST_14: exitcond (93)  [1/1] 0.56ns  loc: ed25519_ref/src/sha512.c:344
+.preheader:1  %exitcond = icmp eq i8 %temp_index_1, -128
+
+ST_14: empty_22 (94)  [1/1] 0.00ns
+.preheader:2  %empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+ST_14: temp_index_3 (95)  [1/1] 1.09ns  loc: ed25519_ref/src/sha512.c:344
+.preheader:3  %temp_index_3 = add i8 %temp_index_1, 1
+
+ST_14: StgValue_110 (96)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:344
+.preheader:4  br i1 %exitcond, label %9, label %8
+
+ST_14: tmp_11 (98)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:345
+:0  %tmp_11 = zext i8 %temp_index_1 to i64
+
+ST_14: temp_buf_addr (99)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:345
+:1  %temp_buf_addr = getelementptr inbounds [128 x i8]* %temp_buf, i64 0, i64 %tmp_11
+
+ST_14: temp_buf_load (100)  [2/2] 0.57ns  loc: ed25519_ref/src/sha512.c:345
+:2  %temp_buf_load = load i8* %temp_buf_addr, align 1
+
+ST_14: StgValue_114 (108)  [1/1] 0.66ns
+:3  store i64 0, i64* %md_curlen
+
+ST_14: StgValue_115 (109)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:336
+:4  store i64 %inlen_2, i64* %inlen
+
+ST_14: StgValue_116 (110)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:335
+:5  store i64 %p_01_idx9, i64* %p_01_idx
+
+
+ <State 15>: 1.14ns
+ST_15: temp_buf_load (100)  [1/2] 0.57ns  loc: ed25519_ref/src/sha512.c:345
+:2  %temp_buf_load = load i8* %temp_buf_addr, align 1
+
+ST_15: md_buf_addr_2 (101)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:345
+:3  %md_buf_addr_2 = getelementptr [128 x i8]* %md_buf, i64 0, i64 %tmp_11
+
+ST_15: StgValue_119 (102)  [1/1] 0.57ns  loc: ed25519_ref/src/sha512.c:345
+:4  store i8 %temp_buf_load, i8* %md_buf_addr_2, align 1
+
+ST_15: StgValue_120 (103)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:344
+:5  br label %.preheader
+
+
+ <State 16>: 2.09ns
+ST_16: md_length_load_2 (105)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:347
+:0  %md_length_load_2 = load i64* %md_length
+
+ST_16: tmp_10 (106)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:347
+:1  %tmp_10 = add i64 %md_length_load_2, 1024
+
+ST_16: StgValue_123 (107)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:347
+:2  store i64 %tmp_10, i64* %md_length
+
+ST_16: StgValue_124 (111)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:349
+:6  br label %.backedge.backedge
+
+ST_16: StgValue_125 (125)  [1/1] 0.00ns
+.backedge.backedge:0  br label %.backedge
+
+
+ <State 17>: 2.09ns
+ST_17: p_01_idx_load (113)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:324
+:0  %p_01_idx_load = load i64* %p_01_idx
+
+ST_17: StgValue_127 (115)  [2/2] 0.00ns  loc: ed25519_ref/src/sha512.c:320
+:2  call fastcc void @sha512_compress_32([8 x i64]* %md_state, [64 x i8]* %in_r, i64 %p_01_idx_load)
+
+ST_17: p_01_idx8 (117)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:324
+:4  %p_01_idx8 = add i64 %p_01_idx_load, 128
+
+ST_17: StgValue_129 (122)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:324
+:9  store i64 %p_01_idx8, i64* %p_01_idx
+
+
+ <State 18>: 2.09ns
+ST_18: StgValue_130 (115)  [1/2] 0.00ns  loc: ed25519_ref/src/sha512.c:320
+:2  call fastcc void @sha512_compress_32([8 x i64]* %md_state, [64 x i8]* %in_r, i64 %p_01_idx_load)
+
+ST_18: inlen_1 (118)  [1/1] 1.41ns  loc: ed25519_ref/src/sha512.c:325
+:5  %inlen_1 = add i64 %inlen_load, -128
+
+ST_18: StgValue_132 (121)  [1/1] 0.67ns  loc: ed25519_ref/src/sha512.c:325
+:8  store i64 %inlen_1, i64* %inlen
+
+ST_18: StgValue_133 (123)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:326
+:10  br label %.backedge.backedge
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.675ns
+The critical path consists of the following:
+	'alloca' operation ('p_01_idx') [5]  (0 ns)
+	'store' operation of constant 0 on local variable 'p_01_idx' [21]  (0.675 ns)
+
+ <State 2>: 0.642ns
+The critical path consists of the following:
+	'load' operation ('inlen_load', ed25519_ref/src/sha512.c:325) on local variable 'inlen' [24]  (0 ns)
+	'icmp' operation ('tmp_1', ed25519_ref/src/sha512.c:318) [25]  (0.642 ns)
+
+ <State 3>: 0.642ns
+The critical path consists of the following:
+	'load' operation ('md_curlen_load_2', ed25519_ref/src/sha512.c:319) on local variable 'md_curlen' [28]  (0 ns)
+	'icmp' operation ('tmp_2', ed25519_ref/src/sha512.c:319) [29]  (0.642 ns)
+
+ <State 4>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('md_length_load', ed25519_ref/src/sha512.c:323) on local variable 'md_length' [114]  (0 ns)
+	'add' operation ('tmp_4', ed25519_ref/src/sha512.c:323) [116]  (1.41 ns)
+	'store' operation (ed25519_ref/src/sha512.c:323) of variable 'tmp_4', ed25519_ref/src/sha512.c:323 on local variable 'md_length' [119]  (0.675 ns)
+
+ <State 5>: 2.14ns
+The critical path consists of the following:
+	'sub' operation ('tmp_6', ed25519_ref/src/sha512.c:327) [35]  (1.41 ns)
+	'icmp' operation ('tmp_7', ed25519_ref/src/sha512.c:327) [36]  (0.642 ns)
+	'select' operation ('n', ed25519_ref/src/sha512.c:327) [37]  (0.081 ns)
+
+ <State 6>: 1.41ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sha512.c:329) [40]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sha512.c:329) [44]  (1.41 ns)
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	'load' operation ('p_01_idx_load_4', ed25519_ref/src/sha512.c:318) on local variable 'p_01_idx' [47]  (0 ns)
+	'add' operation ('sum2', ed25519_ref/src/sha512.c:329) [50]  (1.09 ns)
+	'getelementptr' operation ('in_addr', ed25519_ref/src/sha512.c:330) [52]  (0 ns)
+	'load' operation ('in_load', ed25519_ref/src/sha512.c:330) on array 'in_r' [53]  (0.677 ns)
+
+ <State 8>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('md_curlen_load', ed25519_ref/src/sha512.c:318) on local variable 'md_curlen' [48]  (0 ns)
+	'add' operation ('tmp_5', ed25519_ref/src/sha512.c:330) [55]  (1.1 ns)
+	'getelementptr' operation ('md_buf_addr', ed25519_ref/src/sha512.c:330) [57]  (0 ns)
+	'store' operation (ed25519_ref/src/sha512.c:330) of variable 'in_load', ed25519_ref/src/sha512.c:330 on array 'md_buf' [58]  (0.571 ns)
+
+ <State 9>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('md_curlen_load_3', ed25519_ref/src/sha512.c:334) on local variable 'md_curlen' [62]  (0 ns)
+	'add' operation ('tmp_8', ed25519_ref/src/sha512.c:334) [63]  (1.41 ns)
+
+ <State 10>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('p_01_idx_load_3', ed25519_ref/src/sha512.c:335) on local variable 'p_01_idx' [61]  (0 ns)
+	'add' operation ('p_01_idx9', ed25519_ref/src/sha512.c:335) [64]  (1.41 ns)
+	'store' operation (ed25519_ref/src/sha512.c:335) of variable 'p_01_idx9', ed25519_ref/src/sha512.c:335 on local variable 'p_01_idx' [71]  (0.675 ns)
+
+ <State 11>: 1.09ns
+The critical path consists of the following:
+	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519_ref/src/sha512.c:338) [76]  (0 ns)
+	'add' operation ('temp_index', ed25519_ref/src/sha512.c:338) [79]  (1.09 ns)
+
+ <State 12>: 1.14ns
+The critical path consists of the following:
+	'load' operation ('md_buf_load', ed25519_ref/src/sha512.c:339) on array 'md_buf' [84]  (0.571 ns)
+	'store' operation (ed25519_ref/src/sha512.c:339) of variable 'md_buf_load', ed25519_ref/src/sha512.c:339 on array 'temp_buf', ed25519_ref/src/sha512.c:311 [86]  (0.571 ns)
+
+ <State 13>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519_ref/src/sha512.c:344) [92]  (0.656 ns)
+
+ <State 14>: 1.09ns
+The critical path consists of the following:
+	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519_ref/src/sha512.c:344) [92]  (0 ns)
+	'add' operation ('temp_index', ed25519_ref/src/sha512.c:344) [95]  (1.09 ns)
+
+ <State 15>: 1.14ns
+The critical path consists of the following:
+	'load' operation ('temp_buf_load', ed25519_ref/src/sha512.c:345) on array 'temp_buf', ed25519_ref/src/sha512.c:311 [100]  (0.571 ns)
+	'store' operation (ed25519_ref/src/sha512.c:345) of variable 'temp_buf_load', ed25519_ref/src/sha512.c:345 on array 'md_buf' [102]  (0.571 ns)
+
+ <State 16>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('md_length_load_2', ed25519_ref/src/sha512.c:347) on local variable 'md_length' [105]  (0 ns)
+	'add' operation ('tmp_10', ed25519_ref/src/sha512.c:347) [106]  (1.41 ns)
+	'store' operation (ed25519_ref/src/sha512.c:347) of variable 'tmp_10', ed25519_ref/src/sha512.c:347 on local variable 'md_length' [107]  (0.675 ns)
+
+ <State 17>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('p_01_idx_load', ed25519_ref/src/sha512.c:324) on local variable 'p_01_idx' [113]  (0 ns)
+	'add' operation ('p_01_idx8', ed25519_ref/src/sha512.c:324) [117]  (1.41 ns)
+	'store' operation (ed25519_ref/src/sha512.c:324) of variable 'p_01_idx8', ed25519_ref/src/sha512.c:324 on local variable 'p_01_idx' [122]  (0.675 ns)
+
+ <State 18>: 2.09ns
+The critical path consists of the following:
+	'add' operation ('inlen', ed25519_ref/src/sha512.c:325) [118]  (1.41 ns)
+	'store' operation (ed25519_ref/src/sha512.c:325) of variable 'inlen', ed25519_ref/src/sha512.c:325 on local variable 'inlen' [121]  (0.675 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

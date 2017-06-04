@@ -1,0 +1,799 @@
+
+
+================================================================
+== Vivado HLS Report for 'crypto_sign_ed25519_20'
+================================================================
+* Date:           Sat Jun  3 22:30:13 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      5.21|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  145|  145|  145|  145|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 21
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+* FSM state operations: 
+
+ <State 1>: 1.24ns
+ST_1: t_v (2)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:0  %t_v = alloca [32 x i32], align 4
+
+ST_1: x_v_addr (4)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:2  %x_v_addr = getelementptr [32 x i32]* %x_v, i64 0, i64 0
+
+ST_1: x_v_load (5)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:3  %x_v_load = load i32* %x_v_addr, align 4
+
+ST_1: x_v_addr_32 (8)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:6  %x_v_addr_32 = getelementptr [32 x i32]* %x_v, i64 0, i64 1
+
+ST_1: x_v_load_32 (9)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:7  %x_v_load_32 = load i32* %x_v_addr_32, align 4
+
+
+ <State 2>: 2.47ns
+ST_2: t_v_addr (3)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:1  %t_v_addr = getelementptr [32 x i32]* %t_v, i64 0, i64 0
+
+ST_2: x_v_load (5)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:3  %x_v_load = load i32* %x_v_addr, align 4
+
+ST_2: StgValue_29 (6)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:4  store i32 %x_v_load, i32* %t_v_addr, align 4
+
+ST_2: t_v_addr_1 (7)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:5  %t_v_addr_1 = getelementptr [32 x i32]* %t_v, i64 0, i64 1
+
+ST_2: x_v_load_32 (9)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:7  %x_v_load_32 = load i32* %x_v_addr_32, align 4
+
+ST_2: StgValue_32 (10)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:8  store i32 %x_v_load_32, i32* %t_v_addr_1, align 4
+
+ST_2: x_v_addr_33 (12)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:10  %x_v_addr_33 = getelementptr [32 x i32]* %x_v, i64 0, i64 2
+
+ST_2: x_v_load_33 (13)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:11  %x_v_load_33 = load i32* %x_v_addr_33, align 4
+
+ST_2: x_v_addr_34 (16)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:14  %x_v_addr_34 = getelementptr [32 x i32]* %x_v, i64 0, i64 3
+
+ST_2: x_v_load_34 (17)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:15  %x_v_load_34 = load i32* %x_v_addr_34, align 4
+
+
+ <State 3>: 2.47ns
+ST_3: t_v_addr_2 (11)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:9  %t_v_addr_2 = getelementptr [32 x i32]* %t_v, i64 0, i64 2
+
+ST_3: x_v_load_33 (13)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:11  %x_v_load_33 = load i32* %x_v_addr_33, align 4
+
+ST_3: StgValue_39 (14)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:12  store i32 %x_v_load_33, i32* %t_v_addr_2, align 4
+
+ST_3: t_v_addr_3 (15)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:13  %t_v_addr_3 = getelementptr [32 x i32]* %t_v, i64 0, i64 3
+
+ST_3: x_v_load_34 (17)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:15  %x_v_load_34 = load i32* %x_v_addr_34, align 4
+
+ST_3: StgValue_42 (18)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:16  store i32 %x_v_load_34, i32* %t_v_addr_3, align 4
+
+ST_3: x_v_addr_35 (20)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:18  %x_v_addr_35 = getelementptr [32 x i32]* %x_v, i64 0, i64 4
+
+ST_3: x_v_load_35 (21)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:19  %x_v_load_35 = load i32* %x_v_addr_35, align 4
+
+ST_3: x_v_addr_36 (24)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:22  %x_v_addr_36 = getelementptr [32 x i32]* %x_v, i64 0, i64 5
+
+ST_3: x_v_load_36 (25)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:23  %x_v_load_36 = load i32* %x_v_addr_36, align 4
+
+
+ <State 4>: 2.47ns
+ST_4: t_v_addr_4 (19)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:17  %t_v_addr_4 = getelementptr [32 x i32]* %t_v, i64 0, i64 4
+
+ST_4: x_v_load_35 (21)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:19  %x_v_load_35 = load i32* %x_v_addr_35, align 4
+
+ST_4: StgValue_49 (22)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:20  store i32 %x_v_load_35, i32* %t_v_addr_4, align 4
+
+ST_4: t_v_addr_5 (23)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:21  %t_v_addr_5 = getelementptr [32 x i32]* %t_v, i64 0, i64 5
+
+ST_4: x_v_load_36 (25)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:23  %x_v_load_36 = load i32* %x_v_addr_36, align 4
+
+ST_4: StgValue_52 (26)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:24  store i32 %x_v_load_36, i32* %t_v_addr_5, align 4
+
+ST_4: x_v_addr_37 (28)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:26  %x_v_addr_37 = getelementptr [32 x i32]* %x_v, i64 0, i64 6
+
+ST_4: x_v_load_37 (29)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:27  %x_v_load_37 = load i32* %x_v_addr_37, align 4
+
+ST_4: x_v_addr_38 (32)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:30  %x_v_addr_38 = getelementptr [32 x i32]* %x_v, i64 0, i64 7
+
+ST_4: x_v_load_38 (33)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:31  %x_v_load_38 = load i32* %x_v_addr_38, align 4
+
+
+ <State 5>: 2.47ns
+ST_5: t_v_addr_6 (27)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:25  %t_v_addr_6 = getelementptr [32 x i32]* %t_v, i64 0, i64 6
+
+ST_5: x_v_load_37 (29)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:27  %x_v_load_37 = load i32* %x_v_addr_37, align 4
+
+ST_5: StgValue_59 (30)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:28  store i32 %x_v_load_37, i32* %t_v_addr_6, align 4
+
+ST_5: t_v_addr_7 (31)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:29  %t_v_addr_7 = getelementptr [32 x i32]* %t_v, i64 0, i64 7
+
+ST_5: x_v_load_38 (33)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:31  %x_v_load_38 = load i32* %x_v_addr_38, align 4
+
+ST_5: StgValue_62 (34)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:32  store i32 %x_v_load_38, i32* %t_v_addr_7, align 4
+
+ST_5: x_v_addr_39 (36)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:34  %x_v_addr_39 = getelementptr [32 x i32]* %x_v, i64 0, i64 8
+
+ST_5: x_v_load_39 (37)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:35  %x_v_load_39 = load i32* %x_v_addr_39, align 4
+
+ST_5: x_v_addr_40 (40)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:38  %x_v_addr_40 = getelementptr [32 x i32]* %x_v, i64 0, i64 9
+
+ST_5: x_v_load_40 (41)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:39  %x_v_load_40 = load i32* %x_v_addr_40, align 4
+
+
+ <State 6>: 2.47ns
+ST_6: t_v_addr_8 (35)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:33  %t_v_addr_8 = getelementptr [32 x i32]* %t_v, i64 0, i64 8
+
+ST_6: x_v_load_39 (37)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:35  %x_v_load_39 = load i32* %x_v_addr_39, align 4
+
+ST_6: StgValue_69 (38)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:36  store i32 %x_v_load_39, i32* %t_v_addr_8, align 4
+
+ST_6: t_v_addr_9 (39)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:37  %t_v_addr_9 = getelementptr [32 x i32]* %t_v, i64 0, i64 9
+
+ST_6: x_v_load_40 (41)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:39  %x_v_load_40 = load i32* %x_v_addr_40, align 4
+
+ST_6: StgValue_72 (42)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:40  store i32 %x_v_load_40, i32* %t_v_addr_9, align 4
+
+ST_6: x_v_addr_41 (44)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:42  %x_v_addr_41 = getelementptr [32 x i32]* %x_v, i64 0, i64 10
+
+ST_6: x_v_load_41 (45)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:43  %x_v_load_41 = load i32* %x_v_addr_41, align 4
+
+ST_6: x_v_addr_42 (48)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:46  %x_v_addr_42 = getelementptr [32 x i32]* %x_v, i64 0, i64 11
+
+ST_6: x_v_load_42 (49)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:47  %x_v_load_42 = load i32* %x_v_addr_42, align 4
+
+
+ <State 7>: 2.47ns
+ST_7: t_v_addr_10 (43)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:41  %t_v_addr_10 = getelementptr [32 x i32]* %t_v, i64 0, i64 10
+
+ST_7: x_v_load_41 (45)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:43  %x_v_load_41 = load i32* %x_v_addr_41, align 4
+
+ST_7: StgValue_79 (46)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:44  store i32 %x_v_load_41, i32* %t_v_addr_10, align 4
+
+ST_7: t_v_addr_11 (47)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:45  %t_v_addr_11 = getelementptr [32 x i32]* %t_v, i64 0, i64 11
+
+ST_7: x_v_load_42 (49)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:47  %x_v_load_42 = load i32* %x_v_addr_42, align 4
+
+ST_7: StgValue_82 (50)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:48  store i32 %x_v_load_42, i32* %t_v_addr_11, align 4
+
+ST_7: x_v_addr_43 (52)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:50  %x_v_addr_43 = getelementptr [32 x i32]* %x_v, i64 0, i64 12
+
+ST_7: x_v_load_43 (53)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:51  %x_v_load_43 = load i32* %x_v_addr_43, align 4
+
+ST_7: x_v_addr_44 (56)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:54  %x_v_addr_44 = getelementptr [32 x i32]* %x_v, i64 0, i64 13
+
+ST_7: x_v_load_44 (57)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:55  %x_v_load_44 = load i32* %x_v_addr_44, align 4
+
+
+ <State 8>: 2.47ns
+ST_8: t_v_addr_12 (51)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:49  %t_v_addr_12 = getelementptr [32 x i32]* %t_v, i64 0, i64 12
+
+ST_8: x_v_load_43 (53)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:51  %x_v_load_43 = load i32* %x_v_addr_43, align 4
+
+ST_8: StgValue_89 (54)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:52  store i32 %x_v_load_43, i32* %t_v_addr_12, align 4
+
+ST_8: t_v_addr_13 (55)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:53  %t_v_addr_13 = getelementptr [32 x i32]* %t_v, i64 0, i64 13
+
+ST_8: x_v_load_44 (57)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:55  %x_v_load_44 = load i32* %x_v_addr_44, align 4
+
+ST_8: StgValue_92 (58)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:56  store i32 %x_v_load_44, i32* %t_v_addr_13, align 4
+
+ST_8: x_v_addr_45 (60)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:58  %x_v_addr_45 = getelementptr [32 x i32]* %x_v, i64 0, i64 14
+
+ST_8: x_v_load_45 (61)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:59  %x_v_load_45 = load i32* %x_v_addr_45, align 4
+
+ST_8: x_v_addr_46 (64)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:62  %x_v_addr_46 = getelementptr [32 x i32]* %x_v, i64 0, i64 15
+
+ST_8: x_v_load_46 (65)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:63  %x_v_load_46 = load i32* %x_v_addr_46, align 4
+
+
+ <State 9>: 2.47ns
+ST_9: t_v_addr_14 (59)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:57  %t_v_addr_14 = getelementptr [32 x i32]* %t_v, i64 0, i64 14
+
+ST_9: x_v_load_45 (61)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:59  %x_v_load_45 = load i32* %x_v_addr_45, align 4
+
+ST_9: StgValue_99 (62)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:60  store i32 %x_v_load_45, i32* %t_v_addr_14, align 4
+
+ST_9: t_v_addr_15 (63)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:61  %t_v_addr_15 = getelementptr [32 x i32]* %t_v, i64 0, i64 15
+
+ST_9: x_v_load_46 (65)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:63  %x_v_load_46 = load i32* %x_v_addr_46, align 4
+
+ST_9: StgValue_102 (66)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:64  store i32 %x_v_load_46, i32* %t_v_addr_15, align 4
+
+ST_9: x_v_addr_47 (68)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:66  %x_v_addr_47 = getelementptr [32 x i32]* %x_v, i64 0, i64 16
+
+ST_9: x_v_load_47 (69)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:67  %x_v_load_47 = load i32* %x_v_addr_47, align 4
+
+ST_9: x_v_addr_48 (72)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:70  %x_v_addr_48 = getelementptr [32 x i32]* %x_v, i64 0, i64 17
+
+ST_9: x_v_load_48 (73)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:71  %x_v_load_48 = load i32* %x_v_addr_48, align 4
+
+
+ <State 10>: 2.47ns
+ST_10: t_v_addr_16 (67)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:65  %t_v_addr_16 = getelementptr [32 x i32]* %t_v, i64 0, i64 16
+
+ST_10: x_v_load_47 (69)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:67  %x_v_load_47 = load i32* %x_v_addr_47, align 4
+
+ST_10: StgValue_109 (70)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:68  store i32 %x_v_load_47, i32* %t_v_addr_16, align 4
+
+ST_10: t_v_addr_17 (71)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:69  %t_v_addr_17 = getelementptr [32 x i32]* %t_v, i64 0, i64 17
+
+ST_10: x_v_load_48 (73)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:71  %x_v_load_48 = load i32* %x_v_addr_48, align 4
+
+ST_10: StgValue_112 (74)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:72  store i32 %x_v_load_48, i32* %t_v_addr_17, align 4
+
+ST_10: x_v_addr_49 (76)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:74  %x_v_addr_49 = getelementptr [32 x i32]* %x_v, i64 0, i64 18
+
+ST_10: x_v_load_49 (77)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:75  %x_v_load_49 = load i32* %x_v_addr_49, align 4
+
+ST_10: x_v_addr_50 (80)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:78  %x_v_addr_50 = getelementptr [32 x i32]* %x_v, i64 0, i64 19
+
+ST_10: x_v_load_50 (81)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:79  %x_v_load_50 = load i32* %x_v_addr_50, align 4
+
+
+ <State 11>: 2.47ns
+ST_11: t_v_addr_18 (75)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:73  %t_v_addr_18 = getelementptr [32 x i32]* %t_v, i64 0, i64 18
+
+ST_11: x_v_load_49 (77)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:75  %x_v_load_49 = load i32* %x_v_addr_49, align 4
+
+ST_11: StgValue_119 (78)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:76  store i32 %x_v_load_49, i32* %t_v_addr_18, align 4
+
+ST_11: t_v_addr_19 (79)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:77  %t_v_addr_19 = getelementptr [32 x i32]* %t_v, i64 0, i64 19
+
+ST_11: x_v_load_50 (81)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:79  %x_v_load_50 = load i32* %x_v_addr_50, align 4
+
+ST_11: StgValue_122 (82)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:80  store i32 %x_v_load_50, i32* %t_v_addr_19, align 4
+
+ST_11: x_v_addr_51 (84)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:82  %x_v_addr_51 = getelementptr [32 x i32]* %x_v, i64 0, i64 20
+
+ST_11: x_v_load_51 (85)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:83  %x_v_load_51 = load i32* %x_v_addr_51, align 4
+
+ST_11: x_v_addr_52 (88)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:86  %x_v_addr_52 = getelementptr [32 x i32]* %x_v, i64 0, i64 21
+
+ST_11: x_v_load_52 (89)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:87  %x_v_load_52 = load i32* %x_v_addr_52, align 4
+
+
+ <State 12>: 2.47ns
+ST_12: t_v_addr_20 (83)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:81  %t_v_addr_20 = getelementptr [32 x i32]* %t_v, i64 0, i64 20
+
+ST_12: x_v_load_51 (85)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:83  %x_v_load_51 = load i32* %x_v_addr_51, align 4
+
+ST_12: StgValue_129 (86)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:84  store i32 %x_v_load_51, i32* %t_v_addr_20, align 4
+
+ST_12: t_v_addr_21 (87)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:85  %t_v_addr_21 = getelementptr [32 x i32]* %t_v, i64 0, i64 21
+
+ST_12: x_v_load_52 (89)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:87  %x_v_load_52 = load i32* %x_v_addr_52, align 4
+
+ST_12: StgValue_132 (90)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:88  store i32 %x_v_load_52, i32* %t_v_addr_21, align 4
+
+ST_12: x_v_addr_53 (92)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:90  %x_v_addr_53 = getelementptr [32 x i32]* %x_v, i64 0, i64 22
+
+ST_12: x_v_load_53 (93)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:91  %x_v_load_53 = load i32* %x_v_addr_53, align 4
+
+ST_12: x_v_addr_54 (96)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:94  %x_v_addr_54 = getelementptr [32 x i32]* %x_v, i64 0, i64 23
+
+ST_12: x_v_load_54 (97)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:95  %x_v_load_54 = load i32* %x_v_addr_54, align 4
+
+
+ <State 13>: 2.47ns
+ST_13: t_v_addr_22 (91)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:89  %t_v_addr_22 = getelementptr [32 x i32]* %t_v, i64 0, i64 22
+
+ST_13: x_v_load_53 (93)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:91  %x_v_load_53 = load i32* %x_v_addr_53, align 4
+
+ST_13: StgValue_139 (94)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:92  store i32 %x_v_load_53, i32* %t_v_addr_22, align 4
+
+ST_13: t_v_addr_23 (95)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:93  %t_v_addr_23 = getelementptr [32 x i32]* %t_v, i64 0, i64 23
+
+ST_13: x_v_load_54 (97)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:95  %x_v_load_54 = load i32* %x_v_addr_54, align 4
+
+ST_13: StgValue_142 (98)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:96  store i32 %x_v_load_54, i32* %t_v_addr_23, align 4
+
+ST_13: x_v_addr_55 (100)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:98  %x_v_addr_55 = getelementptr [32 x i32]* %x_v, i64 0, i64 24
+
+ST_13: x_v_load_55 (101)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:99  %x_v_load_55 = load i32* %x_v_addr_55, align 4
+
+ST_13: x_v_addr_56 (104)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:102  %x_v_addr_56 = getelementptr [32 x i32]* %x_v, i64 0, i64 25
+
+ST_13: x_v_load_56 (105)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:103  %x_v_load_56 = load i32* %x_v_addr_56, align 4
+
+
+ <State 14>: 2.47ns
+ST_14: t_v_addr_24 (99)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:97  %t_v_addr_24 = getelementptr [32 x i32]* %t_v, i64 0, i64 24
+
+ST_14: x_v_load_55 (101)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:99  %x_v_load_55 = load i32* %x_v_addr_55, align 4
+
+ST_14: StgValue_149 (102)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:100  store i32 %x_v_load_55, i32* %t_v_addr_24, align 4
+
+ST_14: t_v_addr_25 (103)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:101  %t_v_addr_25 = getelementptr [32 x i32]* %t_v, i64 0, i64 25
+
+ST_14: x_v_load_56 (105)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:103  %x_v_load_56 = load i32* %x_v_addr_56, align 4
+
+ST_14: StgValue_152 (106)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:104  store i32 %x_v_load_56, i32* %t_v_addr_25, align 4
+
+ST_14: x_v_addr_57 (108)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:106  %x_v_addr_57 = getelementptr [32 x i32]* %x_v, i64 0, i64 26
+
+ST_14: x_v_load_57 (109)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:107  %x_v_load_57 = load i32* %x_v_addr_57, align 4
+
+ST_14: x_v_addr_58 (112)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:110  %x_v_addr_58 = getelementptr [32 x i32]* %x_v, i64 0, i64 27
+
+ST_14: x_v_load_58 (113)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:111  %x_v_load_58 = load i32* %x_v_addr_58, align 4
+
+
+ <State 15>: 2.47ns
+ST_15: t_v_addr_26 (107)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:105  %t_v_addr_26 = getelementptr [32 x i32]* %t_v, i64 0, i64 26
+
+ST_15: x_v_load_57 (109)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:107  %x_v_load_57 = load i32* %x_v_addr_57, align 4
+
+ST_15: StgValue_159 (110)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:108  store i32 %x_v_load_57, i32* %t_v_addr_26, align 4
+
+ST_15: t_v_addr_27 (111)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:109  %t_v_addr_27 = getelementptr [32 x i32]* %t_v, i64 0, i64 27
+
+ST_15: x_v_load_58 (113)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:111  %x_v_load_58 = load i32* %x_v_addr_58, align 4
+
+ST_15: StgValue_162 (114)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:112  store i32 %x_v_load_58, i32* %t_v_addr_27, align 4
+
+ST_15: x_v_addr_59 (116)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:114  %x_v_addr_59 = getelementptr [32 x i32]* %x_v, i64 0, i64 28
+
+ST_15: x_v_load_59 (117)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:115  %x_v_load_59 = load i32* %x_v_addr_59, align 4
+
+ST_15: x_v_addr_60 (120)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:118  %x_v_addr_60 = getelementptr [32 x i32]* %x_v, i64 0, i64 29
+
+ST_15: x_v_load_60 (121)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:119  %x_v_load_60 = load i32* %x_v_addr_60, align 4
+
+
+ <State 16>: 2.47ns
+ST_16: t_v_addr_28 (115)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:113  %t_v_addr_28 = getelementptr [32 x i32]* %t_v, i64 0, i64 28
+
+ST_16: x_v_load_59 (117)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:115  %x_v_load_59 = load i32* %x_v_addr_59, align 4
+
+ST_16: StgValue_169 (118)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:116  store i32 %x_v_load_59, i32* %t_v_addr_28, align 4
+
+ST_16: t_v_addr_29 (119)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:117  %t_v_addr_29 = getelementptr [32 x i32]* %t_v, i64 0, i64 29
+
+ST_16: x_v_load_60 (121)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:119  %x_v_load_60 = load i32* %x_v_addr_60, align 4
+
+ST_16: StgValue_172 (122)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:120  store i32 %x_v_load_60, i32* %t_v_addr_29, align 4
+
+ST_16: x_v_addr_61 (124)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:122  %x_v_addr_61 = getelementptr [32 x i32]* %x_v, i64 0, i64 30
+
+ST_16: x_v_load_61 (125)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:123  %x_v_load_61 = load i32* %x_v_addr_61, align 4
+
+ST_16: x_v_addr_62 (128)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:126  %x_v_addr_62 = getelementptr [32 x i32]* %x_v, i64 0, i64 31
+
+ST_16: x_v_load_62 (129)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:127  %x_v_load_62 = load i32* %x_v_addr_62, align 4
+
+
+ <State 17>: 2.47ns
+ST_17: t_v_addr_30 (123)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:121  %t_v_addr_30 = getelementptr [32 x i32]* %t_v, i64 0, i64 30
+
+ST_17: x_v_load_61 (125)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:123  %x_v_load_61 = load i32* %x_v_addr_61, align 4
+
+ST_17: StgValue_179 (126)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:124  store i32 %x_v_load_61, i32* %t_v_addr_30, align 4
+
+ST_17: t_v_addr_31 (127)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:141
+:125  %t_v_addr_31 = getelementptr [32 x i32]* %t_v, i64 0, i64 31
+
+ST_17: x_v_load_62 (129)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:127  %x_v_load_62 = load i32* %x_v_addr_62, align 4
+
+ST_17: StgValue_182 (130)  [1/1] 1.24ns  loc: ed25519_ref/src/fe25519.c:141
+:128  store i32 %x_v_load_62, i32* %t_v_addr_31, align 4
+
+
+ <State 18>: 0.00ns
+ST_18: StgValue_183 (131)  [2/2] 0.00ns  loc: ed25519_ref/src/fe25519.c:142
+:129  call fastcc void @crypto_sign_ed25519_.21([32 x i32]* %t_v)
+
+
+ <State 19>: 0.00ns
+ST_19: StgValue_184 (131)  [1/2] 0.00ns  loc: ed25519_ref/src/fe25519.c:142
+:129  call fastcc void @crypto_sign_ed25519_.21([32 x i32]* %t_v)
+
+
+ <State 20>: 1.24ns
+ST_20: t_v_load (132)  [2/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:143
+:130  %t_v_load = load i32* %t_v_addr, align 4
+
+
+ <State 21>: 1.24ns
+ST_21: t_v_load (132)  [1/2] 1.24ns  loc: ed25519_ref/src/fe25519.c:143
+:130  %t_v_load = load i32* %t_v_addr, align 4
+
+ST_21: tmp (133)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:143
+:131  %tmp = trunc i32 %t_v_load to i1
+
+ST_21: StgValue_188 (134)  [1/1] 0.00ns  loc: ed25519_ref/src/fe25519.c:143
+:132  ret i1 %tmp
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('x_v_addr', ed25519_ref/src/fe25519.c:141) [4]  (0 ns)
+	'load' operation ('x_v_load', ed25519_ref/src/fe25519.c:141) on array 'x_v' [5]  (1.24 ns)
+
+ <State 2>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load', ed25519_ref/src/fe25519.c:141) on array 'x_v' [5]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [6]  (1.24 ns)
+
+ <State 3>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_33', ed25519_ref/src/fe25519.c:141) on array 'x_v' [13]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_33', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [14]  (1.24 ns)
+
+ <State 4>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_35', ed25519_ref/src/fe25519.c:141) on array 'x_v' [21]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_35', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [22]  (1.24 ns)
+
+ <State 5>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_37', ed25519_ref/src/fe25519.c:141) on array 'x_v' [29]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_37', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [30]  (1.24 ns)
+
+ <State 6>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_39', ed25519_ref/src/fe25519.c:141) on array 'x_v' [37]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_39', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [38]  (1.24 ns)
+
+ <State 7>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_41', ed25519_ref/src/fe25519.c:141) on array 'x_v' [45]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_41', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [46]  (1.24 ns)
+
+ <State 8>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_43', ed25519_ref/src/fe25519.c:141) on array 'x_v' [53]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_43', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [54]  (1.24 ns)
+
+ <State 9>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_45', ed25519_ref/src/fe25519.c:141) on array 'x_v' [61]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_45', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [62]  (1.24 ns)
+
+ <State 10>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_47', ed25519_ref/src/fe25519.c:141) on array 'x_v' [69]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_47', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [70]  (1.24 ns)
+
+ <State 11>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_49', ed25519_ref/src/fe25519.c:141) on array 'x_v' [77]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_49', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [78]  (1.24 ns)
+
+ <State 12>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_51', ed25519_ref/src/fe25519.c:141) on array 'x_v' [85]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_51', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [86]  (1.24 ns)
+
+ <State 13>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_53', ed25519_ref/src/fe25519.c:141) on array 'x_v' [93]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_53', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [94]  (1.24 ns)
+
+ <State 14>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_55', ed25519_ref/src/fe25519.c:141) on array 'x_v' [101]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_55', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [102]  (1.24 ns)
+
+ <State 15>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_57', ed25519_ref/src/fe25519.c:141) on array 'x_v' [109]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_57', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [110]  (1.24 ns)
+
+ <State 16>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_59', ed25519_ref/src/fe25519.c:141) on array 'x_v' [117]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_59', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [118]  (1.24 ns)
+
+ <State 17>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_v_load_61', ed25519_ref/src/fe25519.c:141) on array 'x_v' [125]  (1.24 ns)
+	'store' operation (ed25519_ref/src/fe25519.c:141) of variable 'x_v_load_61', ed25519_ref/src/fe25519.c:141 on array 't.v', ed25519_ref/src/fe25519.c:141 [126]  (1.24 ns)
+
+ <State 18>: 0ns
+The critical path consists of the following:
+
+ <State 19>: 0ns
+The critical path consists of the following:
+
+ <State 20>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('t_v_load', ed25519_ref/src/fe25519.c:143) on array 't.v', ed25519_ref/src/fe25519.c:141 [132]  (1.24 ns)
+
+ <State 21>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('t_v_load', ed25519_ref/src/fe25519.c:143) on array 't.v', ed25519_ref/src/fe25519.c:141 [132]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

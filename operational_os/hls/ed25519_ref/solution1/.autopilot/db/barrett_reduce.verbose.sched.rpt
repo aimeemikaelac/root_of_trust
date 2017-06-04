@@ -1,0 +1,898 @@
+
+
+================================================================
+== Vivado HLS Report for 'barrett_reduce'
+================================================================
+* Date:           Sat Jun  3 22:30:09 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.69|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  5050|  7195|  5050|  7195|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |             |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    66|    66|         1|          -|          -|    66|    no    |
+        |- Loop 2     |    33|    33|         1|          -|          -|    33|    no    |
+        |- Loop 3     |  2277|  3366| 69 ~ 102 |          -|          -|    33|    no    |
+        | + Loop 3.1  |    66|    99|   2 ~ 3  |          -|          -|    33|    no    |
+        |- Loop 4     |    66|    66|         2|          -|          -|    33|    no    |
+        |- Loop 5     |  2208|  3264| 69 ~ 102 |          -|          -|    32|    no    |
+        | + Loop 5.1  |    66|    99|   2 ~ 3  |          -|          -|    33|    no    |
+        |- Loop 6     |    64|    64|         2|          -|          -|    32|    no    |
+        |- Loop 7     |    64|    64|         2|          -|          -|    32|    no    |
+        +-------------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 24
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!exitcond8)
+	3  / (exitcond8)
+3 --> 
+	3  / (!exitcond7)
+	4  / (exitcond7)
+4 --> 
+	5  / (!exitcond6)
+	9  / (exitcond6)
+5 --> 
+	6  / true
+6 --> 
+	7  / (!exitcond5 & tmp_867)
+	8  / (!exitcond5 & !tmp_867)
+	4  / (exitcond5)
+7 --> 
+	8  / true
+8 --> 
+	6  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / (!exitcond4)
+	13  / (exitcond4)
+12 --> 
+	11  / true
+13 --> 
+	14  / (!exitcond3)
+	18  / (exitcond3)
+14 --> 
+	15  / true
+15 --> 
+	16  / (!exitcond2 & tmp_878)
+	17  / (!exitcond2 & !tmp_878)
+	13  / (exitcond2)
+16 --> 
+	17  / true
+17 --> 
+	15  / true
+18 --> 
+	19  / (!exitcond1)
+	20  / (exitcond1)
+19 --> 
+	18  / true
+20 --> 
+	21  / (!exitcond)
+	22  / (exitcond)
+21 --> 
+	20  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: q2 (5)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:45
+:0  %q2 = alloca [66 x i32], align 16
+
+ST_1: r1 (6)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:47
+:1  %r1 = alloca [33 x i32], align 16
+
+ST_1: r2 (7)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:48
+:2  %r2 = alloca [33 x i32], align 16
+
+ST_1: StgValue_28 (8)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:53
+:3  br label %1
+
+
+ <State 2>: 1.24ns
+ST_2: i (10)  [1/1] 0.00ns
+:0  %i = phi i7 [ 0, %0 ], [ %i_84, %2 ]
+
+ST_2: exitcond8 (11)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:53
+:1  %exitcond8 = icmp eq i7 %i, -62
+
+ST_2: empty (12)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 66, i64 66, i64 66)
+
+ST_2: i_84 (13)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:53
+:3  %i_84 = add i7 %i, 1
+
+ST_2: StgValue_33 (14)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:53
+:4  br i1 %exitcond8, label %.preheader14.preheader, label %2
+
+ST_2: tmp (16)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:53
+:0  %tmp = zext i7 %i to i64
+
+ST_2: q2_addr (17)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:53
+:1  %q2_addr = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 %tmp
+
+ST_2: StgValue_36 (18)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:53
+:2  store i32 0, i32* %q2_addr, align 4
+
+ST_2: StgValue_37 (19)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:53
+:3  br label %1
+
+ST_2: StgValue_38 (21)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:54
+.preheader14.preheader:0  br label %.preheader14
+
+
+ <State 3>: 1.24ns
+ST_3: i_1 (23)  [1/1] 0.00ns
+.preheader14:0  %i_1 = phi i6 [ %i_85, %3 ], [ 0, %.preheader14.preheader ]
+
+ST_3: exitcond7 (24)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:54
+.preheader14:1  %exitcond7 = icmp eq i6 %i_1, -31
+
+ST_3: empty_103 (25)  [1/1] 0.00ns
+.preheader14:2  %empty_103 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 33, i64 33, i64 33)
+
+ST_3: i_85 (26)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:54
+.preheader14:3  %i_85 = add i6 %i_1, 1
+
+ST_3: StgValue_43 (27)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:54
+.preheader14:4  br i1 %exitcond7, label %.preheader13.preheader, label %3
+
+ST_3: tmp_s (29)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:54
+:0  %tmp_s = zext i6 %i_1 to i64
+
+ST_3: r2_addr (30)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:54
+:1  %r2_addr = getelementptr inbounds [33 x i32]* %r2, i64 0, i64 %tmp_s
+
+ST_3: StgValue_46 (31)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:54
+:2  store i32 0, i32* %r2_addr, align 4
+
+ST_3: StgValue_47 (32)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:54
+:3  br label %.preheader14
+
+ST_3: StgValue_48 (34)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:56
+.preheader13.preheader:0  br label %.preheader13
+
+
+ <State 4>: 1.24ns
+ST_4: i_2 (36)  [1/1] 0.00ns
+.preheader13:0  %i_2 = phi i6 [ %i_86, %.preheader13.loopexit ], [ 0, %.preheader13.preheader ]
+
+ST_4: i_2_cast (37)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:56
+.preheader13:1  %i_2_cast = zext i6 %i_2 to i7
+
+ST_4: exitcond6 (38)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:56
+.preheader13:2  %exitcond6 = icmp eq i6 %i_2, -31
+
+ST_4: empty_104 (39)  [1/1] 0.00ns
+.preheader13:3  %empty_104 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 33, i64 33, i64 33)
+
+ST_4: i_86 (40)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:56
+.preheader13:4  %i_86 = add i6 %i_2, 1
+
+ST_4: StgValue_54 (41)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:56
+.preheader13:5  br i1 %exitcond6, label %6, label %.preheader12.preheader
+
+ST_4: tmp_864 (43)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+.preheader12.preheader:0  %tmp_864 = zext i6 %i_2 to i64
+
+ST_4: mu_addr (44)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+.preheader12.preheader:1  %mu_addr = getelementptr [33 x i8]* @mu, i64 0, i64 %tmp_864
+
+ST_4: mu_load (45)  [2/2] 0.57ns  loc: ed25519_ref/src/sc25519.c:58
+.preheader12.preheader:2  %mu_load = load i8* %mu_addr, align 1
+
+ST_4: q2_addr_1 (76)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:59
+:0  %q2_addr_1 = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 31
+
+ST_4: q2_load (77)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:59
+:1  %q2_load = load i32* %q2_addr_1, align 4
+
+
+ <State 5>: 0.66ns
+ST_5: mu_load (45)  [1/2] 0.57ns  loc: ed25519_ref/src/sc25519.c:58
+.preheader12.preheader:2  %mu_load = load i8* %mu_addr, align 1
+
+ST_5: mu_load_cast (46)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+.preheader12.preheader:3  %mu_load_cast = zext i8 %mu_load to i32
+
+ST_5: StgValue_62 (47)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:57
+.preheader12.preheader:4  br label %.preheader12
+
+
+ <State 6>: 2.35ns
+ST_6: j (49)  [1/1] 0.00ns
+.preheader12:0  %j = phi i6 [ %j_5, %._crit_edge ], [ 0, %.preheader12.preheader ]
+
+ST_6: j_cast (50)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:57
+.preheader12:1  %j_cast = zext i6 %j to i7
+
+ST_6: exitcond5 (51)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:57
+.preheader12:2  %exitcond5 = icmp eq i6 %j, -31
+
+ST_6: empty_105 (52)  [1/1] 0.00ns
+.preheader12:3  %empty_105 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 33, i64 33, i64 33)
+
+ST_6: j_5 (53)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:57
+.preheader12:4  %j_5 = add i6 %j, 1
+
+ST_6: StgValue_68 (54)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:57
+.preheader12:5  br i1 %exitcond5, label %.preheader13.loopexit, label %4
+
+ST_6: tmp_866 (56)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:58
+:0  %tmp_866 = add i7 %j_cast, %i_2_cast
+
+ST_6: tmp_867 (57)  [1/1] 0.56ns  loc: ed25519_ref/src/sc25519.c:58
+:1  %tmp_867 = icmp ugt i7 %tmp_866, 30
+
+ST_6: StgValue_71 (58)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:2  br i1 %tmp_867, label %5, label %._crit_edge
+
+ST_6: tmp_868 (60)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:58
+:0  %tmp_868 = add i6 %j, 31
+
+ST_6: tmp_869 (61)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:1  %tmp_869 = zext i6 %tmp_868 to i64
+
+ST_6: x_addr_1 (62)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:2  %x_addr_1 = getelementptr [64 x i32]* %x, i64 0, i64 %tmp_869
+
+ST_6: x_load_1 (63)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:58
+:3  %x_load_1 = load i32* %x_addr_1, align 4
+
+ST_6: StgValue_76 (74)  [1/1] 0.00ns
+.preheader13.loopexit:0  br label %.preheader13
+
+
+ <State 7>: 6.69ns
+ST_7: x_load_1 (63)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:58
+:3  %x_load_1 = load i32* %x_addr_1, align 4
+
+ST_7: tmp_870 (64)  [1/1] 5.45ns  loc: ed25519_ref/src/sc25519.c:58
+:4  %tmp_870 = mul i32 %mu_load_cast, %x_load_1
+
+ST_7: tmp_871 (65)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:5  %tmp_871 = zext i7 %tmp_866 to i64
+
+ST_7: q2_addr_4 (66)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:6  %q2_addr_4 = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 %tmp_871
+
+ST_7: q2_load_3 (67)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:58
+:7  %q2_load_3 = load i32* %q2_addr_4, align 4
+
+
+ <State 8>: 3.82ns
+ST_8: q2_load_3 (67)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:58
+:7  %q2_load_3 = load i32* %q2_addr_4, align 4
+
+ST_8: tmp_872 (68)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:58
+:8  %tmp_872 = add i32 %q2_load_3, %tmp_870
+
+ST_8: StgValue_84 (69)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:58
+:9  store i32 %tmp_872, i32* %q2_addr_4, align 4
+
+ST_8: StgValue_85 (70)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:58
+:10  br label %._crit_edge
+
+ST_8: StgValue_86 (72)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:57
+._crit_edge:0  br label %.preheader12
+
+
+ <State 9>: 1.24ns
+ST_9: q2_load (77)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:59
+:1  %q2_load = load i32* %q2_addr_1, align 4
+
+ST_9: carry (78)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:59
+:2  %carry = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %q2_load, i32 8, i32 31)
+
+ST_9: q2_addr_2 (80)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:60
+:4  %q2_addr_2 = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 32
+
+ST_9: q2_load_1 (81)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:60
+:5  %q2_load_1 = load i32* %q2_addr_2, align 16
+
+ST_9: q2_addr_3 (86)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:62
+:10  %q2_addr_3 = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 33
+
+ST_9: q2_load_2 (87)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:62
+:11  %q2_load_2 = load i32* %q2_addr_3, align 4
+
+
+ <State 10>: 5.16ns
+ST_10: carry_4 (79)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:59
+:3  %carry_4 = zext i24 %carry to i32
+
+ST_10: q2_load_1 (81)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:60
+:5  %q2_load_1 = load i32* %q2_addr_2, align 16
+
+ST_10: tmp_862 (82)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:60
+:6  %tmp_862 = add i32 %q2_load_1, %carry_4
+
+ST_10: StgValue_96 (83)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:60
+:7  store i32 %tmp_862, i32* %q2_addr_2, align 16
+
+ST_10: carry_2 (84)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:61
+:8  %carry_2 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %tmp_862, i32 8, i32 31)
+
+ST_10: carry_5 (85)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:61
+:9  %carry_5 = zext i24 %carry_2 to i32
+
+ST_10: q2_load_2 (87)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:62
+:11  %q2_load_2 = load i32* %q2_addr_3, align 4
+
+ST_10: tmp_863 (88)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:62
+:12  %tmp_863 = add i32 %q2_load_2, %carry_5
+
+ST_10: StgValue_101 (89)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:62
+:13  store i32 %tmp_863, i32* %q2_addr_3, align 4
+
+ST_10: StgValue_102 (90)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:64
+:14  br label %7
+
+
+ <State 11>: 1.24ns
+ST_11: i_3 (92)  [1/1] 0.00ns
+:0  %i_3 = phi i6 [ 0, %6 ], [ %i_87, %8 ]
+
+ST_11: exitcond4 (93)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:64
+:1  %exitcond4 = icmp eq i6 %i_3, -31
+
+ST_11: empty_106 (94)  [1/1] 0.00ns
+:2  %empty_106 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 33, i64 33, i64 33)
+
+ST_11: i_87 (95)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:64
+:3  %i_87 = add i6 %i_3, 1
+
+ST_11: StgValue_107 (96)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:64
+:4  br i1 %exitcond4, label %.preheader11.preheader, label %8
+
+ST_11: tmp_865 (98)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:64
+:0  %tmp_865 = zext i6 %i_3 to i64
+
+ST_11: x_addr (99)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:64
+:1  %x_addr = getelementptr [64 x i32]* %x, i64 0, i64 %tmp_865
+
+ST_11: x_load (100)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:64
+:2  %x_load = load i32* %x_addr, align 4
+
+ST_11: StgValue_111 (105)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:65
+.preheader11.preheader:0  br label %.preheader11
+
+
+ <State 12>: 2.47ns
+ST_12: x_load (100)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:64
+:2  %x_load = load i32* %x_addr, align 4
+
+ST_12: r1_addr (101)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:64
+:3  %r1_addr = getelementptr inbounds [33 x i32]* %r1, i64 0, i64 %tmp_865
+
+ST_12: StgValue_114 (102)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:64
+:4  store i32 %x_load, i32* %r1_addr, align 4
+
+ST_12: StgValue_115 (103)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:64
+:5  br label %7
+
+
+ <State 13>: 1.11ns
+ST_13: i_4 (107)  [1/1] 0.00ns
+.preheader11:0  %i_4 = phi i6 [ %i_88, %.preheader11.loopexit ], [ 0, %.preheader11.preheader ]
+
+ST_13: exitcond3 (108)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:65
+.preheader11:1  %exitcond3 = icmp eq i6 %i_4, -32
+
+ST_13: empty_107 (109)  [1/1] 0.00ns
+.preheader11:2  %empty_107 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_13: i_88 (110)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:65
+.preheader11:3  %i_88 = add i6 %i_4, 1
+
+ST_13: StgValue_120 (111)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:65
+.preheader11:4  br i1 %exitcond3, label %.preheader9.preheader, label %.preheader10.preheader
+
+ST_13: tmp_873 (113)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+.preheader10.preheader:0  %tmp_873 = zext i6 %i_4 to i64
+
+ST_13: m_addr (114)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+.preheader10.preheader:1  %m_addr = getelementptr [32 x i8]* @m, i64 0, i64 %tmp_873
+
+ST_13: m_load (115)  [2/2] 0.57ns  loc: ed25519_ref/src/sc25519.c:67
+.preheader10.preheader:2  %m_load = load i8* %m_addr, align 1
+
+ST_13: StgValue_124 (146)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:69
+.preheader9.preheader:0  br label %.preheader9
+
+
+ <State 14>: 0.66ns
+ST_14: m_load (115)  [1/2] 0.57ns  loc: ed25519_ref/src/sc25519.c:67
+.preheader10.preheader:2  %m_load = load i8* %m_addr, align 1
+
+ST_14: m_load_cast (116)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+.preheader10.preheader:3  %m_load_cast = zext i8 %m_load to i32
+
+ST_14: StgValue_127 (117)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:66
+.preheader10.preheader:4  br label %.preheader10
+
+
+ <State 15>: 2.34ns
+ST_15: j_1 (119)  [1/1] 0.00ns
+.preheader10:0  %j_1 = phi i6 [ %j_6, %._crit_edge15 ], [ 0, %.preheader10.preheader ]
+
+ST_15: exitcond2 (120)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:66
+.preheader10:1  %exitcond2 = icmp eq i6 %j_1, -31
+
+ST_15: empty_108 (121)  [1/1] 0.00ns
+.preheader10:2  %empty_108 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 33, i64 33, i64 33)
+
+ST_15: j_6 (122)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:66
+.preheader10:3  %j_6 = add i6 %j_1, 1
+
+ST_15: StgValue_132 (123)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:66
+.preheader10:4  br i1 %exitcond2, label %.preheader11.loopexit, label %9
+
+ST_15: tmp_877 (125)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:67
+:0  %tmp_877 = add i6 %j_1, %i_4
+
+ST_15: tmp_878 (126)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:67
+:1  %tmp_878 = icmp ult i6 %tmp_877, -31
+
+ST_15: StgValue_135 (127)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:2  br i1 %tmp_878, label %10, label %._crit_edge15
+
+ST_15: tmp_927_cast (129)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:0  %tmp_927_cast = zext i6 %j_1 to i7
+
+ST_15: q3_0_sum (130)  [1/1] 1.10ns  loc: ed25519_ref/src/sc25519.c:67
+:1  %q3_0_sum = add i7 %tmp_927_cast, 33
+
+ST_15: q3_0_sum_cast (131)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:2  %q3_0_sum_cast = zext i7 %q3_0_sum to i64
+
+ST_15: q2_addr_5 (132)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:3  %q2_addr_5 = getelementptr inbounds [66 x i32]* %q2, i64 0, i64 %q3_0_sum_cast
+
+ST_15: q2_load_4 (133)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:67
+:4  %q2_load_4 = load i32* %q2_addr_5, align 4
+
+ST_15: StgValue_141 (144)  [1/1] 0.00ns
+.preheader11.loopexit:0  br label %.preheader11
+
+
+ <State 16>: 6.69ns
+ST_16: q2_load_4 (133)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:67
+:4  %q2_load_4 = load i32* %q2_addr_5, align 4
+
+ST_16: tmp_879 (134)  [1/1] 5.45ns  loc: ed25519_ref/src/sc25519.c:67
+:5  %tmp_879 = mul i32 %m_load_cast, %q2_load_4
+
+ST_16: tmp_880 (135)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:6  %tmp_880 = zext i6 %tmp_877 to i64
+
+ST_16: r2_addr_3 (136)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:7  %r2_addr_3 = getelementptr inbounds [33 x i32]* %r2, i64 0, i64 %tmp_880
+
+ST_16: r2_load_2 (137)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:67
+:8  %r2_load_2 = load i32* %r2_addr_3, align 4
+
+
+ <State 17>: 3.82ns
+ST_17: r2_load_2 (137)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:67
+:8  %r2_load_2 = load i32* %r2_addr_3, align 4
+
+ST_17: tmp_881 (138)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:67
+:9  %tmp_881 = add i32 %r2_load_2, %tmp_879
+
+ST_17: StgValue_149 (139)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:67
+:10  store i32 %tmp_881, i32* %r2_addr_3, align 4
+
+ST_17: StgValue_150 (140)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:67
+:11  br label %._crit_edge15
+
+ST_17: StgValue_151 (142)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:66
+._crit_edge15:0  br label %.preheader10
+
+
+ <State 18>: 2.35ns
+ST_18: i_5 (148)  [1/1] 0.00ns
+.preheader9:0  %i_5 = phi i6 [ %i_89, %11 ], [ 0, %.preheader9.preheader ]
+
+ST_18: exitcond1 (149)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:69
+.preheader9:1  %exitcond1 = icmp eq i6 %i_5, -32
+
+ST_18: empty_109 (150)  [1/1] 0.00ns
+.preheader9:2  %empty_109 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_18: i_89 (151)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:72
+.preheader9:3  %i_89 = add i6 %i_5, 1
+
+ST_18: StgValue_156 (152)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:69
+.preheader9:4  br i1 %exitcond1, label %.preheader.preheader, label %11
+
+ST_18: tmp_874 (154)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:71
+:0  %tmp_874 = zext i6 %i_5 to i64
+
+ST_18: r2_addr_1 (155)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:71
+:1  %r2_addr_1 = getelementptr inbounds [33 x i32]* %r2, i64 0, i64 %tmp_874
+
+ST_18: r2_load (156)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:71
+:2  %r2_load = load i32* %r2_addr_1, align 4
+
+ST_18: tmp_875 (160)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:72
+:6  %tmp_875 = zext i6 %i_89 to i64
+
+ST_18: r2_addr_2 (161)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:72
+:7  %r2_addr_2 = getelementptr inbounds [33 x i32]* %r2, i64 0, i64 %tmp_875
+
+ST_18: r2_load_1 (162)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:72
+:8  %r2_load_1 = load i32* %r2_addr_2, align 4
+
+ST_18: StgValue_163 (169)  [1/1] 0.66ns  loc: ed25519_ref/src/sc25519.c:76
+.preheader.preheader:0  br label %.preheader
+
+
+ <State 19>: 3.82ns
+ST_19: r2_load (156)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:71
+:2  %r2_load = load i32* %r2_addr_1, align 4
+
+ST_19: tmp_885 (157)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:71
+:3  %tmp_885 = trunc i32 %r2_load to i8
+
+ST_19: carry_3 (158)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:71
+:4  %carry_3 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %r2_load, i32 8, i32 31)
+
+ST_19: carry_6 (159)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:71
+:5  %carry_6 = zext i24 %carry_3 to i32
+
+ST_19: r2_load_1 (162)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:72
+:8  %r2_load_1 = load i32* %r2_addr_2, align 4
+
+ST_19: tmp_876 (163)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:72
+:9  %tmp_876 = add i32 %carry_6, %r2_load_1
+
+ST_19: StgValue_170 (164)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:72
+:10  store i32 %tmp_876, i32* %r2_addr_2, align 4
+
+ST_19: tmp_924_cast (165)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:73
+:11  %tmp_924_cast = zext i8 %tmp_885 to i32
+
+ST_19: StgValue_172 (166)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:73
+:12  store i32 %tmp_924_cast, i32* %r2_addr_1, align 4
+
+ST_19: StgValue_173 (167)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:69
+:13  br label %.preheader9
+
+
+ <State 20>: 1.24ns
+ST_20: i_6 (171)  [1/1] 0.00ns
+.preheader:0  %i_6 = phi i6 [ %i_90, %12 ], [ 0, %.preheader.preheader ]
+
+ST_20: pb (172)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:15->ed25519_ref/src/sc25519.c:79
+.preheader:1  %pb = phi i1 [ %tmp_886, %12 ], [ false, %.preheader.preheader ]
+
+ST_20: exitcond (173)  [1/1] 0.71ns  loc: ed25519_ref/src/sc25519.c:76
+.preheader:2  %exitcond = icmp eq i6 %i_6, -32
+
+ST_20: empty_110 (174)  [1/1] 0.00ns
+.preheader:3  %empty_110 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)
+
+ST_20: i_90 (175)  [1/1] 1.11ns  loc: ed25519_ref/src/sc25519.c:76
+.preheader:4  %i_90 = add i6 %i_6, 1
+
+ST_20: StgValue_179 (176)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:76
+.preheader:5  br i1 %exitcond, label %13, label %12
+
+ST_20: tmp_882 (178)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:78
+:0  %tmp_882 = zext i6 %i_6 to i64
+
+ST_20: r2_addr_4 (179)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:78
+:1  %r2_addr_4 = getelementptr inbounds [33 x i32]* %r2, i64 0, i64 %tmp_882
+
+ST_20: r2_load_3 (180)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:78
+:2  %r2_load_3 = load i32* %r2_addr_4, align 4
+
+ST_20: r1_addr_1 (183)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:79
+:5  %r1_addr_1 = getelementptr inbounds [33 x i32]* %r1, i64 0, i64 %tmp_882
+
+ST_20: x_14 (184)  [2/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:79
+:6  %x_14 = load i32* %r1_addr_1, align 4
+
+ST_20: StgValue_185 (194)  [2/2] 0.66ns  loc: ed25519_ref/src/sc25519.c:88
+:0  call fastcc void @reduce_add_sub([32 x i32]* %r_v)
+
+
+ <State 21>: 4.55ns
+ST_21: r2_load_3 (180)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:78
+:2  %r2_load_3 = load i32* %r2_addr_4, align 4
+
+ST_21: pb_cast1 (181)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:76
+:3  %pb_cast1 = zext i1 %pb to i32
+
+ST_21: pb_2 (182)  [1/1] 0.37ns  loc: ed25519_ref/src/sc25519.c:78
+:4  %pb_2 = add i32 %r2_load_3, %pb_cast1
+
+ST_21: x_14 (184)  [1/2] 1.24ns  loc: ed25519_ref/src/sc25519.c:79
+:6  %x_14 = load i32* %r1_addr_1, align 4
+
+ST_21: x_15 (185)  [1/1] 0.37ns  loc: ed25519_ref/src/sc25519.c:14->ed25519_ref/src/sc25519.c:79
+:7  %x_15 = sub i32 %x_14, %pb_2
+
+ST_21: tmp_886 (186)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:15->ed25519_ref/src/sc25519.c:79
+:8  %tmp_886 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %x_15, i32 31)
+
+ST_21: tmp_883 (187)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:80
+:9  %tmp_883 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 %tmp_886, i8 0)
+
+ST_21: tmp_932_cast (188)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:80
+:10  %tmp_932_cast = zext i9 %tmp_883 to i32
+
+ST_21: tmp_884 (189)  [1/1] 1.34ns  loc: ed25519_ref/src/sc25519.c:80
+:11  %tmp_884 = add i32 %tmp_932_cast, %x_15
+
+ST_21: r_v_addr (190)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:80
+:12  %r_v_addr = getelementptr [32 x i32]* %r_v, i64 0, i64 %tmp_882
+
+ST_21: StgValue_196 (191)  [1/1] 1.24ns  loc: ed25519_ref/src/sc25519.c:80
+:13  store i32 %tmp_884, i32* %r_v_addr, align 4
+
+ST_21: StgValue_197 (192)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:76
+:14  br label %.preheader
+
+
+ <State 22>: 0.00ns
+ST_22: StgValue_198 (194)  [1/2] 0.00ns  loc: ed25519_ref/src/sc25519.c:88
+:0  call fastcc void @reduce_add_sub([32 x i32]* %r_v)
+
+
+ <State 23>: 0.66ns
+ST_23: StgValue_199 (195)  [2/2] 0.66ns  loc: ed25519_ref/src/sc25519.c:89
+:1  call fastcc void @reduce_add_sub([32 x i32]* %r_v)
+
+
+ <State 24>: 0.00ns
+ST_24: StgValue_200 (195)  [1/2] 0.00ns  loc: ed25519_ref/src/sc25519.c:89
+:1  call fastcc void @reduce_add_sub([32 x i32]* %r_v)
+
+ST_24: StgValue_201 (196)  [1/1] 0.00ns  loc: ed25519_ref/src/sc25519.c:90
+:2  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:53) [10]  (0.656 ns)
+
+ <State 2>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:53) [10]  (0 ns)
+	'getelementptr' operation ('q2_addr', ed25519_ref/src/sc25519.c:53) [17]  (0 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:53) of constant 0 on array 'q2', ed25519_ref/src/sc25519.c:45 [18]  (1.24 ns)
+
+ <State 3>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:54) [23]  (0 ns)
+	'getelementptr' operation ('r2_addr', ed25519_ref/src/sc25519.c:54) [30]  (0 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:54) of constant 0 on array 'r2', ed25519_ref/src/sc25519.c:48 [31]  (1.24 ns)
+
+ <State 4>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('q2_addr_1', ed25519_ref/src/sc25519.c:59) [76]  (0 ns)
+	'load' operation ('q2_load', ed25519_ref/src/sc25519.c:59) on array 'q2', ed25519_ref/src/sc25519.c:45 [77]  (1.24 ns)
+
+ <State 5>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ed25519_ref/src/sc25519.c:57) [49]  (0.656 ns)
+
+ <State 6>: 2.35ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', ed25519_ref/src/sc25519.c:57) [49]  (0 ns)
+	'add' operation ('tmp_868', ed25519_ref/src/sc25519.c:58) [60]  (1.11 ns)
+	'getelementptr' operation ('x_addr_1', ed25519_ref/src/sc25519.c:58) [62]  (0 ns)
+	'load' operation ('x_load_1', ed25519_ref/src/sc25519.c:58) on array 'x' [63]  (1.24 ns)
+
+ <State 7>: 6.69ns
+The critical path consists of the following:
+	'load' operation ('x_load_1', ed25519_ref/src/sc25519.c:58) on array 'x' [63]  (1.24 ns)
+	'mul' operation ('tmp_870', ed25519_ref/src/sc25519.c:58) [64]  (5.45 ns)
+
+ <State 8>: 3.82ns
+The critical path consists of the following:
+	'load' operation ('q2_load_3', ed25519_ref/src/sc25519.c:58) on array 'q2', ed25519_ref/src/sc25519.c:45 [67]  (1.24 ns)
+	'add' operation ('tmp_872', ed25519_ref/src/sc25519.c:58) [68]  (1.34 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:58) of variable 'tmp_872', ed25519_ref/src/sc25519.c:58 on array 'q2', ed25519_ref/src/sc25519.c:45 [69]  (1.24 ns)
+
+ <State 9>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('q2_load', ed25519_ref/src/sc25519.c:59) on array 'q2', ed25519_ref/src/sc25519.c:45 [77]  (1.24 ns)
+
+ <State 10>: 5.16ns
+The critical path consists of the following:
+	'load' operation ('q2_load_1', ed25519_ref/src/sc25519.c:60) on array 'q2', ed25519_ref/src/sc25519.c:45 [81]  (1.24 ns)
+	'add' operation ('tmp_862', ed25519_ref/src/sc25519.c:60) [82]  (1.34 ns)
+	'add' operation ('tmp_863', ed25519_ref/src/sc25519.c:62) [88]  (1.34 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:62) of variable 'tmp_863', ed25519_ref/src/sc25519.c:62 on array 'q2', ed25519_ref/src/sc25519.c:45 [89]  (1.24 ns)
+
+ <State 11>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:64) [92]  (0 ns)
+	'getelementptr' operation ('x_addr', ed25519_ref/src/sc25519.c:64) [99]  (0 ns)
+	'load' operation ('x_load', ed25519_ref/src/sc25519.c:64) on array 'x' [100]  (1.24 ns)
+
+ <State 12>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('x_load', ed25519_ref/src/sc25519.c:64) on array 'x' [100]  (1.24 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:64) of variable 'x_load', ed25519_ref/src/sc25519.c:64 on array 'r1', ed25519_ref/src/sc25519.c:47 [102]  (1.24 ns)
+
+ <State 13>: 1.11ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:65) [107]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:65) [110]  (1.11 ns)
+
+ <State 14>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ed25519_ref/src/sc25519.c:66) [119]  (0.656 ns)
+
+ <State 15>: 2.34ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', ed25519_ref/src/sc25519.c:66) [119]  (0 ns)
+	'add' operation ('q3_0_sum', ed25519_ref/src/sc25519.c:67) [130]  (1.1 ns)
+	'getelementptr' operation ('q2_addr_5', ed25519_ref/src/sc25519.c:67) [132]  (0 ns)
+	'load' operation ('q2_load_4', ed25519_ref/src/sc25519.c:67) on array 'q2', ed25519_ref/src/sc25519.c:45 [133]  (1.24 ns)
+
+ <State 16>: 6.69ns
+The critical path consists of the following:
+	'load' operation ('q2_load_4', ed25519_ref/src/sc25519.c:67) on array 'q2', ed25519_ref/src/sc25519.c:45 [133]  (1.24 ns)
+	'mul' operation ('tmp_879', ed25519_ref/src/sc25519.c:67) [134]  (5.45 ns)
+
+ <State 17>: 3.82ns
+The critical path consists of the following:
+	'load' operation ('r2_load_2', ed25519_ref/src/sc25519.c:67) on array 'r2', ed25519_ref/src/sc25519.c:48 [137]  (1.24 ns)
+	'add' operation ('tmp_881', ed25519_ref/src/sc25519.c:67) [138]  (1.34 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:67) of variable 'tmp_881', ed25519_ref/src/sc25519.c:67 on array 'r2', ed25519_ref/src/sc25519.c:48 [139]  (1.24 ns)
+
+ <State 18>: 2.35ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:72) [148]  (0 ns)
+	'add' operation ('i', ed25519_ref/src/sc25519.c:72) [151]  (1.11 ns)
+	'getelementptr' operation ('r2_addr_2', ed25519_ref/src/sc25519.c:72) [161]  (0 ns)
+	'load' operation ('r2_load_1', ed25519_ref/src/sc25519.c:72) on array 'r2', ed25519_ref/src/sc25519.c:48 [162]  (1.24 ns)
+
+ <State 19>: 3.82ns
+The critical path consists of the following:
+	'load' operation ('r2_load', ed25519_ref/src/sc25519.c:71) on array 'r2', ed25519_ref/src/sc25519.c:48 [156]  (1.24 ns)
+	'add' operation ('tmp_876', ed25519_ref/src/sc25519.c:72) [163]  (1.34 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:72) of variable 'tmp_876', ed25519_ref/src/sc25519.c:72 on array 'r2', ed25519_ref/src/sc25519.c:48 [164]  (1.24 ns)
+
+ <State 20>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519_ref/src/sc25519.c:76) [171]  (0 ns)
+	'getelementptr' operation ('r2_addr_4', ed25519_ref/src/sc25519.c:78) [179]  (0 ns)
+	'load' operation ('r2_load_3', ed25519_ref/src/sc25519.c:78) on array 'r2', ed25519_ref/src/sc25519.c:48 [180]  (1.24 ns)
+
+ <State 21>: 4.55ns
+The critical path consists of the following:
+	'load' operation ('r2_load_3', ed25519_ref/src/sc25519.c:78) on array 'r2', ed25519_ref/src/sc25519.c:48 [180]  (1.24 ns)
+	'add' operation ('pb', ed25519_ref/src/sc25519.c:78) [182]  (0.365 ns)
+	'sub' operation ('x', ed25519_ref/src/sc25519.c:14->ed25519_ref/src/sc25519.c:79) [185]  (0.365 ns)
+	'add' operation ('tmp_884', ed25519_ref/src/sc25519.c:80) [189]  (1.34 ns)
+	'store' operation (ed25519_ref/src/sc25519.c:80) of variable 'tmp_884', ed25519_ref/src/sc25519.c:80 on array 'r_v' [191]  (1.24 ns)
+
+ <State 22>: 0ns
+The critical path consists of the following:
+
+ <State 23>: 0.656ns
+The critical path consists of the following:
+	'call' operation (ed25519_ref/src/sc25519.c:89) to 'reduce_add_sub' [195]  (0.656 ns)
+
+ <State 24>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

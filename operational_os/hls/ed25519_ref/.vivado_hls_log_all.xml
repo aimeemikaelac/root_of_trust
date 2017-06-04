@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'crypto_sign_ed255vdy' is read-only, switch it to a ROM." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:27.618-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:22.546-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:21.555-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:21.431-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:21.352-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:21.250-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'crypto_sign_mac_mpcA' is changed to 'crypto_sign_mac_mpcA_x' due to conflict." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:21.118-0600" type="Warning"/>
+        <logs message="WARNING: [BIND 205-102] The specified resource core for memory 'signature' will be ignored if a simpler one can be used." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:14.411-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_128': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.192-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_128': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.172-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_128': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.170-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_128': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.168-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128.1': cannot find any operation of 'sub'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.166-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128.1': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.164-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128.1': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.163-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128.1': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.161-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128.1': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.159-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32.1': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.157-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32.1': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.156-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32.1': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.154-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32.1': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.153-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_final': cannot find any operation of 'sub'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.151-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_final': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.150-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_final': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.148-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_final': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.146-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_final': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.145-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.143-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.141-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.139-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_update_32': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.137-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_32': cannot find any operation of 'sub'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.136-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_32': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.134-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_32': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.133-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_32': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.131-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_32': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.129-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128': cannot find any operation of 'sub'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.128-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128': cannot find any operation of 'lshr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.126-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128': cannot find any operation of 'ashr'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.124-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128': cannot find any operation of 'shl'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.123-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'sha512_compress_128': cannot find any operation of 'mul'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.121-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.16' to 'crypto_sign_ed25519_16'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.120-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.15' to 'crypto_sign_ed25519_15'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.118-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name '_memmove' to 'p_memmove'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.116-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.20' to 'crypto_sign_ed25519_20'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.115-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.9' to 'crypto_sign_ed25519_9'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.113-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.21' to 'crypto_sign_ed25519_21'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.110-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.19' to 'crypto_sign_ed25519_19'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.108-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.10' to 'crypto_sign_ed25519_10'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.107-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.13' to 'crypto_sign_ed25519_13'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.105-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.11' to 'crypto_sign_ed25519_11'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.103-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.17' to 'crypto_sign_ed25519_17'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.101-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.12' to 'crypto_sign_ed25519_12'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.100-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.8' to 'crypto_sign_ed25519_8'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.098-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.18' to 'crypto_sign_ed25519_18'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.097-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.7' to 'crypto_sign_ed25519_7'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.096-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'crypto_sign_ed25519_.14' to 'crypto_sign_ed25519_14'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.095-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'sha512_compress_128.1' to 'sha512_compress_128_1'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.093-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'sha512_update_32.1' to 'sha512_update_32_1'." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:06.091-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_freeze' (ed25519_ref/src/fe25519.c:8:16) into crypto_sign_ed25519_.21." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:04.627-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_getparity' (ed25519_ref/src/fe25519.c:141:3) into crypto_sign_ed25519_.20." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.736-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_invert' (ed25519_ref/src/fe25519.c:210:1) into crypto_sign_ed25519_.19." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.735-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_mul' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.18." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.733-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_mul.1' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.17." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.732-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_sc25519_add' (ed25519_ref/src/sc25519.c:14:16) into crypto_sign_ed25519_.16." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.731-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_sc25519_mul' (ed25519_ref/src/sc25519.c:186:18) into crypto_sign_ed25519_.15." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.729-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_sc25519_window3' (ed25519_ref/src/sc25519.c:215:16) into crypto_sign_ed25519_.14." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.728-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_scalarmult_base' (ed25519_ref/src/ge25519.c:76:16) into crypto_sign_ed25519_.13." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.727-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_add' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.12." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.726-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_add.1' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.11." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.725-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_mul.2' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.10." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.724-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_pack' (ed25519_ref/src/fe25519.c:101:16) into crypto_sign_ed25519_.9." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.723-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_sub' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.8." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.722-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'crypto_sign_ed25519_ref_fe25519_sub.1' (ed25519_ref/src/fe25519.c:25:18) into crypto_sign_ed25519_.7." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:30:03.720-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'ge25519_base.data'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:29:57.974-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'md_helper.i'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="ed25519_ref" solutionName="solution1" date="2017-06-03T22:29:57.972-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

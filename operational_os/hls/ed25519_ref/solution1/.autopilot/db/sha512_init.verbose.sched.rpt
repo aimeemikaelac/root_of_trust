@@ -1,0 +1,185 @@
+
+
+================================================================
+== Vivado HLS Report for 'sha512_init'
+================================================================
+* Date:           Sat Jun  3 22:30:06 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519_ref
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.68|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    3|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 0.68ns
+ST_1: md_state_addr (2)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:221
+:0  %md_state_addr = getelementptr [8 x i64]* %md_state, i64 0, i64 0
+
+ST_1: StgValue_6 (3)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:221
+:1  store i64 7640891576956012808, i64* %md_state_addr, align 8
+
+ST_1: md_state_addr_1 (4)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:222
+:2  %md_state_addr_1 = getelementptr [8 x i64]* %md_state, i64 0, i64 1
+
+ST_1: StgValue_8 (5)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:222
+:3  store i64 -4942790177534073029, i64* %md_state_addr_1, align 8
+
+
+ <State 2>: 0.68ns
+ST_2: md_state_addr_2 (6)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:223
+:4  %md_state_addr_2 = getelementptr [8 x i64]* %md_state, i64 0, i64 2
+
+ST_2: StgValue_10 (7)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:223
+:5  store i64 4354685564936845355, i64* %md_state_addr_2, align 8
+
+ST_2: md_state_addr_3 (8)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:224
+:6  %md_state_addr_3 = getelementptr [8 x i64]* %md_state, i64 0, i64 3
+
+ST_2: StgValue_12 (9)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:224
+:7  store i64 -6534734903238641935, i64* %md_state_addr_3, align 8
+
+
+ <State 3>: 0.68ns
+ST_3: md_state_addr_4 (10)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:225
+:8  %md_state_addr_4 = getelementptr [8 x i64]* %md_state, i64 0, i64 4
+
+ST_3: StgValue_14 (11)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:225
+:9  store i64 5840696475078001361, i64* %md_state_addr_4, align 8
+
+ST_3: md_state_addr_5 (12)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:226
+:10  %md_state_addr_5 = getelementptr [8 x i64]* %md_state, i64 0, i64 5
+
+ST_3: StgValue_16 (13)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:226
+:11  store i64 -7276294671716946913, i64* %md_state_addr_5, align 8
+
+
+ <State 4>: 0.68ns
+ST_4: md_state_addr_6 (14)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:227
+:12  %md_state_addr_6 = getelementptr [8 x i64]* %md_state, i64 0, i64 6
+
+ST_4: StgValue_18 (15)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:227
+:13  store i64 2270897969802886507, i64* %md_state_addr_6, align 8
+
+ST_4: md_state_addr_7 (16)  [1/1] 0.00ns  loc: ed25519_ref/src/sha512.c:228
+:14  %md_state_addr_7 = getelementptr [8 x i64]* %md_state, i64 0, i64 7
+
+ST_4: StgValue_20 (17)  [1/1] 0.68ns  loc: ed25519_ref/src/sha512.c:228
+:15  store i64 6620516959819538809, i64* %md_state_addr_7, align 8
+
+ST_4: StgValue_21 (18)  [1/1] 0.00ns
+:16  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('md_state_addr', ed25519_ref/src/sha512.c:221) [2]  (0 ns)
+	'store' operation (ed25519_ref/src/sha512.c:221) of constant 7640891576956012808 on array 'md_state' [3]  (0.677 ns)
+
+ <State 2>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('md_state_addr_2', ed25519_ref/src/sha512.c:223) [6]  (0 ns)
+	'store' operation (ed25519_ref/src/sha512.c:223) of constant 4354685564936845355 on array 'md_state' [7]  (0.677 ns)
+
+ <State 3>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('md_state_addr_4', ed25519_ref/src/sha512.c:225) [10]  (0 ns)
+	'store' operation (ed25519_ref/src/sha512.c:225) of constant 5840696475078001361 on array 'md_state' [11]  (0.677 ns)
+
+ <State 4>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('md_state_addr_6', ed25519_ref/src/sha512.c:227) [14]  (0 ns)
+	'store' operation (ed25519_ref/src/sha512.c:227) of constant 2270897969802886507 on array 'md_state' [15]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -30,7 +30,6 @@
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include/etc"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.981643970" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -48,7 +47,6 @@
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include/etc"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.571152313" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -116,7 +114,6 @@
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include/etc"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1341513210" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -129,7 +126,6 @@
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include/etc"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2110368460" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>

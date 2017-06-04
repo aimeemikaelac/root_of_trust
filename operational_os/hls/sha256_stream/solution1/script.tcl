@@ -5,8 +5,8 @@
 ############################################################
 open_project sha256_stream
 set_top sha256
-add_files sha256_stream/src/sha256_stream.cpp
 add_files sha256_stream/src/sha256_stream.h
+add_files sha256_stream/src/sha256_stream.cpp
 open_solution "solution1"
 set_part {xczu9eg-ffvb1156-1-i-es1} -tool vivado
 create_clock -period 10 -name default

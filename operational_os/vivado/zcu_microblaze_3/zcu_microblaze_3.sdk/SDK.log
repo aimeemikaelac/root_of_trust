@@ -1,6 +1,0 @@
-16:17:02 INFO  : Registering command handlers for SDK TCF services
-16:17:07 INFO  : Launching XSCT server: xsct -n -interactive /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_3/zcu_microblaze_3.sdk/temp_xsdb_launch_script.tcl
-16:17:14 INFO  : XSCT server has started successfully.
-16:17:27 INFO  : Successfully done setting XSCT server connection channel  
-16:17:27 INFO  : Successfully done setting SDK workspace  
-16:17:27 INFO  : Processing command line option -hwspec /home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zcu_microblaze_3/zcu_microblaze_3.sdk/design_1_wrapper.hdf.

@@ -16,6 +16,8 @@ def get_program_headers(elf_file):
     stdout_data = pipe.communicate()[0]
     # print "Received data:\n{}".format(stdout_data)
     lines = stdout_data.split("\n")
+    last_offset = 0
+    last_length = 0
     for line in lines:
         line_tokens = line.split()
         if len(line_tokens) > 0 and line_tokens[0] == "LOAD":
@@ -34,7 +36,10 @@ def get_program_headers(elf_file):
                                     current_phys_address,
                                     current_file_size,
                                     current_mem_size)
-    return program_headers
+            if current_phys_address > last_offset:
+                last_offset = current_phys_address
+                last_length = current_mem_size
+    return program_headers, current_phys_address, current_mem_size
 
 def get_program_segments(program_headers, elf_file):
     elf_segments = []
@@ -88,12 +93,18 @@ def write_segments_to_memory(program_headers, elf_segments, base_address):
     #     mem_length = program_headers[i][4]
     #     memory_handle.write(phys_offset, elf_segments[i])
 
+def zero_memory(length, base_address):
+    memory_handle = DevMem(base_addr, length=length)
+    memory_handle.write(0, bytearray("0"*length))
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--elf", help="Path to .elf to use", required=True)
     parser.add_argument("--base_address", help="Base address to program as a hes string", required=True)
     args = parser.parse_args()
-    program_headers = get_program_headers(args.elf)
+    program_headers, last_offset, last_length = get_program_headers(args.elf)
     elf_segments = get_program_segments(program_headers, args.elf)
     base_address = int(args.base_address, 16)
+    zero_memory(last_offset + last_length, base_address)
     write_segments_to_memory(program_headers, elf_segments, base_address)

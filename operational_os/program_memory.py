@@ -5,6 +5,7 @@ import shlex
 import subprocess
 import struct
 import os
+from math import ceil
 from devmem import *
 
 def get_program_headers(elf_file):
@@ -94,7 +95,7 @@ def write_segments_to_memory(program_headers, elf_segments, base_address):
     #     memory_handle.write(phys_offset, elf_segments[i])
 
 def zero_memory(length, base_address):
-    memory_handle = DevMem(base_addr, length=length)
+    memory_handle = DevMem(base_address, length=length)
     memory_handle.write(0, bytearray("0"*length))
 
 
@@ -108,3 +109,8 @@ if __name__ == "__main__":
     base_address = int(args.base_address, 16)
     zero_memory(last_offset + last_length, base_address)
     write_segments_to_memory(program_headers, elf_segments, base_address)
+    length = last_offset + last_length
+    num_blocks = ceil(length/128)
+    print "Total length: {}".format(length)
+    print "Number of sha512 blocks: {}".format(num_blocks)
+

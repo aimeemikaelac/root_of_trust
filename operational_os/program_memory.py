@@ -6,6 +6,7 @@ import subprocess
 import struct
 import os
 import tempfile
+from math import ceil
 from devmem import *
 
 def get_program_headers(elf_file):
@@ -95,7 +96,7 @@ def write_segments_to_memory(program_headers, elf_segments, base_address):
     #     memory_handle.write(phys_offset, elf_segments[i])
 
 def zero_memory(length, base_address):
-    memory_handle = DevMem(base_addr, length=length)
+    memory_handle = DevMem(base_address, length=length)
     memory_handle.write(0, bytearray("0"*length))
 
 def write_bin_file(bin_file, base_address):
@@ -115,6 +116,7 @@ if __name__ == "__main__":
         help="Base address to program as a hes string", required=True
     )
     args = parser.parse_args()
+<<<<<<< HEAD
     if args.elf:
         program_headers, last_offset, last_length = (
             get_program_headers(args.elf)
@@ -125,3 +127,15 @@ if __name__ == "__main__":
         write_segments_to_memory(program_headers, elf_segments, base_address)
     else:
         write_bin_file(args.bin)
+=======
+    program_headers, last_offset, last_length = get_program_headers(args.elf)
+    elf_segments = get_program_segments(program_headers, args.elf)
+    base_address = int(args.base_address, 16)
+    zero_memory(last_offset + last_length, base_address)
+    write_segments_to_memory(program_headers, elf_segments, base_address)
+    length = last_offset + last_length
+    num_blocks = ceil(length/128)
+    print "Total length: {}".format(length)
+    print "Number of sha512 blocks: {}".format(num_blocks)
+
+>>>>>>> 2d81c19cce2359d9e6e9cd443d18f1ba8ef3853b

@@ -5,6 +5,7 @@ import shlex
 import subprocess
 import struct
 import os
+import tempfile
 from devmem import *
 
 def get_program_headers(elf_file):
@@ -97,14 +98,30 @@ def zero_memory(length, base_address):
     memory_handle = DevMem(base_addr, length=length)
     memory_handle.write(0, bytearray("0"*length))
 
+def write_bin_file(bin_file, base_address):
+    with open(bin_file) as bin_file_handle:
+        file_size = os.path.getsize(bin_file)
+        bin_file_data = bytearray(bin_file_handle.read())
+        memory_handle = DevMem(base_address, length=file_size)
+        memory_handle.write(0, bin_file_data)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--elf", help="Path to .elf to use", required=True)
-    parser.add_argument("--base_address", help="Base address to program as a hes string", required=True)
+    group1 = parser.add_mutually_exclusive_group(required=True)
+    group1.add_argument("--elf", help="Path to .elf to use")
+    group1.add_argument("--bin", help="Path to .bin to use")
+    parser.add_argument(
+        "--base_address",
+        help="Base address to program as a hes string", required=True
+    )
     args = parser.parse_args()
-    program_headers, last_offset, last_length = get_program_headers(args.elf)
-    elf_segments = get_program_segments(program_headers, args.elf)
-    base_address = int(args.base_address, 16)
-    zero_memory(last_offset + last_length, base_address)
-    write_segments_to_memory(program_headers, elf_segments, base_address)
+    if args.elf:
+        program_headers, last_offset, last_length = (
+            get_program_headers(args.elf)
+        )
+        elf_segments = get_program_segments(program_headers, args.elf)
+        base_address = int(args.base_address, 16)
+        zero_memory(last_offset + last_length, base_address)
+        write_segments_to_memory(program_headers, elf_segments, base_address)
+    else:
+        write_bin_file(args.bin)

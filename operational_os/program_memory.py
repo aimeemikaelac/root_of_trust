@@ -113,16 +113,16 @@ if __name__ == "__main__":
     group1.add_argument("--bin", help="Path to .bin to use")
     parser.add_argument(
         "--base_address",
-        help="Base address to program as a hes string",
+        help="Base address to program as a hex string",
         required=True
     )
     args = parser.parse_args()
+    base_address = int(args.base_address, 16)
     if args.elf:
         program_headers, last_offset, last_length = (
             get_program_headers(args.elf)
         )
         elf_segments = get_program_segments(program_headers, args.elf)
-        base_address = int(args.base_address, 16)
         zero_memory(last_offset + last_length, base_address)
         write_segments_to_memory(program_headers, elf_segments, base_address)
         length = last_offset + last_length
@@ -130,4 +130,4 @@ if __name__ == "__main__":
         print "Total length: {}".format(length)
         print "Number of sha512 blocks: {}".format(num_blocks)
     else:
-        write_bin_file(args.bin, args.base_address)
+        write_bin_file(args.bin, base_address)

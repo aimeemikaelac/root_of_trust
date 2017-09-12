@@ -113,7 +113,8 @@ if __name__ == "__main__":
     group1.add_argument("--bin", help="Path to .bin to use")
     parser.add_argument(
         "--base_address",
-        help="Base address to program as a hes string", required=True
+        help="Base address to program as a hes string",
+        required=True
     )
     args = parser.parse_args()
     if args.elf:
@@ -129,4 +130,4 @@ if __name__ == "__main__":
         print "Total length: {}".format(length)
         print "Number of sha512 blocks: {}".format(num_blocks)
     else:
-        write_bin_file(args.bin)
+        write_bin_file(args.bin, args.base_address)

@@ -116,7 +116,6 @@ if __name__ == "__main__":
         help="Base address to program as a hes string", required=True
     )
     args = parser.parse_args()
-<<<<<<< HEAD
     if args.elf:
         program_headers, last_offset, last_length = (
             get_program_headers(args.elf)
@@ -125,17 +124,9 @@ if __name__ == "__main__":
         base_address = int(args.base_address, 16)
         zero_memory(last_offset + last_length, base_address)
         write_segments_to_memory(program_headers, elf_segments, base_address)
+        length = last_offset + last_length
+        num_blocks = ceil(length/128)
+        print "Total length: {}".format(length)
+        print "Number of sha512 blocks: {}".format(num_blocks)
     else:
         write_bin_file(args.bin)
-=======
-    program_headers, last_offset, last_length = get_program_headers(args.elf)
-    elf_segments = get_program_segments(program_headers, args.elf)
-    base_address = int(args.base_address, 16)
-    zero_memory(last_offset + last_length, base_address)
-    write_segments_to_memory(program_headers, elf_segments, base_address)
-    length = last_offset + last_length
-    num_blocks = ceil(length/128)
-    print "Total length: {}".format(length)
-    print "Number of sha512 blocks: {}".format(num_blocks)
-
->>>>>>> 2d81c19cce2359d9e6e9cd443d18f1ba8ef3853b

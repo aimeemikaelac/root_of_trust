@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zedboard_pmod/zedboard_pmod.sdk/zedboard_pmod_fsbl/Debug/zedboard_pmod_fsbl.elf
+	/home/michael/hardware_security/zcu102/root_of_trust/operational_os/vivado/zedboard_pmod/zedboard_pmod.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/michael/android_partial_reconfiguration/boot/u-boot.elf
+}

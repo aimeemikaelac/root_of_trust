@@ -1,0 +1,7 @@
+the_ROM_image:
+{
+[destination_cpu=a53-0, bootloader] fsbl_reference.elf
+[destination_cpu=a53-0, exception_level=el-3, trustzone] bl31.elf
+[destination_cpu=a53-0, exception_level=el-2] u-boot-custom.elf
+zcu_ecdsa.bit
+}

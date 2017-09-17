@@ -1,2 +1,4 @@
 *.sha384
 bootgen_log.txt
+!vivado/
+vivado/*

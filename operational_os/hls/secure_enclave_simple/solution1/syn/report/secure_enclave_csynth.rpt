@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vivado HLS Report for 'secure_enclave'
+================================================================
+* Date:           Tue Mar 14 21:27:58 2017
+
+* Version:        2016.4 (Build 1733598 on Wed Dec 14 22:59:20 MST 2016)
+* Project:        secure_enclave_simple
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      5.13|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    1|    1|    2|    2|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      56|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |       16|      -|     476|     692|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     360|    -|
+|Register         |        -|      -|     164|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |       16|      0|     640|    1108|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0   |  100|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |             Instance            |             Module            | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |secure_enclave_AXILiteS_s_axi_U  |secure_enclave_AXILiteS_s_axi  |       16|      0|  476|  692|
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |Total                            |                               |       16|      0|  476|  692|
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------+----------+-------+---+----+------------+------------+
+    |   Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |ap_condition_118   |    and   |      0|  0|   1|           1|           1|
+    |or_cond_fu_139_p2  |    and   |      0|  0|   1|           1|           1|
+    |tmp_1_fu_133_p2    |   icmp   |      0|  0|  43|         128|         128|
+    |tmp_fu_127_p2      |   icmp   |      0|  0|  11|          32|           3|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |Total              |          |      0|  0|  56|         162|         133|
+    +-------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+-----+-----------+-----+-----------+
+    |             Name            | LUT | Input Size| Bits| Total Bits|
+    +-----------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                    |    1|          3|    1|          3|
+    |counter_in_ap_vld_in_sig     |    1|          2|    1|          2|
+    |counter_in_ap_vld_preg       |    1|          2|    1|          2|
+    |counter_in_blk_n             |    1|          2|    1|          2|
+    |counter_in_in_sig            |   32|          2|   32|         64|
+    |increment_counter            |   32|          3|   32|         96|
+    |key_out_V                    |  128|          3|  128|        384|
+    |p_s_phi_fu_119_p4            |    1|          3|    1|          3|
+    |pin_attempt_V_ap_vld_in_sig  |    1|          2|    1|          2|
+    |pin_attempt_V_ap_vld_preg    |    1|          2|    1|          2|
+    |pin_attempt_V_blk_n          |    1|          2|    1|          2|
+    |pin_attempt_V_in_sig         |  128|          2|  128|        256|
+    |reset_counter                |   32|          3|   32|         96|
+    +-----------------------------+-----+-----------+-----+-----------+
+    |Total                        |  360|         31|  360|        914|
+    +-----------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------+-----+----+-----+-----------+
+    |            Name           |  FF | LUT| Bits| Const Bits|
+    +---------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                  |    2|   0|    2|          0|
+    |counter_in_ap_vld_preg     |    1|   0|    1|          0|
+    |counter_in_preg            |   32|   0|   32|          0|
+    |pin_attempt_V_ap_vld_preg  |    1|   0|    1|          0|
+    |pin_attempt_V_preg         |  128|   0|  128|          0|
+    +---------------------------+-----+----+-----+-----------+
+    |Total                      |  164|   0|  164|          0|
+    +---------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+----------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++------------------------+-----+-----+------------+----------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_AWADDR   |  in |    8|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_ARADDR   |  in |    8|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |    AXILiteS    |    pointer   |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |    AXILiteS    |    pointer   |
+|ap_clk                  |  in |    1| ap_ctrl_hs | secure_enclave | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs | secure_enclave | return value |
+|interrupt               | out |    1| ap_ctrl_hs | secure_enclave | return value |
+|key_out_V               | out |  128|   ap_ovld  |    key_out_V   |    pointer   |
+|key_out_V_ap_vld        | out |    1|   ap_ovld  |    key_out_V   |    pointer   |
++------------------------+-----+-----+------------+----------------+--------------+
+

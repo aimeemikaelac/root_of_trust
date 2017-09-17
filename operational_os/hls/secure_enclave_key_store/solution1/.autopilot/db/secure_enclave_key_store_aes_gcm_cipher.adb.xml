@@ -1,0 +1,2945 @@
+<stg><name>secure_enclave_key_store_aes_gcm_cipher</name>
+
+
+<trans_list>
+
+<trans id="107" from="1" to="2">
+<condition id="40">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="108" from="2" to="3">
+<condition id="41">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="110" from="3" to="4">
+<condition id="43">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="111" from="4" to="5">
+<condition id="44">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="112" from="5" to="6">
+<condition id="45">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="113" from="6" to="7">
+<condition id="46">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="114" from="7" to="8">
+<condition id="47">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="115" from="8" to="9">
+<condition id="48">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="116" from="9" to="10">
+<condition id="49">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="117" from="10" to="11">
+<condition id="50">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="118" from="11" to="12">
+<condition id="51">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="119" from="12" to="13">
+<condition id="52">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="120" from="13" to="14">
+<condition id="53">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="121" from="14" to="15">
+<condition id="54">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="122" from="15" to="16">
+<condition id="55">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="123" from="16" to="17">
+<condition id="56">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="124" from="17" to="18">
+<condition id="57">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="125" from="18" to="19">
+<condition id="58">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="126" from="19" to="20">
+<condition id="59">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="127" from="20" to="21">
+<condition id="60">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="128" from="21" to="22">
+<condition id="61">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="129" from="22" to="23">
+<condition id="62">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="130" from="23" to="24">
+<condition id="64">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="133" from="23" to="25">
+<condition id="70">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="131" from="24" to="2">
+<condition id="66">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="1"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="132" from="24" to="24">
+<condition id="68">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="134" from="25" to="2">
+<condition id="72">
+<or_exp><and_exp><literal name="exitcond_i_i" val="1"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="135" from="25" to="25">
+<condition id="74">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="26" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="27" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:0  %encrypt_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %encrypt)
+
+]]></node>
+<StgValue><ssdm name="encrypt_read"/></StgValue>
+</operation>
+
+<operation id="27" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="28" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:1  %hash_key_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %hash_key_V)
+
+]]></node>
+<StgValue><ssdm name="hash_key_V_read"/></StgValue>
+</operation>
+
+<operation id="28" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="29" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:2  %counter_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %counter_V)
+
+]]></node>
+<StgValue><ssdm name="counter_V_read"/></StgValue>
+</operation>
+
+<operation id="29" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="30" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:3  %key_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %key_V)
+
+]]></node>
+<StgValue><ssdm name="key_V_read"/></StgValue>
+</operation>
+
+<operation id="30" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="31" bw="0" op_0_bw="0">
+<![CDATA[
+:4  br label %ghash_iteration.exit
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="31" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="33" bw="128" op_0_bw="128" op_1_bw="0" op_2_bw="128">
+<![CDATA[
+ghash_iteration.exit:0  %p_Val2_s = phi i128 [ %counter_V_read, %0 ], [ %agg_result_V_i, %5 ], [ %agg_result_V_i, %3 ]
+
+]]></node>
+<StgValue><ssdm name="p_Val2_s"/></StgValue>
+</operation>
+
+<operation id="32" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="34" bw="128" op_0_bw="128" op_1_bw="0" op_2_bw="128">
+<![CDATA[
+ghash_iteration.exit:1  %lhs_V_3 = phi i128 [ 0, %0 ], [ %agg_result_V_i_i3, %5 ], [ %agg_result_V_i_i, %3 ]
+
+]]></node>
+<StgValue><ssdm name="lhs_V_3"/></StgValue>
+</operation>
+
+<operation id="33" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="35" bw="13" op_0_bw="13" op_1_bw="0" op_2_bw="13">
+<![CDATA[
+ghash_iteration.exit:2  %encrypt_iterations = phi i13 [ 0, %0 ], [ %encrypt_iterations_1, %5 ], [ %encrypt_iterations_1, %3 ]
+
+]]></node>
+<StgValue><ssdm name="encrypt_iterations"/></StgValue>
+</operation>
+
+<operation id="34" st_id="2" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="36" bw="1" op_0_bw="13" op_1_bw="13">
+<![CDATA[
+ghash_iteration.exit:3  %exitcond = icmp eq i13 %encrypt_iterations, -4096
+
+]]></node>
+<StgValue><ssdm name="exitcond"/></StgValue>
+</operation>
+
+<operation id="35" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="37" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+ghash_iteration.exit:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4096, i64 4096, i64 4096)
+
+]]></node>
+<StgValue><ssdm name="empty"/></StgValue>
+</operation>
+
+<operation id="36" st_id="2" stage="1" lat="1">
+<core>AddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="38" bw="13" op_0_bw="13" op_1_bw="13">
+<![CDATA[
+ghash_iteration.exit:5  %encrypt_iterations_1 = add i13 %encrypt_iterations, 1
+
+]]></node>
+<StgValue><ssdm name="encrypt_iterations_1"/></StgValue>
+</operation>
+
+<operation id="37" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="39" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+ghash_iteration.exit:6  br i1 %exitcond, label %6, label %1
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="38" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="5">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="41" bw="1" op_0_bw="128">
+<![CDATA[
+:0  %tmp_6 = trunc i128 %p_Val2_s to i1
+
+]]></node>
+<StgValue><ssdm name="tmp_6"/></StgValue>
+</operation>
+
+<operation id="39" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="7">
+<or_exp><and_exp><literal name="exitcond" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="96" bw="0" op_0_bw="128">
+<![CDATA[
+:0  ret i128 %lhs_V_3
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="40" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="42" bw="6" op_0_bw="1">
+<![CDATA[
+:1  %tmp_i_cast = zext i1 %tmp_6 to i6
+
+]]></node>
+<StgValue><ssdm name="tmp_i_cast"/></StgValue>
+</operation>
+
+<operation id="41" st_id="3" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="43" bw="6" op_0_bw="6" op_1_bw="6">
+<![CDATA[
+:2  %r_V_14 = xor i6 %tmp_i_cast, -31
+
+]]></node>
+<StgValue><ssdm name="r_V_14"/></StgValue>
+</operation>
+
+<operation id="42" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="44" bw="128" op_0_bw="6">
+<![CDATA[
+:3  %agg_result_V_i = zext i6 %r_V_14 to i128
+
+]]></node>
+<StgValue><ssdm name="agg_result_V_i"/></StgValue>
+</operation>
+
+<operation id="43" st_id="3" stage="20" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="44" st_id="4" stage="19" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="9">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="5" st_id="5">
+
+<operation id="45" st_id="5" stage="18" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="10">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="6" st_id="6">
+
+<operation id="46" st_id="6" stage="17" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="11">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="7" st_id="7">
+
+<operation id="47" st_id="7" stage="16" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="12">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="8" st_id="8">
+
+<operation id="48" st_id="8" stage="15" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="13">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="9" st_id="9">
+
+<operation id="49" st_id="9" stage="14" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="14">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="10" st_id="10">
+
+<operation id="50" st_id="10" stage="13" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="15">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="11" st_id="11">
+
+<operation id="51" st_id="11" stage="12" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="16">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="12" st_id="12">
+
+<operation id="52" st_id="12" stage="11" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="17">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="13" st_id="13">
+
+<operation id="53" st_id="13" stage="10" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="18">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="14" st_id="14">
+
+<operation id="54" st_id="14" stage="9" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="19">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="15" st_id="15">
+
+<operation id="55" st_id="15" stage="8" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="20">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="16" st_id="16">
+
+<operation id="56" st_id="16" stage="7" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="21">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="17" st_id="17">
+
+<operation id="57" st_id="17" stage="6" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="22">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="18" st_id="18">
+
+<operation id="58" st_id="18" stage="5" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="23">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="19" st_id="19">
+
+<operation id="59" st_id="19" stage="4" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="24">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="20" st_id="20">
+
+<operation id="60" st_id="20" stage="3" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="25">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="21" st_id="21">
+
+<operation id="61" st_id="21" stage="2" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="26">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+</state>
+
+<state id="22" st_id="22">
+
+<operation id="62" st_id="22" stage="1" lat="20">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="27">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="45" bw="128" op_0_bw="128" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+:4  %encrypted_counter_out_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %agg_result_V_i, i128 %key_V_read)
+
+]]></node>
+<StgValue><ssdm name="encrypted_counter_out_V"/></StgValue>
+</operation>
+
+<operation id="63" st_id="22" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="27">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="46" bw="64" op_0_bw="13">
+<![CDATA[
+:5  %tmp = zext i13 %encrypt_iterations to i64
+
+]]></node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+
+<operation id="64" st_id="22" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="27">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="47" bw="8" op_0_bw="128" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+:6  %data_in_V_addr = getelementptr [256 x i128]* %data_in_V, i64 0, i64 %tmp
+
+]]></node>
+<StgValue><ssdm name="data_in_V_addr"/></StgValue>
+</operation>
+
+<operation id="65" st_id="22" stage="2" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="27">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="48" bw="128" op_0_bw="8">
+<![CDATA[
+:7  %rhs_V = load i128* %data_in_V_addr, align 8
+
+]]></node>
+<StgValue><ssdm name="rhs_V"/></StgValue>
+</operation>
+</state>
+
+<state id="23" st_id="23">
+
+<operation id="66" st_id="23" stage="1" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="28">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="48" bw="128" op_0_bw="8">
+<![CDATA[
+:7  %rhs_V = load i128* %data_in_V_addr, align 8
+
+]]></node>
+<StgValue><ssdm name="rhs_V"/></StgValue>
+</operation>
+
+<operation id="67" st_id="23" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="28">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="49" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:8  %r_V_15 = xor i128 %rhs_V, %encrypted_counter_out_V
+
+]]></node>
+<StgValue><ssdm name="r_V_15"/></StgValue>
+</operation>
+
+<operation id="68" st_id="23" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="28">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="50" bw="8" op_0_bw="128" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+:9  %data_out_V_addr = getelementptr [256 x i128]* %data_out_V, i64 0, i64 %tmp
+
+]]></node>
+<StgValue><ssdm name="data_out_V_addr"/></StgValue>
+</operation>
+
+<operation id="69" st_id="23" stage="1" lat="1">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="28">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="51" bw="0" op_0_bw="128" op_1_bw="8">
+<![CDATA[
+:10  store i128 %r_V_15, i128* %data_out_V_addr, align 16
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="70" st_id="23" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="28">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="52" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:11  br i1 %encrypt_read, label %2, label %4
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="71" st_id="23" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="30">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="54" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:0  %r_V = xor i128 %rhs_V, %lhs_V_3
+
+]]></node>
+<StgValue><ssdm name="r_V"/></StgValue>
+</operation>
+
+<operation id="72" st_id="23" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="30">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="55" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %5
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="73" st_id="23" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="32">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="75" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+:0  %r_V_16 = xor i128 %r_V_15, %lhs_V_3
+
+]]></node>
+<StgValue><ssdm name="r_V_16"/></StgValue>
+</operation>
+
+<operation id="74" st_id="23" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="32">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="76" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %3
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="24" st_id="24">
+
+<operation id="75" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="57" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:0  %agg_result_V_i_i3 = phi i128 [ 0, %4 ], [ %agg_result_V_0_r_V_i_i1, %._crit_edge.i.i16 ]
+
+]]></node>
+<StgValue><ssdm name="agg_result_V_i_i3"/></StgValue>
+</operation>
+
+<operation id="76" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="58" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:1  %lhs_V_5 = phi i128 [ 0, %4 ], [ %lhs_V_r_V_i_i1, %._crit_edge.i.i16 ]
+
+]]></node>
+<StgValue><ssdm name="lhs_V_5"/></StgValue>
+</operation>
+
+<operation id="77" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="59" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:2  %rhs_V_4 = phi i128 [ %r_V, %4 ], [ %r_V_13, %._crit_edge.i.i16 ]
+
+]]></node>
+<StgValue><ssdm name="rhs_V_4"/></StgValue>
+</operation>
+
+<operation id="78" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="60" bw="8" op_0_bw="8" op_1_bw="0">
+<![CDATA[
+:3  %i_assign_1 = phi i8 [ 0, %4 ], [ %i_4, %._crit_edge.i.i16 ]
+
+]]></node>
+<StgValue><ssdm name="i_assign_1"/></StgValue>
+</operation>
+
+<operation id="79" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="61" bw="32" op_0_bw="8">
+<![CDATA[
+:4  %i_assign_1_cast1 = zext i8 %i_assign_1 to i32
+
+]]></node>
+<StgValue><ssdm name="i_assign_1_cast1"/></StgValue>
+</operation>
+
+<operation id="80" st_id="24" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="62" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:5  %exitcond_i_i7 = icmp eq i8 %i_assign_1, -128
+
+]]></node>
+<StgValue><ssdm name="exitcond_i_i7"/></StgValue>
+</operation>
+
+<operation id="81" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="63" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+:6  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+]]></node>
+<StgValue><ssdm name="empty_10"/></StgValue>
+</operation>
+
+<operation id="82" st_id="24" stage="1" lat="1">
+<core>AddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="64" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:7  %i_4 = add i8 %i_assign_1, 1
+
+]]></node>
+<StgValue><ssdm name="i_4"/></StgValue>
+</operation>
+
+<operation id="83" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="33">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="65" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:8  br i1 %exitcond_i_i7, label %ghash_iteration.exit, label %._crit_edge.i.i16
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="84" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="67" bw="1" op_0_bw="1" op_1_bw="128" op_2_bw="32">
+<![CDATA[
+._crit_edge.i.i16:0  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i128.i32(i128 %hash_key_V_read, i32 %i_assign_1_cast1)
+
+]]></node>
+<StgValue><ssdm name="tmp_8"/></StgValue>
+</operation>
+
+<operation id="85" st_id="24" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="68" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+._crit_edge.i.i16:1  %z_V_1 = xor i128 %lhs_V_5, %rhs_V_4
+
+]]></node>
+<StgValue><ssdm name="z_V_1"/></StgValue>
+</operation>
+
+<operation id="86" st_id="24" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="69" bw="128" op_0_bw="1" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+._crit_edge.i.i16:2  %agg_result_V_0_r_V_i_i1 = select i1 %tmp_8, i128 %z_V_1, i128 %agg_result_V_i_i3
+
+]]></node>
+<StgValue><ssdm name="agg_result_V_0_r_V_i_i1"/></StgValue>
+</operation>
+
+<operation id="87" st_id="24" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="70" bw="128" op_0_bw="1" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+._crit_edge.i.i16:3  %lhs_V_r_V_i_i1 = select i1 %tmp_8, i128 %z_V_1, i128 %lhs_V_5
+
+]]></node>
+<StgValue><ssdm name="lhs_V_r_V_i_i1"/></StgValue>
+</operation>
+
+<operation id="88" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="71" bw="127" op_0_bw="127" op_1_bw="128" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+._crit_edge.i.i16:4  %r_V_8 = call i127 @_ssdm_op_PartSelect.i127.i128.i32.i32(i128 %rhs_V_4, i32 1, i32 127)
+
+]]></node>
+<StgValue><ssdm name="r_V_8"/></StgValue>
+</operation>
+
+<operation id="89" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="72" bw="128" op_0_bw="127">
+<![CDATA[
+._crit_edge.i.i16:5  %r_V_13 = zext i127 %r_V_8 to i128
+
+]]></node>
+<StgValue><ssdm name="r_V_13"/></StgValue>
+</operation>
+
+<operation id="90" st_id="24" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="35">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="73" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge.i.i16:6  br label %5
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="25" st_id="25">
+
+<operation id="91" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="78" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:0  %agg_result_V_i_i = phi i128 [ 0, %2 ], [ %agg_result_V_0_r_V_i_i, %._crit_edge.i.i ]
+
+]]></node>
+<StgValue><ssdm name="agg_result_V_i_i"/></StgValue>
+</operation>
+
+<operation id="92" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="79" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:1  %lhs_V_4 = phi i128 [ 0, %2 ], [ %lhs_V_r_V_i_i, %._crit_edge.i.i ]
+
+]]></node>
+<StgValue><ssdm name="lhs_V_4"/></StgValue>
+</operation>
+
+<operation id="93" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="80" bw="128" op_0_bw="128" op_1_bw="0">
+<![CDATA[
+:2  %rhs_V_3 = phi i128 [ %r_V_16, %2 ], [ %r_V_11, %._crit_edge.i.i ]
+
+]]></node>
+<StgValue><ssdm name="rhs_V_3"/></StgValue>
+</operation>
+
+<operation id="94" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="81" bw="8" op_0_bw="8" op_1_bw="0">
+<![CDATA[
+:3  %i_assign = phi i8 [ 0, %2 ], [ %i, %._crit_edge.i.i ]
+
+]]></node>
+<StgValue><ssdm name="i_assign"/></StgValue>
+</operation>
+
+<operation id="95" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="82" bw="32" op_0_bw="8">
+<![CDATA[
+:4  %i_assign_cast2 = zext i8 %i_assign to i32
+
+]]></node>
+<StgValue><ssdm name="i_assign_cast2"/></StgValue>
+</operation>
+
+<operation id="96" st_id="25" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="83" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:5  %exitcond_i_i = icmp eq i8 %i_assign, -128
+
+]]></node>
+<StgValue><ssdm name="exitcond_i_i"/></StgValue>
+</operation>
+
+<operation id="97" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="84" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+:6  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+]]></node>
+<StgValue><ssdm name="empty_9"/></StgValue>
+</operation>
+
+<operation id="98" st_id="25" stage="1" lat="1">
+<core>AddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="85" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:7  %i = add i8 %i_assign, 1
+
+]]></node>
+<StgValue><ssdm name="i"/></StgValue>
+</operation>
+
+<operation id="99" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="36">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<node id="86" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:8  br i1 %exitcond_i_i, label %ghash_iteration.exit, label %._crit_edge.i.i
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="100" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="88" bw="1" op_0_bw="1" op_1_bw="128" op_2_bw="32">
+<![CDATA[
+._crit_edge.i.i:0  %tmp_7 = call i1 @_ssdm_op_BitSelect.i1.i128.i32(i128 %hash_key_V_read, i32 %i_assign_cast2)
+
+]]></node>
+<StgValue><ssdm name="tmp_7"/></StgValue>
+</operation>
+
+<operation id="101" st_id="25" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="89" bw="128" op_0_bw="128" op_1_bw="128">
+<![CDATA[
+._crit_edge.i.i:1  %z_V = xor i128 %lhs_V_4, %rhs_V_3
+
+]]></node>
+<StgValue><ssdm name="z_V"/></StgValue>
+</operation>
+
+<operation id="102" st_id="25" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="90" bw="128" op_0_bw="1" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+._crit_edge.i.i:2  %agg_result_V_0_r_V_i_i = select i1 %tmp_7, i128 %z_V, i128 %agg_result_V_i_i
+
+]]></node>
+<StgValue><ssdm name="agg_result_V_0_r_V_i_i"/></StgValue>
+</operation>
+
+<operation id="103" st_id="25" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="91" bw="128" op_0_bw="1" op_1_bw="128" op_2_bw="128">
+<![CDATA[
+._crit_edge.i.i:3  %lhs_V_r_V_i_i = select i1 %tmp_7, i128 %z_V, i128 %lhs_V_4
+
+]]></node>
+<StgValue><ssdm name="lhs_V_r_V_i_i"/></StgValue>
+</operation>
+
+<operation id="104" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="92" bw="127" op_0_bw="127" op_1_bw="128" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+._crit_edge.i.i:4  %r_V_6 = call i127 @_ssdm_op_PartSelect.i127.i128.i32.i32(i128 %rhs_V_3, i32 1, i32 127)
+
+]]></node>
+<StgValue><ssdm name="r_V_6"/></StgValue>
+</operation>
+
+<operation id="105" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="93" bw="128" op_0_bw="127">
+<![CDATA[
+._crit_edge.i.i:5  %r_V_11 = zext i127 %r_V_6 to i128
+
+]]></node>
+<StgValue><ssdm name="r_V_11"/></StgValue>
+</operation>
+
+<operation id="106" st_id="25" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="38">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="94" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge.i.i:6  br label %3
+
+]]></node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="136" name="key_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="key_V"/></StgValue>
+</port>
+<port id="137" name="data_in_V" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="data_in_V"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="138" name="data_out_V" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="data_out_V"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="139" name="counter_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="counter_V"/></StgValue>
+</port>
+<port id="140" name="hash_key_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="hash_key_V"/></StgValue>
+</port>
+<port id="141" name="encrypt" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="encrypt"/></StgValue>
+</port>
+<port id="142" name="sboxes_0" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_0"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="143" name="sboxes_1" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_1"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="144" name="sboxes_2" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_2"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="145" name="sboxes_3" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_3"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="146" name="sboxes_4" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_4"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="147" name="sboxes_5" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_5"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="148" name="sboxes_6" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_6"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="149" name="sboxes_7" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_7"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="150" name="sboxes_8" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_8"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="151" name="sboxes_9" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_9"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="152" name="sboxes_10" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_10"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="153" name="sboxes_11" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_11"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="154" name="sboxes_12" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_12"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="155" name="sboxes_13" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_13"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="156" name="sboxes_14" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_14"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="157" name="sboxes_15" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_15"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="158" name="sboxes_16" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_16"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="159" name="sboxes_17" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_17"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="160" name="sboxes_18" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_18"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="161" name="sboxes_19" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="sboxes_19"/><MemPortTyVec>1 1 1 1 1 1 1 1 1 1 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="163" from="_ssdm_op_Read.ap_auto.i1" to="encrypt_read" fromId="162" toId="26">
+</dataflow>
+<dataflow id="164" from="encrypt" to="encrypt_read" fromId="141" toId="26">
+</dataflow>
+<dataflow id="166" from="_ssdm_op_Read.ap_auto.i128" to="hash_key_V_read" fromId="165" toId="27">
+</dataflow>
+<dataflow id="167" from="hash_key_V" to="hash_key_V_read" fromId="140" toId="27">
+</dataflow>
+<dataflow id="168" from="_ssdm_op_Read.ap_auto.i128" to="counter_V_read" fromId="165" toId="28">
+</dataflow>
+<dataflow id="169" from="counter_V" to="counter_V_read" fromId="139" toId="28">
+</dataflow>
+<dataflow id="170" from="_ssdm_op_Read.ap_auto.i128" to="key_V_read" fromId="165" toId="29">
+</dataflow>
+<dataflow id="171" from="key_V" to="key_V_read" fromId="136" toId="29">
+</dataflow>
+<dataflow id="172" from="counter_V_read" to="p_Val2_s" fromId="28" toId="31">
+<condition id="100">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="173" from="stg_30" to="p_Val2_s" fromId="30" toId="31">
+</dataflow>
+<dataflow id="174" from="agg_result_V_i" to="p_Val2_s" fromId="42" toId="31">
+<BackEdge/>
+<condition id="101">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="175" from="stg_83" to="p_Val2_s" fromId="83" toId="31">
+<BackEdge/>
+</dataflow>
+<dataflow id="176" from="agg_result_V_i" to="p_Val2_s" fromId="42" toId="31">
+<BackEdge/>
+<condition id="102">
+<or_exp><and_exp><literal name="exitcond_i_i" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="177" from="stg_99" to="p_Val2_s" fromId="99" toId="31">
+<BackEdge/>
+</dataflow>
+<dataflow id="179" from="stg_178" to="lhs_V_3" fromId="178" toId="32">
+<condition id="103">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="180" from="stg_30" to="lhs_V_3" fromId="30" toId="32">
+</dataflow>
+<dataflow id="181" from="agg_result_V_i_i3" to="lhs_V_3" fromId="75" toId="32">
+<BackEdge/>
+<condition id="104">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="182" from="stg_83" to="lhs_V_3" fromId="83" toId="32">
+<BackEdge/>
+</dataflow>
+<dataflow id="183" from="agg_result_V_i_i" to="lhs_V_3" fromId="91" toId="32">
+<BackEdge/>
+<condition id="105">
+<or_exp><and_exp><literal name="exitcond_i_i" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="184" from="stg_99" to="lhs_V_3" fromId="99" toId="32">
+<BackEdge/>
+</dataflow>
+<dataflow id="186" from="stg_185" to="encrypt_iterations" fromId="185" toId="33">
+<condition id="106">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="187" from="stg_30" to="encrypt_iterations" fromId="30" toId="33">
+</dataflow>
+<dataflow id="188" from="encrypt_iterations_1" to="encrypt_iterations" fromId="36" toId="33">
+<BackEdge/>
+<condition id="107">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="189" from="stg_83" to="encrypt_iterations" fromId="83" toId="33">
+<BackEdge/>
+</dataflow>
+<dataflow id="190" from="encrypt_iterations_1" to="encrypt_iterations" fromId="36" toId="33">
+<BackEdge/>
+<condition id="108">
+<or_exp><and_exp><literal name="exitcond_i_i" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="191" from="stg_99" to="encrypt_iterations" fromId="99" toId="33">
+<BackEdge/>
+</dataflow>
+<dataflow id="192" from="encrypt_iterations" to="exitcond" fromId="33" toId="34">
+</dataflow>
+<dataflow id="194" from="stg_193" to="exitcond" fromId="193" toId="34">
+</dataflow>
+<dataflow id="196" from="_ssdm_op_SpecLoopTripCount" to="empty" fromId="195" toId="35">
+</dataflow>
+<dataflow id="198" from="stg_197" to="empty" fromId="197" toId="35">
+</dataflow>
+<dataflow id="199" from="stg_197" to="empty" fromId="197" toId="35">
+</dataflow>
+<dataflow id="200" from="stg_197" to="empty" fromId="197" toId="35">
+</dataflow>
+<dataflow id="201" from="encrypt_iterations" to="encrypt_iterations_1" fromId="33" toId="36">
+</dataflow>
+<dataflow id="203" from="stg_202" to="encrypt_iterations_1" fromId="202" toId="36">
+</dataflow>
+<dataflow id="204" from="exitcond" to="stg_37" fromId="34" toId="37">
+</dataflow>
+<dataflow id="205" from="p_Val2_s" to="tmp_6" fromId="31" toId="38">
+</dataflow>
+<dataflow id="206" from="lhs_V_3" to="stg_39" fromId="32" toId="39">
+</dataflow>
+<dataflow id="207" from="tmp_6" to="tmp_i_cast" fromId="38" toId="40">
+</dataflow>
+<dataflow id="208" from="tmp_i_cast" to="r_V_14" fromId="40" toId="41">
+</dataflow>
+<dataflow id="210" from="stg_209" to="r_V_14" fromId="209" toId="41">
+</dataflow>
+<dataflow id="211" from="r_V_14" to="agg_result_V_i" fromId="41" toId="42">
+</dataflow>
+<dataflow id="213" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="43">
+</dataflow>
+<dataflow id="214" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="43">
+</dataflow>
+<dataflow id="215" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="43">
+</dataflow>
+<dataflow id="216" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="43">
+</dataflow>
+<dataflow id="217" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="43">
+</dataflow>
+<dataflow id="218" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="43">
+</dataflow>
+<dataflow id="219" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="43">
+</dataflow>
+<dataflow id="220" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="43">
+</dataflow>
+<dataflow id="221" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="43">
+</dataflow>
+<dataflow id="222" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="43">
+</dataflow>
+<dataflow id="223" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="43">
+</dataflow>
+<dataflow id="224" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="43">
+</dataflow>
+<dataflow id="225" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="43">
+</dataflow>
+<dataflow id="226" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="43">
+</dataflow>
+<dataflow id="227" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="43">
+</dataflow>
+<dataflow id="228" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="43">
+</dataflow>
+<dataflow id="229" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="43">
+</dataflow>
+<dataflow id="230" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="43">
+</dataflow>
+<dataflow id="231" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="43">
+</dataflow>
+<dataflow id="232" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="43">
+</dataflow>
+<dataflow id="233" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="43">
+</dataflow>
+<dataflow id="234" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="43">
+</dataflow>
+<dataflow id="235" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="43">
+</dataflow>
+<dataflow id="236" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="44">
+</dataflow>
+<dataflow id="237" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="44">
+</dataflow>
+<dataflow id="238" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="44">
+</dataflow>
+<dataflow id="239" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="44">
+</dataflow>
+<dataflow id="240" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="44">
+</dataflow>
+<dataflow id="241" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="44">
+</dataflow>
+<dataflow id="242" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="44">
+</dataflow>
+<dataflow id="243" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="44">
+</dataflow>
+<dataflow id="244" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="44">
+</dataflow>
+<dataflow id="245" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="44">
+</dataflow>
+<dataflow id="246" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="44">
+</dataflow>
+<dataflow id="247" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="44">
+</dataflow>
+<dataflow id="248" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="44">
+</dataflow>
+<dataflow id="249" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="44">
+</dataflow>
+<dataflow id="250" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="44">
+</dataflow>
+<dataflow id="251" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="44">
+</dataflow>
+<dataflow id="252" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="44">
+</dataflow>
+<dataflow id="253" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="44">
+</dataflow>
+<dataflow id="254" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="44">
+</dataflow>
+<dataflow id="255" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="44">
+</dataflow>
+<dataflow id="256" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="44">
+</dataflow>
+<dataflow id="257" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="44">
+</dataflow>
+<dataflow id="258" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="44">
+</dataflow>
+<dataflow id="259" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="45">
+</dataflow>
+<dataflow id="260" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="45">
+</dataflow>
+<dataflow id="261" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="45">
+</dataflow>
+<dataflow id="262" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="45">
+</dataflow>
+<dataflow id="263" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="45">
+</dataflow>
+<dataflow id="264" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="45">
+</dataflow>
+<dataflow id="265" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="45">
+</dataflow>
+<dataflow id="266" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="45">
+</dataflow>
+<dataflow id="267" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="45">
+</dataflow>
+<dataflow id="268" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="45">
+</dataflow>
+<dataflow id="269" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="45">
+</dataflow>
+<dataflow id="270" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="45">
+</dataflow>
+<dataflow id="271" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="45">
+</dataflow>
+<dataflow id="272" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="45">
+</dataflow>
+<dataflow id="273" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="45">
+</dataflow>
+<dataflow id="274" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="45">
+</dataflow>
+<dataflow id="275" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="45">
+</dataflow>
+<dataflow id="276" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="45">
+</dataflow>
+<dataflow id="277" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="45">
+</dataflow>
+<dataflow id="278" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="45">
+</dataflow>
+<dataflow id="279" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="45">
+</dataflow>
+<dataflow id="280" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="45">
+</dataflow>
+<dataflow id="281" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="45">
+</dataflow>
+<dataflow id="282" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="46">
+</dataflow>
+<dataflow id="283" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="46">
+</dataflow>
+<dataflow id="284" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="46">
+</dataflow>
+<dataflow id="285" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="46">
+</dataflow>
+<dataflow id="286" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="46">
+</dataflow>
+<dataflow id="287" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="46">
+</dataflow>
+<dataflow id="288" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="46">
+</dataflow>
+<dataflow id="289" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="46">
+</dataflow>
+<dataflow id="290" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="46">
+</dataflow>
+<dataflow id="291" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="46">
+</dataflow>
+<dataflow id="292" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="46">
+</dataflow>
+<dataflow id="293" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="46">
+</dataflow>
+<dataflow id="294" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="46">
+</dataflow>
+<dataflow id="295" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="46">
+</dataflow>
+<dataflow id="296" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="46">
+</dataflow>
+<dataflow id="297" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="46">
+</dataflow>
+<dataflow id="298" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="46">
+</dataflow>
+<dataflow id="299" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="46">
+</dataflow>
+<dataflow id="300" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="46">
+</dataflow>
+<dataflow id="301" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="46">
+</dataflow>
+<dataflow id="302" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="46">
+</dataflow>
+<dataflow id="303" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="46">
+</dataflow>
+<dataflow id="304" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="46">
+</dataflow>
+<dataflow id="305" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="47">
+</dataflow>
+<dataflow id="306" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="47">
+</dataflow>
+<dataflow id="307" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="47">
+</dataflow>
+<dataflow id="308" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="47">
+</dataflow>
+<dataflow id="309" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="47">
+</dataflow>
+<dataflow id="310" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="47">
+</dataflow>
+<dataflow id="311" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="47">
+</dataflow>
+<dataflow id="312" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="47">
+</dataflow>
+<dataflow id="313" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="47">
+</dataflow>
+<dataflow id="314" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="47">
+</dataflow>
+<dataflow id="315" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="47">
+</dataflow>
+<dataflow id="316" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="47">
+</dataflow>
+<dataflow id="317" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="47">
+</dataflow>
+<dataflow id="318" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="47">
+</dataflow>
+<dataflow id="319" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="47">
+</dataflow>
+<dataflow id="320" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="47">
+</dataflow>
+<dataflow id="321" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="47">
+</dataflow>
+<dataflow id="322" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="47">
+</dataflow>
+<dataflow id="323" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="47">
+</dataflow>
+<dataflow id="324" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="47">
+</dataflow>
+<dataflow id="325" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="47">
+</dataflow>
+<dataflow id="326" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="47">
+</dataflow>
+<dataflow id="327" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="47">
+</dataflow>
+<dataflow id="328" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="48">
+</dataflow>
+<dataflow id="329" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="48">
+</dataflow>
+<dataflow id="330" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="48">
+</dataflow>
+<dataflow id="331" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="48">
+</dataflow>
+<dataflow id="332" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="48">
+</dataflow>
+<dataflow id="333" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="48">
+</dataflow>
+<dataflow id="334" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="48">
+</dataflow>
+<dataflow id="335" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="48">
+</dataflow>
+<dataflow id="336" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="48">
+</dataflow>
+<dataflow id="337" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="48">
+</dataflow>
+<dataflow id="338" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="48">
+</dataflow>
+<dataflow id="339" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="48">
+</dataflow>
+<dataflow id="340" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="48">
+</dataflow>
+<dataflow id="341" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="48">
+</dataflow>
+<dataflow id="342" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="48">
+</dataflow>
+<dataflow id="343" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="48">
+</dataflow>
+<dataflow id="344" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="48">
+</dataflow>
+<dataflow id="345" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="48">
+</dataflow>
+<dataflow id="346" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="48">
+</dataflow>
+<dataflow id="347" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="48">
+</dataflow>
+<dataflow id="348" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="48">
+</dataflow>
+<dataflow id="349" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="48">
+</dataflow>
+<dataflow id="350" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="48">
+</dataflow>
+<dataflow id="351" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="49">
+</dataflow>
+<dataflow id="352" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="49">
+</dataflow>
+<dataflow id="353" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="49">
+</dataflow>
+<dataflow id="354" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="49">
+</dataflow>
+<dataflow id="355" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="49">
+</dataflow>
+<dataflow id="356" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="49">
+</dataflow>
+<dataflow id="357" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="49">
+</dataflow>
+<dataflow id="358" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="49">
+</dataflow>
+<dataflow id="359" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="49">
+</dataflow>
+<dataflow id="360" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="49">
+</dataflow>
+<dataflow id="361" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="49">
+</dataflow>
+<dataflow id="362" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="49">
+</dataflow>
+<dataflow id="363" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="49">
+</dataflow>
+<dataflow id="364" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="49">
+</dataflow>
+<dataflow id="365" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="49">
+</dataflow>
+<dataflow id="366" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="49">
+</dataflow>
+<dataflow id="367" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="49">
+</dataflow>
+<dataflow id="368" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="49">
+</dataflow>
+<dataflow id="369" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="49">
+</dataflow>
+<dataflow id="370" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="49">
+</dataflow>
+<dataflow id="371" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="49">
+</dataflow>
+<dataflow id="372" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="49">
+</dataflow>
+<dataflow id="373" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="49">
+</dataflow>
+<dataflow id="374" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="50">
+</dataflow>
+<dataflow id="375" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="50">
+</dataflow>
+<dataflow id="376" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="50">
+</dataflow>
+<dataflow id="377" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="50">
+</dataflow>
+<dataflow id="378" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="50">
+</dataflow>
+<dataflow id="379" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="50">
+</dataflow>
+<dataflow id="380" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="50">
+</dataflow>
+<dataflow id="381" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="50">
+</dataflow>
+<dataflow id="382" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="50">
+</dataflow>
+<dataflow id="383" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="50">
+</dataflow>
+<dataflow id="384" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="50">
+</dataflow>
+<dataflow id="385" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="50">
+</dataflow>
+<dataflow id="386" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="50">
+</dataflow>
+<dataflow id="387" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="50">
+</dataflow>
+<dataflow id="388" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="50">
+</dataflow>
+<dataflow id="389" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="50">
+</dataflow>
+<dataflow id="390" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="50">
+</dataflow>
+<dataflow id="391" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="50">
+</dataflow>
+<dataflow id="392" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="50">
+</dataflow>
+<dataflow id="393" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="50">
+</dataflow>
+<dataflow id="394" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="50">
+</dataflow>
+<dataflow id="395" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="50">
+</dataflow>
+<dataflow id="396" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="50">
+</dataflow>
+<dataflow id="397" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="51">
+</dataflow>
+<dataflow id="398" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="51">
+</dataflow>
+<dataflow id="399" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="51">
+</dataflow>
+<dataflow id="400" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="51">
+</dataflow>
+<dataflow id="401" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="51">
+</dataflow>
+<dataflow id="402" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="51">
+</dataflow>
+<dataflow id="403" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="51">
+</dataflow>
+<dataflow id="404" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="51">
+</dataflow>
+<dataflow id="405" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="51">
+</dataflow>
+<dataflow id="406" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="51">
+</dataflow>
+<dataflow id="407" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="51">
+</dataflow>
+<dataflow id="408" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="51">
+</dataflow>
+<dataflow id="409" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="51">
+</dataflow>
+<dataflow id="410" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="51">
+</dataflow>
+<dataflow id="411" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="51">
+</dataflow>
+<dataflow id="412" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="51">
+</dataflow>
+<dataflow id="413" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="51">
+</dataflow>
+<dataflow id="414" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="51">
+</dataflow>
+<dataflow id="415" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="51">
+</dataflow>
+<dataflow id="416" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="51">
+</dataflow>
+<dataflow id="417" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="51">
+</dataflow>
+<dataflow id="418" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="51">
+</dataflow>
+<dataflow id="419" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="51">
+</dataflow>
+<dataflow id="420" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="52">
+</dataflow>
+<dataflow id="421" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="52">
+</dataflow>
+<dataflow id="422" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="52">
+</dataflow>
+<dataflow id="423" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="52">
+</dataflow>
+<dataflow id="424" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="52">
+</dataflow>
+<dataflow id="425" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="52">
+</dataflow>
+<dataflow id="426" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="52">
+</dataflow>
+<dataflow id="427" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="52">
+</dataflow>
+<dataflow id="428" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="52">
+</dataflow>
+<dataflow id="429" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="52">
+</dataflow>
+<dataflow id="430" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="52">
+</dataflow>
+<dataflow id="431" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="52">
+</dataflow>
+<dataflow id="432" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="52">
+</dataflow>
+<dataflow id="433" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="52">
+</dataflow>
+<dataflow id="434" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="52">
+</dataflow>
+<dataflow id="435" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="52">
+</dataflow>
+<dataflow id="436" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="52">
+</dataflow>
+<dataflow id="437" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="52">
+</dataflow>
+<dataflow id="438" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="52">
+</dataflow>
+<dataflow id="439" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="52">
+</dataflow>
+<dataflow id="440" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="52">
+</dataflow>
+<dataflow id="441" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="52">
+</dataflow>
+<dataflow id="442" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="52">
+</dataflow>
+<dataflow id="443" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="53">
+</dataflow>
+<dataflow id="444" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="53">
+</dataflow>
+<dataflow id="445" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="53">
+</dataflow>
+<dataflow id="446" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="53">
+</dataflow>
+<dataflow id="447" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="53">
+</dataflow>
+<dataflow id="448" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="53">
+</dataflow>
+<dataflow id="449" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="53">
+</dataflow>
+<dataflow id="450" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="53">
+</dataflow>
+<dataflow id="451" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="53">
+</dataflow>
+<dataflow id="452" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="53">
+</dataflow>
+<dataflow id="453" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="53">
+</dataflow>
+<dataflow id="454" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="53">
+</dataflow>
+<dataflow id="455" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="53">
+</dataflow>
+<dataflow id="456" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="53">
+</dataflow>
+<dataflow id="457" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="53">
+</dataflow>
+<dataflow id="458" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="53">
+</dataflow>
+<dataflow id="459" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="53">
+</dataflow>
+<dataflow id="460" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="53">
+</dataflow>
+<dataflow id="461" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="53">
+</dataflow>
+<dataflow id="462" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="53">
+</dataflow>
+<dataflow id="463" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="53">
+</dataflow>
+<dataflow id="464" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="53">
+</dataflow>
+<dataflow id="465" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="53">
+</dataflow>
+<dataflow id="466" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="54">
+</dataflow>
+<dataflow id="467" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="54">
+</dataflow>
+<dataflow id="468" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="54">
+</dataflow>
+<dataflow id="469" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="54">
+</dataflow>
+<dataflow id="470" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="54">
+</dataflow>
+<dataflow id="471" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="54">
+</dataflow>
+<dataflow id="472" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="54">
+</dataflow>
+<dataflow id="473" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="54">
+</dataflow>
+<dataflow id="474" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="54">
+</dataflow>
+<dataflow id="475" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="54">
+</dataflow>
+<dataflow id="476" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="54">
+</dataflow>
+<dataflow id="477" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="54">
+</dataflow>
+<dataflow id="478" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="54">
+</dataflow>
+<dataflow id="479" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="54">
+</dataflow>
+<dataflow id="480" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="54">
+</dataflow>
+<dataflow id="481" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="54">
+</dataflow>
+<dataflow id="482" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="54">
+</dataflow>
+<dataflow id="483" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="54">
+</dataflow>
+<dataflow id="484" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="54">
+</dataflow>
+<dataflow id="485" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="54">
+</dataflow>
+<dataflow id="486" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="54">
+</dataflow>
+<dataflow id="487" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="54">
+</dataflow>
+<dataflow id="488" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="54">
+</dataflow>
+<dataflow id="489" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="55">
+</dataflow>
+<dataflow id="490" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="55">
+</dataflow>
+<dataflow id="491" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="55">
+</dataflow>
+<dataflow id="492" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="55">
+</dataflow>
+<dataflow id="493" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="55">
+</dataflow>
+<dataflow id="494" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="55">
+</dataflow>
+<dataflow id="495" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="55">
+</dataflow>
+<dataflow id="496" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="55">
+</dataflow>
+<dataflow id="497" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="55">
+</dataflow>
+<dataflow id="498" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="55">
+</dataflow>
+<dataflow id="499" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="55">
+</dataflow>
+<dataflow id="500" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="55">
+</dataflow>
+<dataflow id="501" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="55">
+</dataflow>
+<dataflow id="502" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="55">
+</dataflow>
+<dataflow id="503" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="55">
+</dataflow>
+<dataflow id="504" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="55">
+</dataflow>
+<dataflow id="505" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="55">
+</dataflow>
+<dataflow id="506" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="55">
+</dataflow>
+<dataflow id="507" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="55">
+</dataflow>
+<dataflow id="508" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="55">
+</dataflow>
+<dataflow id="509" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="55">
+</dataflow>
+<dataflow id="510" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="55">
+</dataflow>
+<dataflow id="511" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="55">
+</dataflow>
+<dataflow id="512" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="56">
+</dataflow>
+<dataflow id="513" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="56">
+</dataflow>
+<dataflow id="514" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="56">
+</dataflow>
+<dataflow id="515" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="56">
+</dataflow>
+<dataflow id="516" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="56">
+</dataflow>
+<dataflow id="517" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="56">
+</dataflow>
+<dataflow id="518" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="56">
+</dataflow>
+<dataflow id="519" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="56">
+</dataflow>
+<dataflow id="520" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="56">
+</dataflow>
+<dataflow id="521" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="56">
+</dataflow>
+<dataflow id="522" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="56">
+</dataflow>
+<dataflow id="523" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="56">
+</dataflow>
+<dataflow id="524" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="56">
+</dataflow>
+<dataflow id="525" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="56">
+</dataflow>
+<dataflow id="526" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="56">
+</dataflow>
+<dataflow id="527" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="56">
+</dataflow>
+<dataflow id="528" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="56">
+</dataflow>
+<dataflow id="529" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="56">
+</dataflow>
+<dataflow id="530" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="56">
+</dataflow>
+<dataflow id="531" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="56">
+</dataflow>
+<dataflow id="532" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="56">
+</dataflow>
+<dataflow id="533" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="56">
+</dataflow>
+<dataflow id="534" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="56">
+</dataflow>
+<dataflow id="535" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="57">
+</dataflow>
+<dataflow id="536" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="57">
+</dataflow>
+<dataflow id="537" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="57">
+</dataflow>
+<dataflow id="538" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="57">
+</dataflow>
+<dataflow id="539" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="57">
+</dataflow>
+<dataflow id="540" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="57">
+</dataflow>
+<dataflow id="541" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="57">
+</dataflow>
+<dataflow id="542" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="57">
+</dataflow>
+<dataflow id="543" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="57">
+</dataflow>
+<dataflow id="544" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="57">
+</dataflow>
+<dataflow id="545" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="57">
+</dataflow>
+<dataflow id="546" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="57">
+</dataflow>
+<dataflow id="547" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="57">
+</dataflow>
+<dataflow id="548" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="57">
+</dataflow>
+<dataflow id="549" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="57">
+</dataflow>
+<dataflow id="550" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="57">
+</dataflow>
+<dataflow id="551" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="57">
+</dataflow>
+<dataflow id="552" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="57">
+</dataflow>
+<dataflow id="553" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="57">
+</dataflow>
+<dataflow id="554" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="57">
+</dataflow>
+<dataflow id="555" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="57">
+</dataflow>
+<dataflow id="556" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="57">
+</dataflow>
+<dataflow id="557" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="57">
+</dataflow>
+<dataflow id="558" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="58">
+</dataflow>
+<dataflow id="559" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="58">
+</dataflow>
+<dataflow id="560" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="58">
+</dataflow>
+<dataflow id="561" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="58">
+</dataflow>
+<dataflow id="562" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="58">
+</dataflow>
+<dataflow id="563" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="58">
+</dataflow>
+<dataflow id="564" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="58">
+</dataflow>
+<dataflow id="565" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="58">
+</dataflow>
+<dataflow id="566" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="58">
+</dataflow>
+<dataflow id="567" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="58">
+</dataflow>
+<dataflow id="568" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="58">
+</dataflow>
+<dataflow id="569" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="58">
+</dataflow>
+<dataflow id="570" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="58">
+</dataflow>
+<dataflow id="571" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="58">
+</dataflow>
+<dataflow id="572" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="58">
+</dataflow>
+<dataflow id="573" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="58">
+</dataflow>
+<dataflow id="574" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="58">
+</dataflow>
+<dataflow id="575" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="58">
+</dataflow>
+<dataflow id="576" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="58">
+</dataflow>
+<dataflow id="577" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="58">
+</dataflow>
+<dataflow id="578" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="58">
+</dataflow>
+<dataflow id="579" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="58">
+</dataflow>
+<dataflow id="580" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="58">
+</dataflow>
+<dataflow id="581" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="59">
+</dataflow>
+<dataflow id="582" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="59">
+</dataflow>
+<dataflow id="583" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="59">
+</dataflow>
+<dataflow id="584" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="59">
+</dataflow>
+<dataflow id="585" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="59">
+</dataflow>
+<dataflow id="586" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="59">
+</dataflow>
+<dataflow id="587" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="59">
+</dataflow>
+<dataflow id="588" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="59">
+</dataflow>
+<dataflow id="589" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="59">
+</dataflow>
+<dataflow id="590" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="59">
+</dataflow>
+<dataflow id="591" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="59">
+</dataflow>
+<dataflow id="592" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="59">
+</dataflow>
+<dataflow id="593" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="59">
+</dataflow>
+<dataflow id="594" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="59">
+</dataflow>
+<dataflow id="595" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="59">
+</dataflow>
+<dataflow id="596" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="59">
+</dataflow>
+<dataflow id="597" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="59">
+</dataflow>
+<dataflow id="598" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="59">
+</dataflow>
+<dataflow id="599" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="59">
+</dataflow>
+<dataflow id="600" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="59">
+</dataflow>
+<dataflow id="601" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="59">
+</dataflow>
+<dataflow id="602" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="59">
+</dataflow>
+<dataflow id="603" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="59">
+</dataflow>
+<dataflow id="604" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="60">
+</dataflow>
+<dataflow id="605" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="60">
+</dataflow>
+<dataflow id="606" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="60">
+</dataflow>
+<dataflow id="607" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="60">
+</dataflow>
+<dataflow id="608" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="60">
+</dataflow>
+<dataflow id="609" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="60">
+</dataflow>
+<dataflow id="610" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="60">
+</dataflow>
+<dataflow id="611" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="60">
+</dataflow>
+<dataflow id="612" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="60">
+</dataflow>
+<dataflow id="613" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="60">
+</dataflow>
+<dataflow id="614" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="60">
+</dataflow>
+<dataflow id="615" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="60">
+</dataflow>
+<dataflow id="616" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="60">
+</dataflow>
+<dataflow id="617" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="60">
+</dataflow>
+<dataflow id="618" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="60">
+</dataflow>
+<dataflow id="619" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="60">
+</dataflow>
+<dataflow id="620" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="60">
+</dataflow>
+<dataflow id="621" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="60">
+</dataflow>
+<dataflow id="622" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="60">
+</dataflow>
+<dataflow id="623" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="60">
+</dataflow>
+<dataflow id="624" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="60">
+</dataflow>
+<dataflow id="625" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="60">
+</dataflow>
+<dataflow id="626" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="60">
+</dataflow>
+<dataflow id="627" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="61">
+</dataflow>
+<dataflow id="628" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="61">
+</dataflow>
+<dataflow id="629" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="61">
+</dataflow>
+<dataflow id="630" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="61">
+</dataflow>
+<dataflow id="631" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="61">
+</dataflow>
+<dataflow id="632" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="61">
+</dataflow>
+<dataflow id="633" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="61">
+</dataflow>
+<dataflow id="634" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="61">
+</dataflow>
+<dataflow id="635" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="61">
+</dataflow>
+<dataflow id="636" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="61">
+</dataflow>
+<dataflow id="637" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="61">
+</dataflow>
+<dataflow id="638" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="61">
+</dataflow>
+<dataflow id="639" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="61">
+</dataflow>
+<dataflow id="640" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="61">
+</dataflow>
+<dataflow id="641" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="61">
+</dataflow>
+<dataflow id="642" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="61">
+</dataflow>
+<dataflow id="643" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="61">
+</dataflow>
+<dataflow id="644" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="61">
+</dataflow>
+<dataflow id="645" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="61">
+</dataflow>
+<dataflow id="646" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="61">
+</dataflow>
+<dataflow id="647" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="61">
+</dataflow>
+<dataflow id="648" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="61">
+</dataflow>
+<dataflow id="649" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="61">
+</dataflow>
+<dataflow id="650" from="secure_enclave_key_store_aes" to="encrypted_counter_out_V" fromId="212" toId="62">
+</dataflow>
+<dataflow id="651" from="agg_result_V_i" to="encrypted_counter_out_V" fromId="42" toId="62">
+</dataflow>
+<dataflow id="652" from="key_V_read" to="encrypted_counter_out_V" fromId="29" toId="62">
+</dataflow>
+<dataflow id="653" from="sboxes_0" to="encrypted_counter_out_V" fromId="142" toId="62">
+</dataflow>
+<dataflow id="654" from="sboxes_1" to="encrypted_counter_out_V" fromId="143" toId="62">
+</dataflow>
+<dataflow id="655" from="sboxes_2" to="encrypted_counter_out_V" fromId="144" toId="62">
+</dataflow>
+<dataflow id="656" from="sboxes_3" to="encrypted_counter_out_V" fromId="145" toId="62">
+</dataflow>
+<dataflow id="657" from="sboxes_4" to="encrypted_counter_out_V" fromId="146" toId="62">
+</dataflow>
+<dataflow id="658" from="sboxes_5" to="encrypted_counter_out_V" fromId="147" toId="62">
+</dataflow>
+<dataflow id="659" from="sboxes_6" to="encrypted_counter_out_V" fromId="148" toId="62">
+</dataflow>
+<dataflow id="660" from="sboxes_7" to="encrypted_counter_out_V" fromId="149" toId="62">
+</dataflow>
+<dataflow id="661" from="sboxes_8" to="encrypted_counter_out_V" fromId="150" toId="62">
+</dataflow>
+<dataflow id="662" from="sboxes_9" to="encrypted_counter_out_V" fromId="151" toId="62">
+</dataflow>
+<dataflow id="663" from="sboxes_10" to="encrypted_counter_out_V" fromId="152" toId="62">
+</dataflow>
+<dataflow id="664" from="sboxes_11" to="encrypted_counter_out_V" fromId="153" toId="62">
+</dataflow>
+<dataflow id="665" from="sboxes_12" to="encrypted_counter_out_V" fromId="154" toId="62">
+</dataflow>
+<dataflow id="666" from="sboxes_13" to="encrypted_counter_out_V" fromId="155" toId="62">
+</dataflow>
+<dataflow id="667" from="sboxes_14" to="encrypted_counter_out_V" fromId="156" toId="62">
+</dataflow>
+<dataflow id="668" from="sboxes_15" to="encrypted_counter_out_V" fromId="157" toId="62">
+</dataflow>
+<dataflow id="669" from="sboxes_16" to="encrypted_counter_out_V" fromId="158" toId="62">
+</dataflow>
+<dataflow id="670" from="sboxes_17" to="encrypted_counter_out_V" fromId="159" toId="62">
+</dataflow>
+<dataflow id="671" from="sboxes_18" to="encrypted_counter_out_V" fromId="160" toId="62">
+</dataflow>
+<dataflow id="672" from="sboxes_19" to="encrypted_counter_out_V" fromId="161" toId="62">
+</dataflow>
+<dataflow id="673" from="encrypt_iterations" to="tmp" fromId="33" toId="63">
+</dataflow>
+<dataflow id="674" from="data_in_V" to="data_in_V_addr" fromId="137" toId="64">
+</dataflow>
+<dataflow id="676" from="stg_675" to="data_in_V_addr" fromId="675" toId="64">
+</dataflow>
+<dataflow id="677" from="tmp" to="data_in_V_addr" fromId="63" toId="64">
+</dataflow>
+<dataflow id="678" from="data_in_V_addr" to="rhs_V" fromId="64" toId="65">
+</dataflow>
+<dataflow id="679" from="data_in_V_addr" to="rhs_V" fromId="64" toId="66">
+</dataflow>
+<dataflow id="680" from="rhs_V" to="r_V_15" fromId="66" toId="67">
+</dataflow>
+<dataflow id="681" from="encrypted_counter_out_V" to="r_V_15" fromId="62" toId="67">
+</dataflow>
+<dataflow id="682" from="data_out_V" to="data_out_V_addr" fromId="138" toId="68">
+</dataflow>
+<dataflow id="683" from="stg_675" to="data_out_V_addr" fromId="675" toId="68">
+</dataflow>
+<dataflow id="684" from="tmp" to="data_out_V_addr" fromId="63" toId="68">
+</dataflow>
+<dataflow id="685" from="r_V_15" to="stg_69" fromId="67" toId="69">
+</dataflow>
+<dataflow id="686" from="data_out_V_addr" to="stg_69" fromId="68" toId="69">
+</dataflow>
+<dataflow id="687" from="encrypt_read" to="stg_70" fromId="26" toId="70">
+</dataflow>
+<dataflow id="688" from="rhs_V" to="r_V" fromId="66" toId="71">
+</dataflow>
+<dataflow id="689" from="lhs_V_3" to="r_V" fromId="32" toId="71">
+</dataflow>
+<dataflow id="690" from="r_V_15" to="r_V_16" fromId="67" toId="73">
+</dataflow>
+<dataflow id="691" from="lhs_V_3" to="r_V_16" fromId="32" toId="73">
+</dataflow>
+<dataflow id="692" from="stg_178" to="agg_result_V_i_i3" fromId="178" toId="75">
+<condition id="109">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="693" from="stg_72" to="agg_result_V_i_i3" fromId="72" toId="75">
+</dataflow>
+<dataflow id="694" from="agg_result_V_0_r_V_i_i1" to="agg_result_V_i_i3" fromId="86" toId="75">
+<BackEdge/>
+<condition id="110">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="695" from="stg_90" to="agg_result_V_i_i3" fromId="90" toId="75">
+<BackEdge/>
+</dataflow>
+<dataflow id="696" from="stg_178" to="lhs_V_5" fromId="178" toId="76">
+<condition id="111">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="697" from="stg_72" to="lhs_V_5" fromId="72" toId="76">
+</dataflow>
+<dataflow id="698" from="lhs_V_r_V_i_i1" to="lhs_V_5" fromId="87" toId="76">
+<BackEdge/>
+<condition id="112">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="699" from="stg_90" to="lhs_V_5" fromId="90" toId="76">
+<BackEdge/>
+</dataflow>
+<dataflow id="700" from="r_V" to="rhs_V_4" fromId="71" toId="77">
+<condition id="113">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="701" from="stg_72" to="rhs_V_4" fromId="72" toId="77">
+</dataflow>
+<dataflow id="702" from="r_V_13" to="rhs_V_4" fromId="89" toId="77">
+<BackEdge/>
+<condition id="114">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="703" from="stg_90" to="rhs_V_4" fromId="90" toId="77">
+<BackEdge/>
+</dataflow>
+<dataflow id="705" from="stg_704" to="i_assign_1" fromId="704" toId="78">
+<condition id="115">
+<or_exp><and_exp><literal name="encrypt_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="706" from="stg_72" to="i_assign_1" fromId="72" toId="78">
+</dataflow>
+<dataflow id="707" from="i_4" to="i_assign_1" fromId="82" toId="78">
+<BackEdge/>
+<condition id="116">
+<or_exp><and_exp><literal name="exitcond_i_i7" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="708" from="stg_90" to="i_assign_1" fromId="90" toId="78">
+<BackEdge/>
+</dataflow>
+<dataflow id="709" from="i_assign_1" to="i_assign_1_cast1" fromId="78" toId="79">
+</dataflow>
+<dataflow id="710" from="i_assign_1" to="exitcond_i_i7" fromId="78" toId="80">
+</dataflow>
+<dataflow id="712" from="stg_711" to="exitcond_i_i7" fromId="711" toId="80">
+</dataflow>
+<dataflow id="713" from="_ssdm_op_SpecLoopTripCount" to="empty_10" fromId="195" toId="81">
+</dataflow>
+<dataflow id="715" from="stg_714" to="empty_10" fromId="714" toId="81">
+</dataflow>
+<dataflow id="716" from="stg_714" to="empty_10" fromId="714" toId="81">
+</dataflow>
+<dataflow id="717" from="stg_714" to="empty_10" fromId="714" toId="81">
+</dataflow>
+<dataflow id="718" from="i_assign_1" to="i_4" fromId="78" toId="82">
+</dataflow>
+<dataflow id="720" from="stg_719" to="i_4" fromId="719" toId="82">
+</dataflow>
+<dataflow id="721" from="exitcond_i_i7" to="stg_83" fromId="80" toId="83">
+</dataflow>
+<dataflow id="723" from="_ssdm_op_BitSelect.i1.i128.i32" to="tmp_8" fromId="722" toId="84">
+</dataflow>
+<dataflow id="724" from="hash_key_V_read" to="tmp_8" fromId="27" toId="84">
+</dataflow>
+<dataflow id="725" from="i_assign_1_cast1" to="tmp_8" fromId="79" toId="84">
+</dataflow>
+<dataflow id="726" from="lhs_V_5" to="z_V_1" fromId="76" toId="85">
+</dataflow>
+<dataflow id="727" from="rhs_V_4" to="z_V_1" fromId="77" toId="85">
+</dataflow>
+<dataflow id="728" from="tmp_8" to="agg_result_V_0_r_V_i_i1" fromId="84" toId="86">
+</dataflow>
+<dataflow id="729" from="z_V_1" to="agg_result_V_0_r_V_i_i1" fromId="85" toId="86">
+</dataflow>
+<dataflow id="730" from="agg_result_V_i_i3" to="agg_result_V_0_r_V_i_i1" fromId="75" toId="86">
+</dataflow>
+<dataflow id="731" from="tmp_8" to="lhs_V_r_V_i_i1" fromId="84" toId="87">
+</dataflow>
+<dataflow id="732" from="z_V_1" to="lhs_V_r_V_i_i1" fromId="85" toId="87">
+</dataflow>
+<dataflow id="733" from="lhs_V_5" to="lhs_V_r_V_i_i1" fromId="76" toId="87">
+</dataflow>
+<dataflow id="735" from="_ssdm_op_PartSelect.i127.i128.i32.i32" to="r_V_8" fromId="734" toId="88">
+</dataflow>
+<dataflow id="736" from="rhs_V_4" to="r_V_8" fromId="77" toId="88">
+</dataflow>
+<dataflow id="738" from="stg_737" to="r_V_8" fromId="737" toId="88">
+</dataflow>
+<dataflow id="740" from="stg_739" to="r_V_8" fromId="739" toId="88">
+</dataflow>
+<dataflow id="741" from="r_V_8" to="r_V_13" fromId="88" toId="89">
+</dataflow>
+<dataflow id="742" from="stg_178" to="agg_result_V_i_i" fromId="178" toId="91">
+<condition id="117">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="743" from="stg_74" to="agg_result_V_i_i" fromId="74" toId="91">
+</dataflow>
+<dataflow id="744" from="agg_result_V_0_r_V_i_i" to="agg_result_V_i_i" fromId="102" toId="91">
+<BackEdge/>
+<condition id="118">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="745" from="stg_106" to="agg_result_V_i_i" fromId="106" toId="91">
+<BackEdge/>
+</dataflow>
+<dataflow id="746" from="stg_178" to="lhs_V_4" fromId="178" toId="92">
+<condition id="119">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="747" from="stg_74" to="lhs_V_4" fromId="74" toId="92">
+</dataflow>
+<dataflow id="748" from="lhs_V_r_V_i_i" to="lhs_V_4" fromId="103" toId="92">
+<BackEdge/>
+<condition id="120">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="749" from="stg_106" to="lhs_V_4" fromId="106" toId="92">
+<BackEdge/>
+</dataflow>
+<dataflow id="750" from="r_V_16" to="rhs_V_3" fromId="73" toId="93">
+<condition id="121">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="751" from="stg_74" to="rhs_V_3" fromId="74" toId="93">
+</dataflow>
+<dataflow id="752" from="r_V_11" to="rhs_V_3" fromId="105" toId="93">
+<BackEdge/>
+<condition id="122">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="753" from="stg_106" to="rhs_V_3" fromId="106" toId="93">
+<BackEdge/>
+</dataflow>
+<dataflow id="754" from="stg_704" to="i_assign" fromId="704" toId="94">
+<condition id="123">
+<or_exp><and_exp><literal name="encrypt_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="755" from="stg_74" to="i_assign" fromId="74" toId="94">
+</dataflow>
+<dataflow id="756" from="i" to="i_assign" fromId="98" toId="94">
+<BackEdge/>
+<condition id="124">
+<or_exp><and_exp><literal name="exitcond_i_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="757" from="stg_106" to="i_assign" fromId="106" toId="94">
+<BackEdge/>
+</dataflow>
+<dataflow id="758" from="i_assign" to="i_assign_cast2" fromId="94" toId="95">
+</dataflow>
+<dataflow id="759" from="i_assign" to="exitcond_i_i" fromId="94" toId="96">
+</dataflow>
+<dataflow id="760" from="stg_711" to="exitcond_i_i" fromId="711" toId="96">
+</dataflow>
+<dataflow id="761" from="_ssdm_op_SpecLoopTripCount" to="empty_9" fromId="195" toId="97">
+</dataflow>
+<dataflow id="762" from="stg_714" to="empty_9" fromId="714" toId="97">
+</dataflow>
+<dataflow id="763" from="stg_714" to="empty_9" fromId="714" toId="97">
+</dataflow>
+<dataflow id="764" from="stg_714" to="empty_9" fromId="714" toId="97">
+</dataflow>
+<dataflow id="765" from="i_assign" to="i" fromId="94" toId="98">
+</dataflow>
+<dataflow id="766" from="stg_719" to="i" fromId="719" toId="98">
+</dataflow>
+<dataflow id="767" from="exitcond_i_i" to="stg_99" fromId="96" toId="99">
+</dataflow>
+<dataflow id="768" from="_ssdm_op_BitSelect.i1.i128.i32" to="tmp_7" fromId="722" toId="100">
+</dataflow>
+<dataflow id="769" from="hash_key_V_read" to="tmp_7" fromId="27" toId="100">
+</dataflow>
+<dataflow id="770" from="i_assign_cast2" to="tmp_7" fromId="95" toId="100">
+</dataflow>
+<dataflow id="771" from="lhs_V_4" to="z_V" fromId="92" toId="101">
+</dataflow>
+<dataflow id="772" from="rhs_V_3" to="z_V" fromId="93" toId="101">
+</dataflow>
+<dataflow id="773" from="tmp_7" to="agg_result_V_0_r_V_i_i" fromId="100" toId="102">
+</dataflow>
+<dataflow id="774" from="z_V" to="agg_result_V_0_r_V_i_i" fromId="101" toId="102">
+</dataflow>
+<dataflow id="775" from="agg_result_V_i_i" to="agg_result_V_0_r_V_i_i" fromId="91" toId="102">
+</dataflow>
+<dataflow id="776" from="tmp_7" to="lhs_V_r_V_i_i" fromId="100" toId="103">
+</dataflow>
+<dataflow id="777" from="z_V" to="lhs_V_r_V_i_i" fromId="101" toId="103">
+</dataflow>
+<dataflow id="778" from="lhs_V_4" to="lhs_V_r_V_i_i" fromId="92" toId="103">
+</dataflow>
+<dataflow id="779" from="_ssdm_op_PartSelect.i127.i128.i32.i32" to="r_V_6" fromId="734" toId="104">
+</dataflow>
+<dataflow id="780" from="rhs_V_3" to="r_V_6" fromId="93" toId="104">
+</dataflow>
+<dataflow id="781" from="stg_737" to="r_V_6" fromId="737" toId="104">
+</dataflow>
+<dataflow id="782" from="stg_739" to="r_V_6" fromId="739" toId="104">
+</dataflow>
+<dataflow id="783" from="r_V_6" to="r_V_11" fromId="104" toId="105">
+</dataflow>
+<dataflow id="784" from="exitcond" to="stg_2" fromId="34" toId="2">
+</dataflow>
+<dataflow id="785" from="encrypt_read" to="stg_23" fromId="26" toId="23">
+</dataflow>
+<dataflow id="786" from="exitcond_i_i7" to="stg_24" fromId="80" toId="24">
+</dataflow>
+<dataflow id="787" from="exitcond_i_i" to="stg_25" fromId="96" toId="25">
+</dataflow>
+</dataflows>
+
+
+</stg>

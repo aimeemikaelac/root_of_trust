@@ -1,0 +1,193 @@
+
+
+================================================================
+== Vivado HLS Report for 'load_3'
+================================================================
+* Date:           Fri Jun  2 12:27:11 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      1.79|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    3|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 0.68ns
+ST_1: in_offset_read (4)  [1/1] 0.00ns
+:1  %in_offset_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %in_offset)
+
+ST_1: in_offset_cast2 (5)  [1/1] 0.00ns
+:2  %in_offset_cast2 = zext i7 %in_offset_read to i64
+
+ST_1: in_addr (6)  [1/1] 0.00ns
+:3  %in_addr = getelementptr [64 x i8]* %in_r, i64 0, i64 %in_offset_cast2
+
+ST_1: in_load (7)  [2/2] 0.68ns  loc: ed25519/src/sc.cpp:7
+:4  %in_load = load i8* %in_addr, align 1
+
+ST_1: tmp_1375 (8)  [1/1] 0.00ns
+:5  %tmp_1375 = trunc i7 %in_offset_read to i6
+
+
+ <State 2>: 1.79ns
+ST_2: in_load (7)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:7
+:4  %in_load = load i8* %in_addr, align 1
+
+ST_2: sum (9)  [1/1] 1.11ns
+:6  %sum = add i6 1, %tmp_1375
+
+ST_2: sum_cast (10)  [1/1] 0.00ns
+:7  %sum_cast = zext i6 %sum to i64
+
+ST_2: in_addr_4 (11)  [1/1] 0.00ns  loc: ed25519/src/sc.cpp:8
+:8  %in_addr_4 = getelementptr [64 x i8]* %in_r, i64 0, i64 %sum_cast
+
+ST_2: in_load_4 (12)  [2/2] 0.68ns  loc: ed25519/src/sc.cpp:8
+:9  %in_load_4 = load i8* %in_addr_4, align 1
+
+
+ <State 3>: 1.79ns
+ST_3: in_load_4 (12)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:8
+:9  %in_load_4 = load i8* %in_addr_4, align 1
+
+ST_3: sum2 (13)  [1/1] 1.11ns
+:10  %sum2 = add i6 2, %tmp_1375
+
+ST_3: sum2_cast (14)  [1/1] 0.00ns
+:11  %sum2_cast = zext i6 %sum2 to i64
+
+ST_3: in_addr_5 (15)  [1/1] 0.00ns  loc: ed25519/src/sc.cpp:9
+:12  %in_addr_5 = getelementptr [64 x i8]* %in_r, i64 0, i64 %sum2_cast
+
+ST_3: in_load_5 (16)  [2/2] 0.68ns  loc: ed25519/src/sc.cpp:9
+:13  %in_load_5 = load i8* %in_addr_5, align 1
+
+
+ <State 4>: 0.68ns
+ST_4: empty (3)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_4: in_load_5 (16)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:9
+:13  %in_load_5 = load i8* %in_addr_5, align 1
+
+ST_4: tmp (17)  [1/1] 0.00ns  loc: ed25519/src/sc.cpp:9
+:14  %tmp = call i24 @_ssdm_op_BitConcatenate.i24.i8.i8.i8(i8 %in_load_5, i8 %in_load_4, i8 %in_load)
+
+ST_4: StgValue_23 (18)  [1/1] 0.00ns  loc: ed25519/src/sc.cpp:11
+:15  ret i24 %tmp
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.677ns
+The critical path consists of the following:
+	wire read on port 'in_offset' [4]  (0 ns)
+	'getelementptr' operation ('in_addr') [6]  (0 ns)
+	'load' operation ('in_load', ed25519/src/sc.cpp:7) on array 'in_r' [7]  (0.677 ns)
+
+ <State 2>: 1.79ns
+The critical path consists of the following:
+	'add' operation ('sum') [9]  (1.11 ns)
+	'getelementptr' operation ('in_addr_4', ed25519/src/sc.cpp:8) [11]  (0 ns)
+	'load' operation ('in_load_4', ed25519/src/sc.cpp:8) on array 'in_r' [12]  (0.677 ns)
+
+ <State 3>: 1.79ns
+The critical path consists of the following:
+	'add' operation ('sum2') [13]  (1.11 ns)
+	'getelementptr' operation ('in_addr_5', ed25519/src/sc.cpp:9) [15]  (0 ns)
+	'load' operation ('in_load_5', ed25519/src/sc.cpp:9) on array 'in_r' [16]  (0.677 ns)
+
+ <State 4>: 0.677ns
+The critical path consists of the following:
+	'load' operation ('in_load_5', ed25519/src/sc.cpp:9) on array 'in_r' [16]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

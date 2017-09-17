@@ -1,0 +1,155 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'secure_enclave_key_store_aes_gcm_d'" level="0">
+<item name = "Date">Sun Jan  8 14:28:58 2017
+</item>
+<item name = "Version">2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)</item>
+<item name = "Project">secure_enclave_key_store</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 7.87, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">619058, 619058, 619058, 619058, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_secure_enclave_key_store_aes_gcm_cipher_fu_144">secure_enclave_key_store_aes_gcm_cipher, 618497, 618497, 618497, 618497, none</column>
+<column name="grp_secure_enclave_key_store_aes_fu_197">secure_enclave_key_store_aes, 19, 19, 1, 1, function</column>
+<column name="grp_secure_enclave_key_store_ghash_iteration_fu_245">secure_enclave_key_store_ghash_iteration, 131, 131, 131, 131, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">128, 128, 1, -, -, 128, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 874</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">200, -, 6986, 22270</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 856</column>
+<column name="Register">-, -, 952, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">71, 0, 7, 45</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="grp_secure_enclave_key_store_aes_fu_197">secure_enclave_key_store_aes, 100, 0, 2420, 9202</column>
+<column name="grp_secure_enclave_key_store_aes_gcm_cipher_fu_144">secure_enclave_key_store_aes_gcm_cipher, 100, 0, 3788, 11904</column>
+<column name="grp_secure_enclave_key_store_ghash_iteration_fu_245">secure_enclave_key_store_ghash_iteration, 0, 0, 778, 1164</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_281_p2">+, 0, 0, 8, 8, 1</column>
+<column name="exitcond_i_i_i_fu_275_p2">icmp, 0, 0, 3, 8, 9</column>
+<column name="tmp_fu_335_p2">icmp, 0, 0, 43, 128, 128</column>
+<column name="agg_result_V_0_r_V_i_i_i_fu_300_p3">select, 0, 0, 128, 1, 128</column>
+<column name="lhs_V_r_V_i_i_i_fu_308_p3">select, 0, 0, 128, 1, 128</column>
+<column name="r_V_6_fu_266_p2">xor, 0, 0, 188, 128, 20</column>
+<column name="r_V_fu_330_p2">xor, 0, 0, 188, 128, 128</column>
+<column name="z_V_fu_294_p2">xor, 0, 0, 188, 128, 128</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">78, 45, 1, 45</column>
+<column name="ap_return">1, 2, 1, 2</column>
+<column name="ghash_final_out_V_reg_102">128, 2, 128, 256</column>
+<column name="grp_secure_enclave_key_store_aes_fu_197_ap_start">1, 2, 1, 2</column>
+<column name="grp_secure_enclave_key_store_aes_fu_197_inptext_V_read">128, 3, 128, 384</column>
+<column name="grp_secure_enclave_key_store_ghash_iteration_fu_245_d_V">128, 4, 128, 512</column>
+<column name="grp_secure_enclave_key_store_ghash_iteration_fu_245_x_prev_V">128, 3, 128, 384</column>
+<column name="i_assign_reg_133">8, 2, 8, 16</column>
+<column name="lhs_V_1_reg_113">128, 2, 128, 256</column>
+<column name="rhs_V_reg_124">128, 2, 128, 256</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">44, 0, 44, 0</column>
+<column name="ap_reg_grp_secure_enclave_key_store_aes_fu_197_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_secure_enclave_key_store_aes_gcm_cipher_fu_144_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_secure_enclave_key_store_ghash_iteration_fu_245_ap_start">1, 0, 1, 0</column>
+<column name="ap_return_preg">1, 0, 1, 0</column>
+<column name="encrypted_counter_zero_V_reg_368">128, 0, 128, 0</column>
+<column name="ghash_final_out_V_reg_102">128, 0, 128, 0</column>
+<column name="ghash_prev_V_reg_358">128, 0, 128, 0</column>
+<column name="hash_key_V_reg_346">128, 0, 128, 0</column>
+<column name="i_assign_reg_133">8, 0, 8, 0</column>
+<column name="lhs_V_1_reg_113">128, 0, 128, 0</column>
+<column name="reg_259">128, 0, 128, 0</column>
+<column name="rhs_V_reg_124">128, 0, 128, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="ap_return">out, 1, ap_ctrl_hs, secure_enclave_key_store_aes_gcm_d, return value</column>
+<column name="key_V">in, 128, ap_none, key_V, scalar</column>
+<column name="iv_V">in, 128, ap_none, iv_V, scalar</column>
+<column name="ct_V_address0">out, 8, ap_memory, ct_V, array</column>
+<column name="ct_V_ce0">out, 1, ap_memory, ct_V, array</column>
+<column name="ct_V_q0">in, 128, ap_memory, ct_V, array</column>
+<column name="pt_V_address0">out, 8, ap_memory, pt_V, array</column>
+<column name="pt_V_ce0">out, 1, ap_memory, pt_V, array</column>
+<column name="pt_V_we0">out, 1, ap_memory, pt_V, array</column>
+<column name="pt_V_d0">out, 128, ap_memory, pt_V, array</column>
+<column name="tag_in_V">in, 128, ap_none, tag_in_V, scalar</column>
+</table>
+</item>
+</section>
+</profile>

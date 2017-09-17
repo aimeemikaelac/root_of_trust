@@ -1,0 +1,19 @@
+
+
+Implementation tool: Xilinx Vivado v.2016.4
+Project:             secure_enclave_simple
+Solution:            solution1
+Device target:       xczu9eg-ffvb1156-2-i-es2
+Report date:         Tue Mar 14 21:30:19 MDT 2017
+
+#=== Post-Synthesis Resource usage ===
+SLICE:            0
+LUT:            650
+FF:             774
+DSP:              0
+BRAM:            16
+SRL:              0
+#=== Final timing ===
+CP required:    10.000
+CP achieved post-synthesis:    2.496
+Timing met

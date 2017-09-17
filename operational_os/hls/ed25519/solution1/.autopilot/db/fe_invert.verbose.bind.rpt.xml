@@ -1,0 +1,58 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'fe_invert'" level="0">
+<item name = "Date">Fri Jun  2 12:27:25 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">ed25519</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.18, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">34972, 34972, 34972, 34972, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_fe_mul_fu_2304">fe_mul, 200, 200, 200, 200, none</column>
+<column name="grp_fe_sq_fu_2305">fe_sq, 129, 129, 129, 129, none</column>
+<column name="grp_fe_mul_2_fu_2610">fe_mul_2, 198, 198, 198, 198, none</column>
+<column name="grp_fe_mul_1_fu_2684">fe_mul_1, 198, 198, 198, 198, none</column>
+<column name="grp_fe_sq_1_fu_2728">fe_sq_1, 127, 127, 127, 127, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">516, 516, 129, -, -, 4, no</column>
+<column name="- Loop 2">1161, 1161, 129, -, -, 9, no</column>
+<column name="- Loop 3">2451, 2451, 129, -, -, 19, no</column>
+<column name="- Loop 4">1161, 1161, 129, -, -, 9, no</column>
+<column name="- Loop 5">6321, 6321, 129, -, -, 49, no</column>
+<column name="- Loop 6">12771, 12771, 129, -, -, 99, no</column>
+<column name="- Loop 7">6321, 6321, 129, -, -, 49, no</column>
+<column name="- Loop 8">516, 516, 129, -, -, 4, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

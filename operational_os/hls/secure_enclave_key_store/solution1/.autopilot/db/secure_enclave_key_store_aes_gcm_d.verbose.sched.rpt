@@ -1,0 +1,538 @@
+
+
+================================================================
+== Vivado HLS Report for 'secure_enclave_key_store_aes_gcm_d'
+================================================================
+* Date:           Sun Jan  8 14:28:36 2017
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        secure_enclave_key_store
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.87|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  619058|  619058|  619058|  619058|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  128|  128|         1|          -|          -|   128|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 44
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	44  / (!exitcond_i_i_i)
+* FSM state operations: 
+
+ <State 1>: 3.44ns
+ST_1: key_V_read [1/1] 1.04ns
+:2  %key_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %key_V)
+
+ST_1: hash_key_V [20/20] 2.41ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 2>: 7.87ns
+ST_2: hash_key_V [19/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 3>: 7.87ns
+ST_3: hash_key_V [18/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 4>: 7.87ns
+ST_4: hash_key_V [17/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 5>: 7.87ns
+ST_5: hash_key_V [16/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 6>: 7.87ns
+ST_6: hash_key_V [15/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 7>: 7.87ns
+ST_7: hash_key_V [14/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 8>: 7.87ns
+ST_8: hash_key_V [13/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 9>: 7.87ns
+ST_9: hash_key_V [12/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 10>: 7.87ns
+ST_10: hash_key_V [11/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 11>: 7.87ns
+ST_11: hash_key_V [10/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 12>: 7.87ns
+ST_12: hash_key_V [9/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 13>: 7.87ns
+ST_13: hash_key_V [8/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 14>: 7.87ns
+ST_14: hash_key_V [7/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 15>: 7.87ns
+ST_15: hash_key_V [6/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 16>: 7.87ns
+ST_16: hash_key_V [5/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 17>: 7.87ns
+ST_17: hash_key_V [4/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 18>: 7.87ns
+ST_18: hash_key_V [3/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 19>: 7.87ns
+ST_19: hash_key_V [2/20] 7.87ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 20>: 6.50ns
+ST_20: hash_key_V [1/20] 6.50ns
+:3  %hash_key_V = call fastcc i128 @secure_enclave_key_store_aes(i128 0, i128 %key_V_read)
+
+
+ <State 21>: 3.98ns
+ST_21: ghash_2_V [2/2] 3.98ns
+:4  %ghash_2_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 0, i128 0)
+
+
+ <State 22>: 5.01ns
+ST_22: iv_V_read [1/1] 1.04ns
+:1  %iv_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %iv_V)
+
+ST_22: ghash_2_V [1/2] 0.00ns
+:4  %ghash_2_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 0, i128 0)
+
+ST_22: ghash_3_V [2/2] 3.98ns
+:5  %ghash_3_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 %iv_V_read, i128 %ghash_2_V)
+
+
+ <State 23>: 3.98ns
+ST_23: ghash_3_V [1/2] 0.00ns
+:5  %ghash_3_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 %iv_V_read, i128 %ghash_2_V)
+
+ST_23: ghash_out_V [2/2] 3.98ns
+:6  %ghash_out_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 2361183241434822606976, i128 %ghash_3_V)
+
+
+ <State 24>: 2.41ns
+ST_24: ghash_out_V [1/2] 0.00ns
+:6  %ghash_out_V = call fastcc i128 @secure_enclave_key_store_ghash_iteration(i128 %hash_key_V, i128 2361183241434822606976, i128 %ghash_3_V)
+
+ST_24: encrypted_counter_zero_V [20/20] 2.41ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+ST_24: ghash_prev_V [2/2] 1.57ns
+:8  %ghash_prev_V = call fastcc i128 @secure_enclave_key_store_aes_gcm_cipher(i128 %key_V_read, [256 x i128]* %ct_V, [256 x i128]* %pt_V, i128 %ghash_out_V, i128 %hash_key_V, i1 false)
+
+
+ <State 25>: 7.87ns
+ST_25: encrypted_counter_zero_V [19/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+ST_25: ghash_prev_V [1/2] 0.00ns
+:8  %ghash_prev_V = call fastcc i128 @secure_enclave_key_store_aes_gcm_cipher(i128 %key_V_read, [256 x i128]* %ct_V, [256 x i128]* %pt_V, i128 %ghash_out_V, i128 %hash_key_V, i1 false)
+
+
+ <State 26>: 7.87ns
+ST_26: encrypted_counter_zero_V [18/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 27>: 7.87ns
+ST_27: encrypted_counter_zero_V [17/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 28>: 7.87ns
+ST_28: encrypted_counter_zero_V [16/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 29>: 7.87ns
+ST_29: encrypted_counter_zero_V [15/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 30>: 7.87ns
+ST_30: encrypted_counter_zero_V [14/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 31>: 7.87ns
+ST_31: encrypted_counter_zero_V [13/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 32>: 7.87ns
+ST_32: encrypted_counter_zero_V [12/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 33>: 7.87ns
+ST_33: encrypted_counter_zero_V [11/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 34>: 7.87ns
+ST_34: encrypted_counter_zero_V [10/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 35>: 7.87ns
+ST_35: encrypted_counter_zero_V [9/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 36>: 7.87ns
+ST_36: encrypted_counter_zero_V [8/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 37>: 7.87ns
+ST_37: encrypted_counter_zero_V [7/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 38>: 7.87ns
+ST_38: encrypted_counter_zero_V [6/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 39>: 7.87ns
+ST_39: encrypted_counter_zero_V [5/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 40>: 7.87ns
+ST_40: encrypted_counter_zero_V [4/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 41>: 7.87ns
+ST_41: encrypted_counter_zero_V [3/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 42>: 7.87ns
+ST_42: encrypted_counter_zero_V [2/20] 7.87ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+
+ <State 43>: 6.50ns
+ST_43: tag_in_V_read [1/1] 1.04ns
+:0  %tag_in_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %tag_in_V)
+
+ST_43: encrypted_counter_zero_V [1/20] 6.50ns
+:7  %encrypted_counter_zero_V = call fastcc i128 @secure_enclave_key_store_aes(i128 %ghash_out_V, i128 %key_V_read)
+
+ST_43: r_V_6 [1/1] 1.37ns
+:9  %r_V_6 = xor i128 %ghash_prev_V, 524288
+
+ST_43: stg_97 [1/1] 1.57ns
+:10  br label %1
+
+
+ <State 44>: 3.33ns
+ST_44: ghash_final_out_V [1/1] 0.00ns
+:0  %ghash_final_out_V = phi i128 [ 0, %0 ], [ %agg_result_V_0_r_V_i_i_i, %._crit_edge.i.i.i ]
+
+ST_44: lhs_V_1 [1/1] 0.00ns
+:1  %lhs_V_1 = phi i128 [ 0, %0 ], [ %lhs_V_r_V_i_i_i, %._crit_edge.i.i.i ]
+
+ST_44: rhs_V [1/1] 0.00ns
+:2  %rhs_V = phi i128 [ %r_V_6, %0 ], [ %r_V_5, %._crit_edge.i.i.i ]
+
+ST_44: i_assign [1/1] 0.00ns
+:3  %i_assign = phi i8 [ 0, %0 ], [ %i, %._crit_edge.i.i.i ]
+
+ST_44: i_assign_cast1 [1/1] 0.00ns
+:4  %i_assign_cast1 = zext i8 %i_assign to i32
+
+ST_44: exitcond_i_i_i [1/1] 2.00ns
+:5  %exitcond_i_i_i = icmp eq i8 %i_assign, -128
+
+ST_44: empty [1/1] 0.00ns
+:6  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+ST_44: i [1/1] 1.72ns
+:7  %i = add i8 %i_assign, 1
+
+ST_44: stg_106 [1/1] 0.00ns
+:8  br i1 %exitcond_i_i_i, label %finalize_ghash.exit, label %._crit_edge.i.i.i
+
+ST_44: tmp_5 [1/1] 0.00ns
+._crit_edge.i.i.i:0  %tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i128.i32(i128 %hash_key_V, i32 %i_assign_cast1)
+
+ST_44: z_V [1/1] 1.37ns
+._crit_edge.i.i.i:1  %z_V = xor i128 %lhs_V_1, %rhs_V
+
+ST_44: agg_result_V_0_r_V_i_i_i [1/1] 1.37ns
+._crit_edge.i.i.i:2  %agg_result_V_0_r_V_i_i_i = select i1 %tmp_5, i128 %z_V, i128 %ghash_final_out_V
+
+ST_44: lhs_V_r_V_i_i_i [1/1] 1.37ns
+._crit_edge.i.i.i:3  %lhs_V_r_V_i_i_i = select i1 %tmp_5, i128 %z_V, i128 %lhs_V_1
+
+ST_44: r_V_3 [1/1] 0.00ns
+._crit_edge.i.i.i:4  %r_V_3 = call i127 @_ssdm_op_PartSelect.i127.i128.i32.i32(i128 %rhs_V, i32 1, i32 127)
+
+ST_44: r_V_5 [1/1] 0.00ns
+._crit_edge.i.i.i:5  %r_V_5 = zext i127 %r_V_3 to i128
+
+ST_44: stg_113 [1/1] 0.00ns
+._crit_edge.i.i.i:6  br label %1
+
+ST_44: r_V [1/1] 0.00ns (grouped into LUT with out node tmp)
+finalize_ghash.exit:0  %r_V = xor i128 %ghash_final_out_V, %encrypted_counter_zero_V
+
+ST_44: tmp [1/1] 3.33ns (out node of the LUT)
+finalize_ghash.exit:1  %tmp = icmp eq i128 %r_V, %tag_in_V_read
+
+ST_44: stg_116 [1/1] 0.00ns
+finalize_ghash.exit:2  ret i1 %tmp
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

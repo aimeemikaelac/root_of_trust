@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="secure_enclave_decryptor_main.cpp" path="/home/michael/xilinx_workspace/secure_enclave_decryptor/src/secure_enclave_decryptor_main.cpp"/>
+    <originFiles name="aes.cpp" path="/home/michael/xilinx_workspace/secure_enclave_decryptor/src/aes.cpp"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

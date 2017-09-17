@@ -1,0 +1,306 @@
+
+
+================================================================
+== Vivado HLS Report for 'secure_enclave_aes_cipher'
+================================================================
+* Date:           Tue Jan  3 17:34:29 2017
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        secure_enclave_decryptor
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.87|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   20|   20|   21|   21|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 21
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+* FSM state operations: 
+
+ <State 1>: 2.37ns
+ST_1: counter_V_read [1/1] 1.00ns
+:5  %counter_V_read = call i128 @_ssdm_op_Read.s_axilite.i128(i128 %counter_V)
+
+ST_1: data_in_V_read [1/1] 1.00ns
+:6  %data_in_V_read = call i128 @_ssdm_op_Read.s_axilite.i128(i128 %data_in_V)
+
+ST_1: key_V_read [1/1] 0.00ns
+:7  %key_V_read = call i128 @_ssdm_op_Read.ap_vld.i128(i128 %key_V)
+
+ST_1: temp_V [20/20] 1.37ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 2>: 7.87ns
+ST_2: temp_V [19/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 3>: 7.87ns
+ST_3: temp_V [18/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 4>: 7.87ns
+ST_4: temp_V [17/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 5>: 7.87ns
+ST_5: temp_V [16/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 6>: 7.87ns
+ST_6: temp_V [15/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 7>: 7.87ns
+ST_7: temp_V [14/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 8>: 7.87ns
+ST_8: temp_V [13/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 9>: 7.87ns
+ST_9: temp_V [12/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 10>: 7.87ns
+ST_10: temp_V [11/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 11>: 7.87ns
+ST_11: temp_V [10/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 12>: 7.87ns
+ST_12: temp_V [9/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 13>: 7.87ns
+ST_13: temp_V [8/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 14>: 7.87ns
+ST_14: temp_V [7/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 15>: 7.87ns
+ST_15: temp_V [6/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 16>: 7.87ns
+ST_16: temp_V [5/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 17>: 7.87ns
+ST_17: temp_V [4/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 18>: 7.87ns
+ST_18: temp_V [3/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 19>: 7.87ns
+ST_19: temp_V [2/20] 7.87ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+
+ <State 20>: 7.87ns
+ST_20: temp_V [1/20] 6.50ns
+:12  %temp_V = call fastcc i128 @secure_enclave_aes_cipher_aestest(i128 %counter_V_read, i128 %key_V_read)
+
+ST_20: r_V [1/1] 1.37ns
+:13  %r_V = xor i128 %temp_V, %data_in_V_read
+
+
+ <State 21>: 1.00ns
+ST_21: stg_46 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i128 %key_V), !map !58
+
+ST_21: stg_47 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i128 %data_in_V), !map !64
+
+ST_21: stg_48 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i128* %data_out_V), !map !68
+
+ST_21: stg_49 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i128 %counter_V), !map !74
+
+ST_21: stg_50 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([26 x i8]* @secure_enclave_aes_cipher_str) nounwind
+
+ST_21: stg_51 [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecInterface(i128 %counter_V, [10 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_21: stg_52 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecInterface(i128* %data_out_V, [10 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_21: stg_53 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecInterface(i128 %data_in_V, [10 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_21: stg_54 [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecInterface(i128 %key_V, [7 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_21: stg_55 [1/1] 1.00ns
+:14  call void @_ssdm_op_Write.s_axilite.i128P(i128* %data_out_V, i128 %r_V)
+
+ST_21: stg_56 [1/1] 0.00ns
+:15  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

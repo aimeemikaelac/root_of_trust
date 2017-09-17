@@ -1,0 +1,338 @@
+
+
+================================================================
+== Vivado HLS Report for 'ge_p1p1_to_p3'
+================================================================
+* Date:           Fri Jun  2 12:27:45 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.56|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  800|  800|  800|  800|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------+--------+-----+-----+-----+-----+---------+
+        |                   |        |  Latency  |  Interval | Pipeline|
+        |      Instance     | Module | min | max | min | max |   Type  |
+        +-------------------+--------+-----+-----+-----+-----+---------+
+        |grp_fe_mul_fu_348  |fe_mul  |  201|  201|  201|  201|   none  |
+        +-------------------+--------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      4|    8266|    2314|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     813|    -|
+|Register         |        -|      -|    2246|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      4|   10512|    3127|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|   ~0  |       1|       1|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------+--------+---------+-------+------+------+
+    |      Instance     | Module | BRAM_18K| DSP48E|  FF  |  LUT |
+    +-------------------+--------+---------+-------+------+------+
+    |grp_fe_mul_fu_348  |fe_mul  |        0|      4|  8266|  2314|
+    +-------------------+--------+---------+-------+------+------+
+    |Total              |        |        0|      4|  8266|  2314|
+    +-------------------+--------+---------+-------+------+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                   |  33|          6|    1|          6|
+    |ap_return_0                 |   9|          2|   32|         64|
+    |ap_return_1                 |   9|          2|   32|         64|
+    |ap_return_10                |   9|          2|   32|         64|
+    |ap_return_11                |   9|          2|   32|         64|
+    |ap_return_12                |   9|          2|   32|         64|
+    |ap_return_13                |   9|          2|   32|         64|
+    |ap_return_14                |   9|          2|   32|         64|
+    |ap_return_15                |   9|          2|   32|         64|
+    |ap_return_16                |   9|          2|   32|         64|
+    |ap_return_17                |   9|          2|   32|         64|
+    |ap_return_18                |   9|          2|   32|         64|
+    |ap_return_19                |   9|          2|   32|         64|
+    |ap_return_2                 |   9|          2|   32|         64|
+    |ap_return_20                |   9|          2|   32|         64|
+    |ap_return_21                |   9|          2|   32|         64|
+    |ap_return_22                |   9|          2|   32|         64|
+    |ap_return_23                |   9|          2|   32|         64|
+    |ap_return_24                |   9|          2|   32|         64|
+    |ap_return_25                |   9|          2|   32|         64|
+    |ap_return_26                |   9|          2|   32|         64|
+    |ap_return_27                |   9|          2|   32|         64|
+    |ap_return_28                |   9|          2|   32|         64|
+    |ap_return_29                |   9|          2|   32|         64|
+    |ap_return_3                 |   9|          2|   32|         64|
+    |ap_return_30                |   9|          2|   32|         64|
+    |ap_return_31                |   9|          2|   32|         64|
+    |ap_return_32                |   9|          2|   32|         64|
+    |ap_return_33                |   9|          2|   32|         64|
+    |ap_return_34                |   9|          2|   32|         64|
+    |ap_return_35                |   9|          2|   32|         64|
+    |ap_return_36                |   9|          2|   32|         64|
+    |ap_return_37                |   9|          2|   32|         64|
+    |ap_return_38                |   9|          2|   32|         64|
+    |ap_return_39                |   9|          2|   32|         64|
+    |ap_return_4                 |   9|          2|   32|         64|
+    |ap_return_5                 |   9|          2|   32|         64|
+    |ap_return_6                 |   9|          2|   32|         64|
+    |ap_return_7                 |   9|          2|   32|         64|
+    |ap_return_8                 |   9|          2|   32|         64|
+    |ap_return_9                 |   9|          2|   32|         64|
+    |grp_fe_mul_fu_348_f_0_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_1_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_2_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_3_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_4_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_5_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_6_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_7_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_8_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_f_9_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_0_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_1_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_2_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_3_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_4_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_5_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_6_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_7_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_8_read  |  21|          4|   32|        128|
+    |grp_fe_mul_fu_348_g_9_read  |  21|          4|   32|        128|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 813|        166| 1921|       5126|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------+----+----+-----+-----------+
+    |                Name               | FF | LUT| Bits| Const Bits|
+    +-----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                          |   5|   0|    5|          0|
+    |ap_reg_grp_fe_mul_fu_348_ap_start  |   1|   0|    1|          0|
+    |ap_return_0_preg                   |  32|   0|   32|          0|
+    |ap_return_10_preg                  |  32|   0|   32|          0|
+    |ap_return_11_preg                  |  32|   0|   32|          0|
+    |ap_return_12_preg                  |  32|   0|   32|          0|
+    |ap_return_13_preg                  |  32|   0|   32|          0|
+    |ap_return_14_preg                  |  32|   0|   32|          0|
+    |ap_return_15_preg                  |  32|   0|   32|          0|
+    |ap_return_16_preg                  |  32|   0|   32|          0|
+    |ap_return_17_preg                  |  32|   0|   32|          0|
+    |ap_return_18_preg                  |  32|   0|   32|          0|
+    |ap_return_19_preg                  |  32|   0|   32|          0|
+    |ap_return_1_preg                   |  32|   0|   32|          0|
+    |ap_return_20_preg                  |  32|   0|   32|          0|
+    |ap_return_21_preg                  |  32|   0|   32|          0|
+    |ap_return_22_preg                  |  32|   0|   32|          0|
+    |ap_return_23_preg                  |  32|   0|   32|          0|
+    |ap_return_24_preg                  |  32|   0|   32|          0|
+    |ap_return_25_preg                  |  32|   0|   32|          0|
+    |ap_return_26_preg                  |  32|   0|   32|          0|
+    |ap_return_27_preg                  |  32|   0|   32|          0|
+    |ap_return_28_preg                  |  32|   0|   32|          0|
+    |ap_return_29_preg                  |  32|   0|   32|          0|
+    |ap_return_2_preg                   |  32|   0|   32|          0|
+    |ap_return_30_preg                  |  32|   0|   32|          0|
+    |ap_return_31_preg                  |  32|   0|   32|          0|
+    |ap_return_32_preg                  |  32|   0|   32|          0|
+    |ap_return_33_preg                  |  32|   0|   32|          0|
+    |ap_return_34_preg                  |  32|   0|   32|          0|
+    |ap_return_35_preg                  |  32|   0|   32|          0|
+    |ap_return_36_preg                  |  32|   0|   32|          0|
+    |ap_return_37_preg                  |  32|   0|   32|          0|
+    |ap_return_38_preg                  |  32|   0|   32|          0|
+    |ap_return_39_preg                  |  32|   0|   32|          0|
+    |ap_return_3_preg                   |  32|   0|   32|          0|
+    |ap_return_4_preg                   |  32|   0|   32|          0|
+    |ap_return_5_preg                   |  32|   0|   32|          0|
+    |ap_return_6_preg                   |  32|   0|   32|          0|
+    |ap_return_7_preg                   |  32|   0|   32|          0|
+    |ap_return_8_preg                   |  32|   0|   32|          0|
+    |ap_return_9_preg                   |  32|   0|   32|          0|
+    |r_X_1_reg_963                      |  32|   0|   32|          0|
+    |r_X_2_reg_968                      |  32|   0|   32|          0|
+    |r_X_3_reg_973                      |  32|   0|   32|          0|
+    |r_X_4_reg_978                      |  32|   0|   32|          0|
+    |r_X_5_reg_983                      |  32|   0|   32|          0|
+    |r_X_6_reg_988                      |  32|   0|   32|          0|
+    |r_X_7_reg_993                      |  32|   0|   32|          0|
+    |r_X_8_reg_998                      |  32|   0|   32|          0|
+    |r_X_9_reg_1003                     |  32|   0|   32|          0|
+    |r_X_reg_958                        |  32|   0|   32|          0|
+    |r_Y_1_reg_1013                     |  32|   0|   32|          0|
+    |r_Y_2_reg_1018                     |  32|   0|   32|          0|
+    |r_Y_3_reg_1023                     |  32|   0|   32|          0|
+    |r_Y_4_reg_1028                     |  32|   0|   32|          0|
+    |r_Y_5_reg_1033                     |  32|   0|   32|          0|
+    |r_Y_6_reg_1038                     |  32|   0|   32|          0|
+    |r_Y_7_reg_1043                     |  32|   0|   32|          0|
+    |r_Y_8_reg_1048                     |  32|   0|   32|          0|
+    |r_Y_9_reg_1053                     |  32|   0|   32|          0|
+    |r_Y_reg_1008                       |  32|   0|   32|          0|
+    |r_Z_1_reg_1063                     |  32|   0|   32|          0|
+    |r_Z_2_reg_1068                     |  32|   0|   32|          0|
+    |r_Z_3_reg_1073                     |  32|   0|   32|          0|
+    |r_Z_4_reg_1078                     |  32|   0|   32|          0|
+    |r_Z_5_reg_1083                     |  32|   0|   32|          0|
+    |r_Z_6_reg_1088                     |  32|   0|   32|          0|
+    |r_Z_7_reg_1093                     |  32|   0|   32|          0|
+    |r_Z_8_reg_1098                     |  32|   0|   32|          0|
+    |r_Z_9_reg_1103                     |  32|   0|   32|          0|
+    |r_Z_reg_1058                       |  32|   0|   32|          0|
+    +-----------------------------------+----+----+-----+-----------+
+    |Total                              |2246|   0| 2246|          0|
+    +-----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------+-----+-----+------------+---------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  | Source Object |    C Type    |
++--------------+-----+-----+------------+---------------+--------------+
+|ap_clk        |  in |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_rst        |  in |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_start      |  in |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_done       | out |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_idle       | out |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_ready      | out |    1| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_0   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_1   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_2   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_3   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_4   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_5   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_6   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_7   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_8   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_9   | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_10  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_11  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_12  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_13  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_14  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_15  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_16  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_17  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_18  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_19  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_20  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_21  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_22  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_23  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_24  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_25  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_26  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_27  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_28  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_29  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_30  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_31  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_32  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_33  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_34  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_35  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_36  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_37  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_38  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|ap_return_39  | out |   32| ap_ctrl_hs | ge_p1p1_to_p3 | return value |
+|p_read        |  in |   32|   ap_none  |     p_read    |    scalar    |
+|p_read1       |  in |   32|   ap_none  |    p_read1    |    scalar    |
+|p_read2       |  in |   32|   ap_none  |    p_read2    |    scalar    |
+|p_read3       |  in |   32|   ap_none  |    p_read3    |    scalar    |
+|p_read4       |  in |   32|   ap_none  |    p_read4    |    scalar    |
+|p_read5       |  in |   32|   ap_none  |    p_read5    |    scalar    |
+|p_read6       |  in |   32|   ap_none  |    p_read6    |    scalar    |
+|p_read7       |  in |   32|   ap_none  |    p_read7    |    scalar    |
+|p_read8       |  in |   32|   ap_none  |    p_read8    |    scalar    |
+|p_read9       |  in |   32|   ap_none  |    p_read9    |    scalar    |
+|p_read10      |  in |   32|   ap_none  |    p_read10   |    scalar    |
+|p_read11      |  in |   32|   ap_none  |    p_read11   |    scalar    |
+|p_read12      |  in |   32|   ap_none  |    p_read12   |    scalar    |
+|p_read13      |  in |   32|   ap_none  |    p_read13   |    scalar    |
+|p_read14      |  in |   32|   ap_none  |    p_read14   |    scalar    |
+|p_read15      |  in |   32|   ap_none  |    p_read15   |    scalar    |
+|p_read16      |  in |   32|   ap_none  |    p_read16   |    scalar    |
+|p_read17      |  in |   32|   ap_none  |    p_read17   |    scalar    |
+|p_read18      |  in |   32|   ap_none  |    p_read18   |    scalar    |
+|p_read19      |  in |   32|   ap_none  |    p_read19   |    scalar    |
+|p_read20      |  in |   32|   ap_none  |    p_read20   |    scalar    |
+|p_read21      |  in |   32|   ap_none  |    p_read21   |    scalar    |
+|p_read22      |  in |   32|   ap_none  |    p_read22   |    scalar    |
+|p_read23      |  in |   32|   ap_none  |    p_read23   |    scalar    |
+|p_read24      |  in |   32|   ap_none  |    p_read24   |    scalar    |
+|p_read25      |  in |   32|   ap_none  |    p_read25   |    scalar    |
+|p_read26      |  in |   32|   ap_none  |    p_read26   |    scalar    |
+|p_read27      |  in |   32|   ap_none  |    p_read27   |    scalar    |
+|p_read28      |  in |   32|   ap_none  |    p_read28   |    scalar    |
+|p_read29      |  in |   32|   ap_none  |    p_read29   |    scalar    |
+|p_read30      |  in |   32|   ap_none  |    p_read30   |    scalar    |
+|p_read31      |  in |   32|   ap_none  |    p_read31   |    scalar    |
+|p_read32      |  in |   32|   ap_none  |    p_read32   |    scalar    |
+|p_read33      |  in |   32|   ap_none  |    p_read33   |    scalar    |
+|p_read34      |  in |   32|   ap_none  |    p_read34   |    scalar    |
+|p_read35      |  in |   32|   ap_none  |    p_read35   |    scalar    |
+|p_read36      |  in |   32|   ap_none  |    p_read36   |    scalar    |
+|p_read37      |  in |   32|   ap_none  |    p_read37   |    scalar    |
+|p_read38      |  in |   32|   ap_none  |    p_read38   |    scalar    |
+|p_read39      |  in |   32|   ap_none  |    p_read39   |    scalar    |
++--------------+-----+-----+------------+---------------+--------------+
+

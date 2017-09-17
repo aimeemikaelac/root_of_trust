@@ -1,0 +1,8 @@
+   Compiling ../../../src/secure_enclave_key_store_tb.cpp in debug mode
+   Compiling ../../../src/secure_enclave_key_store_main.cpp in debug mode
+csim.mk:82: recipe for target 'obj/secure_enclave_key_store_main.o' failed
+../../../src/secure_enclave_key_store_main.cpp:338:28: error: variable or field ‘ap_uint_to_char_array’ declared void
+../../../src/secure_enclave_key_store_main.cpp:338:36: error: missing template arguments before ‘in’
+../../../src/secure_enclave_key_store_main.cpp:338:40: error: expected primary-expression before ‘unsigned’
+make: *** [obj/secure_enclave_key_store_main.o] Error 1
+CRITICAL WARNING: [SIM 1] CSim file generation failed: compilation error(s).

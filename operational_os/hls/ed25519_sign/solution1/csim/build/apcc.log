@@ -1,0 +1,9 @@
+INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'michael' on host 'Alienware' (Linux_x86_64 version 4.10.0-21-generic) on Thu Jun 01 21:48:47 MDT 2017
+INFO: [HLS 200-10] On os Ubuntu 17.04
+INFO: [HLS 200-10] In directory '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/solution1/csim/build'
+ERROR: [APCC 202-3] Gcc Compile failed: 
+/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:
+/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp:110270:25: error: expected ‘)’ before string constant
+ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/144791496375327575154
+ERROR: [APCC 202-1] APCC failed.

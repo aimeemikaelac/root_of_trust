@@ -1,0 +1,491 @@
+
+
+================================================================
+== Vivado HLS Report for 'sha256_mem'
+================================================================
+* Date:           Sat May  6 21:35:29 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        sha256_mem
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-1-i-es1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.75|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+------------+-----------+-----------+------+----------+
+        |             |  Latency  |  Iteration |  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |   Latency  |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+------------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?| 645 ~ 3131 |          -|          -|     ?|    no    |
+        | + Loop 1.1  |  640|  640|          10|          -|          -|    64|    no    |
+        +-------------+-----+-----+------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 17
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	17  / (exitcond2)
+	6  / (!exitcond2)
+6 --> 
+	7  / (!exitcond)
+	16  / (exitcond)
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	6  / true
+16 --> 
+	5  / true
+17 --> 
+* FSM state operations: 
+
+ <State 1>: 0.79ns
+ST_1: data_buffer (15)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:137
+:8  %data_buffer = alloca [64 x i8], align 16
+
+ST_1: cipher_m_block (16)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:139
+:9  %cipher_m_block = alloca [128 x i8], align 1
+
+ST_1: cipher_m_h (17)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:139
+:10  %cipher_m_h = alloca [8 x i32], align 4
+
+ST_1: cipher_m_h_addr (25)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:75->sha256_mem/src/sha256_mem.cpp:141
+:18  %cipher_m_h_addr = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 0
+
+ST_1: StgValue_22 (26)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:75->sha256_mem/src/sha256_mem.cpp:141
+:19  store i32 1779033703, i32* %cipher_m_h_addr, align 4
+
+ST_1: cipher_m_h_addr_1 (27)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:76->sha256_mem/src/sha256_mem.cpp:141
+:20  %cipher_m_h_addr_1 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 1
+
+ST_1: StgValue_24 (28)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:76->sha256_mem/src/sha256_mem.cpp:141
+:21  store i32 -1150833019, i32* %cipher_m_h_addr_1, align 4
+
+
+ <State 2>: 0.79ns
+ST_2: cipher_m_h_addr_2 (29)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:77->sha256_mem/src/sha256_mem.cpp:141
+:22  %cipher_m_h_addr_2 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 2
+
+ST_2: StgValue_26 (30)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:77->sha256_mem/src/sha256_mem.cpp:141
+:23  store i32 1013904242, i32* %cipher_m_h_addr_2, align 4
+
+ST_2: cipher_m_h_addr_3 (31)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:78->sha256_mem/src/sha256_mem.cpp:141
+:24  %cipher_m_h_addr_3 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 3
+
+ST_2: StgValue_28 (32)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:78->sha256_mem/src/sha256_mem.cpp:141
+:25  store i32 -1521486534, i32* %cipher_m_h_addr_3, align 4
+
+
+ <State 3>: 0.79ns
+ST_3: cipher_m_h_addr_4 (33)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:79->sha256_mem/src/sha256_mem.cpp:141
+:26  %cipher_m_h_addr_4 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 4
+
+ST_3: StgValue_30 (34)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:79->sha256_mem/src/sha256_mem.cpp:141
+:27  store i32 1359893119, i32* %cipher_m_h_addr_4, align 4
+
+ST_3: cipher_m_h_addr_5 (35)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:80->sha256_mem/src/sha256_mem.cpp:141
+:28  %cipher_m_h_addr_5 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 5
+
+ST_3: StgValue_32 (36)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:80->sha256_mem/src/sha256_mem.cpp:141
+:29  store i32 -1694144372, i32* %cipher_m_h_addr_5, align 4
+
+
+ <State 4>: 0.79ns
+ST_4: StgValue_33 (7)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i8* %mem), !map !38
+
+ST_4: StgValue_34 (8)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32 %message_addr) nounwind, !map !44
+
+ST_4: StgValue_35 (9)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %num_blocks) nounwind, !map !50
+
+ST_4: StgValue_36 (10)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap([32 x i8]* %digest_out) nounwind, !map !54
+
+ST_4: StgValue_37 (11)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i1* %digest_valid) nounwind, !map !60
+
+ST_4: StgValue_38 (12)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @sha256_mem_str) nounwind
+
+ST_4: num_blocks_read (13)  [1/1] 0.00ns
+:6  %num_blocks_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %num_blocks)
+
+ST_4: message_addr_read (14)  [1/1] 0.00ns
+:7  %message_addr_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %message_addr)
+
+ST_4: StgValue_41 (18)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:130
+:11  call void (...)* @_ssdm_op_SpecInterface(i1* %digest_valid, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: StgValue_42 (19)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecInterface([32 x i8]* %digest_out, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: StgValue_43 (20)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:132
+:13  call void (...)* @_ssdm_op_SpecInterface(i32 %message_addr, [7 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: StgValue_44 (21)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:133
+:14  call void (...)* @_ssdm_op_SpecInterface(i32 %message_addr, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: StgValue_45 (22)  [1/1] 0.00ns
+:15  call void (...)* @_ssdm_op_SpecInterface(i8* %mem, [6 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 131072, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_4: StgValue_46 (23)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:135
+:16  call void (...)* @_ssdm_op_SpecInterface(i32 %num_blocks, [7 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: StgValue_47 (24)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:136
+:17  call void (...)* @_ssdm_op_SpecInterface(i32 %num_blocks, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_4: cipher_m_h_addr_6 (37)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:81->sha256_mem/src/sha256_mem.cpp:141
+:30  %cipher_m_h_addr_6 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 6
+
+ST_4: StgValue_49 (38)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:81->sha256_mem/src/sha256_mem.cpp:141
+:31  store i32 528734635, i32* %cipher_m_h_addr_6, align 4
+
+ST_4: cipher_m_h_addr_7 (39)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:82->sha256_mem/src/sha256_mem.cpp:141
+:32  %cipher_m_h_addr_7 = getelementptr [8 x i32]* %cipher_m_h, i64 0, i64 7
+
+ST_4: StgValue_51 (40)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:82->sha256_mem/src/sha256_mem.cpp:141
+:33  store i32 1541459225, i32* %cipher_m_h_addr_7, align 4
+
+ST_4: StgValue_52 (41)  [1/1] 0.76ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:34  br label %1
+
+
+ <State 5>: 2.42ns
+ST_5: cipher_m_len (43)  [1/1] 0.00ns
+:0  %cipher_m_len = phi i32 [ 0, %0 ], [ %cipher_m_len_1, %5 ]
+
+ST_5: cipher_m_tot_len (44)  [1/1] 0.00ns
+:1  %cipher_m_tot_len = phi i32 [ 0, %0 ], [ %cipher_m_tot_len_1, %5 ]
+
+ST_5: indvars_iv (45)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:2  %indvars_iv = phi i32 [ 64, %0 ], [ %indvars_iv_next, %5 ]
+
+ST_5: block_counter (46)  [1/1] 0.00ns
+:3  %block_counter = phi i32 [ 0, %0 ], [ %block_counter_1, %5 ]
+
+ST_5: data_index (47)  [1/1] 0.00ns
+:4  %data_index = phi i32 [ 0, %0 ], [ %data_index_2, %5 ]
+
+ST_5: exitcond2 (48)  [1/1] 0.72ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:5  %exitcond2 = icmp eq i32 %block_counter, %num_blocks_read
+
+ST_5: block_counter_1 (49)  [1/1] 1.58ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:6  %block_counter_1 = add nsw i32 %block_counter, 1
+
+ST_5: StgValue_60 (50)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:7  br i1 %exitcond2, label %6, label %2
+
+ST_5: data_index_2 (52)  [1/1] 1.58ns  loc: sha256_mem/src/sha256_mem.cpp:146
+:0  %data_index_2 = add i32 %data_index, 64
+
+ST_5: StgValue_62 (53)  [1/1] 0.76ns  loc: sha256_mem/src/sha256_mem.cpp:144
+:1  br label %3
+
+ST_5: StgValue_63 (79)  [2/2] 2.42ns  loc: sha256_mem/src/sha256_mem.cpp:150
+:0  call fastcc void @final(i32 %cipher_m_tot_len, i32 %cipher_m_len, [128 x i8]* %cipher_m_block, [8 x i32]* %cipher_m_h, [32 x i8]* %digest_out) nounwind
+
+
+ <State 6>: 2.40ns
+ST_6: data_index_1 (55)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:146
+:0  %data_index_1 = phi i32 [ %data_index, %2 ], [ %tmp_3, %4 ]
+
+ST_6: buffer_index (56)  [1/1] 0.00ns
+:1  %buffer_index = phi i7 [ 0, %2 ], [ %buffer_index_1, %4 ]
+
+ST_6: exitcond (57)  [1/1] 0.72ns  loc: sha256_mem/src/sha256_mem.cpp:144
+:2  %exitcond = icmp eq i32 %data_index_1, %indvars_iv
+
+ST_6: empty (58)  [1/1] 0.00ns
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_6: buffer_index_1 (59)  [1/1] 1.27ns  loc: sha256_mem/src/sha256_mem.cpp:144
+:4  %buffer_index_1 = add i7 %buffer_index, 1
+
+ST_6: StgValue_69 (60)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:144
+:5  br i1 %exitcond, label %5, label %4
+
+ST_6: tmp (62)  [1/1] 1.58ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:0  %tmp = add i32 %data_index_1, %message_addr_read
+
+ST_6: tmp_1 (63)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:1  %tmp_1 = zext i32 %tmp to i64
+
+ST_6: mem_addr (64)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:2  %mem_addr = getelementptr i8* %mem, i64 %tmp_1
+
+ST_6: tmp_3 (70)  [1/1] 1.58ns  loc: sha256_mem/src/sha256_mem.cpp:146
+:8  %tmp_3 = add nsw i32 %data_index_1, 1
+
+ST_6: call_ret (73)  [2/2] 2.40ns  loc: sha256_mem/src/sha256_mem.cpp:148
+:0  %call_ret = call fastcc { i32, i32 } @update(i32 %cipher_m_tot_len, i32 %cipher_m_len, [128 x i8]* %cipher_m_block, [8 x i32]* %cipher_m_h, [64 x i8]* %data_buffer) nounwind
+
+ST_6: indvars_iv_next (76)  [1/1] 1.58ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:3  %indvars_iv_next = add i32 %indvars_iv, 64
+
+
+ <State 7>: 8.75ns
+ST_7: mem_load_req (65)  [7/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 8>: 8.75ns
+ST_8: mem_load_req (65)  [6/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 9>: 8.75ns
+ST_9: mem_load_req (65)  [5/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 10>: 8.75ns
+ST_10: mem_load_req (65)  [4/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 11>: 8.75ns
+ST_11: mem_load_req (65)  [3/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 12>: 8.75ns
+ST_12: mem_load_req (65)  [2/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 13>: 8.75ns
+ST_13: mem_load_req (65)  [1/7] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:3  %mem_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_addr, i32 1)
+
+
+ <State 14>: 8.75ns
+ST_14: mem_addr_read (66)  [1/1] 8.75ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:4  %mem_addr_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_addr)
+
+
+ <State 15>: 0.79ns
+ST_15: tmp_2 (67)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:5  %tmp_2 = zext i7 %buffer_index to i64
+
+ST_15: data_buffer_addr (68)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:6  %data_buffer_addr = getelementptr inbounds [64 x i8]* %data_buffer, i64 0, i64 %tmp_2
+
+ST_15: StgValue_86 (69)  [1/1] 0.79ns  loc: sha256_mem/src/sha256_mem.cpp:145
+:7  store i8 %mem_addr_read, i8* %data_buffer_addr, align 1
+
+ST_15: StgValue_87 (71)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:144
+:9  br label %3
+
+
+ <State 16>: 0.00ns
+ST_16: call_ret (73)  [1/2] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:148
+:0  %call_ret = call fastcc { i32, i32 } @update(i32 %cipher_m_tot_len, i32 %cipher_m_len, [128 x i8]* %cipher_m_block, [8 x i32]* %cipher_m_h, [64 x i8]* %data_buffer) nounwind
+
+ST_16: cipher_m_tot_len_1 (74)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:148
+:1  %cipher_m_tot_len_1 = extractvalue { i32, i32 } %call_ret, 0
+
+ST_16: cipher_m_len_1 (75)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:148
+:2  %cipher_m_len_1 = extractvalue { i32, i32 } %call_ret, 1
+
+ST_16: StgValue_91 (77)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:143
+:4  br label %1
+
+
+ <State 17>: 0.00ns
+ST_17: StgValue_92 (79)  [1/2] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:150
+:0  call fastcc void @final(i32 %cipher_m_tot_len, i32 %cipher_m_len, [128 x i8]* %cipher_m_block, [8 x i32]* %cipher_m_h, [32 x i8]* %digest_out) nounwind
+
+ST_17: StgValue_93 (80)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:151
+:1  call void @_ssdm_op_Write.ap_none.i1P(i1* %digest_valid, i1 true)
+
+ST_17: StgValue_94 (81)  [1/1] 0.00ns  loc: sha256_mem/src/sha256_mem.cpp:152
+:2  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.79ns
+The critical path consists of the following:
+	'alloca' operation ('cipher.m_h', sha256_mem/src/sha256_mem.cpp:139) [17]  (0 ns)
+	'getelementptr' operation ('cipher_m_h_addr_1', sha256_mem/src/sha256_mem.cpp:76->sha256_mem/src/sha256_mem.cpp:141) [27]  (0 ns)
+	'store' operation (sha256_mem/src/sha256_mem.cpp:76->sha256_mem/src/sha256_mem.cpp:141) of constant 3144134277 on array 'cipher.m_h', sha256_mem/src/sha256_mem.cpp:139 [28]  (0.79 ns)
+
+ <State 2>: 0.79ns
+The critical path consists of the following:
+	'getelementptr' operation ('cipher_m_h_addr_2', sha256_mem/src/sha256_mem.cpp:77->sha256_mem/src/sha256_mem.cpp:141) [29]  (0 ns)
+	'store' operation (sha256_mem/src/sha256_mem.cpp:77->sha256_mem/src/sha256_mem.cpp:141) of constant 1013904242 on array 'cipher.m_h', sha256_mem/src/sha256_mem.cpp:139 [30]  (0.79 ns)
+
+ <State 3>: 0.79ns
+The critical path consists of the following:
+	'getelementptr' operation ('cipher_m_h_addr_4', sha256_mem/src/sha256_mem.cpp:79->sha256_mem/src/sha256_mem.cpp:141) [33]  (0 ns)
+	'store' operation (sha256_mem/src/sha256_mem.cpp:79->sha256_mem/src/sha256_mem.cpp:141) of constant 1359893119 on array 'cipher.m_h', sha256_mem/src/sha256_mem.cpp:139 [34]  (0.79 ns)
+
+ <State 4>: 0.79ns
+The critical path consists of the following:
+	'getelementptr' operation ('cipher_m_h_addr_6', sha256_mem/src/sha256_mem.cpp:81->sha256_mem/src/sha256_mem.cpp:141) [37]  (0 ns)
+	'store' operation (sha256_mem/src/sha256_mem.cpp:81->sha256_mem/src/sha256_mem.cpp:141) of constant 528734635 on array 'cipher.m_h', sha256_mem/src/sha256_mem.cpp:139 [38]  (0.79 ns)
+
+ <State 5>: 2.42ns
+The critical path consists of the following:
+	'phi' operation ('cipher.m_len') with incoming values : ('cipher.m_len', sha256_mem/src/sha256_mem.cpp:148) [43]  (0 ns)
+	'call' operation (sha256_mem/src/sha256_mem.cpp:150) to 'final' [79]  (2.42 ns)
+
+ <State 6>: 2.4ns
+The critical path consists of the following:
+	'call' operation ('call_ret', sha256_mem/src/sha256_mem.cpp:148) to 'update' [73]  (2.4 ns)
+
+ <State 7>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 8>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 9>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 10>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 11>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 12>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 13>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [65]  (8.75 ns)
+
+ <State 14>: 8.75ns
+The critical path consists of the following:
+	bus read on port 'mem' (sha256_mem/src/sha256_mem.cpp:145) [66]  (8.75 ns)
+
+ <State 15>: 0.79ns
+The critical path consists of the following:
+	'getelementptr' operation ('data_buffer_addr', sha256_mem/src/sha256_mem.cpp:145) [68]  (0 ns)
+	'store' operation (sha256_mem/src/sha256_mem.cpp:145) of variable 'mem_addr_read', sha256_mem/src/sha256_mem.cpp:145 on array 'data_buffer', sha256_mem/src/sha256_mem.cpp:137 [69]  (0.79 ns)
+
+ <State 16>: 0ns
+The critical path consists of the following:
+
+ <State 17>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

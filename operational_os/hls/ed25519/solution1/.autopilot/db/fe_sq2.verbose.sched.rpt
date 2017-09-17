@@ -1,0 +1,2166 @@
+
+
+================================================================
+== Vivado HLS Report for 'fe_sq2'
+================================================================
+* Date:           Fri Jun  2 12:27:19 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.91|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  115|  115|  115|  115|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 116
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	78  / true
+78 --> 
+	79  / true
+79 --> 
+	80  / true
+80 --> 
+	81  / true
+81 --> 
+	82  / true
+82 --> 
+	83  / true
+83 --> 
+	84  / true
+84 --> 
+	85  / true
+85 --> 
+	86  / true
+86 --> 
+	87  / true
+87 --> 
+	88  / true
+88 --> 
+	89  / true
+89 --> 
+	90  / true
+90 --> 
+	91  / true
+91 --> 
+	92  / true
+92 --> 
+	93  / true
+93 --> 
+	94  / true
+94 --> 
+	95  / true
+95 --> 
+	96  / true
+96 --> 
+	97  / true
+97 --> 
+	98  / true
+98 --> 
+	99  / true
+99 --> 
+	100  / true
+100 --> 
+	101  / true
+101 --> 
+	102  / true
+102 --> 
+	103  / true
+103 --> 
+	104  / true
+104 --> 
+	105  / true
+105 --> 
+	106  / true
+106 --> 
+	107  / true
+107 --> 
+	108  / true
+108 --> 
+	109  / true
+109 --> 
+	110  / true
+110 --> 
+	111  / true
+111 --> 
+	112  / true
+112 --> 
+	113  / true
+113 --> 
+	114  / true
+114 --> 
+	115  / true
+115 --> 
+	116  / true
+116 --> 
+* FSM state operations: 
+
+ <State 1>: 5.45ns
+ST_1: f_5_read_2 (15)  [1/1] 0.00ns
+:4  %f_5_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_5_read)
+
+ST_1: f5_38 (36)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1280
+:25  %f5_38 = mul nsw i32 38, %f_5_read_2
+
+
+ <State 2>: 5.45ns
+ST_2: f_6_read_2 (14)  [1/1] 0.00ns
+:3  %f_6_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_6_read)
+
+ST_2: f6_19 (37)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1281
+:26  %f6_19 = mul nsw i32 19, %f_6_read_2
+
+
+ <State 3>: 5.45ns
+ST_3: f_7_read_2 (13)  [1/1] 0.00ns
+:2  %f_7_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_7_read)
+
+ST_3: f7_38 (38)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1282
+:27  %f7_38 = mul nsw i32 38, %f_7_read_2
+
+
+ <State 4>: 5.45ns
+ST_4: f_8_read_2 (12)  [1/1] 0.00ns
+:1  %f_8_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_8_read)
+
+ST_4: f8_19 (39)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1283
+:28  %f8_19 = mul nsw i32 19, %f_8_read_2
+
+
+ <State 5>: 5.45ns
+ST_5: f_9_read_2 (11)  [1/1] 0.00ns
+:0  %f_9_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_9_read)
+
+ST_5: f9_38 (40)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1284
+:29  %f9_38 = mul nsw i32 38, %f_9_read_2
+
+
+ <State 6>: 5.45ns
+ST_6: f_0_read_2 (20)  [1/1] 0.00ns
+:9  %f_0_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_0_read)
+
+ST_6: tmp (41)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1285
+:30  %tmp = sext i32 %f_0_read_2 to i64
+
+ST_6: f0f0 (42)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1285
+:31  %f0f0 = mul nsw i64 %tmp, %tmp
+
+
+ <State 7>: 5.45ns
+ST_7: f_1_read_2 (19)  [1/1] 0.00ns
+:8  %f_1_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_1_read)
+
+ST_7: f0_2 (28)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1272
+:17  %f0_2 = shl i32 %f_0_read_2, 1
+
+ST_7: tmp_s (43)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1286
+:32  %tmp_s = sext i32 %f0_2 to i64
+
+ST_7: tmp_1381 (44)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1286
+:33  %tmp_1381 = sext i32 %f_1_read_2 to i64
+
+ST_7: f0f1_2 (45)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1286
+:34  %f0f1_2 = mul nsw i64 %tmp_s, %tmp_1381
+
+
+ <State 8>: 5.45ns
+ST_8: f_2_read_2 (18)  [1/1] 0.00ns
+:7  %f_2_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_2_read)
+
+ST_8: tmp_1382 (46)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1287
+:35  %tmp_1382 = sext i32 %f_2_read_2 to i64
+
+ST_8: f0f2_2 (47)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1287
+:36  %f0f2_2 = mul nsw i64 %tmp_s, %tmp_1382
+
+
+ <State 9>: 5.45ns
+ST_9: f_3_read_2 (17)  [1/1] 0.00ns
+:6  %f_3_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_3_read)
+
+ST_9: tmp_1383 (48)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1288
+:37  %tmp_1383 = sext i32 %f_3_read_2 to i64
+
+ST_9: f0f3_2 (49)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1288
+:38  %f0f3_2 = mul nsw i64 %tmp_s, %tmp_1383
+
+
+ <State 10>: 5.45ns
+ST_10: f_4_read_2 (16)  [1/1] 0.00ns
+:5  %f_4_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_4_read)
+
+ST_10: tmp_1384 (50)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1289
+:39  %tmp_1384 = sext i32 %f_4_read_2 to i64
+
+ST_10: f0f4_2 (51)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1289
+:40  %f0f4_2 = mul nsw i64 %tmp_s, %tmp_1384
+
+
+ <State 11>: 5.45ns
+ST_11: tmp_1385 (52)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1290
+:41  %tmp_1385 = sext i32 %f_5_read_2 to i64
+
+ST_11: f0f5_2 (53)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1290
+:42  %f0f5_2 = mul nsw i64 %tmp_s, %tmp_1385
+
+
+ <State 12>: 5.45ns
+ST_12: tmp_1386 (54)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1291
+:43  %tmp_1386 = sext i32 %f_6_read_2 to i64
+
+ST_12: f0f6_2 (55)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1291
+:44  %f0f6_2 = mul nsw i64 %tmp_s, %tmp_1386
+
+
+ <State 13>: 5.45ns
+ST_13: tmp_1387 (56)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1292
+:45  %tmp_1387 = sext i32 %f_7_read_2 to i64
+
+ST_13: f0f7_2 (57)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1292
+:46  %f0f7_2 = mul nsw i64 %tmp_s, %tmp_1387
+
+
+ <State 14>: 5.45ns
+ST_14: tmp_1388 (58)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1293
+:47  %tmp_1388 = sext i32 %f_8_read_2 to i64
+
+ST_14: f0f8_2 (59)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1293
+:48  %f0f8_2 = mul nsw i64 %tmp_s, %tmp_1388
+
+
+ <State 15>: 5.45ns
+ST_15: tmp_1389 (60)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1294
+:49  %tmp_1389 = sext i32 %f_9_read_2 to i64
+
+ST_15: f0f9_2 (61)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1294
+:50  %f0f9_2 = mul nsw i64 %tmp_s, %tmp_1389
+
+
+ <State 16>: 5.45ns
+ST_16: f1_2 (29)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1273
+:18  %f1_2 = shl i32 %f_1_read_2, 1
+
+ST_16: tmp_1390 (62)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1295
+:51  %tmp_1390 = sext i32 %f1_2 to i64
+
+ST_16: f1f1_2 (63)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1295
+:52  %f1f1_2 = mul nsw i64 %tmp_1381, %tmp_1390
+
+
+ <State 17>: 6.87ns
+ST_17: f1f2_2 (64)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1296
+:53  %f1f2_2 = mul nsw i64 %tmp_1390, %tmp_1382
+
+ST_17: tmp12 (136)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1343
+:125  %tmp12 = add i64 %f1f2_2, %f0f3_2
+
+ST_17: tmp_1443 (140)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1343
+:129  %tmp_1443 = trunc i64 %tmp12 to i63
+
+
+ <State 18>: 6.87ns
+ST_18: f3_2 (31)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1275
+:20  %f3_2 = shl i32 %f_3_read_2, 1
+
+ST_18: tmp_1391 (65)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1297
+:54  %tmp_1391 = sext i32 %f3_2 to i64
+
+ST_18: f1f3_4 (66)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1297
+:55  %f1f3_4 = mul nsw i64 %tmp_1390, %tmp_1391
+
+ST_18: tmp16 (141)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1344
+:130  %tmp16 = add i64 %f1f3_4, %f0f4_2
+
+
+ <State 19>: 5.45ns
+ST_19: f1f4_2 (67)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1298
+:56  %f1f4_2 = mul nsw i64 %tmp_1390, %tmp_1384
+
+
+ <State 20>: 5.45ns
+ST_20: f5_2 (33)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1277
+:22  %f5_2 = shl i32 %f_5_read_2, 1
+
+ST_20: tmp_1392 (68)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1299
+:57  %tmp_1392 = sext i32 %f5_2 to i64
+
+ST_20: f1f5_4 (69)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1299
+:58  %f1f5_4 = mul nsw i64 %tmp_1390, %tmp_1392
+
+
+ <State 21>: 5.45ns
+ST_21: f1f6_2 (70)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1300
+:59  %f1f6_2 = mul nsw i64 %tmp_1390, %tmp_1386
+
+
+ <State 22>: 5.45ns
+ST_22: f7_2 (35)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1279
+:24  %f7_2 = shl i32 %f_7_read_2, 1
+
+ST_22: tmp_1393 (71)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1301
+:60  %tmp_1393 = sext i32 %f7_2 to i64
+
+ST_22: f1f7_4 (72)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1301
+:61  %f1f7_4 = mul nsw i64 %tmp_1390, %tmp_1393
+
+
+ <State 23>: 6.87ns
+ST_23: f1f8_2 (73)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1302
+:62  %f1f8_2 = mul nsw i64 %tmp_1390, %tmp_1388
+
+ST_23: tmp35 (170)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1349
+:159  %tmp35 = add i64 %f1f8_2, %f0f9_2
+
+
+ <State 24>: 5.45ns
+ST_24: tmp_1394 (74)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1303
+:63  %tmp_1394 = sext i32 %f9_38 to i64
+
+ST_24: f1f9_76 (75)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1303
+:64  %f1f9_76 = mul nsw i64 %tmp_1390, %tmp_1394
+
+
+ <State 25>: 6.87ns
+ST_25: f2f2 (76)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1304
+:65  %f2f2 = mul nsw i64 %tmp_1382, %tmp_1382
+
+ST_25: tmp15 (142)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1344
+:131  %tmp15 = add i64 %tmp16, %f2f2
+
+ST_25: tmp_1445 (146)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1344
+:135  %tmp_1445 = trunc i64 %tmp15 to i63
+
+
+ <State 26>: 6.87ns
+ST_26: f2_2 (30)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1274
+:19  %f2_2 = shl i32 %f_2_read_2, 1
+
+ST_26: tmp_1395 (77)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1305
+:66  %tmp_1395 = sext i32 %f2_2 to i64
+
+ST_26: f2f3_2 (78)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1305
+:67  %f2f3_2 = mul nsw i64 %tmp_1395, %tmp_1383
+
+ST_26: tmp19 (147)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1345
+:136  %tmp19 = add i64 %f2f3_2, %f1f4_2
+
+ST_26: tmp_1447 (151)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1345
+:140  %tmp_1447 = trunc i64 %tmp19 to i63
+
+
+ <State 27>: 6.87ns
+ST_27: f2f4_2 (79)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1306
+:68  %f2f4_2 = mul nsw i64 %tmp_1395, %tmp_1384
+
+ST_27: tmp23 (152)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1346
+:141  %tmp23 = add i64 %f2f4_2, %f1f5_4
+
+
+ <State 28>: 5.45ns
+ST_28: f2f5_2 (80)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1307
+:69  %f2f5_2 = mul nsw i64 %tmp_1395, %tmp_1385
+
+
+ <State 29>: 5.45ns
+ST_29: f2f6_2 (81)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1308
+:70  %f2f6_2 = mul nsw i64 %tmp_1395, %tmp_1386
+
+
+ <State 30>: 6.87ns
+ST_30: f2f7_2 (82)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1309
+:71  %f2f7_2 = mul nsw i64 %tmp_1395, %tmp_1387
+
+ST_30: tmp34 (171)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1349
+:160  %tmp34 = add i64 %tmp35, %f2f7_2
+
+ST_30: tmp_1454 (172)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1349
+:161  %tmp_1454 = trunc i64 %tmp34 to i63
+
+
+ <State 31>: 6.87ns
+ST_31: tmp_1396 (83)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1310
+:72  %tmp_1396 = sext i32 %f8_19 to i64
+
+ST_31: f2f8_38 (84)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1310
+:73  %f2f8_38 = mul nsw i64 %tmp_1395, %tmp_1396
+
+ST_31: tmp4 (121)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1340
+:110  %tmp4 = add i64 %f2f8_38, %f1f9_76
+
+
+ <State 32>: 5.45ns
+ST_32: f2f9_38 (85)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1311
+:74  %f2f9_38 = mul nsw i64 %tmp_1382, %tmp_1394
+
+
+ <State 33>: 6.87ns
+ST_33: f3f3_2 (86)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1312
+:75  %f3f3_2 = mul nsw i64 %tmp_1383, %tmp_1391
+
+ST_33: tmp22 (153)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1346
+:142  %tmp22 = add i64 %tmp23, %f3f3_2
+
+ST_33: tmp_1449 (157)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1346
+:146  %tmp_1449 = trunc i64 %tmp22 to i63
+
+
+ <State 34>: 6.87ns
+ST_34: f3f4_2 (87)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1313
+:76  %f3f4_2 = mul nsw i64 %tmp_1391, %tmp_1384
+
+ST_34: tmp26 (158)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1347
+:147  %tmp26 = add i64 %f3f4_2, %f2f5_2
+
+ST_34: tmp_1451 (162)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1347
+:151  %tmp_1451 = trunc i64 %tmp26 to i63
+
+
+ <State 35>: 6.87ns
+ST_35: f3f5_4 (88)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1314
+:77  %f3f5_4 = mul nsw i64 %tmp_1391, %tmp_1392
+
+ST_35: tmp30 (163)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1348
+:152  %tmp30 = add i64 %f3f5_4, %f2f6_2
+
+
+ <State 36>: 5.45ns
+ST_36: f3f6_2 (89)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1315
+:78  %f3f6_2 = mul nsw i64 %tmp_1391, %tmp_1386
+
+
+ <State 37>: 6.87ns
+ST_37: tmp_1397 (90)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1316
+:79  %tmp_1397 = sext i32 %f7_38 to i64
+
+ST_37: f3f7_76 (91)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1316
+:80  %f3f7_76 = mul nsw i64 %tmp_1391, %tmp_1397
+
+ST_37: tmp3 (122)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1340
+:111  %tmp3 = add i64 %tmp4, %f3f7_76
+
+ST_37: tmp_1436 (123)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1340
+:112  %tmp_1436 = trunc i64 %tmp3 to i63
+
+
+ <State 38>: 6.87ns
+ST_38: f3f8_38 (92)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1317
+:81  %f3f8_38 = mul nsw i64 %tmp_1391, %tmp_1396
+
+ST_38: tmp7 (126)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1341
+:115  %tmp7 = add i64 %f3f8_38, %f2f9_38
+
+
+ <State 39>: 5.45ns
+ST_39: f3f9_76 (93)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1318
+:82  %f3f9_76 = mul nsw i64 %tmp_1391, %tmp_1394
+
+
+ <State 40>: 6.87ns
+ST_40: f4f4 (94)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1319
+:83  %f4f4 = mul nsw i64 %tmp_1384, %tmp_1384
+
+ST_40: tmp29 (164)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1348
+:153  %tmp29 = add i64 %tmp30, %f4f4
+
+ST_40: tmp_1453 (168)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1348
+:157  %tmp_1453 = trunc i64 %tmp29 to i63
+
+
+ <State 41>: 6.87ns
+ST_41: f4_2 (32)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1276
+:21  %f4_2 = shl i32 %f_4_read_2, 1
+
+ST_41: tmp_1398 (95)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1320
+:84  %tmp_1398 = sext i32 %f4_2 to i64
+
+ST_41: f4f5_2 (96)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1320
+:85  %f4f5_2 = mul nsw i64 %tmp_1398, %tmp_1385
+
+ST_41: tmp33 (169)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1349
+:158  %tmp33 = add i64 %f4f5_2, %f3f6_2
+
+ST_41: tmp_1455 (173)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1349
+:162  %tmp_1455 = trunc i64 %tmp33 to i63
+
+
+ <State 42>: 5.45ns
+ST_42: tmp_1399 (97)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1321
+:86  %tmp_1399 = sext i32 %f6_19 to i64
+
+ST_42: f4f6_38 (98)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1321
+:87  %f4f6_38 = mul nsw i64 %tmp_1398, %tmp_1399
+
+ST_42: h9 (192)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1369
+:181  %h9 = add i63 %tmp_1455, %tmp_1454
+
+ST_42: tmp_1465 (290)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1369
+:279  %tmp_1465 = trunc i63 %h9 to i31
+
+
+ <State 43>: 6.87ns
+ST_43: f4f7_38 (99)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1322
+:88  %f4f7_38 = mul nsw i64 %tmp_1384, %tmp_1397
+
+ST_43: tmp6 (127)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1341
+:116  %tmp6 = add i64 %tmp7, %f4f7_38
+
+ST_43: tmp_1438 (128)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1341
+:117  %tmp_1438 = trunc i64 %tmp6 to i63
+
+
+ <State 44>: 6.87ns
+ST_44: f4f8_38 (100)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1323
+:89  %f4f8_38 = mul nsw i64 %tmp_1398, %tmp_1396
+
+ST_44: tmp11 (132)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1342
+:121  %tmp11 = add i64 %f4f8_38, %f3f9_76
+
+
+ <State 45>: 5.45ns
+ST_45: f4f9_38 (101)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1324
+:90  %f4f9_38 = mul nsw i64 %tmp_1384, %tmp_1394
+
+
+ <State 46>: 6.87ns
+ST_46: tmp_1400 (102)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1325
+:91  %tmp_1400 = sext i32 %f5_38 to i64
+
+ST_46: f5f5_38 (103)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1325
+:92  %f5f5_38 = mul nsw i64 %tmp_1385, %tmp_1400
+
+ST_46: tmp2 (119)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1340
+:108  %tmp2 = add i64 %f5f5_38, %f4f6_38
+
+
+ <State 47>: 5.45ns
+ST_47: f5f6_38 (104)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1326
+:93  %f5f6_38 = mul nsw i64 %tmp_1392, %tmp_1399
+
+ST_47: tmp1 (120)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1340
+:109  %tmp1 = add i64 %tmp2, %f0f0
+
+ST_47: tmp_1437 (124)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1340
+:113  %tmp_1437 = trunc i64 %tmp1 to i63
+
+
+ <State 48>: 5.45ns
+ST_48: f5f7_76 (105)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1327
+:94  %f5f7_76 = mul nsw i64 %tmp_1392, %tmp_1397
+
+ST_48: tmp5 (125)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1341
+:114  %tmp5 = add i64 %f0f1_2, %f5f6_38
+
+ST_48: tmp_1439 (129)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1341
+:118  %tmp_1439 = trunc i64 %tmp5 to i63
+
+
+ <State 49>: 5.45ns
+ST_49: f5f8_38 (106)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1328
+:95  %f5f8_38 = mul nsw i64 %tmp_1392, %tmp_1396
+
+ST_49: tmp10 (133)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1342
+:122  %tmp10 = add i64 %tmp11, %f5f7_76
+
+ST_49: tmp_1440 (134)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1342
+:123  %tmp_1440 = trunc i64 %tmp10 to i63
+
+
+ <State 50>: 5.45ns
+ST_50: f5f9_76 (107)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1329
+:96  %f5f9_76 = mul nsw i64 %tmp_1392, %tmp_1394
+
+ST_50: tmp14 (137)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1343
+:126  %tmp14 = add i64 %f5f8_38, %f4f9_38
+
+
+ <State 51>: 6.87ns
+ST_51: f6f6_19 (108)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1330
+:97  %f6f6_19 = mul nsw i64 %tmp_1386, %tmp_1399
+
+ST_51: tmp9 (130)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1342
+:119  %tmp9 = add i64 %f0f2_2, %f6f6_19
+
+
+ <State 52>: 5.45ns
+ST_52: f6f7_38 (109)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1331
+:98  %f6f7_38 = mul nsw i64 %tmp_1386, %tmp_1397
+
+ST_52: tmp8 (131)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1342
+:120  %tmp8 = add i64 %tmp9, %f1f1_2
+
+ST_52: tmp_1441 (135)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1342
+:124  %tmp_1441 = trunc i64 %tmp8 to i63
+
+
+ <State 53>: 5.45ns
+ST_53: f6_2 (34)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1278 (grouped into LUT with out node f6f8_38)
+:23  %f6_2 = shl i32 %f_6_read_2, 1
+
+ST_53: tmp_1401 (110)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1332 (grouped into LUT with out node f6f8_38)
+:99  %tmp_1401 = sext i32 %f6_2 to i64
+
+ST_53: f6f8_38 (111)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1332 (out node of the LUT)
+:100  %f6f8_38 = mul nsw i64 %tmp_1401, %tmp_1396
+
+ST_53: tmp13 (138)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1343
+:127  %tmp13 = add i64 %tmp14, %f6f7_38
+
+ST_53: tmp_1442 (139)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1343
+:128  %tmp_1442 = trunc i64 %tmp13 to i63
+
+
+ <State 54>: 5.45ns
+ST_54: f6f9_38 (112)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1333
+:101  %f6f9_38 = mul nsw i64 %tmp_1386, %tmp_1394
+
+ST_54: tmp18 (143)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1344
+:132  %tmp18 = add i64 %f6f8_38, %f5f9_76
+
+
+ <State 55>: 6.87ns
+ST_55: f7f7_38 (113)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1334
+:102  %f7f7_38 = mul nsw i64 %tmp_1387, %tmp_1397
+
+ST_55: tmp17 (144)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1344
+:133  %tmp17 = add i64 %tmp18, %f7f7_38
+
+ST_55: tmp_1444 (145)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1344
+:134  %tmp_1444 = trunc i64 %tmp17 to i63
+
+
+ <State 56>: 6.87ns
+ST_56: f7f8_38 (114)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1335
+:103  %f7f8_38 = mul nsw i64 %tmp_1393, %tmp_1396
+
+ST_56: tmp21 (148)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1345
+:137  %tmp21 = add i64 %f7f8_38, %f6f9_38
+
+
+ <State 57>: 5.45ns
+ST_57: f7f9_76 (115)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1336
+:104  %f7f9_76 = mul nsw i64 %tmp_1393, %tmp_1394
+
+ST_57: tmp20 (149)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1345
+:138  %tmp20 = add i64 %tmp21, %f0f5_2
+
+ST_57: tmp_1446 (150)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1345
+:139  %tmp_1446 = trunc i64 %tmp20 to i63
+
+
+ <State 58>: 6.87ns
+ST_58: f8f8_19 (116)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1337
+:105  %f8f8_19 = mul nsw i64 %tmp_1388, %tmp_1396
+
+ST_58: tmp25 (154)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1346
+:143  %tmp25 = add i64 %f8f8_19, %f7f9_76
+
+
+ <State 59>: 5.45ns
+ST_59: f8f9_38 (117)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1338
+:106  %f8f9_38 = mul nsw i64 %tmp_1388, %tmp_1394
+
+ST_59: tmp24 (155)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1346
+:144  %tmp24 = add i64 %tmp25, %f0f6_2
+
+ST_59: tmp_1448 (156)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1346
+:145  %tmp_1448 = trunc i64 %tmp24 to i63
+
+
+ <State 60>: 5.45ns
+ST_60: f9f9_38 (118)  [1/1] 5.45ns  loc: ed25519/src/fe.cpp:1339
+:107  %f9f9_38 = mul nsw i64 %tmp_1389, %tmp_1394
+
+ST_60: tmp28 (159)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1347
+:148  %tmp28 = add i64 %f0f7_2, %f8f9_38
+
+
+ <State 61>: 1.41ns
+ST_61: tmp27 (160)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1347
+:149  %tmp27 = add i64 %tmp28, %f1f6_2
+
+ST_61: tmp_1450 (161)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1347
+:150  %tmp_1450 = trunc i64 %tmp27 to i63
+
+
+ <State 62>: 1.41ns
+ST_62: tmp32 (165)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1348
+:154  %tmp32 = add i64 %f0f8_2, %f9f9_38
+
+
+ <State 63>: 1.41ns
+ST_63: tmp31 (166)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1348
+:155  %tmp31 = add i64 %tmp32, %f1f7_4
+
+ST_63: tmp_1452 (167)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1348
+:156  %tmp_1452 = trunc i64 %tmp31 to i63
+
+
+ <State 64>: 1.41ns
+ST_64: h (174)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1360
+:163  %h = add i63 %tmp_1437, %tmp_1436
+
+
+ <State 65>: 1.41ns
+ST_65: h2 (176)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1361
+:165  %h2 = add i63 %tmp_1439, %tmp_1438
+
+ST_65: tmp_1456 (197)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1361
+:186  %tmp_1456 = trunc i63 %h2 to i31
+
+
+ <State 66>: 1.41ns
+ST_66: h4 (178)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1362
+:167  %h4 = add i63 %tmp_1441, %tmp_1440
+
+ST_66: tmp_1458 (217)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1362
+:206  %tmp_1458 = trunc i63 %h4 to i31
+
+
+ <State 67>: 1.41ns
+ST_67: h6 (180)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1363
+:169  %h6 = add i63 %tmp_1443, %tmp_1442
+
+ST_67: tmp_1460 (239)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1363
+:228  %tmp_1460 = trunc i63 %h6 to i31
+
+
+ <State 68>: 1.41ns
+ST_68: h8 (182)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1364
+:171  %h8 = add i63 %tmp_1445, %tmp_1444
+
+
+ <State 69>: 1.41ns
+ST_69: h1 (184)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1365
+:173  %h1 = add i63 %tmp_1447, %tmp_1446
+
+ST_69: tmp_1457 (206)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1365
+:195  %tmp_1457 = trunc i63 %h1 to i31
+
+
+ <State 70>: 1.41ns
+ST_70: h3 (186)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1366
+:175  %h3 = add i63 %tmp_1449, %tmp_1448
+
+ST_70: tmp_1459 (228)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1366
+:217  %tmp_1459 = trunc i63 %h3 to i31
+
+
+ <State 71>: 1.41ns
+ST_71: h5 (188)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1367
+:177  %h5 = add i63 %tmp_1451, %tmp_1450
+
+ST_71: tmp_1461 (250)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1367
+:239  %tmp_1461 = trunc i63 %h5 to i31
+
+
+ <State 72>: 1.41ns
+ST_72: h7 (190)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1368
+:179  %h7 = add i63 %tmp_1453, %tmp_1452
+
+ST_72: tmp_1464 (271)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1368
+:260  %tmp_1464 = trunc i63 %h7 to i31
+
+
+ <State 73>: 1.41ns
+ST_73: h0_1 (175)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1360
+:164  %h0_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h, i1 false)
+
+ST_73: tmp_1402 (194)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1370
+:183  %tmp_1402 = add nsw i64 33554432, %h0_1
+
+ST_73: tmp_583 (195)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1370
+:184  %tmp_583 = call i38 @_ssdm_op_PartSelect.i38.i64.i32.i32(i64 %tmp_1402, i32 26, i32 63)
+
+ST_73: tmp_627 (199)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1370
+:188  %tmp_627 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1402, i32 26, i32 57)
+
+
+ <State 74>: 1.41ns
+ST_74: h1_1 (177)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1361
+:166  %h1_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h2, i1 false)
+
+ST_74: carry0 (196)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1370
+:185  %carry0 = sext i38 %tmp_583 to i64
+
+ST_74: h1_2 (200)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1371
+:189  %h1_2 = add nsw i64 %h1_1, %carry0
+
+ST_74: tmp_1403 (201)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1372
+:190  %tmp_1403 = call i64 @_ssdm_op_BitConcatenate.i64.i38.i26(i38 %tmp_583, i26 0)
+
+ST_74: h0_2 (202)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1372
+:191  %h0_2 = sub nsw i64 %h0_1, %tmp_1403
+
+ST_74: tmp_1466 (302)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1372
+:291  %tmp_1466 = trunc i64 %h0_2 to i32
+
+ST_74: tmp_1468 (305)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1372
+:294  %tmp_1468 = trunc i64 %h0_2 to i58
+
+
+ <State 75>: 1.41ns
+ST_75: h4_1 (183)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1364
+:172  %h4_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h8, i1 false)
+
+ST_75: tmp_1404 (203)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1373
+:192  %tmp_1404 = add nsw i64 33554432, %h4_1
+
+ST_75: tmp_585 (204)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1373
+:193  %tmp_585 = call i38 @_ssdm_op_PartSelect.i38.i64.i32.i32(i64 %tmp_1404, i32 26, i32 63)
+
+ST_75: tmp_631 (208)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1373
+:197  %tmp_631 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1404, i32 26, i32 57)
+
+
+ <State 76>: 1.41ns
+ST_76: h5_1 (185)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1365
+:174  %h5_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h1, i1 false)
+
+ST_76: carry4 (205)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1373
+:194  %carry4 = sext i38 %tmp_585 to i64
+
+ST_76: h5_2 (209)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1374
+:198  %h5_2 = add nsw i64 %h5_1, %carry4
+
+ST_76: tmp_1405 (210)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1375
+:199  %tmp_1405 = call i64 @_ssdm_op_BitConcatenate.i64.i38.i26(i38 %tmp_585, i26 0)
+
+ST_76: h4_2 (211)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1375
+:200  %h4_2 = sub nsw i64 %h4_1, %tmp_1405
+
+ST_76: tmp_1462 (260)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1375
+:249  %tmp_1462 = trunc i64 %h4_2 to i32
+
+ST_76: tmp_1463 (263)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1375
+:252  %tmp_1463 = trunc i64 %h4_2 to i58
+
+
+ <State 77>: 1.34ns
+ST_77: tmp_626 (198)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1361
+:187  %tmp_626 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1456, i1 false)
+
+ST_77: tmp_634 (212)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1370
+:201  %tmp_634 = add i32 %tmp_627, %tmp_626
+
+
+ <State 78>: 1.41ns
+ST_78: tmp_1406 (213)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1376
+:202  %tmp_1406 = add nsw i64 16777216, %h1_2
+
+ST_78: tmp_587 (215)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1376
+:204  %tmp_587 = call i39 @_ssdm_op_PartSelect.i39.i64.i32.i32(i64 %tmp_1406, i32 25, i32 63)
+
+ST_78: tmp_636 (219)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1376
+:208  %tmp_636 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1406, i32 25, i32 56)
+
+
+ <State 79>: 2.69ns
+ST_79: tmp_1604_cast (214)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1376
+:203  %tmp_1604_cast = add i32 16777216, %tmp_634
+
+ST_79: tmp_1331 (221)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1376
+:210  %tmp_1331 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_1604_cast, i32 25, i32 31)
+
+ST_79: tmp_1407 (222)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1378
+:211  %tmp_1407 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_1331, i25 0)
+
+ST_79: tmp_604 (312)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1378
+:301  %tmp_604 = sub i32 %tmp_634, %tmp_1407
+
+
+ <State 80>: 1.41ns
+ST_80: h2_1 (179)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1362
+:168  %h2_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h4, i1 false)
+
+ST_80: carry1 (216)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1376
+:205  %carry1 = sext i39 %tmp_587 to i64
+
+ST_80: h2_2 (220)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1377
+:209  %h2_2 = add nsw i64 %h2_1, %carry1
+
+
+ <State 81>: 1.34ns
+ST_81: tmp_630 (207)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1365
+:196  %tmp_630 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1457, i1 false)
+
+ST_81: tmp_639 (223)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1373
+:212  %tmp_639 = add i32 %tmp_631, %tmp_630
+
+
+ <State 82>: 1.41ns
+ST_82: tmp_1408 (224)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1379
+:213  %tmp_1408 = add nsw i64 16777216, %h5_2
+
+ST_82: tmp_589 (226)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1379
+:215  %tmp_589 = call i39 @_ssdm_op_PartSelect.i39.i64.i32.i32(i64 %tmp_1408, i32 25, i32 63)
+
+ST_82: tmp_641 (230)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1379
+:219  %tmp_641 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1408, i32 25, i32 56)
+
+
+ <State 83>: 2.69ns
+ST_83: tmp_1606_cast (225)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1379
+:214  %tmp_1606_cast = add i32 16777216, %tmp_639
+
+ST_83: tmp_1333 (232)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1379
+:221  %tmp_1333 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_1606_cast, i32 25, i32 31)
+
+ST_83: tmp_1409 (233)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1381
+:222  %tmp_1409 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_1333, i25 0)
+
+ST_83: tmp_598 (281)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1381
+:270  %tmp_598 = sub i32 %tmp_639, %tmp_1409
+
+
+ <State 84>: 1.41ns
+ST_84: h6_1 (187)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1366
+:176  %h6_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h3, i1 false)
+
+ST_84: carry5 (227)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1379
+:216  %carry5 = sext i39 %tmp_589 to i64
+
+ST_84: h6_2 (231)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1380
+:220  %h6_2 = add nsw i64 %h6_1, %carry5
+
+
+ <State 85>: 1.34ns
+ST_85: tmp_635 (218)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1362
+:207  %tmp_635 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1458, i1 false)
+
+ST_85: tmp_644 (234)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1376
+:223  %tmp_644 = add i32 %tmp_636, %tmp_635
+
+
+ <State 86>: 1.41ns
+ST_86: tmp_1410 (235)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1382
+:224  %tmp_1410 = add nsw i64 33554432, %h2_2
+
+ST_86: tmp_591 (237)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1382
+:226  %tmp_591 = call i38 @_ssdm_op_PartSelect.i38.i64.i32.i32(i64 %tmp_1410, i32 26, i32 63)
+
+ST_86: tmp_646 (241)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1382
+:230  %tmp_646 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1410, i32 26, i32 57)
+
+
+ <State 87>: 2.69ns
+ST_87: tmp_1608_cast (236)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1382
+:225  %tmp_1608_cast = add i32 33554432, %tmp_644
+
+ST_87: tmp_1335 (243)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1382
+:232  %tmp_1335 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_1608_cast, i32 26, i32 31)
+
+ST_87: tmp_1411 (244)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1384
+:233  %tmp_1411 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_1335, i26 0)
+
+ST_87: h_2_write_assign (318)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1408
+:307  %h_2_write_assign = sub i32 %tmp_644, %tmp_1411
+
+
+ <State 88>: 1.41ns
+ST_88: h3_1 (181)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1363
+:170  %h3_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h6, i1 false)
+
+ST_88: carry2 (238)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1382
+:227  %carry2 = sext i38 %tmp_591 to i64
+
+ST_88: h3_2 (242)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1383
+:231  %h3_2 = add nsw i64 %h3_1, %carry2
+
+
+ <State 89>: 1.34ns
+ST_89: tmp_640 (229)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1366
+:218  %tmp_640 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1459, i1 false)
+
+ST_89: tmp_650 (245)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1379
+:234  %tmp_650 = add i32 %tmp_641, %tmp_640
+
+
+ <State 90>: 1.41ns
+ST_90: tmp_1412 (246)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1385
+:235  %tmp_1412 = add nsw i64 33554432, %h6_2
+
+ST_90: tmp_593 (248)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1385
+:237  %tmp_593 = call i38 @_ssdm_op_PartSelect.i38.i64.i32.i32(i64 %tmp_1412, i32 26, i32 63)
+
+ST_90: tmp_652 (252)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1385
+:241  %tmp_652 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1412, i32 26, i32 57)
+
+
+ <State 91>: 2.69ns
+ST_91: tmp_1610_cast (247)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1385
+:236  %tmp_1610_cast = add i32 33554432, %tmp_650
+
+ST_91: tmp_1337 (254)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1385
+:243  %tmp_1337 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_1610_cast, i32 26, i32 31)
+
+ST_91: tmp_1413 (255)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1387
+:244  %tmp_1413 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_1337, i26 0)
+
+ST_91: h_6_write_assign (322)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1412
+:311  %h_6_write_assign = sub i32 %tmp_650, %tmp_1413
+
+
+ <State 92>: 1.41ns
+ST_92: h7_1 (189)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1367
+:178  %h7_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h5, i1 false)
+
+ST_92: carry6 (249)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1385
+:238  %carry6 = sext i38 %tmp_593 to i64
+
+ST_92: h7_2 (253)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1386
+:242  %h7_2 = add nsw i64 %h7_1, %carry6
+
+
+ <State 93>: 1.34ns
+ST_93: tmp_645 (240)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1363
+:229  %tmp_645 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1460, i1 false)
+
+ST_93: tmp_656 (256)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1382
+:245  %tmp_656 = add i32 %tmp_646, %tmp_645
+
+
+ <State 94>: 1.41ns
+ST_94: tmp_1414 (257)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1388
+:246  %tmp_1414 = add nsw i64 16777216, %h3_2
+
+ST_94: tmp_595 (259)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1388
+:248  %tmp_595 = call i39 @_ssdm_op_PartSelect.i39.i64.i32.i32(i64 %tmp_1414, i32 25, i32 63)
+
+ST_94: tmp_658 (261)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1388
+:250  %tmp_658 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1414, i32 25, i32 56)
+
+
+ <State 95>: 2.69ns
+ST_95: tmp_1612_cast (258)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1388
+:247  %tmp_1612_cast = add i32 16777216, %tmp_656
+
+ST_95: tmp_1338 (264)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1388
+:253  %tmp_1338 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_1612_cast, i32 25, i32 31)
+
+ST_95: tmp_1415 (265)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1390
+:254  %tmp_1415 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_1338, i25 0)
+
+ST_95: h_3_write_assign (319)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1409
+:308  %h_3_write_assign = sub i32 %tmp_656, %tmp_1415
+
+
+ <State 96>: 1.34ns
+ST_96: tmp_651 (251)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1367
+:240  %tmp_651 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1461, i1 false)
+
+ST_96: tmp_664 (266)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1385
+:255  %tmp_664 = add i32 %tmp_652, %tmp_651
+
+
+ <State 97>: 1.41ns
+ST_97: tmp_1416 (267)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1391
+:256  %tmp_1416 = add nsw i64 16777216, %h7_2
+
+ST_97: tmp_597 (269)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1391
+:258  %tmp_597 = call i39 @_ssdm_op_PartSelect.i39.i64.i32.i32(i64 %tmp_1416, i32 25, i32 63)
+
+ST_97: tmp_666 (273)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1391
+:262  %tmp_666 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1416, i32 25, i32 56)
+
+
+ <State 98>: 2.69ns
+ST_98: tmp_1614_cast (268)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1391
+:257  %tmp_1614_cast = add i32 16777216, %tmp_664
+
+ST_98: tmp_1340 (275)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1391
+:264  %tmp_1340 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_1614_cast, i32 25, i32 31)
+
+ST_98: tmp_1417 (276)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1393
+:265  %tmp_1417 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_1340, i25 0)
+
+ST_98: h_7_write_assign (323)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1413
+:312  %h_7_write_assign = sub i32 %tmp_664, %tmp_1417
+
+
+ <State 99>: 1.41ns
+ST_99: h8_1 (191)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1368
+:180  %h8_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h7, i1 false)
+
+ST_99: carry7 (270)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1391
+:259  %carry7 = sext i39 %tmp_597 to i64
+
+ST_99: h8_2 (274)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1392
+:263  %h8_2 = add nsw i64 %h8_1, %carry7
+
+
+ <State 100>: 1.42ns
+ST_100: tmp_661 (262)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1388
+:251  %tmp_661 = sext i39 %tmp_595 to i58
+
+ST_100: tmp_670 (277)  [1/1] 1.42ns  loc: ed25519/src/fe.cpp:1388
+:266  %tmp_670 = add i58 %tmp_661, %tmp_1463
+
+
+ <State 101>: 1.34ns
+ST_101: tmp_671 (278)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1388
+:267  %tmp_671 = add i32 %tmp_658, %tmp_1462
+
+
+ <State 102>: 2.69ns
+ST_102: tmp_1616_cast1 (279)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1394
+:268  %tmp_1616_cast1 = add i32 33554432, %tmp_671
+
+ST_102: tmp_1341 (283)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1394
+:272  %tmp_1341 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_1616_cast1, i32 26, i32 31)
+
+ST_102: tmp_1418 (284)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1396
+:273  %tmp_1418 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_1341, i26 0)
+
+ST_102: h_4_write_assign (320)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1410
+:309  %h_4_write_assign = sub i32 %tmp_671, %tmp_1418
+
+
+ <State 103>: 1.42ns
+ST_103: tmp_1616_cast (280)  [1/1] 1.42ns  loc: ed25519/src/fe.cpp:1394
+:269  %tmp_1616_cast = add i58 33554432, %tmp_670
+
+ST_103: tmp_599 (282)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1394
+:271  %tmp_599 = call i32 @_ssdm_op_PartSelect.i32.i58.i32.i32(i58 %tmp_1616_cast, i32 26, i32 57)
+
+
+ <State 104>: 1.34ns
+ST_104: tmp_665 (272)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1368
+:261  %tmp_665 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1464, i1 false)
+
+ST_104: tmp_674 (285)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1391
+:274  %tmp_674 = add i32 %tmp_666, %tmp_665
+
+
+ <State 105>: 1.41ns
+ST_105: tmp_1419 (286)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1397
+:275  %tmp_1419 = add nsw i64 33554432, %h8_2
+
+ST_105: tmp_601 (288)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1397
+:277  %tmp_601 = call i38 @_ssdm_op_PartSelect.i38.i64.i32.i32(i64 %tmp_1419, i32 26, i32 63)
+
+ST_105: tmp_676 (292)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1397
+:281  %tmp_676 = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %tmp_1419, i32 26, i32 57)
+
+
+ <State 106>: 2.69ns
+ST_106: tmp_1618_cast (287)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1397
+:276  %tmp_1618_cast = add i32 33554432, %tmp_674
+
+ST_106: tmp_1343 (294)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1397
+:283  %tmp_1343 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_1618_cast, i32 26, i32 31)
+
+ST_106: tmp_1420 (295)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1399
+:284  %tmp_1420 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_1343, i26 0)
+
+ST_106: h_8_write_assign (324)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1414
+:313  %h_8_write_assign = sub i32 %tmp_674, %tmp_1420
+
+
+ <State 107>: 1.41ns
+ST_107: h9_1 (193)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1369
+:182  %h9_1 = call i64 @_ssdm_op_BitConcatenate.i64.i63.i1(i63 %h9, i1 false)
+
+ST_107: carry8 (289)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1397
+:278  %carry8 = sext i38 %tmp_601 to i64
+
+ST_107: h9_2 (293)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1398
+:282  %h9_2 = add nsw i64 %h9_1, %carry8
+
+
+ <State 108>: 1.34ns
+ST_108: tmp_675 (291)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1369
+:280  %tmp_675 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %tmp_1465, i1 false)
+
+ST_108: tmp_680 (296)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1397
+:285  %tmp_680 = add i32 %tmp_676, %tmp_675
+
+
+ <State 109>: 1.41ns
+ST_109: tmp_1421 (297)  [1/1] 1.41ns  loc: ed25519/src/fe.cpp:1400
+:286  %tmp_1421 = add nsw i64 16777216, %h9_2
+
+ST_109: tmp_603 (299)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1400
+:288  %tmp_603 = call i39 @_ssdm_op_PartSelect.i39.i64.i32.i32(i64 %tmp_1421, i32 25, i32 63)
+
+
+ <State 110>: 2.69ns
+ST_110: tmp_1620_cast (298)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1400
+:287  %tmp_1620_cast = add i32 16777216, %tmp_680
+
+ST_110: tmp_1344 (306)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1400
+:295  %tmp_1344 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %tmp_1620_cast, i32 25, i32 31)
+
+ST_110: tmp_1423 (307)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1402
+:296  %tmp_1423 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %tmp_1344, i25 0)
+
+ST_110: h_9_write_assign (325)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1415
+:314  %h_9_write_assign = sub i32 %tmp_680, %tmp_1423
+
+
+ <State 111>: 6.91ns
+ST_111: carry9_cast (300)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1400
+:289  %carry9_cast = sext i39 %tmp_603 to i44
+
+ST_111: tmp_1422 (301)  [1/1] 5.49ns  loc: ed25519/src/fe.cpp:1401
+:290  %tmp_1422 = mul i44 19, %carry9_cast
+
+ST_111: tmp_1467 (303)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1401
+:292  %tmp_1467 = trunc i44 %tmp_1422 to i32
+
+ST_111: tmp_685 (304)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1401
+:293  %tmp_685 = sext i44 %tmp_1422 to i58
+
+ST_111: tmp_688 (308)  [1/1] 1.42ns  loc: ed25519/src/fe.cpp:1401
+:297  %tmp_688 = add i58 %tmp_685, %tmp_1468
+
+
+ <State 112>: 1.34ns
+ST_112: tmp_689 (309)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1401
+:298  %tmp_689 = add i32 %tmp_1467, %tmp_1466
+
+
+ <State 113>: 2.69ns
+ST_113: tmp_1623_cast1 (310)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1403
+:299  %tmp_1623_cast1 = add i32 33554432, %tmp_689
+
+ST_113: tmp_1345 (314)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1403
+:303  %tmp_1345 = call i6 @_ssdm_op_PartSelect.i6.i32.i32.i32(i32 %tmp_1623_cast1, i32 26, i32 31)
+
+ST_113: tmp_1424 (315)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1405
+:304  %tmp_1424 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %tmp_1345, i26 0)
+
+ST_113: h_0_write_assign (316)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1406
+:305  %h_0_write_assign = sub i32 %tmp_689, %tmp_1424
+
+
+ <State 114>: 1.42ns
+ST_114: tmp_1623_cast (311)  [1/1] 1.42ns  loc: ed25519/src/fe.cpp:1403
+:300  %tmp_1623_cast = add i58 33554432, %tmp_688
+
+ST_114: tmp_605 (313)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1403
+:302  %tmp_605 = call i32 @_ssdm_op_PartSelect.i32.i58.i32.i32(i58 %tmp_1623_cast, i32 26, i32 57)
+
+
+ <State 115>: 1.34ns
+ST_115: h_1_write_assign (317)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1407
+:306  %h_1_write_assign = add i32 %tmp_604, %tmp_605
+
+
+ <State 116>: 1.34ns
+ST_116: StgValue_424 (21)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1255
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_425 (22)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1256
+:11  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_426 (23)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1257
+:12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_427 (24)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1258
+:13  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_428 (25)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1259
+:14  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_429 (26)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1260
+:15  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: StgValue_430 (27)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1261
+:16  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_116: h_5_write_assign (321)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1411
+:310  %h_5_write_assign = add i32 %tmp_598, %tmp_599
+
+ST_116: mrv (326)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:315  %mrv = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } undef, i32 %h_0_write_assign, 0
+
+ST_116: mrv_1 (327)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:316  %mrv_1 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv, i32 %h_1_write_assign, 1
+
+ST_116: mrv_2 (328)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:317  %mrv_2 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_1, i32 %h_2_write_assign, 2
+
+ST_116: mrv_3 (329)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:318  %mrv_3 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_2, i32 %h_3_write_assign, 3
+
+ST_116: mrv_4 (330)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:319  %mrv_4 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_3, i32 %h_4_write_assign, 4
+
+ST_116: mrv_5 (331)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:320  %mrv_5 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_4, i32 %h_5_write_assign, 5
+
+ST_116: mrv_6 (332)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:321  %mrv_6 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_5, i32 %h_6_write_assign, 6
+
+ST_116: mrv_7 (333)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:322  %mrv_7 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_6, i32 %h_7_write_assign, 7
+
+ST_116: mrv_8 (334)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:323  %mrv_8 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_7, i32 %h_8_write_assign, 8
+
+ST_116: mrv_9 (335)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:324  %mrv_9 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_8, i32 %h_9_write_assign, 9
+
+ST_116: StgValue_442 (336)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1416
+:325  ret { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_9
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_5_read' [15]  (0 ns)
+	'mul' operation ('f5_38', ed25519/src/fe.cpp:1280) [36]  (5.45 ns)
+
+ <State 2>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_6_read' [14]  (0 ns)
+	'mul' operation ('f6_19', ed25519/src/fe.cpp:1281) [37]  (5.45 ns)
+
+ <State 3>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_7_read' [13]  (0 ns)
+	'mul' operation ('f7_38', ed25519/src/fe.cpp:1282) [38]  (5.45 ns)
+
+ <State 4>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_8_read' [12]  (0 ns)
+	'mul' operation ('f8_19', ed25519/src/fe.cpp:1283) [39]  (5.45 ns)
+
+ <State 5>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_9_read' [11]  (0 ns)
+	'mul' operation ('f9_38', ed25519/src/fe.cpp:1284) [40]  (5.45 ns)
+
+ <State 6>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_0_read' [20]  (0 ns)
+	'mul' operation ('f0f0', ed25519/src/fe.cpp:1285) [42]  (5.45 ns)
+
+ <State 7>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_1_read' [19]  (0 ns)
+	'mul' operation ('f0f1_2', ed25519/src/fe.cpp:1286) [45]  (5.45 ns)
+
+ <State 8>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_2_read' [18]  (0 ns)
+	'mul' operation ('f0f2_2', ed25519/src/fe.cpp:1287) [47]  (5.45 ns)
+
+ <State 9>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_3_read' [17]  (0 ns)
+	'mul' operation ('f0f3_2', ed25519/src/fe.cpp:1288) [49]  (5.45 ns)
+
+ <State 10>: 5.45ns
+The critical path consists of the following:
+	wire read on port 'f_4_read' [16]  (0 ns)
+	'mul' operation ('f0f4_2', ed25519/src/fe.cpp:1289) [51]  (5.45 ns)
+
+ <State 11>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f0f5_2', ed25519/src/fe.cpp:1290) [53]  (5.45 ns)
+
+ <State 12>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f0f6_2', ed25519/src/fe.cpp:1291) [55]  (5.45 ns)
+
+ <State 13>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f0f7_2', ed25519/src/fe.cpp:1292) [57]  (5.45 ns)
+
+ <State 14>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f0f8_2', ed25519/src/fe.cpp:1293) [59]  (5.45 ns)
+
+ <State 15>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f0f9_2', ed25519/src/fe.cpp:1294) [61]  (5.45 ns)
+
+ <State 16>: 5.45ns
+The critical path consists of the following:
+	'shl' operation ('f1_2', ed25519/src/fe.cpp:1273) [29]  (0 ns)
+	'mul' operation ('f1f1_2', ed25519/src/fe.cpp:1295) [63]  (5.45 ns)
+
+ <State 17>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f1f2_2', ed25519/src/fe.cpp:1296) [64]  (5.45 ns)
+	'add' operation ('tmp12', ed25519/src/fe.cpp:1343) [136]  (1.41 ns)
+
+ <State 18>: 6.87ns
+The critical path consists of the following:
+	'shl' operation ('f3_2', ed25519/src/fe.cpp:1275) [31]  (0 ns)
+	'mul' operation ('f1f3_4', ed25519/src/fe.cpp:1297) [66]  (5.45 ns)
+	'add' operation ('tmp16', ed25519/src/fe.cpp:1344) [141]  (1.41 ns)
+
+ <State 19>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f1f4_2', ed25519/src/fe.cpp:1298) [67]  (5.45 ns)
+
+ <State 20>: 5.45ns
+The critical path consists of the following:
+	'shl' operation ('f5_2', ed25519/src/fe.cpp:1277) [33]  (0 ns)
+	'mul' operation ('f1f5_4', ed25519/src/fe.cpp:1299) [69]  (5.45 ns)
+
+ <State 21>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f1f6_2', ed25519/src/fe.cpp:1300) [70]  (5.45 ns)
+
+ <State 22>: 5.45ns
+The critical path consists of the following:
+	'shl' operation ('f7_2', ed25519/src/fe.cpp:1279) [35]  (0 ns)
+	'mul' operation ('f1f7_4', ed25519/src/fe.cpp:1301) [72]  (5.45 ns)
+
+ <State 23>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f1f8_2', ed25519/src/fe.cpp:1302) [73]  (5.45 ns)
+	'add' operation ('tmp35', ed25519/src/fe.cpp:1349) [170]  (1.41 ns)
+
+ <State 24>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f1f9_76', ed25519/src/fe.cpp:1303) [75]  (5.45 ns)
+
+ <State 25>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f2f2', ed25519/src/fe.cpp:1304) [76]  (5.45 ns)
+	'add' operation ('tmp15', ed25519/src/fe.cpp:1344) [142]  (1.41 ns)
+
+ <State 26>: 6.87ns
+The critical path consists of the following:
+	'shl' operation ('f2_2', ed25519/src/fe.cpp:1274) [30]  (0 ns)
+	'mul' operation ('f2f3_2', ed25519/src/fe.cpp:1305) [78]  (5.45 ns)
+	'add' operation ('tmp19', ed25519/src/fe.cpp:1345) [147]  (1.41 ns)
+
+ <State 27>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f2f4_2', ed25519/src/fe.cpp:1306) [79]  (5.45 ns)
+	'add' operation ('tmp23', ed25519/src/fe.cpp:1346) [152]  (1.41 ns)
+
+ <State 28>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f2f5_2', ed25519/src/fe.cpp:1307) [80]  (5.45 ns)
+
+ <State 29>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f2f6_2', ed25519/src/fe.cpp:1308) [81]  (5.45 ns)
+
+ <State 30>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f2f7_2', ed25519/src/fe.cpp:1309) [82]  (5.45 ns)
+	'add' operation ('tmp34', ed25519/src/fe.cpp:1349) [171]  (1.41 ns)
+
+ <State 31>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f2f8_38', ed25519/src/fe.cpp:1310) [84]  (5.45 ns)
+	'add' operation ('tmp4', ed25519/src/fe.cpp:1340) [121]  (1.41 ns)
+
+ <State 32>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f2f9_38', ed25519/src/fe.cpp:1311) [85]  (5.45 ns)
+
+ <State 33>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f3f3_2', ed25519/src/fe.cpp:1312) [86]  (5.45 ns)
+	'add' operation ('tmp22', ed25519/src/fe.cpp:1346) [153]  (1.41 ns)
+
+ <State 34>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f3f4_2', ed25519/src/fe.cpp:1313) [87]  (5.45 ns)
+	'add' operation ('tmp26', ed25519/src/fe.cpp:1347) [158]  (1.41 ns)
+
+ <State 35>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f3f5_4', ed25519/src/fe.cpp:1314) [88]  (5.45 ns)
+	'add' operation ('tmp30', ed25519/src/fe.cpp:1348) [163]  (1.41 ns)
+
+ <State 36>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f3f6_2', ed25519/src/fe.cpp:1315) [89]  (5.45 ns)
+
+ <State 37>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f3f7_76', ed25519/src/fe.cpp:1316) [91]  (5.45 ns)
+	'add' operation ('tmp3', ed25519/src/fe.cpp:1340) [122]  (1.41 ns)
+
+ <State 38>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f3f8_38', ed25519/src/fe.cpp:1317) [92]  (5.45 ns)
+	'add' operation ('tmp7', ed25519/src/fe.cpp:1341) [126]  (1.41 ns)
+
+ <State 39>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f3f9_76', ed25519/src/fe.cpp:1318) [93]  (5.45 ns)
+
+ <State 40>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f4f4', ed25519/src/fe.cpp:1319) [94]  (5.45 ns)
+	'add' operation ('tmp29', ed25519/src/fe.cpp:1348) [164]  (1.41 ns)
+
+ <State 41>: 6.87ns
+The critical path consists of the following:
+	'shl' operation ('f4_2', ed25519/src/fe.cpp:1276) [32]  (0 ns)
+	'mul' operation ('f4f5_2', ed25519/src/fe.cpp:1320) [96]  (5.45 ns)
+	'add' operation ('tmp33', ed25519/src/fe.cpp:1349) [169]  (1.41 ns)
+
+ <State 42>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f4f6_38', ed25519/src/fe.cpp:1321) [98]  (5.45 ns)
+
+ <State 43>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f4f7_38', ed25519/src/fe.cpp:1322) [99]  (5.45 ns)
+	'add' operation ('tmp6', ed25519/src/fe.cpp:1341) [127]  (1.41 ns)
+
+ <State 44>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f4f8_38', ed25519/src/fe.cpp:1323) [100]  (5.45 ns)
+	'add' operation ('tmp11', ed25519/src/fe.cpp:1342) [132]  (1.41 ns)
+
+ <State 45>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f4f9_38', ed25519/src/fe.cpp:1324) [101]  (5.45 ns)
+
+ <State 46>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f5f5_38', ed25519/src/fe.cpp:1325) [103]  (5.45 ns)
+	'add' operation ('tmp2', ed25519/src/fe.cpp:1340) [119]  (1.41 ns)
+
+ <State 47>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f5f6_38', ed25519/src/fe.cpp:1326) [104]  (5.45 ns)
+
+ <State 48>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f5f7_76', ed25519/src/fe.cpp:1327) [105]  (5.45 ns)
+
+ <State 49>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f5f8_38', ed25519/src/fe.cpp:1328) [106]  (5.45 ns)
+
+ <State 50>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f5f9_76', ed25519/src/fe.cpp:1329) [107]  (5.45 ns)
+
+ <State 51>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f6f6_19', ed25519/src/fe.cpp:1330) [108]  (5.45 ns)
+	'add' operation ('tmp9', ed25519/src/fe.cpp:1342) [130]  (1.41 ns)
+
+ <State 52>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f6f7_38', ed25519/src/fe.cpp:1331) [109]  (5.45 ns)
+
+ <State 53>: 5.45ns
+The critical path consists of the following:
+	'shl' operation ('f6_2', ed25519/src/fe.cpp:1278) [34]  (0 ns)
+	'mul' operation ('f6f8_38', ed25519/src/fe.cpp:1332) [111]  (5.45 ns)
+
+ <State 54>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f6f9_38', ed25519/src/fe.cpp:1333) [112]  (5.45 ns)
+
+ <State 55>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f7f7_38', ed25519/src/fe.cpp:1334) [113]  (5.45 ns)
+	'add' operation ('tmp17', ed25519/src/fe.cpp:1344) [144]  (1.41 ns)
+
+ <State 56>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f7f8_38', ed25519/src/fe.cpp:1335) [114]  (5.45 ns)
+	'add' operation ('tmp21', ed25519/src/fe.cpp:1345) [148]  (1.41 ns)
+
+ <State 57>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f7f9_76', ed25519/src/fe.cpp:1336) [115]  (5.45 ns)
+
+ <State 58>: 6.87ns
+The critical path consists of the following:
+	'mul' operation ('f8f8_19', ed25519/src/fe.cpp:1337) [116]  (5.45 ns)
+	'add' operation ('tmp25', ed25519/src/fe.cpp:1346) [154]  (1.41 ns)
+
+ <State 59>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f8f9_38', ed25519/src/fe.cpp:1338) [117]  (5.45 ns)
+
+ <State 60>: 5.45ns
+The critical path consists of the following:
+	'mul' operation ('f9f9_38', ed25519/src/fe.cpp:1339) [118]  (5.45 ns)
+
+ <State 61>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp27', ed25519/src/fe.cpp:1347) [160]  (1.41 ns)
+
+ <State 62>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp32', ed25519/src/fe.cpp:1348) [165]  (1.41 ns)
+
+ <State 63>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp31', ed25519/src/fe.cpp:1348) [166]  (1.41 ns)
+
+ <State 64>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h', ed25519/src/fe.cpp:1360) [174]  (1.41 ns)
+
+ <State 65>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h2', ed25519/src/fe.cpp:1361) [176]  (1.41 ns)
+
+ <State 66>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h4', ed25519/src/fe.cpp:1362) [178]  (1.41 ns)
+
+ <State 67>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h6', ed25519/src/fe.cpp:1363) [180]  (1.41 ns)
+
+ <State 68>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h8', ed25519/src/fe.cpp:1364) [182]  (1.41 ns)
+
+ <State 69>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h1', ed25519/src/fe.cpp:1365) [184]  (1.41 ns)
+
+ <State 70>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h3', ed25519/src/fe.cpp:1366) [186]  (1.41 ns)
+
+ <State 71>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h5', ed25519/src/fe.cpp:1367) [188]  (1.41 ns)
+
+ <State 72>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h7', ed25519/src/fe.cpp:1368) [190]  (1.41 ns)
+
+ <State 73>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1402', ed25519/src/fe.cpp:1370) [194]  (1.41 ns)
+
+ <State 74>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h1', ed25519/src/fe.cpp:1371) [200]  (1.41 ns)
+
+ <State 75>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1404', ed25519/src/fe.cpp:1373) [203]  (1.41 ns)
+
+ <State 76>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h5', ed25519/src/fe.cpp:1374) [209]  (1.41 ns)
+
+ <State 77>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_634', ed25519/src/fe.cpp:1370) [212]  (1.34 ns)
+
+ <State 78>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1406', ed25519/src/fe.cpp:1376) [213]  (1.41 ns)
+
+ <State 79>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1604_cast', ed25519/src/fe.cpp:1376) [214]  (1.34 ns)
+	'sub' operation ('tmp_604', ed25519/src/fe.cpp:1378) [312]  (1.34 ns)
+
+ <State 80>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h2', ed25519/src/fe.cpp:1377) [220]  (1.41 ns)
+
+ <State 81>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_639', ed25519/src/fe.cpp:1373) [223]  (1.34 ns)
+
+ <State 82>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1408', ed25519/src/fe.cpp:1379) [224]  (1.41 ns)
+
+ <State 83>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1606_cast', ed25519/src/fe.cpp:1379) [225]  (1.34 ns)
+	'sub' operation ('tmp_598', ed25519/src/fe.cpp:1381) [281]  (1.34 ns)
+
+ <State 84>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h6', ed25519/src/fe.cpp:1380) [231]  (1.41 ns)
+
+ <State 85>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_644', ed25519/src/fe.cpp:1376) [234]  (1.34 ns)
+
+ <State 86>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1410', ed25519/src/fe.cpp:1382) [235]  (1.41 ns)
+
+ <State 87>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1608_cast', ed25519/src/fe.cpp:1382) [236]  (1.34 ns)
+	'sub' operation ('h[2]', ed25519/src/fe.cpp:1408) [318]  (1.34 ns)
+
+ <State 88>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h3', ed25519/src/fe.cpp:1383) [242]  (1.41 ns)
+
+ <State 89>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_650', ed25519/src/fe.cpp:1379) [245]  (1.34 ns)
+
+ <State 90>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1412', ed25519/src/fe.cpp:1385) [246]  (1.41 ns)
+
+ <State 91>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1610_cast', ed25519/src/fe.cpp:1385) [247]  (1.34 ns)
+	'sub' operation ('h[6]', ed25519/src/fe.cpp:1412) [322]  (1.34 ns)
+
+ <State 92>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h7', ed25519/src/fe.cpp:1386) [253]  (1.41 ns)
+
+ <State 93>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_656', ed25519/src/fe.cpp:1382) [256]  (1.34 ns)
+
+ <State 94>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1414', ed25519/src/fe.cpp:1388) [257]  (1.41 ns)
+
+ <State 95>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1612_cast', ed25519/src/fe.cpp:1388) [258]  (1.34 ns)
+	'sub' operation ('h[3]', ed25519/src/fe.cpp:1409) [319]  (1.34 ns)
+
+ <State 96>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_664', ed25519/src/fe.cpp:1385) [266]  (1.34 ns)
+
+ <State 97>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1416', ed25519/src/fe.cpp:1391) [267]  (1.41 ns)
+
+ <State 98>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1614_cast', ed25519/src/fe.cpp:1391) [268]  (1.34 ns)
+	'sub' operation ('h[7]', ed25519/src/fe.cpp:1413) [323]  (1.34 ns)
+
+ <State 99>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h8', ed25519/src/fe.cpp:1392) [274]  (1.41 ns)
+
+ <State 100>: 1.42ns
+The critical path consists of the following:
+	'add' operation ('tmp_670', ed25519/src/fe.cpp:1388) [277]  (1.42 ns)
+
+ <State 101>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_671', ed25519/src/fe.cpp:1388) [278]  (1.34 ns)
+
+ <State 102>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1616_cast1', ed25519/src/fe.cpp:1394) [279]  (1.34 ns)
+	'sub' operation ('h[4]', ed25519/src/fe.cpp:1410) [320]  (1.34 ns)
+
+ <State 103>: 1.42ns
+The critical path consists of the following:
+	'add' operation ('tmp_1616_cast', ed25519/src/fe.cpp:1394) [280]  (1.42 ns)
+
+ <State 104>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_674', ed25519/src/fe.cpp:1391) [285]  (1.34 ns)
+
+ <State 105>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1419', ed25519/src/fe.cpp:1397) [286]  (1.41 ns)
+
+ <State 106>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1618_cast', ed25519/src/fe.cpp:1397) [287]  (1.34 ns)
+	'sub' operation ('h[8]', ed25519/src/fe.cpp:1414) [324]  (1.34 ns)
+
+ <State 107>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('h9', ed25519/src/fe.cpp:1398) [293]  (1.41 ns)
+
+ <State 108>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_680', ed25519/src/fe.cpp:1397) [296]  (1.34 ns)
+
+ <State 109>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_1421', ed25519/src/fe.cpp:1400) [297]  (1.41 ns)
+
+ <State 110>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1620_cast', ed25519/src/fe.cpp:1400) [298]  (1.34 ns)
+	'sub' operation ('h[9]', ed25519/src/fe.cpp:1415) [325]  (1.34 ns)
+
+ <State 111>: 6.91ns
+The critical path consists of the following:
+	'mul' operation ('tmp_1422', ed25519/src/fe.cpp:1401) [301]  (5.49 ns)
+	'add' operation ('tmp_688', ed25519/src/fe.cpp:1401) [308]  (1.42 ns)
+
+ <State 112>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('tmp_689', ed25519/src/fe.cpp:1401) [309]  (1.34 ns)
+
+ <State 113>: 2.69ns
+The critical path consists of the following:
+	'add' operation ('tmp_1623_cast1', ed25519/src/fe.cpp:1403) [310]  (1.34 ns)
+	'sub' operation ('h[0]', ed25519/src/fe.cpp:1406) [316]  (1.34 ns)
+
+ <State 114>: 1.42ns
+The critical path consists of the following:
+	'add' operation ('tmp_1623_cast', ed25519/src/fe.cpp:1403) [311]  (1.42 ns)
+
+ <State 115>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('h[1]', ed25519/src/fe.cpp:1407) [317]  (1.34 ns)
+
+ <State 116>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('h[5]', ed25519/src/fe.cpp:1411) [321]  (1.34 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+	State 98
+	State 99
+	State 100
+	State 101
+	State 102
+	State 103
+	State 104
+	State 105
+	State 106
+	State 107
+	State 108
+	State 109
+	State 110
+	State 111
+	State 112
+	State 113
+	State 114
+	State 115
+	State 116
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

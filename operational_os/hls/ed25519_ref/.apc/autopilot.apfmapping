@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="api.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/api.h"/>
-    <originFiles name="crypto_hash_sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_hash_sha512.h"/>
-    <originFiles name="crypto_int32.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_int32.h"/>
-    <originFiles name="crypto_sign.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_sign.h"/>
-    <originFiles name="crypto_uint32.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_uint32.h"/>
-    <originFiles name="fe25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fe25519.c"/>
-    <originFiles name="fe25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fe25519.h"/>
-    <originFiles name="fixedint.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fixedint.h"/>
-    <originFiles name="ge25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519.c"/>
-    <originFiles name="ge25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519.h"/>
-    <originFiles name="ge25519_base.data" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519_base.data"/>
-    <originFiles name="md_helper.i" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/md_helper.i"/>
-    <originFiles name="sc25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sc25519.c"/>
-    <originFiles name="sc25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sc25519.h"/>
-    <originFiles name="sha512.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sha512.c"/>
-    <originFiles name="sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sha512.h"/>
     <originFiles name="sign.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sign.c"/>
+    <originFiles name="sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sha512.h"/>
+    <originFiles name="sha512.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sha512.c"/>
+    <originFiles name="sc25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sc25519.h"/>
+    <originFiles name="sc25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/sc25519.c"/>
+    <originFiles name="md_helper.i" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/md_helper.i"/>
+    <originFiles name="ge25519_base.data" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519_base.data"/>
+    <originFiles name="ge25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519.h"/>
+    <originFiles name="ge25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ge25519.c"/>
+    <originFiles name="fixedint.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fixedint.h"/>
+    <originFiles name="fe25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fe25519.h"/>
+    <originFiles name="fe25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/fe25519.c"/>
+    <originFiles name="crypto_uint32.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_uint32.h"/>
+    <originFiles name="crypto_sign.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_sign.h"/>
+    <originFiles name="crypto_int32.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_int32.h"/>
+    <originFiles name="crypto_hash_sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/crypto_hash_sha512.h"/>
+    <originFiles name="api.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/api.h"/>
   </source>
   <testbench>
     <originFiles name="ed25519_ref_tb.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/src/ed25519_ref_tb.c"/>

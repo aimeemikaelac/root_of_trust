@@ -1,0 +1,997 @@
+
+
+================================================================
+== Vivado HLS Report for 'ge_madd'
+================================================================
+* Date:           Fri Jun  2 12:27:18 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.52|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  417|  417|  417|  417|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 13
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+* FSM state operations: 
+
+ <State 1>: 7.52ns
+ST_1: p_read (82)  [1/1] 0.00ns
+:11  %p_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read69)
+
+ST_1: p_read_88 (83)  [1/1] 0.00ns
+:12  %p_read_88 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read68)
+
+ST_1: p_read_89 (84)  [1/1] 0.00ns
+:13  %p_read_89 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read67)
+
+ST_1: p_read_90 (85)  [1/1] 0.00ns
+:14  %p_read_90 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read66)
+
+ST_1: p_read_91 (86)  [1/1] 0.00ns
+:15  %p_read_91 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read65)
+
+ST_1: p_read_92 (87)  [1/1] 0.00ns
+:16  %p_read_92 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read64)
+
+ST_1: p_read_93 (88)  [1/1] 0.00ns
+:17  %p_read_93 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read63)
+
+ST_1: p_read_94 (89)  [1/1] 0.00ns
+:18  %p_read_94 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read62)
+
+ST_1: p_read_95 (90)  [1/1] 0.00ns
+:19  %p_read_95 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read61)
+
+ST_1: p_read6063 (91)  [1/1] 0.00ns
+:20  %p_read6063 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read60)
+
+ST_1: p_read_115 (112)  [1/1] 0.00ns
+:41  %p_read_115 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3959)
+
+ST_1: p_read_116 (113)  [1/1] 0.00ns
+:42  %p_read_116 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3858)
+
+ST_1: p_read_117 (114)  [1/1] 0.00ns
+:43  %p_read_117 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3757)
+
+ST_1: p_read_118 (115)  [1/1] 0.00ns
+:44  %p_read_118 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3656)
+
+ST_1: p_read_119 (116)  [1/1] 0.00ns
+:45  %p_read_119 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3555)
+
+ST_1: p_read_120 (117)  [1/1] 0.00ns
+:46  %p_read_120 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3454)
+
+ST_1: p_read_121 (118)  [1/1] 0.00ns
+:47  %p_read_121 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3353)
+
+ST_1: p_read_122 (119)  [1/1] 0.00ns
+:48  %p_read_122 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3252)
+
+ST_1: p_read_123 (120)  [1/1] 0.00ns
+:49  %p_read_123 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3151)
+
+ST_1: p_read_124 (121)  [1/1] 0.00ns
+:50  %p_read_124 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read3050)
+
+ST_1: p_read_135 (132)  [1/1] 0.00ns
+:61  %p_read_135 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1949)
+
+ST_1: p_read_136 (133)  [1/1] 0.00ns
+:62  %p_read_136 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1848)
+
+ST_1: p_read_137 (134)  [1/1] 0.00ns
+:63  %p_read_137 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1747)
+
+ST_1: p_read_138 (135)  [1/1] 0.00ns
+:64  %p_read_138 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1646)
+
+ST_1: p_read_139 (136)  [1/1] 0.00ns
+:65  %p_read_139 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1545)
+
+ST_1: p_read_140 (137)  [1/1] 0.00ns
+:66  %p_read_140 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1444)
+
+ST_1: p_read_141 (138)  [1/1] 0.00ns
+:67  %p_read_141 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1343)
+
+ST_1: p_read_142 (139)  [1/1] 0.00ns
+:68  %p_read_142 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1242)
+
+ST_1: p_read_143 (140)  [1/1] 0.00ns
+:69  %p_read_143 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1141)
+
+ST_1: p_read_144 (141)  [1/1] 0.00ns
+:70  %p_read_144 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1040)
+
+ST_1: p_read_145 (142)  [1/1] 0.00ns
+:71  %p_read_145 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read949)
+
+ST_1: p_read_146 (143)  [1/1] 0.00ns
+:72  %p_read_146 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read848)
+
+ST_1: p_read_147 (144)  [1/1] 0.00ns
+:73  %p_read_147 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read747)
+
+ST_1: p_read_148 (145)  [1/1] 0.00ns
+:74  %p_read_148 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read646)
+
+ST_1: p_read_149 (146)  [1/1] 0.00ns
+:75  %p_read_149 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read545)
+
+ST_1: p_read_150 (147)  [1/1] 0.00ns
+:76  %p_read_150 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read444)
+
+ST_1: p_read_151 (148)  [1/1] 0.00ns
+:77  %p_read_151 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read343)
+
+ST_1: p_read_152 (149)  [1/1] 0.00ns
+:78  %p_read_152 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read242)
+
+ST_1: p_read_153 (150)  [1/1] 0.00ns
+:79  %p_read_153 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read141)
+
+ST_1: p_read401 (151)  [1/1] 0.00ns
+:80  %p_read401 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read40)
+
+ST_1: fe_add_ret (152)  [2/2] 2.00ns
+:81  %fe_add_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %p_read_144, i32 %p_read_143, i32 %p_read_142, i32 %p_read_141, i32 %p_read_140, i32 %p_read_139, i32 %p_read_138, i32 %p_read_137, i32 %p_read_136, i32 %p_read_135, i32 %p_read401, i32 %p_read_153, i32 %p_read_152, i32 %p_read_151, i32 %p_read_150, i32 %p_read_149, i32 %p_read_148, i32 %p_read_147, i32 %p_read_146, i32 %p_read_145)
+
+ST_1: fe_sub_ret (163)  [2/2] 2.00ns
+:92  %fe_sub_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %p_read_144, i32 %p_read_143, i32 %p_read_142, i32 %p_read_141, i32 %p_read_140, i32 %p_read_139, i32 %p_read_138, i32 %p_read_137, i32 %p_read_136, i32 %p_read_135, i32 %p_read401, i32 %p_read_153, i32 %p_read_152, i32 %p_read_151, i32 %p_read_150, i32 %p_read_149, i32 %p_read_148, i32 %p_read_147, i32 %p_read_146, i32 %p_read_145)
+
+ST_1: fe_mul_ret (196)  [2/2] 7.52ns
+:125  %fe_mul_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read6063, i32 %p_read_95, i32 %p_read_94, i32 %p_read_93, i32 %p_read_92, i32 %p_read_91, i32 %p_read_90, i32 %p_read_89, i32 %p_read_88, i32 %p_read, i32 %p_read_124, i32 %p_read_123, i32 %p_read_122, i32 %p_read_121, i32 %p_read_120, i32 %p_read_119, i32 %p_read_118, i32 %p_read_117, i32 %p_read_116, i32 %p_read_115)
+
+
+ <State 2>: 1.34ns
+ST_2: fe_add_ret (152)  [1/2] 1.34ns
+:81  %fe_add_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %p_read_144, i32 %p_read_143, i32 %p_read_142, i32 %p_read_141, i32 %p_read_140, i32 %p_read_139, i32 %p_read_138, i32 %p_read_137, i32 %p_read_136, i32 %p_read_135, i32 %p_read401, i32 %p_read_153, i32 %p_read_152, i32 %p_read_151, i32 %p_read_150, i32 %p_read_149, i32 %p_read_148, i32 %p_read_147, i32 %p_read_146, i32 %p_read_145)
+
+ST_2: r_X_0_assign_2 (153)  [1/1] 0.00ns
+:82  %r_X_0_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 0
+
+ST_2: r_X_1_assign_2 (154)  [1/1] 0.00ns
+:83  %r_X_1_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 1
+
+ST_2: r_X_2_assign_2 (155)  [1/1] 0.00ns
+:84  %r_X_2_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 2
+
+ST_2: r_X_3_assign_2 (156)  [1/1] 0.00ns
+:85  %r_X_3_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 3
+
+ST_2: r_X_4_assign_2 (157)  [1/1] 0.00ns
+:86  %r_X_4_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 4
+
+ST_2: r_X_5_assign_2 (158)  [1/1] 0.00ns
+:87  %r_X_5_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 5
+
+ST_2: r_X_6_assign_2 (159)  [1/1] 0.00ns
+:88  %r_X_6_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 6
+
+ST_2: r_X_7_assign_2 (160)  [1/1] 0.00ns
+:89  %r_X_7_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 7
+
+ST_2: r_X_8_assign_2 (161)  [1/1] 0.00ns
+:90  %r_X_8_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 8
+
+ST_2: r_X_9_assign_2 (162)  [1/1] 0.00ns
+:91  %r_X_9_assign_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 9
+
+ST_2: fe_sub_ret (163)  [1/2] 1.34ns
+:92  %fe_sub_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %p_read_144, i32 %p_read_143, i32 %p_read_142, i32 %p_read_141, i32 %p_read_140, i32 %p_read_139, i32 %p_read_138, i32 %p_read_137, i32 %p_read_136, i32 %p_read_135, i32 %p_read401, i32 %p_read_153, i32 %p_read_152, i32 %p_read_151, i32 %p_read_150, i32 %p_read_149, i32 %p_read_148, i32 %p_read_147, i32 %p_read_146, i32 %p_read_145)
+
+ST_2: r_Y_0_assign_4 (164)  [1/1] 0.00ns
+:93  %r_Y_0_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 0
+
+ST_2: r_Y_1_assign_4 (165)  [1/1] 0.00ns
+:94  %r_Y_1_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 1
+
+ST_2: r_Y_2_assign_4 (166)  [1/1] 0.00ns
+:95  %r_Y_2_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 2
+
+ST_2: r_Y_3_assign_4 (167)  [1/1] 0.00ns
+:96  %r_Y_3_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 3
+
+ST_2: r_Y_4_assign_4 (168)  [1/1] 0.00ns
+:97  %r_Y_4_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 4
+
+ST_2: r_Y_5_assign_4 (169)  [1/1] 0.00ns
+:98  %r_Y_5_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 5
+
+ST_2: r_Y_6_assign_4 (170)  [1/1] 0.00ns
+:99  %r_Y_6_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 6
+
+ST_2: r_Y_7_assign_4 (171)  [1/1] 0.00ns
+:100  %r_Y_7_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 7
+
+ST_2: r_Y_8_assign_4 (172)  [1/1] 0.00ns
+:101  %r_Y_8_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 8
+
+ST_2: r_Y_9_assign_4 (173)  [1/1] 0.00ns
+:102  %r_Y_9_assign_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret, 9
+
+ST_2: fe_mul_ret (196)  [1/2] 1.34ns
+:125  %fe_mul_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read6063, i32 %p_read_95, i32 %p_read_94, i32 %p_read_93, i32 %p_read_92, i32 %p_read_91, i32 %p_read_90, i32 %p_read_89, i32 %p_read_88, i32 %p_read, i32 %p_read_124, i32 %p_read_123, i32 %p_read_122, i32 %p_read_121, i32 %p_read_120, i32 %p_read_119, i32 %p_read_118, i32 %p_read_117, i32 %p_read_116, i32 %p_read_115)
+
+ST_2: g0_2 (197)  [1/1] 0.00ns
+:126  %g0_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 0
+
+ST_2: g1_2 (198)  [1/1] 0.00ns
+:127  %g1_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 1
+
+ST_2: g2_2 (199)  [1/1] 0.00ns
+:128  %g2_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 2
+
+ST_2: g3_2 (200)  [1/1] 0.00ns
+:129  %g3_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 3
+
+ST_2: g4_2 (201)  [1/1] 0.00ns
+:130  %g4_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 4
+
+ST_2: g5_2 (202)  [1/1] 0.00ns
+:131  %g5_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 5
+
+ST_2: g6_2 (203)  [1/1] 0.00ns
+:132  %g6_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 6
+
+ST_2: g7_2 (204)  [1/1] 0.00ns
+:133  %g7_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 7
+
+ST_2: g8_2 (205)  [1/1] 0.00ns
+:134  %g8_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 8
+
+ST_2: g9_2 (206)  [1/1] 0.00ns
+:135  %g9_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 9
+
+
+ <State 3>: 7.52ns
+ST_3: p_read_96 (92)  [1/1] 0.00ns
+:21  %p_read_96 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read59)
+
+ST_3: p_read_97 (93)  [1/1] 0.00ns
+:22  %p_read_97 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read58)
+
+ST_3: p_read_98 (94)  [1/1] 0.00ns
+:23  %p_read_98 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read57)
+
+ST_3: p_read_99 (95)  [1/1] 0.00ns
+:24  %p_read_99 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read56)
+
+ST_3: p_read_100 (96)  [1/1] 0.00ns
+:25  %p_read_100 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read55)
+
+ST_3: p_read_101 (97)  [1/1] 0.00ns
+:26  %p_read_101 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read54)
+
+ST_3: p_read_102 (98)  [1/1] 0.00ns
+:27  %p_read_102 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read53)
+
+ST_3: p_read_103 (99)  [1/1] 0.00ns
+:28  %p_read_103 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read52)
+
+ST_3: p_read_104 (100)  [1/1] 0.00ns
+:29  %p_read_104 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read51)
+
+ST_3: p_read5052 (101)  [1/1] 0.00ns
+:30  %p_read5052 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read50)
+
+ST_3: p_read_105 (102)  [1/1] 0.00ns
+:31  %p_read_105 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read49)
+
+ST_3: p_read_106 (103)  [1/1] 0.00ns
+:32  %p_read_106 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read48)
+
+ST_3: p_read_107 (104)  [1/1] 0.00ns
+:33  %p_read_107 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read47)
+
+ST_3: p_read_108 (105)  [1/1] 0.00ns
+:34  %p_read_108 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read46)
+
+ST_3: p_read_109 (106)  [1/1] 0.00ns
+:35  %p_read_109 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read45)
+
+ST_3: p_read_110 (107)  [1/1] 0.00ns
+:36  %p_read_110 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read44)
+
+ST_3: p_read_111 (108)  [1/1] 0.00ns
+:37  %p_read_111 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read43)
+
+ST_3: p_read_112 (109)  [1/1] 0.00ns
+:38  %p_read_112 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read42)
+
+ST_3: p_read_113 (110)  [1/1] 0.00ns
+:39  %p_read_113 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read41)
+
+ST_3: p_read_114 (111)  [1/1] 0.00ns
+:40  %p_read_114 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read4060)
+
+ST_3: p_read_134 (131)  [1/1] 0.00ns
+:60  %p_read_134 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2050)
+
+ST_3: fe_mul_ret7 (174)  [2/2] 7.52ns
+:103  %fe_mul_ret7 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %r_X_0_assign_2, i32 %r_X_1_assign_2, i32 %r_X_2_assign_2, i32 %r_X_3_assign_2, i32 %r_X_4_assign_2, i32 %r_X_5_assign_2, i32 %r_X_6_assign_2, i32 %r_X_7_assign_2, i32 %r_X_8_assign_2, i32 %r_X_9_assign_2, i32 %p_read_114, i32 %p_read_113, i32 %p_read_112, i32 %p_read_111, i32 %p_read_110, i32 %p_read_109, i32 %p_read_108, i32 %p_read_107, i32 %p_read_106, i32 %p_read_105)
+
+ST_3: call_ret (185)  [2/2] 6.87ns
+:114  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul.1(i32 %r_Y_0_assign_4, i32 %r_Y_1_assign_4, i32 %r_Y_2_assign_4, i32 %r_Y_3_assign_4, i32 %r_Y_4_assign_4, i32 %r_Y_5_assign_4, i32 %r_Y_6_assign_4, i32 %r_Y_7_assign_4, i32 %r_Y_8_assign_4, i32 %r_Y_9_assign_4, i32 %p_read5052, i32 %p_read_104, i32 %p_read_103, i32 %p_read_102, i32 %p_read_101, i32 %p_read_100, i32 %p_read_99, i32 %p_read_98, i32 %p_read_97, i32 %p_read_96)
+
+ST_3: h0_4 (214)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:143  %h0_4 = shl i32 %p_read_134, 1
+
+ST_3: h0_2 (270)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1459
+:199  %h0_2 = sub nsw i32 %h0_4, %g0_2
+
+
+ <State 4>: 2.69ns
+ST_4: p_read_133 (130)  [1/1] 0.00ns
+:59  %p_read_133 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2151)
+
+ST_4: fe_mul_ret7 (174)  [1/2] 1.34ns
+:103  %fe_mul_ret7 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %r_X_0_assign_2, i32 %r_X_1_assign_2, i32 %r_X_2_assign_2, i32 %r_X_3_assign_2, i32 %r_X_4_assign_2, i32 %r_X_5_assign_2, i32 %r_X_6_assign_2, i32 %r_X_7_assign_2, i32 %r_X_8_assign_2, i32 %r_X_9_assign_2, i32 %p_read_114, i32 %p_read_113, i32 %p_read_112, i32 %p_read_111, i32 %p_read_110, i32 %p_read_109, i32 %p_read_108, i32 %p_read_107, i32 %p_read_106, i32 %p_read_105)
+
+ST_4: f0 (175)  [1/1] 0.00ns
+:104  %f0 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 0
+
+ST_4: f1 (176)  [1/1] 0.00ns
+:105  %f1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 1
+
+ST_4: f2 (177)  [1/1] 0.00ns
+:106  %f2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 2
+
+ST_4: f3 (178)  [1/1] 0.00ns
+:107  %f3 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 3
+
+ST_4: f4 (179)  [1/1] 0.00ns
+:108  %f4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 4
+
+ST_4: f5 (180)  [1/1] 0.00ns
+:109  %f5 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 5
+
+ST_4: f6 (181)  [1/1] 0.00ns
+:110  %f6 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 6
+
+ST_4: f7 (182)  [1/1] 0.00ns
+:111  %f7 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 7
+
+ST_4: f8 (183)  [1/1] 0.00ns
+:112  %f8 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 8
+
+ST_4: f9 (184)  [1/1] 0.00ns
+:113  %f9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret7, 9
+
+ST_4: call_ret (185)  [1/2] 1.34ns
+:114  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul.1(i32 %r_Y_0_assign_4, i32 %r_Y_1_assign_4, i32 %r_Y_2_assign_4, i32 %r_Y_3_assign_4, i32 %r_Y_4_assign_4, i32 %r_Y_5_assign_4, i32 %r_Y_6_assign_4, i32 %r_Y_7_assign_4, i32 %r_Y_8_assign_4, i32 %r_Y_9_assign_4, i32 %p_read5052, i32 %p_read_104, i32 %p_read_103, i32 %p_read_102, i32 %p_read_101, i32 %p_read_100, i32 %p_read_99, i32 %p_read_98, i32 %p_read_97, i32 %p_read_96)
+
+ST_4: g0 (186)  [1/1] 0.00ns
+:115  %g0 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 0
+
+ST_4: g1 (187)  [1/1] 0.00ns
+:116  %g1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 1
+
+ST_4: g2 (188)  [1/1] 0.00ns
+:117  %g2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 2
+
+ST_4: g3 (189)  [1/1] 0.00ns
+:118  %g3 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 3
+
+ST_4: g4 (190)  [1/1] 0.00ns
+:119  %g4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 4
+
+ST_4: g5 (191)  [1/1] 0.00ns
+:120  %g5 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 5
+
+ST_4: g6 (192)  [1/1] 0.00ns
+:121  %g6 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 6
+
+ST_4: g7 (193)  [1/1] 0.00ns
+:122  %g7 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 7
+
+ST_4: g8 (194)  [1/1] 0.00ns
+:123  %g8 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 8
+
+ST_4: g9 (195)  [1/1] 0.00ns
+:124  %g9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 9
+
+ST_4: h1_4 (215)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:124
+:144  %h1_4 = shl i32 %p_read_133, 1
+
+ST_4: h0 (242)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:123
+:171  %h0 = add nsw i32 %g0, %f0
+
+ST_4: h1_2 (271)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1460
+:200  %h1_2 = sub nsw i32 %h1_4, %g1_2
+
+
+ <State 5>: 1.34ns
+ST_5: p_read_132 (129)  [1/1] 0.00ns
+:58  %p_read_132 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2252)
+
+ST_5: h2_4 (216)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:125
+:145  %h2_4 = shl i32 %p_read_132, 1
+
+ST_5: h1 (243)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:124
+:172  %h1 = add nsw i32 %g1, %f1
+
+ST_5: h2_2 (272)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1461
+:201  %h2_2 = sub nsw i32 %h2_4, %g2_2
+
+
+ <State 6>: 1.34ns
+ST_6: p_read_131 (128)  [1/1] 0.00ns
+:57  %p_read_131 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2353)
+
+ST_6: h3_4 (217)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:126
+:146  %h3_4 = shl i32 %p_read_131, 1
+
+ST_6: h2 (244)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:125
+:173  %h2 = add nsw i32 %g2, %f2
+
+ST_6: h3_2 (273)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1462
+:202  %h3_2 = sub nsw i32 %h3_4, %g3_2
+
+
+ <State 7>: 1.34ns
+ST_7: p_read_130 (127)  [1/1] 0.00ns
+:56  %p_read_130 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2454)
+
+ST_7: h4_4 (218)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:127
+:147  %h4_4 = shl i32 %p_read_130, 1
+
+ST_7: h3 (245)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:126
+:174  %h3 = add nsw i32 %g3, %f3
+
+ST_7: h4_2 (274)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1463
+:203  %h4_2 = sub nsw i32 %h4_4, %g4_2
+
+
+ <State 8>: 1.34ns
+ST_8: p_read_129 (126)  [1/1] 0.00ns
+:55  %p_read_129 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2555)
+
+ST_8: h5_4 (219)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:128
+:148  %h5_4 = shl i32 %p_read_129, 1
+
+ST_8: h4 (246)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:127
+:175  %h4 = add nsw i32 %g4, %f4
+
+ST_8: h5_2 (275)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1464
+:204  %h5_2 = sub nsw i32 %h5_4, %g5_2
+
+
+ <State 9>: 1.34ns
+ST_9: p_read_128 (125)  [1/1] 0.00ns
+:54  %p_read_128 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2656)
+
+ST_9: h6_4 (220)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:129
+:149  %h6_4 = shl i32 %p_read_128, 1
+
+ST_9: h5 (247)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:128
+:176  %h5 = add nsw i32 %g5, %f5
+
+ST_9: h6_2 (276)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1465
+:205  %h6_2 = sub nsw i32 %h6_4, %g6_2
+
+
+ <State 10>: 2.00ns
+ST_10: p_read_125 (122)  [1/1] 0.00ns
+:51  %p_read_125 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2959)
+
+ST_10: p_read_126 (123)  [1/1] 0.00ns
+:52  %p_read_126 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2858)
+
+ST_10: p_read_127 (124)  [1/1] 0.00ns
+:53  %p_read_127 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2757)
+
+ST_10: h7_4 (221)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:130
+:150  %h7_4 = shl i32 %p_read_127, 1
+
+ST_10: h8_4 (222)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:131
+:151  %h8_4 = shl i32 %p_read_126, 1
+
+ST_10: h9_4 (223)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:132
+:152  %h9_4 = shl i32 %p_read_125, 1
+
+ST_10: fe_sub_ret1 (224)  [2/2] 2.00ns
+:153  %fe_sub_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %f0, i32 %f1, i32 %f2, i32 %f3, i32 %f4, i32 %f5, i32 %f6, i32 %f7, i32 %f8, i32 %f9, i32 %g0, i32 %g1, i32 %g2, i32 %g3, i32 %g4, i32 %g5, i32 %g6, i32 %g7, i32 %g8, i32 %g9)
+
+ST_10: h6 (248)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:129
+:177  %h6 = add nsw i32 %g6, %f6
+
+ST_10: fe_add_ret2 (252)  [2/2] 2.00ns  loc: ed25519/src/fe.cpp:123
+:181  %fe_add_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %h0_4, i32 %h1_4, i32 %h2_4, i32 %h3_4, i32 %h4_4, i32 %h5_4, i32 %h6_4, i32 %h7_4, i32 %h8_4, i32 %h9_4, i32 %g0_2, i32 %g1_2, i32 %g2_2, i32 %g3_2, i32 %g4_2, i32 %g5_2, i32 %g6_2, i32 %g7_2, i32 %g8_2, i32 %g9_2)
+
+ST_10: h7_2 (277)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1466
+:206  %h7_2 = sub nsw i32 %h7_4, %g7_2
+
+
+ <State 11>: 1.34ns
+ST_11: fe_sub_ret1 (224)  [1/2] 1.34ns
+:153  %fe_sub_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %f0, i32 %f1, i32 %f2, i32 %f3, i32 %f4, i32 %f5, i32 %f6, i32 %f7, i32 %f8, i32 %f9, i32 %g0, i32 %g1, i32 %g2, i32 %g3, i32 %g4, i32 %g5, i32 %g6, i32 %g7, i32 %g8, i32 %g9)
+
+ST_11: r_X (225)  [1/1] 0.00ns
+:154  %r_X = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 0
+
+ST_11: r_X_1 (226)  [1/1] 0.00ns
+:155  %r_X_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 1
+
+ST_11: r_X_2 (227)  [1/1] 0.00ns
+:156  %r_X_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 2
+
+ST_11: r_X_3 (228)  [1/1] 0.00ns
+:157  %r_X_3 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 3
+
+ST_11: r_X_4 (229)  [1/1] 0.00ns
+:158  %r_X_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 4
+
+ST_11: r_X_5 (230)  [1/1] 0.00ns
+:159  %r_X_5 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 5
+
+ST_11: r_X_6 (231)  [1/1] 0.00ns
+:160  %r_X_6 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 6
+
+ST_11: r_X_7 (232)  [1/1] 0.00ns
+:161  %r_X_7 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 7
+
+ST_11: r_X_8 (233)  [1/1] 0.00ns
+:162  %r_X_8 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 8
+
+ST_11: r_X_9 (234)  [1/1] 0.00ns
+:163  %r_X_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sub_ret1, 9
+
+ST_11: h7 (249)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:130
+:178  %h7 = add nsw i32 %g7, %f7
+
+ST_11: fe_add_ret2 (252)  [1/2] 1.34ns  loc: ed25519/src/fe.cpp:123
+:181  %fe_add_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %h0_4, i32 %h1_4, i32 %h2_4, i32 %h3_4, i32 %h4_4, i32 %h5_4, i32 %h6_4, i32 %h7_4, i32 %h8_4, i32 %h9_4, i32 %g0_2, i32 %g1_2, i32 %g2_2, i32 %g3_2, i32 %g4_2, i32 %g5_2, i32 %g6_2, i32 %g7_2, i32 %g8_2, i32 %g9_2)
+
+ST_11: r_Z (253)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:182  %r_Z = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 0
+
+ST_11: r_Z_1 (254)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:183  %r_Z_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 1
+
+ST_11: r_Z_2 (255)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:184  %r_Z_2 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 2
+
+ST_11: r_Z_3 (256)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:185  %r_Z_3 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 3
+
+ST_11: r_Z_4 (257)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:186  %r_Z_4 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 4
+
+ST_11: r_Z_5 (258)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:187  %r_Z_5 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 5
+
+ST_11: r_Z_6 (259)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:188  %r_Z_6 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 6
+
+ST_11: r_Z_7 (260)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:189  %r_Z_7 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 7
+
+ST_11: r_Z_8 (261)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:190  %r_Z_8 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 8
+
+ST_11: r_Z_9 (262)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:123
+:191  %r_Z_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret2, 9
+
+ST_11: h8_2 (278)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1467
+:207  %h8_2 = sub nsw i32 %h8_4, %g8_2
+
+
+ <State 12>: 1.34ns
+ST_12: h8 (250)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:131
+:179  %h8 = add nsw i32 %g8, %f8
+
+ST_12: h9_2 (279)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1468
+:208  %h9_2 = sub nsw i32 %h9_4, %g9_2
+
+
+ <State 13>: 1.34ns
+ST_13: StgValue_197 (71)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:228
+:0  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str10, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_198 (72)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:229
+:1  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str212, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_199 (73)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:230
+:2  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str313, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_200 (74)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:231
+:3  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str414, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_201 (75)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:232
+:4  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str515, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_202 (76)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:233
+:5  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str616, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_203 (77)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:234
+:6  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str717, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_204 (78)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:235
+:7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [7 x i8]* @p_str818, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_205 (79)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:236
+:8  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [6 x i8]* @p_str1421, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_206 (80)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:237
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [7 x i8]* @p_str919, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_207 (81)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:238
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [7 x i8]* @p_str1020, [1 x i8]* @p_str111) nounwind
+
+ST_13: StgValue_208 (207)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:96
+:136  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_209 (208)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:97
+:137  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_210 (209)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:98
+:138  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_211 (210)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:99
+:139  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_212 (211)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:100
+:140  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_213 (212)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:101
+:141  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_214 (213)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:102
+:142  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_215 (235)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:96
+:164  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_216 (236)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:97
+:165  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_217 (237)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:98
+:166  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_218 (238)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:99
+:167  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_219 (239)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:100
+:168  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_220 (240)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:101
+:169  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_221 (241)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:102
+:170  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: h9 (251)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:132
+:180  %h9 = add nsw i32 %g9, %f9
+
+ST_13: StgValue_223 (263)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1432
+:192  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_224 (264)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1433
+:193  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_225 (265)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1434
+:194  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_226 (266)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1435
+:195  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_227 (267)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1436
+:196  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_228 (268)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1437
+:197  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: StgValue_229 (269)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1438
+:198  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+
+ST_13: mrv_s (280)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:209  %mrv_s = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } undef, i32 %r_X, 0
+
+ST_13: mrv_40 (281)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:210  %mrv_40 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_s, i32 %r_X_1, 1
+
+ST_13: mrv_41 (282)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:211  %mrv_41 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_40, i32 %r_X_2, 2
+
+ST_13: mrv_42 (283)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:212  %mrv_42 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_41, i32 %r_X_3, 3
+
+ST_13: mrv_43 (284)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:213  %mrv_43 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_42, i32 %r_X_4, 4
+
+ST_13: mrv_44 (285)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:214  %mrv_44 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_43, i32 %r_X_5, 5
+
+ST_13: mrv_45 (286)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:215  %mrv_45 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_44, i32 %r_X_6, 6
+
+ST_13: mrv_46 (287)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:216  %mrv_46 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_45, i32 %r_X_7, 7
+
+ST_13: mrv_47 (288)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:217  %mrv_47 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_46, i32 %r_X_8, 8
+
+ST_13: mrv_48 (289)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:218  %mrv_48 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_47, i32 %r_X_9, 9
+
+ST_13: mrv_49 (290)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:219  %mrv_49 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_48, i32 %r_Z, 10
+
+ST_13: mrv_50 (291)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:220  %mrv_50 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_49, i32 %r_Z_1, 11
+
+ST_13: mrv_51 (292)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:221  %mrv_51 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_50, i32 %r_Z_2, 12
+
+ST_13: mrv_52 (293)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:222  %mrv_52 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_51, i32 %r_Z_3, 13
+
+ST_13: mrv_53 (294)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:223  %mrv_53 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_52, i32 %r_Z_4, 14
+
+ST_13: mrv_54 (295)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:224  %mrv_54 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_53, i32 %r_Z_5, 15
+
+ST_13: mrv_55 (296)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:225  %mrv_55 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_54, i32 %r_Z_6, 16
+
+ST_13: mrv_56 (297)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:226  %mrv_56 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_55, i32 %r_Z_7, 17
+
+ST_13: mrv_57 (298)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:227  %mrv_57 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_56, i32 %r_Z_8, 18
+
+ST_13: mrv_58 (299)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:228  %mrv_58 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_57, i32 %r_Z_9, 19
+
+ST_13: mrv_20 (300)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:229  %mrv_20 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_58, i32 %h0, 20
+
+ST_13: mrv_21 (301)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:230  %mrv_21 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_20, i32 %h1, 21
+
+ST_13: mrv_22 (302)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:231  %mrv_22 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_21, i32 %h2, 22
+
+ST_13: mrv_23 (303)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:232  %mrv_23 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_22, i32 %h3, 23
+
+ST_13: mrv_24 (304)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:233  %mrv_24 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_23, i32 %h4, 24
+
+ST_13: mrv_25 (305)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:234  %mrv_25 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_24, i32 %h5, 25
+
+ST_13: mrv_26 (306)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:235  %mrv_26 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_25, i32 %h6, 26
+
+ST_13: mrv_27 (307)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:236  %mrv_27 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_26, i32 %h7, 27
+
+ST_13: mrv_28 (308)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:237  %mrv_28 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_27, i32 %h8, 28
+
+ST_13: mrv_29 (309)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:238  %mrv_29 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_28, i32 %h9, 29
+
+ST_13: mrv_30 (310)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:239  %mrv_30 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_29, i32 %h0_2, 30
+
+ST_13: mrv_31 (311)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:240  %mrv_31 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_30, i32 %h1_2, 31
+
+ST_13: mrv_32 (312)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:241  %mrv_32 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_31, i32 %h2_2, 32
+
+ST_13: mrv_33 (313)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:242  %mrv_33 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_32, i32 %h3_2, 33
+
+ST_13: mrv_34 (314)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:243  %mrv_34 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_33, i32 %h4_2, 34
+
+ST_13: mrv_35 (315)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:244  %mrv_35 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_34, i32 %h5_2, 35
+
+ST_13: mrv_36 (316)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:245  %mrv_36 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_35, i32 %h6_2, 36
+
+ST_13: mrv_37 (317)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:246  %mrv_37 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_36, i32 %h7_2, 37
+
+ST_13: mrv_38 (318)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:247  %mrv_38 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_37, i32 %h8_2, 38
+
+ST_13: mrv_39 (319)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:248  %mrv_39 = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_38, i32 %h9_2, 39
+
+ST_13: StgValue_270 (320)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:250
+:249  ret { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %mrv_39
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 7.52ns
+The critical path consists of the following:
+	wire read on port 'p_read69' [82]  (0 ns)
+	'call' operation ('fe_mul_ret') to 'fe_mul' [196]  (7.52 ns)
+
+ <State 2>: 1.34ns
+The critical path consists of the following:
+	'call' operation ('fe_add_ret') to 'fe_add' [152]  (1.34 ns)
+
+ <State 3>: 7.52ns
+The critical path consists of the following:
+	wire read on port 'p_read49' [102]  (0 ns)
+	'call' operation ('fe_mul_ret7') to 'fe_mul' [174]  (7.52 ns)
+
+ <State 4>: 2.69ns
+The critical path consists of the following:
+	'call' operation ('fe_mul_ret7') to 'fe_mul' [174]  (1.34 ns)
+	'add' operation ('h0', ed25519/src/fe.cpp:123) [242]  (1.34 ns)
+
+ <State 5>: 1.34ns
+The critical path consists of the following:
+	wire read on port 'p_read2252' [129]  (0 ns)
+	'shl' operation ('h2', ed25519/src/fe.cpp:125) [216]  (0 ns)
+	'sub' operation ('h2', ed25519/src/fe.cpp:1461) [272]  (1.34 ns)
+
+ <State 6>: 1.34ns
+The critical path consists of the following:
+	wire read on port 'p_read2353' [128]  (0 ns)
+	'shl' operation ('h3', ed25519/src/fe.cpp:126) [217]  (0 ns)
+	'sub' operation ('h3', ed25519/src/fe.cpp:1462) [273]  (1.34 ns)
+
+ <State 7>: 1.34ns
+The critical path consists of the following:
+	wire read on port 'p_read2454' [127]  (0 ns)
+	'shl' operation ('h4', ed25519/src/fe.cpp:127) [218]  (0 ns)
+	'sub' operation ('h4', ed25519/src/fe.cpp:1463) [274]  (1.34 ns)
+
+ <State 8>: 1.34ns
+The critical path consists of the following:
+	wire read on port 'p_read2555' [126]  (0 ns)
+	'shl' operation ('h5', ed25519/src/fe.cpp:128) [219]  (0 ns)
+	'sub' operation ('h5', ed25519/src/fe.cpp:1464) [275]  (1.34 ns)
+
+ <State 9>: 1.34ns
+The critical path consists of the following:
+	wire read on port 'p_read2656' [125]  (0 ns)
+	'shl' operation ('h6', ed25519/src/fe.cpp:129) [220]  (0 ns)
+	'sub' operation ('h6', ed25519/src/fe.cpp:1465) [276]  (1.34 ns)
+
+ <State 10>: 2ns
+The critical path consists of the following:
+	wire read on port 'p_read2959' [122]  (0 ns)
+	'shl' operation ('h9', ed25519/src/fe.cpp:132) [223]  (0 ns)
+	'call' operation ('fe_add_ret2', ed25519/src/fe.cpp:123) to 'fe_add' [252]  (2 ns)
+
+ <State 11>: 1.34ns
+The critical path consists of the following:
+	'call' operation ('fe_sub_ret1') to 'fe_sub' [224]  (1.34 ns)
+
+ <State 12>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('h8', ed25519/src/fe.cpp:131) [250]  (1.34 ns)
+
+ <State 13>: 1.34ns
+The critical path consists of the following:
+	'add' operation ('h9', ed25519/src/fe.cpp:132) [251]  (1.34 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,18 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="ed25519_add_scalar" label="">
+<pragma name="ALLOCATION">
+<option name="instances" positionalBoolean="4" value="sha512_update_32"/>
+<option name="limit" value="1"/>
+<option name="function" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="ed25519_add_scalar" label="">
+<pragma name="ALLOCATION">
+<option name="instances" positionalBoolean="4" value="sha512_update_128"/>
+<option name="limit" value="1"/>
+<option name="function" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

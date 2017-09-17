@@ -1,0 +1,270 @@
+
+
+================================================================
+== Vivado HLS Report for 'secure_enclave_key_store'
+================================================================
+* Date:           Sun Jan  8 14:29:02 2017
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        secure_enclave_key_store
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.75|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------------------------+------------------------------------------+--------+--------+--------+--------+----------+
+        |                                                     |                                          |     Latency     |     Interval    | Pipeline |
+        |                       Instance                      |                  Module                  |   min  |   max  |   min  |   max  |   Type   |
+        +-----------------------------------------------------+------------------------------------------+--------+--------+--------+--------+----------+
+        |grp_secure_enclave_key_store_aes_gcm_d_fu_403        |secure_enclave_key_store_aes_gcm_d        |  619058|  619058|  619058|  619058|   none   |
+        |grp_secure_enclave_key_store_aes_gcm_cipher_fu_452   |secure_enclave_key_store_aes_gcm_cipher   |  618497|  618497|  618497|  618497|   none   |
+        |grp_secure_enclave_key_store_aes_fu_503              |secure_enclave_key_store_aes              |      19|      19|       1|       1| function |
+        |grp_secure_enclave_key_store_ghash_iteration_fu_550  |secure_enclave_key_store_ghash_iteration  |     131|     131|     131|     131|   none   |
+        +-----------------------------------------------------+------------------------------------------+--------+--------+--------+--------+----------+
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  512|  512|         2|          -|          -|   256|    no    |
+        |- Loop 2  |  512|  512|         2|          -|          -|   256|    no    |
+        |- Loop 3  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|    301|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |      400|      -|   14924|  46270|
+|Memory           |       20|      -|       0|      0|
+|Multiplexer      |        -|      -|       -|   1375|
+|Register         |        -|      -|    1341|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |      420|      0|   16265|  47946|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |      150|      0|      15|     90|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------------------------+------------------------------------------+---------+-------+------+-------+
+    |                       Instance                      |                  Module                  | BRAM_18K| DSP48E|  FF  |  LUT  |
+    +-----------------------------------------------------+------------------------------------------+---------+-------+------+-------+
+    |grp_secure_enclave_key_store_aes_fu_503              |secure_enclave_key_store_aes              |      100|      0|  2420|   9202|
+    |grp_secure_enclave_key_store_aes_gcm_cipher_fu_452   |secure_enclave_key_store_aes_gcm_cipher   |      100|      0|  3788|  11904|
+    |grp_secure_enclave_key_store_aes_gcm_d_fu_403        |secure_enclave_key_store_aes_gcm_d        |      200|      0|  7938|  24000|
+    |grp_secure_enclave_key_store_ghash_iteration_fu_550  |secure_enclave_key_store_ghash_iteration  |        0|      0|   778|   1164|
+    +-----------------------------------------------------+------------------------------------------+---------+-------+------+-------+
+    |Total                                                |                                          |      400|      0| 14924|  46270|
+    +-----------------------------------------------------+------------------------------------------+---------+-------+------+-------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +----------------------------------+---------------------------------------------------------+---------+---+----+------+-----+------+-------------+
+    |              Memory              |                          Module                         | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
+    +----------------------------------+---------------------------------------------------------+---------+---+----+------+-----+------+-------------+
+    |ct_V_assign_U                     |secure_enclave_key_store_ct_V_assign                     |        4|  0|   0|   256|  128|     1|        32768|
+    |decrypted_header_storage_V_U      |secure_enclave_key_store_decrypted_header_storage_V      |        8|  0|   0|   256|  128|     1|        32768|
+    |encrypted_header_old_storage_V_U  |secure_enclave_key_store_encrypted_header_old_storage_V  |        4|  0|   0|   256|  128|     1|        32768|
+    |encrypted_header_new_storage_V_U  |secure_enclave_key_store_encrypted_header_old_storage_V  |        4|  0|   0|   256|  128|     1|        32768|
+    +----------------------------------+---------------------------------------------------------+---------+---+----+------+-----+------+-------------+
+    |Total                             |                                                         |       20|  0|   0|  1024|  512|     4|       131072|
+    +----------------------------------+---------------------------------------------------------+---------+---+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+-------+---+-----+------------+------------+
+    |       Variable Name      | Operation| DSP48E| FF| LUT | Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+-------+---+-----+------------+------------+
+    |i_2_fu_603_p2             |     +    |      0|  0|    9|           9|           1|
+    |i_3_fu_620_p2             |     +    |      0|  0|    9|           9|           1|
+    |key_attempts_1_fu_660_p2  |     +    |      0|  0|   32|          32|           1|
+    |exitcond1_fu_597_p2       |   icmp   |      0|  0|    4|           9|          10|
+    |exitcond_fu_614_p2        |   icmp   |      0|  0|    4|           9|          10|
+    |tmp_8_fu_634_p2           |   icmp   |      0|  0|   11|          32|           2|
+    |tmp_9_fu_651_p2           |   icmp   |      0|  0|   43|         128|         128|
+    |ap_sig_196                |    or    |      0|  0|    1|           1|           1|
+    |derived_key_out_V         |    xor   |      0|  0|  188|         128|         128|
+    +--------------------------+----------+-------+---+-----+------------+------------+
+    |Total                     |          |      0|  0|  301|         357|         282|
+    +--------------------------+----------+-------+---+-----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------------------------------+-----+-----------+-----+-----------+
+    |                             Name                             | LUT | Input Size| Bits| Total Bits|
+    +--------------------------------------------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                                                     |   96|         55|    1|         55|
+    |decrypted_header_storage_V_address0                           |    8|          4|    8|         32|
+    |decrypted_header_storage_V_ce0                                |    1|          4|    1|          4|
+    |decrypted_new_header_out                                      |    1|          2|    1|          2|
+    |decrypted_new_header_out_valid                                |    1|          2|    1|          2|
+    |derived_key_valid                                             |    1|          3|    1|          3|
+    |device_key_ocm_addr_ap_vld_in_sig                             |    1|          2|    1|          2|
+    |device_key_ocm_addr_ap_vld_preg                               |    1|          2|    1|          2|
+    |device_key_ocm_addr_blk_n                                     |    1|          2|    1|          2|
+    |device_key_ocm_addr_in_sig                                    |   32|          2|   32|         64|
+    |encrypted_header_new_storage_V_address0                       |    8|          3|    8|         24|
+    |encrypted_header_new_storage_V_ce0                            |    1|          3|    1|          3|
+    |encrypted_header_old_storage_V_address0                       |    8|          3|    8|         24|
+    |encrypted_header_old_storage_V_ce0                            |    1|          3|    1|          3|
+    |grp_secure_enclave_key_store_aes_fu_503_inptext_V_read        |  128|          3|  128|        384|
+    |grp_secure_enclave_key_store_aes_gcm_d_fu_403_ct_V_q0         |  128|          3|  128|        384|
+    |grp_secure_enclave_key_store_aes_gcm_d_fu_403_tag_in_V        |  128|          3|  128|        384|
+    |grp_secure_enclave_key_store_ghash_iteration_fu_550_d_V       |  128|          3|  128|        384|
+    |grp_secure_enclave_key_store_ghash_iteration_fu_550_x_prev_V  |  128|          3|  128|        384|
+    |i_1_reg_378                                                   |    9|          2|    9|         18|
+    |i_reg_367                                                     |    9|          2|    9|         18|
+    |iv_V_ap_vld_in_sig                                            |    1|          2|    1|          2|
+    |iv_V_ap_vld_preg                                              |    1|          2|    1|          2|
+    |iv_V_blk_n                                                    |    1|          2|    1|          2|
+    |iv_V_in_sig                                                   |  128|          2|  128|        256|
+    |iv_out_valid                                                  |    1|          2|    1|          2|
+    |key_attempts_fu_174                                           |   32|          2|   32|         64|
+    |master_key_out_V                                              |  128|          2|  128|        256|
+    |master_key_out_valid                                          |    1|          2|    1|          2|
+    |tag_header_new_V_ap_vld_in_sig                                |    1|          2|    1|          2|
+    |tag_header_new_V_ap_vld_preg                                  |    1|          2|    1|          2|
+    |tag_header_new_V_blk_n                                        |    1|          2|    1|          2|
+    |tag_header_new_V_in_sig                                       |  128|          2|  128|        256|
+    |tag_header_old_V_ap_vld_in_sig                                |    1|          2|    1|          2|
+    |tag_header_old_V_ap_vld_preg                                  |    1|          2|    1|          2|
+    |tag_header_old_V_blk_n                                        |    1|          2|    1|          2|
+    |tag_header_old_V_in_sig                                       |  128|          2|  128|        256|
+    |user_key_valid_o                                              |    1|          2|    1|          2|
+    +--------------------------------------------------------------+-----+-----------+-----+-----------+
+    |Total                                                         | 1375|        143| 1280|       3290|
+    +--------------------------------------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------------------------------+-----+----+-----+-----------+
+    |                                 Name                                |  FF | LUT| Bits| Const Bits|
+    +---------------------------------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                                            |   54|   0|   54|          0|
+    |ap_reg_grp_secure_enclave_key_store_aes_fu_503_ap_start              |    1|   0|    1|          0|
+    |ap_reg_grp_secure_enclave_key_store_aes_gcm_cipher_fu_452_ap_start   |    1|   0|    1|          0|
+    |ap_reg_grp_secure_enclave_key_store_aes_gcm_d_fu_403_ap_start        |    1|   0|    1|          0|
+    |ap_reg_grp_secure_enclave_key_store_ghash_iteration_fu_550_ap_start  |    1|   0|    1|          0|
+    |decrypted_new_header_out_preg                                        |    1|   0|    1|          0|
+    |decrypted_new_header_out_valid_preg                                  |    1|   0|    1|          0|
+    |decrypted_new_header_reg_389                                         |    1|   0|    1|          0|
+    |derived_key_valid_preg                                               |    1|   0|    1|          0|
+    |device_key_ocm_addr_ap_vld_preg                                      |    1|   0|    1|          0|
+    |device_key_ocm_addr_preg                                             |   32|   0|   32|          0|
+    |hash_key_V_reg_754                                                   |  128|   0|  128|          0|
+    |i_1_reg_378                                                          |    9|   0|    9|          0|
+    |i_2_reg_709                                                          |    9|   0|    9|          0|
+    |i_3_reg_727                                                          |    9|   0|    9|          0|
+    |i_reg_367                                                            |    9|   0|    9|          0|
+    |iv_V_ap_vld_preg                                                     |    1|   0|    1|          0|
+    |iv_V_preg                                                            |  128|   0|  128|          0|
+    |iv_out_valid_preg                                                    |    1|   0|    1|          0|
+    |key_attempts_fu_174                                                  |   32|   0|   32|          0|
+    |lhs_V_reg_775                                                        |  128|   0|  128|          0|
+    |master_key_old_storage_V_reg_698                                     |  128|   0|  128|          0|
+    |master_key_out_V_preg                                                |  128|   0|  128|          0|
+    |master_key_out_valid_preg                                            |    1|   0|    1|          0|
+    |p_Val2_s_reg_770                                                     |  128|   0|  128|          0|
+    |reg_569                                                              |  128|   0|  128|          0|
+    |tag_header_new_V_ap_vld_preg                                         |    1|   0|    1|          0|
+    |tag_header_new_V_preg                                                |  128|   0|  128|          0|
+    |tag_header_old_V_ap_vld_preg                                         |    1|   0|    1|          0|
+    |tag_header_old_V_preg                                                |  128|   0|  128|          0|
+    |tmp_3_reg_714                                                        |    9|   0|   64|         55|
+    |tmp_6_reg_732                                                        |    9|   0|   64|         55|
+    |tmp_9_reg_787                                                        |    1|   0|    1|          0|
+    |tmp_reg_742                                                          |    1|   0|    1|          0|
+    |user_key_valid_read_reg_780                                          |    1|   0|    1|          0|
+    +---------------------------------------------------------------------+-----+----+-----+-----------+
+    |Total                                                                | 1341|   0| 1451|        110|
+    +---------------------------------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------+-----+-----+------------+--------------------------------+--------------+
+|            RTL Ports            | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++---------------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                           |  in |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|ap_rst                           |  in |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|ap_start                         |  in |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|ap_done                          | out |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|ap_idle                          | out |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|ap_ready                         | out |    1| ap_ctrl_hs |    secure_enclave_key_store    | return value |
+|device_key_ocm_addr              |  in |   32|   ap_vld   |       device_key_ocm_addr      |    scalar    |
+|device_key_ocm_addr_ap_vld       |  in |    1|   ap_vld   |       device_key_ocm_addr      |    scalar    |
+|ocm_V_req_din                    | out |    1|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_req_full_n                 |  in |    1|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_req_write                  | out |    1|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_rsp_empty_n                |  in |    1|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_rsp_read                   | out |    1|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_address                    | out |   32|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_datain                     |  in |  128|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_dataout                    | out |  128|   ap_bus   |              ocm_V             |    pointer   |
+|ocm_V_size                       | out |   32|   ap_bus   |              ocm_V             |    pointer   |
+|iv_V                             |  in |  128|   ap_vld   |              iv_V              |    scalar    |
+|iv_V_ap_vld                      |  in |    1|   ap_vld   |              iv_V              |    scalar    |
+|encrypted_header_old_V_address0  | out |    8|  ap_memory |     encrypted_header_old_V     |     array    |
+|encrypted_header_old_V_ce0       | out |    1|  ap_memory |     encrypted_header_old_V     |     array    |
+|encrypted_header_old_V_q0        |  in |  128|  ap_memory |     encrypted_header_old_V     |     array    |
+|tag_header_old_V                 |  in |  128|   ap_vld   |        tag_header_old_V        |    scalar    |
+|tag_header_old_V_ap_vld          |  in |    1|   ap_vld   |        tag_header_old_V        |    scalar    |
+|encrypted_header_new_V_address0  | out |    8|  ap_memory |     encrypted_header_new_V     |     array    |
+|encrypted_header_new_V_ce0       | out |    1|  ap_memory |     encrypted_header_new_V     |     array    |
+|encrypted_header_new_V_q0        |  in |  128|  ap_memory |     encrypted_header_new_V     |     array    |
+|tag_header_new_V                 |  in |  128|   ap_vld   |        tag_header_new_V        |    scalar    |
+|tag_header_new_V_ap_vld          |  in |    1|   ap_vld   |        tag_header_new_V        |    scalar    |
+|user_key_V                       |  in |  128|   ap_none  |           user_key_V           |    pointer   |
+|user_key_valid_i                 |  in |    1|   ap_none  |         user_key_valid         |    pointer   |
+|user_key_valid_o                 | out |    1|   ap_none  |         user_key_valid         |    pointer   |
+|writing_done_in                  |  in |    1|   ap_none  |         writing_done_in        |    scalar    |
+|derived_key_out_V                | out |  128|   ap_none  |        derived_key_out_V       |    pointer   |
+|derived_key_valid                | out |    1|   ap_none  |        derived_key_valid       |    pointer   |
+|master_key_out_V                 | out |  128|   ap_none  |        master_key_out_V        |    pointer   |
+|master_key_out_valid             | out |    1|   ap_none  |      master_key_out_valid      |    pointer   |
+|iv_out_V                         |  in |  128|   ap_none  |            iv_out_V            |    scalar    |
+|iv_out_valid                     | out |    1|   ap_none  |          iv_out_valid          |    pointer   |
+|decrypted_new_header_out         | out |    1|   ap_none  |    decrypted_new_header_out    |    pointer   |
+|decrypted_new_header_out_valid   | out |    1|   ap_none  | decrypted_new_header_out_valid |    pointer   |
+|reset_key_out                    | out |    1|   ap_none  |          reset_key_out         |    pointer   |
++---------------------------------+-----+-----+------------+--------------------------------+--------------+
+

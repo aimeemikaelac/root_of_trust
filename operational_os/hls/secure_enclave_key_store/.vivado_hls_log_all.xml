@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Port 'secure_enclave_key_store/iv_out_V' has no fanin or fanout and is left dangling.&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:01.803-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'secure_enclave_key_store/writing_done_in' has no fanin or fanout and is left dangling.&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:01.729-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'secure_enclave_key_store/ocm_V_dataout' to 0." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:01.719-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'reset_key_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.334-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'decrypted_new_header_out_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.329-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'decrypted_new_header_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.323-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'iv_out_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.317-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'master_key_out_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.312-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'master_key_out_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.306-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'derived_key_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.298-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'derived_key_out_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.294-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'user_key_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:29:00.287-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-561] Cannot apply I/O mode 'ap_vld' on port 'encrypted_header_new_V'; changing to the default 'ap_memory' mode." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:28:32.117-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-561] Cannot apply I/O mode 'ap_vld' on port 'encrypted_header_old_V'; changing to the default 'ap_memory' mode." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:28:31.964-0700" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'data_out.V' in function 'aes_gcm_cipher' (secure_enclave_key_store/src/secure_enclave_key_store_main.cpp:419:3)." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:28:20.348-0700" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'data_in.V' in function 'aes_gcm_cipher' (secure_enclave_key_store/src/secure_enclave_key_store_main.cpp:418:16)." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:28:19.368-0700" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] secure_enclave_key_store/src/secure_enclave_key_store_main.cpp:338: variable-indexed range selection may cause suboptimal QoR." projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T14:28:15.621-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="CRITICAL WARNING: [SIM 211-1] CSim file generation failed: compilation error(s).&#xA;5&#xA;    while executing&#xA;&quot;source /home/michael/xilinx_workspace/secure_enclave_key_store/solution1/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/michael/xilinx_workspace/secure_enclave_key_store/solution1/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="secure_enclave_key_store" solutionName="solution1" date="2017-01-08T17:18:55.248-0700" type="Warning"/>
+      </csimLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

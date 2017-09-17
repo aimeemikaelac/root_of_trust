@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.352-0600"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.347-0600"/>
+        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/144791496375327575154" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.344-0600"/>
+        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.338-0600"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.691-0600"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.688-0600"/>
+        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/143451496375242917245" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.685-0600"/>
+        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/143451496375242917245/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/143451496375242917245/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.682-0600"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.432-0600"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.428-0600"/>
+        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/141201496375102617137" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.426-0600"/>
+        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/141201496375102617137/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/141201496375102617137/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.423-0600"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

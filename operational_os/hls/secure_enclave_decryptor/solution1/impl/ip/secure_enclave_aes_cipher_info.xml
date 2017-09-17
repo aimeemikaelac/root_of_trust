@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <core name="" type="" target="">
+    <kernel name="secure_enclave_aes_cipher" language="c" vlnv="xilinx.com:hls:secure_enclave_aes_cipher:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false">
+      <port name="S_AXI_AXILITES" mode="slave" range="0x1000" dataWidth="128" portType="addressable" base="0x00000000"/>
+      <arg name="data_in" addressQualifier="0" id="0" port="S_AXI_AXILITES" size="0x4" offset="0x10" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="data_out" addressQualifier="0" id="1" port="S_AXI_AXILITES" size="0x4" offset="0x24" hostOffset="0x0" hostSize="0x4" type="*"/>
+      <arg name="counter" addressQualifier="0" id="2" port="S_AXI_AXILITES" size="0x4" offset="0x38" hostOffset="0x0" hostSize="0x4" type=""/>
+      <compileWorkGroupSize x="1" y="1" z="1"/>
+    </kernel>
+  </core>
+</project>

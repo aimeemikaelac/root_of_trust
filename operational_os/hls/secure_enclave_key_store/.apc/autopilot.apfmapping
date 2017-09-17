@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="secure_enclave_key_store_main.h" path="/home/michael/xilinx_workspace/secure_enclave_key_store/src/secure_enclave_key_store_main.h"/>
+    <originFiles name="secure_enclave_key_store_main.cpp" path="/home/michael/xilinx_workspace/secure_enclave_key_store/src/secure_enclave_key_store_main.cpp"/>
+    <originFiles name="aes.cpp" path="/home/michael/xilinx_workspace/secure_enclave_key_store/Debug/aes.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="secure_enclave_key_store_tb.cpp" path="/home/michael/xilinx_workspace/secure_enclave_key_store/src/secure_enclave_key_store_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

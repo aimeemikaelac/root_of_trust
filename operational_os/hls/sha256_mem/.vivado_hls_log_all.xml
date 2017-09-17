@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="ERROR: [Coretcl 2-106] Specified part could not be found." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:36:28.364-0600"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'SHA256_sha256_k' will not be exposed as RTL port." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:31.042-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'digest_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:31.027-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-561] Cannot apply I/O mode 'ap_none' on port 'digest_out'; changing to the default 'ap_memory' mode." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:28.256-0600" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'transform.1' to 'transform_1'." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:28.228-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::final' (sha256_mem/src/sha256_mem.cpp:110) into final." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:28.221-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::transform' (sha256_mem/src/sha256_mem.cpp:35) into transform." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:27.897-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::transform.1' (sha256_mem/src/sha256_mem.cpp:37:28) into transform.1." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:27.892-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'SHA256::update' (sha256_mem/src/sha256_mem.cpp:87) into update." projectName="sha256_mem" solutionName="solution1" date="2017-05-06T21:35:27.887-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

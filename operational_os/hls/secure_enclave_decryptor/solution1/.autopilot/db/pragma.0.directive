@@ -1,0 +1,28 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="secure_enclave_aes_cipher" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="counter"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="secure_enclave_aes_cipher" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="data_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="secure_enclave_aes_cipher" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="data_in"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="secure_enclave_aes_cipher" label="">
+<pragma name="INTERFACE">
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="key"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

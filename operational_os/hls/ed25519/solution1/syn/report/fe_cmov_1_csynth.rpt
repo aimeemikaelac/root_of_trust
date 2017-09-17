@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'fe_cmov_1'
+================================================================
+* Date:           Fri Jun  2 12:27:42 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.13|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     962|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       0|     962|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|       0|   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |        Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |x0_1_fu_266_p2              |    and   |      0|  0|  32|          32|          32|
+    |x1_1_fu_272_p2              |    and   |      0|  0|  32|          32|          32|
+    |x2_1_fu_278_p2              |    and   |      0|  0|  32|          32|          32|
+    |x3_1_fu_284_p2              |    and   |      0|  0|  32|          32|          32|
+    |x4_1_fu_290_p2              |    and   |      0|  0|  32|          32|          32|
+    |x5_1_fu_296_p2              |    and   |      0|  0|  32|          32|          32|
+    |x6_1_fu_302_p2              |    and   |      0|  0|  32|          32|          32|
+    |x7_1_fu_308_p2              |    and   |      0|  0|  32|          32|          32|
+    |x8_1_fu_314_p2              |    and   |      0|  0|  32|          32|          32|
+    |x9_1_fu_320_p2              |    and   |      0|  0|  32|          32|          32|
+    |b_assign_cast_fu_258_p3     |  select  |      0|  0|   2|           1|           2|
+    |f_0_write_assign_fu_326_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_1_write_assign_fu_332_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_2_write_assign_fu_338_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_3_write_assign_fu_344_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_4_write_assign_fu_350_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_5_write_assign_fu_356_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_6_write_assign_fu_362_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_7_write_assign_fu_368_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_8_write_assign_fu_374_p2  |    xor   |      0|  0|  32|          32|          32|
+    |f_9_write_assign_fu_380_p2  |    xor   |      0|  0|  32|          32|          32|
+    |x0_fu_198_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x1_fu_204_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x2_fu_210_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x3_fu_216_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x4_fu_222_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x5_fu_228_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x6_fu_234_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x7_fu_240_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x8_fu_246_p2                |    xor   |      0|  0|  32|          32|          32|
+    |x9_fu_252_p2                |    xor   |      0|  0|  32|          32|          32|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |Total                       |          |      0|  0| 962|         961|         962|
+    +----------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------+-----+-----+------------+--------------+--------------+
+|  RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-------------+-----+-----+------------+--------------+--------------+
+|f_0_read     |  in |   32|   ap_none  |   f_0_read   |    scalar    |
+|f_1_read     |  in |   32|   ap_none  |   f_1_read   |    scalar    |
+|f_2_read     |  in |   32|   ap_none  |   f_2_read   |    scalar    |
+|f_3_read     |  in |   32|   ap_none  |   f_3_read   |    scalar    |
+|f_4_read     |  in |   32|   ap_none  |   f_4_read   |    scalar    |
+|f_5_read     |  in |   32|   ap_none  |   f_5_read   |    scalar    |
+|f_6_read     |  in |   32|   ap_none  |   f_6_read   |    scalar    |
+|f_7_read     |  in |   32|   ap_none  |   f_7_read   |    scalar    |
+|f_8_read     |  in |   32|   ap_none  |   f_8_read   |    scalar    |
+|f_9_read     |  in |   32|   ap_none  |   f_9_read   |    scalar    |
+|p_read       |  in |   32|   ap_none  |    p_read    |    scalar    |
+|p_read11     |  in |   32|   ap_none  |   p_read11   |    scalar    |
+|p_read12     |  in |   32|   ap_none  |   p_read12   |    scalar    |
+|p_read13     |  in |   32|   ap_none  |   p_read13   |    scalar    |
+|p_read14     |  in |   32|   ap_none  |   p_read14   |    scalar    |
+|p_read15     |  in |   32|   ap_none  |   p_read15   |    scalar    |
+|p_read16     |  in |   32|   ap_none  |   p_read16   |    scalar    |
+|p_read17     |  in |   32|   ap_none  |   p_read17   |    scalar    |
+|p_read18     |  in |   32|   ap_none  |   p_read18   |    scalar    |
+|p_read19     |  in |   32|   ap_none  |   p_read19   |    scalar    |
+|b            |  in |    1|   ap_none  |       b      |    scalar    |
+|ap_return_0  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_1  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_2  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_3  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_4  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_5  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_6  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_7  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_8  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
+|ap_return_9  | out |   32| ap_ctrl_hs |   fe_cmov.1  | return value |
++-------------+-----+-----+------------+--------------+--------------+
+

@@ -1,0 +1,347 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'ed25519_sign'" level="0">
+<item name = "Date">Fri Jun  2 12:27:54 2017
+</item>
+<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Project">ed25519</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.75, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_sha512_update_128_fu_506">sha512_update_128, ?, ?, ?, ?, none</column>
+<column name="grp_sha512_final_fu_507">sha512_final, ?, ?, ?, ?, none</column>
+<column name="grp_fe_mul_fu_508">fe_mul, 201, 201, 201, 201, none</column>
+<column name="grp_ge_scalarmult_base_fu_575">ge_scalarmult_base, 101237, 101237, 101237, 101237, none</column>
+<column name="grp_fe_invert_fu_642">fe_invert, 34972, 34972, 34972, 34972, none</column>
+<column name="grp_sha512_update_32_fu_787">sha512_update_32, ?, ?, ?, ?, none</column>
+<column name="grp_sc_muladd_fu_958">sc_muladd, 490, 490, 490, 490, none</column>
+<column name="grp_sha512_update_32_2_fu_968">sha512_update_32_2, ?, ?, ?, ?, none</column>
+<column name="grp_sha512_update_32_1_fu_980">sha512_update_32_1, ?, ?, ?, ?, none</column>
+<column name="grp_sc_reduce_fu_992">sc_reduce, 355, 355, 355, 355, none</column>
+<column name="grp_fe_tobytes_1_fu_997">fe_tobytes_1, 57, 57, 57, 57, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">?, ?, ?, -, -, ?, no</column>
+<column name=" + Loop 1.1">256, 256, 2, -, -, 128, no</column>
+<column name="- Loop 2">?, ?, ?, -, -, ?, no</column>
+<column name=" + Loop 2.1">256, 256, 2, -, -, 128, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, 3, 0, 112, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">125, 81, 163598, 130657, -</column>
+<column name="Memory">6, -, 16, 16, -</column>
+<column name="Multiplexer">-, -, -, 1487, -</column>
+<column name="Register">-, -, 2216, -, -</column>
+<specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
+<specialColumn name="Utilization (%)">7, 3, 30, 48, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="ed25519_sign_AXILiteS_s_axi_U">ed25519_sign_AXILiteS_s_axi, 6, 0, 346, 378</column>
+<column name="ed25519_sign_microblaze_mem_m_axi_U">ed25519_sign_microblaze_mem_m_axi, 2, 0, 548, 700</column>
+<column name="grp_fe_invert_fu_642">fe_invert, 0, 20, 38967, 13362</column>
+<column name="grp_fe_mul_fu_508">fe_mul, 0, 4, 8266, 2314</column>
+<column name="grp_fe_tobytes_1_fu_997">fe_tobytes_1, 0, 3, 778, 1082</column>
+<column name="grp_ge_scalarmult_base_fu_575">ge_scalarmult_base, 22, 28, 79032, 28570</column>
+<column name="grp_sc_muladd_fu_958">sc_muladd, 0, 10, 13864, 9505</column>
+<column name="grp_sc_reduce_fu_992">sc_reduce, 0, 16, 7228, 5581</column>
+<column name="grp_sha512_final_fu_507">sha512_final, 11, 0, 1496, 8090</column>
+<column name="grp_sha512_update_128_fu_506">sha512_update_128, 21, 0, 3263, 15260</column>
+<column name="grp_sha512_update_32_fu_787">sha512_update_32, 21, 0, 3268, 15263</column>
+<column name="grp_sha512_update_32_1_fu_980">sha512_update_32_1, 21, 0, 3270, 15263</column>
+<column name="grp_sha512_update_32_2_fu_968">sha512_update_32_2, 21, 0, 3272, 15289</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="hash_state_U">ed25519_sign_hashtde, 4, 0, 0, 8, 64, 1, 512</column>
+<column name="hash_buf_U">ed25519_sign_hashudo, 1, 0, 0, 128, 8, 1, 1024</column>
+<column name="hram_U">ed25519_sign_hram, 0, 8, 8, 64, 8, 1, 512</column>
+<column name="r_U">ed25519_sign_hram, 0, 8, 8, 64, 8, 1, 512</column>
+<column name="temp_data_U">ed25519_sign_tempvdy, 1, 0, 0, 128, 8, 1, 1024</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="tmp_i_i_i_fu_492_p2">*, 3, 0, 20, 5, 32</column>
+<column name="grp_fu_406_p2">+, 0, 0, 39, 32, 32</column>
+<column name="ap_block_state14">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state40_io">and, 0, 0, 2, 1, 1</column>
+<column name="grp_fu_935_p2">icmp, 0, 0, 32, 64, 64</column>
+<column name="grp_fu_945_p2">icmp, 0, 0, 5, 8, 9</column>
+<column name="ap_block_state25_on_subcall_done">or, 0, 0, 2, 1, 1</column>
+<column name="s_0_i_i_i_fu_1474_p2">xor, 0, 0, 2, 1, 1</column>
+<column name="tmp_1490_i_fu_1488_p2">xor, 0, 0, 8, 8, 8</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">237, 55, 1, 55</column>
+<column name="ap_sig_ioackin_microblaze_mem_ARREADY">9, 2, 1, 2</column>
+<column name="blocks_in_ap_vld_in_sig">9, 2, 1, 2</column>
+<column name="blocks_in_ap_vld_preg">9, 2, 1, 2</column>
+<column name="blocks_in_blk_n">9, 2, 1, 2</column>
+<column name="blocks_in_in_sig">9, 2, 64, 128</column>
+<column name="grp_fe_mul_fu_508_f_0_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_1_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_2_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_3_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_4_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_5_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_6_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_7_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_8_read">15, 3, 32, 96</column>
+<column name="grp_fe_mul_fu_508_f_9_read">15, 3, 32, 96</column>
+<column name="grp_fu_406_p0">65, 16, 32, 512</column>
+<column name="grp_fu_406_p1">59, 14, 32, 448</column>
+<column name="grp_fu_935_p0">15, 3, 64, 192</column>
+<column name="grp_fu_945_p0">15, 3, 8, 24</column>
+<column name="grp_sc_reduce_fu_992_s_q0">15, 3, 8, 24</column>
+<column name="hash_buf_address0">33, 6, 7, 42</column>
+<column name="hash_buf_ce0">33, 6, 1, 6</column>
+<column name="hash_buf_ce1">9, 2, 1, 2</column>
+<column name="hash_buf_d0">33, 6, 8, 48</column>
+<column name="hash_buf_we0">33, 6, 1, 6</column>
+<column name="hash_buf_we1">9, 2, 1, 2</column>
+<column name="hash_curlen_fu_210">33, 6, 64, 384</column>
+<column name="hash_length_fu_202">33, 6, 64, 384</column>
+<column name="hash_state_address0">59, 14, 3, 42</column>
+<column name="hash_state_address1">44, 9, 3, 27</column>
+<column name="hash_state_ce0">38, 7, 1, 7</column>
+<column name="hash_state_d0">47, 10, 64, 640</column>
+<column name="hash_state_d1">27, 5, 64, 320</column>
+<column name="hash_state_we0">38, 7, 1, 7</column>
+<column name="hram_address0">21, 4, 6, 24</column>
+<column name="hram_ce0">21, 4, 1, 4</column>
+<column name="hram_d0">15, 3, 8, 24</column>
+<column name="hram_we0">15, 3, 1, 3</column>
+<column name="microblaze_mem_ARADDR">15, 3, 32, 96</column>
+<column name="microblaze_mem_blk_n_AR">9, 2, 1, 2</column>
+<column name="microblaze_mem_blk_n_R">9, 2, 1, 2</column>
+<column name="private_key_address0">15, 3, 6, 18</column>
+<column name="private_key_ce0">15, 3, 1, 3</column>
+<column name="r_address0">27, 5, 6, 30</column>
+<column name="r_ce0">27, 5, 1, 5</column>
+<column name="r_d0">15, 3, 8, 24</column>
+<column name="r_we0">15, 3, 1, 3</column>
+<column name="reg_360">15, 3, 32, 96</column>
+<column name="reg_371">15, 3, 8, 24</column>
+<column name="reg_383">15, 3, 32, 96</column>
+<column name="reg_394">15, 3, 8, 24</column>
+<column name="signature_address0">33, 6, 6, 36</column>
+<column name="signature_ce0">27, 5, 1, 5</column>
+<column name="signature_d0">21, 4, 8, 32</column>
+<column name="signature_we0">21, 4, 1, 4</column>
+<column name="temp_data_address0">21, 4, 7, 28</column>
+<column name="temp_data_ce0">15, 3, 1, 3</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="R_X_0_reg_1593">32, 0, 32, 0</column>
+<column name="R_X_1_reg_1598">32, 0, 32, 0</column>
+<column name="R_X_2_reg_1603">32, 0, 32, 0</column>
+<column name="R_X_3_reg_1608">32, 0, 32, 0</column>
+<column name="R_X_4_reg_1613">32, 0, 32, 0</column>
+<column name="R_X_5_reg_1618">32, 0, 32, 0</column>
+<column name="R_X_6_reg_1623">32, 0, 32, 0</column>
+<column name="R_X_7_reg_1628">32, 0, 32, 0</column>
+<column name="R_X_8_reg_1633">32, 0, 32, 0</column>
+<column name="R_X_9_reg_1638">32, 0, 32, 0</column>
+<column name="R_Y_0_reg_1643">32, 0, 32, 0</column>
+<column name="R_Y_1_reg_1648">32, 0, 32, 0</column>
+<column name="R_Y_2_reg_1653">32, 0, 32, 0</column>
+<column name="R_Y_3_reg_1658">32, 0, 32, 0</column>
+<column name="R_Y_4_reg_1663">32, 0, 32, 0</column>
+<column name="R_Y_5_reg_1668">32, 0, 32, 0</column>
+<column name="R_Y_6_reg_1673">32, 0, 32, 0</column>
+<column name="R_Y_7_reg_1678">32, 0, 32, 0</column>
+<column name="R_Y_8_reg_1683">32, 0, 32, 0</column>
+<column name="R_Y_9_reg_1688">32, 0, 32, 0</column>
+<column name="R_Z_0_reg_1693">32, 0, 32, 0</column>
+<column name="R_Z_1_reg_1698">32, 0, 32, 0</column>
+<column name="R_Z_2_reg_1703">32, 0, 32, 0</column>
+<column name="R_Z_3_reg_1708">32, 0, 32, 0</column>
+<column name="R_Z_4_reg_1713">32, 0, 32, 0</column>
+<column name="R_Z_5_reg_1718">32, 0, 32, 0</column>
+<column name="R_Z_6_reg_1723">32, 0, 32, 0</column>
+<column name="R_Z_7_reg_1728">32, 0, 32, 0</column>
+<column name="R_Z_8_reg_1733">32, 0, 32, 0</column>
+<column name="R_Z_9_reg_1738">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">54, 0, 54, 0</column>
+<column name="ap_reg_grp_fe_invert_fu_642_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_fe_mul_fu_508_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_fe_tobytes_1_fu_997_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_ge_scalarmult_base_fu_575_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sc_muladd_fu_958_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sc_reduce_fu_992_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sha512_final_fu_507_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sha512_update_128_fu_506_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sha512_update_32_1_fu_980_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sha512_update_32_2_fu_968_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_sha512_update_32_fu_787_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_microblaze_mem_ARREADY">1, 0, 1, 0</column>
+<column name="blocks_in_ap_vld_preg">1, 0, 1, 0</column>
+<column name="blocks_in_preg">64, 0, 64, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_1">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_2">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_3">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_4">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_5">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_6">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_7">32, 0, 32, 0</column>
+<column name="fe_mul_ret1_i_reg_1833_8">32, 0, 32, 0</column>
+<column name="hash_curlen_fu_210">64, 0, 64, 0</column>
+<column name="hash_length_fu_202">64, 0, 64, 0</column>
+<column name="recip_0_reg_1743">32, 0, 32, 0</column>
+<column name="recip_1_reg_1748">32, 0, 32, 0</column>
+<column name="recip_2_reg_1753">32, 0, 32, 0</column>
+<column name="recip_3_reg_1758">32, 0, 32, 0</column>
+<column name="recip_4_reg_1763">32, 0, 32, 0</column>
+<column name="recip_5_reg_1768">32, 0, 32, 0</column>
+<column name="recip_6_reg_1773">32, 0, 32, 0</column>
+<column name="recip_7_reg_1778">32, 0, 32, 0</column>
+<column name="recip_8_reg_1783">32, 0, 32, 0</column>
+<column name="recip_9_reg_1788">32, 0, 32, 0</column>
+<column name="reg_1034">8, 0, 8, 0</column>
+<column name="reg_1039">32, 0, 32, 0</column>
+<column name="reg_1045">32, 0, 32, 0</column>
+<column name="reg_360">32, 0, 32, 0</column>
+<column name="reg_371">8, 0, 8, 0</column>
+<column name="reg_383">32, 0, 32, 0</column>
+<column name="reg_394">8, 0, 8, 0</column>
+<column name="tmp_561_i_i_i_reg_1845">7, 0, 7, 0</column>
+<column name="tmp_579_i_i_i_reg_1850">6, 0, 6, 0</column>
+<column name="y_1_reg_1793">32, 0, 32, 0</column>
+<column name="y_2_reg_1798">32, 0, 32, 0</column>
+<column name="y_3_reg_1803">32, 0, 32, 0</column>
+<column name="y_4_reg_1808">32, 0, 32, 0</column>
+<column name="y_5_reg_1813">32, 0, 32, 0</column>
+<column name="y_6_reg_1818">32, 0, 32, 0</column>
+<column name="y_7_reg_1823">32, 0, 32, 0</column>
+<column name="y_8_reg_1828">32, 0, 32, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_AWADDR">in, 8, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_ARADDR">in, 8, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, array</column>
+<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, ed25519_sign, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, ed25519_sign, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, ed25519_sign, return value</column>
+<column name="m_axi_microblaze_mem_AWVALID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWREADY">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWADDR">out, 32, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWLEN">out, 8, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWSIZE">out, 3, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWBURST">out, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWLOCK">out, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWCACHE">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWPROT">out, 3, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWQOS">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWREGION">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_AWUSER">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WVALID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WREADY">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WDATA">out, 32, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WSTRB">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WLAST">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_WUSER">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARVALID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARREADY">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARADDR">out, 32, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARID">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARLEN">out, 8, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARSIZE">out, 3, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARBURST">out, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARLOCK">out, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARCACHE">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARPROT">out, 3, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARQOS">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARREGION">out, 4, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_ARUSER">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RVALID">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RREADY">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RDATA">in, 32, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RLAST">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RID">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RUSER">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_RRESP">in, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_BVALID">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_BREADY">out, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_BRESP">in, 2, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_BID">in, 1, m_axi, microblaze_mem, pointer</column>
+<column name="m_axi_microblaze_mem_BUSER">in, 1, m_axi, microblaze_mem, pointer</column>
+</table>
+</item>
+</section>
+</profile>

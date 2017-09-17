@@ -1,0 +1,687 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1733598 on Wed Dec 14 22:35:42 MST 2016
+# IP Build 1731160 on Wed Dec 14 23:47:21 MST 2016
+# Start of session at: Tue Mar 14 21:28:23 2017
+# Process ID: 11989
+# Current directory: /home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/project.runs/synth_1
+# Command line: vivado -log secure_enclave.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source secure_enclave.tcl
+# Log file: /home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/project.runs/synth_1/secure_enclave.vds
+# Journal file: /home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source secure_enclave.tcl -notrace
+Command: synth_design -top secure_enclave -part xczu9eg-ffvb1156-2-i-es2 -no_iobuf -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-es2'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-es2'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11994 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1139.566 ; gain = 211.012 ; free physical = 2558 ; free virtual = 15806
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'secure_enclave' [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 2'b01 
+	Parameter ap_ST_fsm_state2 bound to: 2'b10 
+	Parameter ap_const_lv32_0 bound to: 0 - type: integer 
+	Parameter ap_const_lv128_lc_1 bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_const_lv32_1 bound to: 1 - type: integer 
+	Parameter C_S_AXI_AXILITES_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ap_const_int64_8 bound to: 8 - type: integer 
+	Parameter C_S_AXI_AXILITES_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ap_const_lv64_0 bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_const_lv32_5 bound to: 5 - type: integer 
+	Parameter C_S_AXI_AXILITES_WSTRB_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:82]
+INFO: [Synth 8-638] synthesizing module 'secure_enclave_AXILiteS_s_axi' [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:9]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDR_AP_CTRL bound to: 8'b00000000 
+	Parameter ADDR_GIE bound to: 8'b00000100 
+	Parameter ADDR_IER bound to: 8'b00001000 
+	Parameter ADDR_ISR bound to: 8'b00001100 
+	Parameter ADDR_AP_RETURN_0 bound to: 8'b00010000 
+	Parameter ADDR_PIN_ATTEMPT_V_DATA_0 bound to: 8'b01000000 
+	Parameter ADDR_PIN_ATTEMPT_V_DATA_1 bound to: 8'b01000100 
+	Parameter ADDR_PIN_ATTEMPT_V_DATA_2 bound to: 8'b01001000 
+	Parameter ADDR_PIN_ATTEMPT_V_DATA_3 bound to: 8'b01001100 
+	Parameter ADDR_PIN_ATTEMPT_V_CTRL bound to: 8'b01010000 
+	Parameter ADDR_COUNTER_IN_DATA_0 bound to: 8'b10000000 
+	Parameter ADDR_COUNTER_IN_CTRL bound to: 8'b10000100 
+	Parameter ADDR_INCREMENT_COUNTER_DATA_0 bound to: 8'b10001000 
+	Parameter ADDR_INCREMENT_COUNTER_CTRL bound to: 8'b10001100 
+	Parameter ADDR_RESET_COUNTER_DATA_0 bound to: 8'b10010000 
+	Parameter ADDR_RESET_COUNTER_CTRL bound to: 8'b10010100 
+	Parameter ADDR_SECURE_STORAGE_IN_V_BASE bound to: 8'b00100000 
+	Parameter ADDR_SECURE_STORAGE_IN_V_HIGH bound to: 8'b00111111 
+	Parameter ADDR_SECURE_STORAGE_OUT_V_BASE bound to: 8'b01100000 
+	Parameter ADDR_SECURE_STORAGE_OUT_V_HIGH bound to: 8'b01111111 
+	Parameter WRIDLE bound to: 2'b00 
+	Parameter WRDATA bound to: 2'b01 
+	Parameter WRRESP bound to: 2'b10 
+	Parameter RDIDLE bound to: 2'b00 
+	Parameter RDDATA bound to: 2'b01 
+	Parameter ADDR_BITS bound to: 8 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'secure_enclave_AXILiteS_s_axi_ram' [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:714]
+	Parameter BYTES bound to: 16 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+	Parameter AWIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'secure_enclave_AXILiteS_s_axi_ram' (1#1) [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:714]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:339]
+INFO: [Synth 8-256] done synthesizing module 'secure_enclave_AXILiteS_s_axi' (2#1) [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:9]
+WARNING: [Synth 8-350] instance 'secure_enclave_AXILiteS_s_axi_U' of module 'secure_enclave_AXILiteS_s_axi' requires 41 connections, but only 37 given [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+INFO: [Synth 8-256] done synthesizing module 'secure_enclave' (3#1) [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:12]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1181.035 ; gain = 252.480 ; free physical = 2515 ; free virtual = 15763
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_address0[0] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_ce0 to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_we0 to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[127] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[126] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[125] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[124] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[123] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[122] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[121] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[120] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[119] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[118] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[117] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[116] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[115] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[114] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[113] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[112] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[111] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[110] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[109] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[108] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[107] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[106] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[105] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[104] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[103] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[102] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[101] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[100] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[99] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[98] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[97] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[96] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[95] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[94] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[93] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[92] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[91] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[90] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[89] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[88] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[87] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[86] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[85] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[84] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[83] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[82] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[81] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[80] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[79] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[78] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[77] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[76] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[75] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[74] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[73] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[72] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[71] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[70] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[69] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[68] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[67] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[66] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[65] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[64] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[63] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[62] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[61] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[60] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[59] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[58] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[57] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[56] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[55] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[54] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[53] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[52] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[51] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[50] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[49] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[48] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[47] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[46] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[45] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[44] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[43] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[42] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[41] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[40] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[39] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[38] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[37] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[36] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[35] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[34] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[33] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[32] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+WARNING: [Synth 8-3295] tying undriven pin secure_enclave_AXILiteS_s_axi_U:secure_storage_out_V_d0[31] to constant 0 [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.v:127]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1181.035 ; gain = 252.480 ; free physical = 2515 ; free virtual = 15763
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-i-es2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.xdc]
+Finished Parsing XDC File [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1880.496 ; gain = 0.000 ; free physical = 1866 ; free virtual = 15109
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1880.496 ; gain = 951.941 ; free physical = 1859 ; free virtual = 15104
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-i-es2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1880.496 ; gain = 951.941 ; free physical = 1859 ; free virtual = 15104
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1880.496 ; gain = 951.941 ; free physical = 1858 ; free virtual = 15104
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'int_secure_storage_out_V_shift_reg[1:0]' into 'int_secure_storage_in_V_shift_reg[1:0]' [/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/secure_enclave_AXILiteS_s_axi.v:704]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-3971] The signal gen_write[1].mem_reg was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1880.496 ; gain = 951.941 ; free physical = 1838 ; free virtual = 15105
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	              128 Bit    Registers := 5     
+	               32 Bit    Registers := 10    
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 17    
++---RAMs : 
+	              256 Bit         RAMs := 2     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 4     
+	   6 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module secure_enclave 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+Module secure_enclave_AXILiteS_s_axi_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	              128 Bit    Registers := 2     
++---RAMs : 
+	              256 Bit         RAMs := 1     
+Module secure_enclave_AXILiteS_s_axi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 9     
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 15    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3971] The signal secure_enclave_AXILiteS_s_axi_U/int_secure_storage_out_V/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[0]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[0]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[1]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[1]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[1]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[2]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[1]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[2]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[2]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[2]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[2]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[3]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[2]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[3]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[3]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[3]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[3]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[4]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[3]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[4]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[4]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[4]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[4]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[5]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[4]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[5]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[5]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[5]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[5]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[6]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[5]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[6]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[6]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[6]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[6]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[7]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[6]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[7]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[7]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[7]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[7]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[8]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[7]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[8]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[8]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[8]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[8]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[9]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[8]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[9]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[9]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[9]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[9]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[10]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[9]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[10]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[10]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[10]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[10]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[11]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[10]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[11]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[11]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[11]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[11]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[12]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[11]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[12]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[12]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[12]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[12]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[13]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[12]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[13]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[13]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[13]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[13]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[14]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[13]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[14]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[14]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[14]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[14]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[15]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[14]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[15]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[15]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[15]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[15]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[16]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[15]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[16]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[16]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[16]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[16]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[17]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[16]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[17]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[17]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[17]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[17]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[18]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[17]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[18]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[18]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[18]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[18]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[18]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[19]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[19]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[20]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[19]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[20]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[20]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[20]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[20]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[21]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[20]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[21]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[21]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[21]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[21]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[22]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[21]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[22]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[22]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[22]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[22]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[23]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[22]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[23]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[23]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[23]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[23]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[24]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[23]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[24]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[24]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[24]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[24]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[25]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[24]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[25]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[25]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[25]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[25]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[26]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[25]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[26]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[26]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[26]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[26]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[27]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[26]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[27]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[27]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[27]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[27]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[28]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[27]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[28]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[28]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[28]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[28]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[29]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[28]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[29]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[29]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[29]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[29]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[30]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[29]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[30]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[30]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[30]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[30]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[31]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[30]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[31]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_increment_counter_reg[31]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[31]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/int_reset_counter_reg[31]' (FDRE) to 'secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\secure_enclave_AXILiteS_s_axi_U/int_ap_return_reg[31] )
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/B[1]' (FDE) to 'secure_enclave_AXILiteS_s_axi_U/waddr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'secure_enclave_AXILiteS_s_axi_U/B[0]' (FDE) to 'secure_enclave_AXILiteS_s_axi_U/waddr_reg[2]'
+WARNING: [Synth 8-3332] Sequential element (i_0) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_2) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_4) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_6) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_8) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_10) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_12) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_14) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_16) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_18) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_20) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_22) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_24) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_26) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_28) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_30) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_32) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_34) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_36) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_38) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_40) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_42) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_44) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_46) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_48) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_50) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_52) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_54) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_56) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_58) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_60) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_62) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_64) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_66) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_68) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_70) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_72) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_74) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_76) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_78) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_80) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_82) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_84) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_86) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_88) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_90) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_92) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_94) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_96) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_98) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_100) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_102) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_104) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_106) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_108) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_110) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_112) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_114) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_116) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_118) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_120) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_122) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_124) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_126) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_128) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_130) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_132) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_134) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_136) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_138) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_140) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_142) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_144) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_146) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_148) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_150) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_152) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_154) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_156) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_158) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_160) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_162) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_164) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_166) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_168) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_170) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_172) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_174) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_176) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_178) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_180) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_182) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_184) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_186) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_188) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_190) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_192) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_194) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_196) is unused and will be removed from module secure_enclave.
+WARNING: [Synth 8-3332] Sequential element (i_198) is unused and will be removed from module secure_enclave.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1880.496 ; gain = 951.941 ; free physical = 1845 ; free virtual = 15105
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++----------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                       | RTL Object           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|secure_enclave_AXILiteS_s_axi_ram | gen_write[1].mem_reg | 2 x 128(READ_FIRST)    | W | R | 2 x 128(READ_FIRST)    | W | R | Port A and B     | 0      | 4      | 
+|secure_enclave_AXILiteS_s_axi_ram | gen_write[1].mem_reg | 2 x 128(READ_FIRST)    | W | R | 2 x 128(READ_FIRST)    | W | R | Port A and B     | 0      | 4      | 
++----------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2489.090 ; gain = 1560.535 ; free physical = 1193 ; free virtual = 14454
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5556] The block RAM secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg may be mapped as a cascade chain, because it is not timing critical.
+INFO: [Synth 8-3971] The signal secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 2583.895 ; gain = 1655.340 ; free physical = 1040 ; free virtual = 14301
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_in_V/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_out_V/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_out_V/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_out_V/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance secure_enclave_AXILiteS_s_axi_U/int_secure_storage_out_V/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY8   |     6|
+|2     |LUT1     |     2|
+|3     |LUT2     |    10|
+|4     |LUT3     |   211|
+|5     |LUT4     |   155|
+|6     |LUT5     |    46|
+|7     |LUT6     |   380|
+|8     |MUXF7    |    64|
+|9     |RAMB36E2 |     8|
+|10    |FDRE     |   773|
+|11    |FDSE     |     1|
++------+---------+------+
+
+Report Instance Areas: 
++------+----------------------------------+------------------------------------+------+
+|      |Instance                          |Module                              |Cells |
++------+----------------------------------+------------------------------------+------+
+|1     |top                               |                                    |  1656|
+|2     |  secure_enclave_AXILiteS_s_axi_U |secure_enclave_AXILiteS_s_axi       |  1105|
+|3     |    int_secure_storage_in_V       |secure_enclave_AXILiteS_s_axi_ram   |   282|
+|4     |    int_secure_storage_out_V      |secure_enclave_AXILiteS_s_axi_ram_0 |   117|
++------+----------------------------------+------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.902 ; gain = 1663.348 ; free physical = 1031 ; free virtual = 14292
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 130 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2591.902 ; gain = 824.875 ; free physical = 1031 ; free virtual = 14292
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2591.910 ; gain = 1663.355 ; free physical = 1031 ; free virtual = 14292
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+135 Infos, 201 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 2637.918 ; gain = 1639.859 ; free physical = 1019 ; free virtual = 14280
+INFO: [Common 17-1381] The checkpoint '/home/michael/xilinx_workspace/secure_enclave_simple/solution1/impl/verilog/project.runs/synth_1/secure_enclave.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2661.930 ; gain = 0.000 ; free physical = 1019 ; free virtual = 14280
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 14 21:29:13 2017...

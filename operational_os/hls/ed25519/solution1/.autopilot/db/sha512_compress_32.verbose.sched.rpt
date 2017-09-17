@@ -1,0 +1,2606 @@
+
+
+================================================================
+== Vivado HLS Report for 'sha512_compress_32'
+================================================================
+* Date:           Fri Jun  2 12:27:08 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        ed25519
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.77|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  1279|  1279|  1279|  1279|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   16|   16|         2|          -|          -|     8|    no    |
+        |- Loop 2  |  160|  160|        10|          -|          -|    16|    no    |
+        |- Loop 3  |  512|  512|         8|          -|          -|    64|    no    |
+        |- Loop 4  |  570|  570|        57|          -|          -|    10|    no    |
+        |- Loop 5  |   16|   16|         2|          -|          -|     8|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 80
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond3)
+	4  / (exitcond3)
+3 --> 
+	2  / true
+4 --> 
+	5  / (!exitcond9)
+	14  / (exitcond9)
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	4  / true
+14 --> 
+	15  / (!exitcond8)
+	22  / (exitcond8)
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	14  / true
+22 --> 
+	23  / (tmp_121)
+	79  / (!tmp_121)
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	78  / true
+78 --> 
+	22  / true
+79 --> 
+	80  / (!exitcond)
+80 --> 
+	79  / true
+* FSM state operations: 
+
+ <State 1>: 0.66ns
+ST_1: empty (5)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %buf_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: sum_read (6)  [1/1] 0.00ns
+:1  %sum_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %sum)
+
+ST_1: S (7)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:162
+:2  %S = alloca [8 x i64], align 16
+
+ST_1: W (8)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:162
+:3  %W = alloca [80 x i64], align 16
+
+ST_1: StgValue_85 (9)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:155
+:4  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str44, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_86 (10)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:156
+:5  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str246, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_87 (11)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:157
+:6  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str347, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_88 (12)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:158
+:7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str448, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_89 (13)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:159
+:8  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str549, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_90 (14)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:160
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str650, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_91 (15)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:161
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str751, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+
+ST_1: StgValue_92 (16)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:166
+:11  br label %1
+
+
+ <State 2>: 1.12ns
+ST_2: i (18)  [1/1] 0.00ns
+:0  %i = phi i4 [ 0, %0 ], [ %i_5, %2 ]
+
+ST_2: exitcond3 (19)  [1/1] 0.44ns  loc: ed25519/src/sha512.cpp:166
+:1  %exitcond3 = icmp eq i4 %i, -8
+
+ST_2: empty_100 (20)  [1/1] 0.00ns
+:2  %empty_100 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_2: i_5 (21)  [1/1] 1.12ns  loc: ed25519/src/sha512.cpp:166
+:3  %i_5 = add i4 %i, 1
+
+ST_2: StgValue_97 (22)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:166
+:4  br i1 %exitcond3, label %.preheader13.preheader, label %2
+
+ST_2: tmp (24)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:167
+:0  %tmp = zext i4 %i to i64
+
+ST_2: md_state_addr (25)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:167
+:1  %md_state_addr = getelementptr [8 x i64]* %md_state, i64 0, i64 %tmp
+
+ST_2: md_state_load (26)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:167
+:2  %md_state_load = load i64* %md_state_addr, align 8
+
+ST_2: tmp_338 (31)  [1/1] 0.00ns
+.preheader13.preheader:0  %tmp_338 = trunc i64 %sum_read to i8
+
+ST_2: StgValue_102 (32)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:171
+.preheader13.preheader:1  br label %.preheader13
+
+
+ <State 3>: 1.35ns
+ST_3: md_state_load (26)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:167
+:2  %md_state_load = load i64* %md_state_addr, align 8
+
+ST_3: S_addr (27)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:167
+:3  %S_addr = getelementptr inbounds [8 x i64]* %S, i64 0, i64 %tmp
+
+ST_3: StgValue_105 (28)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:167
+:4  store i64 %md_state_load, i64* %S_addr, align 8
+
+ST_3: StgValue_106 (29)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:166
+:5  br label %1
+
+
+ <State 4>: 1.12ns
+ST_4: i_1 (34)  [1/1] 0.00ns
+.preheader13:0  %i_1 = phi i5 [ %i_6, %3 ], [ 0, %.preheader13.preheader ]
+
+ST_4: exitcond9 (35)  [1/1] 0.39ns  loc: ed25519/src/sha512.cpp:171
+.preheader13:1  %exitcond9 = icmp eq i5 %i_1, -16
+
+ST_4: empty_101 (36)  [1/1] 0.00ns
+.preheader13:2  %empty_101 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+
+ST_4: i_6 (37)  [1/1] 1.12ns  loc: ed25519/src/sha512.cpp:171
+.preheader13:3  %i_6 = add i5 %i_1, 1
+
+ST_4: StgValue_111 (38)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:171
+.preheader13:4  br i1 %exitcond9, label %.preheader12.preheader, label %3
+
+ST_4: StgValue_112 (95)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:176
+.preheader12.preheader:0  br label %.preheader12
+
+
+ <State 5>: 1.77ns
+ST_5: tmp_341 (40)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:171
+:0  %tmp_341 = trunc i5 %i_1 to i4
+
+ST_5: tmp_s (41)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:1  %tmp_s = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %tmp_341, i3 0)
+
+ST_5: tmp_67_cast (42)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:2  %tmp_67_cast = zext i7 %tmp_s to i8
+
+ST_5: sum1 (43)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172
+:3  %sum1 = add i8 %tmp_338, %tmp_67_cast
+
+ST_5: sum1_cast (44)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:4  %sum1_cast = zext i8 %sum1 to i64
+
+ST_5: buf_addr (45)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:5  %buf_addr = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum1_cast
+
+ST_5: buf_load (46)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:6  %buf_load = load i8* %buf_addr, align 1
+
+
+ <State 6>: 1.77ns
+ST_6: buf_load (46)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:6  %buf_load = load i8* %buf_addr, align 1
+
+ST_6: p_sum1 (47)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum3)
+:7  %p_sum1 = or i7 %tmp_s, 1
+
+ST_6: p_sum1_cast (48)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum3)
+:8  %p_sum1_cast = zext i7 %p_sum1 to i8
+
+ST_6: sum3 (49)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:9  %sum3 = add i8 %tmp_338, %p_sum1_cast
+
+ST_6: sum3_cast (50)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:10  %sum3_cast = zext i8 %sum3 to i64
+
+ST_6: buf_addr_8 (51)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:11  %buf_addr_8 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum3_cast
+
+ST_6: buf_load_1 (52)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:12  %buf_load_1 = load i8* %buf_addr_8, align 1
+
+
+ <State 7>: 1.77ns
+ST_7: buf_load_1 (52)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:12  %buf_load_1 = load i8* %buf_addr_8, align 1
+
+ST_7: p_sum2 (53)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum5)
+:13  %p_sum2 = or i7 %tmp_s, 2
+
+ST_7: p_sum2_cast (54)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum5)
+:14  %p_sum2_cast = zext i7 %p_sum2 to i8
+
+ST_7: sum5 (55)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:15  %sum5 = add i8 %tmp_338, %p_sum2_cast
+
+ST_7: sum5_cast (56)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:16  %sum5_cast = zext i8 %sum5 to i64
+
+ST_7: buf_addr_9 (57)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:17  %buf_addr_9 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum5_cast
+
+ST_7: buf_load_2 (58)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:18  %buf_load_2 = load i8* %buf_addr_9, align 1
+
+
+ <State 8>: 1.77ns
+ST_8: buf_load_2 (58)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:18  %buf_load_2 = load i8* %buf_addr_9, align 1
+
+ST_8: p_sum3 (59)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum7)
+:19  %p_sum3 = or i7 %tmp_s, 3
+
+ST_8: p_sum3_cast (60)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum7)
+:20  %p_sum3_cast = zext i7 %p_sum3 to i8
+
+ST_8: sum7 (61)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:21  %sum7 = add i8 %tmp_338, %p_sum3_cast
+
+ST_8: sum7_cast (62)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:22  %sum7_cast = zext i8 %sum7 to i64
+
+ST_8: buf_addr_10 (63)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:23  %buf_addr_10 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum7_cast
+
+ST_8: buf_load_3 (64)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:24  %buf_load_3 = load i8* %buf_addr_10, align 1
+
+
+ <State 9>: 1.77ns
+ST_9: buf_load_3 (64)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:24  %buf_load_3 = load i8* %buf_addr_10, align 1
+
+ST_9: p_sum4 (65)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum9)
+:25  %p_sum4 = or i7 %tmp_s, 4
+
+ST_9: p_sum4_cast (66)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum9)
+:26  %p_sum4_cast = zext i7 %p_sum4 to i8
+
+ST_9: sum9 (67)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:27  %sum9 = add i8 %tmp_338, %p_sum4_cast
+
+ST_9: sum9_cast (68)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:28  %sum9_cast = zext i8 %sum9 to i64
+
+ST_9: buf_addr_11 (69)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:29  %buf_addr_11 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum9_cast
+
+ST_9: buf_load_4 (70)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:30  %buf_load_4 = load i8* %buf_addr_11, align 1
+
+
+ <State 10>: 1.77ns
+ST_10: buf_load_4 (70)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:30  %buf_load_4 = load i8* %buf_addr_11, align 1
+
+ST_10: p_sum5 (71)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum6)
+:31  %p_sum5 = or i7 %tmp_s, 5
+
+ST_10: p_sum5_cast (72)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum6)
+:32  %p_sum5_cast = zext i7 %p_sum5 to i8
+
+ST_10: sum6 (73)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:33  %sum6 = add i8 %tmp_338, %p_sum5_cast
+
+ST_10: sum6_cast (74)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:34  %sum6_cast = zext i8 %sum6 to i64
+
+ST_10: buf_addr_12 (75)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:35  %buf_addr_12 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum6_cast
+
+ST_10: buf_load_5 (76)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:36  %buf_load_5 = load i8* %buf_addr_12, align 1
+
+
+ <State 11>: 1.77ns
+ST_11: buf_load_5 (76)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:36  %buf_load_5 = load i8* %buf_addr_12, align 1
+
+ST_11: p_sum6 (77)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum8)
+:37  %p_sum6 = or i7 %tmp_s, 6
+
+ST_11: p_sum6_cast (78)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum8)
+:38  %p_sum6_cast = zext i7 %p_sum6 to i8
+
+ST_11: sum8 (79)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:39  %sum8 = add i8 %tmp_338, %p_sum6_cast
+
+ST_11: sum8_cast (80)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:40  %sum8_cast = zext i8 %sum8 to i64
+
+ST_11: buf_addr_13 (81)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:41  %buf_addr_13 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum8_cast
+
+ST_11: buf_load_6 (82)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:42  %buf_load_6 = load i8* %buf_addr_13, align 1
+
+
+ <State 12>: 1.77ns
+ST_12: buf_load_6 (82)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:42  %buf_load_6 = load i8* %buf_addr_13, align 1
+
+ST_12: p_sum7 (83)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum2)
+:43  %p_sum7 = or i7 %tmp_s, 7
+
+ST_12: p_sum7_cast (84)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172 (grouped into LUT with out node sum2)
+:44  %p_sum7_cast = zext i7 %p_sum7 to i8
+
+ST_12: sum2 (85)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:172 (out node of the LUT)
+:45  %sum2 = add i8 %tmp_338, %p_sum7_cast
+
+ST_12: sum2_cast (86)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:46  %sum2_cast = zext i8 %sum2 to i64
+
+ST_12: buf_addr_14 (87)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:47  %buf_addr_14 = getelementptr [64 x i8]* %buf_r, i64 0, i64 %sum2_cast
+
+ST_12: buf_load_7 (88)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:48  %buf_load_7 = load i8* %buf_addr_14, align 1
+
+
+ <State 13>: 1.91ns
+ST_13: buf_load_7 (88)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:172
+:48  %buf_load_7 = load i8* %buf_addr_14, align 1
+
+ST_13: tmp_89 (89)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:49  %tmp_89 = call i64 @_ssdm_op_BitConcatenate.i64.i8.i8.i8.i8.i8.i8.i8.i8(i8 %buf_load, i8 %buf_load_1, i8 %buf_load_2, i8 %buf_load_3, i8 %buf_load_4, i8 %buf_load_5, i8 %buf_load_6, i8 %buf_load_7)
+
+ST_13: tmp_90 (90)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:50  %tmp_90 = zext i5 %i_1 to i64
+
+ST_13: W_addr (91)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:172
+:51  %W_addr = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_90
+
+ST_13: StgValue_173 (92)  [1/1] 1.24ns  loc: ed25519/src/sha512.cpp:172
+:52  store i64 %tmp_89, i64* %W_addr, align 8
+
+ST_13: StgValue_174 (93)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:171
+:53  br label %.preheader13
+
+
+ <State 14>: 1.10ns
+ST_14: i_2 (97)  [1/1] 0.00ns
+.preheader12:0  %i_2 = phi i7 [ %i_7, %4 ], [ 16, %.preheader12.preheader ]
+
+ST_14: exitcond8 (98)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:176
+.preheader12:1  %exitcond8 = icmp eq i7 %i_2, -48
+
+ST_14: empty_102 (99)  [1/1] 0.00ns
+.preheader12:2  %empty_102 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+
+ST_14: StgValue_178 (100)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:176
+.preheader12:3  br i1 %exitcond8, label %.preheader11.preheader, label %4
+
+ST_14: tmp_91 (102)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:177
+:0  %tmp_91 = add i7 -2, %i_2
+
+ST_14: S_addr_1 (147)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:0  %S_addr_1 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 7
+
+ST_14: S_addr_2 (148)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:1  %S_addr_2 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 4
+
+ST_14: S_addr_3 (149)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:2  %S_addr_3 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 6
+
+ST_14: S_addr_4 (150)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:3  %S_addr_4 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 5
+
+ST_14: S_addr_5 (151)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:4  %S_addr_5 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 0
+
+ST_14: S_addr_6 (152)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:5  %S_addr_6 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 1
+
+ST_14: S_addr_7 (153)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:6  %S_addr_7 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 2
+
+ST_14: S_addr_8 (154)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+.preheader11.preheader:7  %S_addr_8 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 3
+
+ST_14: StgValue_188 (155)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:187
+.preheader11.preheader:8  br label %.preheader11
+
+
+ <State 15>: 1.10ns
+ST_15: tmp_102 (116)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:177
+:14  %tmp_102 = add i7 -7, %i_2
+
+
+ <State 16>: 1.10ns
+ST_16: tmp_104 (120)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:177
+:18  %tmp_104 = add i7 -15, %i_2
+
+
+ <State 17>: 1.24ns
+ST_17: tmp_103 (117)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:15  %tmp_103 = zext i7 %tmp_102 to i64
+
+ST_17: W_addr_2 (118)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:16  %W_addr_2 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_103
+
+ST_17: W_load_1 (119)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:17  %W_load_1 = load i64* %W_addr_2, align 8
+
+ST_17: tmp_115 (134)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:177
+:32  %tmp_115 = add i7 -16, %i_2
+
+
+ <State 18>: 1.24ns
+ST_18: tmp_92 (103)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:1  %tmp_92 = zext i7 %tmp_91 to i64
+
+ST_18: W_addr_1 (104)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:2  %W_addr_1 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_92
+
+ST_18: W_load (105)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:3  %W_load = load i64* %W_addr_1, align 8
+
+ST_18: W_load_1 (119)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:17  %W_load_1 = load i64* %W_addr_2, align 8
+
+ST_18: tmp_116 (135)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:33  %tmp_116 = zext i7 %tmp_115 to i64
+
+ST_18: W_addr_4 (136)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:34  %W_addr_4 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_116
+
+ST_18: W_load_3 (137)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:35  %W_load_3 = load i64* %W_addr_4, align 8
+
+ST_18: i_7 (144)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:176
+:42  %i_7 = add i7 1, %i_2
+
+
+ <State 19>: 2.65ns
+ST_19: W_load (105)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:3  %W_load = load i64* %W_addr_1, align 8
+
+ST_19: tmp_105 (121)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:19  %tmp_105 = zext i7 %tmp_104 to i64
+
+ST_19: W_addr_3 (122)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:20  %W_addr_3 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_105
+
+ST_19: W_load_2 (123)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:21  %W_load_2 = load i64* %W_addr_3, align 8
+
+ST_19: W_load_3 (137)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:35  %W_load_3 = load i64* %W_addr_4, align 8
+
+ST_19: tmp8 (138)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:177
+:36  %tmp8 = add i64 %W_load_1, %W_load_3
+
+
+ <State 20>: 2.65ns
+ST_20: tmp_93 (106)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:4  %tmp_93 = call i45 @_ssdm_op_PartSelect.i45.i64.i32.i32(i64 %W_load, i32 19, i32 63)
+
+ST_20: tmp_344 (107)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:5  %tmp_344 = trunc i64 %W_load to i19
+
+ST_20: tmp_95 (108)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:6  %tmp_95 = call i64 @_ssdm_op_BitConcatenate.i64.i19.i45(i19 %tmp_344, i45 %tmp_93)
+
+ST_20: tmp_96 (109)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:7  %tmp_96 = call i3 @_ssdm_op_PartSelect.i3.i64.i32.i32(i64 %W_load, i32 61, i32 63)
+
+ST_20: tmp_346 (110)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:8  %tmp_346 = trunc i64 %W_load to i61
+
+ST_20: tmp_98 (111)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:9  %tmp_98 = call i64 @_ssdm_op_BitConcatenate.i64.i61.i3(i61 %tmp_346, i3 %tmp_96)
+
+ST_20: tmp_99 (112)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:10  %tmp_99 = call i58 @_ssdm_op_PartSelect.i58.i64.i32.i32(i64 %W_load, i32 6, i32 63)
+
+ST_20: tmp_282 (113)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:11  %tmp_282 = zext i58 %tmp_99 to i64
+
+ST_20: tmp6 (114)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:12  %tmp6 = xor i64 %tmp_282, %tmp_98
+
+ST_20: tmp_101 (115)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:13  %tmp_101 = xor i64 %tmp6, %tmp_95
+
+ST_20: W_load_2 (123)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:21  %W_load_2 = load i64* %W_addr_3, align 8
+
+ST_20: tmp_106 (124)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:22  %tmp_106 = call i63 @_ssdm_op_PartSelect.i63.i64.i32.i32(i64 %W_load_2, i32 1, i32 63)
+
+ST_20: tmp_354 (125)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:23  %tmp_354 = trunc i64 %W_load_2 to i1
+
+ST_20: tmp_108 (126)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:24  %tmp_108 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i63(i1 %tmp_354, i63 %tmp_106)
+
+ST_20: tmp_109 (127)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:25  %tmp_109 = call i56 @_ssdm_op_PartSelect.i56.i64.i32.i32(i64 %W_load_2, i32 8, i32 63)
+
+ST_20: tmp_357 (128)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:26  %tmp_357 = trunc i64 %W_load_2 to i8
+
+ST_20: tmp_111 (129)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:27  %tmp_111 = call i64 @_ssdm_op_BitConcatenate.i64.i8.i56(i8 %tmp_357, i56 %tmp_109)
+
+ST_20: tmp_112 (130)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:28  %tmp_112 = call i57 @_ssdm_op_PartSelect.i57.i64.i32.i32(i64 %W_load_2, i32 7, i32 63)
+
+ST_20: tmp_283 (131)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:29  %tmp_283 = zext i57 %tmp_112 to i64
+
+ST_20: tmp7 (132)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:30  %tmp7 = xor i64 %tmp_283, %tmp_111
+
+ST_20: tmp_114 (133)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177 (grouped into LUT with out node tmp9)
+:31  %tmp_114 = xor i64 %tmp7, %tmp_108
+
+ST_20: tmp9 (139)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:177 (out node of the LUT)
+:37  %tmp9 = add i64 %tmp_101, %tmp_114
+
+
+ <State 21>: 2.65ns
+ST_21: tmp_119 (140)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:177
+:38  %tmp_119 = add i64 %tmp9, %tmp8
+
+ST_21: tmp_120 (141)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:39  %tmp_120 = zext i7 %i_2 to i64
+
+ST_21: W_addr_5 (142)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:177
+:40  %W_addr_5 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_120
+
+ST_21: StgValue_234 (143)  [1/1] 1.24ns  loc: ed25519/src/sha512.cpp:177
+:41  store i64 %tmp_119, i64* %W_addr_5, align 8
+
+ST_21: StgValue_235 (145)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:176
+:43  br label %.preheader12
+
+
+ <State 22>: 1.24ns
+ST_22: i_3 (157)  [1/1] 0.00ns
+.preheader11:0  %i_3 = phi i7 [ %i_8, %5 ], [ 0, %.preheader11.preheader ]
+
+ST_22: tmp_121 (158)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:187
+.preheader11:1  %tmp_121 = icmp ult i7 %i_3, -48
+
+ST_22: empty_103 (159)  [1/1] 0.00ns
+.preheader11:2  %empty_103 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)
+
+ST_22: StgValue_239 (160)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:187
+.preheader11:3  br i1 %tmp_121, label %5, label %.preheader.preheader
+
+ST_22: S_load (162)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:0  %S_load = load i64* %S_addr_1, align 8
+
+ST_22: S_load_1 (163)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:1  %S_load_1 = load i64* %S_addr_2, align 16
+
+ST_22: tmp_136 (180)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+:18  %tmp_136 = zext i7 %i_3 to i64
+
+ST_22: K_addr (181)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+:19  %K_addr = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_136
+
+ST_22: K_load (182)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:188
+:20  %K_load = load i64* %K_addr, align 16
+
+ST_22: i_8 (513)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:187
+:351  %i_8 = add i7 8, %i_3
+
+ST_22: StgValue_246 (516)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:203
+.preheader.preheader:0  br label %.preheader
+
+
+ <State 23>: 2.65ns
+ST_23: S_load (162)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:0  %S_load = load i64* %S_addr_1, align 8
+
+ST_23: S_load_1 (163)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:1  %S_load_1 = load i64* %S_addr_2, align 16
+
+ST_23: S_load_2 (175)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:13  %S_load_2 = load i64* %S_addr_3, align 16
+
+ST_23: S_load_3 (176)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:14  %S_load_3 = load i64* %S_addr_4, align 8
+
+ST_23: K_load (182)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:188
+:20  %K_load = load i64* %K_addr, align 16
+
+ST_23: tmp13 (185)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188
+:23  %tmp13 = add i64 %K_load, %S_load
+
+
+ <State 24>: 2.14ns
+ST_24: tmp_122 (164)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:2  %tmp_122 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %S_load_1, i32 14, i32 63)
+
+ST_24: tmp_360 (165)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:3  %tmp_360 = trunc i64 %S_load_1 to i14
+
+ST_24: tmp_124 (166)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:4  %tmp_124 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_360, i50 %tmp_122)
+
+ST_24: tmp_125 (167)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:5  %tmp_125 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %S_load_1, i32 18, i32 63)
+
+ST_24: tmp_370 (168)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:6  %tmp_370 = trunc i64 %S_load_1 to i18
+
+ST_24: tmp_127 (169)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:7  %tmp_127 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_370, i46 %tmp_125)
+
+ST_24: tmp_128 (170)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:8  %tmp_128 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %S_load_1, i32 41, i32 63)
+
+ST_24: tmp_373 (171)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:9  %tmp_373 = trunc i64 %S_load_1 to i41
+
+ST_24: tmp_130 (172)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:10  %tmp_130 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_373, i23 %tmp_128)
+
+ST_24: tmp10 (173)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:11  %tmp10 = xor i64 %tmp_130, %tmp_127
+
+ST_24: tmp_132 (174)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp15)
+:12  %tmp_132 = xor i64 %tmp10, %tmp_124
+
+ST_24: S_load_2 (175)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:13  %S_load_2 = load i64* %S_addr_3, align 16
+
+ST_24: S_load_3 (176)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:14  %S_load_3 = load i64* %S_addr_4, align 8
+
+ST_24: tmp_133 (177)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp_135)
+:15  %tmp_133 = xor i64 %S_load_3, %S_load_2
+
+ST_24: tmp_134 (178)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp_135)
+:16  %tmp_134 = and i64 %S_load_1, %tmp_133
+
+ST_24: tmp_135 (179)  [1/1] 0.05ns  loc: ed25519/src/sha512.cpp:188 (out node of the LUT)
+:17  %tmp_135 = xor i64 %S_load_2, %tmp_134
+
+ST_24: W_addr_6 (183)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188
+:21  %W_addr_6 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_136
+
+ST_24: W_load_4 (184)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:188
+:22  %W_load_4 = load i64* %W_addr_6, align 16
+
+ST_24: tmp15 (186)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188 (out node of the LUT)
+:24  %tmp15 = add i64 %tmp_132, %tmp_135
+
+
+ <State 25>: 2.65ns
+ST_25: W_load_4 (184)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:188
+:22  %W_load_4 = load i64* %W_addr_6, align 16
+
+ST_25: tmp14 (187)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188
+:25  %tmp14 = add i64 %tmp15, %W_load_4
+
+ST_25: S_load_5 (201)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:39  %S_load_5 = load i64* %S_addr_6, align 8
+
+
+ <State 26>: 1.41ns
+ST_26: t0 (188)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188
+:26  %t0 = add i64 %tmp14, %tmp13
+
+ST_26: S_load_4 (189)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:27  %S_load_4 = load i64* %S_addr_5, align 16
+
+ST_26: S_load_5 (201)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:39  %S_load_5 = load i64* %S_addr_6, align 8
+
+ST_26: S_load_7 (207)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:45  %S_load_7 = load i64* %S_addr_8, align 8
+
+
+ <State 27>: 2.09ns
+ST_27: S_load_4 (189)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:27  %S_load_4 = load i64* %S_addr_5, align 16
+
+ST_27: S_load_6 (203)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:41  %S_load_6 = load i64* %S_addr_7, align 16
+
+ST_27: S_load_7 (207)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:45  %S_load_7 = load i64* %S_addr_8, align 8
+
+ST_27: tmp_155 (208)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188
+:46  %tmp_155 = add i64 %S_load_7, %t0
+
+
+ <State 28>: 2.14ns
+ST_28: tmp_140 (190)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:28  %tmp_140 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %S_load_4, i32 28, i32 63)
+
+ST_28: tmp_376 (191)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:29  %tmp_376 = trunc i64 %S_load_4 to i28
+
+ST_28: tmp_142 (192)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:30  %tmp_142 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_376, i36 %tmp_140)
+
+ST_28: tmp_143 (193)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:31  %tmp_143 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %S_load_4, i32 34, i32 63)
+
+ST_28: tmp_385 (194)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:32  %tmp_385 = trunc i64 %S_load_4 to i34
+
+ST_28: tmp_145 (195)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:33  %tmp_145 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_385, i30 %tmp_143)
+
+ST_28: tmp_146 (196)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:34  %tmp_146 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %S_load_4, i32 39, i32 63)
+
+ST_28: tmp_388 (197)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:35  %tmp_388 = trunc i64 %S_load_4 to i39
+
+ST_28: tmp_148 (198)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:36  %tmp_148 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_388, i25 %tmp_146)
+
+ST_28: tmp16 (199)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:37  %tmp16 = xor i64 %tmp_148, %tmp_145
+
+ST_28: tmp_150 (200)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp17)
+:38  %tmp_150 = xor i64 %tmp16, %tmp_142
+
+ST_28: tmp_151 (202)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp_154)
+:40  %tmp_151 = or i64 %S_load_5, %S_load_4
+
+ST_28: S_load_6 (203)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:188
+:41  %S_load_6 = load i64* %S_addr_7, align 16
+
+ST_28: tmp_152 (204)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp_154)
+:42  %tmp_152 = and i64 %S_load_6, %tmp_151
+
+ST_28: tmp_153 (205)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp_154)
+:43  %tmp_153 = and i64 %S_load_5, %S_load_4
+
+ST_28: tmp_154 (206)  [1/1] 0.05ns  loc: ed25519/src/sha512.cpp:188 (out node of the LUT)
+:44  %tmp_154 = or i64 %tmp_152, %tmp_153
+
+ST_28: tmp17 (209)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188 (out node of the LUT)
+:47  %tmp17 = add i64 %tmp_150, %tmp_154
+
+
+ <State 29>: 1.41ns
+ST_29: tmp_156 (210)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:188
+:48  %tmp_156 = add i64 %tmp17, %t0
+
+ST_29: tmp_171 (225)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189
+:63  %tmp_171 = or i7 %i_3, 1
+
+ST_29: tmp_172 (226)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189
+:64  %tmp_172 = zext i7 %tmp_171 to i64
+
+ST_29: K_addr_1 (227)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189
+:65  %K_addr_1 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_172
+
+ST_29: K_load_1 (228)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:189
+:66  %K_load_1 = load i64* %K_addr_1, align 8
+
+
+ <State 30>: 2.65ns
+ST_30: K_load_1 (228)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:189
+:66  %K_load_1 = load i64* %K_addr_1, align 8
+
+ST_30: tmp21 (231)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189
+:69  %tmp21 = add i64 %K_load_1, %S_load_2
+
+
+ <State 31>: 1.46ns
+ST_31: tmp_157 (211)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:49  %tmp_157 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_155, i32 14, i32 63)
+
+ST_31: tmp_391 (212)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp23)
+:50  %tmp_391 = trunc i64 %tmp_155 to i14
+
+ST_31: tmp_159 (213)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:51  %tmp_159 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_391, i50 %tmp_157)
+
+ST_31: tmp_160 (214)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:52  %tmp_160 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_155, i32 18, i32 63)
+
+ST_31: tmp_402 (215)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp23)
+:53  %tmp_402 = trunc i64 %tmp_155 to i18
+
+ST_31: tmp_162 (216)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:54  %tmp_162 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_402, i46 %tmp_160)
+
+ST_31: tmp_163 (217)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:55  %tmp_163 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_155, i32 41, i32 63)
+
+ST_31: tmp_403 (218)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp23)
+:56  %tmp_403 = trunc i64 %tmp_155 to i41
+
+ST_31: tmp_165 (219)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:57  %tmp_165 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_403, i23 %tmp_163)
+
+ST_31: tmp18 (220)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:58  %tmp18 = xor i64 %tmp_165, %tmp_162
+
+ST_31: tmp_167 (221)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp23)
+:59  %tmp_167 = xor i64 %tmp18, %tmp_159
+
+ST_31: tmp_168 (222)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_170)
+:60  %tmp_168 = xor i64 %S_load_3, %S_load_1
+
+ST_31: tmp_169 (223)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_170)
+:61  %tmp_169 = and i64 %tmp_155, %tmp_168
+
+ST_31: tmp_170 (224)  [1/1] 0.05ns  loc: ed25519/src/sha512.cpp:189 (out node of the LUT)
+:62  %tmp_170 = xor i64 %S_load_3, %tmp_169
+
+ST_31: W_addr_7 (229)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189
+:67  %W_addr_7 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_172
+
+ST_31: W_load_5 (230)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:189
+:68  %W_load_5 = load i64* %W_addr_7, align 8
+
+ST_31: tmp23 (232)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189 (out node of the LUT)
+:70  %tmp23 = add i64 %tmp_170, %tmp_167
+
+
+ <State 32>: 2.65ns
+ST_32: W_load_5 (230)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:189
+:68  %W_load_5 = load i64* %W_addr_7, align 8
+
+ST_32: tmp22 (233)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189
+:71  %tmp22 = add i64 %tmp23, %W_load_5
+
+
+ <State 33>: 1.41ns
+ST_33: t0_1 (234)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189
+:72  %t0_1 = add i64 %tmp22, %tmp21
+
+
+ <State 34>: 1.41ns
+ST_34: tmp_191 (250)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189
+:88  %tmp_191 = add i64 %S_load_6, %t0_1
+
+
+ <State 35>: 1.41ns
+ST_35: tmp_176 (235)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:73  %tmp_176 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_156, i32 28, i32 63)
+
+ST_35: tmp_404 (236)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp25)
+:74  %tmp_404 = trunc i64 %tmp_156 to i28
+
+ST_35: tmp_178 (237)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:75  %tmp_178 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_404, i36 %tmp_176)
+
+ST_35: tmp_179 (238)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:76  %tmp_179 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_156, i32 34, i32 63)
+
+ST_35: tmp_405 (239)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp25)
+:77  %tmp_405 = trunc i64 %tmp_156 to i34
+
+ST_35: tmp_181 (240)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:78  %tmp_181 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_405, i30 %tmp_179)
+
+ST_35: tmp_182 (241)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:79  %tmp_182 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_156, i32 39, i32 63)
+
+ST_35: tmp_406 (242)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:188 (grouped into LUT with out node tmp25)
+:80  %tmp_406 = trunc i64 %tmp_156 to i39
+
+ST_35: tmp_184 (243)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:81  %tmp_184 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_406, i25 %tmp_182)
+
+ST_35: tmp24 (244)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:82  %tmp24 = xor i64 %tmp_184, %tmp_181
+
+ST_35: tmp_186 (245)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp25)
+:83  %tmp_186 = xor i64 %tmp24, %tmp_178
+
+ST_35: tmp25 (251)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189 (out node of the LUT)
+:89  %tmp25 = add i64 %tmp_186, %t0_1
+
+
+ <State 36>: 1.41ns
+ST_36: tmp_187 (246)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_192)
+:84  %tmp_187 = or i64 %S_load_4, %tmp_156
+
+ST_36: tmp_188 (247)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_192)
+:85  %tmp_188 = and i64 %S_load_5, %tmp_187
+
+ST_36: tmp_189 (248)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_192)
+:86  %tmp_189 = and i64 %S_load_4, %tmp_156
+
+ST_36: tmp_190 (249)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp_192)
+:87  %tmp_190 = or i64 %tmp_188, %tmp_189
+
+ST_36: tmp_192 (252)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:189 (out node of the LUT)
+:90  %tmp_192 = add i64 %tmp25, %tmp_190
+
+ST_36: tmp_207 (267)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190
+:105  %tmp_207 = or i7 %i_3, 2
+
+ST_36: tmp_208 (268)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190
+:106  %tmp_208 = zext i7 %tmp_207 to i64
+
+ST_36: K_addr_2 (269)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190
+:107  %K_addr_2 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_208
+
+ST_36: K_load_2 (270)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:190
+:108  %K_load_2 = load i64* %K_addr_2, align 16
+
+
+ <State 37>: 2.65ns
+ST_37: K_load_2 (270)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:190
+:108  %K_load_2 = load i64* %K_addr_2, align 16
+
+ST_37: tmp29 (273)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190
+:111  %tmp29 = add i64 %K_load_2, %S_load_3
+
+
+ <State 38>: 1.46ns
+ST_38: tmp_193 (253)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:91  %tmp_193 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_191, i32 14, i32 63)
+
+ST_38: tmp_407 (254)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp31)
+:92  %tmp_407 = trunc i64 %tmp_191 to i14
+
+ST_38: tmp_195 (255)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:93  %tmp_195 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_407, i50 %tmp_193)
+
+ST_38: tmp_196 (256)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:94  %tmp_196 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_191, i32 18, i32 63)
+
+ST_38: tmp_408 (257)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp31)
+:95  %tmp_408 = trunc i64 %tmp_191 to i18
+
+ST_38: tmp_198 (258)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:96  %tmp_198 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_408, i46 %tmp_196)
+
+ST_38: tmp_199 (259)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:97  %tmp_199 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_191, i32 41, i32 63)
+
+ST_38: tmp_409 (260)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp31)
+:98  %tmp_409 = trunc i64 %tmp_191 to i41
+
+ST_38: tmp_201 (261)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:99  %tmp_201 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_409, i23 %tmp_199)
+
+ST_38: tmp26 (262)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:100  %tmp26 = xor i64 %tmp_201, %tmp_198
+
+ST_38: tmp_203 (263)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp31)
+:101  %tmp_203 = xor i64 %tmp26, %tmp_195
+
+ST_38: tmp_204 (264)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_206)
+:102  %tmp_204 = xor i64 %S_load_1, %tmp_155
+
+ST_38: tmp_205 (265)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_206)
+:103  %tmp_205 = and i64 %tmp_191, %tmp_204
+
+ST_38: tmp_206 (266)  [1/1] 0.05ns  loc: ed25519/src/sha512.cpp:190 (out node of the LUT)
+:104  %tmp_206 = xor i64 %S_load_1, %tmp_205
+
+ST_38: W_addr_8 (271)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190
+:109  %W_addr_8 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_208
+
+ST_38: W_load_6 (272)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:190
+:110  %W_load_6 = load i64* %W_addr_8, align 16
+
+ST_38: tmp31 (274)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190 (out node of the LUT)
+:112  %tmp31 = add i64 %tmp_206, %tmp_203
+
+
+ <State 39>: 2.65ns
+ST_39: W_load_6 (272)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:190
+:110  %W_load_6 = load i64* %W_addr_8, align 16
+
+ST_39: tmp30 (275)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190
+:113  %tmp30 = add i64 %tmp31, %W_load_6
+
+
+ <State 40>: 1.41ns
+ST_40: t0_2 (276)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190
+:114  %t0_2 = add i64 %tmp30, %tmp29
+
+
+ <State 41>: 1.41ns
+ST_41: tmp_227 (292)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190
+:130  %tmp_227 = add i64 %S_load_5, %t0_2
+
+
+ <State 42>: 1.41ns
+ST_42: tmp_212 (277)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:115  %tmp_212 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_192, i32 28, i32 63)
+
+ST_42: tmp_410 (278)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp33)
+:116  %tmp_410 = trunc i64 %tmp_192 to i28
+
+ST_42: tmp_214 (279)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:117  %tmp_214 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_410, i36 %tmp_212)
+
+ST_42: tmp_215 (280)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:118  %tmp_215 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_192, i32 34, i32 63)
+
+ST_42: tmp_411 (281)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp33)
+:119  %tmp_411 = trunc i64 %tmp_192 to i34
+
+ST_42: tmp_217 (282)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:120  %tmp_217 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_411, i30 %tmp_215)
+
+ST_42: tmp_218 (283)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:121  %tmp_218 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_192, i32 39, i32 63)
+
+ST_42: tmp_412 (284)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:189 (grouped into LUT with out node tmp33)
+:122  %tmp_412 = trunc i64 %tmp_192 to i39
+
+ST_42: tmp_220 (285)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:123  %tmp_220 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_412, i25 %tmp_218)
+
+ST_42: tmp32 (286)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:124  %tmp32 = xor i64 %tmp_220, %tmp_217
+
+ST_42: tmp_222 (287)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp33)
+:125  %tmp_222 = xor i64 %tmp32, %tmp_214
+
+ST_42: tmp33 (293)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190 (out node of the LUT)
+:131  %tmp33 = add i64 %tmp_222, %t0_2
+
+
+ <State 43>: 1.41ns
+ST_43: tmp_223 (288)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_228)
+:126  %tmp_223 = or i64 %tmp_192, %tmp_156
+
+ST_43: tmp_224 (289)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_228)
+:127  %tmp_224 = and i64 %S_load_4, %tmp_223
+
+ST_43: tmp_225 (290)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_228)
+:128  %tmp_225 = and i64 %tmp_192, %tmp_156
+
+ST_43: tmp_226 (291)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp_228)
+:129  %tmp_226 = or i64 %tmp_224, %tmp_225
+
+ST_43: tmp_228 (294)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:190 (out node of the LUT)
+:132  %tmp_228 = add i64 %tmp33, %tmp_226
+
+ST_43: tmp_243 (309)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191
+:147  %tmp_243 = or i7 %i_3, 3
+
+ST_43: tmp_244 (310)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191
+:148  %tmp_244 = zext i7 %tmp_243 to i64
+
+ST_43: K_addr_3 (311)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191
+:149  %K_addr_3 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_244
+
+ST_43: K_load_3 (312)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:191
+:150  %K_load_3 = load i64* %K_addr_3, align 8
+
+
+ <State 44>: 2.65ns
+ST_44: K_load_3 (312)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:191
+:150  %K_load_3 = load i64* %K_addr_3, align 8
+
+ST_44: tmp37 (315)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191
+:153  %tmp37 = add i64 %K_load_3, %S_load_1
+
+
+ <State 45>: 1.46ns
+ST_45: tmp_229 (295)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:133  %tmp_229 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_227, i32 14, i32 63)
+
+ST_45: tmp_413 (296)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp39)
+:134  %tmp_413 = trunc i64 %tmp_227 to i14
+
+ST_45: tmp_231 (297)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:135  %tmp_231 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_413, i50 %tmp_229)
+
+ST_45: tmp_232 (298)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:136  %tmp_232 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_227, i32 18, i32 63)
+
+ST_45: tmp_414 (299)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp39)
+:137  %tmp_414 = trunc i64 %tmp_227 to i18
+
+ST_45: tmp_234 (300)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:138  %tmp_234 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_414, i46 %tmp_232)
+
+ST_45: tmp_235 (301)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:139  %tmp_235 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_227, i32 41, i32 63)
+
+ST_45: tmp_415 (302)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp39)
+:140  %tmp_415 = trunc i64 %tmp_227 to i41
+
+ST_45: tmp_237 (303)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:141  %tmp_237 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_415, i23 %tmp_235)
+
+ST_45: tmp34 (304)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:142  %tmp34 = xor i64 %tmp_237, %tmp_234
+
+ST_45: tmp_239 (305)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp39)
+:143  %tmp_239 = xor i64 %tmp34, %tmp_231
+
+ST_45: tmp_240 (306)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_242)
+:144  %tmp_240 = xor i64 %tmp_191, %tmp_155
+
+ST_45: tmp_241 (307)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_242)
+:145  %tmp_241 = and i64 %tmp_227, %tmp_240
+
+ST_45: tmp_242 (308)  [1/1] 0.05ns  loc: ed25519/src/sha512.cpp:191 (out node of the LUT)
+:146  %tmp_242 = xor i64 %tmp_241, %tmp_155
+
+ST_45: W_addr_9 (313)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191
+:151  %W_addr_9 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_244
+
+ST_45: W_load_7 (314)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:191
+:152  %W_load_7 = load i64* %W_addr_9, align 8
+
+ST_45: tmp39 (316)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191 (out node of the LUT)
+:154  %tmp39 = add i64 %tmp_242, %tmp_239
+
+
+ <State 46>: 2.65ns
+ST_46: W_load_7 (314)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:191
+:152  %W_load_7 = load i64* %W_addr_9, align 8
+
+ST_46: tmp38 (317)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191
+:155  %tmp38 = add i64 %tmp39, %W_load_7
+
+
+ <State 47>: 1.41ns
+ST_47: t0_3 (318)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191
+:156  %t0_3 = add i64 %tmp38, %tmp37
+
+
+ <State 48>: 1.41ns
+ST_48: tmp_263 (334)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191
+:172  %tmp_263 = add i64 %S_load_4, %t0_3
+
+
+ <State 49>: 1.41ns
+ST_49: tmp_248 (319)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:157  %tmp_248 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_228, i32 28, i32 63)
+
+ST_49: tmp_416 (320)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp41)
+:158  %tmp_416 = trunc i64 %tmp_228 to i28
+
+ST_49: tmp_250 (321)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:159  %tmp_250 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_416, i36 %tmp_248)
+
+ST_49: tmp_251 (322)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:160  %tmp_251 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_228, i32 34, i32 63)
+
+ST_49: tmp_417 (323)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp41)
+:161  %tmp_417 = trunc i64 %tmp_228 to i34
+
+ST_49: tmp_253 (324)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:162  %tmp_253 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_417, i30 %tmp_251)
+
+ST_49: tmp_254 (325)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:163  %tmp_254 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_228, i32 39, i32 63)
+
+ST_49: tmp_418 (326)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:190 (grouped into LUT with out node tmp41)
+:164  %tmp_418 = trunc i64 %tmp_228 to i39
+
+ST_49: tmp_256 (327)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:165  %tmp_256 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_418, i25 %tmp_254)
+
+ST_49: tmp40 (328)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:166  %tmp40 = xor i64 %tmp_256, %tmp_253
+
+ST_49: tmp_258 (329)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp41)
+:167  %tmp_258 = xor i64 %tmp40, %tmp_250
+
+ST_49: tmp41 (335)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191 (out node of the LUT)
+:173  %tmp41 = add i64 %tmp_258, %t0_3
+
+
+ <State 50>: 1.41ns
+ST_50: tmp_259 (330)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_264)
+:168  %tmp_259 = or i64 %tmp_228, %tmp_192
+
+ST_50: tmp_260 (331)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_264)
+:169  %tmp_260 = and i64 %tmp_259, %tmp_156
+
+ST_50: tmp_261 (332)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_264)
+:170  %tmp_261 = and i64 %tmp_228, %tmp_192
+
+ST_50: tmp_262 (333)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp_264)
+:171  %tmp_262 = or i64 %tmp_260, %tmp_261
+
+ST_50: tmp_264 (336)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:191 (out node of the LUT)
+:174  %tmp_264 = add i64 %tmp41, %tmp_262
+
+ST_50: tmp_279 (351)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192
+:189  %tmp_279 = or i7 %i_3, 4
+
+ST_50: tmp_280 (352)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192
+:190  %tmp_280 = zext i7 %tmp_279 to i64
+
+ST_50: K_addr_4 (353)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192
+:191  %K_addr_4 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_280
+
+ST_50: K_load_4 (354)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:192
+:192  %K_load_4 = load i64* %K_addr_4, align 16
+
+ST_50: W_addr_10 (355)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192
+:193  %W_addr_10 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_280
+
+ST_50: W_load_8 (356)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:192
+:194  %W_load_8 = load i64* %W_addr_10, align 16
+
+
+ <State 51>: 2.65ns
+ST_51: K_load_4 (354)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:192
+:192  %K_load_4 = load i64* %K_addr_4, align 16
+
+ST_51: W_load_8 (356)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:192
+:194  %W_load_8 = load i64* %W_addr_10, align 16
+
+ST_51: tmp45 (357)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192
+:195  %tmp45 = add i64 %K_load_4, %W_load_8
+
+
+ <State 52>: 1.41ns
+ST_52: tmp_265 (337)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:175  %tmp_265 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_263, i32 14, i32 63)
+
+ST_52: tmp_419 (338)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp47)
+:176  %tmp_419 = trunc i64 %tmp_263 to i14
+
+ST_52: tmp_267 (339)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:177  %tmp_267 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_419, i50 %tmp_265)
+
+ST_52: tmp_268 (340)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:178  %tmp_268 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_263, i32 18, i32 63)
+
+ST_52: tmp_420 (341)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp47)
+:179  %tmp_420 = trunc i64 %tmp_263 to i18
+
+ST_52: tmp_270 (342)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:180  %tmp_270 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_420, i46 %tmp_268)
+
+ST_52: tmp_271 (343)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:181  %tmp_271 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_263, i32 41, i32 63)
+
+ST_52: tmp_421 (344)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp47)
+:182  %tmp_421 = trunc i64 %tmp_263 to i41
+
+ST_52: tmp_273 (345)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:183  %tmp_273 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_421, i23 %tmp_271)
+
+ST_52: tmp42 (346)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:184  %tmp42 = xor i64 %tmp_273, %tmp_270
+
+ST_52: tmp_275 (347)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp47)
+:185  %tmp_275 = xor i64 %tmp42, %tmp_267
+
+ST_52: tmp47 (358)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192 (out node of the LUT)
+:196  %tmp47 = add i64 %tmp_275, %tmp_155
+
+
+ <State 53>: 1.41ns
+ST_53: tmp_276 (348)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp46)
+:186  %tmp_276 = xor i64 %tmp_227, %tmp_191
+
+ST_53: tmp_277 (349)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp46)
+:187  %tmp_277 = and i64 %tmp_263, %tmp_276
+
+ST_53: tmp_278 (350)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp46)
+:188  %tmp_278 = xor i64 %tmp_277, %tmp_191
+
+ST_53: tmp46 (359)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192 (out node of the LUT)
+:197  %tmp46 = add i64 %tmp47, %tmp_278
+
+
+ <State 54>: 1.41ns
+ST_54: t0_4 (360)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192
+:198  %t0_4 = add i64 %tmp46, %tmp45
+
+
+ <State 55>: 2.09ns
+ST_55: tmp_295 (376)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192
+:214  %tmp_295 = add i64 %tmp_156, %t0_4
+
+ST_55: StgValue_460 (377)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:192
+:215  store i64 %tmp_295, i64* %S_addr_1, align 8
+
+
+ <State 56>: 1.41ns
+ST_56: tmp_284 (361)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:199  %tmp_284 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_264, i32 28, i32 63)
+
+ST_56: tmp_422 (362)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp49)
+:200  %tmp_422 = trunc i64 %tmp_264 to i28
+
+ST_56: tmp_285 (363)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:201  %tmp_285 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_422, i36 %tmp_284)
+
+ST_56: tmp_286 (364)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:202  %tmp_286 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_264, i32 34, i32 63)
+
+ST_56: tmp_423 (365)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp49)
+:203  %tmp_423 = trunc i64 %tmp_264 to i34
+
+ST_56: tmp_287 (366)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:204  %tmp_287 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_423, i30 %tmp_286)
+
+ST_56: tmp_288 (367)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:205  %tmp_288 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_264, i32 39, i32 63)
+
+ST_56: tmp_424 (368)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:191 (grouped into LUT with out node tmp49)
+:206  %tmp_424 = trunc i64 %tmp_264 to i39
+
+ST_56: tmp_289 (369)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:207  %tmp_289 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_424, i25 %tmp_288)
+
+ST_56: tmp48 (370)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:208  %tmp48 = xor i64 %tmp_289, %tmp_287
+
+ST_56: tmp_290 (371)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp49)
+:209  %tmp_290 = xor i64 %tmp48, %tmp_285
+
+ST_56: tmp49 (378)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192 (out node of the LUT)
+:216  %tmp49 = add i64 %tmp_290, %t0_4
+
+
+ <State 57>: 2.09ns
+ST_57: tmp_291 (372)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp_296)
+:210  %tmp_291 = or i64 %tmp_264, %tmp_228
+
+ST_57: tmp_292 (373)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp_296)
+:211  %tmp_292 = and i64 %tmp_291, %tmp_192
+
+ST_57: tmp_293 (374)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp_296)
+:212  %tmp_293 = and i64 %tmp_264, %tmp_228
+
+ST_57: tmp_294 (375)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp_296)
+:213  %tmp_294 = or i64 %tmp_292, %tmp_293
+
+ST_57: tmp_296 (379)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:192 (out node of the LUT)
+:217  %tmp_296 = add i64 %tmp49, %tmp_294
+
+ST_57: StgValue_478 (380)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:192
+:218  store i64 %tmp_296, i64* %S_addr_8, align 8
+
+ST_57: tmp_307 (395)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193
+:233  %tmp_307 = or i7 %i_3, 5
+
+ST_57: tmp_308 (396)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193
+:234  %tmp_308 = zext i7 %tmp_307 to i64
+
+ST_57: K_addr_5 (397)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193
+:235  %K_addr_5 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_308
+
+ST_57: K_load_5 (398)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:193
+:236  %K_load_5 = load i64* %K_addr_5, align 8
+
+ST_57: W_addr_11 (399)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193
+:237  %W_addr_11 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_308
+
+ST_57: W_load_9 (400)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:193
+:238  %W_load_9 = load i64* %W_addr_11, align 8
+
+
+ <State 58>: 2.65ns
+ST_58: K_load_5 (398)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:193
+:236  %K_load_5 = load i64* %K_addr_5, align 8
+
+ST_58: W_load_9 (400)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:193
+:238  %W_load_9 = load i64* %W_addr_11, align 8
+
+ST_58: tmp53 (401)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193
+:239  %tmp53 = add i64 %K_load_5, %W_load_9
+
+
+ <State 59>: 1.41ns
+ST_59: tmp_297 (381)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:219  %tmp_297 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_295, i32 14, i32 63)
+
+ST_59: tmp_425 (382)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp55)
+:220  %tmp_425 = trunc i64 %tmp_295 to i14
+
+ST_59: tmp_298 (383)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:221  %tmp_298 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_425, i50 %tmp_297)
+
+ST_59: tmp_299 (384)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:222  %tmp_299 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_295, i32 18, i32 63)
+
+ST_59: tmp_426 (385)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp55)
+:223  %tmp_426 = trunc i64 %tmp_295 to i18
+
+ST_59: tmp_300 (386)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:224  %tmp_300 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_426, i46 %tmp_299)
+
+ST_59: tmp_301 (387)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:225  %tmp_301 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_295, i32 41, i32 63)
+
+ST_59: tmp_427 (388)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp55)
+:226  %tmp_427 = trunc i64 %tmp_295 to i41
+
+ST_59: tmp_302 (389)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:227  %tmp_302 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_427, i23 %tmp_301)
+
+ST_59: tmp50 (390)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:228  %tmp50 = xor i64 %tmp_302, %tmp_300
+
+ST_59: tmp_303 (391)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp55)
+:229  %tmp_303 = xor i64 %tmp50, %tmp_298
+
+ST_59: tmp55 (402)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193 (out node of the LUT)
+:240  %tmp55 = add i64 %tmp_303, %tmp_191
+
+
+ <State 60>: 1.41ns
+ST_60: tmp_304 (392)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp54)
+:230  %tmp_304 = xor i64 %tmp_263, %tmp_227
+
+ST_60: tmp_305 (393)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp54)
+:231  %tmp_305 = and i64 %tmp_295, %tmp_304
+
+ST_60: tmp_306 (394)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp54)
+:232  %tmp_306 = xor i64 %tmp_305, %tmp_227
+
+ST_60: tmp54 (403)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193 (out node of the LUT)
+:241  %tmp54 = add i64 %tmp55, %tmp_306
+
+
+ <State 61>: 1.41ns
+ST_61: t0_5 (404)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193
+:242  %t0_5 = add i64 %tmp54, %tmp53
+
+
+ <State 62>: 2.09ns
+ST_62: tmp_320 (420)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193
+:258  %tmp_320 = add i64 %tmp_192, %t0_5
+
+ST_62: StgValue_506 (421)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:193
+:259  store i64 %tmp_320, i64* %S_addr_3, align 16
+
+
+ <State 63>: 1.41ns
+ST_63: tmp_309 (405)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:243  %tmp_309 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_296, i32 28, i32 63)
+
+ST_63: tmp_428 (406)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp57)
+:244  %tmp_428 = trunc i64 %tmp_296 to i28
+
+ST_63: tmp_310 (407)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:245  %tmp_310 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_428, i36 %tmp_309)
+
+ST_63: tmp_311 (408)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:246  %tmp_311 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_296, i32 34, i32 63)
+
+ST_63: tmp_429 (409)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp57)
+:247  %tmp_429 = trunc i64 %tmp_296 to i34
+
+ST_63: tmp_312 (410)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:248  %tmp_312 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_429, i30 %tmp_311)
+
+ST_63: tmp_313 (411)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:249  %tmp_313 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_296, i32 39, i32 63)
+
+ST_63: tmp_430 (412)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:192 (grouped into LUT with out node tmp57)
+:250  %tmp_430 = trunc i64 %tmp_296 to i39
+
+ST_63: tmp_314 (413)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:251  %tmp_314 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_430, i25 %tmp_313)
+
+ST_63: tmp56 (414)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:252  %tmp56 = xor i64 %tmp_314, %tmp_312
+
+ST_63: tmp_315 (415)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp57)
+:253  %tmp_315 = xor i64 %tmp56, %tmp_310
+
+ST_63: tmp57 (422)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193 (out node of the LUT)
+:260  %tmp57 = add i64 %tmp_315, %t0_5
+
+
+ <State 64>: 2.09ns
+ST_64: tmp_316 (416)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp_321)
+:254  %tmp_316 = or i64 %tmp_296, %tmp_264
+
+ST_64: tmp_317 (417)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp_321)
+:255  %tmp_317 = and i64 %tmp_316, %tmp_228
+
+ST_64: tmp_318 (418)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp_321)
+:256  %tmp_318 = and i64 %tmp_296, %tmp_264
+
+ST_64: tmp_319 (419)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp_321)
+:257  %tmp_319 = or i64 %tmp_317, %tmp_318
+
+ST_64: tmp_321 (423)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:193 (out node of the LUT)
+:261  %tmp_321 = add i64 %tmp57, %tmp_319
+
+ST_64: StgValue_524 (424)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:193
+:262  store i64 %tmp_321, i64* %S_addr_7, align 16
+
+ST_64: tmp_332 (439)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194
+:277  %tmp_332 = or i7 %i_3, 6
+
+ST_64: tmp_333 (440)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194
+:278  %tmp_333 = zext i7 %tmp_332 to i64
+
+ST_64: K_addr_6 (441)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194
+:279  %K_addr_6 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_333
+
+ST_64: K_load_6 (442)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:194
+:280  %K_load_6 = load i64* %K_addr_6, align 16
+
+ST_64: W_addr_12 (443)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194
+:281  %W_addr_12 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_333
+
+ST_64: W_load_10 (444)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:194
+:282  %W_load_10 = load i64* %W_addr_12, align 16
+
+
+ <State 65>: 2.65ns
+ST_65: K_load_6 (442)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:194
+:280  %K_load_6 = load i64* %K_addr_6, align 16
+
+ST_65: W_load_10 (444)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:194
+:282  %W_load_10 = load i64* %W_addr_12, align 16
+
+ST_65: tmp61 (445)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194
+:283  %tmp61 = add i64 %K_load_6, %W_load_10
+
+
+ <State 66>: 1.41ns
+ST_66: tmp_322 (425)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:263  %tmp_322 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_320, i32 14, i32 63)
+
+ST_66: tmp_431 (426)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp63)
+:264  %tmp_431 = trunc i64 %tmp_320 to i14
+
+ST_66: tmp_323 (427)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:265  %tmp_323 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_431, i50 %tmp_322)
+
+ST_66: tmp_324 (428)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:266  %tmp_324 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_320, i32 18, i32 63)
+
+ST_66: tmp_432 (429)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp63)
+:267  %tmp_432 = trunc i64 %tmp_320 to i18
+
+ST_66: tmp_325 (430)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:268  %tmp_325 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_432, i46 %tmp_324)
+
+ST_66: tmp_326 (431)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:269  %tmp_326 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_320, i32 41, i32 63)
+
+ST_66: tmp_433 (432)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp63)
+:270  %tmp_433 = trunc i64 %tmp_320 to i41
+
+ST_66: tmp_327 (433)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:271  %tmp_327 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_433, i23 %tmp_326)
+
+ST_66: tmp58 (434)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:272  %tmp58 = xor i64 %tmp_327, %tmp_325
+
+ST_66: tmp_328 (435)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp63)
+:273  %tmp_328 = xor i64 %tmp58, %tmp_323
+
+ST_66: tmp63 (446)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194 (out node of the LUT)
+:284  %tmp63 = add i64 %tmp_328, %tmp_227
+
+
+ <State 67>: 1.41ns
+ST_67: tmp_329 (436)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp62)
+:274  %tmp_329 = xor i64 %tmp_295, %tmp_263
+
+ST_67: tmp_330 (437)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp62)
+:275  %tmp_330 = and i64 %tmp_320, %tmp_329
+
+ST_67: tmp_331 (438)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp62)
+:276  %tmp_331 = xor i64 %tmp_330, %tmp_263
+
+ST_67: tmp62 (447)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194 (out node of the LUT)
+:285  %tmp62 = add i64 %tmp63, %tmp_331
+
+
+ <State 68>: 1.41ns
+ST_68: t0_6 (448)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194
+:286  %t0_6 = add i64 %tmp62, %tmp61
+
+
+ <State 69>: 2.09ns
+ST_69: tmp_349 (464)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194
+:302  %tmp_349 = add i64 %tmp_228, %t0_6
+
+ST_69: StgValue_552 (465)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:194
+:303  store i64 %tmp_349, i64* %S_addr_4, align 8
+
+
+ <State 70>: 1.41ns
+ST_70: tmp_334 (449)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:287  %tmp_334 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_321, i32 28, i32 63)
+
+ST_70: tmp_434 (450)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp65)
+:288  %tmp_434 = trunc i64 %tmp_321 to i28
+
+ST_70: tmp_335 (451)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:289  %tmp_335 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_434, i36 %tmp_334)
+
+ST_70: tmp_336 (452)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:290  %tmp_336 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_321, i32 34, i32 63)
+
+ST_70: tmp_435 (453)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp65)
+:291  %tmp_435 = trunc i64 %tmp_321 to i34
+
+ST_70: tmp_337 (454)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:292  %tmp_337 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_435, i30 %tmp_336)
+
+ST_70: tmp_339 (455)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:293  %tmp_339 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_321, i32 39, i32 63)
+
+ST_70: tmp_436 (456)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:193 (grouped into LUT with out node tmp65)
+:294  %tmp_436 = trunc i64 %tmp_321 to i39
+
+ST_70: tmp_340 (457)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:295  %tmp_340 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_436, i25 %tmp_339)
+
+ST_70: tmp64 (458)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:296  %tmp64 = xor i64 %tmp_340, %tmp_337
+
+ST_70: tmp_342 (459)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp65)
+:297  %tmp_342 = xor i64 %tmp64, %tmp_335
+
+ST_70: tmp65 (466)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194 (out node of the LUT)
+:304  %tmp65 = add i64 %tmp_342, %t0_6
+
+
+ <State 71>: 2.09ns
+ST_71: tmp_343 (460)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp_350)
+:298  %tmp_343 = or i64 %tmp_321, %tmp_296
+
+ST_71: tmp_345 (461)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp_350)
+:299  %tmp_345 = and i64 %tmp_343, %tmp_264
+
+ST_71: tmp_347 (462)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp_350)
+:300  %tmp_347 = and i64 %tmp_321, %tmp_296
+
+ST_71: tmp_348 (463)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp_350)
+:301  %tmp_348 = or i64 %tmp_345, %tmp_347
+
+ST_71: tmp_350 (467)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:194 (out node of the LUT)
+:305  %tmp_350 = add i64 %tmp65, %tmp_348
+
+ST_71: StgValue_570 (468)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:194
+:306  store i64 %tmp_350, i64* %S_addr_6, align 8
+
+ST_71: tmp_364 (483)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195
+:321  %tmp_364 = or i7 %i_3, 7
+
+ST_71: tmp_365 (484)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195
+:322  %tmp_365 = zext i7 %tmp_364 to i64
+
+ST_71: K_addr_7 (485)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195
+:323  %K_addr_7 = getelementptr inbounds [80 x i64]* @K, i64 0, i64 %tmp_365
+
+ST_71: K_load_7 (486)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:195
+:324  %K_load_7 = load i64* %K_addr_7, align 8
+
+ST_71: W_addr_13 (487)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195
+:325  %W_addr_13 = getelementptr inbounds [80 x i64]* %W, i64 0, i64 %tmp_365
+
+ST_71: W_load_11 (488)  [2/2] 1.24ns  loc: ed25519/src/sha512.cpp:195
+:326  %W_load_11 = load i64* %W_addr_13, align 8
+
+
+ <State 72>: 2.65ns
+ST_72: K_load_7 (486)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:195
+:324  %K_load_7 = load i64* %K_addr_7, align 8
+
+ST_72: W_load_11 (488)  [1/2] 1.24ns  loc: ed25519/src/sha512.cpp:195
+:326  %W_load_11 = load i64* %W_addr_13, align 8
+
+ST_72: tmp67 (489)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195
+:327  %tmp67 = add i64 %K_load_7, %W_load_11
+
+
+ <State 73>: 1.41ns
+ST_73: tmp_351 (469)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:307  %tmp_351 = call i50 @_ssdm_op_PartSelect.i50.i64.i32.i32(i64 %tmp_349, i32 14, i32 63)
+
+ST_73: tmp_437 (470)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp68)
+:308  %tmp_437 = trunc i64 %tmp_349 to i14
+
+ST_73: tmp_352 (471)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:309  %tmp_352 = call i64 @_ssdm_op_BitConcatenate.i64.i14.i50(i14 %tmp_437, i50 %tmp_351)
+
+ST_73: tmp_353 (472)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:310  %tmp_353 = call i46 @_ssdm_op_PartSelect.i46.i64.i32.i32(i64 %tmp_349, i32 18, i32 63)
+
+ST_73: tmp_438 (473)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp68)
+:311  %tmp_438 = trunc i64 %tmp_349 to i18
+
+ST_73: tmp_355 (474)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:312  %tmp_355 = call i64 @_ssdm_op_BitConcatenate.i64.i18.i46(i18 %tmp_438, i46 %tmp_353)
+
+ST_73: tmp_356 (475)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:313  %tmp_356 = call i23 @_ssdm_op_PartSelect.i23.i64.i32.i32(i64 %tmp_349, i32 41, i32 63)
+
+ST_73: tmp_439 (476)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp68)
+:314  %tmp_439 = trunc i64 %tmp_349 to i41
+
+ST_73: tmp_358 (477)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:315  %tmp_358 = call i64 @_ssdm_op_BitConcatenate.i64.i41.i23(i41 %tmp_439, i23 %tmp_356)
+
+ST_73: tmp66 (478)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:316  %tmp66 = xor i64 %tmp_358, %tmp_355
+
+ST_73: tmp_359 (479)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp68)
+:317  %tmp_359 = xor i64 %tmp66, %tmp_352
+
+ST_73: tmp68 (490)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195 (out node of the LUT)
+:328  %tmp68 = add i64 %tmp_359, %tmp_263
+
+
+ <State 74>: 1.41ns
+ST_74: tmp_361 (480)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp69)
+:318  %tmp_361 = xor i64 %tmp_320, %tmp_295
+
+ST_74: tmp_362 (481)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp69)
+:319  %tmp_362 = and i64 %tmp_349, %tmp_361
+
+ST_74: tmp_363 (482)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp69)
+:320  %tmp_363 = xor i64 %tmp_362, %tmp_295
+
+ST_74: tmp69 (491)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195 (out node of the LUT)
+:329  %tmp69 = add i64 %tmp68, %tmp_363
+
+
+ <State 75>: 1.41ns
+ST_75: t0_7 (492)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195
+:330  %t0_7 = add i64 %tmp69, %tmp67
+
+
+ <State 76>: 2.09ns
+ST_76: tmp_380 (508)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195
+:346  %tmp_380 = add i64 %tmp_264, %t0_7
+
+ST_76: StgValue_598 (509)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:195
+:347  store i64 %tmp_380, i64* %S_addr_2, align 16
+
+
+ <State 77>: 1.41ns
+ST_77: tmp_366 (493)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:331  %tmp_366 = call i36 @_ssdm_op_PartSelect.i36.i64.i32.i32(i64 %tmp_350, i32 28, i32 63)
+
+ST_77: tmp_440 (494)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp71)
+:332  %tmp_440 = trunc i64 %tmp_350 to i28
+
+ST_77: tmp_367 (495)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:333  %tmp_367 = call i64 @_ssdm_op_BitConcatenate.i64.i28.i36(i28 %tmp_440, i36 %tmp_366)
+
+ST_77: tmp_368 (496)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:334  %tmp_368 = call i30 @_ssdm_op_PartSelect.i30.i64.i32.i32(i64 %tmp_350, i32 34, i32 63)
+
+ST_77: tmp_441 (497)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp71)
+:335  %tmp_441 = trunc i64 %tmp_350 to i34
+
+ST_77: tmp_369 (498)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:336  %tmp_369 = call i64 @_ssdm_op_BitConcatenate.i64.i34.i30(i34 %tmp_441, i30 %tmp_368)
+
+ST_77: tmp_371 (499)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:337  %tmp_371 = call i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64 %tmp_350, i32 39, i32 63)
+
+ST_77: tmp_442 (500)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:194 (grouped into LUT with out node tmp71)
+:338  %tmp_442 = trunc i64 %tmp_350 to i39
+
+ST_77: tmp_372 (501)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:339  %tmp_372 = call i64 @_ssdm_op_BitConcatenate.i64.i39.i25(i39 %tmp_442, i25 %tmp_371)
+
+ST_77: tmp70 (502)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:340  %tmp70 = xor i64 %tmp_372, %tmp_369
+
+ST_77: tmp_374 (503)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp71)
+:341  %tmp_374 = xor i64 %tmp70, %tmp_367
+
+ST_77: tmp71 (510)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195 (out node of the LUT)
+:348  %tmp71 = add i64 %tmp_374, %t0_7
+
+
+ <State 78>: 2.09ns
+ST_78: tmp_375 (504)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp_381)
+:342  %tmp_375 = or i64 %tmp_350, %tmp_321
+
+ST_78: tmp_377 (505)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp_381)
+:343  %tmp_377 = and i64 %tmp_375, %tmp_296
+
+ST_78: tmp_378 (506)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp_381)
+:344  %tmp_378 = and i64 %tmp_350, %tmp_321
+
+ST_78: tmp_379 (507)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:195 (grouped into LUT with out node tmp_381)
+:345  %tmp_379 = or i64 %tmp_377, %tmp_378
+
+ST_78: tmp_381 (511)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:195 (out node of the LUT)
+:349  %tmp_381 = add i64 %tmp71, %tmp_379
+
+ST_78: StgValue_616 (512)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:195
+:350  store i64 %tmp_381, i64* %S_addr_5, align 16
+
+ST_78: StgValue_617 (514)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:187
+:352  br label %.preheader11
+
+
+ <State 79>: 1.12ns
+ST_79: i_4 (518)  [1/1] 0.00ns
+.preheader:0  %i_4 = phi i4 [ %i_9, %6 ], [ 0, %.preheader.preheader ]
+
+ST_79: exitcond (519)  [1/1] 0.44ns  loc: ed25519/src/sha512.cpp:203
+.preheader:1  %exitcond = icmp eq i4 %i_4, -8
+
+ST_79: empty_104 (520)  [1/1] 0.00ns
+.preheader:2  %empty_104 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_79: i_9 (521)  [1/1] 1.12ns  loc: ed25519/src/sha512.cpp:203
+.preheader:3  %i_9 = add i4 %i_4, 1
+
+ST_79: StgValue_622 (522)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:203
+.preheader:4  br i1 %exitcond, label %7, label %6
+
+ST_79: tmp_382 (524)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:204
+:0  %tmp_382 = zext i4 %i_4 to i64
+
+ST_79: md_state_addr_2 (525)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:204
+:1  %md_state_addr_2 = getelementptr [8 x i64]* %md_state, i64 0, i64 %tmp_382
+
+ST_79: md_state_load_2 (526)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:204
+:2  %md_state_load_2 = load i64* %md_state_addr_2, align 8
+
+ST_79: S_addr_9 (527)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:204
+:3  %S_addr_9 = getelementptr inbounds [8 x i64]* %S, i64 0, i64 %tmp_382
+
+ST_79: S_load_8 (528)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:204
+:4  %S_load_8 = load i64* %S_addr_9, align 8
+
+ST_79: StgValue_628 (533)  [1/1] 0.00ns
+:0  ret void
+
+
+ <State 80>: 2.77ns
+ST_80: md_state_load_2 (526)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:204
+:2  %md_state_load_2 = load i64* %md_state_addr_2, align 8
+
+ST_80: S_load_8 (528)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:204
+:4  %S_load_8 = load i64* %S_addr_9, align 8
+
+ST_80: tmp_383 (529)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:204
+:5  %tmp_383 = add i64 %md_state_load_2, %S_load_8
+
+ST_80: StgValue_632 (530)  [1/1] 0.68ns  loc: ed25519/src/sha512.cpp:204
+:6  store i64 %tmp_383, i64* %md_state_addr_2, align 8
+
+ST_80: StgValue_633 (531)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:203
+:7  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:166) [18]  (0.656 ns)
+
+ <State 2>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:166) [18]  (0 ns)
+	'add' operation ('i', ed25519/src/sha512.cpp:166) [21]  (1.12 ns)
+
+ <State 3>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('md_state_load', ed25519/src/sha512.cpp:167) on array 'md_state' [26]  (0.677 ns)
+	'store' operation (ed25519/src/sha512.cpp:167) of variable 'md_state_load', ed25519/src/sha512.cpp:167 on array 'S', ed25519/src/sha512.cpp:162 [28]  (0.677 ns)
+
+ <State 4>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:171) [34]  (0 ns)
+	'add' operation ('i', ed25519/src/sha512.cpp:171) [37]  (1.12 ns)
+
+ <State 5>: 1.77ns
+The critical path consists of the following:
+	'add' operation ('sum1', ed25519/src/sha512.cpp:172) [43]  (1.09 ns)
+	'getelementptr' operation ('buf_addr', ed25519/src/sha512.cpp:172) [45]  (0 ns)
+	'load' operation ('buf_load', ed25519/src/sha512.cpp:172) on array 'buf_r' [46]  (0.677 ns)
+
+ <State 6>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum1', ed25519/src/sha512.cpp:172) [47]  (0 ns)
+	'add' operation ('sum3', ed25519/src/sha512.cpp:172) [49]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_8', ed25519/src/sha512.cpp:172) [51]  (0 ns)
+	'load' operation ('buf_load_1', ed25519/src/sha512.cpp:172) on array 'buf_r' [52]  (0.677 ns)
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum2', ed25519/src/sha512.cpp:172) [53]  (0 ns)
+	'add' operation ('sum5', ed25519/src/sha512.cpp:172) [55]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_9', ed25519/src/sha512.cpp:172) [57]  (0 ns)
+	'load' operation ('buf_load_2', ed25519/src/sha512.cpp:172) on array 'buf_r' [58]  (0.677 ns)
+
+ <State 8>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum3', ed25519/src/sha512.cpp:172) [59]  (0 ns)
+	'add' operation ('sum7', ed25519/src/sha512.cpp:172) [61]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_10', ed25519/src/sha512.cpp:172) [63]  (0 ns)
+	'load' operation ('buf_load_3', ed25519/src/sha512.cpp:172) on array 'buf_r' [64]  (0.677 ns)
+
+ <State 9>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum4', ed25519/src/sha512.cpp:172) [65]  (0 ns)
+	'add' operation ('sum9', ed25519/src/sha512.cpp:172) [67]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_11', ed25519/src/sha512.cpp:172) [69]  (0 ns)
+	'load' operation ('buf_load_4', ed25519/src/sha512.cpp:172) on array 'buf_r' [70]  (0.677 ns)
+
+ <State 10>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum5', ed25519/src/sha512.cpp:172) [71]  (0 ns)
+	'add' operation ('sum6', ed25519/src/sha512.cpp:172) [73]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_12', ed25519/src/sha512.cpp:172) [75]  (0 ns)
+	'load' operation ('buf_load_5', ed25519/src/sha512.cpp:172) on array 'buf_r' [76]  (0.677 ns)
+
+ <State 11>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum6', ed25519/src/sha512.cpp:172) [77]  (0 ns)
+	'add' operation ('sum8', ed25519/src/sha512.cpp:172) [79]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_13', ed25519/src/sha512.cpp:172) [81]  (0 ns)
+	'load' operation ('buf_load_6', ed25519/src/sha512.cpp:172) on array 'buf_r' [82]  (0.677 ns)
+
+ <State 12>: 1.77ns
+The critical path consists of the following:
+	'or' operation ('p_sum7', ed25519/src/sha512.cpp:172) [83]  (0 ns)
+	'add' operation ('sum2', ed25519/src/sha512.cpp:172) [85]  (1.09 ns)
+	'getelementptr' operation ('buf_addr_14', ed25519/src/sha512.cpp:172) [87]  (0 ns)
+	'load' operation ('buf_load_7', ed25519/src/sha512.cpp:172) on array 'buf_r' [88]  (0.677 ns)
+
+ <State 13>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('buf_load_7', ed25519/src/sha512.cpp:172) on array 'buf_r' [88]  (0.677 ns)
+	'store' operation (ed25519/src/sha512.cpp:172) of variable 'tmp_89', ed25519/src/sha512.cpp:172 on array 'W', ed25519/src/sha512.cpp:162 [92]  (1.24 ns)
+
+ <State 14>: 1.1ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:176) [97]  (0 ns)
+	'add' operation ('tmp_91', ed25519/src/sha512.cpp:177) [102]  (1.1 ns)
+
+ <State 15>: 1.1ns
+The critical path consists of the following:
+	'add' operation ('tmp_102', ed25519/src/sha512.cpp:177) [116]  (1.1 ns)
+
+ <State 16>: 1.1ns
+The critical path consists of the following:
+	'add' operation ('tmp_104', ed25519/src/sha512.cpp:177) [120]  (1.1 ns)
+
+ <State 17>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('W_addr_2', ed25519/src/sha512.cpp:177) [118]  (0 ns)
+	'load' operation ('W_load_1', ed25519/src/sha512.cpp:177) on array 'W', ed25519/src/sha512.cpp:162 [119]  (1.24 ns)
+
+ <State 18>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('W_addr_1', ed25519/src/sha512.cpp:177) [104]  (0 ns)
+	'load' operation ('W_load', ed25519/src/sha512.cpp:177) on array 'W', ed25519/src/sha512.cpp:162 [105]  (1.24 ns)
+
+ <State 19>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_3', ed25519/src/sha512.cpp:177) on array 'W', ed25519/src/sha512.cpp:162 [137]  (1.24 ns)
+	'add' operation ('tmp8', ed25519/src/sha512.cpp:177) [138]  (1.41 ns)
+
+ <State 20>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_2', ed25519/src/sha512.cpp:177) on array 'W', ed25519/src/sha512.cpp:162 [123]  (1.24 ns)
+	'xor' operation ('tmp7', ed25519/src/sha512.cpp:177) [132]  (0 ns)
+	'xor' operation ('tmp_114', ed25519/src/sha512.cpp:177) [133]  (0 ns)
+	'add' operation ('tmp9', ed25519/src/sha512.cpp:177) [139]  (1.41 ns)
+
+ <State 21>: 2.65ns
+The critical path consists of the following:
+	'add' operation ('tmp_119', ed25519/src/sha512.cpp:177) [140]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:177) of variable 'tmp_119', ed25519/src/sha512.cpp:177 on array 'W', ed25519/src/sha512.cpp:162 [143]  (1.24 ns)
+
+ <State 22>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:187) [157]  (0 ns)
+	'getelementptr' operation ('K_addr', ed25519/src/sha512.cpp:188) [181]  (0 ns)
+	'load' operation ('K_load', ed25519/src/sha512.cpp:188) on array 'K' [182]  (1.24 ns)
+
+ <State 23>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load', ed25519/src/sha512.cpp:188) on array 'K' [182]  (1.24 ns)
+	'add' operation ('tmp13', ed25519/src/sha512.cpp:188) [185]  (1.41 ns)
+
+ <State 24>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('S_load_2', ed25519/src/sha512.cpp:188) on array 'S', ed25519/src/sha512.cpp:162 [175]  (0.677 ns)
+	'xor' operation ('tmp_135', ed25519/src/sha512.cpp:188) [179]  (0.051 ns)
+	'add' operation ('tmp15', ed25519/src/sha512.cpp:188) [186]  (1.41 ns)
+
+ <State 25>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_4', ed25519/src/sha512.cpp:188) on array 'W', ed25519/src/sha512.cpp:162 [184]  (1.24 ns)
+	'add' operation ('tmp14', ed25519/src/sha512.cpp:188) [187]  (1.41 ns)
+
+ <State 26>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:188) [188]  (1.41 ns)
+
+ <State 27>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('S_load_7', ed25519/src/sha512.cpp:188) on array 'S', ed25519/src/sha512.cpp:162 [207]  (0.677 ns)
+	'add' operation ('tmp_155', ed25519/src/sha512.cpp:188) [208]  (1.41 ns)
+
+ <State 28>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('S_load_6', ed25519/src/sha512.cpp:188) on array 'S', ed25519/src/sha512.cpp:162 [203]  (0.677 ns)
+	'and' operation ('tmp_152', ed25519/src/sha512.cpp:188) [204]  (0 ns)
+	'or' operation ('tmp_154', ed25519/src/sha512.cpp:188) [206]  (0.051 ns)
+	'add' operation ('tmp17', ed25519/src/sha512.cpp:188) [209]  (1.41 ns)
+
+ <State 29>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_156', ed25519/src/sha512.cpp:188) [210]  (1.41 ns)
+
+ <State 30>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_1', ed25519/src/sha512.cpp:189) on array 'K' [228]  (1.24 ns)
+	'add' operation ('tmp21', ed25519/src/sha512.cpp:189) [231]  (1.41 ns)
+
+ <State 31>: 1.46ns
+The critical path consists of the following:
+	'xor' operation ('tmp_168', ed25519/src/sha512.cpp:189) [222]  (0 ns)
+	'and' operation ('tmp_169', ed25519/src/sha512.cpp:189) [223]  (0 ns)
+	'xor' operation ('tmp_170', ed25519/src/sha512.cpp:189) [224]  (0.051 ns)
+	'add' operation ('tmp23', ed25519/src/sha512.cpp:189) [232]  (1.41 ns)
+
+ <State 32>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_5', ed25519/src/sha512.cpp:189) on array 'W', ed25519/src/sha512.cpp:162 [230]  (1.24 ns)
+	'add' operation ('tmp22', ed25519/src/sha512.cpp:189) [233]  (1.41 ns)
+
+ <State 33>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:189) [234]  (1.41 ns)
+
+ <State 34>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_191', ed25519/src/sha512.cpp:189) [250]  (1.41 ns)
+
+ <State 35>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_186', ed25519/src/sha512.cpp:189) [245]  (0 ns)
+	'add' operation ('tmp25', ed25519/src/sha512.cpp:189) [251]  (1.41 ns)
+
+ <State 36>: 1.41ns
+The critical path consists of the following:
+	'or' operation ('tmp_187', ed25519/src/sha512.cpp:189) [246]  (0 ns)
+	'and' operation ('tmp_188', ed25519/src/sha512.cpp:189) [247]  (0 ns)
+	'or' operation ('tmp_190', ed25519/src/sha512.cpp:189) [249]  (0 ns)
+	'add' operation ('tmp_192', ed25519/src/sha512.cpp:189) [252]  (1.41 ns)
+
+ <State 37>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_2', ed25519/src/sha512.cpp:190) on array 'K' [270]  (1.24 ns)
+	'add' operation ('tmp29', ed25519/src/sha512.cpp:190) [273]  (1.41 ns)
+
+ <State 38>: 1.46ns
+The critical path consists of the following:
+	'xor' operation ('tmp_204', ed25519/src/sha512.cpp:190) [264]  (0 ns)
+	'and' operation ('tmp_205', ed25519/src/sha512.cpp:190) [265]  (0 ns)
+	'xor' operation ('tmp_206', ed25519/src/sha512.cpp:190) [266]  (0.051 ns)
+	'add' operation ('tmp31', ed25519/src/sha512.cpp:190) [274]  (1.41 ns)
+
+ <State 39>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_6', ed25519/src/sha512.cpp:190) on array 'W', ed25519/src/sha512.cpp:162 [272]  (1.24 ns)
+	'add' operation ('tmp30', ed25519/src/sha512.cpp:190) [275]  (1.41 ns)
+
+ <State 40>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:190) [276]  (1.41 ns)
+
+ <State 41>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_227', ed25519/src/sha512.cpp:190) [292]  (1.41 ns)
+
+ <State 42>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_222', ed25519/src/sha512.cpp:190) [287]  (0 ns)
+	'add' operation ('tmp33', ed25519/src/sha512.cpp:190) [293]  (1.41 ns)
+
+ <State 43>: 1.41ns
+The critical path consists of the following:
+	'or' operation ('tmp_223', ed25519/src/sha512.cpp:190) [288]  (0 ns)
+	'and' operation ('tmp_224', ed25519/src/sha512.cpp:190) [289]  (0 ns)
+	'or' operation ('tmp_226', ed25519/src/sha512.cpp:190) [291]  (0 ns)
+	'add' operation ('tmp_228', ed25519/src/sha512.cpp:190) [294]  (1.41 ns)
+
+ <State 44>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_3', ed25519/src/sha512.cpp:191) on array 'K' [312]  (1.24 ns)
+	'add' operation ('tmp37', ed25519/src/sha512.cpp:191) [315]  (1.41 ns)
+
+ <State 45>: 1.46ns
+The critical path consists of the following:
+	'xor' operation ('tmp_240', ed25519/src/sha512.cpp:191) [306]  (0 ns)
+	'and' operation ('tmp_241', ed25519/src/sha512.cpp:191) [307]  (0 ns)
+	'xor' operation ('tmp_242', ed25519/src/sha512.cpp:191) [308]  (0.051 ns)
+	'add' operation ('tmp39', ed25519/src/sha512.cpp:191) [316]  (1.41 ns)
+
+ <State 46>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('W_load_7', ed25519/src/sha512.cpp:191) on array 'W', ed25519/src/sha512.cpp:162 [314]  (1.24 ns)
+	'add' operation ('tmp38', ed25519/src/sha512.cpp:191) [317]  (1.41 ns)
+
+ <State 47>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:191) [318]  (1.41 ns)
+
+ <State 48>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('tmp_263', ed25519/src/sha512.cpp:191) [334]  (1.41 ns)
+
+ <State 49>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_258', ed25519/src/sha512.cpp:191) [329]  (0 ns)
+	'add' operation ('tmp41', ed25519/src/sha512.cpp:191) [335]  (1.41 ns)
+
+ <State 50>: 1.41ns
+The critical path consists of the following:
+	'or' operation ('tmp_259', ed25519/src/sha512.cpp:191) [330]  (0 ns)
+	'and' operation ('tmp_260', ed25519/src/sha512.cpp:191) [331]  (0 ns)
+	'or' operation ('tmp_262', ed25519/src/sha512.cpp:191) [333]  (0 ns)
+	'add' operation ('tmp_264', ed25519/src/sha512.cpp:191) [336]  (1.41 ns)
+
+ <State 51>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_4', ed25519/src/sha512.cpp:192) on array 'K' [354]  (1.24 ns)
+	'add' operation ('tmp45', ed25519/src/sha512.cpp:192) [357]  (1.41 ns)
+
+ <State 52>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_275', ed25519/src/sha512.cpp:192) [347]  (0 ns)
+	'add' operation ('tmp47', ed25519/src/sha512.cpp:192) [358]  (1.41 ns)
+
+ <State 53>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_276', ed25519/src/sha512.cpp:192) [348]  (0 ns)
+	'and' operation ('tmp_277', ed25519/src/sha512.cpp:192) [349]  (0 ns)
+	'xor' operation ('tmp_278', ed25519/src/sha512.cpp:192) [350]  (0 ns)
+	'add' operation ('tmp46', ed25519/src/sha512.cpp:192) [359]  (1.41 ns)
+
+ <State 54>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:192) [360]  (1.41 ns)
+
+ <State 55>: 2.09ns
+The critical path consists of the following:
+	'add' operation ('tmp_295', ed25519/src/sha512.cpp:192) [376]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:192) of variable 'tmp_295', ed25519/src/sha512.cpp:192 on array 'S', ed25519/src/sha512.cpp:162 [377]  (0.677 ns)
+
+ <State 56>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_290', ed25519/src/sha512.cpp:192) [371]  (0 ns)
+	'add' operation ('tmp49', ed25519/src/sha512.cpp:192) [378]  (1.41 ns)
+
+ <State 57>: 2.09ns
+The critical path consists of the following:
+	'or' operation ('tmp_291', ed25519/src/sha512.cpp:192) [372]  (0 ns)
+	'and' operation ('tmp_292', ed25519/src/sha512.cpp:192) [373]  (0 ns)
+	'or' operation ('tmp_294', ed25519/src/sha512.cpp:192) [375]  (0 ns)
+	'add' operation ('tmp_296', ed25519/src/sha512.cpp:192) [379]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:192) of variable 'tmp_296', ed25519/src/sha512.cpp:192 on array 'S', ed25519/src/sha512.cpp:162 [380]  (0.677 ns)
+
+ <State 58>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_5', ed25519/src/sha512.cpp:193) on array 'K' [398]  (1.24 ns)
+	'add' operation ('tmp53', ed25519/src/sha512.cpp:193) [401]  (1.41 ns)
+
+ <State 59>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_303', ed25519/src/sha512.cpp:193) [391]  (0 ns)
+	'add' operation ('tmp55', ed25519/src/sha512.cpp:193) [402]  (1.41 ns)
+
+ <State 60>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_304', ed25519/src/sha512.cpp:193) [392]  (0 ns)
+	'and' operation ('tmp_305', ed25519/src/sha512.cpp:193) [393]  (0 ns)
+	'xor' operation ('tmp_306', ed25519/src/sha512.cpp:193) [394]  (0 ns)
+	'add' operation ('tmp54', ed25519/src/sha512.cpp:193) [403]  (1.41 ns)
+
+ <State 61>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:193) [404]  (1.41 ns)
+
+ <State 62>: 2.09ns
+The critical path consists of the following:
+	'add' operation ('tmp_320', ed25519/src/sha512.cpp:193) [420]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:193) of variable 'tmp_320', ed25519/src/sha512.cpp:193 on array 'S', ed25519/src/sha512.cpp:162 [421]  (0.677 ns)
+
+ <State 63>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_315', ed25519/src/sha512.cpp:193) [415]  (0 ns)
+	'add' operation ('tmp57', ed25519/src/sha512.cpp:193) [422]  (1.41 ns)
+
+ <State 64>: 2.09ns
+The critical path consists of the following:
+	'or' operation ('tmp_316', ed25519/src/sha512.cpp:193) [416]  (0 ns)
+	'and' operation ('tmp_317', ed25519/src/sha512.cpp:193) [417]  (0 ns)
+	'or' operation ('tmp_319', ed25519/src/sha512.cpp:193) [419]  (0 ns)
+	'add' operation ('tmp_321', ed25519/src/sha512.cpp:193) [423]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:193) of variable 'tmp_321', ed25519/src/sha512.cpp:193 on array 'S', ed25519/src/sha512.cpp:162 [424]  (0.677 ns)
+
+ <State 65>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_6', ed25519/src/sha512.cpp:194) on array 'K' [442]  (1.24 ns)
+	'add' operation ('tmp61', ed25519/src/sha512.cpp:194) [445]  (1.41 ns)
+
+ <State 66>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_328', ed25519/src/sha512.cpp:194) [435]  (0 ns)
+	'add' operation ('tmp63', ed25519/src/sha512.cpp:194) [446]  (1.41 ns)
+
+ <State 67>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_329', ed25519/src/sha512.cpp:194) [436]  (0 ns)
+	'and' operation ('tmp_330', ed25519/src/sha512.cpp:194) [437]  (0 ns)
+	'xor' operation ('tmp_331', ed25519/src/sha512.cpp:194) [438]  (0 ns)
+	'add' operation ('tmp62', ed25519/src/sha512.cpp:194) [447]  (1.41 ns)
+
+ <State 68>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:194) [448]  (1.41 ns)
+
+ <State 69>: 2.09ns
+The critical path consists of the following:
+	'add' operation ('tmp_349', ed25519/src/sha512.cpp:194) [464]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:194) of variable 'tmp_349', ed25519/src/sha512.cpp:194 on array 'S', ed25519/src/sha512.cpp:162 [465]  (0.677 ns)
+
+ <State 70>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_342', ed25519/src/sha512.cpp:194) [459]  (0 ns)
+	'add' operation ('tmp65', ed25519/src/sha512.cpp:194) [466]  (1.41 ns)
+
+ <State 71>: 2.09ns
+The critical path consists of the following:
+	'or' operation ('tmp_343', ed25519/src/sha512.cpp:194) [460]  (0 ns)
+	'and' operation ('tmp_345', ed25519/src/sha512.cpp:194) [461]  (0 ns)
+	'or' operation ('tmp_348', ed25519/src/sha512.cpp:194) [463]  (0 ns)
+	'add' operation ('tmp_350', ed25519/src/sha512.cpp:194) [467]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:194) of variable 'tmp_350', ed25519/src/sha512.cpp:194 on array 'S', ed25519/src/sha512.cpp:162 [468]  (0.677 ns)
+
+ <State 72>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('K_load_7', ed25519/src/sha512.cpp:195) on array 'K' [486]  (1.24 ns)
+	'add' operation ('tmp67', ed25519/src/sha512.cpp:195) [489]  (1.41 ns)
+
+ <State 73>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_359', ed25519/src/sha512.cpp:195) [479]  (0 ns)
+	'add' operation ('tmp68', ed25519/src/sha512.cpp:195) [490]  (1.41 ns)
+
+ <State 74>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_361', ed25519/src/sha512.cpp:195) [480]  (0 ns)
+	'and' operation ('tmp_362', ed25519/src/sha512.cpp:195) [481]  (0 ns)
+	'xor' operation ('tmp_363', ed25519/src/sha512.cpp:195) [482]  (0 ns)
+	'add' operation ('tmp69', ed25519/src/sha512.cpp:195) [491]  (1.41 ns)
+
+ <State 75>: 1.41ns
+The critical path consists of the following:
+	'add' operation ('t0', ed25519/src/sha512.cpp:195) [492]  (1.41 ns)
+
+ <State 76>: 2.09ns
+The critical path consists of the following:
+	'add' operation ('tmp_380', ed25519/src/sha512.cpp:195) [508]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:195) of variable 'tmp_380', ed25519/src/sha512.cpp:195 on array 'S', ed25519/src/sha512.cpp:162 [509]  (0.677 ns)
+
+ <State 77>: 1.41ns
+The critical path consists of the following:
+	'xor' operation ('tmp_374', ed25519/src/sha512.cpp:195) [503]  (0 ns)
+	'add' operation ('tmp71', ed25519/src/sha512.cpp:195) [510]  (1.41 ns)
+
+ <State 78>: 2.09ns
+The critical path consists of the following:
+	'or' operation ('tmp_375', ed25519/src/sha512.cpp:195) [504]  (0 ns)
+	'and' operation ('tmp_377', ed25519/src/sha512.cpp:195) [505]  (0 ns)
+	'or' operation ('tmp_379', ed25519/src/sha512.cpp:195) [507]  (0 ns)
+	'add' operation ('tmp_381', ed25519/src/sha512.cpp:195) [511]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:195) of variable 'tmp_381', ed25519/src/sha512.cpp:195 on array 'S', ed25519/src/sha512.cpp:162 [512]  (0.677 ns)
+
+ <State 79>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:203) [518]  (0 ns)
+	'add' operation ('i', ed25519/src/sha512.cpp:203) [521]  (1.12 ns)
+
+ <State 80>: 2.77ns
+The critical path consists of the following:
+	'load' operation ('md_state_load_2', ed25519/src/sha512.cpp:204) on array 'md_state' [526]  (0.677 ns)
+	'add' operation ('tmp_383', ed25519/src/sha512.cpp:204) [529]  (1.41 ns)
+	'store' operation (ed25519/src/sha512.cpp:204) of variable 'tmp_383', ed25519/src/sha512.cpp:204 on array 'md_state' [530]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

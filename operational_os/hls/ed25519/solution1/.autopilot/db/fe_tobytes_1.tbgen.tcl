@@ -10,7 +10,7 @@ set StallSigGenFlag 0
 set C_modelName {fe_tobytes.1}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ s int 8 regular {array 64 { 0 } 0 1 }  }
+	{ s int 8 regular {array 64 { 0 3 } 0 1 }  }
 	{ p_read int 32 regular  }
 	{ p_read1 int 32 regular  }
 	{ p_read2 int 32 regular  }

@@ -2,20 +2,14 @@
 <sourceFile name="">
 <directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="INTERFACE">
-<option name="s_axilite" positionalBoolean="mode" value=""/>
-<option name="port" positionalBoolean="4" value="return"/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="ed25519_sign" label="">
-<pragma name="INTERFACE">
 <option name="ap_vld" positionalBoolean="mode" value=""/>
 <option name="port" positionalBoolean="4" value="blocks_in"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="INTERFACE">
-<option name="s_axilite" positionalBoolean="mode" value=""/>
-<option name="port" positionalBoolean="4" value="blocks_in"/>
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="offset"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="ed25519_sign" label="">
@@ -39,20 +33,14 @@
 </directive>
 <directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="INTERFACE">
-<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="ap_vld" positionalBoolean="mode" value=""/>
 <option name="port" positionalBoolean="4" value="signature"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="INTERFACE">
-<option name="s_axilite" positionalBoolean="mode" value=""/>
-<option name="port" positionalBoolean="4" value="public_key"/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="ed25519_sign" label="">
-<pragma name="INTERFACE">
-<option name="s_axilite" positionalBoolean="mode" value=""/>
-<option name="port" positionalBoolean="4" value="private_key"/>
+<option name="ap_none" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="start"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="ed25519_sign" label="">

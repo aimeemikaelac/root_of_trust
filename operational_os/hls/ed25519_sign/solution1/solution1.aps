@@ -1,10 +1,4 @@
 <solution AutoPilot="com.autoesl.autopilot.solution">
-    <downStreamTool>
-        <DownStreamTool name="vivado"/>
-    </downStreamTool>
-    <clockList>
-        <clock name="default" period="10"/>
-    </clockList>
     <config/>
     <UIConfigurations>
         <UIAutosynConf boardInfo="ZYNQ UltraScale+ ZCU102 Evaluation Platform (xczu9eg-ffvb1156-1-i-es1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
@@ -65,5 +59,11 @@
         <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus"/>
         <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus_fpv7"/>
     </libraryList>
+    <downStreamTool>
+        <DownStreamTool name="vivado"/>
+    </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
 </solution>
 

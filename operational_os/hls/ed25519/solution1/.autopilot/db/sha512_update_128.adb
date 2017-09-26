@@ -7239,11 +7239,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>1355</second>
+              <second>1552</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>7219</second>
+              <second>7284</second>
             </item>
           </second>
         </item>
@@ -7258,11 +7258,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>1253</second>
+              <second>1450</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>7181</second>
+              <second>7210</second>
             </item>
           </second>
         </item>
@@ -7285,11 +7285,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>197</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>71</second>
+              <second>70</second>
             </item>
           </second>
         </item>
@@ -7308,11 +7308,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>197</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>71</second>
+              <second>70</second>
             </item>
           </second>
         </item>
@@ -7547,7 +7547,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>47</second>
+              <second>55</second>
             </item>
           </second>
         </item>
@@ -7570,7 +7570,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>41</second>
+              <second>33</second>
             </item>
           </second>
         </item>
@@ -7593,7 +7593,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7616,7 +7616,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7639,7 +7639,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>38</second>
+              <second>33</second>
             </item>
           </second>
         </item>
@@ -7662,7 +7662,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>27</second>
+              <second>25</second>
             </item>
           </second>
         </item>
@@ -7708,7 +7708,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7731,7 +7731,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7754,7 +7754,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7777,7 +7777,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -7800,7 +7800,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7823,7 +7823,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7869,7 +7869,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7892,7 +7892,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7915,7 +7915,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -7938,7 +7938,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -8007,7 +8007,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8030,7 +8030,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>

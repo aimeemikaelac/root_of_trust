@@ -4,9 +4,9 @@
 #pragma line 1 "<built-in>" 3 ::: -7
 #pragma line 149 "<built-in>" 3 ::: -6
 #pragma line 1 "<command line>" 1 ::: -5
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1 ::: 0
-#pragma line 289 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 53
-#pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 180
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1 ::: 0
+#pragma line 289 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 53
+#pragma line 427 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 180
 #pragma line 6 "<command line>" 2 ::: 182
 #pragma line 1 "<built-in>" 2 ::: 183
 #pragma line 1 "ed25519_sign/src/test-internals.c" 2 ::: 184
@@ -41,8 +41,8 @@
 #pragma line 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4 ::: 734
 #pragma line 389 "/usr/include/features.h" 2 3 4 ::: 735
 #pragma line 28 "/usr/include/stdio.h" 2 3 4 ::: 736
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 742
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 783
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 742
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 783
 #pragma line 34 "/usr/include/stdio.h" 2 3 4 ::: 786
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4 ::: 788
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4 ::: 816
@@ -58,8 +58,8 @@
 #pragma line 74 "/usr/include/stdio.h" 3 4 ::: 1008
 #pragma line 1 "/usr/include/libio.h" 1 3 4 ::: 1009
 #pragma line 1 "/usr/include/_G_config.h" 1 3 4 ::: 1041
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 1057
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 1082
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 1057
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 1082
 #pragma line 16 "/usr/include/_G_config.h" 2 3 4 ::: 1085
 #pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 1090
 #pragma line 81 "/usr/include/wchar.h" 3 4 ::: 1112
@@ -68,7 +68,7 @@
 #pragma line 45 "/usr/include/_G_config.h" 3 4 ::: 1147
 #pragma line 32 "/usr/include/libio.h" 2 3 4 ::: 1157
 #pragma line 47 "/usr/include/libio.h" 3 4 ::: 1159
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4 ::: 1163
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4 ::: 1163
 #pragma line 50 "/usr/include/libio.h" 2 3 4 ::: 1212
 #pragma line 86 "/usr/include/libio.h" 3 4 ::: 1213
 #pragma line 124 "/usr/include/libio.h" 3 4 ::: 1219
@@ -107,8 +107,8 @@
 #pragma line 1 "ed25519_sign/src/ed25519-donna-portable.h" 1 ::: 2059
 #pragma line 1 "ed25519_sign/src/ed25519-donna-portable-identify.h" 1 ::: 2060
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/param.h" 1 3 4 ::: 2068
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2092
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2117
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2092
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2117
 #pragma line 24 "/usr/include/x86_64-linux-gnu/sys/param.h" 2 3 4 ::: 2120
 #pragma line 1 "/usr/include/x86_64-linux-gnu/sys/types.h" 1 3 4 ::: 2122
 #pragma line 33 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4 ::: 2143
@@ -123,8 +123,8 @@
 #pragma line 102 "/usr/include/time.h" 3 4 ::: 2230
 #pragma line 133 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4 ::: 2233
 #pragma line 146 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4 ::: 2234
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2235
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2260
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 2235
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 2260
 #pragma line 147 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4 ::: 2263
 #pragma line 186 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4 ::: 2273
 #pragma line 1 "/usr/include/endian.h" 1 3 4 ::: 2305
@@ -172,7 +172,7 @@
 #pragma line 220 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4 ::: 2880
 #pragma line 271 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4 ::: 2911
 #pragma line 26 "/usr/include/x86_64-linux-gnu/sys/param.h" 2 3 4 ::: 2912
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 4 ::: 2913
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 4 ::: 2913
 #pragma line 1 "/usr/include/limits.h" 1 3 4 ::: 2952
 #pragma line 116 "/usr/include/limits.h" 3 4 ::: 2988
 #pragma line 142 "/usr/include/limits.h" 3 4 ::: 3002
@@ -188,10 +188,10 @@
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h" 1 3 4 ::: 3241
 #pragma line 87 "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h" 3 4 ::: 3302
 #pragma line 148 "/usr/include/limits.h" 2 3 4 ::: 3304
-#pragma line 39 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 4 ::: 3305
-#pragma line 60 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3310
-#pragma line 90 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3312
-#pragma line 102 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3314
+#pragma line 39 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 4 ::: 3305
+#pragma line 60 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3310
+#pragma line 90 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3312
+#pragma line 102 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4 ::: 3314
 #pragma line 27 "/usr/include/x86_64-linux-gnu/sys/param.h" 2 3 4 ::: 3319
 #pragma line 1 "/usr/include/signal.h" 1 3 4 ::: 3321
 #pragma line 32 "/usr/include/signal.h" 3 4 ::: 3342
@@ -228,8 +228,8 @@
 #pragma line 29 "/usr/include/x86_64-linux-gnu/bits/sigcontext.h" 3 4 ::: 4004
 #pragma line 121 "/usr/include/x86_64-linux-gnu/bits/sigcontext.h" 3 4 ::: 4031
 #pragma line 307 "/usr/include/signal.h" 2 3 4 ::: 4104
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4115
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4140
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4115
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4140
 #pragma line 317 "/usr/include/signal.h" 2 3 4 ::: 4143
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/sigstack.h" 1 3 4 ::: 4151
 #pragma line 324 "/usr/include/signal.h" 2 3 4 ::: 4206
@@ -260,7 +260,7 @@
 #pragma line 47 "ed25519_sign/src/ed25519-donna-portable-identify.h" ::: 4447
 #pragma line 86 "ed25519_sign/src/ed25519-donna-portable-identify.h" ::: 4449
 #pragma line 101 "ed25519_sign/src/ed25519-donna-portable-identify.h" ::: 4451
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3 ::: 4452
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3 ::: 4452
 #pragma line 1 "/usr/include/stdint.h" 1 3 4 ::: 4486
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4 ::: 4513
 #pragma line 27 "/usr/include/stdint.h" 2 3 4 ::: 4545
@@ -279,15 +279,15 @@
 #pragma line 270 "/usr/include/stdint.h" 3 4 ::: 4697
 #pragma line 291 "/usr/include/stdint.h" 3 4 ::: 4710
 #pragma line 301 "/usr/include/stdint.h" 3 4 ::: 4712
-#pragma line 34 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3 ::: 4714
+#pragma line 34 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3 ::: 4714
 #pragma line 102 "ed25519_sign/src/ed25519-donna-portable-identify.h" 2 ::: 4715
 #pragma line 2 "ed25519_sign/src/ed25519-donna-portable.h" 2 ::: 4716
 #pragma line 28 "ed25519_sign/src/ed25519-donna-portable.h" ::: 4721
 #pragma line 89 "ed25519_sign/src/ed25519-donna-portable.h" ::: 4727
 #pragma line 108 "ed25519_sign/src/ed25519-donna-portable.h" ::: 4736
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4 ::: 4762
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4795
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4820
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 4795
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 4820
 #pragma line 33 "/usr/include/stdlib.h" 2 3 4 ::: 4823
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 1 3 4 ::: 4833
 #pragma line 39 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3 4 ::: 4862
@@ -298,8 +298,8 @@
 #pragma line 263 "/usr/include/stdlib.h" 3 4 ::: 5062
 #pragma line 426 "/usr/include/stdlib.h" 3 4 ::: 5218
 #pragma line 1 "/usr/include/alloca.h" 1 3 4 ::: 5247
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5272
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5297
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5272
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5297
 #pragma line 25 "/usr/include/alloca.h" 2 3 4 ::: 5300
 #pragma line 454 "/usr/include/stdlib.h" 2 3 4 ::: 5309
 #pragma line 475 "/usr/include/stdlib.h" 3 4 ::: 5322
@@ -319,8 +319,8 @@
 #pragma line 133 "ed25519_sign/src/ed25519-donna-portable.h" 2 ::: 5616
 #pragma line 1 "/usr/include/string.h" 1 3 4 ::: 5617
 #pragma line 29 "/usr/include/string.h" 3 4 ::: 5638
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5643
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5668
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 5643
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 5668
 #pragma line 33 "/usr/include/string.h" 2 3 4 ::: 5671
 #pragma line 92 "/usr/include/string.h" 3 4 ::: 5708
 #pragma line 124 "/usr/include/string.h" 3 4 ::: 5711

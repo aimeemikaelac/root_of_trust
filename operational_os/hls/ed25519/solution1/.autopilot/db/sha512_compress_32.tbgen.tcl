@@ -11,7 +11,7 @@ set C_modelName {sha512_compress_32}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ md_state int 64 regular {array 8 { 2 3 } 1 1 }  }
-	{ buf_r int 8 regular {array 64 { 1 } 1 1 }  }
+	{ buf_r int 8 regular {array 64 { 1 1 } 1 1 }  }
 	{ sum int 64 regular  }
 }
 set C_modelArgMapList {[ 
@@ -19,7 +19,7 @@ set C_modelArgMapList {[
  	{ "Name" : "buf_r", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "sum", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 15
+set portNum 18
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -35,6 +35,9 @@ set portList {
 	{ buf_r_address0 sc_out sc_lv 6 signal 1 } 
 	{ buf_r_ce0 sc_out sc_logic 1 signal 1 } 
 	{ buf_r_q0 sc_in sc_lv 8 signal 1 } 
+	{ buf_r_address1 sc_out sc_lv 6 signal 1 } 
+	{ buf_r_ce1 sc_out sc_logic 1 signal 1 } 
+	{ buf_r_q1 sc_in sc_lv 8 signal 1 } 
 	{ sum sc_in sc_lv 64 signal 2 } 
 }
 set NewPortList {[ 
@@ -52,6 +55,9 @@ set NewPortList {[
  	{ "name": "buf_r_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "buf_r", "role": "address0" }} , 
  	{ "name": "buf_r_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "buf_r", "role": "ce0" }} , 
  	{ "name": "buf_r_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "buf_r", "role": "q0" }} , 
+ 	{ "name": "buf_r_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "buf_r", "role": "address1" }} , 
+ 	{ "name": "buf_r_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "buf_r", "role": "ce1" }} , 
+ 	{ "name": "buf_r_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "buf_r", "role": "q1" }} , 
  	{ "name": "sum", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "sum", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -76,7 +82,7 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	sha512_compress_32 {
 		md_state {Type IO LastRead 5 FirstWrite 6}
-		buf_r {Type I LastRead 10 FirstWrite -1}
+		buf_r {Type I LastRead 11 FirstWrite -1}
 		sum {Type I LastRead 0 FirstWrite -1}
 		K {Type I LastRead -1 FirstWrite -1}}}
 
@@ -92,6 +98,6 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	md_state { ap_memory {  { md_state_address0 mem_address 1 3 }  { md_state_ce0 mem_ce 1 1 }  { md_state_we0 mem_we 1 1 }  { md_state_d0 mem_din 1 64 }  { md_state_q0 mem_dout 0 64 } } }
-	buf_r { ap_memory {  { buf_r_address0 mem_address 1 6 }  { buf_r_ce0 mem_ce 1 1 }  { buf_r_q0 mem_dout 0 8 } } }
+	buf_r { ap_memory {  { buf_r_address0 mem_address 1 6 }  { buf_r_ce0 mem_ce 1 1 }  { buf_r_q0 mem_dout 0 8 }  { buf_r_address1 mem_address 1 6 }  { buf_r_ce1 mem_ce 1 1 }  { buf_r_q1 mem_dout 0 8 } } }
 	sum { ap_none {  { sum in_data 0 64 } } }
 }

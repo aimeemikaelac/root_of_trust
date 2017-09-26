@@ -1,20 +1,20 @@
-INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'michael' on host 'Alienware' (Linux_x86_64 version 4.10.0-21-generic) on Sat Jun 03 22:30:41 MDT 2017
+INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'michael' on host 'UberMachine' (Linux_x86_64 version 4.10.0-35-generic) on Mon Sep 25 21:41:06 MDT 2017
 INFO: [HLS 200-10] On os Ubuntu 17.04
 INFO: [HLS 200-10] In directory '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls'
-INFO: [HLS 200-10] Opening project '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref'.
-INFO: [HLS 200-10] Opening solution '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_ref/solution1'.
+INFO: [HLS 200-10] Opening project '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519'.
+INFO: [HLS 200-10] Opening solution '/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-2-i'
 INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
 
-****** Vivado v2017.1 (64-bit)
-  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
-  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/Xilinx/Vivado/2017.1/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sat Jun  3 22:30:50 2017...
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 25 21:41:13 2017...

@@ -2,29 +2,20 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <synLog/>
+      <synLog>
+        <logs message="ERROR: [HLS 200-70] Compilation errors found:&#xA;Pragma processor failed: In file included from ed25519_sign/src/ed25519.c:19:&#xA;ed25519_sign/src/ed25519-randombytes.h:83:10: fatal error: 'openssl/rand.h' file not found&#xA;#include &lt;openssl/rand.h>&#xA;         ^&#xA;1 error generated.&#xA;Failed checking during preprocessing.&#xA;    while executing&#xA;&quot;source /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/solution1/csynth.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/solution1/csynth.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;" projectName="ed25519_sign" solutionName="solution1" date="2017-09-23T15:29:57.437-0600"/>
+      </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.352-0600"/>
-        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.347-0600"/>
-        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/144791496375327575154" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.344-0600"/>
-        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/144791496375327575154/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:49:27.338-0600"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.691-0600"/>
-        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.688-0600"/>
-        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/143451496375242917245" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.685-0600"/>
-        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/143451496375242917245/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/143451496375242917245/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:48:03.682-0600"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.432-0600"/>
-        <logs message="ERROR: [APCC 202-1] APCC failed.&#xA;csim.mk:82: recipe for target 'obj/ed25519.o' failed&#xA;make: *** [obj/ed25519.o] Error 1" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.428-0600"/>
-        <logs message="ERROR: [APCC 202-3] Tmp directory is /tmp/apcc_db_michael/141201496375102617137" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.426-0600"/>
-        <logs message="ERROR: [APCC 202-3] Gcc Compile failed: &#xA;/tmp/apcc_db_michael/141201496375102617137/ed25519.cpp: In function ‘void aesl_internal_ge25519_scalarmult_base_choose_niels(l_struct_OC_ge25519_niels_t*, char (*)[96], int, char)’:&#xA;/tmp/apcc_db_michael/141201496375102617137/ed25519.cpp:110270:25: error: expected ‘)’ before string constant" projectName="ed25519_sign" solutionName="solution1" date="2017-06-01T21:45:43.423-0600"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog/>
+      <synLog>
+        <logs message="WARNING: [HLS 200-40] In file included from ed25519_sign/src/ed25519.c:19:&#xA;ed25519_sign/src/ed25519-randombytes.h:83:10: fatal error: 'openssl/rand.h' file not found&#xA;#include &lt;openssl/rand.h>&#xA;         ^&#xA;1 error generated." projectName="ed25519_sign" solutionName="solution1" date="2017-09-23T15:29:57.422-0600" type="Warning"/>
+      </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>

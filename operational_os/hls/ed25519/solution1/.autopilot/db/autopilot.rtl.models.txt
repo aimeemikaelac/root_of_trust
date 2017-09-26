@@ -8,9 +8,7 @@ cmov_base_xy2d
 ge_scalarmult_basncg
 ed25519_sign_hashtde
 ed25519_sign_hashudo
-ed25519_sign_hram
 ed25519_sign_tempvdy
-ed25519_sign_AXILiteS_s_axi
 ed25519_sign_microblaze_mem_m_axi
 sha512_compress_128
 sha512_compress_32

@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'ge_scalarmult_base'" level="0">
-<item name = "Date">Fri Jun  2 12:27:22 2017
+<item name = "Date">Mon Sep 25 21:40:24 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 7.56, 1.25</column>
+<column name="ap_clk">10.00, 4.78, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,27 +24,27 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">101237, 101237, 101237, 101237, none</column>
+<column name="">101570, 101570, 101570, 101570, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_ge_p1p1_to_p3_fu_1756">ge_p1p1_to_p3, 800, 800, 800, 800, none</column>
-<column name="grp_ge_p2_dbl_fu_1757">ge_p2_dbl, 414, 414, 414, 414, none</column>
-<column name="grp_ge_p1p1_to_p2_fu_1758">ge_p1p1_to_p2, 603, 603, 603, 603, none</column>
-<column name="grp_fe_copy_fu_3213">fe_copy, 0, 0, 0, 0, none</column>
-<column name="grp_ge_madd_fu_3257">ge_madd, 417, 417, 417, 417, none</column>
-<column name="grp_select_r_fu_3411">select_r, 289, 289, 289, 289, none</column>
+<column name="grp_ge_p1p1_to_p3_fu_1747">ge_p1p1_to_p3, 804, 804, 804, 804, none</column>
+<column name="grp_ge_p2_dbl_fu_1748">ge_p2_dbl, 414, 414, 414, 414, none</column>
+<column name="grp_ge_p1p1_to_p2_fu_1749">ge_p1p1_to_p2, 606, 606, 606, 606, none</column>
+<column name="grp_fe_copy_fu_3204">fe_copy, 0, 0, 0, 0, none</column>
+<column name="grp_ge_madd_fu_3248">ge_madd, 418, 418, 418, 418, none</column>
+<column name="grp_select_r_fu_3402">select_r, 289, 289, 289, 289, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">64, 64, 2, -, -, 32, no</column>
 <column name="- Loop 2">189, 189, 3, -, -, 63, no</column>
-<column name="- Loop 3">48352, 48352, 1511, -, -, 32, no</column>
-<column name="- Loop 4">48352, 48352, 1511, -, -, 32, no</column>
+<column name="- Loop 3">48512, 48512, 1516, -, -, 32, no</column>
+<column name="- Loop 4">48512, 48512, 1516, -, -, 32, no</column>
 </table>
 </item>
 </section>

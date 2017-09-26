@@ -10,10 +10,10 @@ set StallSigGenFlag 0
 set C_modelName {sc_muladd}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ s int 8 regular {array 64 { 0 } 0 1 }  }
-	{ a int 8 regular {array 64 { 1 } 1 1 }  }
-	{ b int 8 regular {array 64 { 1 } 1 1 }  }
-	{ c int 8 regular {array 64 { 1 } 1 1 }  }
+	{ s int 8 regular {array 64 { 0 3 } 0 1 }  }
+	{ a int 8 regular {array 64 { 1 1 } 1 1 }  }
+	{ b int 8 regular {array 64 { 1 1 } 1 1 }  }
+	{ c int 8 regular {array 64 { 1 1 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "s", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
@@ -21,7 +21,7 @@ set C_modelArgMapList {[
  	{ "Name" : "b", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "c", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 19
+set portNum 28
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -36,12 +36,21 @@ set portList {
 	{ a_address0 sc_out sc_lv 6 signal 1 } 
 	{ a_ce0 sc_out sc_logic 1 signal 1 } 
 	{ a_q0 sc_in sc_lv 8 signal 1 } 
+	{ a_address1 sc_out sc_lv 6 signal 1 } 
+	{ a_ce1 sc_out sc_logic 1 signal 1 } 
+	{ a_q1 sc_in sc_lv 8 signal 1 } 
 	{ b_address0 sc_out sc_lv 6 signal 2 } 
 	{ b_ce0 sc_out sc_logic 1 signal 2 } 
 	{ b_q0 sc_in sc_lv 8 signal 2 } 
+	{ b_address1 sc_out sc_lv 6 signal 2 } 
+	{ b_ce1 sc_out sc_logic 1 signal 2 } 
+	{ b_q1 sc_in sc_lv 8 signal 2 } 
 	{ c_address0 sc_out sc_lv 6 signal 3 } 
 	{ c_ce0 sc_out sc_logic 1 signal 3 } 
 	{ c_q0 sc_in sc_lv 8 signal 3 } 
+	{ c_address1 sc_out sc_lv 6 signal 3 } 
+	{ c_ce1 sc_out sc_logic 1 signal 3 } 
+	{ c_q1 sc_in sc_lv 8 signal 3 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -57,12 +66,21 @@ set NewPortList {[
  	{ "name": "a_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "a", "role": "address0" }} , 
  	{ "name": "a_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "a", "role": "ce0" }} , 
  	{ "name": "a_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "a", "role": "q0" }} , 
+ 	{ "name": "a_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "a", "role": "address1" }} , 
+ 	{ "name": "a_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "a", "role": "ce1" }} , 
+ 	{ "name": "a_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "a", "role": "q1" }} , 
  	{ "name": "b_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "b", "role": "address0" }} , 
  	{ "name": "b_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "b", "role": "ce0" }} , 
  	{ "name": "b_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "b", "role": "q0" }} , 
+ 	{ "name": "b_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "b", "role": "address1" }} , 
+ 	{ "name": "b_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "b", "role": "ce1" }} , 
+ 	{ "name": "b_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "b", "role": "q1" }} , 
  	{ "name": "c_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "c", "role": "address0" }} , 
  	{ "name": "c_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "c", "role": "ce0" }} , 
- 	{ "name": "c_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "c", "role": "q0" }}  ]}
+ 	{ "name": "c_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "c", "role": "q0" }} , 
+ 	{ "name": "c_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "c", "role": "address1" }} , 
+ 	{ "name": "c_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "c", "role": "ce1" }} , 
+ 	{ "name": "c_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "c", "role": "q1" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
@@ -74,57 +92,57 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state86", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state126", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26263"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_26271"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state28", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state69", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state105", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26290"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"},
-			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"},
-			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"},
-			{"State" : "ap_ST_fsm_state28", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"},
-			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_26298"}],
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state86", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state126", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30183"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_4_fu_30191"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state28", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state30", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state69", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state105", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30210"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"},
+			{"State" : "ap_ST_fsm_state14", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"},
+			{"State" : "ap_ST_fsm_state21", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"},
+			{"State" : "ap_ST_fsm_state28", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"},
+			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_load_3_fu_30218"}],
 		"Port" : [
 			{"Name" : "s", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "a", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_load_3_fu_26290", "Port" : "in_r"},
-					{"ID" : "1", "SubInstance" : "grp_load_4_fu_26263", "Port" : "in_r"}]},
+					{"ID" : "1", "SubInstance" : "grp_load_4_fu_30183", "Port" : "in_r"},
+					{"ID" : "3", "SubInstance" : "grp_load_3_fu_30210", "Port" : "in_r"}]},
 			{"Name" : "b", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_load_3_fu_26290", "Port" : "in_r"},
-					{"ID" : "1", "SubInstance" : "grp_load_4_fu_26263", "Port" : "in_r"}]},
+					{"ID" : "1", "SubInstance" : "grp_load_4_fu_30183", "Port" : "in_r"},
+					{"ID" : "3", "SubInstance" : "grp_load_3_fu_30210", "Port" : "in_r"}]},
 			{"Name" : "c", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_load_3_fu_26298", "Port" : "in_r"},
-					{"ID" : "2", "SubInstance" : "grp_load_4_fu_26271", "Port" : "in_r"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_4_fu_26263", "Parent" : "0",
+					{"ID" : "4", "SubInstance" : "grp_load_3_fu_30218", "Port" : "in_r"},
+					{"ID" : "2", "SubInstance" : "grp_load_4_fu_30191", "Port" : "in_r"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_4_fu_30183", "Parent" : "0",
 		"CDFG" : "load_4",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -135,7 +153,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "in_r", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "in_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_4_fu_26271", "Parent" : "0",
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_4_fu_30191", "Parent" : "0",
 		"CDFG" : "load_4",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -146,7 +164,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "in_r", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "in_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_3_fu_26290", "Parent" : "0",
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_3_fu_30210", "Parent" : "0",
 		"CDFG" : "load_3",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -157,7 +175,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "in_r", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "in_offset", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_3_fu_26298", "Parent" : "0",
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_load_3_fu_30218", "Parent" : "0",
 		"CDFG" : "load_3",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -172,15 +190,15 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	sc_muladd {
-		s {Type O LastRead -1 FirstWrite 361}
-		a {Type I LastRead 3 FirstWrite -1}
-		b {Type I LastRead 3 FirstWrite -1}
-		c {Type I LastRead 3 FirstWrite -1}}
+		s {Type O LastRead -1 FirstWrite 359}
+		a {Type I LastRead 2 FirstWrite -1}
+		b {Type I LastRead 2 FirstWrite -1}
+		c {Type I LastRead 2 FirstWrite -1}}
 	load_4 {
-		in_r {Type I LastRead 3 FirstWrite -1}
+		in_r {Type I LastRead 2 FirstWrite -1}
 		in_offset {Type I LastRead 0 FirstWrite -1}}
 	load_4 {
-		in_r {Type I LastRead 3 FirstWrite -1}
+		in_r {Type I LastRead 2 FirstWrite -1}
 		in_offset {Type I LastRead 0 FirstWrite -1}}
 	load_3 {
 		in_r {Type I LastRead 2 FirstWrite -1}
@@ -192,8 +210,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "490", "Max" : "490"}
-	, {"Name" : "Interval", "Min" : "490", "Max" : "490"}
+	{"Name" : "Latency", "Min" : "460", "Max" : "460"}
+	, {"Name" : "Interval", "Min" : "460", "Max" : "460"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -201,7 +219,7 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	s { ap_memory {  { s_address0 mem_address 1 6 }  { s_ce0 mem_ce 1 1 }  { s_we0 mem_we 1 1 }  { s_d0 mem_din 1 8 } } }
-	a { ap_memory {  { a_address0 mem_address 1 6 }  { a_ce0 mem_ce 1 1 }  { a_q0 mem_dout 0 8 } } }
-	b { ap_memory {  { b_address0 mem_address 1 6 }  { b_ce0 mem_ce 1 1 }  { b_q0 mem_dout 0 8 } } }
-	c { ap_memory {  { c_address0 mem_address 1 6 }  { c_ce0 mem_ce 1 1 }  { c_q0 mem_dout 0 8 } } }
+	a { ap_memory {  { a_address0 mem_address 1 6 }  { a_ce0 mem_ce 1 1 }  { a_q0 mem_dout 0 8 }  { a_address1 mem_address 1 6 }  { a_ce1 mem_ce 1 1 }  { a_q1 mem_dout 0 8 } } }
+	b { ap_memory {  { b_address0 mem_address 1 6 }  { b_ce0 mem_ce 1 1 }  { b_q0 mem_dout 0 8 }  { b_address1 mem_address 1 6 }  { b_ce1 mem_ce 1 1 }  { b_q1 mem_dout 0 8 } } }
+	c { ap_memory {  { c_address0 mem_address 1 6 }  { c_ce0 mem_ce 1 1 }  { c_q0 mem_dout 0 8 }  { c_address1 mem_address 1 6 }  { c_ce1 mem_ce 1 1 }  { c_q1 mem_dout 0 8 } } }
 }

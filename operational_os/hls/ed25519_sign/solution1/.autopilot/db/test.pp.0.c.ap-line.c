@@ -8,7 +8,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
 /* autopilot_ssdm_op.h*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -61,7 +61,7 @@
  *
  * $Id$
  */
-#pragma line 289 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 289 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define AP_SPEC_ATTR __attribute__ ((pure))*/
 #pragma empty_line
 #pragma empty_line
@@ -188,7 +188,7 @@
 #pragma empty_line
 /*#define _ssdm_op_WaitUntil(X) while (!(X)) _ssdm_op_Wait(1);
 #define _ssdm_op_Delayed(X) X */
-#pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 427 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #pragma line 6 "<command line>" 2
 #pragma line 1 "<built-in>" 2
@@ -756,7 +756,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -797,7 +797,7 @@ typedef __typeof__(sizeof(int)) size_t;
 #pragma empty_line
 #pragma empty_line
 typedef int wchar_t;
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 34 "/usr/include/stdio.h" 2 3 4
@@ -1071,7 +1071,7 @@ typedef struct _IO_FILE __FILE;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -1096,7 +1096,7 @@ typedef struct _IO_FILE __FILE;
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 16 "/usr/include/_G_config.h" 2 3 4
@@ -1177,7 +1177,7 @@ typedef struct
 /* This define avoids name pollution if we're using GNU stdarg.h */
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
 /*===---- stdarg.h - Variable argument handling ----------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2086,7 +2086,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2111,7 +2111,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 33 "/usr/include/string.h" 2 3 4
@@ -2450,7 +2450,7 @@ extern char *stpncpy (char *__restrict __dest,
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2475,7 +2475,7 @@ extern char *stpncpy (char *__restrict __dest,
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 33 "/usr/include/stdlib.h" 2 3 4
@@ -2844,7 +2844,7 @@ typedef __clockid_t clockid_t;
 typedef __timer_t timer_t;
 #pragma line 133 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
 #pragma line 146 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2869,7 +2869,7 @@ typedef __timer_t timer_t;
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 147 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
@@ -3718,7 +3718,7 @@ extern void cfree (void *__ptr) __attribute__ ((__nothrow__ ));
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -3743,7 +3743,7 @@ extern void cfree (void *__ptr) __attribute__ ((__nothrow__ ));
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 25 "/usr/include/alloca.h" 2 3 4
@@ -4120,7 +4120,7 @@ void curved25519_scalarmult_basepoint(curved25519_key pk, const curved25519_key 
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -4145,13 +4145,13 @@ void curved25519_scalarmult_basepoint(curved25519_key pk, const curved25519_key 
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 24 "/usr/include/x86_64-linux-gnu/sys/param.h" 2 3 4
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 4
 /*===---- limits.h - Standard header for integer sizes --------------------===*\
  *
  * Copyright (c) 2009 Chris Lattner
@@ -4543,16 +4543,16 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 87 "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h" 3 4
 /* This value is defined like this in regex.h.  */
 #pragma line 148 "/usr/include/limits.h" 2 3 4
-#pragma line 39 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 4
+#pragma line 39 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 4
 #pragma empty_line
 #pragma empty_line
 /* Many system headers try to "help us out" by defining these.  No really, we
    know how big each datatype is. */
-#pragma line 60 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
+#pragma line 60 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
 /* C90/99 5.2.4.2.1 */
-#pragma line 90 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
+#pragma line 90 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
 /* C99 5.2.4.2.1: Added long long. */
-#pragma line 102 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
+#pragma line 102 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 4
 /* LONG_LONG_MIN/LONG_LONG_MAX/ULONG_LONG_MAX are a GNU extension.  It's too bad
    that we don't have something like #pragma poison that could be used to
    deprecate a macro - the code should just use LLONG_MAX and friends.
@@ -5353,7 +5353,7 @@ extern int sigreturn (struct sigcontext *__scp) __attribute__ ((__nothrow__ ));
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -5378,7 +5378,7 @@ extern int sigreturn (struct sigcontext *__scp) __attribute__ ((__nothrow__ ));
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 317 "/usr/include/signal.h" 2 3 4
@@ -5690,7 +5690,7 @@ extern int __libc_current_sigrtmax (void) __attribute__ ((__nothrow__ ));
 #pragma line 86 "ed25519_sign/src/ed25519-donna-portable-identify.h"
 /* 64 bit cpu */
 #pragma line 101 "ed25519_sign/src/ed25519-donna-portable-identify.h"
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3
 /*===---- stdint.h - Standard header for sized integer types --------------===*\
  *
  * Copyright (c) 2009 Chris Lattner
@@ -5952,7 +5952,7 @@ typedef unsigned long int uintmax_t;
 /* Unsigned.  */
 #pragma line 301 "/usr/include/stdint.h" 3 4
 /* Maximal type.  */
-#pragma line 34 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3
+#pragma line 34 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3
 #pragma line 102 "ed25519_sign/src/ed25519-donna-portable-identify.h" 2
 #pragma line 2 "ed25519_sign/src/test-ticks.h" 2
 #pragma empty_line

@@ -7065,7 +7065,7 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>800</mMinLatency>
+        <mMinLatency>804</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
@@ -7872,15 +7872,15 @@
             <item_version>0</item_version>
             <item class_id="38" tracking_level="0" version="0">
               <first>DSP48E</first>
-              <second>4</second>
+              <second>5</second>
             </item>
             <item>
               <first>FF</first>
-              <second>8266</second>
+              <second>8660</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>2314</second>
+              <second>2692</second>
             </item>
           </second>
         </item>
@@ -8862,7 +8862,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8885,7 +8885,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8908,7 +8908,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8931,7 +8931,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8954,7 +8954,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -8977,7 +8977,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9000,7 +9000,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9023,7 +9023,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9046,7 +9046,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9069,7 +9069,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9092,7 +9092,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9115,7 +9115,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9138,7 +9138,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9161,7 +9161,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9184,7 +9184,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9207,7 +9207,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9230,7 +9230,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9253,7 +9253,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9276,7 +9276,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>
@@ -9299,7 +9299,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>17</second>
             </item>
           </second>
         </item>

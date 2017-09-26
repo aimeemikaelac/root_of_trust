@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'ed25519_sign'" level="0">
-<item name = "Date">Fri Jun  2 12:27:36 2017
+<item name = "Date">Mon Sep 25 21:40:38 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -31,25 +31,26 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_sha512_update_128_fu_506">sha512_update_128, ?, ?, ?, ?, none</column>
-<column name="grp_sha512_final_fu_507">sha512_final, ?, ?, ?, ?, none</column>
-<column name="grp_fe_mul_fu_508">fe_mul, 201, 201, 201, 201, none</column>
-<column name="grp_ge_scalarmult_base_fu_575">ge_scalarmult_base, 101237, 101237, 101237, 101237, none</column>
-<column name="grp_fe_invert_fu_642">fe_invert, 34972, 34972, 34972, 34972, none</column>
-<column name="grp_sha512_update_32_fu_787">sha512_update_32, ?, ?, ?, ?, none</column>
-<column name="grp_sc_muladd_fu_958">sc_muladd, 490, 490, 490, 490, none</column>
-<column name="grp_sha512_update_32_2_fu_968">sha512_update_32_2, ?, ?, ?, ?, none</column>
-<column name="grp_sha512_update_32_1_fu_980">sha512_update_32_1, ?, ?, ?, ?, none</column>
-<column name="grp_sc_reduce_fu_992">sc_reduce, 355, 355, 355, 355, none</column>
-<column name="grp_fe_tobytes_1_fu_997">fe_tobytes_1, 57, 57, 57, 57, none</column>
+<column name="grp_sha512_update_128_fu_517">sha512_update_128, ?, ?, ?, ?, none</column>
+<column name="grp_sha512_final_fu_518">sha512_final, ?, ?, ?, ?, none</column>
+<column name="grp_fe_mul_fu_519">fe_mul, 202, 202, 202, 202, none</column>
+<column name="grp_ge_scalarmult_base_fu_586">ge_scalarmult_base, 101570, 101570, 101570, 101570, none</column>
+<column name="grp_fe_invert_fu_653">fe_invert, 34970, 34970, 34970, 34970, none</column>
+<column name="grp_sha512_update_32_fu_798">sha512_update_32, ?, ?, ?, ?, none</column>
+<column name="grp_sc_muladd_fu_969">sc_muladd, 460, 460, 460, 460, none</column>
+<column name="grp_sha512_update_32_2_fu_979">sha512_update_32_2, ?, ?, ?, ?, none</column>
+<column name="grp_sha512_update_32_1_fu_991">sha512_update_32_1, ?, ?, ?, ?, none</column>
+<column name="grp_sc_reduce_fu_1003">sc_reduce, 318, 318, 318, 318, none</column>
+<column name="grp_fe_tobytes_1_fu_1008">fe_tobytes_1, 57, 57, 57, 57, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, ?, -, -, ?, no</column>
-<column name=" + Loop 1.1">256, 256, 2, -, -, 128, no</column>
-<column name="- Loop 2">?, ?, ?, -, -, ?, no</column>
-<column name=" + Loop 2.1">256, 256, 2, -, -, 128, no</column>
+<column name="- Loop 1">?, ?, ?, -, -, inf, no</column>
+<column name=" + Loop 1.1">?, ?, ?, -, -, ?, no</column>
+<column name="  ++ Loop 1.1.1">256, 256, 2, -, -, 128, no</column>
+<column name=" + Loop 1.2">?, ?, ?, -, -, ?, no</column>
+<column name="  ++ Loop 1.2.1">256, 256, 2, -, -, 128, no</column>
 </table>
 </item>
 </section>

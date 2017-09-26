@@ -2646,7 +2646,7 @@
 					<Obj>
 						<type>0</type>
 						<id>98</id>
-						<name>tmp_1728</name>
+						<name>tmp_1727</name>
 						<fileName>ed25519/src/ge.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
 						<lineNumber>505</lineNumber>
@@ -3164,7 +3164,7 @@
 					<Obj>
 						<type>0</type>
 						<id>110</id>
-						<name>tmp_1729</name>
+						<name>tmp_1728</name>
 						<fileName>ed25519/src/ge.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
 						<lineNumber>506</lineNumber>

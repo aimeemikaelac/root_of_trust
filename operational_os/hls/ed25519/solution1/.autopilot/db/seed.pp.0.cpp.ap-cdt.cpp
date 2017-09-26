@@ -9,7 +9,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
 /* autopilot_ssdm_op.h*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -62,10 +62,10 @@
  *
  * $Id$
  */
-#pragma line 145 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 145 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define AP_SPEC_ATTR __attribute__ ((pure))*/
 //adu: patched
-#pragma line 156 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 156 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 extern "C" {
 #pragma empty_line
     /****** SSDM Intrinsics: OPERATIONS ***/
@@ -195,10 +195,10 @@ extern "C" {
 #pragma empty_line
 #pragma empty_line
 }
-#pragma line 413 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 413 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define _ssdm_op_WaitUntil(X) while (!(X)) _ssdm_op_Wait(1);
 #define _ssdm_op_Delayed(X) X */
-#pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 427 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #pragma line 7 "<command line>" 2
 #pragma line 1 "<built-in>" 2
@@ -207,7 +207,7 @@ extern "C" {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -243,11 +243,11 @@ typedef __typeof__(((int*)0)-((int*)0)) ptrdiff_t;
 #pragma empty_line
 #pragma empty_line
 typedef __typeof__(sizeof(int)) size_t;
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 5 "ed25519/src/ed25519.h" 2
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -314,7 +314,7 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_enum.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_enum.h" 1
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
 #-
@@ -449,7 +449,7 @@ enum SsdmRegionTypes {
 #pragma empty_line
 #pragma empty_line
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-#pragma line 67 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 2
+#pragma line 67 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 2
 #pragma empty_line
 #pragma empty_line
 namespace hls {

@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'fe_add'
 ================================================================
-* Date:           Fri Jun  2 12:27:15 2017
+* Date:           Mon Sep 25 21:40:18 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      1.34|        1.25|
+    |ap_clk  |  10.00|      0.82|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -91,106 +91,106 @@ IsGatedGlobalClock: 0
 10 --> 
 * FSM state operations: 
 
- <State 1>: 1.34ns
+ <State 1>: 0.82ns
 ST_1: g_0_read11 (30)  [1/1] 0.00ns
 :9  %g_0_read11 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_0_read)
 
 ST_1: f_0_read_9 (40)  [1/1] 0.00ns
 :19  %f_0_read_9 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_0_read)
 
-ST_1: h0 (48)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:123
+ST_1: h0 (48)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:123
 :27  %h0 = add nsw i32 %g_0_read11, %f_0_read_9
 
 
- <State 2>: 1.34ns
+ <State 2>: 0.82ns
 ST_2: g_1_read12 (29)  [1/1] 0.00ns
 :8  %g_1_read12 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_1_read)
 
 ST_2: f_1_read_10 (39)  [1/1] 0.00ns
 :18  %f_1_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_1_read)
 
-ST_2: h1 (49)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:124
+ST_2: h1 (49)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:124
 :28  %h1 = add nsw i32 %g_1_read12, %f_1_read_10
 
 
- <State 3>: 1.34ns
+ <State 3>: 0.82ns
 ST_3: g_2_read13 (28)  [1/1] 0.00ns
 :7  %g_2_read13 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_2_read)
 
 ST_3: f_2_read_10 (38)  [1/1] 0.00ns
 :17  %f_2_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_2_read)
 
-ST_3: h2 (50)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:125
+ST_3: h2 (50)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:125
 :29  %h2 = add nsw i32 %g_2_read13, %f_2_read_10
 
 
- <State 4>: 1.34ns
+ <State 4>: 0.82ns
 ST_4: g_3_read14 (27)  [1/1] 0.00ns
 :6  %g_3_read14 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_3_read)
 
 ST_4: f_3_read_9 (37)  [1/1] 0.00ns
 :16  %f_3_read_9 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_3_read)
 
-ST_4: h3 (51)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:126
+ST_4: h3 (51)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:126
 :30  %h3 = add nsw i32 %g_3_read14, %f_3_read_9
 
 
- <State 5>: 1.34ns
+ <State 5>: 0.82ns
 ST_5: g_4_read_5 (26)  [1/1] 0.00ns
 :5  %g_4_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_4_read)
 
 ST_5: f_4_read_10 (36)  [1/1] 0.00ns
 :15  %f_4_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_4_read)
 
-ST_5: h4 (52)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:127
+ST_5: h4 (52)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:127
 :31  %h4 = add nsw i32 %g_4_read_5, %f_4_read_10
 
 
- <State 6>: 1.34ns
+ <State 6>: 0.82ns
 ST_6: g_5_read_5 (25)  [1/1] 0.00ns
 :4  %g_5_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_5_read)
 
 ST_6: f_5_read_10 (35)  [1/1] 0.00ns
 :14  %f_5_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_5_read)
 
-ST_6: h5 (53)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:128
+ST_6: h5 (53)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:128
 :32  %h5 = add nsw i32 %g_5_read_5, %f_5_read_10
 
 
- <State 7>: 1.34ns
+ <State 7>: 0.82ns
 ST_7: g_6_read_5 (24)  [1/1] 0.00ns
 :3  %g_6_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_6_read)
 
 ST_7: f_6_read_10 (34)  [1/1] 0.00ns
 :13  %f_6_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_6_read)
 
-ST_7: h6 (54)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:129
+ST_7: h6 (54)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:129
 :33  %h6 = add nsw i32 %g_6_read_5, %f_6_read_10
 
 
- <State 8>: 1.34ns
+ <State 8>: 0.82ns
 ST_8: g_7_read_5 (23)  [1/1] 0.00ns
 :2  %g_7_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_7_read)
 
 ST_8: f_7_read_10 (33)  [1/1] 0.00ns
 :12  %f_7_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_7_read)
 
-ST_8: h7 (55)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:130
+ST_8: h7 (55)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:130
 :34  %h7 = add nsw i32 %g_7_read_5, %f_7_read_10
 
 
- <State 9>: 1.34ns
+ <State 9>: 0.82ns
 ST_9: g_8_read_5 (22)  [1/1] 0.00ns
 :1  %g_8_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_8_read)
 
 ST_9: f_8_read_10 (32)  [1/1] 0.00ns
 :11  %f_8_read_10 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_8_read)
 
-ST_9: h8 (56)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:131
+ST_9: h8 (56)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:131
 :35  %h8 = add nsw i32 %g_8_read_5, %f_8_read_10
 
 
- <State 10>: 1.34ns
+ <State 10>: 0.82ns
 ST_10: g_9_read_5 (21)  [1/1] 0.00ns
 :0  %g_9_read_5 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %g_9_read)
 
@@ -218,7 +218,7 @@ ST_10: StgValue_45 (46)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:101
 ST_10: StgValue_46 (47)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:102
 :26  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
 
-ST_10: h9 (57)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:132
+ST_10: h9 (57)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:132
 :36  %h9 = add nsw i32 %g_9_read_5, %f_9_read_10
 
 ST_10: mrv (58)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:144
@@ -1336,7 +1336,7 @@ StgValue_58 (ret              ) [ 00000000000]
 |----------|-------------------------|---------|---------|
 | Operation|     Functional Unit     |    FF   |   LUT   |
 |----------|-------------------------|---------|---------|
-|    add   |        grp_fu_184       |    0    |    39   |
+|    add   |        grp_fu_184       |   101   |    38   |
 |----------|-------------------------|---------|---------|
 |          |  g_0_read11_read_fu_64  |    0    |    0    |
 |          |  f_0_read_9_read_fu_70  |    0    |    0    |
@@ -1370,7 +1370,7 @@ StgValue_58 (ret              ) [ 00000000000]
 |          |       mrv_8_fu_319      |    0    |    0    |
 |          |       mrv_9_fu_325      |    0    |    0    |
 |----------|-------------------------|---------|---------|
-|   Total  |                         |    0    |    39   |
+|   Total  |                         |   101   |    38   |
 |----------|-------------------------|---------|---------|
 
 Memories:
@@ -1397,10 +1397,10 @@ N/A
 |------------|------|------|------|--------||---------||---------|
 |    Comp    |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |------------|------|------|------|--------||---------||---------|
-| grp_fu_184 |  p0  |  10  |  32  |   320  ||    47   |
-| grp_fu_184 |  p1  |  10  |  32  |   320  ||    47   |
+| grp_fu_184 |  p0  |  10  |  32  |   320  ||    55   |
+| grp_fu_184 |  p1  |  10  |  32  |   320  ||    55   |
 |------------|------|------|------|--------||---------||---------|
-|    Total   |      |      |      |   640  ||  1.7748 ||    94   |
+|    Total   |      |      |      |   640  || 1.50867 ||   110   |
 |------------|------|------|------|--------||---------||---------|
 
 
@@ -1409,10 +1409,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    -   |    0   |   39   |
+|  Function |    -   |   101  |   38   |
 |   Memory  |    -   |    -   |    -   |
-|Multiplexer|    1   |    -   |   94   |
+|Multiplexer|    1   |    -   |   110  |
 |  Register |    -   |   288  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    1   |   288  |   133  |
+|   Total   |    1   |   389  |   148  |
 +-----------+--------+--------+--------+

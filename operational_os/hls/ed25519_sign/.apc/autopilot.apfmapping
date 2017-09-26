@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="test-ticks.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test-ticks.h"/>
-    <originFiles name="test-internals.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test-internals.c"/>
-    <originFiles name="test.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test.c"/>
-    <originFiles name="regression.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/regression.h"/>
-    <originFiles name="modm-donna-64bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/modm-donna-64bit.h"/>
-    <originFiles name="modm-donna-32bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/modm-donna-32bit.h"/>
-    <originFiles name="ed25519-randombytes-custom.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-randombytes-custom.h"/>
-    <originFiles name="ed25519-randombytes.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-randombytes.h"/>
-    <originFiles name="ed25519-hash-custom.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-hash-custom.h"/>
-    <originFiles name="ed25519-hash.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-hash.h"/>
-    <originFiles name="ed25519-donna-portable-identify.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-portable-identify.h"/>
-    <originFiles name="ed25519-donna-portable.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-portable.h"/>
-    <originFiles name="ed25519-donna-impl-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-impl-sse2.h"/>
-    <originFiles name="ed25519-donna-impl-base.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-impl-base.h"/>
-    <originFiles name="ed25519-donna-batchverify.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-batchverify.h"/>
-    <originFiles name="ed25519-donna-basepoint-table.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-basepoint-table.h"/>
+    <originFiles name="curve25519-donna-32bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-32bit.h"/>
+    <originFiles name="curve25519-donna-64bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-64bit.h"/>
+    <originFiles name="curve25519-donna-helpers.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-helpers.h"/>
+    <originFiles name="curve25519-donna-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-sse2.h"/>
+    <originFiles name="ed25519-donna-32bit-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-32bit-sse2.h"/>
+    <originFiles name="ed25519-donna-32bit-tables.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-32bit-tables.h"/>
+    <originFiles name="ed25519-donna-64bit-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-sse2.h"/>
+    <originFiles name="ed25519-donna-64bit-tables.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-tables.h"/>
     <originFiles name="ed25519-donna-64bit-x86-32bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-x86-32bit.h"/>
     <originFiles name="ed25519-donna-64bit-x86.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-x86.h"/>
-    <originFiles name="ed25519-donna-64bit-tables.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-tables.h"/>
-    <originFiles name="ed25519-donna-64bit-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-64bit-sse2.h"/>
-    <originFiles name="ed25519-donna-32bit-tables.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-32bit-tables.h"/>
-    <originFiles name="ed25519-donna-32bit-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-32bit-sse2.h"/>
+    <originFiles name="ed25519-donna-basepoint-table.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-basepoint-table.h"/>
+    <originFiles name="ed25519-donna-batchverify.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-batchverify.h"/>
+    <originFiles name="ed25519-donna-impl-base.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-impl-base.h"/>
+    <originFiles name="ed25519-donna-impl-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-impl-sse2.h"/>
+    <originFiles name="ed25519-donna-portable-identify.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-portable-identify.h"/>
+    <originFiles name="ed25519-donna-portable.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna-portable.h"/>
     <originFiles name="ed25519-donna.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-donna.h"/>
-    <originFiles name="ed25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519.h"/>
+    <originFiles name="ed25519-hash-custom.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-hash-custom.h"/>
+    <originFiles name="ed25519-hash.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-hash.h"/>
+    <originFiles name="ed25519-randombytes-custom.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-randombytes-custom.h"/>
+    <originFiles name="ed25519-randombytes.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519-randombytes.h"/>
     <originFiles name="ed25519.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519.c"/>
-    <originFiles name="curve25519-donna-sse2.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-sse2.h"/>
-    <originFiles name="curve25519-donna-helpers.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-helpers.h"/>
-    <originFiles name="curve25519-donna-64bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-64bit.h"/>
-    <originFiles name="curve25519-donna-32bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519-donna-32bit.h"/>
+    <originFiles name="ed25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/ed25519.h"/>
+    <originFiles name="modm-donna-32bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/modm-donna-32bit.h"/>
+    <originFiles name="modm-donna-64bit.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/modm-donna-64bit.h"/>
+    <originFiles name="regression.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/regression.h"/>
+    <originFiles name="test-internals.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test-internals.c"/>
+    <originFiles name="test-ticks.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test-ticks.h"/>
+    <originFiles name="test.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/test.c"/>
   </source>
   <testbench>
     <originFiles name="curve25519_tb.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519_sign/src/curve25519_tb.cpp"/>

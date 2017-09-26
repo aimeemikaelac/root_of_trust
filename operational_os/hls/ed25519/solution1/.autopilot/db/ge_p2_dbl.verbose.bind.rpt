@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'ge_p2_dbl'
 ================================================================
-* Date:           Fri Jun  2 12:27:20 2017
+* Date:           Mon Sep 25 21:40:23 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      6.91|        1.25|
+    |ap_clk  |  10.00|      3.90|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -123,7 +123,7 @@ IsGatedGlobalClock: 0
 22 --> 
 * FSM state operations: 
 
- <State 1>: 6.13ns
+ <State 1>: 3.12ns
 ST_1: p_read (42)  [1/1] 0.00ns
 :11  %p_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2949)
 
@@ -214,18 +214,18 @@ ST_1: p_read_28 (70)  [1/1] 0.00ns
 ST_1: p_read411 (71)  [1/1] 0.00ns
 :40  %p_read411 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read41)
 
-ST_1: fe_sq_ret1 (72)  [2/2] 6.13ns
+ST_1: fe_sq_ret1 (72)  [2/2] 3.12ns
 :41  %fe_sq_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %p_read411, i32 %p_read_28, i32 %p_read_27, i32 %p_read_26, i32 %p_read_25, i32 %p_read_24, i32 %p_read_23, i32 %p_read_22, i32 %p_read_21, i32 %p_read_20)
 
-ST_1: fe_sq2_ret (94)  [2/2] 5.45ns  loc: ed25519/src/ge.cpp:359
+ST_1: fe_sq2_ret (94)  [2/2] 2.71ns  loc: ed25519/src/ge.cpp:359
 :63  %fe_sq2_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq2(i32 %p_read_9, i32 %p_read_8, i32 %p_read_7, i32 %p_read_6, i32 %p_read_5, i32 %p_read_4, i32 %p_read_3, i32 %p_read_2, i32 %p_read_1, i32 %p_read)
 
-ST_1: fe_add_ret (105)  [2/2] 2.00ns
+ST_1: fe_add_ret (105)  [2/2] 1.25ns
 :74  %fe_add_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %p_read411, i32 %p_read_28, i32 %p_read_27, i32 %p_read_26, i32 %p_read_25, i32 %p_read_24, i32 %p_read_23, i32 %p_read_22, i32 %p_read_21, i32 %p_read_20, i32 %p_read_19, i32 %p_read_18, i32 %p_read_17, i32 %p_read_16, i32 %p_read_15, i32 %p_read_14, i32 %p_read_13, i32 %p_read_12, i32 %p_read_11, i32 %p_read_10)
 
 
- <State 2>: 6.13ns
-ST_2: fe_sq_ret1 (72)  [1/2] 1.34ns
+ <State 2>: 3.12ns
+ST_2: fe_sq_ret1 (72)  [1/2] 0.82ns
 :41  %fe_sq_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %p_read411, i32 %p_read_28, i32 %p_read_27, i32 %p_read_26, i32 %p_read_25, i32 %p_read_24, i32 %p_read_23, i32 %p_read_22, i32 %p_read_21, i32 %p_read_20)
 
 ST_2: g0 (73)  [1/1] 0.00ns
@@ -258,13 +258,13 @@ ST_2: g8 (81)  [1/1] 0.00ns
 ST_2: g9 (82)  [1/1] 0.00ns
 :51  %g9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq_ret1, 9
 
-ST_2: fe_sq_ret (83)  [2/2] 6.13ns
+ST_2: fe_sq_ret (83)  [2/2] 3.12ns
 :52  %fe_sq_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %p_read_19, i32 %p_read_18, i32 %p_read_17, i32 %p_read_16, i32 %p_read_15, i32 %p_read_14, i32 %p_read_13, i32 %p_read_12, i32 %p_read_11, i32 %p_read_10)
 
-ST_2: fe_sq2_ret (94)  [1/2] 1.34ns  loc: ed25519/src/ge.cpp:359
+ST_2: fe_sq2_ret (94)  [1/2] 0.82ns  loc: ed25519/src/ge.cpp:359
 :63  %fe_sq2_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq2(i32 %p_read_9, i32 %p_read_8, i32 %p_read_7, i32 %p_read_6, i32 %p_read_5, i32 %p_read_4, i32 %p_read_3, i32 %p_read_2, i32 %p_read_1, i32 %p_read)
 
-ST_2: fe_add_ret (105)  [1/2] 1.34ns
+ST_2: fe_add_ret (105)  [1/2] 0.82ns
 :74  %fe_add_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %p_read411, i32 %p_read_28, i32 %p_read_27, i32 %p_read_26, i32 %p_read_25, i32 %p_read_24, i32 %p_read_23, i32 %p_read_22, i32 %p_read_21, i32 %p_read_20, i32 %p_read_19, i32 %p_read_18, i32 %p_read_17, i32 %p_read_16, i32 %p_read_15, i32 %p_read_14, i32 %p_read_13, i32 %p_read_12, i32 %p_read_11, i32 %p_read_10)
 
 ST_2: r_Y_0_assign_3 (106)  [1/1] 0.00ns
@@ -298,8 +298,8 @@ ST_2: r_Y_9_assign_3 (115)  [1/1] 0.00ns
 :84  %r_Y_9_assign_3 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret, 9
 
 
- <State 3>: 2.69ns
-ST_3: fe_sq_ret (83)  [1/2] 1.34ns
+ <State 3>: 1.65ns
+ST_3: fe_sq_ret (83)  [1/2] 0.82ns
 :52  %fe_sq_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %p_read_19, i32 %p_read_18, i32 %p_read_17, i32 %p_read_16, i32 %p_read_15, i32 %p_read_14, i32 %p_read_13, i32 %p_read_12, i32 %p_read_11, i32 %p_read_10)
 
 ST_3: f0 (84)  [1/1] 0.00ns
@@ -332,43 +332,43 @@ ST_3: f8 (92)  [1/1] 0.00ns
 ST_3: f9 (93)  [1/1] 0.00ns
 :62  %f9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq_ret, 9
 
-ST_3: h0_2 (145)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1459
+ST_3: h0_2 (145)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1459
 :114  %h0_2 = sub nsw i32 %f0, %g0
 
 
- <State 4>: 1.34ns
-ST_4: h1_2 (146)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1460
+ <State 4>: 0.82ns
+ST_4: h1_2 (146)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1460
 :115  %h1_2 = sub nsw i32 %f1, %g1
 
 
- <State 5>: 1.34ns
-ST_5: h2_2 (147)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1461
+ <State 5>: 0.82ns
+ST_5: h2_2 (147)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1461
 :116  %h2_2 = sub nsw i32 %f2, %g2
 
 
- <State 6>: 1.34ns
-ST_6: h3_2 (148)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1462
+ <State 6>: 0.82ns
+ST_6: h3_2 (148)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1462
 :117  %h3_2 = sub nsw i32 %f3, %g3
 
 
- <State 7>: 1.34ns
-ST_7: h4_2 (149)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1463
+ <State 7>: 0.82ns
+ST_7: h4_2 (149)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1463
 :118  %h4_2 = sub nsw i32 %f4, %g4
 
 
- <State 8>: 6.13ns
-ST_8: fe_sq_ret2 (116)  [2/2] 6.13ns
+ <State 8>: 3.12ns
+ST_8: fe_sq_ret2 (116)  [2/2] 3.12ns
 :85  %fe_sq_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %r_Y_0_assign_3, i32 %r_Y_1_assign_3, i32 %r_Y_2_assign_3, i32 %r_Y_3_assign_3, i32 %r_Y_4_assign_3, i32 %r_Y_5_assign_3, i32 %r_Y_6_assign_3, i32 %r_Y_7_assign_3, i32 %r_Y_8_assign_3, i32 %r_Y_9_assign_3)
 
-ST_8: fe_add_ret1 (127)  [2/2] 2.00ns
+ST_8: fe_add_ret1 (127)  [2/2] 1.25ns
 :96  %fe_add_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %f0, i32 %f1, i32 %f2, i32 %f3, i32 %f4, i32 %f5, i32 %f6, i32 %f7, i32 %f8, i32 %f9, i32 %g0, i32 %g1, i32 %g2, i32 %g3, i32 %g4, i32 %g5, i32 %g6, i32 %g7, i32 %g8, i32 %g9)
 
-ST_8: h5_2 (150)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1464
+ST_8: h5_2 (150)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1464
 :119  %h5_2 = sub nsw i32 %f5, %g5
 
 
- <State 9>: 1.34ns
-ST_9: fe_sq_ret2 (116)  [1/2] 1.34ns
+ <State 9>: 0.82ns
+ST_9: fe_sq_ret2 (116)  [1/2] 0.82ns
 :85  %fe_sq_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sq(i32 %r_Y_0_assign_3, i32 %r_Y_1_assign_3, i32 %r_Y_2_assign_3, i32 %r_Y_3_assign_3, i32 %r_Y_4_assign_3, i32 %r_Y_5_assign_3, i32 %r_Y_6_assign_3, i32 %r_Y_7_assign_3, i32 %r_Y_8_assign_3, i32 %r_Y_9_assign_3)
 
 ST_9: t0_0 (117)  [1/1] 0.00ns
@@ -401,7 +401,7 @@ ST_9: t0_8 (125)  [1/1] 0.00ns
 ST_9: t0_9 (126)  [1/1] 0.00ns
 :95  %t0_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq_ret2, 9
 
-ST_9: fe_add_ret1 (127)  [1/2] 1.34ns
+ST_9: fe_add_ret1 (127)  [1/2] 0.82ns
 :96  %fe_add_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_add(i32 %f0, i32 %f1, i32 %f2, i32 %f3, i32 %f4, i32 %f5, i32 %f6, i32 %f7, i32 %f8, i32 %f9, i32 %g0, i32 %g1, i32 %g2, i32 %g3, i32 %g4, i32 %g5, i32 %g6, i32 %g7, i32 %g8, i32 %g9)
 
 ST_9: r_Y_0_assign_1 (128)  [1/1] 0.00ns
@@ -434,101 +434,101 @@ ST_9: r_Y_8_assign_1 (136)  [1/1] 0.00ns
 ST_9: r_Y_9_assign_1 (137)  [1/1] 0.00ns
 :106  %r_Y_9_assign_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_add_ret1, 9
 
-ST_9: h6_2 (151)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1465
+ST_9: h6_2 (151)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1465
 :120  %h6_2 = sub nsw i32 %f6, %g6
 
 
- <State 10>: 1.34ns
-ST_10: h7_2 (152)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1466
+ <State 10>: 0.82ns
+ST_10: h7_2 (152)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1466
 :121  %h7_2 = sub nsw i32 %f7, %g7
 
 
- <State 11>: 1.34ns
-ST_11: h8_2 (153)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1467
+ <State 11>: 0.82ns
+ST_11: h8_2 (153)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1467
 :122  %h8_2 = sub nsw i32 %f8, %g8
 
 
- <State 12>: 1.34ns
-ST_12: h9_2 (154)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1468
+ <State 12>: 0.82ns
+ST_12: h9_2 (154)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1468
 :123  %h9_2 = sub nsw i32 %f9, %g9
 
 
- <State 13>: 1.34ns
+ <State 13>: 0.82ns
 ST_13: f0_1 (95)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h0)
 :64  %f0_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 0
 
-ST_13: h0 (173)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1459 (out node of the LUT)
+ST_13: h0 (173)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1459 (out node of the LUT)
 :142  %h0 = sub nsw i32 %f0_1, %h0_2
 
 
- <State 14>: 1.34ns
+ <State 14>: 0.82ns
 ST_14: f1_1 (96)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h1)
 :65  %f1_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 1
 
-ST_14: h1 (174)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1460 (out node of the LUT)
+ST_14: h1 (174)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1460 (out node of the LUT)
 :143  %h1 = sub nsw i32 %f1_1, %h1_2
 
 
- <State 15>: 1.34ns
+ <State 15>: 0.82ns
 ST_15: f2_1 (97)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h2)
 :66  %f2_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 2
 
-ST_15: h2 (175)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1461 (out node of the LUT)
+ST_15: h2 (175)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1461 (out node of the LUT)
 :144  %h2 = sub nsw i32 %f2_1, %h2_2
 
 
- <State 16>: 1.34ns
+ <State 16>: 0.82ns
 ST_16: f3_1 (98)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h3)
 :67  %f3_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 3
 
-ST_16: h3 (176)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1462 (out node of the LUT)
+ST_16: h3 (176)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1462 (out node of the LUT)
 :145  %h3 = sub nsw i32 %f3_1, %h3_2
 
 
- <State 17>: 1.34ns
+ <State 17>: 0.82ns
 ST_17: f4_1 (99)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h4)
 :68  %f4_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 4
 
-ST_17: h4 (177)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1463 (out node of the LUT)
+ST_17: h4 (177)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1463 (out node of the LUT)
 :146  %h4 = sub nsw i32 %f4_1, %h4_2
 
 
- <State 18>: 1.34ns
+ <State 18>: 0.82ns
 ST_18: f5_1 (100)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h5)
 :69  %f5_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 5
 
-ST_18: h5 (178)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1464 (out node of the LUT)
+ST_18: h5 (178)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1464 (out node of the LUT)
 :147  %h5 = sub nsw i32 %f5_1, %h5_2
 
 
- <State 19>: 1.34ns
+ <State 19>: 0.82ns
 ST_19: f6_1 (101)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h6)
 :70  %f6_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 6
 
-ST_19: h6 (179)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1465 (out node of the LUT)
+ST_19: h6 (179)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1465 (out node of the LUT)
 :148  %h6 = sub nsw i32 %f6_1, %h6_2
 
 
- <State 20>: 1.34ns
+ <State 20>: 0.82ns
 ST_20: f7_1 (102)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h7)
 :71  %f7_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 7
 
-ST_20: h7 (180)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1466 (out node of the LUT)
+ST_20: h7 (180)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1466 (out node of the LUT)
 :149  %h7 = sub nsw i32 %f7_1, %h7_2
 
 
- <State 21>: 1.34ns
+ <State 21>: 0.82ns
 ST_21: f8_1 (103)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:359 (grouped into LUT with out node h8)
 :72  %f8_1 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_sq2_ret, 8
 
-ST_21: fe_sub_ret (155)  [2/2] 1.34ns
+ST_21: fe_sub_ret (155)  [2/2] 0.82ns
 :124  %fe_sub_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %t0_0, i32 %t0_1, i32 %t0_2, i32 %t0_3, i32 %t0_4, i32 %t0_5, i32 %t0_6, i32 %t0_7, i32 %t0_8, i32 %t0_9, i32 %r_Y_0_assign_1, i32 %r_Y_1_assign_1, i32 %r_Y_2_assign_1, i32 %r_Y_3_assign_1, i32 %r_Y_4_assign_1, i32 %r_Y_5_assign_1, i32 %r_Y_6_assign_1, i32 %r_Y_7_assign_1, i32 %r_Y_8_assign_1, i32 %r_Y_9_assign_1)
 
-ST_21: h8 (181)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1467 (out node of the LUT)
+ST_21: h8 (181)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1467 (out node of the LUT)
 :150  %h8 = sub nsw i32 %f8_1, %h8_2
 
 
- <State 22>: 1.34ns
+ <State 22>: 0.82ns
 ST_22: StgValue_144 (31)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:344
 :0  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str10, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
 
@@ -586,7 +586,7 @@ ST_22: StgValue_161 (143)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1437
 ST_22: StgValue_162 (144)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1438
 :113  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
 
-ST_22: fe_sub_ret (155)  [1/2] 1.34ns
+ST_22: fe_sub_ret (155)  [1/2] 0.82ns
 :124  %fe_sub_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_sub(i32 %t0_0, i32 %t0_1, i32 %t0_2, i32 %t0_3, i32 %t0_4, i32 %t0_5, i32 %t0_6, i32 %t0_7, i32 %t0_8, i32 %t0_9, i32 %r_Y_0_assign_1, i32 %r_Y_1_assign_1, i32 %r_Y_2_assign_1, i32 %r_Y_3_assign_1, i32 %r_Y_4_assign_1, i32 %r_Y_5_assign_1, i32 %r_Y_6_assign_1, i32 %r_Y_7_assign_1, i32 %r_Y_8_assign_1, i32 %r_Y_9_assign_1)
 
 ST_22: r_X (156)  [1/1] 0.00ns
@@ -640,7 +640,7 @@ ST_22: StgValue_179 (171)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1437
 ST_22: StgValue_180 (172)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:1438
 :141  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
 
-ST_22: h9 (182)  [1/1] 1.34ns  loc: ed25519/src/fe.cpp:1468 (out node of the LUT)
+ST_22: h9 (182)  [1/1] 0.82ns  loc: ed25519/src/fe.cpp:1468 (out node of the LUT)
 :151  %h9 = sub nsw i32 %f9_1, %h9_2
 
 ST_22: mrv_s (183)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:366
@@ -4841,12 +4841,12 @@ StgValue_222   (ret              ) [ 00000000000000000000000]
 |----------|-----------------------|---------|---------|---------|---------|
 | Operation|    Functional Unit    |  DSP48E |  Delay  |    FF   |   LUT   |
 |----------|-----------------------|---------|---------|---------|---------|
-|          |   grp_fe_add_fu_402   |    0    |  1.7748 |   288   |   133   |
-|   call   |   grp_fe_sub_fu_495   |    0    |  1.7748 |   288   |   133   |
-|          |    grp_fe_sq_fu_545   |    4    | 23.9579 |   5128  |   1157  |
-|          |   grp_fe_sq2_fu_602   |    4    | 18.7275 |   5799  |   1097  |
+|          |   grp_fe_add_fu_402   |    0    | 1.50867 |   389   |   148   |
+|   call   |   grp_fe_sub_fu_495   |    0    | 1.50867 |   389   |   148   |
+|          |    grp_fe_sq_fu_545   |    5    | 14.9263 |   5522  |   1288  |
+|          |   grp_fe_sq2_fu_602   |    5    | 11.5327 |   6193  |   1230  |
 |----------|-----------------------|---------|---------|---------|---------|
-|    sub   |       grp_fu_296      |    0    |    0    |    0    |    39   |
+|    sub   |       grp_fu_296      |    0    |    0    |   101   |    38   |
 |----------|-----------------------|---------|---------|---------|---------|
 |          |   p_read_read_fu_116  |    0    |    0    |    0    |    0    |
 |          |  p_read_1_read_fu_122 |    0    |    0    |    0    |    0    |
@@ -4961,7 +4961,7 @@ StgValue_222   (ret              ) [ 00000000000000000000000]
 |          |     mrv_38_fu_1124    |    0    |    0    |    0    |    0    |
 |          |     mrv_39_fu_1130    |    0    |    0    |    0    |    0    |
 |----------|-----------------------|---------|---------|---------|---------|
-|   Total  |                       |    8    | 46.2349 |  11503  |   2559  |
+|   Total  |                       |    10   | 29.4764 |  12594  |   2852  |
 |----------|-----------------------|---------|---------|---------|---------|
 
 Memories:
@@ -5062,38 +5062,38 @@ N/A
 |-------------------|------|------|------|--------||---------||---------|
 |        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |-------------------|------|------|------|--------||---------||---------|
-|     grp_fu_296    |  p0  |  20  |  32  |   640  ||    97   |
-|     grp_fu_296    |  p1  |  20  |  32  |   640  ||    97   |
-| grp_fe_add_fu_402 |  p1  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p2  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p3  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p4  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p5  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p6  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p7  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p8  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p9  |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p10 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p11 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p12 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p13 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p14 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p15 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p16 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p17 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p18 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p19 |   3  |  32  |   96   ||    15   |
-| grp_fe_add_fu_402 |  p20 |   3  |  32  |   96   ||    15   |
-|  grp_fe_sq_fu_545 |  p1  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p2  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p3  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p4  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p5  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p6  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p7  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p8  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p9  |   4  |  32  |   128  ||    21   |
-|  grp_fe_sq_fu_545 |  p10 |   4  |  32  |   128  ||    21   |
+|     grp_fu_296    |  p0  |  20  |  32  |   640  ||   109   |
+|     grp_fu_296    |  p1  |  20  |  32  |   640  ||   109   |
+| grp_fe_add_fu_402 |  p1  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p2  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p3  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p4  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p5  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p6  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p7  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p8  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p9  |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p10 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p11 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p12 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p13 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p14 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p15 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p16 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p17 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p18 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p19 |   3  |  32  |   96   ||    13   |
+| grp_fe_add_fu_402 |  p20 |   3  |  32  |   96   ||    13   |
+|  grp_fe_sq_fu_545 |  p1  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p2  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p3  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p4  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p5  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p6  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p7  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p8  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p9  |   4  |  32  |   128  ||    17   |
+|  grp_fe_sq_fu_545 |  p10 |   4  |  32  |   128  ||    17   |
 | grp_fe_sq2_fu_602 |  p1  |   2  |  32  |   64   ||    9    |
 | grp_fe_sq2_fu_602 |  p2  |   2  |  32  |   64   ||    9    |
 | grp_fe_sq2_fu_602 |  p3  |   2  |  32  |   64   ||    9    |
@@ -5105,7 +5105,7 @@ N/A
 | grp_fe_sq2_fu_602 |  p9  |   2  |  32  |   64   ||    9    |
 | grp_fe_sq2_fu_602 |  p10 |   2  |  32  |   64   ||    9    |
 |-------------------|------|------|------|--------||---------||---------|
-|       Total       |      |      |      |  5120  ||  29.479 ||   794   |
+|       Total       |      |      |      |  5120  || 17.8558 ||   738   |
 |-------------------|------|------|------|--------||---------||---------|
 
 
@@ -5114,10 +5114,10 @@ N/A
 +-----------+--------+--------+--------+--------+
 |           | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |    8   |   46   |  11503 |  2559  |
+|  Function |   10   |   29   |  12594 |  2852  |
 |   Memory  |    -   |    -   |    -   |    -   |
-|Multiplexer|    -   |   29   |    -   |   794  |
+|Multiplexer|    -   |   17   |    -   |   738  |
 |  Register |    -   |    -   |  2944  |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |    8   |   75   |  14447 |  3353  |
+|   Total   |   10   |   47   |  15538 |  3590  |
 +-----------+--------+--------+--------+--------+

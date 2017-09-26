@@ -10,7 +10,7 @@ set StallSigGenFlag 0
 set C_modelName {load_3}
 set C_modelType { int 24 }
 set C_modelArgList {
-	{ in_r int 8 regular {array 64 { 1 } 1 1 }  }
+	{ in_r int 8 regular {array 64 { 1 1 } 1 1 }  }
 	{ in_offset int 7 regular  }
 }
 set C_modelArgMapList {[ 
@@ -18,7 +18,7 @@ set C_modelArgMapList {[
  	{ "Name" : "in_offset", "interface" : "wire", "bitwidth" : 7, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 24} ]}
 # RTL Port declarations: 
-set portNum 11
+set portNum 14
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -29,6 +29,9 @@ set portList {
 	{ in_r_address0 sc_out sc_lv 6 signal 0 } 
 	{ in_r_ce0 sc_out sc_logic 1 signal 0 } 
 	{ in_r_q0 sc_in sc_lv 8 signal 0 } 
+	{ in_r_address1 sc_out sc_lv 6 signal 0 } 
+	{ in_r_ce1 sc_out sc_logic 1 signal 0 } 
+	{ in_r_q1 sc_in sc_lv 8 signal 0 } 
 	{ in_offset sc_in sc_lv 7 signal 1 } 
 	{ ap_return sc_out sc_lv 24 signal -1 } 
 }
@@ -42,6 +45,9 @@ set NewPortList {[
  	{ "name": "in_r_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "in_r", "role": "address0" }} , 
  	{ "name": "in_r_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "in_r", "role": "ce0" }} , 
  	{ "name": "in_r_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_r", "role": "q0" }} , 
+ 	{ "name": "in_r_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "in_r", "role": "address1" }} , 
+ 	{ "name": "in_r_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "in_r", "role": "ce1" }} , 
+ 	{ "name": "in_r_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "in_r", "role": "q1" }} , 
  	{ "name": "in_offset", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "in_offset", "role": "default" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":24, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
@@ -67,14 +73,14 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "3", "Max" : "3"}
-	, {"Name" : "Interval", "Min" : "3", "Max" : "3"}
+	{"Name" : "Latency", "Min" : "2", "Max" : "2"}
+	, {"Name" : "Interval", "Min" : "2", "Max" : "2"}
 ]}
 
 set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	in_r { ap_memory {  { in_r_address0 mem_address 1 6 }  { in_r_ce0 mem_ce 1 1 }  { in_r_q0 mem_dout 0 8 } } }
+	in_r { ap_memory {  { in_r_address0 mem_address 1 6 }  { in_r_ce0 mem_ce 1 1 }  { in_r_q0 mem_dout 0 8 }  { in_r_address1 mem_address 1 6 }  { in_r_ce1 mem_ce 1 1 }  { in_r_q1 mem_dout 0 8 } } }
 	in_offset { ap_none {  { in_offset in_data 0 7 } } }
 }

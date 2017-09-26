@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'ge_p1p1_to_p3'
 ================================================================
-* Date:           Fri Jun  2 12:27:18 2017
+* Date:           Mon Sep 25 21:40:21 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      7.56|        1.25|
+    |ap_clk  |  10.00|      3.92|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |  800|  800|  800|  800|   none  |
+    |  804|  804|  804|  804|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                   |        |  Latency  |  Interval | Pipeline|
         |      Instance     | Module | min | max | min | max |   Type  |
         +-------------------+--------+-----+-----+-----+-----+---------+
-        |grp_fe_mul_fu_348  |fe_mul  |  199|  199|  199|  199|   none  |
+        |grp_fe_mul_fu_348  |fe_mul  |  200|  200|  200|  200|   none  |
         +-------------------+--------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -86,7 +86,7 @@ IsGatedGlobalClock: 0
 5 --> 
 * FSM state operations: 
 
- <State 1>: 7.56ns
+ <State 1>: 3.92ns
 ST_1: p_read_29 (49)  [1/1] 0.00ns
 :8  %p_read_29 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read39)
 
@@ -147,11 +147,11 @@ ST_1: p_read141 (87)  [1/1] 0.00ns
 ST_1: p_read_58 (88)  [1/1] 0.00ns
 :47  %p_read_58 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read)
 
-ST_1: fe_mul_ret (89)  [2/2] 7.56ns
+ST_1: fe_mul_ret (89)  [2/2] 3.92ns
 :48  %fe_mul_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_58, i32 %p_read141, i32 %p_read242, i32 %p_read343, i32 %p_read444, i32 %p_read545, i32 %p_read646, i32 %p_read747, i32 %p_read848, i32 %p_read949, i32 %p_read_38, i32 %p_read_37, i32 %p_read_36, i32 %p_read_35, i32 %p_read_34, i32 %p_read_33, i32 %p_read_32, i32 %p_read_31, i32 %p_read_30, i32 %p_read_29)
 
 
- <State 2>: 7.56ns
+ <State 2>: 3.92ns
 ST_2: p_read_39 (59)  [1/1] 0.00ns
 :18  %p_read_39 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read29)
 
@@ -212,7 +212,7 @@ ST_2: p_read_57 (77)  [1/1] 0.00ns
 ST_2: p_read1050 (78)  [1/1] 0.00ns
 :37  %p_read1050 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read10)
 
-ST_2: fe_mul_ret (89)  [1/2] 1.34ns
+ST_2: fe_mul_ret (89)  [1/2] 0.82ns
 :48  %fe_mul_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_58, i32 %p_read141, i32 %p_read242, i32 %p_read343, i32 %p_read444, i32 %p_read545, i32 %p_read646, i32 %p_read747, i32 %p_read848, i32 %p_read949, i32 %p_read_38, i32 %p_read_37, i32 %p_read_36, i32 %p_read_35, i32 %p_read_34, i32 %p_read_33, i32 %p_read_32, i32 %p_read_31, i32 %p_read_30, i32 %p_read_29)
 
 ST_2: r_X (90)  [1/1] 0.00ns
@@ -245,12 +245,12 @@ ST_2: r_X_8 (98)  [1/1] 0.00ns
 ST_2: r_X_9 (99)  [1/1] 0.00ns
 :58  %r_X_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret, 9
 
-ST_2: fe_mul_ret2 (100)  [2/2] 7.56ns
+ST_2: fe_mul_ret2 (100)  [2/2] 3.92ns
 :59  %fe_mul_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read1050, i32 %p_read_57, i32 %p_read_56, i32 %p_read_55, i32 %p_read_54, i32 %p_read_53, i32 %p_read_52, i32 %p_read_51, i32 %p_read_50, i32 %p_read_49, i32 %p_read_48, i32 %p_read_47, i32 %p_read_46, i32 %p_read_45, i32 %p_read_44, i32 %p_read_43, i32 %p_read_42, i32 %p_read_41, i32 %p_read_40, i32 %p_read_39)
 
 
- <State 3>: 7.56ns
-ST_3: fe_mul_ret2 (100)  [1/2] 1.34ns
+ <State 3>: 3.92ns
+ST_3: fe_mul_ret2 (100)  [1/2] 0.82ns
 :59  %fe_mul_ret2 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read1050, i32 %p_read_57, i32 %p_read_56, i32 %p_read_55, i32 %p_read_54, i32 %p_read_53, i32 %p_read_52, i32 %p_read_51, i32 %p_read_50, i32 %p_read_49, i32 %p_read_48, i32 %p_read_47, i32 %p_read_46, i32 %p_read_45, i32 %p_read_44, i32 %p_read_43, i32 %p_read_42, i32 %p_read_41, i32 %p_read_40, i32 %p_read_39)
 
 ST_3: r_Y (101)  [1/1] 0.00ns
@@ -283,12 +283,12 @@ ST_3: r_Y_8 (109)  [1/1] 0.00ns
 ST_3: r_Y_9 (110)  [1/1] 0.00ns
 :69  %r_Y_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret2, 9
 
-ST_3: fe_mul_ret3 (111)  [2/2] 7.56ns
+ST_3: fe_mul_ret3 (111)  [2/2] 3.92ns
 :70  %fe_mul_ret3 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_48, i32 %p_read_47, i32 %p_read_46, i32 %p_read_45, i32 %p_read_44, i32 %p_read_43, i32 %p_read_42, i32 %p_read_41, i32 %p_read_40, i32 %p_read_39, i32 %p_read_38, i32 %p_read_37, i32 %p_read_36, i32 %p_read_35, i32 %p_read_34, i32 %p_read_33, i32 %p_read_32, i32 %p_read_31, i32 %p_read_30, i32 %p_read_29)
 
 
- <State 4>: 7.56ns
-ST_4: fe_mul_ret3 (111)  [1/2] 1.34ns
+ <State 4>: 3.92ns
+ST_4: fe_mul_ret3 (111)  [1/2] 0.82ns
 :70  %fe_mul_ret3 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_48, i32 %p_read_47, i32 %p_read_46, i32 %p_read_45, i32 %p_read_44, i32 %p_read_43, i32 %p_read_42, i32 %p_read_41, i32 %p_read_40, i32 %p_read_39, i32 %p_read_38, i32 %p_read_37, i32 %p_read_36, i32 %p_read_35, i32 %p_read_34, i32 %p_read_33, i32 %p_read_32, i32 %p_read_31, i32 %p_read_30, i32 %p_read_29)
 
 ST_4: r_Z (112)  [1/1] 0.00ns
@@ -321,11 +321,11 @@ ST_4: r_Z_8 (120)  [1/1] 0.00ns
 ST_4: r_Z_9 (121)  [1/1] 0.00ns
 :80  %r_Z_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %fe_mul_ret3, 9
 
-ST_4: fe_mul_ret4 (122)  [2/2] 7.56ns
+ST_4: fe_mul_ret4 (122)  [2/2] 3.92ns
 :81  %fe_mul_ret4 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_58, i32 %p_read141, i32 %p_read242, i32 %p_read343, i32 %p_read444, i32 %p_read545, i32 %p_read646, i32 %p_read747, i32 %p_read848, i32 %p_read949, i32 %p_read1050, i32 %p_read_57, i32 %p_read_56, i32 %p_read_55, i32 %p_read_54, i32 %p_read_53, i32 %p_read_52, i32 %p_read_51, i32 %p_read_50, i32 %p_read_49)
 
 
- <State 5>: 1.34ns
+ <State 5>: 0.82ns
 ST_5: StgValue_83 (41)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:309
 :0  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str10, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
 
@@ -350,7 +350,7 @@ ST_5: StgValue_89 (47)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:315
 ST_5: StgValue_90 (48)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:316
 :7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [7 x i8]* @p_str818, [1 x i8]* @p_str111) nounwind
 
-ST_5: fe_mul_ret4 (122)  [1/2] 1.34ns
+ST_5: fe_mul_ret4 (122)  [1/2] 0.82ns
 :81  %fe_mul_ret4 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_mul(i32 %p_read_58, i32 %p_read141, i32 %p_read242, i32 %p_read343, i32 %p_read444, i32 %p_read545, i32 %p_read646, i32 %p_read747, i32 %p_read848, i32 %p_read949, i32 %p_read1050, i32 %p_read_57, i32 %p_read_56, i32 %p_read_55, i32 %p_read_54, i32 %p_read_53, i32 %p_read_52, i32 %p_read_51, i32 %p_read_50, i32 %p_read_49)
 
 ST_5: r_T (123)  [1/1] 0.00ns
@@ -3819,7 +3819,7 @@ StgValue_142 (ret              ) [ 000000]
 |----------|------------------------|---------|---------|---------|---------|
 | Operation|     Functional Unit    |  DSP48E |  Delay  |    FF   |   LUT   |
 |----------|------------------------|---------|---------|---------|---------|
-|   call   |    grp_fe_mul_fu_348   |    4    | 23.8109 |   7752  |   1395  |
+|   call   |    grp_fe_mul_fu_348   |    5    | 14.6095 |   8146  |   1553  |
 |----------|------------------------|---------|---------|---------|---------|
 |          |  p_read_29_read_fu_108 |    0    |    0    |    0    |    0    |
 |          |  p_read_30_read_fu_114 |    0    |    0    |    0    |    0    |
@@ -3914,7 +3914,7 @@ StgValue_142 (ret              ) [ 000000]
 |          |      mrv_38_fu_726     |    0    |    0    |    0    |    0    |
 |          |      mrv_39_fu_732     |    0    |    0    |    0    |    0    |
 |----------|------------------------|---------|---------|---------|---------|
-|   Total  |                        |    4    | 23.8109 |   7752  |   1395  |
+|   Total  |                        |    5    | 14.6095 |   8146  |   1553  |
 |----------|------------------------|---------|---------|---------|---------|
 
 Memories:
@@ -4002,28 +4002,28 @@ N/A
 |-------------------|------|------|------|--------||---------||---------|
 |        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |-------------------|------|------|------|--------||---------||---------|
-| grp_fe_mul_fu_348 |  p1  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p2  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p3  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p4  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p5  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p6  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p7  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p8  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p9  |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p10 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p11 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p12 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p13 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p14 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p15 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p16 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p17 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p18 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p19 |   5  |  32  |   160  ||    27   |
-| grp_fe_mul_fu_348 |  p20 |   5  |  32  |   160  ||    27   |
+| grp_fe_mul_fu_348 |  p1  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p2  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p3  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p4  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p5  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p6  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p7  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p8  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p9  |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p10 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p11 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p12 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p13 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p14 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p15 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p16 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p17 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p18 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p19 |   5  |  32  |   160  ||    25   |
+| grp_fe_mul_fu_348 |  p20 |   5  |  32  |   160  ||    25   |
 |-------------------|------|------|------|--------||---------||---------|
-|       Total       |      |      |      |  3200  ||  14.245 ||   540   |
+|       Total       |      |      |      |  3200  ||  10.99  ||   500   |
 |-------------------|------|------|------|--------||---------||---------|
 
 
@@ -4032,10 +4032,10 @@ N/A
 +-----------+--------+--------+--------+--------+
 |           | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |    4   |   23   |  7752  |  1395  |
+|  Function |    5   |   14   |  8146  |  1553  |
 |   Memory  |    -   |    -   |    -   |    -   |
-|Multiplexer|    -   |   14   |    -   |   540  |
+|Multiplexer|    -   |   10   |    -   |   500  |
 |  Register |    -   |    -   |  2240  |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |    4   |   38   |  9992  |  1935  |
+|   Total   |    5   |   25   |  10386 |  2053  |
 +-----------+--------+--------+--------+--------+

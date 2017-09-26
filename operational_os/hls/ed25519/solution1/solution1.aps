@@ -2,12 +2,16 @@
     <downStreamTool>
         <DownStreamTool name=""/>
     </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <config>
         <schedule model="ed25519_sign"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf boardInfo="ZYNQ UltraScale+ ZCU102 Evaluation Platform (xczu9eg-ffvb1156-1-i-es1) " hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/zynquplus/zynquplus</Platform>
+            <Platform>xilinx/zynquplus/zynquplus_fpv7</Platform>
             <customLibs/>
         </UIAutosynConf>
         <UIIPPackagerConf AskAgain="true" DescriptionButton="false" LibraryButton="false" RTLLanguage="verilog" UseNetList="none" VendorButton="false" VersionButton="false" evaluateRTL="false" setup="false">
@@ -61,10 +65,7 @@
     </targetInfo>
     <libraryList>
         <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus"/>
-        <library value="xilinx/zynquplus/zynquplus_fpv7" name="DefaultPlatform"/>
+        <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus_fpv7"/>
     </libraryList>
-    <clockList>
-        <clock default="false" name="default" period="10"/>
-    </clockList>
 </solution>
 

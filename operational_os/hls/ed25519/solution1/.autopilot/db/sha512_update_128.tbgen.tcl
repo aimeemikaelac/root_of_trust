@@ -94,8 +94,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "md_length", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "md_state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_sha512_compress_128_fu_354", "Port" : "md_state"},
-					{"ID" : "2", "SubInstance" : "grp_sha512_compress_128_1_fu_342", "Port" : "md_state"}]},
+					{"ID" : "2", "SubInstance" : "grp_sha512_compress_128_1_fu_342", "Port" : "md_state"},
+					{"ID" : "6", "SubInstance" : "grp_sha512_compress_128_fu_354", "Port" : "md_state"}]},
 			{"Name" : "md_curlen", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "md_buf", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "in_r", "Type" : "Memory", "Direction" : "I",
@@ -103,8 +103,8 @@ set RtlHierarchyInfo {[
 					{"ID" : "2", "SubInstance" : "grp_sha512_compress_128_1_fu_342", "Port" : "buf_r"}]},
 			{"Name" : "K", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_sha512_compress_128_fu_354", "Port" : "K"},
-					{"ID" : "2", "SubInstance" : "grp_sha512_compress_128_1_fu_342", "Port" : "K"}]}]},
+					{"ID" : "2", "SubInstance" : "grp_sha512_compress_128_1_fu_342", "Port" : "K"},
+					{"ID" : "6", "SubInstance" : "grp_sha512_compress_128_fu_354", "Port" : "K"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.temp_buf_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_sha512_compress_128_1_fu_342", "Parent" : "0", "Child" : ["3", "4", "5"],
 		"CDFG" : "sha512_compress_128_1",

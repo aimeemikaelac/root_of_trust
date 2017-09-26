@@ -74,7 +74,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>4</id>
+						<id>3</id>
 						<name>in_offset_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -93,8 +93,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>20</item>
 					<item>21</item>
-					<item>22</item>
 				</oprand_edges>
 				<opcode>read</opcode>
 				<m_Display>0</m_Display>
@@ -103,7 +103,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>5</id>
+						<id>4</id>
 						<name>in_offset_cast2</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -122,7 +122,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>23</item>
+					<item>22</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -131,7 +131,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>6</id>
+						<id>5</id>
 						<name>in_addr</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -150,9 +150,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>24</item>
+					<item>23</item>
+					<item>25</item>
 					<item>26</item>
-					<item>27</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -161,7 +161,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>7</id>
+						<id>6</id>
 						<name>in_load</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -194,7 +194,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>28</item>
+					<item>27</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -203,7 +203,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>8</id>
+						<id>7</id>
 						<name>tmp_1375</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -222,7 +222,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>29</item>
+					<item>28</item>
 				</oprand_edges>
 				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
@@ -231,7 +231,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>9</id>
+						<id>8</id>
 						<name>sum</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -250,8 +250,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>30</item>
 					<item>31</item>
-					<item>32</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -260,7 +260,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>10</id>
+						<id>9</id>
 						<name>sum_cast</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -279,7 +279,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>33</item>
+					<item>32</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -288,7 +288,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>11</id>
+						<id>10</id>
 						<name>in_addr_4</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -321,9 +321,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
+					<item>33</item>
 					<item>34</item>
 					<item>35</item>
-					<item>36</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -332,7 +332,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>12</id>
+						<id>11</id>
 						<name>in_load_4</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -365,7 +365,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>37</item>
+					<item>36</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -374,7 +374,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>13</id>
+						<id>12</id>
 						<name>sum2</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -393,8 +393,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>38</item>
 					<item>39</item>
-					<item>40</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -403,7 +403,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>14</id>
+						<id>13</id>
 						<name>sum2_cast</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -422,7 +422,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>41</item>
+					<item>40</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -431,7 +431,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>15</id>
+						<id>14</id>
 						<name>in_addr_5</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -464,9 +464,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
+					<item>41</item>
 					<item>42</item>
 					<item>43</item>
-					<item>44</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -475,7 +475,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>16</id>
+						<id>15</id>
 						<name>in_load_5</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -508,7 +508,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>45</item>
+					<item>44</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -517,7 +517,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>17</id>
+						<id>16</id>
 						<name>tmp</name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -550,10 +550,10 @@
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
+					<item>46</item>
 					<item>47</item>
 					<item>48</item>
 					<item>49</item>
-					<item>50</item>
 				</oprand_edges>
 				<opcode>bitconcatenate</opcode>
 				<m_Display>0</m_Display>
@@ -562,7 +562,7 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>18</id>
+						<id>17</id>
 						<name></name>
 						<fileName>ed25519/src/sc.cpp</fileName>
 						<fileDirectory>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls</fileDirectory>
@@ -595,7 +595,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>51</item>
+					<item>50</item>
 				</oprand_edges>
 				<opcode>ret</opcode>
 				<m_Display>0</m_Display>
@@ -608,7 +608,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>25</id>
+						<id>24</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -631,7 +631,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>30</id>
+						<id>29</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -654,7 +654,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>38</id>
+						<id>37</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -680,7 +680,7 @@
 			<item class_id="18" tracking_level="1" version="0" object_id="_21">
 				<Obj>
 					<type>3</type>
-					<id>19</id>
+					<id>18</id>
 					<name>load_3</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
@@ -697,6 +697,7 @@
 				<node_objs>
 					<count>15</count>
 					<item_version>0</item_version>
+					<item>3</item>
 					<item>4</item>
 					<item>5</item>
 					<item>6</item>
@@ -711,7 +712,6 @@
 					<item>15</item>
 					<item>16</item>
 					<item>17</item>
-					<item>18</item>
 				</node_objs>
 			</item>
 		</blocks>
@@ -719,154 +719,154 @@
 			<count>25</count>
 			<item_version>0</item_version>
 			<item class_id="20" tracking_level="1" version="0" object_id="_22">
-				<id>22</id>
+				<id>21</id>
 				<edge_type>1</edge_type>
 				<source_obj>2</source_obj>
-				<sink_obj>4</sink_obj>
+				<sink_obj>3</sink_obj>
 			</item>
 			<item class_id_reference="20" object_id="_23">
+				<id>22</id>
+				<edge_type>1</edge_type>
+				<source_obj>3</source_obj>
+				<sink_obj>4</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_24">
 				<id>23</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>5</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_25">
+				<id>25</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>5</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_26">
+				<id>26</id>
 				<edge_type>1</edge_type>
 				<source_obj>4</source_obj>
 				<sink_obj>5</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_24">
-				<id>24</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>6</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_25">
-				<id>26</id>
-				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>6</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_26">
+			<item class_id_reference="20" object_id="_27">
 				<id>27</id>
 				<edge_type>1</edge_type>
 				<source_obj>5</source_obj>
 				<sink_obj>6</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_27">
+			<item class_id_reference="20" object_id="_28">
 				<id>28</id>
 				<edge_type>1</edge_type>
-				<source_obj>6</source_obj>
+				<source_obj>3</source_obj>
 				<sink_obj>7</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_28">
-				<id>29</id>
+			<item class_id_reference="20" object_id="_29">
+				<id>30</id>
 				<edge_type>1</edge_type>
-				<source_obj>4</source_obj>
+				<source_obj>29</source_obj>
 				<sink_obj>8</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_29">
+			<item class_id_reference="20" object_id="_30">
 				<id>31</id>
 				<edge_type>1</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>9</sink_obj>
+				<source_obj>7</source_obj>
+				<sink_obj>8</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_30">
+			<item class_id_reference="20" object_id="_31">
 				<id>32</id>
 				<edge_type>1</edge_type>
 				<source_obj>8</source_obj>
 				<sink_obj>9</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_31">
+			<item class_id_reference="20" object_id="_32">
 				<id>33</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>10</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_33">
+				<id>34</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>10</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_34">
+				<id>35</id>
 				<edge_type>1</edge_type>
 				<source_obj>9</source_obj>
 				<sink_obj>10</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_32">
-				<id>34</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>11</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_33">
-				<id>35</id>
-				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>11</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_34">
+			<item class_id_reference="20" object_id="_35">
 				<id>36</id>
 				<edge_type>1</edge_type>
 				<source_obj>10</source_obj>
 				<sink_obj>11</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_35">
-				<id>37</id>
+			<item class_id_reference="20" object_id="_36">
+				<id>38</id>
 				<edge_type>1</edge_type>
-				<source_obj>11</source_obj>
+				<source_obj>37</source_obj>
 				<sink_obj>12</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_36">
+			<item class_id_reference="20" object_id="_37">
 				<id>39</id>
 				<edge_type>1</edge_type>
-				<source_obj>38</source_obj>
-				<sink_obj>13</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_37">
-				<id>40</id>
-				<edge_type>1</edge_type>
-				<source_obj>8</source_obj>
-				<sink_obj>13</sink_obj>
+				<source_obj>7</source_obj>
+				<sink_obj>12</sink_obj>
 			</item>
 			<item class_id_reference="20" object_id="_38">
+				<id>40</id>
+				<edge_type>1</edge_type>
+				<source_obj>12</source_obj>
+				<sink_obj>13</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_39">
 				<id>41</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>14</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_40">
+				<id>42</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>14</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_41">
+				<id>43</id>
 				<edge_type>1</edge_type>
 				<source_obj>13</source_obj>
 				<sink_obj>14</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_39">
-				<id>42</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>15</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_40">
-				<id>43</id>
-				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>15</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_41">
+			<item class_id_reference="20" object_id="_42">
 				<id>44</id>
 				<edge_type>1</edge_type>
 				<source_obj>14</source_obj>
 				<sink_obj>15</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_42">
-				<id>45</id>
+			<item class_id_reference="20" object_id="_43">
+				<id>47</id>
 				<edge_type>1</edge_type>
 				<source_obj>15</source_obj>
 				<sink_obj>16</sink_obj>
 			</item>
-			<item class_id_reference="20" object_id="_43">
+			<item class_id_reference="20" object_id="_44">
 				<id>48</id>
+				<edge_type>1</edge_type>
+				<source_obj>11</source_obj>
+				<sink_obj>16</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_45">
+				<id>49</id>
+				<edge_type>1</edge_type>
+				<source_obj>6</source_obj>
+				<sink_obj>16</sink_obj>
+			</item>
+			<item class_id_reference="20" object_id="_46">
+				<id>50</id>
 				<edge_type>1</edge_type>
 				<source_obj>16</source_obj>
 				<sink_obj>17</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_44">
-				<id>49</id>
-				<edge_type>1</edge_type>
-				<source_obj>12</source_obj>
-				<sink_obj>17</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_45">
-				<id>50</id>
-				<edge_type>1</edge_type>
-				<source_obj>7</source_obj>
-				<sink_obj>17</sink_obj>
-			</item>
-			<item class_id_reference="20" object_id="_46">
-				<id>51</id>
-				<edge_type>1</edge_type>
-				<source_obj>17</source_obj>
-				<sink_obj>18</sink_obj>
 			</item>
 		</edges>
 	</cdfg>
@@ -884,13 +884,13 @@
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>19</item>
+				<item>18</item>
 			</basic_blocks>
 			<mII>-1</mII>
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>3</mMinLatency>
+			<mMinLatency>2</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -902,8 +902,15 @@
 		<count>15</count>
 		<item_version>0</item_version>
 		<item class_id="27" tracking_level="0" version="0">
-			<first>4</first>
+			<first>3</first>
 			<second class_id="28" tracking_level="0" version="0">
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>4</first>
+			<second>
 				<first>0</first>
 				<second>0</second>
 			</second>
@@ -919,20 +926,20 @@
 			<first>6</first>
 			<second>
 				<first>0</first>
-				<second>0</second>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>7</first>
 			<second>
 				<first>0</first>
-				<second>1</second>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>8</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -954,55 +961,48 @@
 			<first>11</first>
 			<second>
 				<first>1</first>
-				<second>0</second>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>12</first>
 			<second>
 				<first>1</first>
-				<second>1</second>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>13</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>14</first>
 			<second>
-				<first>2</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>15</first>
 			<second>
-				<first>2</first>
-				<second>0</second>
+				<first>1</first>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>16</first>
 			<second>
 				<first>2</first>
-				<second>1</second>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>17</first>
 			<second>
-				<first>3</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>18</first>
-			<second>
-				<first>3</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1011,10 +1011,10 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="30" tracking_level="0" version="0">
-			<first>19</first>
+			<first>18</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>3</second>
+				<second>2</second>
 			</second>
 		</item>
 	</bblk_ent_exit>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="verify.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/verify.cpp"/>
-    <originFiles name="sign.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sign.cpp"/>
-    <originFiles name="sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sha512.h"/>
-    <originFiles name="sha512.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sha512.cpp"/>
-    <originFiles name="seed.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/seed.cpp"/>
-    <originFiles name="sc.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sc.h"/>
-    <originFiles name="sc.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sc.cpp"/>
-    <originFiles name="precomp_data.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/precomp_data.h"/>
-    <originFiles name="keypair.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/keypair.cpp"/>
-    <originFiles name="key_exchange.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/key_exchange.cpp"/>
-    <originFiles name="ge.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ge.h"/>
-    <originFiles name="ge.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ge.cpp"/>
-    <originFiles name="fixedint.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fixedint.h"/>
-    <originFiles name="fe.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fe.h"/>
-    <originFiles name="fe.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fe.cpp"/>
-    <originFiles name="ed25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ed25519.h"/>
     <originFiles name="add_scalar.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/add_scalar.cpp"/>
+    <originFiles name="ed25519.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ed25519.h"/>
+    <originFiles name="fe.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fe.cpp"/>
+    <originFiles name="fe.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fe.h"/>
+    <originFiles name="fixedint.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/fixedint.h"/>
+    <originFiles name="ge.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ge.cpp"/>
+    <originFiles name="ge.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ge.h"/>
+    <originFiles name="key_exchange.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/key_exchange.cpp"/>
+    <originFiles name="keypair.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/keypair.cpp"/>
+    <originFiles name="precomp_data.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/precomp_data.h"/>
+    <originFiles name="sc.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sc.cpp"/>
+    <originFiles name="sc.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sc.h"/>
+    <originFiles name="seed.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/seed.cpp"/>
+    <originFiles name="sha512.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sha512.cpp"/>
+    <originFiles name="sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sha512.h"/>
+    <originFiles name="sign.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/sign.cpp"/>
+    <originFiles name="verify.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/verify.cpp"/>
   </source>
   <testbench>
     <originFiles name="ed25519_tb.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/src/ed25519_tb.cpp"/>

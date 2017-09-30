@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'select_r'" level="0">
-<item name = "Date">Fri Jun  2 12:27:42 2017
+<item name = "Date">Thu Sep 28 12:41:13 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 3.00, 1.25</column>
+<column name="ap_clk">10.00, 2.11, 1.25</column>
 </table>
 </item>
 </section>
@@ -52,11 +52,11 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 128, -</column>
+<column name="Expression">-, -, 133, 126, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">21, -, 4516, 4792, -</column>
+<column name="Instance">21, -, 4557, 4749, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 981, -</column>
+<column name="Multiplexer">-, -, -, 940, -</column>
 <column name="Register">-, -, 1596, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">1, 0, 1, 2, 0</specialColumn>
@@ -66,7 +66,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_cmov_fu_223">cmov, 21, 0, 4516, 1906</column>
+<column name="grp_cmov_fu_223">cmov, 21, 0, 4557, 1863</column>
 <column name="call_ret_i_fe_cmov_1_fu_469">fe_cmov_1, 0, 0, 0, 962</column>
 <column name="call_ret33_i_fe_cmov_1_fu_494">fe_cmov_1, 0, 0, 0, 962</column>
 <column name="call_ret32_i_fe_cmov_1_fu_519">fe_cmov_1, 0, 0, 0, 962</column>
@@ -87,8 +87,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_128_p2">+, 0, 0, 16, 2, 9</column>
-<column name="grp_fu_161_p2">-, 0, 0, 39, 32, 32</column>
+<column name="grp_fu_128_p2">+, 0, 32, 15, 2, 9</column>
+<column name="grp_fu_161_p2">-, 0, 101, 38, 32, 32</column>
 <column name="tmp_3_fu_993_p2">and, 0, 0, 7, 7, 7</column>
 <column name="tmp_5_fu_981_p3">select, 0, 0, 2, 1, 2</column>
 <column name="x_1_fu_1019_p2">xor, 0, 0, 8, 8, 2</column>
@@ -103,54 +103,54 @@
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">93, 19, 1, 19</column>
-<column name="grp_cmov_fu_223_b">44, 9, 1, 9</column>
-<column name="grp_cmov_fu_223_t_xy2d_0_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_1_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_2_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_3_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_4_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_5_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_6_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_7_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_8_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_xy2d_9_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_0_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_1_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_2_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_3_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_4_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_5_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_6_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_7_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_8_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yminusx_9_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_0_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_1_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_2_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_3_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_4_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_5_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_6_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_7_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_8_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_t_yplusx_9_read">15, 3, 32, 96</column>
-<column name="grp_cmov_fu_223_u_xy2d_offset">44, 9, 4, 36</column>
-<column name="grp_cmov_fu_223_u_yminusx_offset">44, 9, 4, 36</column>
-<column name="grp_cmov_fu_223_u_yplusx_offset">44, 9, 4, 36</column>
-<column name="grp_fe_copy_fu_455_f_0_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_1_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_2_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_3_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_4_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_5_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_6_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_7_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_8_read">15, 3, 32, 96</column>
-<column name="grp_fe_copy_fu_455_f_9_read">15, 3, 32, 96</column>
-<column name="grp_fu_128_p1">44, 9, 9, 81</column>
-<column name="grp_fu_161_p0">15, 3, 32, 96</column>
-<column name="grp_fu_161_p1">53, 12, 32, 384</column>
+<column name="ap_NS_fsm">97, 19, 1, 19</column>
+<column name="grp_cmov_fu_223_b">49, 9, 1, 9</column>
+<column name="grp_cmov_fu_223_t_xy2d_0_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_1_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_2_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_3_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_4_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_5_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_6_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_7_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_8_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_xy2d_9_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_0_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_1_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_2_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_3_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_4_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_5_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_6_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_7_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_8_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yminusx_9_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_0_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_1_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_2_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_3_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_4_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_5_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_6_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_7_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_8_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_t_yplusx_9_read">13, 3, 32, 96</column>
+<column name="grp_cmov_fu_223_u_xy2d_offset">49, 9, 4, 36</column>
+<column name="grp_cmov_fu_223_u_yminusx_offset">49, 9, 4, 36</column>
+<column name="grp_cmov_fu_223_u_yplusx_offset">49, 9, 4, 36</column>
+<column name="grp_fe_copy_fu_455_f_0_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_1_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_2_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_3_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_4_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_5_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_6_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_7_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_8_read">13, 3, 32, 96</column>
+<column name="grp_fe_copy_fu_455_f_9_read">13, 3, 32, 96</column>
+<column name="grp_fu_128_p1">49, 9, 9, 81</column>
+<column name="grp_fu_161_p0">13, 3, 32, 96</column>
+<column name="grp_fu_161_p1">65, 12, 32, 384</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">

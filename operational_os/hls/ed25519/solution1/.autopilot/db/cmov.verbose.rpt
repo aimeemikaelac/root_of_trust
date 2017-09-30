@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'cmov'
 ================================================================
-* Date:           Fri Jun  2 12:27:42 2017
+* Date:           Thu Sep 28 12:41:12 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.37|        1.25|
+    |ap_clk  |  10.00|      1.95|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -56,12 +56,12 @@
 |DSP              |        -|      -|       -|       -|    -|
 |Expression       |        -|      -|       -|       -|    -|
 |FIFO             |        -|      -|       -|       -|    -|
-|Instance         |        -|      -|     966|    1261|    -|
+|Instance         |        -|      -|    1007|    1276|    -|
 |Memory           |       21|      -|       0|       0|    -|
-|Multiplexer      |        -|      -|       -|     645|    -|
+|Multiplexer      |        -|      -|       -|     587|    -|
 |Register         |        -|      -|    3550|       -|    -|
 +-----------------+---------+-------+--------+--------+-----+
-|Total            |       21|      0|    4516|    1906|    0|
+|Total            |       21|      0|    4557|    1863|    0|
 +-----------------+---------+-------+--------+--------+-----+
 |Available        |     1824|   2520|  548160|  274080|    0|
 +-----------------+---------+-------+--------+--------+-----+
@@ -70,13 +70,13 @@
 
 + Detail: 
     * Instance: 
-    +--------------------+---------+---------+-------+-----+------+
-    |      Instance      |  Module | BRAM_18K| DSP48E|  FF |  LUT |
-    +--------------------+---------+---------+-------+-----+------+
-    |grp_fe_cmov_fu_336  |fe_cmov  |        0|      0|  966|  1261|
-    +--------------------+---------+---------+-------+-----+------+
-    |Total               |         |        0|      0|  966|  1261|
-    +--------------------+---------+---------+-------+-----+------+
+    +--------------------+---------+---------+-------+------+------+
+    |      Instance      |  Module | BRAM_18K| DSP48E|  FF  |  LUT |
+    +--------------------+---------+---------+-------+------+------+
+    |grp_fe_cmov_fu_336  |fe_cmov  |        0|      0|  1007|  1276|
+    +--------------------+---------+---------+-------+------+------+
+    |Total               |         |        0|      0|  1007|  1276|
+    +--------------------+---------+---------+-------+------+------+
 
     * DSP48: 
     N/A
@@ -102,7 +102,7 @@
     +----------------------------------+----+-----------+-----+-----------+
     |               Name               | LUT| Input Size| Bits| Total Bits|
     +----------------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                         |  27|          5|    1|          5|
+    |ap_NS_fsm                         |  25|          5|    1|          5|
     |ap_return_0                       |   9|          2|   32|         64|
     |ap_return_1                       |   9|          2|   32|         64|
     |ap_return_10                      |   9|          2|   32|         64|
@@ -139,22 +139,22 @@
     |base_yminusx_ce1                  |   9|          2|    1|          2|
     |base_yplusx_ce0                   |   9|          2|    1|          2|
     |base_yplusx_ce1                   |   9|          2|    1|          2|
-    |grp_fe_cmov_fu_336_f_0_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_1_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_2_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_3_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_4_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_5_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_6_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_7_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_8_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_f_9_read       |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_g_q0           |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_g_q1           |  21|          4|   32|        128|
-    |grp_fe_cmov_fu_336_tmp_7562       |  21|          4|    5|         20|
-    |grp_fe_cmov_fu_336_u_xy2d_offset  |  21|          4|    3|         12|
+    |grp_fe_cmov_fu_336_f_0_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_1_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_2_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_3_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_4_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_5_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_6_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_7_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_8_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_f_9_read       |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_g_q0           |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_g_q1           |  17|          4|   32|        128|
+    |grp_fe_cmov_fu_336_tmp_7562       |  17|          4|    5|         20|
+    |grp_fe_cmov_fu_336_u_xy2d_offset  |  17|          4|    3|         12|
     +----------------------------------+----+-----------+-----+-----------+
-    |Total                             | 645|        133| 1359|       3505|
+    |Total                             | 587|        133| 1359|       3505|
     +----------------------------------+----+-----------+-----+-----------+
 
     * Register: 
@@ -274,8 +274,8 @@
     |t_yplusx_9_read_1_reg_680           |  32|   0|   32|          0|
     |t_yplusx_9_reg_835                  |  32|   0|   32|          0|
     |t_yplusx_reg_790                    |  32|   0|   32|          0|
-    |tmp_1728_reg_840                    |   3|   0|    3|          0|
-    |tmp_1729_reg_950                    |   3|   0|    3|          0|
+    |tmp_1729_reg_840                    |   3|   0|    3|          0|
+    |tmp_1730_reg_950                    |   3|   0|    3|          0|
     |tmp_7561_read_reg_735               |   5|   0|    5|          0|
     |tmp_7562_read_reg_845               |   5|   0|    5|          0|
     |tmp_756_read_reg_675                |   5|   0|    5|          0|
@@ -408,7 +408,7 @@ IsGatedGlobalClock: 0
 4 --> 
 * FSM state operations: 
 
- <State 1>: 1.80ns
+ <State 1>: 1.17ns
 ST_1: b_read (41)  [1/1] 0.00ns
 :0  %b_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %b)
 
@@ -451,11 +451,11 @@ ST_1: t_yplusx_0_read_1 (77)  [1/1] 0.00ns
 ST_1: tmp (86)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 :45  %tmp = trunc i4 %u_yplusx_offset_read to i3
 
-ST_1: call_ret1 (87)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:504
+ST_1: call_ret1 (87)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:504
 :46  %call_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yplusx_0_read_1, i32 %t_yplusx_1_read_1, i32 %t_yplusx_2_read_1, i32 %t_yplusx_3_read_1, i32 %t_yplusx_4_read_1, i32 %t_yplusx_5_read_1, i32 %t_yplusx_6_read_1, i32 %t_yplusx_7_read_1, i32 %t_yplusx_8_read_1, i32 %t_yplusx_9_read_1, [2560 x i32]* @base_yplusx, i5 %tmp_756_read, i3 %tmp, i1 %b_read)
 
 
- <State 2>: 1.80ns
+ <State 2>: 1.29ns
 ST_2: u_yminusx_offset_rea (44)  [1/1] 0.00ns
 :3  %u_yminusx_offset_rea = call i4 @_ssdm_op_Read.ap_auto.i4(i4 %u_yminusx_offset)
 
@@ -525,14 +525,14 @@ ST_2: t_yplusx_8 (96)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 ST_2: t_yplusx_9 (97)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 :56  %t_yplusx_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret1, 9
 
-ST_2: tmp_1728 (98)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
-:57  %tmp_1728 = trunc i4 %u_yminusx_offset_rea to i3
+ST_2: tmp_1729 (98)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
+:57  %tmp_1729 = trunc i4 %u_yminusx_offset_rea to i3
 
-ST_2: call_ret (99)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:505
-:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1728, i1 %b_read)
+ST_2: call_ret (99)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:505
+:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1729, i1 %b_read)
 
 
- <State 3>: 1.80ns
+ <State 3>: 1.29ns
 ST_3: u_xy2d_offset_read (42)  [1/1] 0.00ns
 :1  %u_xy2d_offset_read = call i4 @_ssdm_op_Read.ap_auto.i4(i4 %u_xy2d_offset)
 
@@ -570,7 +570,7 @@ ST_3: t_xy2d_0_read_1 (57)  [1/1] 0.00ns
 :16  %t_xy2d_0_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %t_xy2d_0_read)
 
 ST_3: call_ret (99)  [1/2] 1.29ns  loc: ed25519/src/ge.cpp:505
-:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1728, i1 %b_read)
+:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1729, i1 %b_read)
 
 ST_3: t_yminusx (100)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 :59  %t_yminusx = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 0
@@ -602,40 +602,40 @@ ST_3: t_yminusx_8 (108)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 ST_3: t_yminusx_9 (109)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 :68  %t_yminusx_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 9
 
-ST_3: tmp_1729 (110)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
-:69  %tmp_1729 = trunc i4 %u_xy2d_offset_read to i3
+ST_3: tmp_1730 (110)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
+:69  %tmp_1730 = trunc i4 %u_xy2d_offset_read to i3
 
-ST_3: call_ret32 (111)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:506
-:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1729, i1 %b_read)
+ST_3: call_ret32 (111)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:506
+:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1730, i1 %b_read)
 
 
  <State 4>: 1.29ns
 ST_4: StgValue_70 (78)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:496
-:37  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str10, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:37  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str43, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_71 (79)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:497
-:38  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str212, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:38  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str245, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_72 (80)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:498
-:39  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str313, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:39  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str346, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_73 (81)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:499
-:40  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str414, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:40  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str447, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_74 (82)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:500
-:41  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str515, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:41  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str548, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_75 (83)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:501
-:42  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str616, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:42  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str649, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_76 (84)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:502
-:43  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str717, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:43  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str750, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_77 (85)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:503
-:44  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [8 x i8]* @p_str19, [1 x i8]* @p_str111) nounwind
+:44  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [8 x i8]* @p_str19, [1 x i8]* @p_str144) nounwind
 
 ST_4: call_ret32 (111)  [1/2] 1.29ns  loc: ed25519/src/ge.cpp:506
-:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1729, i1 %b_read)
+:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1730, i1 %b_read)
 
 ST_4: t_xy2d (112)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
 :71  %t_xy2d = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret32, 0
@@ -856,7 +856,7 @@ t_yplusx_6           (extractvalue     ) [ 00011]
 t_yplusx_7           (extractvalue     ) [ 00011]
 t_yplusx_8           (extractvalue     ) [ 00011]
 t_yplusx_9           (extractvalue     ) [ 00011]
-tmp_1728             (trunc            ) [ 00010]
+tmp_1729             (trunc            ) [ 00010]
 u_xy2d_offset_read   (read             ) [ 00000]
 tmp_7562_read        (read             ) [ 00001]
 t_xy2d_9_read_1      (read             ) [ 00001]
@@ -880,7 +880,7 @@ t_yminusx_6          (extractvalue     ) [ 00001]
 t_yminusx_7          (extractvalue     ) [ 00001]
 t_yminusx_8          (extractvalue     ) [ 00001]
 t_yminusx_9          (extractvalue     ) [ 00001]
-tmp_1729             (trunc            ) [ 00001]
+tmp_1730             (trunc            ) [ 00001]
 StgValue_70          (specresourcelimit) [ 00000]
 StgValue_71          (specresourcelimit) [ 00000]
 StgValue_72          (specresourcelimit) [ 00000]
@@ -1367,7 +1367,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="95" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str10"/></StgValue>
+<StgValue><ssdm name="p_str43"/></StgValue>
 </bind>
 </comp>
 
@@ -1376,7 +1376,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="97" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str111"/></StgValue>
+<StgValue><ssdm name="p_str144"/></StgValue>
 </bind>
 </comp>
 
@@ -1385,7 +1385,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="99" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str212"/></StgValue>
+<StgValue><ssdm name="p_str245"/></StgValue>
 </bind>
 </comp>
 
@@ -1394,7 +1394,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="101" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str313"/></StgValue>
+<StgValue><ssdm name="p_str346"/></StgValue>
 </bind>
 </comp>
 
@@ -1403,7 +1403,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="103" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str414"/></StgValue>
+<StgValue><ssdm name="p_str447"/></StgValue>
 </bind>
 </comp>
 
@@ -1412,7 +1412,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="105" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str515"/></StgValue>
+<StgValue><ssdm name="p_str548"/></StgValue>
 </bind>
 </comp>
 
@@ -1421,7 +1421,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="107" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str616"/></StgValue>
+<StgValue><ssdm name="p_str649"/></StgValue>
 </bind>
 </comp>
 
@@ -1430,7 +1430,7 @@ StgValue_119         (ret              ) [ 00000]
 <pin id="109" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str717"/></StgValue>
+<StgValue><ssdm name="p_str750"/></StgValue>
 </bind>
 </comp>
 
@@ -2042,25 +2042,25 @@ StgValue_119         (ret              ) [ 00000]
 </bind>
 </comp>
 
-<comp id="500" class="1004" name="tmp_1728_fu_500">
+<comp id="500" class="1004" name="tmp_1729_fu_500">
 <pin_list>
 <pin id="501" dir="0" index="0" bw="4" slack="0"/>
 <pin id="502" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="tmp_1728/2 "/>
+<opset="tmp_1729/2 "/>
 </bind>
 </comp>
 
-<comp id="505" class="1004" name="tmp_1729_fu_505">
+<comp id="505" class="1004" name="tmp_1730_fu_505">
 <pin_list>
 <pin id="506" dir="0" index="0" bw="4" slack="0"/>
 <pin id="507" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="tmp_1729/3 "/>
+<opset="tmp_1730/3 "/>
 </bind>
 </comp>
 
@@ -2764,13 +2764,13 @@ StgValue_119         (ret              ) [ 00000]
 </bind>
 </comp>
 
-<comp id="840" class="1005" name="tmp_1728_reg_840">
+<comp id="840" class="1005" name="tmp_1729_reg_840">
 <pin_list>
 <pin id="841" dir="0" index="0" bw="3" slack="1"/>
 <pin id="842" dir="1" index="1" bw="3" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_1728 "/>
+<opset="tmp_1729 "/>
 </bind>
 </comp>
 
@@ -2984,13 +2984,13 @@ StgValue_119         (ret              ) [ 00000]
 </bind>
 </comp>
 
-<comp id="950" class="1005" name="tmp_1729_reg_950">
+<comp id="950" class="1005" name="tmp_1730_reg_950">
 <pin_list>
 <pin id="951" dir="0" index="0" bw="3" slack="1"/>
 <pin id="952" dir="1" index="1" bw="3" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_1729 "/>
+<opset="tmp_1730 "/>
 </bind>
 </comp>
 
@@ -3690,7 +3690,7 @@ StgValue_119         (ret              ) [ 00000]
 |----------|----------------------------------|---------|---------|---------|
 | Operation|          Functional Unit         |  Delay  |    FF   |   LUT   |
 |----------|----------------------------------|---------|---------|---------|
-|   call   |        grp_fe_cmov_fu_336        |  3.2791 |   436   |   1135  |
+|   call   |        grp_fe_cmov_fu_336        | 2.70567 |   477   |   1146  |
 |----------|----------------------------------|---------|---------|---------|
 |          |        b_read_read_fu_114        |    0    |    0    |    0    |
 |          | u_yplusx_offset_read_read_fu_120 |    0    |    0    |    0    |
@@ -3742,8 +3742,8 @@ StgValue_119         (ret              ) [ 00000]
 |          |            grp_fu_491            |    0    |    0    |    0    |
 |----------|----------------------------------|---------|---------|---------|
 |          |            tmp_fu_495            |    0    |    0    |    0    |
-|   trunc  |          tmp_1728_fu_500         |    0    |    0    |    0    |
-|          |          tmp_1729_fu_505         |    0    |    0    |    0    |
+|   trunc  |          tmp_1729_fu_500         |    0    |    0    |    0    |
+|          |          tmp_1730_fu_505         |    0    |    0    |    0    |
 |----------|----------------------------------|---------|---------|---------|
 |          |            mrv_fu_510            |    0    |    0    |    0    |
 |          |           mrv_1_fu_515           |    0    |    0    |    0    |
@@ -3776,7 +3776,7 @@ StgValue_119         (ret              ) [ 00000]
 |          |           mrv_28_fu_658          |    0    |    0    |    0    |
 |          |           mrv_29_fu_664          |    0    |    0    |    0    |
 |----------|----------------------------------|---------|---------|---------|
-|   Total  |                                  |  3.2791 |   436   |   1135  |
+|   Total  |                                  | 2.70567 |   477   |   1146  |
 |----------|----------------------------------|---------|---------|---------|
 
 Memories:
@@ -3837,8 +3837,8 @@ N/A
 | t_yplusx_9_read_1_reg_680|   32   |
 |    t_yplusx_9_reg_835    |   32   |
 |     t_yplusx_reg_790     |   32   |
-|     tmp_1728_reg_840     |    3   |
-|     tmp_1729_reg_950     |    3   |
+|     tmp_1729_reg_840     |    3   |
+|     tmp_1730_reg_950     |    3   |
 |   tmp_7561_read_reg_735  |    5   |
 |   tmp_7562_read_reg_845  |    5   |
 |   tmp_756_read_reg_675   |    5   |
@@ -3861,12 +3861,12 @@ N/A
 | grp_fe_cmov_fu_336 |  p8  |   6  |  32  |   192  ||    33   |
 | grp_fe_cmov_fu_336 |  p9  |   6  |  32  |   192  ||    33   |
 | grp_fe_cmov_fu_336 |  p10 |   6  |  32  |   192  ||    33   |
-| grp_fe_cmov_fu_336 |  p11 |   3  |  32  |   96   ||    15   |
+| grp_fe_cmov_fu_336 |  p11 |   3  |  32  |   96   ||    13   |
 | grp_fe_cmov_fu_336 |  p12 |   6  |   5  |   30   ||    33   |
 | grp_fe_cmov_fu_336 |  p13 |   6  |   3  |   18   ||    33   |
 | grp_fe_cmov_fu_336 |  p14 |   2  |   1  |    2   ||    9    |
 |--------------------|------|------|------|--------||---------||---------|
-|        Total       |      |      |      |  2066  || 10.1028 ||   420   |
+|        Total       |      |      |      |  2066  ||  9.3205 ||   418   |
 |--------------------|------|------|------|--------||---------||---------|
 
 
@@ -3875,10 +3875,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    3   |   436  |  1135  |
+|  Function |    2   |   477  |  1146  |
 |   Memory  |    -   |    -   |    -   |
-|Multiplexer|   10   |    -   |   420  |
+|Multiplexer|    9   |    -   |   418  |
 |  Register |    -   |  1625  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |   13   |  2061  |  1555  |
+|   Total   |   12   |  2102  |  1564  |
 +-----------+--------+--------+--------+

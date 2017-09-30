@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'load_3'
 ================================================================
-* Date:           Fri Jun  2 12:27:11 2017
+* Date:           Thu Sep 28 12:40:35 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      1.79|        1.25|
+    |ap_clk  |  10.00|      1.43|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -96,11 +96,11 @@ ST_1: tmp_1375 (8)  [1/1] 0.00ns
 :5  %tmp_1375 = trunc i7 %in_offset_read to i6
 
 
- <State 2>: 1.79ns
+ <State 2>: 1.43ns
 ST_2: in_load (7)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:7
 :4  %in_load = load i8* %in_addr, align 1
 
-ST_2: sum (9)  [1/1] 1.11ns
+ST_2: sum (9)  [1/1] 0.75ns
 :6  %sum = add i6 1, %tmp_1375
 
 ST_2: sum_cast (10)  [1/1] 0.00ns
@@ -113,11 +113,11 @@ ST_2: in_load_4 (12)  [2/2] 0.68ns  loc: ed25519/src/sc.cpp:8
 :9  %in_load_4 = load i8* %in_addr_4, align 1
 
 
- <State 3>: 1.79ns
+ <State 3>: 1.43ns
 ST_3: in_load_4 (12)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:8
 :9  %in_load_4 = load i8* %in_addr_4, align 1
 
-ST_3: sum2 (13)  [1/1] 1.11ns
+ST_3: sum2 (13)  [1/1] 0.75ns
 :10  %sum2 = add i6 2, %tmp_1375
 
 ST_3: sum2_cast (14)  [1/1] 0.00ns
@@ -132,7 +132,7 @@ ST_3: in_load_5 (16)  [2/2] 0.68ns  loc: ed25519/src/sc.cpp:9
 
  <State 4>: 0.68ns
 ST_4: empty (3)  [1/1] 0.00ns
-:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str20, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str20, i32 -1, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20)
 
 ST_4: in_load_5 (16)  [1/2] 0.68ns  loc: ed25519/src/sc.cpp:9
 :13  %in_load_5 = load i8* %in_addr_5, align 1
@@ -156,15 +156,15 @@ The critical path consists of the following:
 	'getelementptr' operation ('in_addr') [6]  (0 ns)
 	'load' operation ('in_load', ed25519/src/sc.cpp:7) on array 'in_r' [7]  (0.677 ns)
 
- <State 2>: 1.79ns
+ <State 2>: 1.43ns
 The critical path consists of the following:
-	'add' operation ('sum') [9]  (1.11 ns)
+	'add' operation ('sum') [9]  (0.754 ns)
 	'getelementptr' operation ('in_addr_4', ed25519/src/sc.cpp:8) [11]  (0 ns)
 	'load' operation ('in_load_4', ed25519/src/sc.cpp:8) on array 'in_r' [12]  (0.677 ns)
 
- <State 3>: 1.79ns
+ <State 3>: 1.43ns
 The critical path consists of the following:
-	'add' operation ('sum2') [13]  (1.11 ns)
+	'add' operation ('sum2') [13]  (0.754 ns)
 	'getelementptr' operation ('in_addr_5', ed25519/src/sc.cpp:9) [15]  (0 ns)
 	'load' operation ('in_load_5', ed25519/src/sc.cpp:9) on array 'in_r' [16]  (0.677 ns)
 

@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2017.1</Version>
+<Version>2017.2</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -54,9 +54,9 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>131</BRAM_18K>
-<DSP48E>84</DSP48E>
-<FF>165830</FF>
-<LUT>132272</LUT>
+<DSP48E>125</DSP48E>
+<FF>189532</FF>
+<LUT>138844</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

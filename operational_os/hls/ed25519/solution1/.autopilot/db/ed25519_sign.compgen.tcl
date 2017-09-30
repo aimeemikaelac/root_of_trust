@@ -348,13 +348,21 @@ signature {
 	offset 64
 	offset_end 127
 }
+offset { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 128
+	offset_end 139
+}
 blocks_in { 
 	dir I
 	width 64
 	depth 1
 	mode ap_vld
-	offset 128
-	offset_end 139
+	offset 140
+	offset_end 151
 }
 public_key { 
 	dir I

@@ -271,7 +271,7 @@
 
 <Node id="3" bw="32" op_0_bw="32" op_1_bw="8" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %in_r, [1 x i8]* @p_str20, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str20, i32 -1, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -389,23 +389,23 @@
 </dataflow>
 <dataflow id="59" from="in_r" to="empty" fromId="27" toId="20">
 </dataflow>
-<dataflow id="61" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="61" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
 <dataflow id="63" from="RAM_1P_str" to="empty" fromId="62" toId="20">
 </dataflow>
-<dataflow id="64" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="64" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
 <dataflow id="66" from="StgValue_65" to="empty" fromId="65" toId="20">
 </dataflow>
-<dataflow id="67" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="67" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
-<dataflow id="68" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="68" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
-<dataflow id="69" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="69" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
-<dataflow id="70" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="70" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
-<dataflow id="71" from="p_str" to="empty" fromId="60" toId="20">
+<dataflow id="71" from="p_str20" to="empty" fromId="60" toId="20">
 </dataflow>
 <dataflow id="72" from="in_addr_5" to="in_load_5" fromId="18" toId="21">
 </dataflow>

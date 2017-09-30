@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2017.1</Version>
+<Version>2017.2</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -17,23 +17,23 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.54</EstimatedClockPeriod>
+<EstimatedClockPeriod>6.43</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>490</Best-caseLatency>
-<Average-caseLatency>490</Average-caseLatency>
-<Worst-caseLatency>490</Worst-caseLatency>
-<Interval-min>490</Interval-min>
-<Interval-max>490</Interval-max>
+<Best-caseLatency>488</Best-caseLatency>
+<Average-caseLatency>488</Average-caseLatency>
+<Worst-caseLatency>488</Worst-caseLatency>
+<Interval-min>488</Interval-min>
+<Interval-max>488</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<DSP48E>10</DSP48E>
-<FF>13864</FF>
-<LUT>9505</LUT>
+<DSP48E>32</DSP48E>
+<FF>22714</FF>
+<LUT>10840</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>

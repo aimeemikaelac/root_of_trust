@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fe_tobytes_1'" level="0">
-<item name = "Date">Fri Jun  2 12:27:49 2017
+<item name = "Date">Thu Sep 28 12:41:20 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 6.80, 1.25</column>
+<column name="ap_clk">10.00, 3.53, 1.25</column>
 </table>
 </item>
 </section>
@@ -47,11 +47,11 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, 3, 0, 59, -</column>
+<column name="Expression">-, 4, 101, 86, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 1023, -</column>
+<column name="Multiplexer">-, -, -, 1062, -</column>
 <column name="Register">-, -, 778, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
@@ -77,19 +77,19 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_805_p2">*, 3, 0, 20, 6, 32</column>
-<column name="grp_fu_602_p2">+, 0, 0, 39, 32, 32</column>
+<column name="grp_fu_805_p2">*, 4, 0, 48, 6, 32</column>
+<column name="grp_fu_602_p2">+, 0, 101, 38, 32, 32</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">253, 59, 1, 59</column>
-<column name="grp_fu_602_p0">217, 50, 32, 1600</column>
-<column name="grp_fu_602_p1">253, 59, 32, 1888</column>
-<column name="grp_fu_805_p0">15, 3, 6, 18</column>
-<column name="grp_fu_805_p1">15, 3, 32, 96</column>
-<column name="s_address0">149, 33, 6, 198</column>
-<column name="s_d0">121, 26, 8, 208</column>
+<column name="ap_NS_fsm">258, 59, 1, 59</column>
+<column name="grp_fu_602_p0">231, 50, 32, 1600</column>
+<column name="grp_fu_602_p1">258, 59, 32, 1888</column>
+<column name="grp_fu_805_p0">13, 3, 6, 18</column>
+<column name="grp_fu_805_p1">13, 3, 32, 96</column>
+<column name="s_address0">156, 33, 6, 198</column>
+<column name="s_d0">133, 26, 8, 208</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">

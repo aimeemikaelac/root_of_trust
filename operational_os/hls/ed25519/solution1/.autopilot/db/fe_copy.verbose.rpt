@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'fe_copy'
 ================================================================
-* Date:           Fri Jun  2 12:27:42 2017
+* Date:           Thu Sep 28 12:41:12 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -182,25 +182,25 @@ ST_1: f_0_read_7 (20)  [1/1] 0.00ns
 :9  %f_0_read_7 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_0_read)
 
 ST_1: StgValue_12 (21)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:303
-:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str75, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_13 (22)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:304
-:11  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:11  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str277, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_14 (23)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:305
-:12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str378, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_15 (24)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:306
-:13  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:13  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str479, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_16 (25)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:307
-:14  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:14  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str580, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_17 (26)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:308
-:15  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:15  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str681, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_18 (27)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:309
-:16  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:16  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str782, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: mrv (28)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:331
 :17  %mrv = insertvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } undef, i32 %f_0_read_7, 0
@@ -419,7 +419,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str3"/></StgValue>
+<StgValue><ssdm name="p_str75"/></StgValue>
 </bind>
 </comp>
 
@@ -428,7 +428,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str14"/></StgValue>
+<StgValue><ssdm name="p_str176"/></StgValue>
 </bind>
 </comp>
 
@@ -437,7 +437,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str25"/></StgValue>
+<StgValue><ssdm name="p_str277"/></StgValue>
 </bind>
 </comp>
 
@@ -446,7 +446,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str36"/></StgValue>
+<StgValue><ssdm name="p_str378"/></StgValue>
 </bind>
 </comp>
 
@@ -455,7 +455,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str4"/></StgValue>
+<StgValue><ssdm name="p_str479"/></StgValue>
 </bind>
 </comp>
 
@@ -464,7 +464,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str5"/></StgValue>
+<StgValue><ssdm name="p_str580"/></StgValue>
 </bind>
 </comp>
 
@@ -473,7 +473,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str6"/></StgValue>
+<StgValue><ssdm name="p_str681"/></StgValue>
 </bind>
 </comp>
 
@@ -482,7 +482,7 @@ StgValue_29 (ret              ) [ 00]
 <pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str7"/></StgValue>
+<StgValue><ssdm name="p_str782"/></StgValue>
 </bind>
 </comp>
 

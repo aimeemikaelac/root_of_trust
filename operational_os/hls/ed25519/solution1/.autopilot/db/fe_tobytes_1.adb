@@ -20062,11 +20062,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>101</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>39</second>
+              <second>38</second>
             </item>
           </second>
         </item>
@@ -20085,7 +20085,7 @@
             </item>
             <item>
               <first>DSP48E</first>
-              <second>3</second>
+              <second>4</second>
             </item>
             <item>
               <first>FF</first>
@@ -20093,7 +20093,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>20</second>
+              <second>48</second>
             </item>
           </second>
         </item>
@@ -20128,7 +20128,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>253</second>
+              <second>258</second>
             </item>
           </second>
         </item>
@@ -20151,7 +20151,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>217</second>
+              <second>231</second>
             </item>
           </second>
         </item>
@@ -20174,7 +20174,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>253</second>
+              <second>258</second>
             </item>
           </second>
         </item>
@@ -20197,7 +20197,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -20220,7 +20220,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -20243,7 +20243,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>149</second>
+              <second>156</second>
             </item>
           </second>
         </item>
@@ -20266,7 +20266,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>121</second>
+              <second>133</second>
             </item>
           </second>
         </item>

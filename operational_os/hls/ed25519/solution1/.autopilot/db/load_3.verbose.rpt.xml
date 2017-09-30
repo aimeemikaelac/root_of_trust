@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'load_3'" level="0">
-<item name = "Date">Fri Jun  2 12:27:40 2017
+<item name = "Date">Thu Sep 28 12:41:11 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 1.79, 1.25</column>
+<column name="ap_clk">10.00, 1.43, 1.25</column>
 </table>
 </item>
 </section>
@@ -47,11 +47,11 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 30, -</column>
+<column name="Expression">-, -, 46, 24, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 57, -</column>
+<column name="Multiplexer">-, -, -, 51, -</column>
 <column name="Register">-, -, 50, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
@@ -77,15 +77,15 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="sum2_fu_75_p2">+, 0, 0, 15, 2, 6</column>
-<column name="sum_fu_65_p2">+, 0, 0, 15, 1, 6</column>
+<column name="sum2_fu_75_p2">+, 0, 23, 12, 2, 6</column>
+<column name="sum_fu_65_p2">+, 0, 23, 12, 1, 6</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">27, 5, 1, 5</column>
+<column name="ap_NS_fsm">25, 5, 1, 5</column>
 <column name="ap_return">9, 2, 24, 48</column>
-<column name="in_r_address0">21, 4, 6, 24</column>
+<column name="in_r_address0">17, 4, 6, 24</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">

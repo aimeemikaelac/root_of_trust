@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'sha512_update_32'
 ================================================================
-* Date:           Fri Jun  2 12:27:28 2017
+* Date:           Thu Sep 28 12:40:57 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.77|        1.25|
+    |ap_clk  |  10.00|      2.17|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -125,33 +125,33 @@ IsGatedGlobalClock: 0
 	2  / true
 * FSM state operations: 
 
- <State 1>: 0.67ns
+ <State 1>: 0.64ns
 ST_1: empty (7)  [1/1] 0.00ns
-:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([32 x i8]* %in_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([32 x i8]* %in_r, [1 x i8]* @p_str16, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16)
 
 ST_1: temp_buf (8)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:310
 :1  %temp_buf = alloca [128 x i8], align 16
 
 ST_1: StgValue_20 (9)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:299
-:2  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str44, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:2  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str17, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_21 (10)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:300
-:3  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str246, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:3  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str219, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_22 (11)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:301
-:4  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str347, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:4  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str320, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_23 (12)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:302
-:5  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str448, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:5  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str421, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_24 (13)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:303
-:6  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str549, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:6  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str522, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_25 (14)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:304
-:7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str650, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:7  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str623, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: StgValue_26 (15)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:305
-:8  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str751, [1 x i8]* @p_str145, [1 x i8]* @p_str145, [1 x i8]* @p_str145) nounwind
+:8  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str724, [1 x i8]* @p_str118, [1 x i8]* @p_str118, [1 x i8]* @p_str118) nounwind
 
 ST_1: md_curlen_read (16)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:314
 :9  %md_curlen_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
@@ -165,10 +165,10 @@ ST_1: StgValue_29 (18)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:314
 ST_1: inlen (20)  [1/1] 0.00ns
 .backedge.preheader:0  %inlen = alloca i64
 
-ST_1: StgValue_31 (21)  [1/1] 0.67ns
+ST_1: StgValue_31 (21)  [1/1] 0.41ns
 .backedge.preheader:1  store i64 32, i64* %inlen
 
-ST_1: StgValue_32 (22)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:317
+ST_1: StgValue_32 (22)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:317
 .backedge.preheader:2  br label %.backedge
 
 
@@ -200,7 +200,7 @@ ST_3: tmp_2 (30)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:318
 :1  %tmp_2 = icmp eq i64 %md_curlen_read_7, 0
 
 
- <State 4>: 1.41ns
+ <State 4>: 0.85ns
 ST_4: tmp_21 (31)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:318
 :2  %tmp_21 = call i57 @_ssdm_op_PartSelect.i57.i64.i32.i32(i64 %inlen_load, i32 7, i32 63)
 
@@ -219,15 +219,15 @@ ST_4: StgValue_45 (108)  [2/2] 0.00ns  loc: ed25519/src/sha512.cpp:319
 ST_4: md_length_read (109)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:322
 :1  %md_length_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_length)
 
-ST_4: tmp_4 (110)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:322
+ST_4: tmp_4 (110)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:322
 :2  %tmp_4 = add i64 %md_length_read, 1024
 
 ST_4: StgValue_48 (111)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:322
 :3  call void @_ssdm_op_Write.ap_auto.i64P(i64* %md_length, i64 %tmp_4)
 
 
- <State 5>: 2.14ns
-ST_5: tmp_6 (36)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:326
+ <State 5>: 1.54ns
+ST_5: tmp_6 (36)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:326
 ._crit_edge:0  %tmp_6 = sub i64 128, %md_curlen_read_7
 
 ST_5: tmp_7 (37)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:326
@@ -236,11 +236,11 @@ ST_5: tmp_7 (37)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:326
 ST_5: n (38)  [1/1] 0.08ns  loc: ed25519/src/sha512.cpp:326
 ._crit_edge:2  %n = select i1 %tmp_7, i64 %inlen_load, i64 %tmp_6
 
-ST_5: StgValue_52 (39)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:328
+ST_5: StgValue_52 (39)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:328
 ._crit_edge:3  br label %3
 
 
- <State 6>: 1.41ns
+ <State 6>: 0.82ns
 ST_6: i (41)  [1/1] 0.00ns
 :0  %i = phi i64 [ 0, %._crit_edge ], [ %i_1, %4 ]
 
@@ -253,18 +253,18 @@ ST_6: tmp_23 (43)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:328
 ST_6: exitcond3 (44)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:328
 :3  %exitcond3 = icmp eq i64 %i, %n
 
-ST_6: i_1 (45)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:328
+ST_6: i_1 (45)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:328
 :4  %i_1 = add i64 1, %i
 
 ST_6: StgValue_58 (46)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:328
 :5  br i1 %exitcond3, label %5, label %4
 
 
- <State 7>: 1.78ns
+ <State 7>: 1.47ns
 ST_7: tmp_24 (48)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:317
 :0  %tmp_24 = trunc i64 %p_01_idx to i7
 
-ST_7: sum2 (49)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:317
+ST_7: sum2 (49)  [1/1] 0.79ns  loc: ed25519/src/sha512.cpp:317
 :1  %sum2 = add i7 %tmp_24, %tmp_23
 
 ST_7: sum2_cast (50)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:317
@@ -277,7 +277,7 @@ ST_7: in_load (52)  [2/2] 0.68ns  loc: ed25519/src/sha512.cpp:329
 :4  %in_load = load i8* %in_addr, align 1
 
 
- <State 8>: 1.68ns
+ <State 8>: 1.43ns
 ST_8: in_load (52)  [1/2] 0.68ns  loc: ed25519/src/sha512.cpp:329
 :4  %in_load = load i8* %in_addr, align 1
 
@@ -287,7 +287,7 @@ ST_8: md_curlen_read_9 (53)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:329
 ST_8: tmp_25 (54)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:329
 :6  %tmp_25 = trunc i64 %md_curlen_read_9 to i9
 
-ST_8: tmp_5 (55)  [1/1] 1.10ns  loc: ed25519/src/sha512.cpp:329
+ST_8: tmp_5 (55)  [1/1] 0.86ns  loc: ed25519/src/sha512.cpp:329
 :7  %tmp_5 = add i9 %tmp_25, %tmp_22
 
 ST_8: tmp_5_cast (56)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:329
@@ -303,17 +303,17 @@ ST_8: StgValue_71 (59)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:328
 :11  br label %3
 
 
- <State 9>: 2.06ns
+ <State 9>: 1.46ns
 ST_9: md_curlen_read_8 (61)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:333
 :0  %md_curlen_read_8 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
 
-ST_9: tmp_8 (62)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:333
+ST_9: tmp_8 (62)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:333
 :1  %tmp_8 = add i64 %md_curlen_read_8, %n
 
 ST_9: StgValue_74 (63)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:333
 :2  call void @_ssdm_op_Write.ap_auto.i64P(i64* %md_curlen, i64 %tmp_8)
 
-ST_9: inlen_2 (64)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:335
+ST_9: inlen_2 (64)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:335
 :3  %inlen_2 = sub i64 %inlen_load, %n
 
 ST_9: tmp_s (65)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:336
@@ -322,11 +322,11 @@ ST_9: tmp_s (65)  [1/1] 0.64ns  loc: ed25519/src/sha512.cpp:336
 ST_9: StgValue_77 (66)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:336
 :5  br i1 %tmp_s, label %.preheader5.preheader, label %._crit_edge7
 
-ST_9: StgValue_78 (68)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:337
+ST_9: StgValue_78 (68)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:337
 .preheader5.preheader:0  br label %.preheader5
 
 
- <State 10>: 1.09ns
+ <State 10>: 0.82ns
 ST_10: temp_index (70)  [1/1] 0.00ns
 .preheader5:0  %temp_index = phi i8 [ %temp_index_2, %6 ], [ 0, %.preheader5.preheader ]
 
@@ -336,7 +336,7 @@ ST_10: exitcond2 (71)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:337
 ST_10: empty_87 (72)  [1/1] 0.00ns
 .preheader5:2  %empty_87 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_10: temp_index_2 (73)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:337
+ST_10: temp_index_2 (73)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:337
 .preheader5:3  %temp_index_2 = add i8 %temp_index, 1
 
 ST_10: StgValue_83 (74)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:337
@@ -369,15 +369,15 @@ ST_11: StgValue_91 (81)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:337
 :5  br label %.preheader5
 
 
- <State 12>: 0.66ns
+ <State 12>: 0.43ns
 ST_12: StgValue_92 (83)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:340
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
-ST_12: StgValue_93 (84)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:340
+ST_12: StgValue_93 (84)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:340
 :1  br label %.preheader
 
 
- <State 13>: 1.09ns
+ <State 13>: 0.82ns
 ST_13: temp_index_1 (86)  [1/1] 0.00ns
 .preheader:0  %temp_index_1 = phi i8 [ %temp_index_3, %8 ], [ 0, %7 ]
 
@@ -387,7 +387,7 @@ ST_13: exitcond (87)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:343
 ST_13: empty_88 (88)  [1/1] 0.00ns
 .preheader:2  %empty_88 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_13: temp_index_3 (89)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:343
+ST_13: temp_index_3 (89)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:343
 .preheader:3  %temp_index_3 = add i8 %temp_index_1, 1
 
 ST_13: StgValue_98 (90)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:343
@@ -417,11 +417,11 @@ ST_14: StgValue_105 (97)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:343
 :5  br label %.preheader
 
 
- <State 15>: 1.41ns
+ <State 15>: 0.82ns
 ST_15: md_length_read_3 (99)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:346
 :0  %md_length_read_3 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_length)
 
-ST_15: tmp_10 (100)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:346
+ST_15: tmp_10 (100)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:346
 :1  %tmp_10 = add i64 %md_length_read_3, 1024
 
 ST_15: StgValue_108 (101)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:346
@@ -433,32 +433,32 @@ ST_15: StgValue_109 (102)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:347
 ST_15: StgValue_110 (103)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:348
 :4  br label %._crit_edge7
 
-ST_15: StgValue_111 (105)  [1/1] 0.67ns  loc: ed25519/src/sha512.cpp:335
+ST_15: StgValue_111 (105)  [1/1] 0.41ns  loc: ed25519/src/sha512.cpp:335
 ._crit_edge7:0  store i64 %inlen_2, i64* %inlen
 
-ST_15: StgValue_112 (106)  [1/1] 0.66ns
+ST_15: StgValue_112 (106)  [1/1] 0.43ns
 ._crit_edge7:1  br label %.backedge.backedge
 
 
- <State 16>: 2.09ns
+ <State 16>: 1.23ns
 ST_16: StgValue_113 (108)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:319
 :0  call fastcc void @sha512_compress_32.1([8 x i64]* nocapture %md_state, [32 x i8]* nocapture %in_r, i64 %p_01_idx)
 
-ST_16: inlen_1 (112)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:324
+ST_16: inlen_1 (112)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:324
 :4  %inlen_1 = add i64 %inlen_load, -128
 
-ST_16: StgValue_115 (113)  [1/1] 0.67ns  loc: ed25519/src/sha512.cpp:324
+ST_16: StgValue_115 (113)  [1/1] 0.41ns  loc: ed25519/src/sha512.cpp:324
 :5  store i64 %inlen_1, i64* %inlen
 
-ST_16: StgValue_116 (114)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:325
+ST_16: StgValue_116 (114)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:325
 :6  br label %.backedge.backedge
 
 
- <State 17>: 1.41ns
+ <State 17>: 0.82ns
 ST_17: p_pn (116)  [1/1] 0.00ns (grouped into LUT with out node p_01_idx_be)
 .backedge.backedge:0  %p_pn = phi i64 [ 128, %2 ], [ %n, %._crit_edge7 ]
 
-ST_17: p_01_idx_be (117)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:334 (out node of the LUT)
+ST_17: p_01_idx_be (117)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:334 (out node of the LUT)
 .backedge.backedge:1  %p_01_idx_be = add i64 %p_pn, %p_01_idx
 
 ST_17: StgValue_119 (118)  [1/1] 0.00ns
@@ -663,7 +663,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name="p_str16"/></StgValue>
 </bind>
 </comp>
 
@@ -717,7 +717,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str44"/></StgValue>
+<StgValue><ssdm name="p_str17"/></StgValue>
 </bind>
 </comp>
 
@@ -726,7 +726,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str145"/></StgValue>
+<StgValue><ssdm name="p_str118"/></StgValue>
 </bind>
 </comp>
 
@@ -735,7 +735,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str246"/></StgValue>
+<StgValue><ssdm name="p_str219"/></StgValue>
 </bind>
 </comp>
 
@@ -744,7 +744,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str347"/></StgValue>
+<StgValue><ssdm name="p_str320"/></StgValue>
 </bind>
 </comp>
 
@@ -753,7 +753,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str448"/></StgValue>
+<StgValue><ssdm name="p_str421"/></StgValue>
 </bind>
 </comp>
 
@@ -762,7 +762,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str549"/></StgValue>
+<StgValue><ssdm name="p_str522"/></StgValue>
 </bind>
 </comp>
 
@@ -771,7 +771,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str650"/></StgValue>
+<StgValue><ssdm name="p_str623"/></StgValue>
 </bind>
 </comp>
 
@@ -780,7 +780,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 <pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str751"/></StgValue>
+<StgValue><ssdm name="p_str724"/></StgValue>
 </bind>
 </comp>
 
@@ -2090,17 +2090,17 @@ StgValue_119     (br               ) [ 011111111111111111]
 |----------|---------------------------------|---------|---------|---------|---------|
 | Operation|         Functional Unit         |   BRAM  |  Delay  |    FF   |   LUT   |
 |----------|---------------------------------|---------|---------|---------|---------|
-|   call   | grp_sha512_compress_32_1_fu_352 |    8    | 14.9788 |   1842  |   6757  |
-|          |  grp_sha512_compress_128_fu_364 |    8    | 16.0417 |   1699  |   6749  |
+|   call   | grp_sha512_compress_32_1_fu_352 |    8    |  8.7463 |   2039  |   6761  |
+|          |  grp_sha512_compress_128_fu_364 |    8    | 9.22142 |   1896  |   6729  |
+|----------|---------------------------------|---------|---------|---------|---------|
+|    add   |            grp_fu_228           |    0    |    0    |   197   |    70   |
+|----------|---------------------------------|---------|---------|---------|---------|
+|    sub   |            grp_fu_305           |    0    |    0    |   197   |    70   |
 |----------|---------------------------------|---------|---------|---------|---------|
 |          |            tmp_fu_324           |    0    |    0    |    0    |    32   |
 |   icmp   |            grp_fu_330           |    0    |    0    |    0    |    32   |
 |          |           icmp_fu_336           |    0    |    0    |    0    |    29   |
 |          |           tmp_7_fu_341          |    0    |    0    |    0    |    32   |
-|----------|---------------------------------|---------|---------|---------|---------|
-|    add   |            grp_fu_228           |    0    |    0    |    0    |    71   |
-|----------|---------------------------------|---------|---------|---------|---------|
-|    sub   |            grp_fu_305           |    0    |    0    |    0    |    71   |
 |----------|---------------------------------|---------|---------|---------|---------|
 |  select  |             n_fu_397            |    0    |    0    |    0    |    64   |
 |----------|---------------------------------|---------|---------|---------|---------|
@@ -2124,7 +2124,7 @@ StgValue_119     (br               ) [ 011111111111111111]
 |          |           tmp_9_fu_432          |    0    |    0    |    0    |    0    |
 |          |          tmp_11_fu_437          |    0    |    0    |    0    |    0    |
 |----------|---------------------------------|---------|---------|---------|---------|
-|   Total  |                                 |    16   | 31.0205 |   3541  |  13839  |
+|   Total  |                                 |    16   | 17.9677 |   4329  |  13821  |
 |----------|---------------------------------|---------|---------|---------|---------|
 
 Memories:
@@ -2174,18 +2174,18 @@ Memories:
 |-------------------|------|------|------|--------||---------||---------|
 |  grp_write_fu_103 |  p2  |   2  |  64  |   128  ||    9    |
 | grp_access_fu_118 |  p0  |   2  |   5  |   10   ||    9    |
-| grp_access_fu_130 |  p0  |   4  |   7  |   28   ||    21   |
+| grp_access_fu_130 |  p0  |   4  |   7  |   28   ||    17   |
 | grp_access_fu_130 |  p1  |   2  |   8  |   16   ||    9    |
-| grp_access_fu_150 |  p0  |   3  |   7  |   21   ||    15   |
+| grp_access_fu_150 |  p0  |   3  |   7  |   21   ||    13   |
 |  p_01_idx_reg_172 |  p0  |   2  |  64  |   128  ||    9    |
-|     grp_fu_228    |  p0  |   9  |  64  |   576  ||    44   |
+|     grp_fu_228    |  p0  |   9  |  64  |   576  ||    49   |
 |     grp_fu_228    |  p1  |   8  |  64  |   512  ||    33   |
 |     grp_fu_305    |  p0  |   2  |  64  |   128  ||    9    |
 |     grp_fu_305    |  p1  |   2  |  64  |   128  ||    9    |
 |     grp_fu_330    |  p0  |   6  |  64  |   384  ||    33   |
 |     grp_fu_330    |  p1  |   4  |  64  |   256  ||    9    |
 |-------------------|------|------|------|--------||---------||---------|
-|       Total       |      |      |      |  2315  || 8.38625 ||   209   |
+|       Total       |      |      |      |  2315  ||  5.6975 ||   208   |
 |-------------------|------|------|------|--------||---------||---------|
 
 
@@ -2194,10 +2194,10 @@ Memories:
 +-----------+--------+--------+--------+--------+
 |           |  BRAM  |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |   16   |   31   |  3541  |  13839 |
+|  Function |   16   |   17   |  4329  |  13821 |
 |   Memory  |    1   |    -   |    0   |    0   |
-|Multiplexer|    -   |    8   |    -   |   209  |
+|Multiplexer|    -   |    5   |    -   |   208  |
 |  Register |    -   |    -   |   838  |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |   17   |   39   |  4379  |  14048 |
+|   Total   |   17   |   23   |  5167  |  14029 |
 +-----------+--------+--------+--------+--------+

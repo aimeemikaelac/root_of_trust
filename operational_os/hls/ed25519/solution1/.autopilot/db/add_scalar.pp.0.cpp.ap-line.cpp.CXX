@@ -4,21 +4,21 @@
 #pragma line 1 "<built-in>" 3 ::: 3
 #pragma line 155 "<built-in>" 3 ::: 4
 #pragma line 1 "<command line>" 1 ::: 5
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1 ::: 11
-#pragma line 145 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 64
-#pragma line 156 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 67
-#pragma line 413 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 197
-#pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 200
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1 ::: 11
+#pragma line 145 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 64
+#pragma line 156 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 67
+#pragma line 413 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 197
+#pragma line 427 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 200
 #pragma line 7 "<command line>" 2 ::: 202
 #pragma line 1 "<built-in>" 2 ::: 203
 #pragma line 1 "ed25519/src/add_scalar.cpp" 2 ::: 204
 #pragma line 1 "ed25519/src/ed25519.h" 1 ::: 205
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 ::: 209
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 ::: 245
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 ::: 209
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 ::: 245
 #pragma line 5 "ed25519/src/ed25519.h" 2 ::: 248
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 1 ::: 249
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 316
-#pragma line 67 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 2 ::: 451
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 1 ::: 249
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 316
+#pragma line 67 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 2 ::: 451
 #pragma line 6 "ed25519/src/ed25519.h" 2 ::: 557
 #pragma line 27 "ed25519/src/ed25519.h" ::: 564
 #pragma line 2 "ed25519/src/add_scalar.cpp" 2 ::: 581
@@ -26,7 +26,7 @@
 #pragma line 1 "ed25519/src/fe.h" 1 ::: 586
 #pragma line 1 "ed25519/src/fixedint.h" 1 ::: 590
 #pragma line 21 "ed25519/src/fixedint.h" ::: 596
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 ::: 597
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3 ::: 597
 #pragma line 1 "/usr/include/limits.h" 1 3 4 ::: 636
 #pragma line 1 "/usr/include/features.h" 1 3 4 ::: 662
 #pragma line 122 "/usr/include/features.h" 3 4 ::: 759
@@ -76,10 +76,10 @@
 #pragma line 121 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 3 4 ::: 1657
 #pragma line 133 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 3 4 ::: 1659
 #pragma line 152 "/usr/include/limits.h" 2 3 4 ::: 1661
-#pragma line 39 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 ::: 1662
-#pragma line 60 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1667
-#pragma line 90 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1669
-#pragma line 102 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1671
+#pragma line 39 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3 ::: 1662
+#pragma line 60 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1667
+#pragma line 90 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1669
+#pragma line 102 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3 ::: 1671
 #pragma line 22 "ed25519/src/fixedint.h" 2 ::: 1676
 #pragma line 39 "ed25519/src/fixedint.h" ::: 1684
 #pragma line 5 "ed25519/src/fe.h" 2 ::: 1703
@@ -88,8 +88,8 @@
 #pragma line 1 "ed25519/src/sc.h" 1 ::: 1809
 #pragma line 4 "ed25519/src/add_scalar.cpp" 2 ::: 1820
 #pragma line 1 "ed25519/src/sha512.h" 1 ::: 1821
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 ::: 1825
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 ::: 1850
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 ::: 1825
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 ::: 1850
 #pragma line 5 "ed25519/src/sha512.h" 2 ::: 1853
 #pragma line 1 "ed25519/src/fixedint.h" 1 ::: 1855
 #pragma line 7 "ed25519/src/sha512.h" 2 ::: 1861

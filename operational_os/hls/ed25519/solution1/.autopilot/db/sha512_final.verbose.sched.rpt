@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'sha512_final'
 ================================================================
-* Date:           Fri Jun  2 12:27:11 2017
+* Date:           Thu Sep 28 12:40:35 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.77|        1.25|
+    |ap_clk  |  10.00|      2.17|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -143,9 +143,9 @@ IsGatedGlobalClock: 0
 	18  / true
 * FSM state operations: 
 
- <State 1>: 1.41ns
+ <State 1>: 0.82ns
 ST_1: empty (7)  [1/1] 0.00ns
-:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %out_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %out_r, [1 x i8]* @p_str20, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str20, i32 -1, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20)
 
 ST_1: temp_buf (8)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:364
 :1  %temp_buf = alloca [128 x i8], align 16
@@ -174,13 +174,13 @@ ST_1: tmp_cast (16)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 ST_1: md_length_read (17)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 :3  %md_length_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_length)
 
-ST_1: tmp_22 (18)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:374
+ST_1: tmp_22 (18)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:374
 :4  %tmp_22 = add i64 %md_length_read, %tmp_cast
 
 ST_1: StgValue_38 (19)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 :5  call void @_ssdm_op_Write.ap_auto.i64P(i64* %md_length, i64 %tmp_22)
 
-ST_1: tmp_23 (20)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:377
+ST_1: tmp_23 (20)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:377
 :6  %tmp_23 = add i64 1, %md_curlen_read
 
 ST_1: StgValue_40 (21)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:377
@@ -210,7 +210,7 @@ ST_2: StgValue_47 (29)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13.preheader:0  br label %.preheader13
 
 
- <State 3>: 1.09ns
+ <State 3>: 0.82ns
 ST_3: md_curlen_read_14 (31)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13:0  %md_curlen_read_14 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
 
@@ -223,7 +223,7 @@ ST_3: tmp_54 (33)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 ST_3: StgValue_51 (34)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13:3  br i1 %tmp_54, label %.preheader12.preheader, label %2
 
-ST_3: tmp_25 (36)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:385
+ST_3: tmp_25 (36)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:385
 :0  %tmp_25 = add i8 %tmp_53, 1
 
 ST_3: tmp_27_cast (37)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:385
@@ -241,11 +241,11 @@ ST_3: StgValue_56 (40)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:385
 ST_3: StgValue_57 (41)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:386
 :5  br label %.preheader13
 
-ST_3: StgValue_58 (43)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:387
+ST_3: StgValue_58 (43)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:387
 .preheader12.preheader:0  br label %.preheader12
 
 
- <State 4>: 1.09ns
+ <State 4>: 0.82ns
 ST_4: temp_index (45)  [1/1] 0.00ns
 .preheader12:0  %temp_index = phi i8 [ %temp_index_6, %3 ], [ 0, %.preheader12.preheader ]
 
@@ -255,7 +255,7 @@ ST_4: exitcond1 (46)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:387
 ST_4: empty_90 (47)  [1/1] 0.00ns
 .preheader12:2  %empty_90 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_4: temp_index_6 (48)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:387
+ST_4: temp_index_6 (48)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:387
 .preheader12:3  %temp_index_6 = add i8 %temp_index, 1
 
 ST_4: StgValue_63 (49)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:387
@@ -270,7 +270,7 @@ ST_4: md_buf_addr_10 (52)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:388
 ST_4: md_buf_load (53)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:388
 :2  %md_buf_load = load i8* %md_buf_addr_10, align 1
 
-ST_4: StgValue_67 (58)  [2/2] 0.66ns  loc: ed25519/src/sha512.cpp:390
+ST_4: StgValue_67 (58)  [2/2] 0.43ns  loc: ed25519/src/sha512.cpp:390
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
 
@@ -288,15 +288,15 @@ ST_5: StgValue_71 (56)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:387
 :5  br label %.preheader12
 
 
- <State 6>: 0.66ns
+ <State 6>: 0.43ns
 ST_6: StgValue_72 (58)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:390
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
-ST_6: StgValue_73 (59)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:391
+ST_6: StgValue_73 (59)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:391
 :1  br label %5
 
 
- <State 7>: 1.09ns
+ <State 7>: 0.82ns
 ST_7: temp_index_1 (61)  [1/1] 0.00ns
 :0  %temp_index_1 = phi i8 [ 0, %4 ], [ %temp_index_7, %6 ]
 
@@ -306,7 +306,7 @@ ST_7: exitcond2 (62)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:391
 ST_7: empty_91 (63)  [1/1] 0.00ns
 :2  %empty_91 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_7: temp_index_7 (64)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:391
+ST_7: temp_index_7 (64)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:391
 :3  %temp_index_7 = add i8 %temp_index_1, 1
 
 ST_7: StgValue_78 (65)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:391
@@ -345,7 +345,7 @@ ST_8: StgValue_88 (72)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:391
 :5  br label %5
 
 
- <State 9>: 1.09ns
+ <State 9>: 0.82ns
 ST_9: md_curlen_read_15 (79)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:401
 :0  %md_curlen_read_15 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
 
@@ -358,7 +358,7 @@ ST_9: tmp_28 (81)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:401
 ST_9: StgValue_92 (82)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:401
 :3  br i1 %tmp_28, label %9, label %10
 
-ST_9: tmp_29 (84)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:402
+ST_9: tmp_29 (84)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:402
 :0  %tmp_29 = add i8 %tmp_55, 1
 
 ST_9: tmp_31_cast (85)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:402
@@ -444,7 +444,7 @@ ST_11: StgValue_119 (109)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:406
 :18  store i8 %tmp_35, i8* %md_buf_addr_18, align 1
 
 
- <State 12>: 0.66ns
+ <State 12>: 0.57ns
 ST_12: md_buf_addr_19 (111)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:406
 :20  %md_buf_addr_19 = getelementptr [128 x i8]* %md_buf, i64 0, i64 126
 
@@ -457,11 +457,11 @@ ST_12: md_buf_addr_20 (114)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:406
 ST_12: StgValue_123 (115)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:406
 :24  store i8 %tmp_56, i8* %md_buf_addr_20, align 1
 
-ST_12: StgValue_124 (116)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:407
+ST_12: StgValue_124 (116)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:407
 :25  br label %11
 
 
- <State 13>: 1.09ns
+ <State 13>: 0.82ns
 ST_13: temp_index_2 (118)  [1/1] 0.00ns
 :0  %temp_index_2 = phi i8 [ 0, %10 ], [ %temp_index_8, %12 ]
 
@@ -471,7 +471,7 @@ ST_13: exitcond9 (119)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:407
 ST_13: empty_92 (120)  [1/1] 0.00ns
 :2  %empty_92 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_13: temp_index_8 (121)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:407
+ST_13: temp_index_8 (121)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:407
 :3  %temp_index_8 = add i8 %temp_index_2, 1
 
 ST_13: StgValue_129 (122)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:407
@@ -486,7 +486,7 @@ ST_13: md_buf_addr_21 (125)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:408
 ST_13: md_buf_load_1 (126)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:408
 :2  %md_buf_load_1 = load i8* %md_buf_addr_21, align 1
 
-ST_13: StgValue_133 (131)  [2/2] 0.66ns  loc: ed25519/src/sha512.cpp:410
+ST_13: StgValue_133 (131)  [2/2] 0.43ns  loc: ed25519/src/sha512.cpp:410
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
 
@@ -504,15 +504,15 @@ ST_14: StgValue_137 (129)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:407
 :5  br label %11
 
 
- <State 15>: 0.66ns
+ <State 15>: 0.43ns
 ST_15: StgValue_138 (131)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:410
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
-ST_15: StgValue_139 (132)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:411
+ST_15: StgValue_139 (132)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:411
 :1  br label %14
 
 
- <State 16>: 1.09ns
+ <State 16>: 0.82ns
 ST_16: temp_index_3 (134)  [1/1] 0.00ns
 :0  %temp_index_3 = phi i8 [ 0, %13 ], [ %temp_index_9, %15 ]
 
@@ -522,7 +522,7 @@ ST_16: exitcond8 (135)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:411
 ST_16: empty_93 (136)  [1/1] 0.00ns
 :2  %empty_93 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_16: temp_index_9 (137)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:411
+ST_16: temp_index_9 (137)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:411
 :3  %temp_index_9 = add i8 %temp_index_3, 1
 
 ST_16: StgValue_144 (138)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:411
@@ -537,7 +537,7 @@ ST_16: temp_buf_addr_5 (141)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:412
 ST_16: temp_buf_load_1 (142)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:412
 :2  %temp_buf_load_1 = load i8* %temp_buf_addr_5, align 1
 
-ST_16: StgValue_148 (147)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:416
+ST_16: StgValue_148 (147)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:416
 .preheader.preheader:0  br label %.preheader
 
 
@@ -555,7 +555,7 @@ ST_17: StgValue_152 (145)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:411
 :5  br label %14
 
 
- <State 18>: 1.12ns
+ <State 18>: 0.81ns
 ST_18: i (149)  [1/1] 0.00ns
 .preheader:0  %i = phi i4 [ %i_3, %16 ], [ 0, %.preheader.preheader ]
 
@@ -565,7 +565,7 @@ ST_18: exitcond (150)  [1/1] 0.44ns  loc: ed25519/src/sha512.cpp:416
 ST_18: empty_94 (151)  [1/1] 0.00ns
 .preheader:2  %empty_94 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
 
-ST_18: i_3 (152)  [1/1] 1.12ns  loc: ed25519/src/sha512.cpp:416
+ST_18: i_3 (152)  [1/1] 0.81ns  loc: ed25519/src/sha512.cpp:416
 .preheader:3  %i_3 = add i4 %i, 1
 
 ST_18: StgValue_157 (153)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:416
@@ -738,49 +738,49 @@ ST_26: StgValue_205 (199)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:416
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.41ns
+ <State 1>: 0.82ns
 The critical path consists of the following:
 	wire read on port 'md_curlen' (ed25519/src/sha512.cpp:369) [9]  (0 ns)
-	'add' operation ('tmp_22', ed25519/src/sha512.cpp:374) [18]  (1.41 ns)
+	'add' operation ('tmp_22', ed25519/src/sha512.cpp:374) [18]  (0.82 ns)
 
  <State 2>: 0.555ns
 The critical path consists of the following:
 	wire read on port 'md_curlen' (ed25519/src/sha512.cpp:383) [24]  (0 ns)
 	'icmp' operation ('tmp_24', ed25519/src/sha512.cpp:383) [26]  (0.555 ns)
 
- <State 3>: 1.09ns
+ <State 3>: 0.825ns
 The critical path consists of the following:
 	wire read on port 'md_curlen' (ed25519/src/sha512.cpp:384) [31]  (0 ns)
-	'add' operation ('tmp_25', ed25519/src/sha512.cpp:385) [36]  (1.09 ns)
+	'add' operation ('tmp_25', ed25519/src/sha512.cpp:385) [36]  (0.825 ns)
 
- <State 4>: 1.09ns
+ <State 4>: 0.825ns
 The critical path consists of the following:
 	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:387) [45]  (0 ns)
-	'add' operation ('temp_index', ed25519/src/sha512.cpp:387) [48]  (1.09 ns)
+	'add' operation ('temp_index', ed25519/src/sha512.cpp:387) [48]  (0.825 ns)
 
  <State 5>: 1.14ns
 The critical path consists of the following:
 	'load' operation ('md_buf_load', ed25519/src/sha512.cpp:388) on array 'md_buf' [53]  (0.571 ns)
 	'store' operation (ed25519/src/sha512.cpp:388) of variable 'md_buf_load', ed25519/src/sha512.cpp:388 on array 'temp_buf', ed25519/src/sha512.cpp:364 [55]  (0.571 ns)
 
- <State 6>: 0.656ns
+ <State 6>: 0.427ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:391) [61]  (0.656 ns)
+	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:391) [61]  (0.427 ns)
 
- <State 7>: 1.09ns
+ <State 7>: 0.825ns
 The critical path consists of the following:
 	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:391) [61]  (0 ns)
-	'add' operation ('temp_index', ed25519/src/sha512.cpp:391) [64]  (1.09 ns)
+	'add' operation ('temp_index', ed25519/src/sha512.cpp:391) [64]  (0.825 ns)
 
  <State 8>: 1.14ns
 The critical path consists of the following:
 	'load' operation ('temp_buf_load', ed25519/src/sha512.cpp:392) on array 'temp_buf', ed25519/src/sha512.cpp:364 [69]  (0.571 ns)
 	'store' operation (ed25519/src/sha512.cpp:392) of variable 'temp_buf_load', ed25519/src/sha512.cpp:392 on array 'md_buf' [71]  (0.571 ns)
 
- <State 9>: 1.09ns
+ <State 9>: 0.825ns
 The critical path consists of the following:
 	wire read on port 'md_curlen' (ed25519/src/sha512.cpp:401) [79]  (0 ns)
-	'add' operation ('tmp_29', ed25519/src/sha512.cpp:402) [84]  (1.09 ns)
+	'add' operation ('tmp_29', ed25519/src/sha512.cpp:402) [84]  (0.825 ns)
 
  <State 10>: 0.571ns
 The critical path consists of the following:
@@ -792,38 +792,39 @@ The critical path consists of the following:
 	'getelementptr' operation ('md_buf_addr_17', ed25519/src/sha512.cpp:406) [105]  (0 ns)
 	'store' operation (ed25519/src/sha512.cpp:406) of variable 'tmp_34', ed25519/src/sha512.cpp:406 on array 'md_buf' [106]  (0.571 ns)
 
- <State 12>: 0.656ns
+ <State 12>: 0.571ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:407) [118]  (0.656 ns)
+	'getelementptr' operation ('md_buf_addr_19', ed25519/src/sha512.cpp:406) [111]  (0 ns)
+	'store' operation (ed25519/src/sha512.cpp:406) of variable 'tmp_36', ed25519/src/sha512.cpp:406 on array 'md_buf' [112]  (0.571 ns)
 
- <State 13>: 1.09ns
+ <State 13>: 0.825ns
 The critical path consists of the following:
 	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:407) [118]  (0 ns)
-	'add' operation ('temp_index', ed25519/src/sha512.cpp:407) [121]  (1.09 ns)
+	'add' operation ('temp_index', ed25519/src/sha512.cpp:407) [121]  (0.825 ns)
 
  <State 14>: 1.14ns
 The critical path consists of the following:
 	'load' operation ('md_buf_load_1', ed25519/src/sha512.cpp:408) on array 'md_buf' [126]  (0.571 ns)
 	'store' operation (ed25519/src/sha512.cpp:408) of variable 'md_buf_load_1', ed25519/src/sha512.cpp:408 on array 'temp_buf', ed25519/src/sha512.cpp:364 [128]  (0.571 ns)
 
- <State 15>: 0.656ns
+ <State 15>: 0.427ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:411) [134]  (0.656 ns)
+	multiplexor before 'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:411) [134]  (0.427 ns)
 
- <State 16>: 1.09ns
+ <State 16>: 0.825ns
 The critical path consists of the following:
 	'phi' operation ('temp_index') with incoming values : ('temp_index', ed25519/src/sha512.cpp:411) [134]  (0 ns)
-	'add' operation ('temp_index', ed25519/src/sha512.cpp:411) [137]  (1.09 ns)
+	'add' operation ('temp_index', ed25519/src/sha512.cpp:411) [137]  (0.825 ns)
 
  <State 17>: 1.14ns
 The critical path consists of the following:
 	'load' operation ('temp_buf_load_1', ed25519/src/sha512.cpp:412) on array 'temp_buf', ed25519/src/sha512.cpp:364 [142]  (0.571 ns)
 	'store' operation (ed25519/src/sha512.cpp:412) of variable 'temp_buf_load_1', ed25519/src/sha512.cpp:412 on array 'md_buf' [144]  (0.571 ns)
 
- <State 18>: 1.12ns
+ <State 18>: 0.805ns
 The critical path consists of the following:
 	'phi' operation ('i') with incoming values : ('i', ed25519/src/sha512.cpp:416) [149]  (0 ns)
-	'add' operation ('i', ed25519/src/sha512.cpp:416) [152]  (1.12 ns)
+	'add' operation ('i', ed25519/src/sha512.cpp:416) [152]  (0.805 ns)
 
  <State 19>: 1.35ns
 The critical path consists of the following:

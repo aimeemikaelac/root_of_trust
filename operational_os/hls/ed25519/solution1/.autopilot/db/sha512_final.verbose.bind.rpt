@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'sha512_final'
 ================================================================
-* Date:           Fri Jun  2 12:27:11 2017
+* Date:           Thu Sep 28 12:40:35 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.77|        1.25|
+    |ap_clk  |  10.00|      2.17|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -148,9 +148,9 @@ IsGatedGlobalClock: 0
 	18  / true
 * FSM state operations: 
 
- <State 1>: 1.41ns
+ <State 1>: 0.82ns
 ST_1: empty (7)  [1/1] 0.00ns
-:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %out_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([64 x i8]* %out_r, [1 x i8]* @p_str20, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str20, i32 -1, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20, [1 x i8]* @p_str20)
 
 ST_1: temp_buf (8)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:364
 :1  %temp_buf = alloca [128 x i8], align 16
@@ -179,13 +179,13 @@ ST_1: tmp_cast (16)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 ST_1: md_length_read (17)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 :3  %md_length_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_length)
 
-ST_1: tmp_22 (18)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:374
+ST_1: tmp_22 (18)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:374
 :4  %tmp_22 = add i64 %md_length_read, %tmp_cast
 
 ST_1: StgValue_38 (19)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:374
 :5  call void @_ssdm_op_Write.ap_auto.i64P(i64* %md_length, i64 %tmp_22)
 
-ST_1: tmp_23 (20)  [1/1] 1.41ns  loc: ed25519/src/sha512.cpp:377
+ST_1: tmp_23 (20)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:377
 :6  %tmp_23 = add i64 1, %md_curlen_read
 
 ST_1: StgValue_40 (21)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:377
@@ -215,7 +215,7 @@ ST_2: StgValue_47 (29)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13.preheader:0  br label %.preheader13
 
 
- <State 3>: 1.09ns
+ <State 3>: 0.82ns
 ST_3: md_curlen_read_14 (31)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13:0  %md_curlen_read_14 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
 
@@ -228,7 +228,7 @@ ST_3: tmp_54 (33)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 ST_3: StgValue_51 (34)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:384
 .preheader13:3  br i1 %tmp_54, label %.preheader12.preheader, label %2
 
-ST_3: tmp_25 (36)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:385
+ST_3: tmp_25 (36)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:385
 :0  %tmp_25 = add i8 %tmp_53, 1
 
 ST_3: tmp_27_cast (37)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:385
@@ -246,11 +246,11 @@ ST_3: StgValue_56 (40)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:385
 ST_3: StgValue_57 (41)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:386
 :5  br label %.preheader13
 
-ST_3: StgValue_58 (43)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:387
+ST_3: StgValue_58 (43)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:387
 .preheader12.preheader:0  br label %.preheader12
 
 
- <State 4>: 1.09ns
+ <State 4>: 0.82ns
 ST_4: temp_index (45)  [1/1] 0.00ns
 .preheader12:0  %temp_index = phi i8 [ %temp_index_6, %3 ], [ 0, %.preheader12.preheader ]
 
@@ -260,7 +260,7 @@ ST_4: exitcond1 (46)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:387
 ST_4: empty_90 (47)  [1/1] 0.00ns
 .preheader12:2  %empty_90 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_4: temp_index_6 (48)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:387
+ST_4: temp_index_6 (48)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:387
 .preheader12:3  %temp_index_6 = add i8 %temp_index, 1
 
 ST_4: StgValue_63 (49)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:387
@@ -275,7 +275,7 @@ ST_4: md_buf_addr_10 (52)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:388
 ST_4: md_buf_load (53)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:388
 :2  %md_buf_load = load i8* %md_buf_addr_10, align 1
 
-ST_4: StgValue_67 (58)  [2/2] 0.66ns  loc: ed25519/src/sha512.cpp:390
+ST_4: StgValue_67 (58)  [2/2] 0.43ns  loc: ed25519/src/sha512.cpp:390
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
 
@@ -293,15 +293,15 @@ ST_5: StgValue_71 (56)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:387
 :5  br label %.preheader12
 
 
- <State 6>: 0.66ns
+ <State 6>: 0.43ns
 ST_6: StgValue_72 (58)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:390
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
-ST_6: StgValue_73 (59)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:391
+ST_6: StgValue_73 (59)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:391
 :1  br label %5
 
 
- <State 7>: 1.09ns
+ <State 7>: 0.82ns
 ST_7: temp_index_1 (61)  [1/1] 0.00ns
 :0  %temp_index_1 = phi i8 [ 0, %4 ], [ %temp_index_7, %6 ]
 
@@ -311,7 +311,7 @@ ST_7: exitcond2 (62)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:391
 ST_7: empty_91 (63)  [1/1] 0.00ns
 :2  %empty_91 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_7: temp_index_7 (64)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:391
+ST_7: temp_index_7 (64)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:391
 :3  %temp_index_7 = add i8 %temp_index_1, 1
 
 ST_7: StgValue_78 (65)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:391
@@ -350,7 +350,7 @@ ST_8: StgValue_88 (72)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:391
 :5  br label %5
 
 
- <State 9>: 1.09ns
+ <State 9>: 0.82ns
 ST_9: md_curlen_read_15 (79)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:401
 :0  %md_curlen_read_15 = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %md_curlen)
 
@@ -363,7 +363,7 @@ ST_9: tmp_28 (81)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:401
 ST_9: StgValue_92 (82)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:401
 :3  br i1 %tmp_28, label %9, label %10
 
-ST_9: tmp_29 (84)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:402
+ST_9: tmp_29 (84)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:402
 :0  %tmp_29 = add i8 %tmp_55, 1
 
 ST_9: tmp_31_cast (85)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:402
@@ -449,7 +449,7 @@ ST_11: StgValue_119 (109)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:406
 :18  store i8 %tmp_35, i8* %md_buf_addr_18, align 1
 
 
- <State 12>: 0.66ns
+ <State 12>: 0.57ns
 ST_12: md_buf_addr_19 (111)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:406
 :20  %md_buf_addr_19 = getelementptr [128 x i8]* %md_buf, i64 0, i64 126
 
@@ -462,11 +462,11 @@ ST_12: md_buf_addr_20 (114)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:406
 ST_12: StgValue_123 (115)  [1/1] 0.57ns  loc: ed25519/src/sha512.cpp:406
 :24  store i8 %tmp_56, i8* %md_buf_addr_20, align 1
 
-ST_12: StgValue_124 (116)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:407
+ST_12: StgValue_124 (116)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:407
 :25  br label %11
 
 
- <State 13>: 1.09ns
+ <State 13>: 0.82ns
 ST_13: temp_index_2 (118)  [1/1] 0.00ns
 :0  %temp_index_2 = phi i8 [ 0, %10 ], [ %temp_index_8, %12 ]
 
@@ -476,7 +476,7 @@ ST_13: exitcond9 (119)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:407
 ST_13: empty_92 (120)  [1/1] 0.00ns
 :2  %empty_92 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_13: temp_index_8 (121)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:407
+ST_13: temp_index_8 (121)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:407
 :3  %temp_index_8 = add i8 %temp_index_2, 1
 
 ST_13: StgValue_129 (122)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:407
@@ -491,7 +491,7 @@ ST_13: md_buf_addr_21 (125)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:408
 ST_13: md_buf_load_1 (126)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:408
 :2  %md_buf_load_1 = load i8* %md_buf_addr_21, align 1
 
-ST_13: StgValue_133 (131)  [2/2] 0.66ns  loc: ed25519/src/sha512.cpp:410
+ST_13: StgValue_133 (131)  [2/2] 0.43ns  loc: ed25519/src/sha512.cpp:410
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
 
@@ -509,15 +509,15 @@ ST_14: StgValue_137 (129)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:407
 :5  br label %11
 
 
- <State 15>: 0.66ns
+ <State 15>: 0.43ns
 ST_15: StgValue_138 (131)  [1/2] 0.00ns  loc: ed25519/src/sha512.cpp:410
 :0  call fastcc void @sha512_compress_128([8 x i64]* nocapture %md_state, [128 x i8]* nocapture %temp_buf)
 
-ST_15: StgValue_139 (132)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:411
+ST_15: StgValue_139 (132)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:411
 :1  br label %14
 
 
- <State 16>: 1.09ns
+ <State 16>: 0.82ns
 ST_16: temp_index_3 (134)  [1/1] 0.00ns
 :0  %temp_index_3 = phi i8 [ 0, %13 ], [ %temp_index_9, %15 ]
 
@@ -527,7 +527,7 @@ ST_16: exitcond8 (135)  [1/1] 0.56ns  loc: ed25519/src/sha512.cpp:411
 ST_16: empty_93 (136)  [1/1] 0.00ns
 :2  %empty_93 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
 
-ST_16: temp_index_9 (137)  [1/1] 1.09ns  loc: ed25519/src/sha512.cpp:411
+ST_16: temp_index_9 (137)  [1/1] 0.82ns  loc: ed25519/src/sha512.cpp:411
 :3  %temp_index_9 = add i8 %temp_index_3, 1
 
 ST_16: StgValue_144 (138)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:411
@@ -542,7 +542,7 @@ ST_16: temp_buf_addr_5 (141)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:412
 ST_16: temp_buf_load_1 (142)  [2/2] 0.57ns  loc: ed25519/src/sha512.cpp:412
 :2  %temp_buf_load_1 = load i8* %temp_buf_addr_5, align 1
 
-ST_16: StgValue_148 (147)  [1/1] 0.66ns  loc: ed25519/src/sha512.cpp:416
+ST_16: StgValue_148 (147)  [1/1] 0.43ns  loc: ed25519/src/sha512.cpp:416
 .preheader.preheader:0  br label %.preheader
 
 
@@ -560,7 +560,7 @@ ST_17: StgValue_152 (145)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:411
 :5  br label %14
 
 
- <State 18>: 1.12ns
+ <State 18>: 0.81ns
 ST_18: i (149)  [1/1] 0.00ns
 .preheader:0  %i = phi i4 [ %i_3, %16 ], [ 0, %.preheader.preheader ]
 
@@ -570,7 +570,7 @@ ST_18: exitcond (150)  [1/1] 0.44ns  loc: ed25519/src/sha512.cpp:416
 ST_18: empty_94 (151)  [1/1] 0.00ns
 .preheader:2  %empty_94 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
 
-ST_18: i_3 (152)  [1/1] 1.12ns  loc: ed25519/src/sha512.cpp:416
+ST_18: i_3 (152)  [1/1] 0.81ns  loc: ed25519/src/sha512.cpp:416
 .preheader:3  %i_3 = add i4 %i, 1
 
 ST_18: StgValue_157 (153)  [1/1] 0.00ns  loc: ed25519/src/sha512.cpp:416
@@ -1010,7 +1010,7 @@ StgValue_205      (br               ) [ 000000000000000010111111111]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name="p_str20"/></StgValue>
 </bind>
 </comp>
 
@@ -4042,17 +4042,17 @@ StgValue_205      (br               ) [ 000000000000000010111111111]
 |----------|--------------------------------|---------|---------|---------|---------|
 | Operation|         Functional Unit        |   BRAM  |  Delay  |    FF   |   LUT   |
 |----------|--------------------------------|---------|---------|---------|---------|
-|   call   | grp_sha512_compress_128_fu_468 |    8    | 16.0417 |   1699  |   6749  |
+|   call   | grp_sha512_compress_128_fu_468 |    8    | 9.22142 |   1896  |   6729  |
 |----------|--------------------------------|---------|---------|---------|---------|
-|          |          tmp_22_fu_509         |    0    |    0    |    0    |    71   |
-|          |          tmp_23_fu_516         |    0    |    0    |    0    |    71   |
-|          |          tmp_25_fu_545         |    0    |    0    |    0    |    15   |
-|          |       temp_index_6_fu_562      |    0    |    0    |    0    |    15   |
-|    add   |       temp_index_7_fu_579      |    0    |    0    |    0    |    15   |
-|          |          tmp_29_fu_600         |    0    |    0    |    0    |    15   |
-|          |       temp_index_8_fu_693      |    0    |    0    |    0    |    15   |
-|          |       temp_index_9_fu_710      |    0    |    0    |    0    |    15   |
-|          |           i_3_fu_727           |    0    |    0    |    0    |    12   |
+|          |          tmp_22_fu_509         |    0    |    0    |   197   |    70   |
+|          |          tmp_23_fu_516         |    0    |    0    |   197   |    70   |
+|          |          tmp_25_fu_545         |    0    |    0    |    29   |    14   |
+|          |       temp_index_6_fu_562      |    0    |    0    |    29   |    14   |
+|    add   |       temp_index_7_fu_579      |    0    |    0    |    29   |    14   |
+|          |          tmp_29_fu_600         |    0    |    0    |    29   |    14   |
+|          |       temp_index_8_fu_693      |    0    |    0    |    29   |    14   |
+|          |       temp_index_9_fu_710      |    0    |    0    |    29   |    14   |
+|          |           i_3_fu_727           |    0    |    0    |    17   |    10   |
 |----------|--------------------------------|---------|---------|---------|---------|
 |          |           icmp_fu_487          |    0    |    0    |    0    |    29   |
 |          |          tmp_24_fu_527         |    0    |    0    |    0    |    4    |
@@ -4123,7 +4123,7 @@ StgValue_205      (br               ) [ 000000000000000010111111111]
 |          |          p_sum6_fu_879         |    0    |    0    |    0    |    0    |
 |          |          p_sum7_fu_889         |    0    |    0    |    0    |    0    |
 |----------|--------------------------------|---------|---------|---------|---------|
-|   Total  |                                |    8    | 16.0417 |   1699  |   7048  |
+|   Total  |                                |    8    | 9.22142 |   2481  |   7018  |
 |----------|--------------------------------|---------|---------|---------|---------|
 
 Memories:
@@ -4183,18 +4183,18 @@ Memories:
 |-------------------|------|------|------|--------||---------||---------|
 |        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |-------------------|------|------|------|--------||---------||---------|
-|  grp_write_fu_149 |  p2  |   4  |  64  |   256  ||    21   |
-| grp_access_fu_165 |  p0  |  10  |   7  |   70   ||    47   |
+|  grp_write_fu_149 |  p2  |   4  |  64  |   256  ||    17   |
+| grp_access_fu_165 |  p0  |  10  |   7  |   70   ||    55   |
 | grp_access_fu_165 |  p1  |   7  |   8  |   56   ||    33   |
-| grp_access_fu_165 |  p3  |   7  |   7  |   49   ||    38   |
-| grp_access_fu_165 |  p4  |   5  |   8  |   40   ||    27   |
+| grp_access_fu_165 |  p3  |   7  |   7  |   49   ||    33   |
+| grp_access_fu_165 |  p4  |   5  |   8  |   40   ||    25   |
 | grp_access_fu_195 |  p0  |   6  |   7  |   42   ||    33   |
 | grp_access_fu_195 |  p1  |   2  |   8  |   16   ||    9    |
 | grp_access_fu_340 |  p0  |   2  |   3  |    6   ||    9    |
-| grp_access_fu_352 |  p0  |   8  |   6  |   48   ||    41   |
-| grp_access_fu_352 |  p1  |   8  |   8  |   64   ||    41   |
+| grp_access_fu_352 |  p0  |   8  |   6  |   48   ||    33   |
+| grp_access_fu_352 |  p1  |   8  |   8  |   64   ||    33   |
 |-------------------|------|------|------|--------||---------||---------|
-|       Total       |      |      |      |   647  || 7.49475 ||   299   |
+|       Total       |      |      |      |   647  || 5.35883 ||   280   |
 |-------------------|------|------|------|--------||---------||---------|
 
 
@@ -4203,10 +4203,10 @@ Memories:
 +-----------+--------+--------+--------+--------+
 |           |  BRAM  |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |    8   |   16   |  1699  |  7048  |
+|  Function |    8   |    9   |  2481  |  7018  |
 |   Memory  |    1   |    -   |    0   |    0   |
-|Multiplexer|    -   |    7   |    -   |   299  |
+|Multiplexer|    -   |    5   |    -   |   280  |
 |  Register |    -   |    -   |   474  |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |    9   |   23   |  2173  |  7347  |
+|   Total   |    9   |   14   |  2955  |  7298  |
 +-----------+--------+--------+--------+--------+

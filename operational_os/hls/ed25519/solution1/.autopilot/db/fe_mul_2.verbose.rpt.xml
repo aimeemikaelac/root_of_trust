@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fe_mul_2'" level="0">
-<item name = "Date">Fri Jun  2 12:27:48 2017
+<item name = "Date">Thu Sep 28 12:41:19 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 6.91, 1.25</column>
+<column name="ap_clk">10.00, 3.90, 1.25</column>
 </table>
 </item>
 </section>
@@ -47,11 +47,11 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, 4, 0, 169, -</column>
+<column name="Expression">-, 5, 394, 253, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 2145, -</column>
+<column name="Multiplexer">-, -, -, 2439, -</column>
 <column name="Register">-, -, 7498, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, ~0, 1, ~0, 0</specialColumn>
@@ -77,20 +77,20 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_1283_p2">*, 4, 0, 27, 32, 39</column>
-<column name="grp_fu_232_p2">+, 0, 0, 71, 64, 64</column>
-<column name="grp_fu_919_p2">-, 0, 0, 71, 64, 64</column>
+<column name="grp_fu_1283_p2">*, 5, 0, 113, 32, 39</column>
+<column name="grp_fu_232_p2">+, 0, 197, 70, 64, 64</column>
+<column name="grp_fu_919_p2">-, 0, 197, 70, 64, 64</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">865, 200, 1, 200</column>
-<column name="grp_fu_1283_p0">149, 33, 32, 1056</column>
-<column name="grp_fu_1283_p1">205, 47, 39, 1833</column>
-<column name="grp_fu_232_p0">293, 65, 64, 4160</column>
-<column name="grp_fu_232_p1">317, 71, 64, 4544</column>
-<column name="grp_fu_919_p0">50, 11, 64, 704</column>
-<column name="grp_fu_919_p1">56, 13, 64, 832</column>
+<column name="ap_NS_fsm">1082, 200, 1, 200</column>
+<column name="grp_fu_1283_p0">156, 33, 32, 1056</column>
+<column name="grp_fu_1283_p1">222, 47, 39, 1833</column>
+<column name="grp_fu_232_p0">291, 65, 64, 4160</column>
+<column name="grp_fu_232_p1">357, 71, 64, 4544</column>
+<column name="grp_fu_919_p0">60, 11, 64, 704</column>
+<column name="grp_fu_919_p1">65, 13, 64, 832</column>
 <column name="reg_271">9, 2, 64, 128</column>
 <column name="reg_279">9, 2, 64, 128</column>
 <column name="reg_305">9, 2, 64, 128</column>
@@ -100,11 +100,11 @@
 <column name="reg_335">9, 2, 64, 128</column>
 <column name="reg_339">9, 2, 64, 128</column>
 <column name="reg_345">9, 2, 64, 128</column>
-<column name="reg_349">15, 3, 64, 192</column>
+<column name="reg_349">13, 3, 64, 192</column>
 <column name="reg_357">9, 2, 64, 128</column>
 <column name="reg_365">9, 2, 64, 128</column>
 <column name="reg_369">9, 2, 64, 128</column>
-<column name="reg_373">15, 3, 64, 192</column>
+<column name="reg_373">13, 3, 64, 192</column>
 <column name="reg_381">9, 2, 64, 128</column>
 <column name="reg_430">9, 2, 64, 128</column>
 <column name="reg_435">9, 2, 64, 128</column>

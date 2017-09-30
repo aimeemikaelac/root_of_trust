@@ -1,913 +1,134 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
 <sourceFile name="">
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="return"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="blocks_in"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="blocks_in"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="private_key"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="public_key"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="m_axi" positionalBoolean="mode" value=""/>
+<option name="depth" value="32768"/>
+<option name="port" positionalBoolean="4" value="microblaze_mem"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_3" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="signature"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="public_key"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="private_key"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<directive functionLabel="" functionName="ed25519_sign" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="offset"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="load_4" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="load_4" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_add" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cmov" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_cswap" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_copy" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_frombytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_invert" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="fe_mul"/>
+<option name="instances" positionalBoolean="4" value="ge_scalarmult_base"/>
 <option name="limit" value="1"/>
 <option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_invert" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="fe_sq"/>
+<option name="instances" positionalBoolean="4" value="fe_invert"/>
 <option name="limit" value="1"/>
 <option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnegative" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_isnonzero" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_mul121666" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_neg" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="fe_sq"/>
+<option name="instances" positionalBoolean="4" value="ge_p1p1_to_p3"/>
 <option name="limit" value="1"/>
 <option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_pow22523" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="fe_mul"/>
+<option name="instances" positionalBoolean="4" value="ge_p1p1_to_p2"/>
 <option name="limit" value="1"/>
 <option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
+<option name="instances" positionalBoolean="4" value="ge_p2_dbl"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
+<option name="instances" positionalBoolean="4" value="ge_madd"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
+<option name="instances" positionalBoolean="4" value="select"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
+<option name="instances" positionalBoolean="4" value="sha512_update_32"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
+<option name="instances" positionalBoolean="4" value="sha512_update_128"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="fe_sq" label="">
+<directive functionLabel="" functionName="ed25519_sign" label="">
 <pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
+<option name="instances" positionalBoolean="4" value="sha512_final"/>
 <option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sq2" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_sub" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="mul"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="add"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="shl"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="ashr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="lshr"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="icmp"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="fe_tobytes" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="sub"/>
-<option name="limit" value="1"/>
-<option name="operation" positionalBoolean="type" value=""/>
+<option name="function" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
 </sourceFile>

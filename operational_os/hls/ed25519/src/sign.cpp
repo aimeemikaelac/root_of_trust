@@ -7,7 +7,7 @@
 
 
 //void ed25519_sign(unsigned char *signature, const unsigned char *message, size_t message_len, const unsigned char *public_key, const unsigned char *private_key) {
-void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[MICROBLAZE_MEMORY], size_t blocks_in, const unsigned char public_key[32], const unsigned char private_key[64]){
+void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[MICROBLAZE_MEMORY], size_t offset, size_t blocks_in, const unsigned char public_key[32], const unsigned char private_key[64]){
 #pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE ap_vld port=blocks_in
 #pragma HLS INTERFACE s_axilite port=blocks_in
@@ -17,6 +17,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[MICR
 #pragma HLS INTERFACE s_axilite port=signature
 #pragma HLS INTERFACE s_axilite port=public_key
 #pragma HLS INTERFACE s_axilite port=private_key
+#pragma HLS INTERFACE s_axilite port=offset
 
 #pragma HLS ALLOCATION instances=ge_scalarmult_base limit=1 function
 #pragma HLS ALLOCATION instances=fe_invert limit=1 function
@@ -40,7 +41,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[MICR
     sha512_init(&hash);
 //    sha512_update(&hash, private_key + 32, 32);
     sha512_update_32(&hash, private_key + 32);
-    for(current_block=0; current_block<blocks_in; current_block++){
+    for(current_block=offset; current_block<blocks_in; current_block++){
     	for(current_byte=0; current_byte<SHA512_BLOCK_SIZE; current_byte++){
 //    		temp_data[current_byte] = message_in.read();
     		//TODO: also write out here to microblaze stream
@@ -67,7 +68,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[MICR
 //    sha512_update(&hash, public_key, 32);
     sha512_update_32(&hash, public_key);
 //    sha512_update(&hash, message, message_len);
-    for(current_block=0; current_block<blocks_in; current_block++){
+    for(current_block=offset; current_block<blocks_in; current_block++){
 		for(current_byte=0; current_byte<SHA512_BLOCK_SIZE; current_byte++){
 //    		temp_data[current_byte] = message_in.read();
 			//TODO: also write out here to microblaze stream

@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'cmov'
 ================================================================
-* Date:           Fri Jun  2 12:27:14 2017
+* Date:           Thu Sep 28 12:40:39 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.37|        1.25|
+    |ap_clk  |  10.00|      1.95|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -79,7 +79,7 @@ IsGatedGlobalClock: 0
 4 --> 
 * FSM state operations: 
 
- <State 1>: 1.80ns
+ <State 1>: 1.17ns
 ST_1: b_read (41)  [1/1] 0.00ns
 :0  %b_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %b)
 
@@ -122,11 +122,11 @@ ST_1: t_yplusx_0_read_1 (77)  [1/1] 0.00ns
 ST_1: tmp (86)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 :45  %tmp = trunc i4 %u_yplusx_offset_read to i3
 
-ST_1: call_ret1 (87)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:504
+ST_1: call_ret1 (87)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:504
 :46  %call_ret1 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yplusx_0_read_1, i32 %t_yplusx_1_read_1, i32 %t_yplusx_2_read_1, i32 %t_yplusx_3_read_1, i32 %t_yplusx_4_read_1, i32 %t_yplusx_5_read_1, i32 %t_yplusx_6_read_1, i32 %t_yplusx_7_read_1, i32 %t_yplusx_8_read_1, i32 %t_yplusx_9_read_1, [2560 x i32]* @base_yplusx, i5 %tmp_756_read, i3 %tmp, i1 %b_read)
 
 
- <State 2>: 1.80ns
+ <State 2>: 1.29ns
 ST_2: u_yminusx_offset_rea (44)  [1/1] 0.00ns
 :3  %u_yminusx_offset_rea = call i4 @_ssdm_op_Read.ap_auto.i4(i4 %u_yminusx_offset)
 
@@ -196,14 +196,14 @@ ST_2: t_yplusx_8 (96)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 ST_2: t_yplusx_9 (97)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:504
 :56  %t_yplusx_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret1, 9
 
-ST_2: tmp_1728 (98)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
-:57  %tmp_1728 = trunc i4 %u_yminusx_offset_rea to i3
+ST_2: tmp_1729 (98)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
+:57  %tmp_1729 = trunc i4 %u_yminusx_offset_rea to i3
 
-ST_2: call_ret (99)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:505
-:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1728, i1 %b_read)
+ST_2: call_ret (99)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:505
+:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1729, i1 %b_read)
 
 
- <State 3>: 1.80ns
+ <State 3>: 1.29ns
 ST_3: u_xy2d_offset_read (42)  [1/1] 0.00ns
 :1  %u_xy2d_offset_read = call i4 @_ssdm_op_Read.ap_auto.i4(i4 %u_xy2d_offset)
 
@@ -241,7 +241,7 @@ ST_3: t_xy2d_0_read_1 (57)  [1/1] 0.00ns
 :16  %t_xy2d_0_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %t_xy2d_0_read)
 
 ST_3: call_ret (99)  [1/2] 1.29ns  loc: ed25519/src/ge.cpp:505
-:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1728, i1 %b_read)
+:58  %call_ret = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_yminusx_0_read_1, i32 %t_yminusx_1_read_1, i32 %t_yminusx_2_read_1, i32 %t_yminusx_3_read_1, i32 %t_yminusx_4_read_1, i32 %t_yminusx_5_read_1, i32 %t_yminusx_6_read_1, i32 %t_yminusx_7_read_1, i32 %t_yminusx_8_read_1, i32 %t_yminusx_9_read_1, [2560 x i32]* @base_yminusx, i5 %tmp_7561_read, i3 %tmp_1729, i1 %b_read)
 
 ST_3: t_yminusx (100)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 :59  %t_yminusx = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 0
@@ -273,40 +273,40 @@ ST_3: t_yminusx_8 (108)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 ST_3: t_yminusx_9 (109)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:505
 :68  %t_yminusx_9 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret, 9
 
-ST_3: tmp_1729 (110)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
-:69  %tmp_1729 = trunc i4 %u_xy2d_offset_read to i3
+ST_3: tmp_1730 (110)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
+:69  %tmp_1730 = trunc i4 %u_xy2d_offset_read to i3
 
-ST_3: call_ret32 (111)  [2/2] 1.80ns  loc: ed25519/src/ge.cpp:506
-:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1729, i1 %b_read)
+ST_3: call_ret32 (111)  [2/2] 1.17ns  loc: ed25519/src/ge.cpp:506
+:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1730, i1 %b_read)
 
 
  <State 4>: 1.29ns
 ST_4: StgValue_70 (78)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:496
-:37  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str10, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:37  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str43, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_71 (79)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:497
-:38  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str212, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:38  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str245, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_72 (80)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:498
-:39  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str313, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:39  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str346, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_73 (81)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:499
-:40  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str414, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:40  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str447, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_74 (82)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:500
-:41  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str515, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:41  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str548, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_75 (83)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:501
-:42  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str616, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:42  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str649, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_76 (84)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:502
-:43  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str717, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [1 x i8]* @p_str111) nounwind
+:43  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str750, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [1 x i8]* @p_str144) nounwind
 
 ST_4: StgValue_77 (85)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:503
-:44  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str111, [1 x i8]* @p_str111, [8 x i8]* @p_str19, [1 x i8]* @p_str111) nounwind
+:44  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str144, [1 x i8]* @p_str144, [8 x i8]* @p_str19, [1 x i8]* @p_str144) nounwind
 
 ST_4: call_ret32 (111)  [1/2] 1.29ns  loc: ed25519/src/ge.cpp:506
-:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1729, i1 %b_read)
+:70  %call_ret32 = call fastcc { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } @fe_cmov(i32 %t_xy2d_0_read_1, i32 %t_xy2d_1_read_1, i32 %t_xy2d_2_read_1, i32 %t_xy2d_3_read_1, i32 %t_xy2d_4_read_1, i32 %t_xy2d_5_read_1, i32 %t_xy2d_6_read_1, i32 %t_xy2d_7_read_1, i32 %t_xy2d_8_read_1, i32 %t_xy2d_9_read_1, [2560 x i32]* @base_xy2d, i5 %tmp_7562_read, i3 %tmp_1730, i1 %b_read)
 
 ST_4: t_xy2d (112)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:506
 :71  %t_xy2d = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 } %call_ret32, 0
@@ -438,20 +438,18 @@ ST_4: StgValue_119 (152)  [1/1] 0.00ns  loc: ed25519/src/ge.cpp:507
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.8ns
+ <State 1>: 1.17ns
 The critical path consists of the following:
 	wire read on port 'b' [41]  (0 ns)
-	'call' operation ('call_ret1', ed25519/src/ge.cpp:504) to 'fe_cmov' [87]  (1.8 ns)
+	'call' operation ('call_ret1', ed25519/src/ge.cpp:504) to 'fe_cmov' [87]  (1.17 ns)
 
- <State 2>: 1.8ns
+ <State 2>: 1.29ns
 The critical path consists of the following:
-	wire read on port 'u_yminusx_offset' [44]  (0 ns)
-	'call' operation ('call_ret', ed25519/src/ge.cpp:505) to 'fe_cmov' [99]  (1.8 ns)
+	'call' operation ('call_ret1', ed25519/src/ge.cpp:504) to 'fe_cmov' [87]  (1.29 ns)
 
- <State 3>: 1.8ns
+ <State 3>: 1.29ns
 The critical path consists of the following:
-	wire read on port 'u_xy2d_offset' [42]  (0 ns)
-	'call' operation ('call_ret32', ed25519/src/ge.cpp:506) to 'fe_cmov' [111]  (1.8 ns)
+	'call' operation ('call_ret', ed25519/src/ge.cpp:505) to 'fe_cmov' [99]  (1.29 ns)
 
  <State 4>: 1.29ns
 The critical path consists of the following:

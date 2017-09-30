@@ -424,8 +424,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "800", "Max" : "800"}
-	, {"Name" : "Interval", "Min" : "800", "Max" : "800"}
+	{"Name" : "Latency", "Min" : "804", "Max" : "804"}
+	, {"Name" : "Interval", "Min" : "804", "Max" : "804"}
 ]}
 
 set PipelineEnableSignalInfo {[

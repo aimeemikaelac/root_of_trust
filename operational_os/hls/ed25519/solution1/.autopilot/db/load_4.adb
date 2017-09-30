@@ -1363,11 +1363,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>23</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>12</second>
             </item>
           </second>
         </item>
@@ -1386,11 +1386,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>23</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>12</second>
             </item>
           </second>
         </item>
@@ -1409,11 +1409,11 @@
             </item>
             <item>
               <first>FF</first>
-              <second>0</second>
+              <second>23</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>15</second>
+              <second>12</second>
             </item>
           </second>
         </item>
@@ -1494,7 +1494,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>27</second>
+              <second>25</second>
             </item>
           </second>
         </item>

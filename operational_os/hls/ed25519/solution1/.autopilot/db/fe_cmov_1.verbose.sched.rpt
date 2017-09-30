@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'fe_cmov_1'
 ================================================================
-* Date:           Fri Jun  2 12:27:14 2017
+* Date:           Thu Sep 28 12:40:39 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -138,25 +138,25 @@ ST_1: f_0_read_8 (42)  [1/1] 0.00ns
 :20  %f_0_read_8 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_0_read)
 
 ST_1: StgValue_23 (43)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:156
-:21  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:21  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str75, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_24 (44)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:157
-:22  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:22  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str277, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_25 (45)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:158
-:23  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:23  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str378, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_26 (46)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:159
-:24  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:24  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str479, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_27 (47)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:160
-:25  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:25  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str580, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_28 (48)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:161
-:26  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:26  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str681, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: StgValue_29 (49)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:162
-:27  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:27  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str782, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_1: x0 (50)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:183 (grouped into LUT with out node f_0_write_assign)
 :28  %x0 = xor i32 %p_read_171, %f_0_read_8

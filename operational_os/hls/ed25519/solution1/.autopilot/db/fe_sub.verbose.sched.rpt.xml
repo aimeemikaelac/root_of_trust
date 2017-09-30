@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'fe_sub'" level="0">
-<item name = "Date">Fri Jun  2 12:27:15 2017
+<item name = "Date">Thu Sep 28 12:40:41 2017
 </item>
-<item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ed25519</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 1.34, 1.25</column>
+<column name="ap_clk">10.00, 0.82, 1.25</column>
 </table>
 </item>
 </section>

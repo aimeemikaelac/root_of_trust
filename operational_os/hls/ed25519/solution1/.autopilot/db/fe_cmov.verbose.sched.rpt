@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'fe_cmov'
 ================================================================
-* Date:           Fri Jun  2 12:27:14 2017
+* Date:           Thu Sep 28 12:40:39 2017
 
-* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        ed25519
 * Solution:       solution1
 * Product family: zynquplus
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      2.37|        1.25|
+    |ap_clk  |  10.00|      1.95|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -91,7 +91,7 @@ IsGatedGlobalClock: 0
 10 --> 
 * FSM state operations: 
 
- <State 1>: 1.13ns
+ <State 1>: 0.76ns
 ST_1: u_xy2d_offset_read (16)  [1/1] 0.00ns
 :1  %u_xy2d_offset_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %u_xy2d_offset)
 
@@ -110,22 +110,22 @@ ST_1: tmp_1437 (30)  [1/1] 0.00ns
 ST_1: p_shl1_cast (31)  [1/1] 0.00ns
 :16  %p_shl1_cast = zext i9 %tmp_1437 to i12
 
-ST_1: tmp_1438 (32)  [1/1] 1.13ns
+ST_1: tmp_1438 (32)  [1/1] 0.76ns
 :17  %tmp_1438 = add i12 %p_shl_cast, %p_shl1_cast
 
 
- <State 2>: 1.14ns
-ST_2: tmp_1440 (38)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:175
+ <State 2>: 0.72ns
+ST_2: tmp_1440 (38)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:175
 :23  %tmp_1440 = add i12 2, %tmp_1438
 
 
- <State 3>: 1.14ns
-ST_3: tmp_1441 (41)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:176
+ <State 3>: 0.72ns
+ST_3: tmp_1441 (41)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:176
 :26  %tmp_1441 = add i12 3, %tmp_1438
 
 
- <State 4>: 1.14ns
-ST_4: tmp_1442 (44)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:177
+ <State 4>: 0.72ns
+ST_4: tmp_1442 (44)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:177
 :29  %tmp_1442 = add i12 4, %tmp_1438
 
 
@@ -145,7 +145,7 @@ ST_5: tmp_1439_cast (36)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:174
 ST_5: g_addr_1 (37)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:174
 :22  %g_addr_1 = getelementptr [2560 x i32]* %g, i64 0, i64 %tmp_1439_cast
 
-ST_5: tmp_1443 (47)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:178
+ST_5: tmp_1443 (47)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:178
 :32  %tmp_1443 = add i12 5, %tmp_1438
 
 ST_5: g0 (69)  [2/2] 1.24ns  loc: ed25519/src/fe.cpp:173
@@ -168,7 +168,7 @@ ST_6: tmp_1441_cast (42)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:176
 ST_6: g_addr_3 (43)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:176
 :28  %g_addr_3 = getelementptr [2560 x i32]* %g, i64 0, i64 %tmp_1441_cast
 
-ST_6: tmp_1444 (50)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:179
+ST_6: tmp_1444 (50)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:179
 :35  %tmp_1444 = add i12 6, %tmp_1438
 
 ST_6: g0 (69)  [1/2] 1.24ns  loc: ed25519/src/fe.cpp:173
@@ -197,7 +197,7 @@ ST_7: tmp_1443_cast (48)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:178
 ST_7: g_addr_5 (49)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:178
 :34  %g_addr_5 = getelementptr [2560 x i32]* %g, i64 0, i64 %tmp_1443_cast
 
-ST_7: tmp_1445 (53)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:180
+ST_7: tmp_1445 (53)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:180
 :38  %tmp_1445 = add i12 7, %tmp_1438
 
 ST_7: g2 (71)  [1/2] 1.24ns  loc: ed25519/src/fe.cpp:175
@@ -226,7 +226,7 @@ ST_8: tmp_1445_cast (54)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:180
 ST_8: g_addr_7 (55)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:180
 :40  %g_addr_7 = getelementptr [2560 x i32]* %g, i64 0, i64 %tmp_1445_cast
 
-ST_8: tmp_1446 (56)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:181
+ST_8: tmp_1446 (56)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:181
 :41  %tmp_1446 = add i12 8, %tmp_1438
 
 ST_8: g4 (73)  [1/2] 1.24ns  loc: ed25519/src/fe.cpp:177
@@ -242,14 +242,14 @@ ST_8: g7 (76)  [2/2] 1.24ns  loc: ed25519/src/fe.cpp:180
 :61  %g7 = load i32* %g_addr_7, align 4
 
 
- <State 9>: 2.37ns
+ <State 9>: 1.95ns
 ST_9: tmp_1446_cast (57)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:181
 :42  %tmp_1446_cast = zext i12 %tmp_1446 to i64
 
 ST_9: g_addr_8 (58)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:181
 :43  %g_addr_8 = getelementptr [2560 x i32]* %g, i64 0, i64 %tmp_1446_cast
 
-ST_9: tmp_1447 (59)  [1/1] 1.14ns  loc: ed25519/src/fe.cpp:182
+ST_9: tmp_1447 (59)  [1/1] 0.72ns  loc: ed25519/src/fe.cpp:182
 :44  %tmp_1447 = add i12 9, %tmp_1438
 
 ST_9: tmp_1447_cast (60)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:182
@@ -306,25 +306,25 @@ ST_10: f_0_read58 (27)  [1/1] 0.00ns
 :12  %f_0_read58 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %f_0_read)
 
 ST_10: StgValue_76 (62)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:156
-:47  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str3, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:47  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str75, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_77 (63)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:157
-:48  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str25, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:48  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str277, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_78 (64)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:158
-:49  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str36, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:49  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str378, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_79 (65)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:159
-:50  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str4, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:50  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str479, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_80 (66)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:160
-:51  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str5, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:51  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str580, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_81 (67)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:161
-:52  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str6, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:52  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [5 x i8]* @p_str681, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: StgValue_82 (68)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:162
-:53  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str7, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [1 x i8]* @p_str14) nounwind
+:53  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [4 x i8]* @p_str782, [1 x i8]* @p_str176, [1 x i8]* @p_str176, [1 x i8]* @p_str176) nounwind
 
 ST_10: g8 (77)  [1/2] 1.24ns  loc: ed25519/src/fe.cpp:181
 :62  %g8 = load i32* %g_addr_8, align 4
@@ -465,22 +465,22 @@ ST_10: StgValue_126 (120)  [1/1] 0.00ns  loc: ed25519/src/fe.cpp:216
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.13ns
+ <State 1>: 0.765ns
 The critical path consists of the following:
 	wire read on port 'u_xy2d_offset' [16]  (0 ns)
-	'add' operation ('tmp_1438') [32]  (1.13 ns)
+	'add' operation ('tmp_1438') [32]  (0.765 ns)
 
- <State 2>: 1.14ns
+ <State 2>: 0.717ns
 The critical path consists of the following:
-	'add' operation ('tmp_1440', ed25519/src/fe.cpp:175) [38]  (1.14 ns)
+	'add' operation ('tmp_1440', ed25519/src/fe.cpp:175) [38]  (0.717 ns)
 
- <State 3>: 1.14ns
+ <State 3>: 0.717ns
 The critical path consists of the following:
-	'add' operation ('tmp_1441', ed25519/src/fe.cpp:176) [41]  (1.14 ns)
+	'add' operation ('tmp_1441', ed25519/src/fe.cpp:176) [41]  (0.717 ns)
 
- <State 4>: 1.14ns
+ <State 4>: 0.717ns
 The critical path consists of the following:
-	'add' operation ('tmp_1442', ed25519/src/fe.cpp:177) [44]  (1.14 ns)
+	'add' operation ('tmp_1442', ed25519/src/fe.cpp:177) [44]  (0.717 ns)
 
  <State 5>: 1.24ns
 The critical path consists of the following:
@@ -502,9 +502,9 @@ The critical path consists of the following:
 	'getelementptr' operation ('g_addr_6', ed25519/src/fe.cpp:179) [52]  (0 ns)
 	'load' operation ('g6', ed25519/src/fe.cpp:179) on array 'g' [75]  (1.24 ns)
 
- <State 9>: 2.37ns
+ <State 9>: 1.95ns
 The critical path consists of the following:
-	'add' operation ('tmp_1447', ed25519/src/fe.cpp:182) [59]  (1.14 ns)
+	'add' operation ('tmp_1447', ed25519/src/fe.cpp:182) [59]  (0.717 ns)
 	'getelementptr' operation ('g_addr_9', ed25519/src/fe.cpp:182) [61]  (0 ns)
 	'load' operation ('g9', ed25519/src/fe.cpp:182) on array 'g' [78]  (1.24 ns)
 

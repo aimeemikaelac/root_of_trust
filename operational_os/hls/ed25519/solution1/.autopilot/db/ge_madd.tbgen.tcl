@@ -406,8 +406,8 @@ set RtlHierarchyInfo {[
 			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_sub_fu_708"},
 			{"State" : "ap_ST_fsm_state11", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_sub_fu_708"},
 			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_mul_fu_867"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_mul_fu_1026"},
-			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_mul_1_fu_1309"}],
+			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_mul_fu_1026"},
+			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_fe_mul_1_fu_1309"}],
 		"Port" : [
 			{"Name" : "p_read40", "Type" : "None", "Direction" : "I"},
 			{"Name" : "p_read141", "Type" : "None", "Direction" : "I"},
@@ -648,14 +648,14 @@ set ArgLastReadFirstWriteLatency {
 		p_read1747 {Type I LastRead 0 FirstWrite -1}
 		p_read1848 {Type I LastRead 0 FirstWrite -1}
 		p_read1949 {Type I LastRead 0 FirstWrite -1}
-		p_read2050 {Type I LastRead 2 FirstWrite -1}
-		p_read2151 {Type I LastRead 3 FirstWrite -1}
-		p_read2252 {Type I LastRead 4 FirstWrite -1}
-		p_read2353 {Type I LastRead 5 FirstWrite -1}
-		p_read2454 {Type I LastRead 6 FirstWrite -1}
-		p_read2555 {Type I LastRead 7 FirstWrite -1}
-		p_read2656 {Type I LastRead 8 FirstWrite -1}
-		p_read2757 {Type I LastRead 9 FirstWrite -1}
+		p_read2050 {Type I LastRead 1 FirstWrite -1}
+		p_read2151 {Type I LastRead 2 FirstWrite -1}
+		p_read2252 {Type I LastRead 3 FirstWrite -1}
+		p_read2353 {Type I LastRead 4 FirstWrite -1}
+		p_read2454 {Type I LastRead 5 FirstWrite -1}
+		p_read2555 {Type I LastRead 6 FirstWrite -1}
+		p_read2656 {Type I LastRead 7 FirstWrite -1}
+		p_read2757 {Type I LastRead 8 FirstWrite -1}
 		p_read2858 {Type I LastRead 9 FirstWrite -1}
 		p_read2959 {Type I LastRead 9 FirstWrite -1}
 		p_read3050 {Type I LastRead 0 FirstWrite -1}
@@ -668,26 +668,26 @@ set ArgLastReadFirstWriteLatency {
 		p_read3757 {Type I LastRead 0 FirstWrite -1}
 		p_read3858 {Type I LastRead 0 FirstWrite -1}
 		p_read3959 {Type I LastRead 0 FirstWrite -1}
-		p_read4060 {Type I LastRead 2 FirstWrite -1}
-		p_read41 {Type I LastRead 2 FirstWrite -1}
-		p_read42 {Type I LastRead 2 FirstWrite -1}
-		p_read43 {Type I LastRead 2 FirstWrite -1}
-		p_read44 {Type I LastRead 2 FirstWrite -1}
-		p_read45 {Type I LastRead 2 FirstWrite -1}
-		p_read46 {Type I LastRead 2 FirstWrite -1}
-		p_read47 {Type I LastRead 2 FirstWrite -1}
-		p_read48 {Type I LastRead 2 FirstWrite -1}
-		p_read49 {Type I LastRead 2 FirstWrite -1}
-		p_read50 {Type I LastRead 2 FirstWrite -1}
-		p_read51 {Type I LastRead 2 FirstWrite -1}
-		p_read52 {Type I LastRead 2 FirstWrite -1}
-		p_read53 {Type I LastRead 2 FirstWrite -1}
-		p_read54 {Type I LastRead 2 FirstWrite -1}
-		p_read55 {Type I LastRead 2 FirstWrite -1}
-		p_read56 {Type I LastRead 2 FirstWrite -1}
-		p_read57 {Type I LastRead 2 FirstWrite -1}
-		p_read58 {Type I LastRead 2 FirstWrite -1}
-		p_read59 {Type I LastRead 2 FirstWrite -1}
+		p_read4060 {Type I LastRead 1 FirstWrite -1}
+		p_read41 {Type I LastRead 1 FirstWrite -1}
+		p_read42 {Type I LastRead 1 FirstWrite -1}
+		p_read43 {Type I LastRead 1 FirstWrite -1}
+		p_read44 {Type I LastRead 1 FirstWrite -1}
+		p_read45 {Type I LastRead 1 FirstWrite -1}
+		p_read46 {Type I LastRead 1 FirstWrite -1}
+		p_read47 {Type I LastRead 1 FirstWrite -1}
+		p_read48 {Type I LastRead 1 FirstWrite -1}
+		p_read49 {Type I LastRead 1 FirstWrite -1}
+		p_read50 {Type I LastRead 1 FirstWrite -1}
+		p_read51 {Type I LastRead 1 FirstWrite -1}
+		p_read52 {Type I LastRead 1 FirstWrite -1}
+		p_read53 {Type I LastRead 1 FirstWrite -1}
+		p_read54 {Type I LastRead 1 FirstWrite -1}
+		p_read55 {Type I LastRead 1 FirstWrite -1}
+		p_read56 {Type I LastRead 1 FirstWrite -1}
+		p_read57 {Type I LastRead 1 FirstWrite -1}
+		p_read58 {Type I LastRead 1 FirstWrite -1}
+		p_read59 {Type I LastRead 1 FirstWrite -1}
 		p_read60 {Type I LastRead 0 FirstWrite -1}
 		p_read61 {Type I LastRead 0 FirstWrite -1}
 		p_read62 {Type I LastRead 0 FirstWrite -1}
@@ -807,8 +807,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "417", "Max" : "417"}
-	, {"Name" : "Interval", "Min" : "417", "Max" : "417"}
+	{"Name" : "Latency", "Min" : "418", "Max" : "418"}
+	, {"Name" : "Interval", "Min" : "418", "Max" : "418"}
 ]}
 
 set PipelineEnableSignalInfo {[

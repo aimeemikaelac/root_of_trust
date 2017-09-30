@@ -9,7 +9,7 @@
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
 /* autopilot_ssdm_op.h*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -62,10 +62,10 @@
  *
  * $Id$
  */
-#pragma line 145 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 145 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define AP_SPEC_ATTR __attribute__ ((pure))*/
 //adu: patched
-#pragma line 156 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 156 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 extern "C" {
 #pragma empty_line
     /****** SSDM Intrinsics: OPERATIONS ***/
@@ -195,10 +195,10 @@ extern "C" {
 #pragma empty_line
 #pragma empty_line
 }
-#pragma line 413 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 413 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define _ssdm_op_WaitUntil(X) while (!(X)) _ssdm_op_Wait(1);
 #define _ssdm_op_Delayed(X) X */
-#pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#pragma line 427 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #pragma line 7 "<command line>" 2
 #pragma line 1 "<built-in>" 2
@@ -207,7 +207,7 @@ extern "C" {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -243,11 +243,11 @@ typedef __typeof__(((int*)0)-((int*)0)) ptrdiff_t;
 #pragma empty_line
 #pragma empty_line
 typedef __typeof__(sizeof(int)) size_t;
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 5 "ed25519/src/ed25519.h" 2
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -314,7 +314,7 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_enum.h" 1
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_enum.h" 1
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
 #-
@@ -449,7 +449,7 @@ enum SsdmRegionTypes {
 #pragma empty_line
 #pragma empty_line
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-#pragma line 67 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 2
+#pragma line 67 "/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 2
 #pragma empty_line
 #pragma empty_line
 namespace hls {
@@ -584,7 +584,7 @@ void ed25519_key_exchange(unsigned char *shared_secret, const unsigned char *pub
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -609,7 +609,7 @@ void ed25519_key_exchange(unsigned char *shared_secret, const unsigned char *pub
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 5 "ed25519/src/sha512.h" 2
@@ -621,7 +621,7 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
     Not a compatible replacement for <stdint.h>, do not blindly use it as such.
 */
 #pragma line 21 "ed25519/src/fixedint.h"
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 1 3
 /*===---- limits.h - Standard header for integer sizes --------------------===*\
  *
  * Copyright (c) 2009 Chris Lattner
@@ -1686,16 +1686,16 @@ __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 133 "/usr/include/x86_64-linux-gnu/bits/xopen_lim.h" 3 4
 /* Safe assumption.  */
 #pragma line 152 "/usr/include/limits.h" 2 3 4
-#pragma line 39 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3
+#pragma line 39 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 2 3
 #pragma empty_line
 #pragma empty_line
 /* Many system headers try to "help us out" by defining these.  No really, we
    know how big each datatype is. */
-#pragma line 60 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
+#pragma line 60 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
 /* C90/99 5.2.4.2.1 */
-#pragma line 90 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
+#pragma line 90 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
 /* C99 5.2.4.2.1: Added long long. */
-#pragma line 102 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
+#pragma line 102 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/limits.h" 3
 /* LONG_LONG_MIN/LONG_LONG_MAX/ULONG_LONG_MAX are a GNU extension.  It's too bad
    that we don't have something like #pragma poison that could be used to
    deprecate a macro - the code should just use LLONG_MAX and friends.
@@ -1913,7 +1913,7 @@ extern "C" {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -1938,7 +1938,7 @@ extern "C" {
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 34 "/usr/include/stdio.h" 2 3 4
@@ -2212,7 +2212,7 @@ typedef struct _IO_FILE __FILE;
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2237,7 +2237,7 @@ typedef struct _IO_FILE __FILE;
  *
  *===-----------------------------------------------------------------------===
  */
-#pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#pragma line 56 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #pragma line 16 "/usr/include/_G_config.h" 2 3 4
@@ -2318,7 +2318,7 @@ typedef struct
 /* This define avoids name pollution if we're using GNU stdarg.h */
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
+#pragma line 1 "/Xilinx/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
 /*===---- stdarg.h - Variable argument handling ----------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -3336,7 +3336,7 @@ extern void funlockfile (FILE *__stream) throw ();
 #pragma empty_line
 #pragma empty_line
 //void ed25519_sign(unsigned char *signature, const unsigned char *message, size_t message_len, const unsigned char *public_key, const unsigned char *private_key) {
-void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[32768], size_t blocks_in, const unsigned char public_key[32], const unsigned char private_key[64]){
+void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[32768], size_t offset, size_t blocks_in, const unsigned char public_key[32], const unsigned char private_key[64]){
 #pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE ap_vld port=blocks_in
 #pragma HLS INTERFACE s_axilite port=blocks_in
@@ -3346,6 +3346,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[3276
 #pragma HLS INTERFACE s_axilite port=signature
 #pragma HLS INTERFACE s_axilite port=public_key
 #pragma HLS INTERFACE s_axilite port=private_key
+#pragma HLS INTERFACE s_axilite port=offset
 #pragma empty_line
 #pragma HLS ALLOCATION instances=ge_scalarmult_base limit=1 function
 #pragma HLS ALLOCATION instances=fe_invert limit=1 function
@@ -3369,7 +3370,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[3276
     sha512_init(&hash);
 //    sha512_update(&hash, private_key + 32, 32);
     sha512_update_32(&hash, private_key + 32);
-    for(current_block=0; current_block<blocks_in; current_block++){
+    for(current_block=offset; current_block<blocks_in; current_block++){
      for(current_byte=0; current_byte<128; current_byte++){
 //    		temp_data[current_byte] = message_in.read();
       //TODO: also write out here to microblaze stream
@@ -3396,7 +3397,7 @@ void ed25519_sign(unsigned char signature[64], unsigned char microblaze_mem[3276
 //    sha512_update(&hash, public_key, 32);
     sha512_update_32(&hash, public_key);
 //    sha512_update(&hash, message, message_len);
-    for(current_block=0; current_block<blocks_in; current_block++){
+    for(current_block=offset; current_block<blocks_in; current_block++){
   for(current_byte=0; current_byte<128; current_byte++){
 //    		temp_data[current_byte] = message_in.read();
    //TODO: also write out here to microblaze stream

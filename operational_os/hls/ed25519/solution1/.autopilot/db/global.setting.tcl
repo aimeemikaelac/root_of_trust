@@ -41,7 +41,7 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xczu9eg:-ffvb1156:-2-i"
-set SourceFiles {sc {} c {../src/add_scalar.cpp ../src/fe.cpp ../src/ge.cpp ../src/key_exchange.cpp ../src/keypair.cpp ../src/sc.cpp ../src/seed.cpp ../src/sha512.cpp ../src/sign.cpp ../src/verify.cpp}}
+set SourceFiles {sc {} c {../src/verify.cpp ../src/sign.cpp ../src/sha512.cpp ../src/seed.cpp ../src/sc.cpp ../src/keypair.cpp ../src/key_exchange.cpp ../src/ge.cpp ../src/fe.cpp ../src/add_scalar.cpp}}
 set SourceFlags {sc {} c {{} {} {} {} {} {} {} {} {} {}}}
 set DirectiveFile {/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/ed25519/solution1/solution1.directive}
 set TBFiles {verilog ../src/ed25519_tb.cpp bc ../src/ed25519_tb.cpp vhdl ../src/ed25519_tb.cpp sc ../src/ed25519_tb.cpp cas ../src/ed25519_tb.cpp c {}}

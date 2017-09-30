@@ -1,2 +1,0 @@
-secure_enclave_AXILiteS_s_axi
-secure_enclave

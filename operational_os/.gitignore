@@ -2,3 +2,4 @@
 bootgen_log.txt
 !vivado/
 vivado/*/*
+*/solution*/*

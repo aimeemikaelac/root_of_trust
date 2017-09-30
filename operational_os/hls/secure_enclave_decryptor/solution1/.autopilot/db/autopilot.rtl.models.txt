@@ -1,4 +1,0 @@
-secure_enclave_aes_cipher_aestest_sboxes
-secure_enclave_aes_cipher_AXILiteS_s_axi
-secure_enclave_aes_cipher_aestest
-secure_enclave_aes_cipher

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="axi_to_128_bit.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/src/axi_to_128_bit.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="axi_to_128_bit_tb.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/src/axi_to_128_bit_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

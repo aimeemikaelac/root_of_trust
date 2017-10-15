@@ -42,6 +42,11 @@
 			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution1/.tcls</location>
 		</link>
 		<link>
+			<name>solution2/constraints</name>
+			<type>2</type>
+			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution2/.tcls</location>
+		</link>
+		<link>
 			<name>source/axi_to_128_bit.cpp</name>
 			<type>1</type>
 			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/src/axi_to_128_bit.cpp</location>
@@ -65,6 +70,21 @@
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
 			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution1/script.tcl</location>
+		</link>
+		<link>
+			<name>solution2/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution2/solution2.directive</location>
+		</link>
+		<link>
+			<name>solution2/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution2/directives.tcl</location>
+		</link>
+		<link>
+			<name>solution2/constraints/script.tcl</name>
+			<type>1</type>
+			<location>/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/AXI_to_128_bit/solution2/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

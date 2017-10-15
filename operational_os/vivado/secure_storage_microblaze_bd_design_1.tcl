@@ -258,17 +258,6 @@ CONFIG.NUM_SI {1} \
   # Create instance: axi_to_128_bit_0, and set properties
   set axi_to_128_bit_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:axi_to_128_bit:1.0 axi_to_128_bit_0 ]
 
-  set_property -dict [ list \
-CONFIG.NUM_READ_OUTSTANDING {1} \
-CONFIG.NUM_WRITE_OUTSTANDING {1} \
- ] [get_bd_intf_pins /axi_to_128_bit_0/s_axi_AXILiteS]
-
-  # Create instance: axi_uartlite_0, and set properties
-  set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
-
-  # Create instance: axi_uartlite_1, and set properties
-  set axi_uartlite_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_1 ]
-
   # Create instance: data_0, and set properties
   set data_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 data_0 ]
   set_property -dict [ list \
@@ -309,7 +298,7 @@ CONFIG.C_USE_PCMP_INSTR {1} \
   # Create instance: microblaze_0_axi_periph, and set properties
   set microblaze_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 microblaze_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {2} \
+CONFIG.NUM_MI {4} \
 CONFIG.NUM_SI {2} \
  ] $microblaze_0_axi_periph
 
@@ -323,6 +312,17 @@ CONFIG.C_ALL_OUTPUTS {1} \
 CONFIG.C_GPIO_WIDTH {1} \
  ] $microblaze_external_reset
 
+  # Create instance: microblaze_storage_buffer, and set properties
+  set microblaze_storage_buffer [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 microblaze_storage_buffer ]
+  set_property -dict [ list \
+CONFIG.DATA_WIDTH {32} \
+CONFIG.ECC_TYPE {Hamming} \
+CONFIG.SINGLE_PORT_BRAM {1} \
+ ] $microblaze_storage_buffer
+
+  # Create instance: microblaze_uartlite, and set properties
+  set microblaze_uartlite [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 microblaze_uartlite ]
+
   # Create instance: ps8_0_axi_periph, and set properties
   set ps8_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph ]
   set_property -dict [ list \
@@ -334,6 +334,17 @@ CONFIG.NUM_MI {5} \
   set_property -dict [ list \
 CONFIG.C_AUX_RESET_HIGH {1} \
  ] $rst_ps8_0_99M
+
+  # Create instance: storage_buffer, and set properties
+  set storage_buffer [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 storage_buffer ]
+  set_property -dict [ list \
+CONFIG.Enable_B {Use_ENB_Pin} \
+CONFIG.Memory_Type {True_Dual_Port_RAM} \
+CONFIG.Port_B_Clock {100} \
+CONFIG.Port_B_Enable_Rate {100} \
+CONFIG.Port_B_Write_Rate {50} \
+CONFIG.Use_RSTB_Pin {true} \
+ ] $storage_buffer
 
   # Create instance: xlslice_0, and set properties
   set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
@@ -370,6 +381,15 @@ CONFIG.DIN_TO {96} \
 CONFIG.DIN_WIDTH {128} \
 CONFIG.DOUT_WIDTH {32} \
  ] $xlslice_3
+
+  # Create instance: zcu_storage_buffer, and set properties
+  set zcu_storage_buffer [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 zcu_storage_buffer ]
+  set_property -dict [ list \
+CONFIG.SINGLE_PORT_BRAM {1} \
+ ] $zcu_storage_buffer
+
+  # Create instance: zcu_uartlite, and set properties
+  set zcu_uartlite [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 zcu_uartlite ]
 
   # Create instance: zynq_ultra_ps_e_0, and set properties
   set zynq_ultra_ps_e_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.0 zynq_ultra_ps_e_0 ]
@@ -579,29 +599,33 @@ CONFIG.PSU__USE__M_AXI_GP2 {0} \
   # Create interface connections
   connect_bd_intf_net -intf_net S01_AXI_1 [get_bd_intf_pins microblaze_0_axi_periph/S01_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins microblaze_0_local_memory/BRAM_PORTB]
+  connect_bd_intf_net -intf_net axi_bram_ctrl_1_BRAM_PORTA [get_bd_intf_pins microblaze_storage_buffer/BRAM_PORTA] [get_bd_intf_pins storage_buffer/BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_smc_M00_AXI [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_smc/M00_AXI]
   connect_bd_intf_net -intf_net microblaze_0_M_AXI_DP [get_bd_intf_pins microblaze_0/M_AXI_DP] [get_bd_intf_pins microblaze_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net microblaze_0_axi_periph_M00_AXI [get_bd_intf_pins axi_to_128_bit_0/s_axi_AXILiteS] [get_bd_intf_pins microblaze_0_axi_periph/M00_AXI]
-  connect_bd_intf_net -intf_net microblaze_0_axi_periph_M01_AXI [get_bd_intf_pins axi_uartlite_0/S_AXI] [get_bd_intf_pins microblaze_0_axi_periph/M01_AXI]
+  connect_bd_intf_net -intf_net microblaze_0_axi_periph_M01_AXI [get_bd_intf_pins microblaze_0_axi_periph/M01_AXI] [get_bd_intf_pins microblaze_uartlite/S_AXI]
+  connect_bd_intf_net -intf_net microblaze_0_axi_periph_M02_AXI [get_bd_intf_pins microblaze_0_axi_periph/M02_AXI] [get_bd_intf_pins microblaze_storage_buffer/S_AXI]
+  connect_bd_intf_net -intf_net microblaze_0_axi_periph_M03_AXI [get_bd_intf_pins microblaze_0_axi_periph/M03_AXI] [get_bd_intf_pins zcu_storage_buffer/S_AXI]
   connect_bd_intf_net -intf_net microblaze_0_dlmb_1 [get_bd_intf_pins microblaze_0/DLMB] [get_bd_intf_pins microblaze_0_local_memory/DLMB]
   connect_bd_intf_net -intf_net microblaze_0_ilmb_1 [get_bd_intf_pins microblaze_0/ILMB] [get_bd_intf_pins microblaze_0_local_memory/ILMB]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M00_AXI [get_bd_intf_pins microblaze_external_reset/S_AXI] [get_bd_intf_pins ps8_0_axi_periph/M00_AXI]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins data_0/S_AXI] [get_bd_intf_pins ps8_0_axi_periph/M01_AXI]
-  connect_bd_intf_net -intf_net ps8_0_axi_periph_M02_AXI [get_bd_intf_pins axi_uartlite_1/S_AXI] [get_bd_intf_pins ps8_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M02_AXI [get_bd_intf_pins ps8_0_axi_periph/M02_AXI] [get_bd_intf_pins zcu_uartlite/S_AXI]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M03_AXI [get_bd_intf_pins data_1/S_AXI] [get_bd_intf_pins ps8_0_axi_periph/M03_AXI]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M04_AXI [get_bd_intf_pins axi_smc/S00_AXI] [get_bd_intf_pins ps8_0_axi_periph/M04_AXI]
+  connect_bd_intf_net -intf_net zcu_storage_buffer_BRAM_PORTA [get_bd_intf_pins storage_buffer/BRAM_PORTB] [get_bd_intf_pins zcu_storage_buffer/BRAM_PORTA]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins ps8_0_axi_periph/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
 
   # Create port connections
   connect_bd_net -net axi_gpio_0_gpio_io_o [get_bd_pins microblaze_external_reset/gpio_io_o] [get_bd_pins rst_ps8_0_99M/aux_reset_in]
   connect_bd_net -net axi_to_128_bit_0_data_out_V [get_bd_pins axi_to_128_bit_0/data_out_V] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din] [get_bd_pins xlslice_2/Din] [get_bd_pins xlslice_3/Din]
-  connect_bd_net -net axi_uartlite_0_tx [get_bd_pins axi_uartlite_0/tx] [get_bd_pins axi_uartlite_1/rx]
-  connect_bd_net -net axi_uartlite_1_tx [get_bd_pins axi_uartlite_0/rx] [get_bd_pins axi_uartlite_1/tx]
-  connect_bd_net -net microblaze_0_Clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axi_to_128_bit_0/ap_clk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins axi_uartlite_1/s_axi_aclk] [get_bd_pins data_0/s_axi_aclk] [get_bd_pins data_1/s_axi_aclk] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins microblaze_external_reset/s_axi_aclk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/M02_ACLK] [get_bd_pins ps8_0_axi_periph/M03_ACLK] [get_bd_pins ps8_0_axi_periph/M04_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+  connect_bd_net -net axi_uartlite_0_tx [get_bd_pins microblaze_uartlite/tx] [get_bd_pins zcu_uartlite/rx]
+  connect_bd_net -net axi_uartlite_1_tx [get_bd_pins microblaze_uartlite/rx] [get_bd_pins zcu_uartlite/tx]
+  connect_bd_net -net microblaze_0_Clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axi_to_128_bit_0/ap_clk] [get_bd_pins data_0/s_axi_aclk] [get_bd_pins data_1/s_axi_aclk] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins microblaze_external_reset/s_axi_aclk] [get_bd_pins microblaze_storage_buffer/s_axi_aclk] [get_bd_pins microblaze_uartlite/s_axi_aclk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/M02_ACLK] [get_bd_pins ps8_0_axi_periph/M03_ACLK] [get_bd_pins ps8_0_axi_periph/M04_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zcu_storage_buffer/s_axi_aclk] [get_bd_pins zcu_uartlite/s_axi_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
   connect_bd_net -net rst_ps8_0_99M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_ps8_0_99M/bus_struct_reset]
   connect_bd_net -net rst_ps8_0_99M_interconnect_aresetn [get_bd_pins microblaze_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins rst_ps8_0_99M/interconnect_aresetn]
   connect_bd_net -net rst_ps8_0_99M_mb_reset [get_bd_pins microblaze_0/Reset] [get_bd_pins rst_ps8_0_99M/mb_reset]
-  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins axi_to_128_bit_0/ap_rst_n] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins axi_uartlite_1/s_axi_aresetn] [get_bd_pins data_0/s_axi_aresetn] [get_bd_pins data_1/s_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins microblaze_external_reset/s_axi_aresetn] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/M02_ARESETN] [get_bd_pins ps8_0_axi_periph/M03_ARESETN] [get_bd_pins ps8_0_axi_periph/M04_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
+  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins axi_to_128_bit_0/ap_rst_n] [get_bd_pins data_0/s_axi_aresetn] [get_bd_pins data_1/s_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/M02_ARESETN] [get_bd_pins microblaze_0_axi_periph/M03_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins microblaze_external_reset/s_axi_aresetn] [get_bd_pins microblaze_storage_buffer/s_axi_aresetn] [get_bd_pins microblaze_uartlite/s_axi_aresetn] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/M02_ARESETN] [get_bd_pins ps8_0_axi_periph/M03_ARESETN] [get_bd_pins ps8_0_axi_periph/M04_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn] [get_bd_pins zcu_storage_buffer/s_axi_aresetn] [get_bd_pins zcu_uartlite/s_axi_aresetn]
   connect_bd_net -net xlslice_0_Dout [get_bd_pins data_0/gpio_io_i] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins data_0/gpio2_io_i] [get_bd_pins xlslice_1/Dout]
   connect_bd_net -net xlslice_2_Dout [get_bd_pins data_1/gpio_io_i] [get_bd_pins xlslice_2/Dout]
@@ -610,19 +634,24 @@ CONFIG.PSU__USE__M_AXI_GP2 {0} \
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0xB0010000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_to_128_bit_0/s_axi_AXILiteS/Reg] SEG_axi_to_128_bit_0_Reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
   create_bd_addr_seg -range 0x00008000 -offset 0x00000000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs microblaze_0_local_memory/dlmb_bram_if_cntlr/SLMB/Mem] SEG_dlmb_bram_if_cntlr_Mem
   create_bd_addr_seg -range 0x00008000 -offset 0x00000000 [get_bd_addr_spaces microblaze_0/Instruction] [get_bd_addr_segs microblaze_0_local_memory/dlmb_bram_if_cntlr/SLMB1/Mem] SEG_dlmb_bram_if_cntlr_Mem
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0004000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs microblaze_storage_buffer/S_AXI/Mem0] SEG_microblaze_storage_buffer_Mem0
+  create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs microblaze_uartlite/S_AXI/Reg] SEG_microblaze_uartlite_Reg
   create_bd_addr_seg -range 0x00008000 -offset 0xA0050000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0xB0010000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_to_128_bit_0/s_axi_AXILiteS/Reg] SEG_axi_to_128_bit_0_Reg
-  create_bd_addr_seg -range 0x00010000 -offset 0xA0030000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_uartlite_1/S_AXI/Reg] SEG_axi_uartlite_1_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0xA0030000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zcu_uartlite/S_AXI/Reg] SEG_axi_uartlite_1_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0xA0010000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs data_0/S_AXI/Reg] SEG_data_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0xA0020000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs data_1/S_AXI/Reg] SEG_data_1_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0xA0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs microblaze_external_reset/S_AXI/Reg] SEG_microblaze_external_reset_Reg
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0008000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zcu_storage_buffer/S_AXI/Mem0] SEG_zcu_storage_buffer_Mem0
 
   # Exclude Address Segments
-  create_bd_addr_seg -range 0x00008000 -offset 0xB0008000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
-  exclude_bd_addr_seg [get_bd_addr_segs zynq_ultra_ps_e_0/Data/SEG_axi_uartlite_0_Reg]
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0008000 [get_bd_addr_spaces microblaze_0/Data] [get_bd_addr_segs zcu_storage_buffer/S_AXI/Mem0] SEG_zcu_storage_buffer_Mem0
+  exclude_bd_addr_seg [get_bd_addr_segs microblaze_0/Data/SEG_zcu_storage_buffer_Mem0]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0004000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs microblaze_storage_buffer/S_AXI/Mem0] SEG_microblaze_storage_buffer_Mem0
+  exclude_bd_addr_seg [get_bd_addr_segs zynq_ultra_ps_e_0/Data/SEG_microblaze_storage_buffer_Mem0]
 
 
 

@@ -11,7 +11,9 @@
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog/>
+      <synLog>
+        <logs message="WARNING: [SYNCHK 200-23] AXI_to_128_bit/src/axi_to_128_bit.cpp:19: variable-indexed range selection may cause suboptimal QoR." projectName="AXI_to_128_bit" solutionName="solution1" date="2017-10-16T11:47:43.661-0600" type="Warning"/>
+      </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>

@@ -99,12 +99,24 @@ def zero_memory(length, base_address):
     memory_handle = DevMem(base_address, length=length)
     memory_handle.write(0, bytearray("0"*length))
 
+def write_bin_file_data(bin_file_data, base_address, file_size):
+    bin_file_data = bytearray(bin_file_handle.read())
+    memory_handle = DevMem(base_address, length=file_size)
+    memory_handle.write(0, bin_file_data)
+
 def write_bin_file(bin_file, base_address):
     with open(bin_file) as bin_file_handle:
         file_size = os.path.getsize(bin_file)
         bin_file_data = bytearray(bin_file_handle.read())
-        memory_handle = DevMem(base_address, length=file_size)
-        memory_handle.write(0, bin_file_data)
+        write_bin_file_data(bin_file_data, base_address, file_size)
+
+def trigger_reset(reset_base_address):
+    #TODO: what does the length of this memory map need to be?
+    memory_handle = DevMem(reset_base_address, 0x10)
+    # Assume that reset is active high
+    memory_handle.write(0, 1)
+    # Clear reset, in case it is not self-clearing
+    memory_handle.write(0, 0)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

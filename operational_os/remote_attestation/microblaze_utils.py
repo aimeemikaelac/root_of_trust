@@ -37,7 +37,7 @@ async def write_shared_buffer(
     # 2. copy data to data reion
     data_buffer.write(0, data)
     # 3. signal data write finished
-    control_registers(0x10, 1)
+    control_registers.write(0x10, 1)
 
 async def read_shared_buffer(
     base_address,

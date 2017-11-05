@@ -1,0 +1,19 @@
+{
+  "trusted":{
+    "name": "aes",
+    "inputs":[
+      {
+        "name":"data_in",
+        "type":"unsigned char",
+        "length": 128,
+      }
+    ],
+    "outputs":[
+      {
+        "name":"data_out",
+        "type":"unsigned char",
+        "length": 128,
+      }
+    ]
+  }
+}

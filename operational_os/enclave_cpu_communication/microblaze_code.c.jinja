@@ -5,13 +5,17 @@
 #define DATA_OFFSET 0x100
 
 void watch_mem_buffer(){
-{{ input_buffers }}
 {{ return_values }}
   unsigned int function;
   int i;
   //while true, check for the function
   while(1){
-    function = Xil_in32(MEMORY_BUFFER_ADDRESS + 0x60);
+    // Check if a ready signal is Sets
+    //TODO: use this register with a bitmask for more data?
+    if(Xil_In32(MEMORY_BUFFER_ADDRESS + 0x70) == 0){
+      continue;
+    }
+    function = Xil_In32(MEMORY_BUFFER_ADDRESS + 0x60);
     switch(function){
 {{ case_statements }}
       default :

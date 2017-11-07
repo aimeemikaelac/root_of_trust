@@ -1,19 +1,43 @@
 {
-  "trusted":{
-    "name": "aes",
-    "inputs":[
-      {
-        "name":"data_in",
-        "type":"unsigned char",
-        "length": 128,
-      }
-    ],
-    "outputs":[
-      {
-        "name":"data_out",
-        "type":"unsigned char",
-        "length": 128,
-      }
-    ]
-  }
+  "trusted" : [
+    {
+      "name":"aes",
+      "return" : {
+        "name":"complete",
+        "type":"unsigned int",
+        "length":4
+      },
+      "inputs" : [
+        {
+          "name":"data_in",
+          "type":"unsigned char",
+          "length":16
+        }
+      ],
+      "outputs" : [
+        {
+          "name":"data_out",
+          "type":"unsigned char",
+          "length":16
+        }
+      ]
+    },
+    {
+      "name": "sha512",
+      "inputs":[
+        {
+          "name":"sha_data_in",
+          "type":"unsigned int",
+          "length":128
+        }
+      ],
+      "outputs":[
+        {
+          "name":"sha_data_out",
+          "type":"unsigned int",
+          "length":512
+        }
+      ]
+    }
+  ]
 }

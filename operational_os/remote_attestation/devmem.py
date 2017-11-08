@@ -176,7 +176,7 @@ class DevMem:
             self.debug('writing at position = {0}: 0x{1:x}'.
                         format(self.mem.tell(), din[i]))
             # Write one word at a time
-            mem.write(struct.pack('I', din[i]))
+            mem.write(struct.pack('B', din[i]))
 
     def debug_set(self, value):
         self._debug = value

@@ -100,7 +100,6 @@ def zero_memory(length, base_address):
     memory_handle.write(0, bytearray("0"*length))
 
 def write_bin_file_data(bin_file_data, base_address, file_size):
-    bin_file_data = bytearray(bin_file_handle.read())
     memory_handle = DevMem(base_address, length=file_size)
     memory_handle.write(0, bin_file_data)
 

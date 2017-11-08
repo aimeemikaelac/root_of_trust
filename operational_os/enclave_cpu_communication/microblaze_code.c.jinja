@@ -10,7 +10,7 @@ void watch_mem_buffer(){
   int i;
   //while true, check for the function
   while(1){
-    // Check if a ready signal is Sets
+    // Check if a ready signal is set
     //TODO: use this register with a bitmask for more data?
     if(Xil_In32(MEMORY_BUFFER_ADDRESS + 0x70) == 0){
       continue;

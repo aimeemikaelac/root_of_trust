@@ -1,0 +1,97 @@
+#include "user_mmap_driver.h"
+
+//TODO: render as part of template
+#define SHARED_BUFFER 0xB0010000
+#define SHARED_BUFFER_SIZE 0x2000
+
+{% for entry in functions %}
+{{ entry.return_type }} {{ entry.function_name }}({{ ", ".join(entry.argument_list) }}){
+  //TODO: make the shared buffer a global
+  shared_memory shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
+  int i;
+  volatile unsigned int *buffer = (unsigned int*)shared_mem->ptr;
+  volatile unsigned int *control_function = (unsigned int*)(shared_mem->ptr + 0x60);
+  volatile unsigned int *control_start = (unsigned int*)(shared_mem->ptr + 0x70);
+  volatile unsigned int *control_finished = (unsigned int*)(shared_mem->ptr + 0x80);
+
+  //render return buffer and return variable
+  {% if entry.return_buffer %}
+  unsigned int {{ entry.return_buffer.name }}[{{ entry.return_buffer.buffer_length }}];
+  volatile unsigned int *return_shared = (unsigned int*)(shared_mem->ptr + {{ entry.return_buffer.start }});
+  {% endif %}
+
+  //render input buffer pointers
+  {% for input in entry.inputs %}
+  volatile unsigned int *{{ input.name }}_shared = (unsigned int*)(shared_mem->ptr + {{ input.start }});
+  {% endfor %}
+
+  //render output buffer pointers
+  {% for output in entry.outputs %}
+  volatile unsigned int *{{ output.name }}_shared = (unsigned int*)(shared_mem->ptr + {{ output.start }});
+  {% endfor %}
+
+  //render code for loading input buffers
+  {% for input in entry.inputs %}
+  for(i=0; i<{{ input.length/4 }}; i++){
+    {{ input.name }}_shared[i] = ((unsigned int*){{ input.name }})[i];
+  }
+  {% endfor %}
+
+  control_finished[0] = 0;
+  control_function[0] = 0;
+  control_start[0] = 1;
+  while(*control_finished == 0){
+    asm("");
+    __asm__("");
+  }
+
+  //render code for loading outputs
+  {% for output in entry.outputs %}
+  for(i=0; i<{{ output.length/4 }}; i++){
+    ((unsigned int*){{ output.name }})[i] = {{ output.name }}_shared[i];
+  }
+  {% endfor %}
+
+  //render extracting return value
+  {% if entry.return_buffer %}
+  for(i=0; i<{{ entry.return_buffer.buffer_length }}; i++){
+    {{ entry.return_buffer.name }}[i] = return_shared[i];
+  }
+  return ({{ entry.return_type }}*)(*{{ entry.return_buffer.name }});
+  {% endif %}
+}
+
+{% endfor %}
+
+
+/*
+unsigned int aes(unsigned char *data_in, unsigned char *data_out){
+  shared_memory shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
+  int i;
+  unsigned int aes_return[1];
+  volatile unsigned int *buffer = (unsigned int*)shared_mem->ptr;
+  volatile unsigned int *control_function = (unsigned int*)(shared_mem->ptr + 0x60);
+  volatile unsigned int *control_start = (unsigned int*)(shared_mem->ptr + 0x70);
+  volatile unsigned int *control_finished = (unsigned int*)(shared_mem->ptr + 0x80);
+  volatile unsigned int *return_shared = (unsigned int*)(shared_mem->ptr + 256);
+  volatile unsigned int *data_in_shared = (unsigned int*)(shared_mem->ptr + 260);
+  volatile unsigned int *data_out_shared = (unsigned int*)(shared_mem->ptr + 424);
+  for(i=0; i<4; i++){
+    data_in_shared[i] = ((unsigned int*)data_in)[i];
+  }
+  control_finished[0] = 0;
+  control_function[0] = 0;
+  control_start[0] = 1;
+  while(*control_finished == 0){
+    asm("");
+    __asm__("");
+  }
+  for(i=0; i<4; i++){
+    ((unsigned int*)data_out)[i] = data_out_shared[i];
+  }
+  for(i=0; i<1; i++){
+    aes_return[i] = return_shared[i];
+  }
+  return (unsigned int*)(*aes_return);
+}
+*/

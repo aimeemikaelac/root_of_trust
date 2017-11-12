@@ -5,7 +5,9 @@
 #define DATA_OFFSET 0x100
 
 void watch_mem_buffer(){
-{{ return_values }}
+  {% for return_value in return_values %}
+  volatile {{ return_value.type }} *{{ return_value.name}} = ({{ return_value.type }}*)(SHARED_BUFFER_ADDRESS + return_value.start);
+  {% end_for %}
   unsigned int function;
   int i;
   //while true, check for the function
@@ -17,7 +19,31 @@ void watch_mem_buffer(){
     }
     function = Xil_In32(MEMORY_BUFFER_ADDRESS + 0x60);
     switch(function){
-{{ case_statements }}
+    {% for statement in case_statements %}
+      case {{ statement.function_id }} :
+        {% if statement.return_value %}
+        *{{ statement.return_value.name }} = {{ statement.function_name }}(
+        {% else %}
+        {{ statement.function_name }}(
+        {% endif %}
+        {% for input in statement.inputs %}
+        {% if loop.last and len(input.outputs) == 0 %}
+        ({{ input.type }}*)(MEMORY_BUFFER_ADDRESS + {{ input.start }})
+        {% else %}
+        ({{ input.type }}*)(MEMORY_BUFFER_ADDRESS + {{ input.start }}),
+        {% endif %}
+        {% endfor %}
+        {% for output in statement.outputs %}
+        {% if loop.last %}
+        ({{ output.type }}*)(MEMORY_BUFFER_ADDRESS + {{ output.start }})
+        {% else %}
+        ({{ output.type }}*)(MEMORY_BUFFER_ADDRESS + {{ output.start }})
+        {% endif %}
+        {% endfor %}
+        );
+        Xil_Out32(SHARED_BUFFER_ADDRESS + 0x80, 0xFF);
+      break;
+    {% endfor %}
       default :
         continue;
     }

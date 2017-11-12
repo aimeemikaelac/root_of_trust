@@ -34,7 +34,9 @@ def process_function_definitions(function_definitions_file):
     trusted_functions = function_definitions["trusted"]
     # Trusted functions
     for function in trusted_functions:
-        offset = 0
+        #Account for the control segment
+        #TODO: config plz
+        offset = 0x100
         function_name = function["name"]
         function_map[function_name] = function_index
         memory_map[function_name] = []
@@ -71,156 +73,72 @@ def process_function_definitions(function_definitions_file):
     return function_map, memory_map
 
 def generate_code_microblaze(function_map, memory_map):
-    case_statements = ""
-    return_values = ""
-    print(function_map)
+    statements = []
+    return_values = []
     for function_name in function_map:
-        inputs = []
-        outputs = []
-        return_value_code = None
-        return_variable = None
         function_memory_map = memory_map[function_name]
-        function_id = function_map[function_name]
-        case_statements += (
-            "\t\t\tcase {} :\n".format(function_id)
-        )
+        statement = {}
+        statement["return_value"] = None
+        statement["inputs"] = []
+        statement["outputs"] = []
+        statement["function_id"] = function_map[function_name]
+        statement["function_name"] = function_name
 
         for entry in function_memory_map:
             if entry["return"]:
-                return_type = entry["type"]
-                return_type_name = entry["name"]
-                return_type_length = entry["length"]
-                return_type_start = entry["start"]
-                return_variable = "{}_{}".format(return_type_name, function_id)
-                return_value = "\t{} {};\n".format(
-                    return_type, return_variable
-                )
-                return_values += return_value
-                return_value_code = (
-                    "\t\t\t\tfor(i=0; i<{}; i++){{\n"
-                    "\t\t\t\t\tXil_Out8(MEMORY_BUFFER_ADDRESS + {} + i, " "((unsigned char*)(&{}))[i]);\n"
-                    "\t\t\t\t}}\n".format(
-                        return_type_length, return_type_start, return_variable
-                    )
-                )
+                return_values.append(entry)
+                statement["return_value"] = entry
             else:
                 #TODO: support non-pointer inputs?
-                entry_start = entry["start"]
-                entry_type = entry["type"]
-                casted_value = (
-                    "({}*)(MEMORY_BUFFER_ADDRESS + {})"
-                    .format(entry_type, entry_start)
+                if entry["output"]:
+                    statement["outputs"].append(entry)
+                else:
+                    statement["inputs"].append(entry)
+        statements.appens(statement)
+    return statements, return_values
+
+
+def generate_code_arm(
+    function_map,
+    memory_map,
+    function_template="arm_code_function_template.c.jinja"
+):
+    functions = []
+    for function_name in function_map:
+        function_memory_map = memory_map[function_name]
+        function_id = function_map[function_name]
+
+        inputs = []
+        outputs = []
+        return_type = "void"
+        return_buffer = None
+        argument_list = []
+        for entry in function_memory_map:
+            if entry["return"]:
+                return_buffer = entry
+                return_buffer["buffer_length"] = int(ceil(entry["length"]/4))
+                return_type = return_buffer["type"]
+            else:
+                #TODO: support non-pointer inputs?
+                argument_list.append(
+                    "{} *{}".format(entry["type"], entry["name"])
                 )
                 if entry["output"]:
-                    outputs.append(casted_value)
+                    outputs.append(entry)
                 else:
-                    inputs.append(casted_value)
-        # Generate function call
-        # return_value_type = function.get("return", None)
-        function_call = "{}({}, {});\n".format(
-            function_name, ",".join(inputs), ",".join(outputs)
+                    inputs.append(entry)
+        functions.append(
+            {
+                "function_name": function_name,
+                "return_type": return_type,
+                "function_name": function_name,
+                "argument_list": argument_list,
+                "return_buffer": return_buffer,
+                "inputs": inputs,
+                "outputs": outputs
+            }
         )
-        if return_value_code:
-            case_statements += "\t\t\t\t{} = {}{}".format(
-                return_variable, function_call, return_value_code
-            )
-        else:
-            case_statements += "\t\t\t\t{}".format(function_call)
-        case_statements += "\t\t\t\tbreak;\n"
-    return case_statements, return_values
-
-
-# def generate_code_arm(
-#     function_definitions_file="function_definitions_file.json"
-# ):
-#     with open(function_definitions_file) as funcs:
-#         function_definitions = json.loads(funcs.read())
-#     # generate trusted calls
-#     case_statements = ""
-#     input_buffers = ""
-#     output_buffers = ""
-#     return_values = ""
-#     function_map = {}
-#     function_index = 0
-#     # TODO: handle ocalls
-#     data_buffer_offset = 0
-#     for function in function_definitions["trusted"]:
-#         function_map[function_index] = function
-#         function_name = function["name"]
-#         function_inputs = function["inputs"]
-#         function_outputs = function["outputs"]
-#         case_statements.append(
-#             "\t\t\tcase '{}' :\n"
-#         )
-#         input_loading_code = ""
-#         output_loading_code = ""
-#         current_inputs = []
-#         current_outputs = []
-#         # Generate loading code to copy data from shared buffer into memory
-#         for function_input in function_inputs:
-#             input_name = function_input["name"]
-#             input_type = function_input["type"]
-#             input_length = function_input.get("length", 1)
-#             # Copy everything in as an unsigned char and cast to the correct
-#             # type
-#             input_buffer = "_buff_{}_{}[{}]".format(
-#                 input_name, function_index, input_length
-#             )
-#             input_buffers.append(
-#                 "unsigned char {};\n".format(input_buffer)
-#             )
-#             input_loading_code.append(
-#                 "for(i=0; i<{}; i++){\n"
-#                 "\t{}[i] = Xil_In8(DATA_OFFSET + {});\n"
-#                 "}\n".format(
-#                     input_length, input_buffer, data_buffer_offset
-#                 )
-#             )
-#             if input_length > 1:
-#                 current_inputs.append("({}*){}".format(
-#                     input_type, input_buffer)
-#                 )
-#             else:
-#                 current_inputs.append("(({}*){})[0]".format(
-#                     input_type, input_buffer
-#                 ))
-#             input_buffers.append(input_buffer)
-#             case_statements.append(input_loading_code)
-#             data_buffer_offset += input_length
-#         )
-#         # Generate output buffers and output code
-#         for function_output in function_output:
-#             output_name = function_output["name"]
-#             output_type = function_output["type"]
-#             output_length = function_output["length"]
-#             output_buffer = "_out_buff_{}_{}[{}]".format(
-#                 output_name, function_index, output_length
-#             )
-#             output_buffers.append(
-#                 "unsigned char {};\n".format(output_buffer)
-#             )
-#             output_loading_code.append(
-#                 "for(i=0; i<{}; i++){\n"
-#                 "\tXil_Out8(DATA_OFFSET + {}, {}[i]);\n"
-#                 "}\n".format(
-#                     output_length, data_buffer_offset, output_buffer
-#                 )
-#             )
-#             current_outputs.append("({}*){}".format(
-#                 output_type, output_buffer
-#             ))
-#         # Generate function call
-#         return_value_type = function.get("return", None)
-#         if return_value_type:
-#             return_value = "_return_{}".format(function_index)
-#             return_values.append("{} {};".format(
-#                 return_value_type, return_value
-#             ))
-#             case_statements.append("\t\t\t\t{} = {}({});\n".format(
-#                 function_name, ",".join(current_inputs)
-#             ))
-#
-#         "\t\t\t\tbreak;\n"
+    return functions
 
 def generate_code(
     microblaze_template_file,
@@ -235,22 +153,35 @@ def generate_code(
         function_map,
         memory_map
     )
-    #TODO: generate arm code
-    return microblaze_code, ""
+    arm_code = render_arm_code(
+        arm_template_file,
+        function_map,
+        memory_map
+    )
+    return microblaze_code, arm_code
 
 
 def render_microblaze_code(template_file, function_map, memory_map):
-    case_statements, return_values = generate_code_microblaze(
+    statements, return_values = generate_code_microblaze(
         function_map, memory_map
     )
     return render_template(
-        args.microblaze_template,
+        template_file,
         {
             "return_values": return_values,
-            "case_statements": case_statements
+            "statements": statements
         }
     )
 
+
+def render_arm_code(template_file, function_map, memory_map):
+    functions = generate_code_arm(function_map, memory_map)
+    return render_template(
+        template_file,
+        {
+            "functions": functions
+        }
+    )
 
 
 if __name__ == "__main__":
@@ -279,4 +210,5 @@ if __name__ == "__main__":
     )
     with open(args.microblaze_out, 'w') as microblaze_out_file:
         microblaze_out_file.write(microblaze_code)
-    #TODO: write ARM code out to file
+    with open(args.arm_out, 'w') as arm_out_file:
+        arm_out_file.write(arm_code)

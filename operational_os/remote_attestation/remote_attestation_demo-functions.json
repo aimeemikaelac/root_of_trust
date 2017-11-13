@@ -1,0 +1,37 @@
+{
+  "trusted": [
+    {
+      "name":"start_attestation",
+      "inputs":[
+        {
+          "name":"remote_message",
+          "type":"unsigned char",
+          "length":256
+        }
+      ],
+      "outputs":[
+        {
+          "name":"message_out",
+          "type":"unsigned char",
+          "length":256
+        }
+      ]
+    },
+    {
+      "name":"generate_encrypted_message",
+      "inputs":[],
+      "outputs":[
+        {
+          "name":"message_out",
+          "type":"unsigned char",
+          "length":256
+        },
+        {
+          "name":"message_length",
+          "type":"unsigned int",
+          "length":4
+        }
+      ]
+    }
+  ]
+}

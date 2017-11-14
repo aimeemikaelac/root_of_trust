@@ -17,7 +17,9 @@ def render_template(template_filename, context):
         loader=FileSystemLoader(path),
         trim_blocks=False
     )
-    return environment.get_template(template_filename).render(context)
+    return environment.get_template(
+        os.path.basename(template_filename)
+    ).render(context)
 
 
 def process_function_definitions(function_definitions_file):
@@ -83,18 +85,24 @@ def generate_code_microblaze(function_map, memory_map):
         statement["outputs"] = []
         statement["function_id"] = function_map[function_name]
         statement["function_name"] = function_name
-
+        arguments = []
         for entry in function_memory_map:
             if entry["return"]:
                 return_values.append(entry)
                 statement["return_value"] = entry
             else:
                 #TODO: support non-pointer inputs?
-                if entry["output"]:
-                    statement["outputs"].append(entry)
-                else:
-                    statement["inputs"].append(entry)
-        statements.appens(statement)
+                # if entry["output"]:
+                #     statement["outputs"].append(entry)
+                # else:
+                #     statement["inputs"].append(entry)
+                arguments.append(
+                    "({}*)(MEMORY_BUFFER_ADDRESS + {})".format(
+                        entry["type"], entry["start"]
+                    )
+                )
+        statement["arguments"] = ", ".join(arguments)
+        statements.append(statement)
     return statements, return_values
 
 

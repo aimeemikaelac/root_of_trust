@@ -32,7 +32,7 @@
 
   //render code for loading input buffers
   {% for input in entry.inputs %}
-  for(i=0; i<{{ input.length/4 }}; i++){
+  for(i=0; i<{{ (input.length/4)|int }}; i++){
     {{ input.name }}_shared[i] = ((unsigned int*){{ input.name }})[i];
   }
   {% endfor %}
@@ -47,7 +47,7 @@
 
   //render code for loading outputs
   {% for output in entry.outputs %}
-  for(i=0; i<{{ output.length/4 }}; i++){
+  for(i=0; i<{{ (output.length/4)|int }}; i++){
     ((unsigned int*){{ output.name }})[i] = {{ output.name }}_shared[i];
   }
   {% endfor %}

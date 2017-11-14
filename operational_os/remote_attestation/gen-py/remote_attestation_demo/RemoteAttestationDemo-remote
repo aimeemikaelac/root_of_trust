@@ -16,8 +16,8 @@ else:
 from thrift.transport import TTransport, TSocket, TSSLSocket, THttpClient
 from thrift.protocol.TBinaryProtocol import TBinaryProtocol
 
-from remote_attestation_demo import RemoteAttestationDemo
-from remote_attestation_demo.ttypes import *
+import RemoteAttestationDemo
+from ttypes import *
 
 if len(sys.argv) <= 1 or sys.argv[1] == '--help':
     print('')

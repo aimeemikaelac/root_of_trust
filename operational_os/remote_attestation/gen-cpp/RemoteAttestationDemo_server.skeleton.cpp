@@ -25,9 +25,13 @@ class RemoteAttestationDemoHandler : virtual public RemoteAttestationDemoIf {
   }
 
   void begin_attestation(std::string& _return, const std::string& remote_message) {
+    int i;
     // Your implementation goes here
     printf("begin_attestation\n");
-    _return = remote_message;
+    //TODO: get message buffer size from arm header
+    unsigned char message_out[256];
+    start_attestation((unsigned char*)(remote_message.data()), message_out);
+    _return.assign((char*)(message_out), 256);
   }
 
   bool check_message() {
@@ -38,7 +42,11 @@ class RemoteAttestationDemoHandler : virtual public RemoteAttestationDemoIf {
 
   void get_message(std::string& _return) {
     // Your implementation goes here
-    _return = "test";
+    //TODO: get message buffer size from arm header
+    unsigned char message_buffer[256];
+    unsigned int message_length;
+    generate_encrypted_message(message_buffer, &message_length);
+    _return.assign((char*)message_buffer, message_length);
     printf("get_message\n");
   }
 

@@ -1,0 +1,17 @@
+#ifndef {{ header_name }}
+#define {{ header_name }}
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define SHARED_BUFFER {{ shared_buffer }}
+#define SHARED_BUFFER_SIZE {{ shared_buffer_length }}
+
+{% for function in functions %}
+{{ function.return_type }} {{ function.function_name }}({{ ", ".join(function.argument_list) }});
+{% endfor %}
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,13 @@
+{
+  "arm":{
+    "shared_buffer_address":"0xA0040000",
+    "shared_buffer_length":"0x4000",
+    "reset_controller_address":"0xB0000000",
+    "program_memory_address":"0xA0100000",
+    "program_memory_length":"0x200000"
+  },
+  "microblaze":{
+    "shared_buffer_address":"0xA0040000",
+    "shared_buffer_length":"0x4000"
+  }
+}

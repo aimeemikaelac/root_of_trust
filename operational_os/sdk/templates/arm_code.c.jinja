@@ -1,8 +1,5 @@
 #include "user_mmap_driver.h"
-
-//TODO: render as part of template
-#define SHARED_BUFFER 0xB0010000
-#define SHARED_BUFFER_SIZE 0x2000
+#include "{{ header_file_name }}"
 
 {% for entry in functions %}
 {{ entry.return_type }} {{ entry.function_name }}({{ ", ".join(entry.argument_list) }}){
@@ -38,7 +35,7 @@
   {% endfor %}
 
   control_finished[0] = 0;
-  control_function[0] = 0;
+  control_function[0] = {{ entry.function_id }};
   control_start[0] = 1;
   while(*control_finished == 0){
     asm("");

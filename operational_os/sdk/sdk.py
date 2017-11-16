@@ -7,11 +7,19 @@ from code_generator import *
 
 DEFAULT_ARM_TEMPLATE = "arm_code.c.jinja"
 DEFAULT_MICROBLAZE_TEMPLATE = "microblaze.c.jinja"
+DEFAULT_ARM_HEADER_TEMPLATE = "arm_code.h.jinja"
+DEFAULT_MICROBLAZE_HEADER_TEMPLATE = "microblaze.h.jinja"
 
 SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
 ARM_TEMPLATE = "{}/templates/{}".format(SCRIPT_PATH, DEFAULT_ARM_TEMPLATE)
 MICROBLAZE_TEMPLATE = "{}/templates/{}".format(
     SCRIPT_PATH, DEFAULT_MICROBLAZE_TEMPLATE
+)
+ARM_HEADER_TEMPLATE = "{}/templates/{}".format(
+    SCRIPT_PATH, DEFAULT_ARM_HEADER_TEMPLATE
+)
+MICROBLAZE_HEADER_TEMPLATE = "{}/templates/{}".format(
+    SCRIPT_PATH, DEFAULT_MICROBLAZE_HEADER_TEMPLATE
 )
 
 if __name__ == "__main__":
@@ -75,11 +83,26 @@ if __name__ == "__main__":
         required=False,
         default=os.getcwd()
     )
+    parser.add_argument(
+        "--arm_header_out",
+        help="File to output arm header to",
+        default="arm_protocol_header.h"
+    )
+    parser.add_argument(
+        "--microblaze_header_out",
+        help="File to output microblaze header to",
+        default="microblaze_protocol_header.h"
+    )
     args = parser.parse_args()
-    microblaze_code, arm_code = generate_code(
+    microblaze_code, microblaze_header, arm_code, arm_header = generate_code(
+        MICROBLAZE_TEMPLATE,
+        ARM_TEMPLATE,
+        MICROBLAZE_HEADER_TEMPLATE,
+        ARM_HEADER_TEMPLATE
         args.function_definitions,
-        DEFAULT_ARM_TEMPLATE,
-        DEFAULT_MICROBLAZE_TEMPLATE
+        args.arm_header_out,
+        args.microblaze_header_out,
+        parse_system_config(args.system_configuration)
     )
 
 

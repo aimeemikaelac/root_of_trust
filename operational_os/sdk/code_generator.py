@@ -99,7 +99,7 @@ def generate_code_microblaze(function_map, memory_map):
                 # else:
                 #     statement["inputs"].append(entry)
                 arguments.append(
-                    "({}*)(MEMORY_BUFFER_ADDRESS + {})".format(
+                    "({}*)(SHARED_BUFFER_ADDRESS + {})".format(
                         entry["type"], entry["start"]
                     )
                 )

@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#define SHARED_BUFFER {{ shared_buffer }}
+#define SHARED_BUFFER_ADDRESS {{ shared_buffer }}
 #define SHARED_BUFFER_SIZE {{ shared_buffer_length }}
 
 {% for function in functions %}
@@ -14,4 +14,5 @@ extern "C" {
 
 #ifdef __cplusplus
 }
+#endif
 #endif

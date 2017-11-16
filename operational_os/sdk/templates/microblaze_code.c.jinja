@@ -26,6 +26,7 @@ void watch_mem_buffer(){
         {{ statement.arguments }}
         );
         Xil_Out32(SHARED_BUFFER_ADDRESS + 0x80, 0xFF);
+        Xil_Out32(SHARED_BUFFER_ADDRESS + 0x70, 0);
       break;
     {% endfor %}
       default :

@@ -1,0 +1,22 @@
+#ifndef SYSTEM_CONFIG_H
+#define SYSTEM_CONFIG_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "pthread.h"
+
+static pthread_mutex_t ecall_lock = PTHREAD_MUTEX_INITIALIZER;
+pthread_t remote_attestation_thread, ocall_listener_thread;
+
+#define ECALL_BUFFER_ADDRESS {{ ecall_buffer }}
+#define ECALL_BUFFER_SIZE {{ ecall_buffer_length }}
+#define PROGRAM_BUFFER_ADDRESS {{ program_buffer }}
+#define PROGRAM_BUFFER_SIZE {{ program_buffer_length }}
+#define RESET_CONTROLLER_ADDRESS {{ reset_controller_address }}
+
+#ifdef __cplusplus
+}
+#endif
+#endif

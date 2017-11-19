@@ -1,0 +1,29 @@
+{
+  "program_name":"test_microblaze",
+  "microblaze":{
+    "sources":[
+      "test/mb_test.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ]
+  },
+  "arm":{
+    "sources":[
+      "test/arm_test.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  }
+}

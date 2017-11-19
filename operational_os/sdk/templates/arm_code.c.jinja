@@ -1,9 +1,11 @@
 #include "user_mmap_driver.h"
+#include "system_config.h"
 #include "{{ header_file_name }}"
 
 {% for entry in functions %}
 {{ entry.return_type }} {{ entry.function_name }}({{ ", ".join(entry.argument_list) }}){
   //TODO: make the shared buffer a global
+  pthread_mutex_lock(&ecall_lock);
   shared_memory shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
   int i;
   volatile unsigned int *buffer = (unsigned int*)shared_mem->ptr;
@@ -54,6 +56,7 @@
   for(i=0; i<{{ entry.return_buffer.buffer_length }}; i++){
     {{ entry.return_buffer.name }}[i] = return_shared[i];
   }
+  pthread_mutex_unlock(&ecall_lock);
   return ({{ entry.return_type }}*)(*{{ entry.return_buffer.name }});
   {% endif %}
 }

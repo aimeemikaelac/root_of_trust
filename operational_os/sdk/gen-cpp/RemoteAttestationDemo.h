@@ -15,7 +15,7 @@ namespace remote_attestation_demo {
 
 #ifdef _WIN32
   #pragma warning( push )
-  #pragma warning (disable : 4250 ) //inheriting methods via dominance 
+  #pragma warning (disable : 4250 ) //inheriting methods via dominance
 #endif
 
 class RemoteAttestationDemoIf {
@@ -514,6 +514,8 @@ class RemoteAttestationDemoConcurrentClient : virtual public RemoteAttestationDe
   ::apache::thrift::protocol::TProtocol* oprot_;
   ::apache::thrift::async::TConcurrentClientSyncInfo sync_;
 };
+
+void attestation_server_serve();
 
 #ifdef _WIN32
   #pragma warning( pop )

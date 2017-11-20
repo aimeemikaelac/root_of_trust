@@ -22,8 +22,11 @@ def render_template(template_filename, context):
         os.path.basename(template_filename)
     ).render(context)
 
+def parse_function_definitions(function_definitions_file):
+    with open(function_definitions_file) as functions_handle:
+        return json.loads(functions_handle.read())
 
-def process_function_definitions(function_definitions_file):
+def process_function_definitions(function_definitions):
     """Single-pass parse of function definitions
 
     Generate a memory-map of the shared buffer for this app definition to use
@@ -33,8 +36,6 @@ def process_function_definitions(function_definitions_file):
     memory_map = {}
     function_map = {}
     function_index = 0
-    with open(function_definitions_file) as functions_handle:
-        function_definitions = json.loads(functions_handle.read())
     trusted_functions = function_definitions["trusted"]
     # Trusted functions
     for function in trusted_functions:
@@ -204,14 +205,15 @@ def generate_code(
     arm_template_file,
     microblaze_header_template,
     arm_header_template,
-    function_definitions_file,
+    function_map,
+    memory_map,
     arm_header_name,
     microblaze_header_name,
     system_config
 ):
-    function_map, memory_map = process_function_definitions(
-        function_definitions_file
-    )
+    # function_map, memory_map = process_function_definitions(
+    #     function_definitions_file
+    # )
     arm_code, arm_header, functions = render_arm_code(
         arm_template_file,
         arm_header_template,
@@ -329,12 +331,17 @@ if __name__ == "__main__":
     arm_header_name = args.arm_header_out
     microblaze_header_name = args.microblaze_header_out
     system_config = parse_system_config(args.system_config)
+    function_definitions = parse_function_definitions(args.function_definitions)
+    function_map, memory_map = process_function_definitions(
+        function_definitions
+    )
     microblaze_code, microblaze_header, arm_code, arm_header = generate_code(
         args.microblaze_template,
         args.arm_template,
         args.microblaze_header_template,
         args.arm_header_template,
-        args.function_definitions,
+        function_map,
+        memory_map,
         arm_header_name,
         microblaze_header_name,
         system_config

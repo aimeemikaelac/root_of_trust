@@ -8,6 +8,7 @@
 #include <thrift/transport/TBufferTransports.h>
 
 #include "arm_code.h"
+#include "pthread.h"
 
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
@@ -53,7 +54,7 @@ class RemoteAttestationDemoHandler : virtual public RemoteAttestationDemoIf {
 };
 
 // int main(int argc, char **argv) {
-int attestation_server_serve(){
+void * attestation_server_serve(void * args){
   int port = 9090;
   shared_ptr<RemoteAttestationDemoHandler> handler(new RemoteAttestationDemoHandler());
   shared_ptr<TProcessor> processor(new RemoteAttestationDemoProcessor(handler));
@@ -63,5 +64,5 @@ int attestation_server_serve(){
 
   TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
   server.serve();
-  return 0;
+  pthread_exit(0);
 }

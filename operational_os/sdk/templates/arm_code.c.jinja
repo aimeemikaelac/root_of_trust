@@ -8,25 +8,26 @@
   pthread_mutex_lock(&ecall_lock);
   shared_memory shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
   int i;
-  volatile unsigned int *buffer = (unsigned int*)shared_mem->ptr;
-  volatile unsigned int *control_function = (unsigned int*)(shared_mem->ptr + 0x60);
-  volatile unsigned int *control_start = (unsigned int*)(shared_mem->ptr + 0x70);
-  volatile unsigned int *control_finished = (unsigned int*)(shared_mem->ptr + 0x80);
+  volatile unsigned char *memory_pointer = (volatile unsigned char*)(shared_mem->ptr);
+  volatile unsigned int *buffer = (unsigned int*)memory_pointer;
+  volatile unsigned int *control_function = (unsigned int*)(memory_pointer + 0x60);
+  volatile unsigned int *control_start = (unsigned int*)(memory_pointer + 0x70);
+  volatile unsigned int *control_finished = (unsigned int*)(memory_pointer + 0x80);
 
   //render return buffer and return variable
   {% if entry.return_buffer %}
   unsigned int {{ entry.return_buffer.name }}[{{ entry.return_buffer.buffer_length }}];
-  volatile unsigned int *return_shared = (unsigned int*)(shared_mem->ptr + {{ entry.return_buffer.start }});
+  volatile unsigned int *return_shared = (unsigned int*)(memory_pointer + {{ entry.return_buffer.start }});
   {% endif %}
 
   //render input buffer pointers
   {% for input in entry.inputs %}
-  volatile unsigned int *{{ input.name }}_shared = (unsigned int*)(shared_mem->ptr + {{ input.start }});
+  volatile unsigned int *{{ input.name }}_shared = (unsigned int*)(memory_pointer + {{ input.start }});
   {% endfor %}
 
   //render output buffer pointers
   {% for output in entry.outputs %}
-  volatile unsigned int *{{ output.name }}_shared = (unsigned int*)(shared_mem->ptr + {{ output.start }});
+  volatile unsigned int *{{ output.name }}_shared = (unsigned int*)(memory_pointer + {{ output.start }});
   {% endfor %}
 
   //render code for loading input buffers

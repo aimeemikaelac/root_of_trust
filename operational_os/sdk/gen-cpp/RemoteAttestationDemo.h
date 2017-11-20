@@ -515,12 +515,13 @@ class RemoteAttestationDemoConcurrentClient : virtual public RemoteAttestationDe
   ::apache::thrift::async::TConcurrentClientSyncInfo sync_;
 };
 
-void attestation_server_serve();
 
 #ifdef _WIN32
   #pragma warning( pop )
 #endif
 
 } // namespace
+
+void * attestation_server_serve(void * args);
 
 #endif

@@ -97,7 +97,7 @@ shared_memory getSharedMemoryArea(unsigned sharedMemoryAddress, unsigned length)
 		close(fd);
 		return NULL;
 	}
-	shared_memory mem = malloc(sizeof(shared_memory_struct));
+	shared_memory mem = (shared_memory)malloc(sizeof(shared_memory_struct));
 	if(mem != NULL){
 		mem -> original_ptr = ptr;
 	} else{
@@ -106,7 +106,7 @@ shared_memory getSharedMemoryArea(unsigned sharedMemoryAddress, unsigned length)
 		return NULL;
 	}
 	//increment ptr to be at the point specified by the input address
-	ptr = ptr + ((char)page_offset);
+	ptr = (void*)((unsigned char*)ptr + ((unsigned char)page_offset));
 
 	mem->fd = fd;
 	mem->ptr = ptr;
@@ -147,7 +147,7 @@ shared_memory getUioMemoryArea(char* filename, unsigned mmap_length){
 		close(fd);
 		return NULL;
 	}
-	shared_memory mem = malloc(sizeof(shared_memory_struct));
+	shared_memory mem = (shared_memory)malloc(sizeof(shared_memory_struct));
 	if(mem != NULL){
 		mem -> original_ptr = ptr;
 	} else{
@@ -157,7 +157,7 @@ shared_memory getUioMemoryArea(char* filename, unsigned mmap_length){
 		return NULL;
 	}
 	//increment ptr to be at the point specified by the input address
-	ptr = ptr + ((char)page_offset);
+	ptr = (void*)((unsigned char*)ptr + ((unsigned char)page_offset));
 
 	mem->fd = fd;
 	mem->ptr = ptr;

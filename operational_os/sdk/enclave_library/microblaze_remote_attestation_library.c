@@ -1,4 +1,5 @@
 #include "string.h"
+#include "stdlib.h"
 
 #define ECDSA_SHARED_BUFFER 0x42C00000
 #define ECDSA_CONTROL 0x0
@@ -28,9 +29,9 @@ void start_attestation(unsigned char *remote_message, unsigned char *message_out
     data[i] = 0;
   }
   //signal ecdsa start
-  data[0] = 0;
+  control[0] = 0;
   //wait for finished signal
-  while(data[4] == 0){
+  while(control[4] == 0){
     __asm__("");
     asm("");
   }
@@ -46,13 +47,12 @@ void generate_encrypted_message(unsigned char *message, unsigned int *message_le
   char *message_test = "hello: nonce:";
   unsigned char message_temp[18];
   int i;
-  strcpy(message_temp, message_temp);
+  strcpy((char*)message_temp, message_test);
   for(i=0; i<4; i++){
-    message_temp[13] = (unsigned char*)(nonce)[i];
+    message_temp[13] = ((unsigned char*)nonce)[i];
   }
   message_temp[17] = 0;
   for(i=0; i<strlen(message_test); i++){
-    unsigned char current = message_test[i];
     message[i] = message_temp[i] ^ xor_key[i%16];
   }
   *message_length = 18;

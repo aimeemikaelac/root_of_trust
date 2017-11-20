@@ -6,7 +6,7 @@ void watch_mem_buffer(){
   volatile {{ return_value.type }} *{{ return_value.name}} = ({{ return_value.type }}*)(SHARED_BUFFER_ADDRESS + return_value.start);
   {% endfor %}
   unsigned int function;
-  int i;
+  //int i;
   //while true, check for the function
   while(1){
     // Check if a ready signal is set

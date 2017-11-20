@@ -7,9 +7,12 @@ extern "C" {
 
 #define DEFAULT_MICROBLAZE_BINARY "microblaze_code.bin"
 
+int enclave_init();
+int enclave_init_with_file(char const *filename);
+
 
 #ifdef __cplusplus
-extern }
+}
 #endif
 
 #endif

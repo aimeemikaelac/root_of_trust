@@ -8,7 +8,7 @@ extern "C" {
 #include "pthread.h"
 
 static pthread_mutex_t ecall_lock = PTHREAD_MUTEX_INITIALIZER;
-pthread_t remote_attestation_thread, ocall_listener_thread;
+static pthread_t remote_attestation_thread, ocall_listener_thread;
 
 #define ECALL_BUFFER_ADDRESS {{ ecall_buffer }}
 #define ECALL_BUFFER_SIZE {{ ecall_buffer_length }}

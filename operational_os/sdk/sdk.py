@@ -328,22 +328,22 @@ if __name__ == "__main__":
         with open(MICROBLAZE_SUB_MAKEFILE, 'w') as microblaze_sub_makefile_out:
             microblaze_sub_makefile_out.write(microblaze_sub_makefile)
         shutil.copy2(MICROBLAZE_ENCLAVE_LIBRARY, MICROBLAZE_BUILD_SRC_DIRECTORY)
-        microblaze_build = subprocess.run(
+        microblaze_build = subprocess.call(
             shlex.split("make clean all"),
             cwd=MICROBLAZE_BUILD_DIRECTORY,
             stderr=subprocess.STDOUT
         )
-        if microblaze_build.returncode != 0:
+        if microblaze_build != 0:
             print("Building microblaze code failed")
             sys.exit(-1)
-        binary_gen = subprocess.run(
+        binary_gen = subprocess.call(
             shlex.split("mb-objcopy -O binary {0}.elf {0}.bin".format(
                 microblaze_program
             )),
             stderr=subprocess.STDOUT,
             cwd=MICROBLAZE_BUILD_DIRECTORY
         )
-        if binary_gen.returncode != 0:
+        if binary_gen != 0:
             print("Generating microblaze binary failed")
             sys.exit(-1)
         arm_makefile, arm_program = generate_arm_makefile(compilation_config)
@@ -352,10 +352,10 @@ if __name__ == "__main__":
         shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
         shutil.copy2(ARM_ENCLAVE_LIBRARY_HEADER, ARM_BUILD_DIRECTORY)
         shutil.copy2(SYSTEM_CONFIG_HEADER, ARM_BUILD_DIRECTORY)
-        arm_build = subprocess.run(
+        arm_build = subprocess.call(
             "make", cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
         )
-        if arm_build.returncode != 0:
+        if arm_build != 0:
             print("Building arm code failed")
             sys.exit(-1)
         shutil.copy2(

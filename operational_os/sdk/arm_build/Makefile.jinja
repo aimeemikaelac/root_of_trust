@@ -1,5 +1,5 @@
 CC={{ cross_compile }}gcc
-THRIFT_GEN_DIR=../gen-cpp
+THRIFT_GEN_DIR=../gen-cpp-arm
 CPP_LIBS=-lstdc++ -lc
 CFLAGS=-I. -I../user_mmap_driver/ -I/usr/local/include/thrift/ -I/usr/local/include -I/usr/local/include/thrift/cpp -I$(THRIFT_GEN_DIR) {{ include_dirs }}
 LDFLAGS=-L/usr/local/lib/ {{ lib_dirs }} -lthrift -lpthread {{ libs }}

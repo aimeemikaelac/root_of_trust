@@ -1,11 +1,79 @@
+#include "CommunicationToProgram.h"
 #include "enclave_library.h"
 #include "system_config.h"
 #include "user_mmap_driver.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "RemoteAttestationDemo.h"
 #include "arm_code.h"
 #include <fstream>
+#include <thrift/protocol/TBinaryProtocol.h>
+#include <thrift/server/TSimpleServer.h>
+#include <thrift/transport/TServerSocket.h>
+#include <thrift/transport/TBufferTransports.h>
+
+using namespace ::apache::thrift;
+using namespace ::apache::thrift::protocol;
+using namespace ::apache::thrift::transport;
+using namespace ::apache::thrift::server;
+
+using namespace  ::communication_to_program;
+
+class CommunicationToProgramHandler : virtual public CommunicationToProgramIf {
+ public:
+  CommunicationToProgramHandler() {
+    // Your initialization goes here
+  }
+
+  void begin_attestation(std::string& _return, const std::string& remote_message) {
+    int i;
+    // Your implementation goes here
+    printf("begin_attestation\n");
+    //TODO: get message buffer size from arm header
+    unsigned char message_out[256];
+    start_attestation((unsigned char*)(remote_message.data()), message_out);
+    _return.assign((char*)(message_out), 256);
+  }
+
+  bool check_message_ready() {
+    // Your implementation goes here
+    printf("check_message_ready\n");
+  }
+
+  void get_message(std::string& _return) {
+    // Your implementation goes here
+    //TODO: get message buffer size from arm header
+    unsigned char message_buffer[256];
+    unsigned int message_length;
+    generate_encrypted_message(message_buffer, &message_length);
+    _return.assign((char*)message_buffer, message_length);
+    printf("get_message\n");
+  }
+
+  void signal_message_received() {
+    // Your implementation goes here
+    printf("signal_message_received\n");
+  }
+
+  bool transfer_message(const std::string& remote_message) {
+    // Your implementation goes here
+    printf("transfer_message\n");
+  }
+
+};
+
+// int main(int argc, char **argv) {
+void * attestation_server_serve(void * args){
+  int port = 9090;
+  ::apache::thrift::stdcxx::shared_ptr<CommunicationToProgramHandler> handler(new CommunicationToProgramHandler());
+  ::apache::thrift::stdcxx::shared_ptr<TProcessor> processor(new CommunicationToProgramProcessor(handler));
+  ::apache::thrift::stdcxx::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
+  ::apache::thrift::stdcxx::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
+  ::apache::thrift::stdcxx::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
+
+  TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
+  server.serve();
+  return 0;
+}
 
 void initialize_remote_attestion_server(){
   int attestation_create = pthread_create(&remote_attestation_thread, NULL, attestation_server_serve, NULL);

@@ -18,6 +18,9 @@ DEFAULT_ARM_CODE = "arm_code.c"
 DEFAULT_ARM_HEADER = "arm_protocol_header.h"
 DEFAULT_MICROBLAZE_CODE = "microblaze_code.c"
 DEFAULT_MICROBLAZE_HEADER = "microblaze_protocol_header.h"
+DEFAULT_SYSTEM_CONFIG_HEADER = "system_config.h"
+
+OUTPUT_DIRECTORY = "generated_code_out"
 
 SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
 ARM_TEMPLATE = "{}/templates/{}".format(SCRIPT_PATH, DEFAULT_ARM_TEMPLATE)
@@ -55,10 +58,13 @@ MICROBLAZE_CODE_OUT = "{}/{}".format(
 MICROBLAZE_HEADER_OUT = "{}/{}".format(
     MICROBLAZE_BUILD_SRC_DIRECTORY, DEFAULT_MICROBLAZE_HEADER
 )
-SYSTEM_CONFIG_HEADER_TEMPLATE = "{}/system_config.h.jinja".format(
-    SCRIPT_PATH
+
+SYSTEM_CONFIG_HEADER = "{}/{}".format(
+    ARM_BUILD_DIRECTORY, DEFAULT_SYSTEM_CONFIG_HEADER
 )
-SYSTEM_CONFIG_HEADER = "system_config.h"
+SYSTEM_CONFIG_HEADER_TEMPLATE = "{}/templates/{}.jinja".format(
+    SCRIPT_PATH, DEFAULT_SYSTEM_CONFIG_HEADER
+)
 ENCLAVE_LIBRARY_DIRECTORY = "{}/enclave_library".format(SCRIPT_PATH)
 MICROBLAZE_ENCLAVE_LIBRARY = (
     "{}/microblaze_remote_attestation_library.c".format(
@@ -117,7 +123,7 @@ def generate_microblaze_makefiles(compilation_config):
     except KeyError:
         return None, None, None
 
-def generate_arm_makefile(compile_config):
+def generate_arm_makefile(compile_config, cross_compile=""):
     try:
         arm_config = compile_config["arm"]
         sources = arm_config["sources"]
@@ -127,7 +133,6 @@ def generate_arm_makefile(compile_config):
         libraries = arm_config["libraries"]
         library_directories = arm_config["library_directories"]
         program_name = compile_config["program_name"]
-        cross_compile = arm_config.get("cross_compile", "")
         clean_build_directory(ARM_BUILD_DIRECTORY)
         sources_all = (
             sources + source_directories + includes + include_directories
@@ -160,7 +165,7 @@ def render_system_config_header(system_config):
                 "program_buffer": arm_config[
                     "program_memory_address"
                 ],
-                "program_memory_length": arm_config[
+                "program_buffer_length": arm_config[
                     "program_memory_length"
                 ],
                 "reset_controller_address": arm_config[
@@ -252,6 +257,25 @@ if __name__ == "__main__":
         required=False
     )
     parser.add_argument(
+        "--build_arm",
+        help="Build the ARM executable. Please insure this is on an ARM system"
+        " and that Thrift with the CPP library is built. Thrift does not "
+        "work for cross-compilation at the moment.",
+        action="store_true"
+    )
+    parser.add_argument(
+        "--arm_cross_compile",
+        help="Cross-compile prefix for arm code",
+        default=""
+    )
+    parser.add_argument(
+        "--build_microblaze",
+        help="Build the microblaze executable. Please use a system that the"
+        " Xilinx SDK is installed and that the microblaze compiler is on "
+        "your PATH",
+        action="store_true"
+    )
+    parser.add_argument(
         "--function_definitions",
         help="JSON config listing the enclave communication interface",
         required=True
@@ -308,16 +332,46 @@ if __name__ == "__main__":
     system_config_header = render_system_config_header(
         system_config
     )
+    try:
+        os.mkdir(OUTPUT_DIRECTORY)
+    except FileExistsError:
+        pass
+
     with open(SYSTEM_CONFIG_HEADER, 'w') as system_config_out:
         system_config_out.write(system_config_header)
+    shutil.copy2(SYSTEM_CONFIG_HEADER, OUTPUT_DIRECTORY)
+    print("Generated {}/{}".format(
+        OUTPUT_DIRECTORY, DEFAULT_SYSTEM_CONFIG_HEADER
+    ))
+
     with open(ARM_CODE_OUT, 'w') as arm_code_file:
         arm_code_file.write(arm_code)
+    shutil.copy2(ARM_CODE_OUT, OUTPUT_DIRECTORY)
+    print("Generated {}/{}".format(
+        OUTPUT_DIRECTORY, DEFAULT_ARM_CODE
+    ))
+
     with open(ARM_HEADER_OUT, 'w') as arm_header_file:
         arm_header_file.write(arm_header)
+    shutil.copy2(ARM_HEADER_OUT, OUTPUT_DIRECTORY)
+    print("Generated {}/{}".format(
+        OUTPUT_DIRECTORY, DEFAULT_ARM_HEADER
+    ))
+
     with open(MICROBLAZE_CODE_OUT, 'w') as microblaze_code_file:
         microblaze_code_file.write(microblaze_code)
+    shutil.copy2(MICROBLAZE_CODE_OUT, OUTPUT_DIRECTORY)
+    print("Generated {}/{}".format(
+        OUTPUT_DIRECTORY, DEFAULT_MICROBLAZE_CODE
+    ))
+
     with open(MICROBLAZE_HEADER_OUT, 'w') as microblaze_header_file:
         microblaze_header_file.write(microblaze_header)
+    shutil.copy2(MICROBLAZE_HEADER_OUT, OUTPUT_DIRECTORY)
+    print("Generated {}/{}".format(
+        OUTPUT_DIRECTORY, DEFAULT_MICROBLAZE_HEADER
+    ))
+
     if args.compilation_config is not None:
         compilation_config = parse_compilation_config(args.compilation_config)
         microblaze_makefile, microblaze_sub_makefile, microblaze_program = (
@@ -325,103 +379,65 @@ if __name__ == "__main__":
         )
         with open(MICROBLAZE_MAKEFILE, 'w') as microblaze_makefile_out:
             microblaze_makefile_out.write(microblaze_makefile)
-        with open(MICROBLAZE_SUB_MAKEFILE, 'w') as microblaze_sub_makefile_out:
-            microblaze_sub_makefile_out.write(microblaze_sub_makefile)
-        shutil.copy2(MICROBLAZE_ENCLAVE_LIBRARY, MICROBLAZE_BUILD_SRC_DIRECTORY)
-        microblaze_build = subprocess.call(
-            shlex.split("make clean all"),
-            cwd=MICROBLAZE_BUILD_DIRECTORY,
-            stderr=subprocess.STDOUT
+        shutil.copy2(MICROBLAZE_MAKEFILE, OUTPUT_DIRECTORY)
+        print("Generated {}/{}".format(
+            OUTPUT_DIRECTORY, "makefile"
+        ))
+
+        with open(MICROBLAZE_SUB_MAKEFILE, 'w') as sub_makefile_out:
+            sub_makefile_out.write(microblaze_sub_makefile)
+        shutil.copy2(MICROBLAZE_SUB_MAKEFILE, OUTPUT_DIRECTORY)
+        print("Generated {}/{}".format(
+            OUTPUT_DIRECTORY, "subdir.mk"
+        ))
+
+        if args.build_microblaze:
+            shutil.copy2(
+                MICROBLAZE_ENCLAVE_LIBRARY, MICROBLAZE_BUILD_SRC_DIRECTORY
+            )
+            microblaze_build = subprocess.call(
+                shlex.split("make clean all"),
+                cwd=MICROBLAZE_BUILD_DIRECTORY,
+                stderr=subprocess.STDOUT
+            )
+            if microblaze_build != 0:
+                print("Building microblaze code failed")
+                sys.exit(-1)
+            binary_gen = subprocess.call(
+                shlex.split("mb-objcopy -O binary {0}.elf {0}.bin".format(
+                    microblaze_program
+                )),
+                stderr=subprocess.STDOUT,
+                cwd=MICROBLAZE_BUILD_DIRECTORY
+            )
+            if binary_gen != 0:
+                print("Generating microblaze binary failed")
+                sys.exit(-1)
+            shutil.copy2(
+                "{}/{}.bin".format(
+                    MICROBLAZE_BUILD_DIRECTORY, microblaze_program
+                ),
+                os.getcwd()
+            )
+        arm_makefile, arm_program = generate_arm_makefile(
+            compilation_config, cross_compile=args.arm_cross_compile
         )
-        if microblaze_build != 0:
-            print("Building microblaze code failed")
-            sys.exit(-1)
-        binary_gen = subprocess.call(
-            shlex.split("mb-objcopy -O binary {0}.elf {0}.bin".format(
-                microblaze_program
-            )),
-            stderr=subprocess.STDOUT,
-            cwd=MICROBLAZE_BUILD_DIRECTORY
-        )
-        if binary_gen != 0:
-            print("Generating microblaze binary failed")
-            sys.exit(-1)
-        arm_makefile, arm_program = generate_arm_makefile(compilation_config)
         with open(ARM_MAKEFILE_OUT, 'w') as arm_makefile_out:
             arm_makefile_out.write(arm_makefile)
-        shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
-        shutil.copy2(ARM_ENCLAVE_LIBRARY_HEADER, ARM_BUILD_DIRECTORY)
-        shutil.copy2(SYSTEM_CONFIG_HEADER, ARM_BUILD_DIRECTORY)
-        arm_build = subprocess.call(
-            "make", cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
-        )
-        if arm_build != 0:
-            print("Building arm code failed")
-            sys.exit(-1)
-        shutil.copy2(
-            "{}/{}".format(ARM_BUILD_DIRECTORY, arm_program), os.getcwd()
-        )
-        shutil.copy2(
-            "{}/{}.bin".format(MICROBLAZE_BUILD_DIRECTORY, microblaze_program),
-            os.getcwd()
-        )
+        shutil.copy2(ARM_MAKEFILE_OUT, OUTPUT_DIRECTORY)
+        print("Generated {}/{}".format(
+            OUTPUT_DIRECTORY, "Makefile"
+        ))
 
-
-
-
-
-
-
-
-
-    # enclave_parser.add_argument("--arm_source",
-    #                     help="A list of source code files to compile for the "
-    #                     "program running on the Arm CPU. If specificed, will "
-    #                     "generate makefiles and cross-compile code for the Arm "
-    #                     "program.",
-    #                     nargs="+",
-    #                     required=False)
-    # enclave_parser.add_argument(
-    #     "--arm_includes",
-    #     help="A list of include directories for the Arm program",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argument(
-    #     "--arm_libs",
-    #     help="A list of libraries for the Arm program",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argument(
-    #     "--arm_libs_directories",
-    #     help="A list of library directories for the Arm program",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argumetn(
-    #     "--microblaze_source",
-    #     help="A list of files to compile for the microblaze "
-    #     "enclave. Will generate a makefile and cross-compile "
-    #     "for microblaze",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argument(
-    #     "--microblaze_includes",
-    #     help="A list of include directories for the microblaze program",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argument(
-    #     "--microblaze_libs",
-    #     help="A list of libraries for the microblaze program",
-    #     nargs="+",
-    #     required=False
-    # )
-    # enclave_parser.add_argument(
-    #     "--microblaze_libs_directories",
-    #     help="A list of library directories for the microblaze program",
-    #     nargs="+",
-    #     required=False
-    # )
+        if args.build_arm:
+            shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
+            shutil.copy2(ARM_ENCLAVE_LIBRARY_HEADER, ARM_BUILD_DIRECTORY)
+            arm_build = subprocess.call(
+                "make", cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
+            )
+            if arm_build != 0:
+                print("Building arm code failed")
+                sys.exit(-1)
+            shutil.copy2(
+                "{}/{}".format(ARM_BUILD_DIRECTORY, arm_program), os.getcwd()
+            )

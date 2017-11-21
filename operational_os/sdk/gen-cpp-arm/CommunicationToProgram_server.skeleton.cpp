@@ -12,6 +12,8 @@ using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
 using namespace ::apache::thrift::server;
 
+using boost::shared_ptr;
+
 using namespace  ::communication_to_program;
 
 class CommunicationToProgramHandler : virtual public CommunicationToProgramIf {
@@ -49,11 +51,11 @@ class CommunicationToProgramHandler : virtual public CommunicationToProgramIf {
 
 int main(int argc, char **argv) {
   int port = 9090;
-  ::apache::thrift::stdcxx::shared_ptr<CommunicationToProgramHandler> handler(new CommunicationToProgramHandler());
-  ::apache::thrift::stdcxx::shared_ptr<TProcessor> processor(new CommunicationToProgramProcessor(handler));
-  ::apache::thrift::stdcxx::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
-  ::apache::thrift::stdcxx::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
-  ::apache::thrift::stdcxx::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
+  shared_ptr<CommunicationToProgramHandler> handler(new CommunicationToProgramHandler());
+  shared_ptr<TProcessor> processor(new CommunicationToProgramProcessor(handler));
+  shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
+  shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
+  shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
 
   TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
   server.serve();

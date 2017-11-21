@@ -19,6 +19,9 @@ using namespace apache::thrift::transport;
 int main(int argc, char **argv){
   unsigned char seed[32], public_key[32], private_key[64];
   int i;
+  boost::shared_ptr<TSocket> socket(new TSocket("localhost", 9090));
+  boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+  boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
   shared_memory secure_storage = getSharedMemoryArea(SECURE_STORAGE_DEV, SECURE_STORAGE_LENGTH);
   volatile unsigned int *public_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PUBLIC_OFFSET);
   volatile unsigned int *private_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PRIVATE_OFFSET);
@@ -33,5 +36,11 @@ int main(int argc, char **argv){
   for(i=0; i<32/4; i++){
     public_key_storage[i] = ((unsigned int*)public_key)[i];
   }
+  string remote_message("hello from attestor\n");
+  string response;
+  CommunicationToProgramClient client(protocol);
+  transport->open();
+  client.start_attestation(remote_message, response);
+  transport->close();
   return 0;
 }

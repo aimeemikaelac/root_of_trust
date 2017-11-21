@@ -57,7 +57,9 @@
   for(i=0; i<{{ entry.return_buffer.buffer_length }}; i++){
     {{ entry.return_buffer.name }}[i] = return_shared[i];
   }
+  {% endif %}
   pthread_mutex_unlock(&ecall_lock);
+  {% if entry.return_buffer %}
   return ({{ entry.return_type }}*)(*{{ entry.return_buffer.name }});
   {% endif %}
 }

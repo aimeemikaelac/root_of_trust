@@ -28,12 +28,12 @@ int main(int argc, char **argv){
   shared_memory secure_storage = getSharedMemoryArea(SECURE_STORAGE_DEV, SECURE_STORAGE_LENGTH);
   volatile unsigned int *public_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PUBLIC_OFFSET);
   volatile unsigned int *private_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PRIVATE_OFFSET);
-/*  if(syscall(SYS_getrandom, seed, 32, 0) < 0){
+  if(syscall(SYS_getrandom, seed, 32, 0) < 0){
     fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
     return -1;
-  }*/
-  srand(0);
-  memset(seed, rand(), 32);
+  }
+/*  srand(0);
+  memset(seed, rand(), 32);*/
   ed25519_create_keypair(public_key, private_key, seed);
   for(i=0; i<64/4; i++){
     private_key_storage[i] = ((unsigned int*)private_key)[i];
@@ -57,7 +57,7 @@ int main(int argc, char **argv){
   signature_out = (unsigned char*)data;
   signed_data = ((unsigned char*)data+0x40);
   printf("Data:\n0x");
-  for(i=0; i<0x60; i++){
+  for(i=0; i<256; i++){
     printf("%02x", signed_data[i]);
   }
   printf("\n");

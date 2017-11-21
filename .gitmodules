@@ -1,3 +1,0 @@
-[submodule "operational_os/sdk/thrift"]
-	path = operational_os/sdk/thrift
-	url = https://github.com/apache/thrift.git

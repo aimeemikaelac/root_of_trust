@@ -6,6 +6,8 @@
 #include <transport/TBufferTransports.h>
 #include <protocol/TBinaryProtocol.h>
 #include "user_mmap_driver.h"
+#include <string>
+#include <iostream>
 
 using namespace apache::thrift;
 using namespace apache::thrift::protocol;
@@ -36,11 +38,17 @@ int main(int argc, char **argv){
   for(i=0; i<32/4; i++){
     public_key_storage[i] = ((unsigned int*)public_key)[i];
   }
-  string remote_message("hello from attestor\n");
-  string response;
-  CommunicationToProgramClient client(protocol);
+  std::string remote_message("hello from attestor\n");
+  std::string response;
+  communication_to_program::CommunicationToProgramClient client(protocol);
   transport->open();
-  client.start_attestation(remote_message, response);
+  client.begin_attestation(response, remote_message);
   transport->close();
+//  std::cout << "Response: " << response << std::endl;
+  printf("Response:\n0x");
+  for(i=0; i<response.length(); i++){
+    printf("%02x", ((unsigned char*)response.data())[i]);
+  }
+  printf("\n");
   return 0;
 }

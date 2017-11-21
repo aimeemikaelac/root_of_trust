@@ -32,8 +32,15 @@ class CommunicationToProgramHandler : virtual public CommunicationToProgramIf {
     printf("begin_attestation\n");
     //TODO: get message buffer size from arm header
     unsigned char message_out[256];
+    memset(message_out, 0, 256);
     start_attestation((unsigned char*)(remote_message.data()), message_out);
-    _return.assign((char*)(message_out), 256);
+    printf("Got response:\n0x");
+    for(i=0; i<256; i++){
+      printf("%02x", message_out[i]);
+    }
+    printf("\n");
+//    _return.assign((char*)(message_out), 256);
+    _return = std::string((char*)(message_out), 256);
   }
 
   bool check_message_ready() {

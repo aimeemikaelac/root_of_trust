@@ -105,7 +105,7 @@ int enclave_init(){
 
 int enclave_init_with_file(char const *filename){
   // 1. Program memory
-  shared_memory program_buffer = getSharedMemoryArea(ECALL_BUFFER_ADDRESS, ECALL_BUFFER_SIZE);
+  shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
   // FILE *program_file = fopen(filename, "r");
   char current_char;
   int buffer_index = 0;

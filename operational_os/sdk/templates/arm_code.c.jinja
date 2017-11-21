@@ -59,6 +59,7 @@
   }
   {% endif %}
   pthread_mutex_unlock(&ecall_lock);
+  cleanupSharedMemoryPointer(shared_mem);
   {% if entry.return_buffer %}
   return ({{ entry.return_type }}*)(*{{ entry.return_buffer.name }});
   {% endif %}

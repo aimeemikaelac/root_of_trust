@@ -1,5 +1,7 @@
 #include "CommunicationToProgram.h"
 #include "ed25519.h"
+#include "unistd.h"
+#include <sys/syscall.h>
 #include <transport/TSocket.h>
 #include <transport/TBufferTransports.h>
 #include <protocol/TBinaryProtocol.h>

@@ -4,7 +4,7 @@
 #include "user_mmap_driver.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "arm_code.h"
+#include "arm_protocol_header.h"
 #include <fstream>
 #include <thrift/protocol/TBinaryProtocol.h>
 #include <thrift/server/TSimpleServer.h>

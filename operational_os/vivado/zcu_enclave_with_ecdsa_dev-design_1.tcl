@@ -348,6 +348,7 @@ CONFIG.SINGLE_PORT_BRAM {1} \
   set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
   set_property -dict [ list \
 CONFIG.NUM_MI {2} \
+CONFIG.NUM_SI {2} \
  ] $axi_mem_intercon
 
   # Create instance: axi_mem_intercon_1, and set properties
@@ -460,7 +461,7 @@ CONFIG.C_USE_PCMP_INSTR {1} \
   # Create instance: ps8_0_axi_periph, and set properties
   set ps8_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {1} \
+CONFIG.NUM_MI {2} \
  ] $ps8_0_axi_periph
 
   # Create instance: reset_controller, and set properties
@@ -708,30 +709,32 @@ CONFIG.PSU__USE__M_AXI_GP2 {0} \
   connect_bd_intf_net -intf_net microblaze_0_ilmb_1 [get_bd_intf_pins ecdsa_microblaze/ILMB] [get_bd_intf_pins ecdsa_microblaze_local_memory/ILMB]
   connect_bd_intf_net -intf_net microblaze_0_ilmb_2 [get_bd_intf_pins enclave_microblaze/ILMB] [get_bd_intf_pins enclave_microblaze_local_memory/ILMB]
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M00_AXI [get_bd_intf_pins ps8_0_axi_periph/M00_AXI] [get_bd_intf_pins reset_controller/S_AXI]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins axi_mem_intercon/S01_AXI] [get_bd_intf_pins ps8_0_axi_periph/M01_AXI]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins axi_smc/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM1_FPD [get_bd_intf_pins ps8_0_axi_periph/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
 
   # Create port connections
-  connect_bd_net -net microblaze_0_Clk [get_bd_pins arm_ecdsa_storage_access/s_axi_aclk] [get_bd_pins arm_shared_buffer_access_arm/s_axi_aclk] [get_bd_pins arm_shared_buffer_access_enclave/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/M01_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins axi_mem_intercon_1/ACLK] [get_bd_pins axi_mem_intercon_1/M00_ACLK] [get_bd_pins axi_mem_intercon_1/M01_ACLK] [get_bd_pins axi_mem_intercon_1/S00_ACLK] [get_bd_pins axi_smc/aclk] [get_bd_pins ecdsa_local_memory_aux/s_axi_aclk] [get_bd_pins ecdsa_microblaze/Clk] [get_bd_pins ecdsa_microblaze_local_memory/LMB_Clk] [get_bd_pins ecdsa_shared_buffer_access_ecdsa/s_axi_aclk] [get_bd_pins ecdsa_shared_buffer_access_enclave/s_axi_aclk] [get_bd_pins ecdsa_storage_access/s_axi_aclk] [get_bd_pins enclave_local_memory_aux/s_axi_aclk] [get_bd_pins enclave_microblaze/Clk] [get_bd_pins enclave_microblaze_local_memory/LMB_Clk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins reset_controller/s_axi_aclk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+  connect_bd_net -net microblaze_0_Clk [get_bd_pins arm_ecdsa_storage_access/s_axi_aclk] [get_bd_pins arm_shared_buffer_access_arm/s_axi_aclk] [get_bd_pins arm_shared_buffer_access_enclave/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/M01_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins axi_mem_intercon/S01_ACLK] [get_bd_pins axi_mem_intercon_1/ACLK] [get_bd_pins axi_mem_intercon_1/M00_ACLK] [get_bd_pins axi_mem_intercon_1/M01_ACLK] [get_bd_pins axi_mem_intercon_1/S00_ACLK] [get_bd_pins axi_smc/aclk] [get_bd_pins ecdsa_local_memory_aux/s_axi_aclk] [get_bd_pins ecdsa_microblaze/Clk] [get_bd_pins ecdsa_microblaze_local_memory/LMB_Clk] [get_bd_pins ecdsa_shared_buffer_access_ecdsa/s_axi_aclk] [get_bd_pins ecdsa_shared_buffer_access_enclave/s_axi_aclk] [get_bd_pins ecdsa_storage_access/s_axi_aclk] [get_bd_pins enclave_local_memory_aux/s_axi_aclk] [get_bd_pins enclave_microblaze/Clk] [get_bd_pins enclave_microblaze_local_memory/LMB_Clk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins reset_controller/s_axi_aclk] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
   connect_bd_net -net reset_controller_gpio_io_o [get_bd_pins reset_controller/gpio_io_o] [get_bd_pins rst_ps8_0_99M/aux_reset_in]
   connect_bd_net -net rst_ps8_0_99M_bus_struct_reset [get_bd_pins ecdsa_microblaze_local_memory/SYS_Rst] [get_bd_pins enclave_microblaze_local_memory/SYS_Rst] [get_bd_pins rst_ps8_0_99M/bus_struct_reset]
   connect_bd_net -net rst_ps8_0_99M_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon_1/ARESETN] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins rst_ps8_0_99M/interconnect_aresetn]
   connect_bd_net -net rst_ps8_0_99M_mb_reset [get_bd_pins ecdsa_microblaze/Reset] [get_bd_pins enclave_microblaze/Reset] [get_bd_pins rst_ps8_0_99M/mb_reset]
-  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins arm_ecdsa_storage_access/s_axi_aresetn] [get_bd_pins arm_shared_buffer_access_arm/s_axi_aresetn] [get_bd_pins arm_shared_buffer_access_enclave/s_axi_aresetn] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/M01_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins axi_mem_intercon_1/M00_ARESETN] [get_bd_pins axi_mem_intercon_1/M01_ARESETN] [get_bd_pins axi_mem_intercon_1/S00_ARESETN] [get_bd_pins axi_smc/aresetn] [get_bd_pins ecdsa_local_memory_aux/s_axi_aresetn] [get_bd_pins ecdsa_shared_buffer_access_ecdsa/s_axi_aresetn] [get_bd_pins ecdsa_shared_buffer_access_enclave/s_axi_aresetn] [get_bd_pins ecdsa_storage_access/s_axi_aresetn] [get_bd_pins enclave_local_memory_aux/s_axi_aresetn] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins reset_controller/s_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
+  connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins arm_ecdsa_storage_access/s_axi_aresetn] [get_bd_pins arm_shared_buffer_access_arm/s_axi_aresetn] [get_bd_pins arm_shared_buffer_access_enclave/s_axi_aresetn] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/M01_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins axi_mem_intercon/S01_ARESETN] [get_bd_pins axi_mem_intercon_1/M00_ARESETN] [get_bd_pins axi_mem_intercon_1/M01_ARESETN] [get_bd_pins axi_mem_intercon_1/S00_ARESETN] [get_bd_pins axi_smc/aresetn] [get_bd_pins ecdsa_local_memory_aux/s_axi_aresetn] [get_bd_pins ecdsa_shared_buffer_access_ecdsa/s_axi_aresetn] [get_bd_pins ecdsa_shared_buffer_access_enclave/s_axi_aresetn] [get_bd_pins ecdsa_storage_access/s_axi_aresetn] [get_bd_pins enclave_local_memory_aux/s_axi_aresetn] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN] [get_bd_pins reset_controller/s_axi_aresetn] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_99M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
   create_bd_addr_seg -range 0x00001000 -offset 0xA0050000 [get_bd_addr_spaces ecdsa_microblaze/Data] [get_bd_addr_segs ecdsa_storage_access/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00040000 -offset 0x00000000 [get_bd_addr_spaces ecdsa_microblaze/Data] [get_bd_addr_segs ecdsa_microblaze_local_memory/dlmb_bram_if_cntlr/SLMB/Mem] SEG_dlmb_bram_if_cntlr_Mem
   create_bd_addr_seg -range 0x00040000 -offset 0x00000000 [get_bd_addr_spaces ecdsa_microblaze/Instruction] [get_bd_addr_segs ecdsa_microblaze_local_memory/dlmb_bram_if_cntlr/SLMB1/Mem] SEG_dlmb_bram_if_cntlr_Mem
-  create_bd_addr_seg -range 0x00004000 -offset 0xC0000000 [get_bd_addr_spaces ecdsa_microblaze/Data] [get_bd_addr_segs ecdsa_shared_buffer_access_ecdsa/S_AXI/Mem0] SEG_ecdsa_shared_buffer_access_ecdsa_Mem0
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0010000 [get_bd_addr_spaces ecdsa_microblaze/Data] [get_bd_addr_segs ecdsa_shared_buffer_access_ecdsa/S_AXI/Mem0] SEG_ecdsa_shared_buffer_access_ecdsa_Mem0
   create_bd_addr_seg -range 0x00004000 -offset 0xA0040000 [get_bd_addr_spaces enclave_microblaze/Data] [get_bd_addr_segs arm_shared_buffer_access_enclave/S_AXI/Mem0] SEG_arm_shared_buffer_access_enclave_Mem0
   create_bd_addr_seg -range 0x00100000 -offset 0x00000000 [get_bd_addr_spaces enclave_microblaze/Data] [get_bd_addr_segs enclave_microblaze_local_memory/dlmb_bram_if_cntlr/SLMB/Mem] SEG_dlmb_bram_if_cntlr_Mem
   create_bd_addr_seg -range 0x00100000 -offset 0x00000000 [get_bd_addr_spaces enclave_microblaze/Instruction] [get_bd_addr_segs enclave_microblaze_local_memory/dlmb_bram_if_cntlr/SLMB1/Mem] SEG_dlmb_bram_if_cntlr_Mem
-  create_bd_addr_seg -range 0x00004000 -offset 0xC0000000 [get_bd_addr_spaces enclave_microblaze/Data] [get_bd_addr_segs ecdsa_shared_buffer_access_enclave/S_AXI/Mem0] SEG_ecdsa_shared_buffer_access_enclave_Mem0
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0010000 [get_bd_addr_spaces enclave_microblaze/Data] [get_bd_addr_segs ecdsa_shared_buffer_access_enclave/S_AXI/Mem0] SEG_ecdsa_shared_buffer_access_enclave_Mem0
   create_bd_addr_seg -range 0x00001000 -offset 0xA0050000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs arm_ecdsa_storage_access/S_AXI/Mem0] SEG_arm_ecdsa_storage_access_Mem0
   create_bd_addr_seg -range 0x00004000 -offset 0xA0040000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs arm_shared_buffer_access_arm/S_AXI/Mem0] SEG_arm_shared_buffer_access_arm_Mem0
   create_bd_addr_seg -range 0x00040000 -offset 0xA0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs ecdsa_local_memory_aux/S_AXI/Mem0] SEG_ecdsa_local_memory_aux_Mem0
+  create_bd_addr_seg -range 0x00004000 -offset 0xB0010000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs ecdsa_shared_buffer_access_ecdsa/S_AXI/Mem0] SEG_ecdsa_shared_buffer_access_ecdsa_Mem0
   create_bd_addr_seg -range 0x00100000 -offset 0xA0100000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs enclave_local_memory_aux/S_AXI/Mem0] SEG_enclave_local_memory_aux_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0xB0000000 [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs reset_controller/S_AXI/Reg] SEG_reset_controller_Reg
 

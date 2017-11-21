@@ -6,7 +6,7 @@
 #define ECDSA_SIGNATURE 0x100
 #define ECDSA_PROGRAM_HASH 0x140
 #define ECDSA_DATA 0x160
-#define MESSAGE_LENGTH 0x100
+#define MESSAGE_LENGTH 0x40
 
 static unsigned char xor_key[16];
 

@@ -1,7 +1,7 @@
 #include "string.h"
 #include "stdlib.h"
 
-#define ECDSA_SHARED_BUFFER 0x42C00000
+#define ECDSA_SHARED_BUFFER 0xB0010000
 #define ECDSA_CONTROL 0x0
 #define ECDSA_SIGNATURE 0x100
 #define ECDSA_PROGRAM_HASH 0x140
@@ -15,8 +15,9 @@ void start_attestation(unsigned char *remote_message, unsigned char *message_out
   //For now, just generate a random XOR value
   int i;
   volatile unsigned char *control = (volatile unsigned char*)ECDSA_SHARED_BUFFER;
-  volatile unsigned char *signature = (volatile unsigned char*)ECDSA_SIGNATURE;
-  volatile unsigned char *data = (volatile unsigned char*)ECDSA_DATA;
+  volatile
+  volatile unsigned char *signature = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + ECDSA_SIGNATURE);
+  volatile unsigned char *data = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + ECDSA_DATA);
   srand(0);
   for(i=0; i<16; i++){
     xor_key[i] = (unsigned char)rand();
@@ -29,14 +30,15 @@ void start_attestation(unsigned char *remote_message, unsigned char *message_out
     data[i] = 0;
   }
   //signal ecdsa start
-  control[0] = 0;
+  control[4] = 0;
+  control[0] = 0xFF;
   //wait for finished signal
   while(control[4] == 0){
     __asm__("");
     asm("");
   }
   //copy signature and message out as message_out
-  for(i=0; i<MESSAGE_LENGTH+0x40; i++){
+  for(i=0; i<MESSAGE_LENGTH+0x60; i++){
     message_out[i] = signature[i];
   }
 }

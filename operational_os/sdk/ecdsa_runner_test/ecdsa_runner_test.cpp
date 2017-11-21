@@ -19,7 +19,8 @@ using namespace apache::thrift::transport;
 #define PUBLIC_OFFSET 0x40
 
 int main(int argc, char **argv){
-  unsigned char seed[32], public_key[32], private_key[64];
+  unsigned char seed[32], public_key[32], private_key[64], local_signature[64];
+  unsigned char *signature_out, *data, *signed_data;
   int i;
   boost::shared_ptr<TSocket> socket(new TSocket("localhost", 9090));
   boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
@@ -48,6 +49,19 @@ int main(int argc, char **argv){
   printf("Response:\n0x");
   for(i=0; i<response.length(); i++){
     printf("%02x", ((unsigned char*)response.data())[i]);
+  }
+  printf("\n");
+  data = (unsigned char*)response.data();
+  signature_out = ((unsigned char*)data;
+  signed_data = ((unsigned char*)data+0x40);
+  ed25519_sign(local_signature, signed_data, 0x120, public_key, private_key);
+  printf("Microblaze signature:\n0x");
+  for(i=0; i<64; i++){
+    printf("%02x", signature_out[i]);
+  }
+  printf("Our signature:\n0x");
+  for(i=0; i<64; i++){
+    printf("%02x", local_signature[i]);
   }
   printf("\n");
   return 0;

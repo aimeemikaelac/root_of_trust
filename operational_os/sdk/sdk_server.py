@@ -18,6 +18,11 @@ from program_memory import write_bin_file_data, trigger_reset
 from flask import Flask, request
 # from flask.ext.api import status
 import gen_py.communication_to_program.CommunicationToProgram as comm
+from thrift import Thrift
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+
 
 ##########################################
 # Config and Globals
@@ -125,8 +130,12 @@ def perform_attestation(attestation_data, ticket):
 #    work_item = await queue.get()
 #    message_data_raw = work_item["attestation_data"]
 #    ticket = work_item["ticket"]
+    socket = TSocket.TSocket("localhost", 9090)
+    transport = TTransport.TBufferedTransport(socket)
+    protocol = TBinaryProtocol(transport)
+    client = comm.Client(protocol)
+    transport.open()
     message_data = attestation_data
-    client = comm.Client()
     print("Beggining attestation")
     message = client.begin_attestation(message_data)
     print("Thrift attestation call finished")
@@ -134,6 +143,7 @@ def perform_attestation(attestation_data, ticket):
         "signature": signature,
         "message": message
     }
+    transport.close()
 #    queue.task_done()
 
 

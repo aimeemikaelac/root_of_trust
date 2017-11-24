@@ -219,7 +219,7 @@ def attestation_result(ticket):
             return json.dumps(
                 {
                     "status": "complete",
-                    "attestation": str(base64.b64encode(attestation["message"]))
+                    "attestation": str(binascii.hexlify(attestation["message"]))
                 }
             ), 200
         else:

@@ -10,16 +10,7 @@ def check_attestation_ticket(base_url, ticket):
     url = "{}/{}".format(base_url, "attestation/result/{}".format(ticket))
     response = requests.get(url)
     if response.status_code == 200:
-        return (
-            binascii.hexlify(
-                base64.b64decode(
-                    response.json()[
-                        "attestation"
-                    ]
-                )
-            ),
-            True
-        )
+        return response.json()["attestation"], True
     elif response.status_code == 204:
         return None, True
     else:

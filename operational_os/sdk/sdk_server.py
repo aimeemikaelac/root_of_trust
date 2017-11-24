@@ -11,6 +11,8 @@ import stat
 import asyncio
 import json
 import threading
+import binascii
+import base64
 from threading import Thread
 from program_memory import write_bin_file_data, trigger_reset
 # from microblaze_utils import write_shared_buffer
@@ -132,15 +134,17 @@ def perform_attestation(attestation_data, ticket):
 #    ticket = work_item["ticket"]
     socket = TSocket.TSocket("localhost", 9090)
     transport = TTransport.TBufferedTransport(socket)
-    protocol = TBinaryProtocol(transport)
+    protocol = TBinaryProtocol.TBinaryProtocol(transport)
     client = comm.Client(protocol)
     transport.open()
     message_data = attestation_data
     print("Beggining attestation")
-    message = client.begin_attestation(message_data)
+    message = client.begin_attestation(bytearray(message_data, 'utf8'))
     print("Thrift attestation call finished")
+    print("Attestation message: {}".format(
+        str(binascii.hexlify(message))
+    ))
     attestation_outputs[ticket] = {
-        "signature": signature,
         "message": message
     }
     transport.close()
@@ -204,15 +208,18 @@ def attestation_request():
 
 @app.route("/attestation/result/<ticket>")
 def attestation_result(ticket):
-    if ticket in tickets_issued:
-        if ticket in attestation_outputs:
-            attestation = attestation_outputs[ticket]
+    print("ticket: {}".format(ticket))
+    print(tickets_issued)
+    ticket_in = int(ticket)
+    if ticket_in in tickets_issued:
+        if ticket_in in attestation_outputs:
+            attestation = attestation_outputs[ticket_in]
             # TODO: message, attestation is binary, so there may be an encoding
             # issue
             return json.dumps(
                 {
                     "status": "complete",
-                    "attestation": attestation
+                    "attestation": str(base64.b64encode(attestation["message"]))
                 }
             ), 200
         else:

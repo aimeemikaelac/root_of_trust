@@ -7,11 +7,13 @@
 import asyncio
 import json
 import threading
+from threading import Thread
 from program_memory import write_bin_file_data, trigger_reset
-from microblaze_utils import write_shared_buffer
-from ecdsa_utils import generate_ecdsa_attestation
+# from microblaze_utils import write_shared_buffer
+# from ecdsa_utils import generate_ecdsa_attestation
 from flask import Flask
-from flask.ext.api import status
+# from flask.ext.api import status
+import gen_py.communication_to_program.CommunicationToProgram as comm
 
 ##########################################
 # Config and Globals
@@ -26,6 +28,11 @@ ECDSA_BUFFER = 0xA0020000
 
 ticket_lock = threading.Lock()
 attestation_ticket = 0
+
+# Run event loop in separate thread
+def start_loop(loop):
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
 
 ##########################################
 # Initialize app and loop
@@ -49,16 +56,16 @@ tickets_issued = []
 # Coroutines
 ###########################################
 
-# Run event loop in separate thread
-def start_loop(loop):
-    asyncio.set_event_loop(loop)
-    loop.run_forever()
+
 
 def get_increment_ticket():
     with ticket_lock:
         current_ticket = attestation_ticket
         attestation_ticket += 1
         return current_ticket
+
+#TODO: support multiple enclaves
+current_enclave = None
 
 
 async def program_enclave(queue):
@@ -71,14 +78,22 @@ async def program_enclave(queue):
     #    buffer
     #######################
     # 1. Program bin file to microblaze memory
-    binary_file = await queue.get()
+    program_file, binary_file = await queue.get()
+    if current_enclave:
+        current_enclave.terminate()
+    program_file_data = bytearray(program_file.read())
     binary_file_data = bytearray(binary_file.read())
-    binary_file_size = len(binary_file_data)
-    write_bin_file_data(
-        binary_file_data, MICROBLAZE_BASE_ADDRESS, binary_file_size
+    # TODO: write files securely with secure file names and directories
+    with open(program_file.name, 'w') as program_file_handle:
+        program_file_handle.write(program_file_data)
+    with open(binary_file.name, 'w') as binary_file_handle:
+        binary_file_handle.write(binary_file_data)
+    st = os.stat(program_file.name)
+    os.chmod(
+        program_file.name,
+        st.st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
     )
-    # 2. Reset microblaze to start execution
-    def trigger_reset(MICROBLAZE_RESET_ADDRESS)
+    current_enclave = subprocess.Popen(program_file.name)
     queue.task_done()
 
 
@@ -100,11 +115,8 @@ async def perform_attestation(queue):
     message_data_raw = work_item["attestation_data"]
     ticket = work_item["ticket"]
     message_data = bytearray(message_data_raw)
-    await write_shared_buffer(CPU_MICROBLAZE_SHARED_BUFFER, message_data)
-    signature = await generate_ecdsa_attestation(
-        ATTESTATION_SYSTEM_ADDRESS, ECDSA_BUFFER
-    )
-    message = await read_shared_buffer(CPU_MICROBLAZE_SHARED_BUFFER)
+    client = comm.Client()
+    message = client.begin_attestation(message_data)
     attestation_outputs[ticket] = {
         "signature": signature,
         "message": message
@@ -121,25 +133,27 @@ async def perform_attestation(queue):
 def upload():
     if request.method == 'POST':
         binary_file = request.files['binary']
-        if binary_file.filename == '':
+        program_file = request.files['program']
+        if binary_file.filename == '' or program_file.name == '':
             return (
                 json.dumps({"status": "No file"}),
-                status.HTTP_400_BAD_REQUEST
+                400
             )
         #TODO: check length of file against memory size of the enclave cpu
         if binary_file:
-            enclave_queue.put(binary_file)
+            enclave_queue.put((program_file, binary_file))
             #TODO: create async task for this?
             return (
                 json.dumps({"status": "ok"}),
-                status.HTTP_202_ACCEPTED
+                202
             )
     return '''
     <!doctype html>
     <title>Upload Enclave Program</title>
-    <h1>Upload enclave binary (.bin)</h1>
+    <h1>Upload enclave binary (.bin) and program</h1>
     <form method=post enctype=multipart/form-data>
-      <p><input type=file name=binary>
+      <p><input type=file name=binary></p>
+      <p><input type=file name=program></p>
          <input type=submit value=Upload>
     </form>
     '''
@@ -156,7 +170,7 @@ def attestation_request():
         attestation_data_queue.put(
             {"ticket": ticket, "attestation_data": attestation_data}
         )
-        return json.dumps({"ticket": ticket}), status.HTTP_201_CREATED
+        return json.dumps({"ticket": ticket}), 201
 
 @app.route("/attestation/result/<ticket>")
 def attestation_result(ticket):
@@ -170,8 +184,8 @@ def attestation_result(ticket):
                     "status": "complete",
                     "attestation": attestation
                 }
-            ), status.HTTP_200_OK
+            ), 200
         else:
-            return json.dumps({"status": "pending"}), status.HTTP_204_NO_CONTENT
+            return json.dumps({"status": "pending"}), 204
     else:
-        return json.dumps("status": "not_found"), status.HTTP_404_NOT_FOUND
+        return json.dumps({"status": "not_found"}), 404

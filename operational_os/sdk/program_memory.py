@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import print_function
 
 import argparse
 import shlex
@@ -63,9 +64,9 @@ def get_program_segments(program_headers, elf_file):
         # elf_data = bytearray(elf_file_handle.read())
         for segment in program_headers:
             offset = segment[0]
-            print "Offset: {:08x}".format(offset)
+            print("Offset: {:08x}".format(offset))
             length = segment[3]
-            print "Length: {:08x}".format(length)
+            print("Length: {:08x}".format(length))
             current_data = bytearray(elf_data[offset:offset+length])
             elf_segments.append(current_data)
     # for i in range(len(elf_segments[0])):
@@ -79,11 +80,11 @@ def write_segments_to_memory(program_headers, elf_segments, base_address):
     for header_index in range(len(program_headers)):
         header = program_headers[header_index]
         phys_offset = header[1]
-        print "Physical address: {:08x}".format(phys_offset)
+        print("Physical address: {:08x}".format(phys_offset))
         mem_length = header[4]
-        print "Memory length: {:08x}".format(mem_length)
+        print("Memory length: {:08x}".format(mem_length))
         memory_handle = DevMem(base_address + phys_offset, length=mem_length)
-        print "Mapping address {:08x} for length {:08x}".format(base_address + phys_offset, mem_length)
+        print("Mapping address {:08x} for length {:08x}".format(base_address + phys_offset, mem_length))
         memory_handle.write(0, elf_segments[header_index])
         # current_end = virt_offset + mem_length
         # if current_end > end_memory:
@@ -138,7 +139,7 @@ if __name__ == "__main__":
         write_segments_to_memory(program_headers, elf_segments, base_address)
         length = last_offset + last_length
         num_blocks = ceil(length/128)
-        print "Total length: {}".format(length)
-        print "Number of sha512 blocks: {}".format(num_blocks)
+        print("Total length: {}".format(length))
+        print("Number of sha512 blocks: {}".format(num_blocks))
     else:
         write_bin_file(args.bin, base_address)

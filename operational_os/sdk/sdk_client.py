@@ -3,17 +3,37 @@
 import argparse
 import requests
 import time
+import binascii
+import base64
 
 def check_attestation_ticket(base_url, ticket):
-    url = "{}/{}".format(base_url, "/attestation/result/{}".format(ticket))
+    url = "{}/{}".format(base_url, "attestation/result/{}".format(ticket))
     response = requests.get(url)
     if response.status_code == 200:
-        return response.json()["attestation"], True
+        return (
+            binascii.hexlify(
+                base64.b64decode(
+                    response.json()[
+                        "attestation"
+                    ]
+                )
+            ),
+            True
+        )
     elif response.status_code == 204:
         return None, True
     else:
         return None, False
 
+
+def start_attestation(base_url, message_file):
+    url = "{}/{}".format(base_url, "attestation/request")
+    with open(message_file) as file_handle:
+        attestation_data = file_handle.read()
+    response = requests.post(url, data={
+        "attestation_data": attestation_data
+    })
+    return response.json()["ticket"]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -58,7 +78,8 @@ if __name__ == "__main__":
     attestation_group.add_argument(
         "--send_begin_attestation",
         help="Send the attestation data from the file and return the received "
-        "ticket"
+        "ticket",
+        action="store_true"
     )
     attestation_group.add_argument(
         "--check_ticket",
@@ -76,7 +97,10 @@ if __name__ == "__main__":
             "binary": open(args.enclave_file, 'rb'),
             "program": open(args.program_file, 'rb')
         }
-        response = requests.post(url, files=files)
+        data = {
+            "binary_file_name":args.enclave_file
+        }
+        response = requests.post(url, files=files, data=data)
         response_json = response.json()
         if response.status_code != 202:
             print(
@@ -96,7 +120,7 @@ if __name__ == "__main__":
                 time.sleep(1)
                 attestation_data = check_attestation_ticket(base_url, ticket)
             print("Attestation data:\n{}".format(attestation_data))
-        elif args.send_begin_attestation is not None:
+        elif args.send_begin_attestation:
             print("Ticket:\n{}".format(
                 start_attestation(base_url, args.message_file)
             ))

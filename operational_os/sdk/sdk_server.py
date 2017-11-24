@@ -4,6 +4,10 @@
 # Accept uploaded binaries to run
 #
 
+import os
+import shlex
+import subprocess
+import stat
 import asyncio
 import json
 import threading
@@ -11,7 +15,7 @@ from threading import Thread
 from program_memory import write_bin_file_data, trigger_reset
 # from microblaze_utils import write_shared_buffer
 # from ecdsa_utils import generate_ecdsa_attestation
-from flask import Flask
+from flask import Flask, request
 # from flask.ext.api import status
 import gen_py.communication_to_program.CommunicationToProgram as comm
 
@@ -29,9 +33,13 @@ ECDSA_BUFFER = 0xA0020000
 ticket_lock = threading.Lock()
 attestation_ticket = 0
 
+#TODO: support multiple enclaves
+current_enclave = None
+
 # Run event loop in separate thread
 def start_loop(loop):
     asyncio.set_event_loop(loop)
+    print("starting event loop")
     loop.run_forever()
 
 ##########################################
@@ -47,10 +55,12 @@ t = Thread(target=start_loop, args=(event_loop,))
 t.start()
 
 # initialize workers
-enclave_queue = asyncio.Queue(loop=event_loop)
-attestation_data_queue = asyncio.Queue(loop=event_loop)
+#enclave_queue = asyncio.Queue(loop=event_loop)
+#attestation_data_queue = asyncio.Queue(loop=event_loop)
 attestation_outputs = {}
 tickets_issued = []
+
+untrusted_program = "enclave_untrusted_program.elf"
 
 ###########################################
 # Coroutines
@@ -60,15 +70,14 @@ tickets_issued = []
 
 def get_increment_ticket():
     with ticket_lock:
+        global attestation_ticket
         current_ticket = attestation_ticket
         attestation_ticket += 1
         return current_ticket
 
-#TODO: support multiple enclaves
-current_enclave = None
 
 
-async def program_enclave(queue):
+def program_enclave():
     # Program the enclave memory using the binary in the Queue
     # TODO: switch to streaming data through the ECDSA programming
     # hardware
@@ -77,27 +86,29 @@ async def program_enclave(queue):
     # 2. Store a hash of the original microblaze memory in an FPGA-side
     #    buffer
     #######################
+    global current_enclave
     # 1. Program bin file to microblaze memory
-    program_file, binary_file = await queue.get()
-    if current_enclave:
+#    program_file, binary_file = await queue.get()
+    print("got item off enclave queue")
+    if current_enclave is not None:
         current_enclave.terminate()
-    program_file_data = bytearray(program_file.read())
-    binary_file_data = bytearray(binary_file.read())
+#    program_file_data = bytearray(program_file.read())
+#    binary_file_data = bytearray(binary_file.read())
     # TODO: write files securely with secure file names and directories
-    with open(program_file.name, 'w') as program_file_handle:
-        program_file_handle.write(program_file_data)
-    with open(binary_file.name, 'w') as binary_file_handle:
-        binary_file_handle.write(binary_file_data)
-    st = os.stat(program_file.name)
+#    with open(program_file.name, 'w') as program_file_handle:
+#        program_file_handle.write(program_file_data)
+#    with open(binary_file.name, 'w') as binary_file_handle:
+#        binary_file_handle.write(binary_file_data)
+    st = os.stat(untrusted_program)
     os.chmod(
-        program_file.name,
+        untrusted_program,
         st.st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
     )
-    current_enclave = subprocess.Popen(program_file.name)
-    queue.task_done()
+    current_enclave = subprocess.Popen(shlex.split("{}/{}".format(os.getcwd(), untrusted_program)))
+ #   queue.task_done()
 
 
-async def perform_attestation(queue):
+def perform_attestation(attestation_data, ticket):
     # Receive attestation data and wait for result
     # TODO: interface with FPGA-side IP to handle triggering attestation
     # For now, assume signing a message buffer
@@ -111,17 +122,19 @@ async def perform_attestation(queue):
     #    coming
     # 3. ECDSA will sign the buffer, and IP will return result to CPU
     # 4. transmit the data in the buffer and the signature to requester
-    work_item = await queue.get()
-    message_data_raw = work_item["attestation_data"]
-    ticket = work_item["ticket"]
-    message_data = bytearray(message_data_raw)
+#    work_item = await queue.get()
+#    message_data_raw = work_item["attestation_data"]
+#    ticket = work_item["ticket"]
+    message_data = attestation_data
     client = comm.Client()
+    print("Beggining attestation")
     message = client.begin_attestation(message_data)
+    print("Thrift attestation call finished")
     attestation_outputs[ticket] = {
         "signature": signature,
         "message": message
     }
-    queue.task_done()
+#    queue.task_done()
 
 
 #################################################
@@ -140,8 +153,13 @@ def upload():
                 400
             )
         #TODO: check length of file against memory size of the enclave cpu
-        if binary_file:
-            enclave_queue.put((program_file, binary_file))
+        if binary_file and program_file:
+            #enclave_queue.put((program_file, binary_file))
+            binary_file_name = request.form["binary_file_name"]
+            binary_file.save(binary_file_name)
+            program_file.save(untrusted_program)
+            event_loop.call_soon_threadsafe(program_enclave)
+            print("Put program and bianry file")
             #TODO: create async task for this?
             return (
                 json.dumps({"status": "ok"}),
@@ -154,6 +172,7 @@ def upload():
     <form method=post enctype=multipart/form-data>
       <p><input type=file name=binary></p>
       <p><input type=file name=program></p>
+      <p><input type=text name=binary_name></p>
          <input type=submit value=Upload>
     </form>
     '''
@@ -167,9 +186,10 @@ def attestation_request():
         # Program to memory
         ticket = get_increment_ticket()
         tickets_issued.append(ticket)
-        attestation_data_queue.put(
-            {"ticket": ticket, "attestation_data": attestation_data}
-        )
+#        attestation_data_queue.put(
+#            {"ticket": ticket, "attestation_data": attestation_data}
+#        )
+        event_loop.call_soon_threadsafe(perform_attestation, attestation_data, ticket)
         return json.dumps({"ticket": ticket}), 201
 
 @app.route("/attestation/result/<ticket>")

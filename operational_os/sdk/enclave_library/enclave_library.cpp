@@ -11,6 +11,9 @@
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/TBufferTransports.h>
 
+#define HASH_BLOCK_SIZE 0x80
+#define PROGRAMMING_DATA_OFFSET 0x100
+
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
@@ -113,14 +116,38 @@ int enclave_init(){
 int enclave_init_with_file(char const *filename){
   // 1. Program memory
   shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
-  // FILE *program_file = fopen(filename, "r");
+  volatile unsigned char *control = (volatile unsigned char*)(program_buffer->ptr);
+  volatile unsigned char *data = (volatile unsigned char*)(control + 0x100);
   char current_char;
-  int buffer_index = 0;
-  //TODO: handle 4 byte vs. 1 byte writes
+  int buffer_index = 0, i;
+  //clear control signals
+  control[0x8] = 0;
+  control[0xC] = 0;
+  control[0x10] = 0;
+  //start ecdsa function
+  control[0] = 0xFF;
   std::ifstream is(filename);
   while(is.get(current_char)){
-    ((unsigned char*)program_buffer->ptr)[buffer_index] = (unsigned char)current_char;
+    //clear the buffer
+    if(buffer_index == 0{
+      control[0x8] = 0;
+      control[0xC] = 0;
+      for(i=0; i<HASH_BLOCK_SIZE; i++){
+        data[i] = 0;
+      }
+    }
+    //TODO: handle 4 byte vs. 1 byte writes
+    //copy data to buffer for current block
+    data[buffer_index] = (unsigned char)current_char;
     buffer_index++;
+    //if block finished, set signal, wait for hashing to complete
+    if(buffer_index >= HASH_BLOCK_SIZE){
+      control[0x8] = 0xFF;
+      while(control[0xC] == 0){
+        __asm__("");
+        asm("");
+      }
+    }
   }
   // fclose(program_file);
   is.close();

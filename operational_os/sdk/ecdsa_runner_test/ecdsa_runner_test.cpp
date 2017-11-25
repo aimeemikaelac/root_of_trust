@@ -47,7 +47,7 @@ int main(int argc, char **argv){
     return -1;
   }
   ed25519_create_keypair(remote_public, remote_private, seed);
-  std::string remote_message(remote_public, 32);
+  std::string remote_message((char*)remote_public, 32);
   std::string response;
   communication_to_program::CommunicationToProgramClient client(protocol);
   transport->open();

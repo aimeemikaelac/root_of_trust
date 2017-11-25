@@ -114,14 +114,19 @@ int enclave_init(){
 }
 
 int enclave_init_with_file(char const *filename){
-  // 1. Program memory
-  shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
-  volatile unsigned char *control = (volatile unsigned char*)(program_buffer->ptr);
-  volatile unsigned char *data = (volatile unsigned char*)(control + 0x100);
-  volatile unsigned int *count_out = (volatile unsigned int*)(control + 0x4);
   char current_char;
   int buffer_index = 0, i, iteration=0;
   unsigned int count = 0;
+  volatile unsigned char *control, *data;
+  volatile unsigned int *count_out;
+  // 1. Program memory
+  shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
+  ((unsigned char*)reset_controller->ptr)[0] = 1;
+  shared_memory reset_controller = getSharedMemoryArea(RESET_CONTROLLER_ADDRESS, 0x1000);
+  control = (volatile unsigned char*)(program_buffer->ptr);
+  data = (volatile unsigned char*)(control + 0x100);
+  count_out = (volatile unsigned int*)(control + 0x4);
+  //reset things to get everything in the correct state
   //clear control signals
   control[0x8] = 0;
   control[0xC] = 0;
@@ -176,7 +181,6 @@ int enclave_init_with_file(char const *filename){
   is.close();
   cleanupSharedMemoryPointer(program_buffer);
   // 2. Reset microblaze
-  shared_memory reset_controller = getSharedMemoryArea(RESET_CONTROLLER_ADDRESS, 0x1000);
   ((unsigned char*)reset_controller->ptr)[0] = 1;
   cleanupSharedMemoryPointer(reset_controller);
   // 3. Launch attestation thread that listens for thrift connections and

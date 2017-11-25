@@ -35,7 +35,16 @@ void watch_mem_buffer(){
   }
 }
 
+void clear_shared_buffer(){
+  int i;
+  unsigned char *shared_buffer = (unsigned char*)SHARED_BUFFER_ADDRESS;
+  for(i=0; i<SHARED_BUFFER_SIZE; i++){
+    shared_buffer[i] = 0;
+  }
+}
+
 int main(){
+  clear_shared_buffer();
   watch_mem_buffer();
   return 0;
 }

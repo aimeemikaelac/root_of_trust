@@ -20,6 +20,7 @@ using namespace apache::thrift::transport;
 
 int main(int argc, char **argv){
   unsigned char seed[32], public_key[32], private_key[64], local_signature[64];
+  unsigned char remote_public[32], remote_private[64];
   unsigned char *signature_out, *data, *signed_data;
   int i;
   boost::shared_ptr<TSocket> socket(new TSocket("localhost", 9090));
@@ -41,7 +42,12 @@ int main(int argc, char **argv){
   for(i=0; i<32/4; i++){
     public_key_storage[i] = ((unsigned int*)public_key)[i];
   }
-  std::string remote_message("hello from attestor\n");
+  if(syscall(SYS_getrandom, seed, 32, 0) < 0){
+    fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
+    return -1;
+  }
+  ed25519_create_keypair(remote_public, remote_private, seed);
+  std::string remote_message(remote_public, 32);
   std::string response;
   communication_to_program::CommunicationToProgramClient client(protocol);
   transport->open();
@@ -57,11 +63,11 @@ int main(int argc, char **argv){
   signature_out = (unsigned char*)data;
   signed_data = ((unsigned char*)data+0x40);
   printf("Data:\n0x");
-  for(i=0; i<256; i++){
+  for(i=0; i<0x100; i++){
     printf("%02x", signed_data[i]);
   }
   printf("\n");
-  ed25519_sign(local_signature, signed_data, 0x60, public_key, private_key);
+  ed25519_sign(local_signature, signed_data, 0x100, public_key, private_key);
   printf("Microblaze signature:\n0x");
   for(i=0; i<64; i++){
     printf("%02x", signature_out[i]);

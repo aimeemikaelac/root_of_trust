@@ -120,9 +120,9 @@ int enclave_init_with_file(char const *filename){
   volatile unsigned char *control, *data;
   volatile unsigned int *count_out;
   // 1. Program memory
-  shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
-  ((unsigned char*)reset_controller->ptr)[0] = 1;
   shared_memory reset_controller = getSharedMemoryArea(RESET_CONTROLLER_ADDRESS, 0x1000);
+  ((unsigned char*)reset_controller->ptr)[0] = 1;
+  shared_memory program_buffer = getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
   control = (volatile unsigned char*)(program_buffer->ptr);
   data = (volatile unsigned char*)(control + 0x100);
   count_out = (volatile unsigned int*)(control + 0x4);

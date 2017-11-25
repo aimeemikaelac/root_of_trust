@@ -1,5 +1,6 @@
 #include "CommunicationToProgram.h"
 #include "ed25519.h"
+#include "sha512.h"
 #include "unistd.h"
 #include <sys/syscall.h>
 #include <transport/TSocket.h>
@@ -8,6 +9,7 @@
 #include "user_mmap_driver.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace apache::thrift;
 using namespace apache::thrift::protocol;
@@ -20,6 +22,7 @@ using namespace apache::thrift::transport;
 
 int main(int argc, char **argv){
   unsigned char seed[32], public_key[32], private_key[64], local_signature[64];
+  unsigned char hash_buffer[0x80], hash_out[0x40];
   unsigned char remote_public[32], remote_private[64];
   unsigned char *signature_out, *data, *signed_data;
   int i;
@@ -77,5 +80,39 @@ int main(int argc, char **argv){
     printf("%02x", local_signature[i]);
   }
   printf("\n");
+  if(argc > 1){
+    int buffer_index = 0, iteration=0;
+    char* filename = argv[1];
+    char current_char;
+    std::ifstream is((char const*)filename);
+    sha512_context context;
+    sha512_init(&context);
+    while(is.get(current_char)){
+      if(buffer_index == 0){
+        memset(hash_buffer, 0, 0x80);
+      }
+      hash_buffer[buffer_index] = (unsigned char)current_char;
+      buffer_index++;
+      if(buffer_index >= 0x80){
+        sha512_update(&context, hash_buffer, 0x80);
+        buffer_index=0;
+//        printf("Iteration %i\n", iteration);
+        iteration++;
+      }
+    }
+    if(buffer_index>0){
+      sha512_update(&context, hash_buffer, buffer_index);
+    }
+    sha512_final(&context, hash_out);
+    printf("Microblaze hash:\n0x");
+    for(i=0; i<0x40; i++){
+      printf("%02x", signed_data[i]);
+    }
+    printf("\nOur hash:\n0x");
+    for(i=0; i<0x40; i++){
+      printf("%02x", hash_out[i]);
+    }
+    printf("\n");
+  }
   return 0;
 }

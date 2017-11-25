@@ -129,7 +129,7 @@ int enclave_init_with_file(char const *filename){
   std::ifstream is(filename);
   while(is.get(current_char)){
     //clear the buffer
-    if(buffer_index == 0{
+    if(buffer_index == 0){
       control[0x8] = 0;
       control[0xC] = 0;
       for(i=0; i<HASH_BLOCK_SIZE; i++){

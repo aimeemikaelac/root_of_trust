@@ -114,5 +114,18 @@ int main(int argc, char **argv){
     }
     printf("\n");
   }
+  unsigned int microblaze_public_key[0x20];
+  for(i=0; i<0x20; i++){
+    microblaze_public_key[i] = signed_data[0x40 + i];
+  }
+  int valid_signature = ed25519_verify(signature_out, signed_data, 0x100, microblaze_public_key);
+  printf("Valid signature: %i\n", valid_signature);
+  unsigned char shared_secret[0x20];
+  ed25519_key_exchange(shared_secret, microblaze_public_key, private_key);
+  printf("Our shared secret:\n0x");
+  for(i=0; i<0x20; i++){
+    printf("%02x", shared_secret[i]);
+  }
+  printf("\n");
   return 0;
 }

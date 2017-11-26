@@ -32,23 +32,26 @@ int main(int argc, char **argv){
   shared_memory secure_storage = getSharedMemoryArea(SECURE_STORAGE_DEV, SECURE_STORAGE_LENGTH);
   volatile unsigned int *public_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PUBLIC_OFFSET);
   volatile unsigned int *private_key_storage = (unsigned int*)(((unsigned char*)secure_storage->ptr) + PRIVATE_OFFSET);
-  if(syscall(SYS_getrandom, seed, 32, 0) < 0){
-    fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
-    return -1;
-  }
-/*  srand(0);
-  memset(seed, rand(), 32);*/
-  ed25519_create_keypair(public_key, private_key, seed);
-  for(i=0; i<64/4; i++){
-    private_key_storage[i] = ((unsigned int*)private_key)[i];
-  }
-  for(i=0; i<32/4; i++){
-    public_key_storage[i] = ((unsigned int*)public_key)[i];
-  }
-  if(syscall(SYS_getrandom, seed, 32, 0) < 0){
-    fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
-    return -1;
-  }
+//   if(syscall(SYS_getrandom, seed, 32, 0) < 0){
+//     fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
+//     return -1;
+//   }
+// /*  srand(0);
+//   memset(seed, rand(), 32);*/
+//   ed25519_create_keypair(public_key, private_key, seed);
+//   for(i=0; i<64/4; i++){
+//     private_key_storage[i] = ((unsigned int*)private_key)[i];
+//   }
+//   for(i=0; i<32/4; i++){
+//     public_key_storage[i] = ((unsigned int*)public_key)[i];
+//   }
+//   if(syscall(SYS_getrandom, seed, 32, 0) < 0){
+//     fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
+//     return -1;
+//   }
+  std::ifstream key_file("../server_key_file.bin", std::ifstream::binary);
+  key_file.read((char*)public_key, 0x20);
+  key_file.read((char*)private_key, 0x40);
   ed25519_create_keypair(remote_public, remote_private, seed);
   std::string remote_message((char*)remote_public, 32);
   std::string response;

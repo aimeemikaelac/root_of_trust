@@ -1,0 +1,32 @@
+{
+  "program_name":"sha512_enclave",
+  "arm":{
+    "cross_compile":"arm-linux-gnueabihf-",
+    "sources":[
+      "sha512_enclave_arm.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  },
+  "microblaze":{
+    "sources":[
+      "sha512_microblaze.c"
+    ],
+    "source_directories":[
+      "ed25519_ecdsa/"
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+      "ed25519_ecdsa/"
+    ]
+  }
+}

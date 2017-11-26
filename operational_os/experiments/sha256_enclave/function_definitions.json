@@ -1,0 +1,26 @@
+{
+  "trusted":[
+    {
+      "name":"sha512_run",
+      "inputs":[
+        {
+          "name":"data_in",
+          "type":"unsigned char",
+          "length":12288
+        },
+        {
+          "name":"data_len",
+          "type":"int",
+          "length":4
+        }
+      ],
+      "outputs":[
+        {
+          "name":"hash_out",
+          "type":"unsigned char",
+          "length":64
+        }
+      ]
+    }
+  ]
+}

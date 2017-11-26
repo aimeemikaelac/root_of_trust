@@ -49,9 +49,27 @@ int main(int argc, char **argv){
 //     fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
 //     return -1;
 //   }
-  std::ifstream key_file("../server_key_file.bin", std::ifstream::binary);
-  key_file.read((char*)public_key, 0x20);
-  key_file.read((char*)private_key, 0x40);
+  std::ifstream key_file("../server_key_dev.bin", std::ifstream::binary);
+  memset(public_key, 0, 0x20);
+  memset(private_key, 0, 0x40);
+  if(key_file){
+    key_file.seekg(0, std::ios::beg);
+    key_file.read((char*)public_key, 0x20);
+    key_file.read((char*)private_key, 0x40);
+    key_file.close();
+  } else{
+    printf("File open failed\n");
+    return -1;
+  }
+  printf("Public key from file:\n0x");
+  for(i=0; i<0x20; i++){
+    printf("%02x", public_key[i]);
+  }
+  printf("\nPrivate key from file:\n0x");
+  for(i=0; i<0x40; i++){
+    printf("%02x", private_key[i]);
+  }
+  printf("\n");
   ed25519_create_keypair(remote_public, remote_private, seed);
   std::string remote_message((char*)remote_public, 32);
   std::string response;

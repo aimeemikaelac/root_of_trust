@@ -50,7 +50,7 @@ def process_function_definitions(function_definitions):
             function_return["return"] = True
             function_return["output"] = False
             function_return["start"] = offset
-            length = function_return.get("length", 1)
+            length = int(function_return.get("length", 1))
             function_return["end"] = offset + length
             memory_map[function_name].append(function_return)
             offset += length

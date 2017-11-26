@@ -95,11 +95,21 @@ def clean_build_directory(directory):
 
 
 def copy_sources_includes(source, destination):
+    print("Source {} is directory? {}".format(
+        source, os.path.isdir(source)
+    ))
+    print("Source {} is file? {}".format(
+        source, os.path.isfile(source)
+    ))
     if os.path.isfile(source):
+        print("Copying file {} to {}".format(source, destination))
         shutil.copy2(source, destination)
-    else:
+    elif os.path.isdir(source):
+        print(os.listdir(source))
         for f in os.listdir(source):
-            if re.match(".\.h$", f) or re.match(".\.c$", f):
+            root,extension = os.path.splitext(f)
+            if extension in [".h", ".c", ".cpp"]:
+                print("Copying {} to {}".format(f, destination))
                 shutil.copy(os.path.join(source, f), destination)
 
 def generate_microblaze_makefiles(compilation_config):
@@ -115,7 +125,10 @@ def generate_microblaze_makefiles(compilation_config):
         sources_all = (
             sources + source_directories + includes + include_directories
         )
+        print("Sources all: {}".format(sources_all))
+        print("Includes: {}".format(includes))
         for source_item in sources_all:
+            print("Copying {}".format(source_item))
             copy_sources_includes(source_item, MICROBLAZE_BUILD_SRC_DIRECTORY)
         return render_template(
             MICROBLAZE_MAKEFILE_TEMPLATE,
@@ -157,7 +170,8 @@ def generate_arm_makefile(compile_config, cross_compile=""):
                 "cross_compile": cross_compile
             }
         ), program_name
-    except KeyError:
+    except KeyError as ke:
+        print("Arm makefile key error: {}".format(ke))
         return None, None
 
 def render_system_config_header(system_config):

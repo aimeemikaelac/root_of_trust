@@ -13,7 +13,7 @@ import json
 import threading
 import binascii
 import base64
-import devmem
+from devmem import DevMem
 from threading import Thread
 from program_memory import write_bin_file_data, trigger_reset
 # from microblaze_utils import write_shared_buffer

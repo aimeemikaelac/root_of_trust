@@ -214,10 +214,11 @@ def upload():
 
 @app.route("/public_key")
 def public_key():
-    return json.dumps(
-        "public_key": str(binascii.hexlify(
-            server_public_key
-        ), 'ascii')
+    return json.dumps({
+            "public_key": str(binascii.hexlify(
+                server_public_key
+            ), 'ascii')
+        }
     )
 
 #TODO: support multiple enclaves in future

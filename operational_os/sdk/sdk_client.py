@@ -27,6 +27,11 @@ def start_attestation(base_url, message_file):
     })
     return response.json()["ticket"]
 
+def get_public_key(base_url):
+    url = "{}/{}".format(base_url, "public_key")
+    response = requests.get(url)
+    return response.json()["public_key"]
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -125,6 +130,9 @@ if __name__ == "__main__":
                 base_url, args.check_ticket
             )
             if attestation_data:
+                server_public_key = bytearray(
+                    binascii.unhexlify(get_public_key(base_url))
+                )
                 print("Attestation data:\n{}".format(attestation_data))
                 print("Attestation length: {}".format(len(attestation_data)))
                 attestation_binary = binascii.unhexlify(attestation_data)
@@ -141,12 +149,23 @@ if __name__ == "__main__":
                 for i in range(0x20):
                     public_key.append(attestation_binary[0x80 + i])
                 for i in range(0xA0):
-                    enclave_message.append(attestation_data[0xA0 + i])
+                    enclave_message.append(attestation_binary[0xA0 + i])
                 for i in range(0x100):
-                    signed_message.append(attestation_data[0x40 + i])
-                vk = VerifyingKey(public_key)
+                    signed_message.append(attestation_binary[0x40 + i])
+                print("Public key:\n{}".format(binascii.hexlify(public_key)))
+                print("Signed message:\n{}".format(
+                    binascii.hexlify(signed_message)
+                ))
+                vk = ed25519.VerifyingKey(
+                    binascii.hexlify(server_public_key),
+                    encoding="hex"
+                )
                 try:
-                    vk.verigy(signature, signed_message)
+                    vk.verify(
+                        binascii.hexlify(signature),
+                        binascii.hexlify(signed_message),
+                        encoding="hex"
+                    )
                     print("Verification passed")
                 except ed25519.BadSignatureError:
                     print("Verification failed")

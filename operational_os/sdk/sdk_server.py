@@ -13,6 +13,7 @@ import json
 import threading
 import binascii
 import base64
+import devmem
 from threading import Thread
 from program_memory import write_bin_file_data, trigger_reset
 # from microblaze_utils import write_shared_buffer
@@ -43,18 +44,38 @@ attestation_ticket = 0
 #TODO: support multiple enclaves
 current_enclave = None
 
+secure_storage_dev = 0xA0050000
+secure_storage_length = 0x1000
+private_offset = 0
+public_offset = 0x40
+
+server_public_key = None
+key_file_dev = "server_key_dev.bin"
+
 # Run event loop in separate thread
 def start_loop(loop):
     asyncio.set_event_loop(loop)
     print("starting event loop")
     loop.run_forever()
 
+def initialize_ecdsa_key_dev(key_file):
+    with open(key_file, "rb") as key_file_handle:
+        global server_public_key
+        public_key = bytearray(key_file_handle.read(32))
+        private_key = bytearray(key_file_handle.rad(64))
+        server_public_key = public_key
+    secure_storage = DevMem(secure_storage_dev, length=secure_storage_length)
+    for i in range(0x20):
+        secure_storage.write(public_offset + i, public_key[i])
+    for i in range(0x40):
+        secure_storage.write(private_offset + i, private_key[i])
+
 ##########################################
 # Initialize app and loop
 ##########################################
 
 app = Flask(__name__)
-
+initialize_ecdsa_key_dev(key_file_dev)
 # Event loop for async
 event_loop = asyncio.new_event_loop()
 # Event loop in separate thread
@@ -69,6 +90,7 @@ tickets_issued = []
 
 untrusted_program = "enclave_untrusted_program.elf"
 
+
 ###########################################
 # Coroutines
 ###########################################
@@ -81,7 +103,6 @@ def get_increment_ticket():
         current_ticket = attestation_ticket
         attestation_ticket += 1
         return current_ticket
-
 
 
 def program_enclave():
@@ -190,6 +211,14 @@ def upload():
          <input type=submit value=Upload>
     </form>
     '''
+
+@app.route("/public_key")
+def public_key():
+    return json.dumps(
+        "public_key": str(binascii.hexlify(
+            server_public_key
+        ), 'ascii')
+    )
 
 #TODO: support multiple enclaves in future
 @app.route("/attestation/request", methods=["POST"])

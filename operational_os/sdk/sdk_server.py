@@ -61,9 +61,9 @@ def start_loop(loop):
 def initialize_ecdsa_key_dev(key_file):
     with open(key_file, "rb") as key_file_handle:
         global server_public_key
-        public_key = bytearray(key_file_handle.read(32))
-        private_key = bytearray(key_file_handle.read(64))
-        server_public_key = public_key
+        public_key = key_file_handle.read(32)
+        private_key = key_file_handle.read(64)
+        server_public_key = bytearray(public_key)
     secure_storage = DevMem(secure_storage_dev, length=secure_storage_length)
     for i in range(0x20):
         secure_storage.write(public_offset + i, public_key[i])

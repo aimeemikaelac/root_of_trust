@@ -216,10 +216,14 @@ def attestation_result(ticket):
             attestation = attestation_outputs[ticket_in]
             # TODO: message, attestation is binary, so there may be an encoding
             # issue
+            attestation_data = binascii.hexlify(attestation_data["message"])
+            print("Attestation data hex: {}".format(attestation_data))
+            print("Attestation data length: {}".format(len(attestation_data)))
+            print("Attestation data type: {}".format(type(attestation_data)))
             return json.dumps(
                 {
                     "status": "complete",
-                    "attestation": str(binascii.hexlify(attestation["message"]))
+                    "attestation": attestation_data
                 }
             ), 200
         else:

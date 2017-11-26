@@ -34,21 +34,23 @@ MICROBLAZE_HEADER_TEMPLATE = "{}/templates/{}".format(
     SCRIPT_PATH, DEFAULT_MICROBLAZE_HEADER_TEMPLATE
 )
 MICROBLAZE_BUILD_DIRECTORY = "{}/microblaze_build/".format(SCRIPT_PATH)
-MICROBLAZE_BUILD_SRC_DIRECTORY = "{}/src".format(MICROBLAZE_BUILD_DIRECTORY)
+MICROBLAZE_BUILD_SRC_DIRECTORY = "{}src".format(MICROBLAZE_BUILD_DIRECTORY)
 MICROBLAZE_MAKEFILE = "{}/makefile".format(
     MICROBLAZE_BUILD_DIRECTORY
 )
-MICROBLAZE_MAKEFILE_TEMPLATE = "{}.jinja".format(
-    MICROBLAZE_MAKEFILE
+MICROBLAZE_MAKEFILE_TEMPLATE = "{}/templates/makefile.jinja".format(
+    SCRIPT_PATH
 )
 MICROBLAZE_SUB_MAKEFILE = "{}/subdir.mk".format(
     MICROBLAZE_BUILD_SRC_DIRECTORY
 )
-MICROBLAZE_SUB_MAKEFILE_TEMPLATE = "{}.jinja".format(
-    MICROBLAZE_SUB_MAKEFILE
+MICROBLAZE_SUB_MAKEFILE_TEMPLATE = "{}/templates/subdir.mk.jinja".format(
+    SCRIPT_PATH
 )
 ARM_BUILD_DIRECTORY = "{}/arm_build".format(SCRIPT_PATH)
-ARM_MAKEFILE_TEMPLATE = "{}/Makefile.jinja".format(ARM_BUILD_DIRECTORY)
+ARM_MAKEFILE_TEMPLATE = "{}/templates/Makefile.jinja".format(
+    SCRIPT_PATH
+)
 ARM_MAKEFILE_OUT = "{}/Makefile".format(ARM_BUILD_DIRECTORY)
 ARM_CODE_OUT = "{}/{}".format(ARM_BUILD_DIRECTORY, DEFAULT_ARM_CODE)
 ARM_HEADER_OUT = "{}/{}".format(ARM_BUILD_DIRECTORY, DEFAULT_ARM_HEADER)
@@ -75,6 +77,7 @@ ARM_ENCLAVE_LIBRARY = "{}/enclave_library.cpp".format(ENCLAVE_LIBRARY_DIRECTORY)
 ARM_ENCLAVE_LIBRARY_HEADER = "{}/enclave_library.h".format(
     ENCLAVE_LIBRARY_DIRECTORY
 )
+LOAD_SCRIPT = "{}/lscript.ld".format(SCRIPT_PATH)
 
 
 def parse_compilation_config(compilation_config_file):
@@ -82,9 +85,14 @@ def parse_compilation_config(compilation_config_file):
         return json.loads(config_file_handle.read())
 
 def clean_build_directory(directory):
-    for f in os.listdir(directory):
-        if re.match(".\.c$", f) or re.match(".\.h$", f):
-            os.remove(os.path.join(directory, f))
+    # for f in os.listdir(directory):
+    #     if re.match(".\.c$", f) or re.match(".\.h$", f):
+    #         os.remove(os.path.join(directory, f))
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
+    os.makedirs(directory)
+    print("Created directory: {}".format(directory))
+
 
 def copy_sources_includes(source, destination):
     if os.path.isfile(source):
@@ -102,8 +110,8 @@ def generate_microblaze_makefiles(compilation_config):
         includes = microblaze_config["includes"]
         include_directories = microblaze_config["include_directories"]
         program_name = compilation_config["program_name"]
-        clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
-        clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
+        # clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
+        # clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
         sources_all = (
             sources + source_directories + includes + include_directories
         )
@@ -133,7 +141,7 @@ def generate_arm_makefile(compile_config, cross_compile=""):
         libraries = arm_config["libraries"]
         library_directories = arm_config["library_directories"]
         program_name = compile_config["program_name"]
-        clean_build_directory(ARM_BUILD_DIRECTORY)
+        # clean_build_directory(ARM_BUILD_DIRECTORY)
         sources_all = (
             sources + source_directories + includes + include_directories
         )
@@ -307,6 +315,9 @@ if __name__ == "__main__":
         help="File to output microblaze header to",
         default="microblaze_protocol_header.h"
     )
+    clean_build_directory(ARM_BUILD_DIRECTORY)
+    clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
+    clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
     args = parser.parse_args()
     system_config = parse_system_config(args.system_configuration)
     function_definitions = parse_function_definitions(args.function_definitions)
@@ -395,6 +406,7 @@ if __name__ == "__main__":
             shutil.copy2(
                 MICROBLAZE_ENCLAVE_LIBRARY, MICROBLAZE_BUILD_SRC_DIRECTORY
             )
+            shutil.copy(LOAD_SCRIPT, MICROBLAZE_BUILD_DIRECTORY)
             microblaze_build = subprocess.call(
                 shlex.split("make clean all"),
                 cwd=MICROBLAZE_BUILD_DIRECTORY,

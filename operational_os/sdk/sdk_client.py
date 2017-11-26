@@ -153,22 +153,33 @@ if __name__ == "__main__":
                 for i in range(0x100):
                     signed_message.append(attestation_binary[0x40 + i])
                 print("Public key:\n{}".format(binascii.hexlify(public_key)))
+                print("Server Public key len:\n{}".format(
+                    binascii.hexlify(server_public_key)
+                ))
                 print("Signed message:\n{}".format(
-                    binascii.hexlify(signed_message)
+                    len(str(binascii.hexlify(signed_message), 'ascii'))
+                ))
+                print("Signature:\n{}".format(
+                    str(binascii.hexlify(signature), 'ascii')
                 ))
                 vk = ed25519.VerifyingKey(
-                    binascii.hexlify(server_public_key),
-                    encoding="hex"
+                    bytes(server_public_key)
                 )
+                # encoding="hex"
+                print(vk.to_ascii(encoding="hex"))
                 try:
                     vk.verify(
-                        binascii.hexlify(signature),
-                        binascii.hexlify(signed_message),
-                        encoding="hex"
+                        bytes(signature),
+                        bytes(signed_message)
                     )
+                    # binascii.hexlify(signature),
+                    # binascii.hexlify(signed_message),
+                    # encoding="hex"
                     print("Verification passed")
                 except ed25519.BadSignatureError:
                     print("Verification failed")
+                    sk,vk = ed25519.create_keypair()
+                    print(vk.to_ascii(encoding="hex"))
             elif exists:
                 print("Attestation pending")
             else:

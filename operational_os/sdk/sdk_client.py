@@ -5,6 +5,7 @@ import requests
 import time
 import binascii
 import base64
+import ed25519
 
 def check_attestation_ticket(base_url, ticket):
     url = "{}/{}".format(base_url, "attestation/result/{}".format(ticket))
@@ -19,10 +20,10 @@ def check_attestation_ticket(base_url, ticket):
 
 def start_attestation(base_url, message_file):
     url = "{}/{}".format(base_url, "attestation/request")
-    with open(message_file) as file_handle:
-        attestation_data = file_handle.read()
+    with open(message_file, "rb") as file_handle:
+        attestation_data = file_handle.read(32)
     response = requests.post(url, data={
-        "attestation_data": attestation_data
+        "attestation_data": bytearray(attestation_data)
     })
     return response.json()["ticket"]
 
@@ -77,6 +78,10 @@ if __name__ == "__main__":
         help="Check the status of the attestation ticket",
         type=int
     )
+    attestation_parser.add_argument(
+        "--verification_file",
+        help="File to verify in the remote attestation"
+    )
     args = parser.parse_args()
     hostname = args.server
     port = args.port
@@ -116,12 +121,35 @@ if __name__ == "__main__":
                 start_attestation(base_url, args.message_file)
             ))
         elif args.check_ticket is not None:
-            print("here")
             attestation_data, exists = check_attestation_ticket(
                 base_url, args.check_ticket
             )
             if attestation_data:
                 print("Attestation data:\n{}".format(attestation_data))
+                print("Attestation length: {}".format(len(attestation_data)))
+                attestation_binary = binascii.unhexlify(attestation_data)
+                signature = bytearray()
+                enclave_hash = bytearray()
+                public_key = bytearray()
+                enclave_message = bytearray()
+                signed_message = bytearray()
+                for i in range(0x40):
+                    signature.append(attestation_binary[i])
+                # print("Signature:\n0x{}")
+                for i in range(0x40):
+                    enclave_hash.append(attestation_binary[0x40 + i])
+                for i in range(0x20):
+                    public_key.append(attestation_binary[0x80 + i])
+                for i in range(0xA0):
+                    enclave_message.append(attestation_data[0xA0 + i])
+                for i in range(0x100):
+                    signed_message.append(attestation_data[0x40 + i])
+                vk = VerifyingKey(public_key)
+                try:
+                    vk.verigy(signature, signed_message)
+                    print("Verification passed")
+                except ed25519.BadSignatureError:
+                    print("Verification failed")
             elif exists:
                 print("Attestation pending")
             else:

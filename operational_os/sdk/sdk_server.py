@@ -65,10 +65,10 @@ def initialize_ecdsa_key_dev(key_file):
         private_key = key_file_handle.read(64)
         server_public_key = bytearray(public_key)
     secure_storage = DevMem(secure_storage_dev, length=secure_storage_length)
-    for i in range(0x20):
-        secure_storage.write(public_offset + i, public_key[i])
-    for i in range(0x40):
-        secure_storage.write(private_offset + i, private_key[i])
+#    for i in range(0x20):
+    secure_storage.write(public_offset, public_key)
+#    for i in range(0x40):
+    secure_storage.write(private_offset, private_key)
 
 ##########################################
 # Initialize app and loop

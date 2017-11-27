@@ -5,10 +5,10 @@
 #include "arm_protocol_header.h"
 #include "enclave_library.h"
 
-#define MAX_SIZE_BUFFER 0x400
-#define EXPERIMENT_RUNS_DEFAULT 32
+#define MAX_SIZE_BUFFER 0x10000
+#define EXPERIMENT_RUNS_DEFAULT 512
 #define RUN_ITERATIONS_DEFAULT 50
-#define INCREMENT_DEFAULT 32
+#define INCREMENT_DEFAULT 80
 
 int main(int argc, char **argv){
   int run, iteration, data_size, runs_total, iterations_total, increment, i;
@@ -48,12 +48,16 @@ int main(int argc, char **argv){
     fprintf(stderr, "Data length: %i\n", data_size);
     for(iteration=0; iteration<iterations_total; iteration++){
       iteration_start = clock();
-      sha512_run(data_buffer, &data_size, sha_out);
+      sha512_run_init();
+      for(i=0; i<data_size/0x80; i++){
+        sha512_run_update(data_buffer + i*0x80, 0x80);
+      }
+      sha512_run_final(sha_out);
       iteration_end = clock();
       elapsed = ((double)(iteration_end - iteration_start))/CLOCKS_PER_SEC;
       printf("%i,%f\n", data_size, elapsed);
-      sha512(data_buffer, data_size, sha_ref);
-/*      printf("Microblaze hash:\n0x");
+/*      sha512(data_buffer, data_size, sha_ref);
+      printf("Microblaze hash:\n0x");
       for(i=0; i<0x40; i++){
         printf("%02x", sha_out[i]);
       }

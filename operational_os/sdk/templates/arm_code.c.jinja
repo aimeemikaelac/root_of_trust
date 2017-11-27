@@ -33,7 +33,8 @@
   //render code for loading input buffers
   {% for input in entry.inputs %}
   for(i=0; i<{{ (input.length/4)|int }}; i++){
-    {{ input.name }}_shared[i] = ((unsigned int*){{ input.name }})[i];
+    //{{ input.name }}_shared[i] = ((unsigned int*){{ input.name }})[i];
+    writeValueToAddress(((unsigned int*){{ input.name }})[i], SHARED_BUFFER + {{ input.start }} + i);
   }
   {% endfor %}
 
@@ -48,14 +49,16 @@
   //render code for loading outputs
   {% for output in entry.outputs %}
   for(i=0; i<{{ (output.length/4)|int }}; i++){
-    ((unsigned int*){{ output.name }})[i] = {{ output.name }}_shared[i];
+//    ((unsigned int*){{ output.name }})[i] = {{ output.name }}_shared[i];
+    ((unsigned int*){{ output.name }})[i] = getValueAtAddress(SHARED_BUFFER_ADDRESS + {{ output.start }} + i);
   }
   {% endfor %}
 
   //render extracting return value
   {% if entry.return_buffer %}
   for(i=0; i<{{ entry.return_buffer.buffer_length }}; i++){
-    {{ entry.return_buffer.name }}[i] = return_shared[i];
+    //{{ entry.return_buffer.name }}[i] = return_shared[i];
+    {{ entry.return_buffer.name }}[i] = getValueAtAddress(SHARED_BUFFER_SIZE + {{ entry.return_buffer.start }} +i);
   }
   {% endif %}
   pthread_mutex_unlock(&ecall_lock);

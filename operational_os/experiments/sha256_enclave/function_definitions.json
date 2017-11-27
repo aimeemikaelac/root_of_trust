@@ -6,7 +6,7 @@
         {
           "name":"data_in",
           "type":"unsigned char",
-          "length":4096
+          "length":1024
         },
         {
           "name":"data_len",

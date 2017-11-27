@@ -5,7 +5,7 @@
 #include "arm_protocol_header.h"
 #include "enclave_library.h"
 
-#define MAX_SIZE_BUFFER 0x100
+#define MAX_SIZE_BUFFER 0x400
 #define EXPERIMENT_RUNS_DEFAULT 100
 #define RUN_ITERATIONS_DEFAULT 50
 #define INCREMENT_DEFAULT 256

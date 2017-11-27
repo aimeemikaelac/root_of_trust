@@ -163,7 +163,9 @@ def generate_arm_makefile(compile_config, cross_compile=""):
         return render_template(
             ARM_MAKEFILE_TEMPLATE,
             {
-                "include_dirs": " ".join(include_directories),
+                "include_dirs": " ".join(
+                    ["-I" + x for x in include_directories]
+                ),
                 "lib_dirs": " ".join(library_directories),
                 "libs": " ".join(libraries),
                 "program_name": program_name,

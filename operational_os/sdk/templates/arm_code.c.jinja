@@ -2,11 +2,15 @@
 #include "system_config.h"
 #include "{{ header_file_name }}"
 
+shared_memory shared_mem = NULL;
+
 {% for entry in functions %}
 {{ entry.return_type }} {{ entry.function_name }}({{ ", ".join(entry.argument_list) }}){
   //TODO: make the shared buffer a global
   pthread_mutex_lock(&ecall_lock);
-  shared_memory shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
+  if(shared_mem == NULL){
+    shared_mem = getSharedMemoryArea(SHARED_BUFFER, SHARED_BUFFER_SIZE);
+  }
   int i;
   volatile unsigned char *memory_pointer = (volatile unsigned char*)(shared_mem->ptr);
   volatile unsigned int *buffer = (unsigned int*)memory_pointer;
@@ -63,7 +67,7 @@
   }
   {% endif %}
   pthread_mutex_unlock(&ecall_lock);
-  cleanupSharedMemoryPointer(shared_mem);
+//  cleanupSharedMemoryPointer(shared_mem);
   {% if entry.return_buffer %}
   return ({{ entry.return_type }}*)(*{{ entry.return_buffer.name }});
   {% endif %}

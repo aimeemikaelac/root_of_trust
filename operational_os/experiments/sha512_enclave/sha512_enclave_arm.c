@@ -6,17 +6,17 @@
 #include "enclave_library.h"
 #include "sha512.h"
 
-#define MAX_SIZE_BUFFER 0x10000
-#define EXPERIMENT_RUNS_DEFAULT 512
-#define RUN_ITERATIONS_DEFAULT 50
-#define INCREMENT_DEFAULT 80
+#define MAX_SIZE_BUFFER 0x100000
+#define EXPERIMENT_RUNS_DEFAULT 0x100
+#define RUN_ITERATIONS_DEFAULT 100
+#define INCREMENT_DEFAULT 0x1000
 
 int main(int argc, char **argv){
   int run, iteration, data_size, runs_total, iterations_total, increment, i, block_size=0x80;
   unsigned int seed;
   clock_t iteration_start, iteration_end, ref_start, ref_end;
   double elapsed, ref_elapsed;
-  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x400], sha_ref[0x40], *current_buffer;
+  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x40], sha_ref[0x40], *current_buffer;
   sha512_context context;
   if(argc > 1){
     runs_total = atoi(argv[1]);
@@ -45,23 +45,29 @@ int main(int argc, char **argv){
 //  data_size = 0x100;
 //  sha512_run(data_buffer, &data_size, sha_out);
   data_size = increment;
-  for(run=0; run<runs_total; run++){
+//  for(run=0; run<runs_total; run++){
+  while(data_size <= MAX_SIZE_BUFFER){
 //    data_size = (increment*(run+1));
 //    fprintf(stderr, "Data length: %i\n", data_size);
+//    current_buffer = data_buffer;
     for(iteration=0; iteration<iterations_total; iteration++){
       iteration_start = clock();
+      current_buffer = data_buffer;
       sha512_run_init();
       for(i=0; i<data_size/0x80; i++){
-        current_buffer = data_buffer + i*0x80;
+//        current_buffer = data_buffer + i*0x80;
         sha512_run_update(current_buffer);
+        current_buffer += 0x80;
       }
       sha512_run_final(sha_out);
       iteration_end = clock();
       ref_start = clock();
+      current_buffer = data_buffer;
       sha512_init(&context);
       for(i=0; i<data_size/0x80; i++){
-        current_buffer = data_buffer + i*0x80;
+ //       current_buffer = data_buffer + i*0x80;
         sha512_update(&context, current_buffer, 0x80);
+        current_buffer += 0x80;
       }
       sha512_final(&context, sha_ref);
       ref_end = clock();
@@ -89,7 +95,8 @@ int main(int argc, char **argv){
         return -1;
       }
     }
-    data_size+=increment;
+    data_size*=2;
   }
+  printf("\n");
   return 0;
 }

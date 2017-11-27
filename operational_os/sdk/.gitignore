@@ -2,3 +2,4 @@ test/
 microblaze_build/
 arm_build/
 Secure-Hardware/
+**/__pycache__

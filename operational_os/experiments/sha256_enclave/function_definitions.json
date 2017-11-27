@@ -1,7 +1,7 @@
 {
   "trusted":[
     {
-      "name":"sha512_run",
+      "name":"sha512_run_init",
       "inputs":[],
       "outputs":[]
     },

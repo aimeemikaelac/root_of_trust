@@ -12,11 +12,6 @@
           "name":"data_in",
           "type":"unsigned char",
           "length":128
-        },
-        {
-          "name":"data_len",
-          "type":"int",
-          "length":4
         }
       ],
       "outputs":[]

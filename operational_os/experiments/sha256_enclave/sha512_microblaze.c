@@ -7,15 +7,16 @@ void sha512_run_init(){
   sha512_init(&context);
 }
 
-void sha512_run_update(unsigned char *data_in, int *data_len){
-  // int i;
-  int length = *data_len;
+void sha512_run_update(unsigned char *data_in){
+  int i;
+  // int length = *data_len;
   // unsigned char data[0x400], hash_result[0x40];
-  // for(i=0; i<length; i++){
-  //   data[i] = data_in[i];
-  // }
+  unsigned char block[0x80];
+  for(i=0; i<0x80; i++){
+    block[i] = data_in[i];
+  }
   // sha512_update(&context, (const unsigned char*)data, length);
-  sha512_update(&context, data_in, length);
+  sha512_update(&context, block, 0x80);
 }
 
 void sha512_run_final(unsigned char *hash_out){

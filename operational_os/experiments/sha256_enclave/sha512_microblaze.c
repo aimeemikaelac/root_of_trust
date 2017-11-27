@@ -20,5 +20,10 @@ void sha512_run_update(unsigned char *data_in){
 }
 
 void sha512_run_final(unsigned char *hash_out){
-  sha512_final(&context, hash_out);
+  int i;
+  unsigned char out[0x40];
+  sha512_final(&context, out);
+  for(i=0; i<0x40; i++){
+    hash_out[i] = out[i];
+  }
 }

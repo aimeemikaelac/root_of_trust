@@ -6,7 +6,7 @@
 #include "enclave_library.h"
 
 #define MAX_SIZE_BUFFER 0x400
-#define EXPERIMENT_RUNS_DEFAULT 100
+#define EXPERIMENT_RUNS_DEFAULT 4
 #define RUN_ITERATIONS_DEFAULT 50
 #define INCREMENT_DEFAULT 256
 
@@ -15,8 +15,8 @@ int main(int argc, char **argv){
   unsigned int seed;
   clock_t iteration_start, iteration_end;
   double elapsed;
-  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x40];
-/*  if(argc > 1){
+  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x400], sha_ref[0x40];
+  if(argc > 1){
     runs_total = atoi(argv[1]);
     increment = (int)(MAX_SIZE_BUFFER/runs_total);
   } else{
@@ -27,7 +27,7 @@ int main(int argc, char **argv){
     iterations_total = atoi(argv[2]);
   } else{
     iterations_total = RUN_ITERATIONS_DEFAULT;
-  }*/
+  }
   //generate data
   if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
     fprintf(stderr, "Error getting random seed\n");
@@ -40,10 +40,10 @@ int main(int argc, char **argv){
   enclave_init_with_file("sha512_enclave.bin");
   //print csv header
   printf("DATA_SIZE,TIME\n");
-  data_size = 0x100;
-  sha512_run(data_buffer, &data_size, sha_out);
-//  data_size = increment;
-/*  for(run=0; run<runs_total; run++){
+//  data_size = 0x100;
+//  sha512_run(data_buffer, &data_size, sha_out);
+  data_size = increment;
+  for(run=0; run<runs_total; run++){
 //    data_size = (increment*(run+1));
     fprintf(stderr, "Data length: %i\n", data_size);
     for(iteration=0; iteration<iterations_total; iteration++){
@@ -52,8 +52,18 @@ int main(int argc, char **argv){
       iteration_end = clock();
       elapsed = ((double)(iteration_end - iteration_start))/CLOCKS_PER_SEC;
       printf("%i,%f\n", data_size, elapsed);
-      data_size+=increment;
+      sha512(data_buffer, data_size, sha_ref);
+      printf("Microblaze hash:\n0x");
+      for(i=0; i<0x40; i++){
+        printf("%02x", sha_out[i]);
+      }
+      printf("\nCorrect hash:\n0x");
+      for(i=0; i<0x40; i++){
+        printf("%02x", sha_ref[i]);
+      }
+      printf("\n");
     }
-  }*/
+    data_size+=increment;
+  }
   return 0;
 }

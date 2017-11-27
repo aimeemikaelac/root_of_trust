@@ -7,8 +7,8 @@ void sha512_run(unsigned char *data_in, int *data_len, unsigned char *hash_out){
   for(i=0; i<*data_len; i++){
     data[i] = data_in[i];
   }
-  // sha512((const unsigned char*)data, *data_len, hash_result);
+  sha512((const unsigned char*)data, *data_len, hash_result);
   for(i=0; i<0x40; i++){
-    hash_out[i] = 0xFF;
+    hash_out[i] = data[i];
   }
 }

@@ -7,9 +7,9 @@ void sha512_run(unsigned char *data_in, int *data_len, unsigned char *hash_out){
   for(i=0; i<length; i++){
     data[i] = data_in[i];
   }
-  if(sha512((const unsigned char*)data, *data_len, hash_result) == 0){
+  if(sha512((const unsigned char*)data, length, hash_result) == 0){
     for(i=0; i<0x40; i++){
-      hash_out[i] = data[i];
+      hash_out[i] = hash_result[i];
     }
   } else{
     for(i=0; i<0x40; i++){

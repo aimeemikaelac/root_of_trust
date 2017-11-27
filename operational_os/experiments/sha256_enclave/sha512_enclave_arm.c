@@ -4,6 +4,7 @@
 #include <sys/syscall.h>
 #include "arm_protocol_header.h"
 #include "enclave_library.h"
+#include "sha512.h"
 
 #define MAX_SIZE_BUFFER 0x10000
 #define EXPERIMENT_RUNS_DEFAULT 512
@@ -11,11 +12,12 @@
 #define INCREMENT_DEFAULT 80
 
 int main(int argc, char **argv){
-  int run, iteration, data_size, runs_total, iterations_total, increment, i;
+  int run, iteration, data_size, runs_total, iterations_total, increment, i, block_size=0x80;
   unsigned int seed;
-  clock_t iteration_start, iteration_end;
-  double elapsed;
-  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x400], sha_ref[0x40];
+  clock_t iteration_start, iteration_end, ref_start, ref_end;
+  double elapsed, ref_elapsed;
+  unsigned char data_buffer[MAX_SIZE_BUFFER], sha_out[0x400], sha_ref[0x40], *current_buffer;
+  sha512_context context;
   if(argc > 1){
     runs_total = atoi(argv[1]);
     increment = (int)(MAX_SIZE_BUFFER/runs_total);
@@ -39,33 +41,53 @@ int main(int argc, char **argv){
   }
   enclave_init_with_file("sha512_enclave.bin");
   //print csv header
-  printf("DATA_SIZE,TIME\n");
+  printf("DATA_SIZE,MICROBLAZE_TIME,REFERENCE_TIME\n");
 //  data_size = 0x100;
 //  sha512_run(data_buffer, &data_size, sha_out);
   data_size = increment;
   for(run=0; run<runs_total; run++){
 //    data_size = (increment*(run+1));
-    fprintf(stderr, "Data length: %i\n", data_size);
+//    fprintf(stderr, "Data length: %i\n", data_size);
     for(iteration=0; iteration<iterations_total; iteration++){
       iteration_start = clock();
       sha512_run_init();
       for(i=0; i<data_size/0x80; i++){
-        sha512_run_update(data_buffer + i*0x80, 0x80);
+        current_buffer = data_buffer + i*0x80;
+        sha512_run_update(current_buffer);
       }
       sha512_run_final(sha_out);
       iteration_end = clock();
+      ref_start = clock();
+      sha512_init(&context);
+      for(i=0; i<data_size/0x80; i++){
+        current_buffer = data_buffer + i*0x80;
+        sha512_update(&context, current_buffer, 0x80);
+      }
+      sha512_final(&context, sha_ref);
+      ref_end = clock();
       elapsed = ((double)(iteration_end - iteration_start))/CLOCKS_PER_SEC;
-      printf("%i,%f\n", data_size, elapsed);
-/*      sha512(data_buffer, data_size, sha_ref);
-      printf("Microblaze hash:\n0x");
+      ref_elapsed = ((double)(ref_end - ref_start))/CLOCKS_PER_SEC;
+      printf("%i,%f,%f\n", data_size, elapsed, ref_elapsed);
+//      sha512(data_buffer, data_size, sha_ref);
+      int correct = 1;
       for(i=0; i<0x40; i++){
-        printf("%02x", sha_out[i]);
+        if(sha_ref[i] != sha_out[i]){
+          correct = 0;
+          break;
+        }
       }
-      printf("\nCorrect hash:\n0x");
-      for(i=0; i<0x40; i++){
-        printf("%02x", sha_ref[i]);
+      if(correct == 0){
+        printf("Microblaze hash:\n0x");
+        for(i=0; i<0x40; i++){
+          printf("%02x", sha_out[i]);
+        }
+        printf("\nCorrect hash:\n0x");
+        for(i=0; i<0x40; i++){
+          printf("%02x", sha_ref[i]);
+        }
+        printf("\n");
+        return -1;
       }
-      printf("\n");*/
     }
     data_size+=increment;
   }

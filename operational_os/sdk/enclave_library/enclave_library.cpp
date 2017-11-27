@@ -138,7 +138,7 @@ int enclave_init_with_file(char const *filename){
   while(is.get(current_char)){
     //clear the buffer
     if(buffer_index == 0){
-      printf("Clearing buffer\n");
+//      printf("Clearing buffer\n");
       control[0x8] = 0;
       control[0xC] = 0;
       for(i=0; i<HASH_BLOCK_SIZE; i++){
@@ -153,7 +153,7 @@ int enclave_init_with_file(char const *filename){
     count++;
     //if block finished, set signal, wait for hashing to complete
     if(buffer_index >= HASH_BLOCK_SIZE){
-      printf("Waiting for hash\n");
+//      printf("Waiting for hash\n");
       *count_out = count;
       control[0x8] = 0xFF;
 //      printf("Buffer index: %i\n", buffer_index);
@@ -161,9 +161,9 @@ int enclave_init_with_file(char const *filename){
         __asm__("");
         asm("");
       }
-      printf("Iteration %i\n", iteration);
+//      printf("Iteration %i\n", iteration);
       iteration++;
-      printf("Hash finished\n");
+//      printf("Hash finished\n");
       buffer_index=0;
     }
   }
@@ -171,12 +171,12 @@ int enclave_init_with_file(char const *filename){
   *count_out = count;
   control[0x10] = 0xFF;
   control[0x8] = 0xFF;
-  printf("Waiting for finish\n");
+  fprintf(stderr, "Waiting for program hash and load to finish\n");
   while(control[0x14] == 0){
     asm("");
     __asm__("");
   }
-  printf("Finished hash all\n");
+  fprintf(stderr, "Program hash and load finished\n");
   // fclose(program_file);
   is.close();
   cleanupSharedMemoryPointer(program_buffer);

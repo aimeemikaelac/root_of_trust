@@ -6,9 +6,9 @@
 #include "enclave_library.h"
 
 #define MAX_SIZE_BUFFER 0x400
-#define EXPERIMENT_RUNS_DEFAULT 4
+#define EXPERIMENT_RUNS_DEFAULT 32
 #define RUN_ITERATIONS_DEFAULT 50
-#define INCREMENT_DEFAULT 256
+#define INCREMENT_DEFAULT 32
 
 int main(int argc, char **argv){
   int run, iteration, data_size, runs_total, iterations_total, increment, i;
@@ -53,7 +53,7 @@ int main(int argc, char **argv){
       elapsed = ((double)(iteration_end - iteration_start))/CLOCKS_PER_SEC;
       printf("%i,%f\n", data_size, elapsed);
       sha512(data_buffer, data_size, sha_ref);
-      printf("Microblaze hash:\n0x");
+/*      printf("Microblaze hash:\n0x");
       for(i=0; i<0x40; i++){
         printf("%02x", sha_out[i]);
       }
@@ -61,7 +61,7 @@ int main(int argc, char **argv){
       for(i=0; i<0x40; i++){
         printf("%02x", sha_ref[i]);
       }
-      printf("\n");
+      printf("\n");*/
     }
     data_size+=increment;
   }

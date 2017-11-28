@@ -6,6 +6,12 @@ import time
 import binascii
 import base64
 import ed25519
+import hashlib
+
+#using Python bindings for ed25519 from:
+#https://github.com/warner/python-ed25519
+
+SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 def check_attestation_ticket(base_url, ticket):
     url = "{}/{}".format(base_url, "attestation/result/{}".format(ticket))
@@ -31,6 +37,100 @@ def get_public_key(base_url):
     url = "{}/{}".format(base_url, "public_key")
     response = requests.get(url)
     return response.json()["public_key"]
+
+
+def get_shared_secret(secret_key_file, enclave_public_key):
+    # a file with the secret key in the first 64 bytes
+    # 1. write the enclave public key to a fule
+    # 2. call a c program that reads from these files and writes the shared
+    # secret to another file
+    # 3. read from this file and return the shared secret
+    secret_file = "secret_out.bin"
+    enclave_public_key_file = "enclave_public_key"
+    with open(enclave_public_key_file, "wb") as public_handle:
+        public_handle.write(enclave_public_key)
+    key_return_code = subprocess.call(
+        shlex.split("{}/key_exchange/key_exchange {} {} {}".format(
+            os.path.abspath(enclave_public_key_file),
+            os.path.abspath(secret_key_file),
+            os.path.abspath(secret_file)
+        )
+    )
+    if key_return_code != 0:
+        return None
+    with open(secret_file, "rb") as secret_handle:
+        shared_secret = bytes(secret_file.read())
+    return shared_secret
+
+
+def verify_attestation(
+    attestation_data, verify_file=None, secret_key_file=None
+):
+    server_public_key = bytearray(
+        binascii.unhexlify(get_public_key(base_url))
+    )
+    print("Attestation data:\n{}".format(attestation_data))
+    print("Attestation length: {}".format(len(attestation_data)))
+    attestation_binary = binascii.unhexlify(attestation_data)
+    signature = bytearray()
+    enclave_hash = bytearray()
+    public_key = bytearray()
+    enclave_message = bytearray()
+    signed_message = bytearray()
+    for i in range(0x40):
+        signature.append(attestation_binary[i])
+    # print("Signature:\n0x{}")
+    for i in range(0x40):
+        enclave_hash.append(attestation_binary[0x40 + i])
+    for i in range(0x20):
+        public_key.append(attestation_binary[0x80 + i])
+    for i in range(0xA0):
+        enclave_message.append(attestation_binary[0xA0 + i])
+    for i in range(0x100):
+        signed_message.append(attestation_binary[0x40 + i])
+    print("Public key:\n{}".format(binascii.hexlify(public_key)))
+    print("Server Public key len:\n{}".format(
+        binascii.hexlify(server_public_key)
+    ))
+    print("Signed message:\n{}".format(
+        len(str(binascii.hexlify(signed_message), 'ascii'))
+    ))
+    print("Signature:\n{}".format(
+        str(binascii.hexlify(signature), 'ascii')
+    ))
+    vk = ed25519.VerifyingKey(
+        bytes(server_public_key)
+    )
+    print(vk.to_ascii(encoding="hex"))
+    try:
+        vk.verify(
+            bytes(signature),
+            bytes(signed_message)
+        )
+        print("Verification passed")
+        if verify_file:
+            sha512 = hashlib.sha512()
+            with open(verify_file, "rb") as verify_file_handle:
+                sha512.update(verify_file_handle.read())
+            verify_hash = sha512.digest()
+            if verify_hash == enclave_hash:
+                print(
+                    "Remote hash matches hash of {}. Attstation "
+                    "success.".format(verify_file))
+                if secret_key_file:
+                    shared_secret = get_shared_secret(secret_key_file)
+                    return True, True, shared_secret
+                else:
+                    return True, True, None
+            else:
+                return True, False, None
+                print("Remote hash does not match. Attestation failed.")
+    except ed25519.BadSignatureError:
+        print("Verification failed")
+        # sk,vk = ed25519.create_keypair()
+        # print(vk.to_ascii(encoding="hex"))
+        return False, False, None
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -87,6 +187,10 @@ if __name__ == "__main__":
         "--verification_file",
         help="File to verify in the remote attestation"
     )
+    attestation_parser.add_argument(
+        "--secret_key_file",
+        help="File containing the ed25519 private key for use in key exchange"
+    )
     args = parser.parse_args()
     hostname = args.server
     port = args.port
@@ -130,56 +234,11 @@ if __name__ == "__main__":
                 base_url, args.check_ticket
             )
             if attestation_data:
-                server_public_key = bytearray(
-                    binascii.unhexlify(get_public_key(base_url))
+                verify_attestation(
+                    attestation_data,
+                    verify_file=args.verification_file,
+                    secret_key_file=args.secret_key_file
                 )
-                print("Attestation data:\n{}".format(attestation_data))
-                print("Attestation length: {}".format(len(attestation_data)))
-                attestation_binary = binascii.unhexlify(attestation_data)
-                signature = bytearray()
-                enclave_hash = bytearray()
-                public_key = bytearray()
-                enclave_message = bytearray()
-                signed_message = bytearray()
-                for i in range(0x40):
-                    signature.append(attestation_binary[i])
-                # print("Signature:\n0x{}")
-                for i in range(0x40):
-                    enclave_hash.append(attestation_binary[0x40 + i])
-                for i in range(0x20):
-                    public_key.append(attestation_binary[0x80 + i])
-                for i in range(0xA0):
-                    enclave_message.append(attestation_binary[0xA0 + i])
-                for i in range(0x100):
-                    signed_message.append(attestation_binary[0x40 + i])
-                print("Public key:\n{}".format(binascii.hexlify(public_key)))
-                print("Server Public key len:\n{}".format(
-                    binascii.hexlify(server_public_key)
-                ))
-                print("Signed message:\n{}".format(
-                    len(str(binascii.hexlify(signed_message), 'ascii'))
-                ))
-                print("Signature:\n{}".format(
-                    str(binascii.hexlify(signature), 'ascii')
-                ))
-                vk = ed25519.VerifyingKey(
-                    bytes(server_public_key)
-                )
-                # encoding="hex"
-                print(vk.to_ascii(encoding="hex"))
-                try:
-                    vk.verify(
-                        bytes(signature),
-                        bytes(signed_message)
-                    )
-                    # binascii.hexlify(signature),
-                    # binascii.hexlify(signed_message),
-                    # encoding="hex"
-                    print("Verification passed")
-                except ed25519.BadSignatureError:
-                    print("Verification failed")
-                    sk,vk = ed25519.create_keypair()
-                    print(vk.to_ascii(encoding="hex"))
             elif exists:
                 print("Attestation pending")
             else:

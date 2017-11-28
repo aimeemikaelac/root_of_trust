@@ -7,6 +7,8 @@ import binascii
 import base64
 import ed25519
 import hashlib
+import subprocess
+import shlex
 
 #using Python bindings for ed25519 from:
 #https://github.com/warner/python-ed25519
@@ -60,6 +62,8 @@ def get_shared_secret(secret_key_file, enclave_public_key):
         return None
     with open(secret_file, "rb") as secret_handle:
         shared_secret = bytes(secret_file.read())
+    print("Shared secret is available in file: {}".format(secret_file))
+    print("Shared secret is: {}".binascii.hexlify(shared_secret))
     return shared_secret
 
 
@@ -223,14 +227,23 @@ if __name__ == "__main__":
             while attestation_data is None:
                 #TODO: keep alive here
                 time.sleep(1)
-                attestation_data = check_attestation_ticket(base_url, ticket)
-            print("Attestation data:\n{}".format(attestation_data))
+                attestation_data, ticket_exists = check_attestation_ticket(
+                    base_url, ticket
+                )
+                if not ticket_exists:
+                    print("Ticket not found. Error in attestation\n");
+                    return
+            verify_attestation(
+                attestation_data,
+                verify_file=args.verification_file,
+                secret_key_file=args.secret_key_file
+            )
         elif args.send_begin_attestation:
             print("Ticket:\n{}".format(
                 start_attestation(base_url, args.message_file)
             ))
         elif args.check_ticket is not None:
-            attestation_data, exists = check_attestation_ticket(
+            attestation_data, ticket_exists = check_attestation_ticket(
                 base_url, args.check_ticket
             )
             if attestation_data:
@@ -239,7 +252,7 @@ if __name__ == "__main__":
                     verify_file=args.verification_file,
                     secret_key_file=args.secret_key_file
                 )
-            elif exists:
+            elif ticket_exists:
                 print("Attestation pending")
             else:
                 print("Ticket not found")

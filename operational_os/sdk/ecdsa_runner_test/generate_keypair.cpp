@@ -12,10 +12,13 @@ int main(){
     return -1;
   }
   ed25519_create_keypair(public_key, private_key, seed);
-  ofstream message_file;
-  message_file.open("message_file.bin", ofstream::out | ofstream::binary | ofstream::trunc);
-  message_file.write((char*)public_key, 32);
-  message_file.write((char*)private_key, 64);
-  message_file.close();
+  ofstream public_file;
+  ofstream private_file;
+  public_file.open("public_key.bin", ofstream::out | ofstream::binary | ofstream::trunc);
+  public_file.write((char*)public_key, 32);
+  public_file.close();
+  private_file.open("private_key.bin", ofstream::out | ofstream::binary | ofstream::trunc);
+  private_file.write((char*)private_key, 64);
+  private_file.close();
   return 0;
 }

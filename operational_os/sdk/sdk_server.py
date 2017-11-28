@@ -13,9 +13,11 @@ import json
 import threading
 import binascii
 import base64
+import pexpect
+import time
 from devmem import DevMem
 from threading import Thread
-from program_memory import write_bin_file_data, trigger_reset
+from program_memory import write_bin_file, trigger_reset
 # from microblaze_utils import write_shared_buffer
 # from ecdsa_utils import generate_ecdsa_attestation
 from flask import Flask, request
@@ -31,26 +33,43 @@ from thrift.protocol import TBinaryProtocol
 # Config and Globals
 ##########################################
 
-#TODO: very much need config file for this
-MICROBLAZE_BASE_ADDRESS = 0xB0000000
-MICROBLAZE_RESET_ADDRESS = 0xA0000000
-CPU_MICROBLAZE_SHARED_BUFFER = 0xB00010000
-ATTESTATION_SYSTEM_ADDRESS = 0xA0010000
-ECDSA_BUFFER = 0xA0020000
+SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
 
-ticket_lock = threading.Lock()
-attestation_ticket = 0
+#TODO: very much need config file for this
+RESET_BASE_ADDRESS = None#0xB0010000
+ECDSA_BUFFER = None#0xA0020000
+MAX_LAUNCH_TRIES = 5
+DEV_ECDSA_BINARY = "{}/ecdsa_runner.bin".format(SCRIPT_PATH)
+DEV_SYSTEM_CONFIG = "{}/default_system_config.json".format(SCRIPT_PATH)
+
+TICKET_LOCK = threading.Lock()
+ATTESTATION_TICKET = 0
 
 #TODO: support multiple enclaves
-current_enclave = None
+CURRENT_ENCLAVE = None
 
-secure_storage_dev = 0xA0050000
-secure_storage_length = 0x1000
-private_offset = 0
-public_offset = 0x40
+SECURE_STORAGE_DEV = 0xA0050000
+SECURE_STORAGE_LENGTH = 0x1000
+SECURE_STORAGE_PRIVATE_OFFSET = 0
+SECURE_STORAGE_PUBLIC_OFFSET = 0x40
 
-server_public_key = None
-key_file_dev = "server_key_dev.bin"
+SERVER_PUBLIC_KEY = None
+SERVER_PRIVATE_KEY = None
+PUBLIC_KEY_FILE_DEV = "server_public_key_dev.bin"
+PRIVATE_KEY_FILE_DEV = "server_private_key_dev.bin"
+
+def parse_system_config(config_file):
+    with open(config_file) as handle:
+        config = json.loads(handle.read())
+    global RESET_BASE_ADDRESS
+    global ECDSA_BUFFER
+    try:
+        arm_config = config["arm"]
+        RESET_BASE_ADDRESS = arm_config["reset_controller_address"]
+        ECDSA_BUFFER = arm_config["ecdsa_memory_address"]
+    except KeyError as ke:
+        print("Error reading config file: {}".format(ke))
+        sys.exit(-1)
 
 # Run event loop in separate thread
 def start_loop(loop):
@@ -58,24 +77,32 @@ def start_loop(loop):
     print("starting event loop")
     loop.run_forever()
 
-def initialize_ecdsa_key_dev(key_file):
-    with open(key_file, "rb") as key_file_handle:
-        global server_public_key
+def initialize_ecdsa_key_dev(public_key_file, private_key_file):
+    global SERVER_PUBLIC_KEY
+    global SERVER_PRIVATE_KEY
+    with open(public_key_file, "rb") as key_file_handle:
         public_key = key_file_handle.read(32)
+    with open(private_key_file, "rb") as key_file_handle:
         private_key = key_file_handle.read(64)
-        server_public_key = bytearray(public_key)
-    secure_storage = DevMem(secure_storage_dev, length=secure_storage_length)
+    SERVER_PUBLIC_KEY = bytearray(public_key)
+    SERVER_PRIVATE_KEY = bytearray(private_key)
+    secure_storage = DevMem(SECURE_STORAGE_DEV, length=SECURE_STORAGE_LENGTH)
 #    for i in range(0x20):
-    secure_storage.write(public_offset, public_key)
+    secure_storage.write(SECURE_STORAGE_PUBLIC_OFFSET, public_key)
 #    for i in range(0x40):
-    secure_storage.write(private_offset, private_key)
+    secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
+
+def initialize_ecdsa_core_dev():
+    write_bin_file_data(DEV_ECDSA_BINARY, ECDSA_BUFFER)
+    trigger_reset(RESET_BASE_ADDRESS)
 
 ##########################################
 # Initialize app and loop
 ##########################################
 
 app = Flask(__name__)
-initialize_ecdsa_key_dev(key_file_dev)
+initialize_ecdsa_core_dev()
+initialize_ecdsa_key_dev(PUBLIC_KEY_FILE_DEV, PRIVATE_KEY_FILE_DEV)
 # Event loop for async
 event_loop = asyncio.new_event_loop()
 # Event loop in separate thread
@@ -98,10 +125,10 @@ untrusted_program = "enclave_untrusted_program.elf"
 
 
 def get_increment_ticket():
-    with ticket_lock:
-        global attestation_ticket
-        current_ticket = attestation_ticket
-        attestation_ticket += 1
+    with TICKET_LOCK:
+        global ATTESTATION_TICKET
+        current_ticket = ATTESTATION_TICKET
+        ATTESTATION_TICKET += 1
         return current_ticket
 
 
@@ -114,26 +141,33 @@ def program_enclave():
     # 2. Store a hash of the original microblaze memory in an FPGA-side
     #    buffer
     #######################
-    global current_enclave
+    global CURRENT_ENCLAVE
     # 1. Program bin file to microblaze memory
-#    program_file, binary_file = await queue.get()
     print("got item off enclave queue")
-    if current_enclave is not None:
-        current_enclave.terminate()
-#    program_file_data = bytearray(program_file.read())
-#    binary_file_data = bytearray(binary_file.read())
+    if CURRENT_ENCLAVE is not None:
+        CURRENT_ENCLAVE.close()
     # TODO: write files securely with secure file names and directories
-#    with open(program_file.name, 'w') as program_file_handle:
-#        program_file_handle.write(program_file_data)
-#    with open(binary_file.name, 'w') as binary_file_handle:
-#        binary_file_handle.write(binary_file_data)
     st = os.stat(untrusted_program)
     os.chmod(
         untrusted_program,
         st.st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
     )
-    current_enclave = subprocess.Popen(shlex.split("{}/{}".format(os.getcwd(), untrusted_program)))
- #   queue.task_done()
+    tries = 0
+    while tries <  MAX_LAUNCH_TRIES:
+        try:
+            CURRENT_ENCLAVE = pexpect.spawn(
+                shlex.split(
+                    "{}/{}".format(os.getcwd(), untrusted_program)
+                )
+            )
+            child.expect("Program hash and load finished", timeout=5)
+            break
+        except TIMEOUT:
+            time.sleep(5)
+            tries += 1
+            continue
+    if tries >= MAX_LAUNCH_TRIES:
+        print("Error launching enclave")
 
 
 def perform_attestation(attestation_data, ticket):
@@ -216,7 +250,7 @@ def upload():
 def public_key():
     return json.dumps({
             "public_key": str(binascii.hexlify(
-                server_public_key
+                SERVER_PUBLIC_KEY
             ), 'ascii')
         }
     )

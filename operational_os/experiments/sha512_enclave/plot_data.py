@@ -46,7 +46,7 @@ if __name__ == "__main__":
         ordered_sizes, ref_avgs, yerr=ref_stds, fmt="x-", label="Reference SHA512"
     )
     pylab.yscale("log")
-    # pylab.xscale("log")
+    pylab.xscale("log")
     pylab.ylabel("Execution Time (s)")
     pylab.xlabel("Data size (bytes)")
     pylab.legend(loc=4)

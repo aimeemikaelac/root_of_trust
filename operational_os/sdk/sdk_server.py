@@ -50,7 +50,9 @@ private_offset = 0
 public_offset = 0x40
 
 server_public_key = None
-key_file_dev = "server_key_dev.bin"
+server_private_key = None
+public_key_file_dev = "server_public_key_dev.bin"
+private_key_file_dev = "server_private_key_dev.bin"
 
 # Run event loop in separate thread
 def start_loop(loop):
@@ -58,12 +60,15 @@ def start_loop(loop):
     print("starting event loop")
     loop.run_forever()
 
-def initialize_ecdsa_key_dev(key_file):
-    with open(key_file, "rb") as key_file_handle:
-        global server_public_key
+def initialize_ecdsa_keya_dev(public_key_file, private_key_file):
+    global server_public_key
+    global server_private_key
+    with open(public_key_file, "rb") as key_file_handle:
         public_key = key_file_handle.read(32)
+    with open(private_key_file, "rb") as key_file_handle:
         private_key = key_file_handle.read(64)
-        server_public_key = bytearray(public_key)
+    server_public_key = bytearray(public_key)
+    server_private_key = bytearray(private_key)
     secure_storage = DevMem(secure_storage_dev, length=secure_storage_length)
 #    for i in range(0x20):
     secure_storage.write(public_offset, public_key)
@@ -75,7 +80,7 @@ def initialize_ecdsa_key_dev(key_file):
 ##########################################
 
 app = Flask(__name__)
-initialize_ecdsa_key_dev(key_file_dev)
+initialize_ecdsa_public_key_dev(key_file_dev)
 # Event loop for async
 event_loop = asyncio.new_event_loop()
 # Event loop in separate thread

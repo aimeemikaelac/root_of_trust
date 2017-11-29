@@ -9,6 +9,10 @@ import argparse
 import time
 import ed25519
 import numpy
+import subprocess
+import shlex
+import binascii
+import datetime
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -43,6 +47,11 @@ if __name__ == "__main__":
     #     required=True
     # )
     parser.add_argument(
+        "--generate_keypair_binary",
+        help="Path to keypair binary",
+        required=True
+    )
+    parser.add_argument(
         "--key_exchange_binary",
         help="Path to key exchange binary",
         required=True
@@ -61,12 +70,25 @@ if __name__ == "__main__":
         sys.exit(-1)
     time.sleep(5)
     attestation_times = []
+    expected_intersection = (5, 23, 53, 999)
+    try:
+        os.makedirs("data/")
+    except FileExistsError:
+        pass
+    datafile =(
+        "data/intersection_test_{}.csv".format(
+            datetime.datetime.now().isoformat()
+        )
+    )
+    with open(datafile, "w+") as data_out:
+        data_out.write("ATTESTATION_TIME\n")
     for _i in range(args.iterations):
-        priv_key, pub_key = ed25519.create_keypair()
-        with open("private_key.bin", "wb") as private_key_file:
-            private_key_file.write(priv_key.to_bytes())
-        with open("public_key.bin", "wb") as public_key_file:
-            public_key_file.write(pub_key.to_bytes())
+        keypair_return = subprocess.call(
+            shlex.split(args.generate_keypair_binary)
+        )
+        if keypair_return != 0:
+            print("Error generating keypair", file=sys.stderr)
+            sys.exit(-1)
         attestation_start = time.time()
         ticket = sdk_client.start_attestation(base_url, "public_key.bin")
         if ticket is None:
@@ -80,7 +102,7 @@ if __name__ == "__main__":
             if not no_error:
                 print("Error checking ticket status", file=sys.stderr)
                 sys.exit(-1)
-            time.sleep(1)
+            # time.sleep(1)
         verification_passed, hashed_correct, shared_secret = (
             sdk_client.verify_attestation(
                 base_url,
@@ -91,20 +113,31 @@ if __name__ == "__main__":
             )
         )
         attestation_finished = time.time()
-        attestation_finished.append(attestation_finished - attestation_start)
+        attestation_time = attestation_finished - attestation_start
+        attestation_times.append(attestation_time)
+        with open(datafile, "a") as data_out:
+            data_out.write("{}\n".format(attestation_time))
+            # for i in range(len(attestation_times)):
+                # data_out.write("{}\n".format(attestation_times[i]))
         if not verification_passed:
             print("Attestation verification failed", file=sys.stderr)
             sys.exit(-1)
         if not hashed_correct:
             print("Hash check failed", file=sys.stderr)
             sys.exit(-1)
-
-        intersection_results = intersection_client.go(
-            (bytes(shared_secret)), args.server, 1234)
+        print(
+            "Verification Passed, Hash passed, shared secret:\n{}".format(
+                str(binascii.hexlify(shared_secret), "ascii")
+            )
         )
-        print("Intersection result:\n{}".format(
-            intersection_results,
-            file=sys.stderr
-        ))
+        intersection_results = intersection_client.go(
+            bytes(shared_secret), args.server, 1234
+        )
+        # print("Intersection result:\n{}".format(
+        #     intersection_results,
+        #     file=sys.stderr
+        # ))
+        if intersection_results != expected_intersection:
+            print("Intersection incorrect\n", file=sys.stderr)
     print("Attestation average: {}".format(numpy.average(attestation_times)))
     print("Attestation STD: {}".format(numpy.std(attestation_times)))

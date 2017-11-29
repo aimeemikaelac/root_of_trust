@@ -35,7 +35,7 @@ def start_attestation(base_url, message_file):
     response = requests.post(url, data={
         "attestation_data": str(binascii.hexlify(attestation_data), "ascii")
     })
-    print("Message data: {}".format(binascii.hexlify(attestation_data)))
+    # print("Message data: {}".format(binascii.hexlify(attestation_data)))
     if response.status_code == 201:
         return response.json()["ticket"]
     else:
@@ -69,8 +69,8 @@ def get_shared_secret(secret_key_file, enclave_public_key, key_exchange_binary):
         return None
     with open(secret_file, "rb") as secret_handle:
         shared_secret = bytes(secret_handle.read())
-    print("Shared secret is available in file: {}".format(secret_file))
-    print("Shared secret is: {}".format(binascii.hexlify(shared_secret)))
+    # print("Shared secret is available in file: {}".format(secret_file))
+    # print("Shared secret is: {}".format(binascii.hexlify(shared_secret)))
     return shared_secret
 
 
@@ -84,8 +84,8 @@ def verify_attestation(
     server_public_key = bytearray(
         binascii.unhexlify(get_public_key(base_url))
     )
-    print("Attestation data:\n{}".format(attestation_data))
-    print("Attestation length: {}".format(len(attestation_data)))
+    # print("Attestation data:\n{}".format(attestation_data))
+    # print("Attestation length: {}".format(len(attestation_data)))
     attestation_binary = binascii.unhexlify(attestation_data)
     signature = bytearray()
     enclave_hash = bytearray()
@@ -103,35 +103,35 @@ def verify_attestation(
         enclave_message.append(attestation_binary[0xA0 + i])
     for i in range(0x100):
         signed_message.append(attestation_binary[0x40 + i])
-    print("Public key:\n{}".format(binascii.hexlify(public_key)))
-    print("Server Public key len:\n{}".format(
-        binascii.hexlify(server_public_key)
-    ))
-    print("Signed message:\n{}".format(
-        len(str(binascii.hexlify(signed_message), 'ascii'))
-    ))
-    print("Signature:\n{}".format(
-        str(binascii.hexlify(signature), 'ascii')
-    ))
+    # print("Public key:\n{}".format(binascii.hexlify(public_key)))
+    # print("Server Public key len:\n{}".format(
+    #     binascii.hexlify(server_public_key)
+    # ))
+    # print("Signed message:\n{}".format(
+    #     len(str(binascii.hexlify(signed_message), 'ascii'))
+    # ))
+    # print("Signature:\n{}".format(
+    #     str(binascii.hexlify(signature), 'ascii')
+    # ))
     vk = ed25519.VerifyingKey(
         bytes(server_public_key)
     )
-    print(vk.to_ascii(encoding="hex"))
+    # print(vk.to_ascii(encoding="hex"))
     try:
         vk.verify(
             bytes(signature),
             bytes(signed_message)
         )
-        print("Verification passed")
+        # print("Verification passed")
         if verify_file:
             sha512 = hashlib.sha512()
             with open(verify_file, "rb") as verify_file_handle:
                 sha512.update(verify_file_handle.read())
             verify_hash = sha512.digest()
             if verify_hash == enclave_hash:
-                print(
-                    "Remote hash matches hash of {}. Attstation "
-                    "success.".format(verify_file))
+                # print(
+                #     "Remote hash matches hash of {}. Attstation "
+                #     "success.".format(verify_file))
                 if secret_key_file:
                     if key_exchange_binary is None:
                         key_exchange_binary = (
@@ -145,9 +145,9 @@ def verify_attestation(
                     return True, True, None
             else:
                 return True, False, None
-                print("Remote hash does not match. Attestation failed.")
+                # print("Remote hash does not match. Attestation failed.")
     except ed25519.BadSignatureError:
-        print("Verification failed")
+        # print("Verification failed")
         # sk,vk = ed25519.create_keypair()
         # print(vk.to_ascii(encoding="hex"))
         return False, False, None
@@ -165,10 +165,10 @@ def upload(base_url, program_file, enclave_file):
     response = requests.post(url, files=files, data=data)
     response_json = response.json()
     if response.status_code != 202:
-        print(
-            "Error uploading file.\nStatus code: {}\nResponse: {}\n"
-            .format(response.status_code, response.text)
-        )
+        # print(
+        #     "Error uploading file.\nStatus code: {}\nResponse: {}\n"
+        #     .format(response.status_code, response.text)
+        # )
         return False
     return True
 

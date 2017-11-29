@@ -57,7 +57,7 @@ def go(shared_secret, host, port):
     #print 'got %d bytes back' % len(out)
     #print rbuf.encode('hex')
     #print out.encode('hex')
-    print(len(out)/4)
+    # print(len(out)/4)
     out_nums = struct.unpack('<' + 'L'*int((len(out)/4)), out)
     return out_nums
 

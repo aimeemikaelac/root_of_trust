@@ -17,9 +17,9 @@ def unpad(data):
     return data[:-padded]
 
 
-def go(shared_secret):
+def go(shared_secret, host, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
-    s.connect((HOST, PORT))
+    s.connect((host, port))
 
 
     #client_data = '000102030405060708090a0b0c0d0e0fbceb740cb72e8485e7311d52145e3c5a1eeceb12a53b8552a21f856f103f191191d68241009474bf7296b4b3da98af6b8af8aadb76c10bb2e2fef2cd9f4dbedd0718bc85286da17cec0dc10ed384680d'.decode('hex')
@@ -58,5 +58,5 @@ def go(shared_secret):
     return out_nums
 
 
-
-print go('A'*32)
+if __name__ == "__main__":
+    print(go('A'*32, HOST, PORT))

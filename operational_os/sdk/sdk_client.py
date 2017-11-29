@@ -36,7 +36,10 @@ def start_attestation(base_url, message_file):
         "attestation_data": str(binascii.hexlify(attestation_data), "ascii")
     })
     print("Message data: {}".format(binascii.hexlify(attestation_data)))
-    return response.json()["ticket"]
+    if response.status_code == 201:
+        return response.json()["ticket"]
+    else:
+        return None
 
 def get_public_key(base_url):
     url = "{}/{}".format(base_url, "public_key")
@@ -142,6 +145,25 @@ def verify_attestation(
         return False, False, None
 
 
+def upload(base_url, program_file, enclave_file):
+    url = "{}/{}".format(base_url, "upload")
+    files = {
+        "binary": open(enclave_file, 'rb'),
+        "program": open(program_file, 'rb')
+    }
+    data = {
+        "binary_file_name":args.enclave_file
+    }
+    response = requests.post(url, files=files, data=data)
+    response_json = response.json()
+    if response.status_code != 202:
+        print(
+            "Error uploading file.\nStatus code: {}\nResponse: {}\n"
+            .format(response.status_code, response.text)
+        )
+        return False
+    return True
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -207,22 +229,7 @@ if __name__ == "__main__":
     protocol = "http://"
     base_url = "{}{}:{}".format(protocol, hostname, port)
     if args.command == "upload":
-        url = "{}/{}".format(base_url, "upload")
-        files = {
-            "binary": open(args.enclave_file, 'rb'),
-            "program": open(args.program_file, 'rb')
-        }
-        data = {
-            "binary_file_name":args.enclave_file
-        }
-        response = requests.post(url, files=files, data=data)
-        response_json = response.json()
-        if response.status_code != 202:
-            print(
-                "Error uploading file.\nStatus code: {}\nResponse: {}\n"
-                .format(response.status_code, response.text)
-            )
-
+        upload(base_url, args.program_file, args.enclave_file)
     if args.command == "attestation":
         if args.attestation_wait is not None:
             if args.message_file is None:

@@ -7,6 +7,7 @@ import sys
 import argparse
 import json
 import subprocess
+import sys
 from code_generator import *
 
 DEFAULT_ARM_TEMPLATE = "arm_code.c.jinja"

@@ -48,6 +48,7 @@ ATTESTATION_TICKET = 0
 
 #TODO: support multiple enclaves
 CURRENT_ENCLAVE = None
+CURRENT_RUNNING = False
 
 SECURE_STORAGE_DEV = 0xA0050000
 SECURE_STORAGE_LENGTH = 0x1000
@@ -148,6 +149,7 @@ def program_enclave():
     #    buffer
     #######################
     global CURRENT_ENCLAVE
+    global CURRENT_RUNNING
     # 1. Program bin file to microblaze memory
     print("got item off enclave queue")
     if CURRENT_ENCLAVE is not None:
@@ -167,6 +169,8 @@ def program_enclave():
                 )
             )
             CURRENT_ENCLAVE.expect("Program hash and load finished", timeout=5)
+            print("Program launched!")
+            CURRENT_RUNNING = True
             CURRENT_ENCLAVE.interact()
             break
         except pexpect.TIMEOUT:

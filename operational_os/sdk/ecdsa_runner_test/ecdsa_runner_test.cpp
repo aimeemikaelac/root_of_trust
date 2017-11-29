@@ -49,7 +49,7 @@ int main(int argc, char **argv){
 //     fprintf(stderr, "Error getting random data. urandom may not be initialized.\n");
 //     return -1;
 //   }
-  std::ifstream key_file("../server_key_dev.bin", std::ifstream::binary);
+  std::ifstream key_file("../server_private_key_dev.bin", std::ifstream::binary);
   memset(public_key, 0, 0x20);
   memset(private_key, 0, 0x40);
   if(key_file){

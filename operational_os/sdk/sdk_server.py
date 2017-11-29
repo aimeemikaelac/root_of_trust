@@ -15,6 +15,7 @@ import binascii
 import base64
 import pexpect
 import time
+import sys
 from devmem import DevMem
 from threading import Thread
 from program_memory import write_bin_file, trigger_reset
@@ -93,21 +94,26 @@ def initialize_ecdsa_key_dev(public_key_file, private_key_file):
     secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
 
 def initialize_ecdsa_core_dev():
-    write_bin_file_data(DEV_ECDSA_BINARY, ECDSA_BUFFER)
-    trigger_reset(RESET_BASE_ADDRESS)
+    print("Ecdsa buffer address: {}".format(ECDSA_BUFFER))
+    write_bin_file(DEV_ECDSA_BINARY, int(ECDSA_BUFFER, 16))
+    trigger_reset(int(RESET_BASE_ADDRESS, 16))
 
 ##########################################
 # Initialize app and loop
 ##########################################
 
 app = Flask(__name__)
+parse_system_config(DEV_SYSTEM_CONFIG)
 initialize_ecdsa_core_dev()
 initialize_ecdsa_key_dev(PUBLIC_KEY_FILE_DEV, PRIVATE_KEY_FILE_DEV)
-# Event loop for async
-event_loop = asyncio.new_event_loop()
-# Event loop in separate thread
-t = Thread(target=start_loop, args=(event_loop,))
-t.start()
+# Event loops for async
+program_loop = asyncio.new_event_loop()
+attestation_loop = asyncio.new_event_loop()
+# Event loops in separate thread
+program_thread = Thread(target=start_loop, args=(program_loop,))
+program_thread.start()
+attestation_thread = Thread(target=start_loop, args=(attestation_loop,))
+attestation_thread.start()
 
 # initialize workers
 #enclave_queue = asyncio.Queue(loop=event_loop)
@@ -160,9 +166,10 @@ def program_enclave():
                     "{}/{}".format(os.getcwd(), untrusted_program)
                 )
             )
-            child.expect("Program hash and load finished", timeout=5)
+            CURRENT_ENCLAVE.expect("Program hash and load finished", timeout=5)
+            CURRENT_ENCLAVE.interact()
             break
-        except TIMEOUT:
+        except pexpect.TIMEOUT:
             time.sleep(5)
             tries += 1
             continue
@@ -227,7 +234,7 @@ def upload():
             binary_file_name = request.form["binary_file_name"]
             binary_file.save(binary_file_name)
             program_file.save(untrusted_program)
-            event_loop.call_soon_threadsafe(program_enclave)
+            program_loop.call_soon_threadsafe(program_enclave)
             print("Put program and bianry file")
             #TODO: create async task for this?
             return (
@@ -270,7 +277,7 @@ def attestation_request():
 #        attestation_data_queue.put(
 #            {"ticket": ticket, "attestation_data": attestation_data}
 #        )
-        event_loop.call_soon_threadsafe(perform_attestation, attestation_data, ticket)
+        attestation_loop.call_soon_threadsafe(perform_attestation, attestation_data, ticket)
         return json.dumps({"ticket": ticket}), 201
 
 @app.route("/attestation/result/<ticket>")

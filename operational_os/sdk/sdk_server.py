@@ -201,7 +201,10 @@ def perform_attestation(attestation_data, ticket):
     transport.open()
     message_data = attestation_data
     print("Beggining attestation")
-    message = client.begin_attestation(bytearray(message_data, 'utf8'))
+    print("Recieved attestation data: {}".format(
+        binascii.hexlify(message_data))
+    )
+    message = client.begin_attestation(message_data)
     print("Thrift attestation call finished")
     print("Attestation message: {}".format(
         str(binascii.hexlify(message))
@@ -267,10 +270,7 @@ def public_key():
 def attestation_request():
     # Get attestation data
     if request.method == 'POST':
-        attestation_data = request.form['attestation_data']
-        print("Received attestation data: {}".format(
-            binascii.hexlify(attestation_data
-        )))
+        attestation_data = binascii.unhexlify(request.form['attestation_data'])
         # Program to memory
         ticket = get_increment_ticket()
         tickets_issued.append(ticket)

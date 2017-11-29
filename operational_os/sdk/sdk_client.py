@@ -47,7 +47,7 @@ def get_public_key(base_url):
     return response.json()["public_key"]
 
 
-def get_shared_secret(secret_key_file, enclave_public_key):
+def get_shared_secret(secret_key_file, enclave_public_key, key_exchange_binary):
     # a file with the secret key in the first 64 bytes
     # 1. write the enclave public key to a fule
     # 2. call a c program that reads from these files and writes the shared
@@ -58,8 +58,8 @@ def get_shared_secret(secret_key_file, enclave_public_key):
     with open(enclave_public_key_file, "wb") as public_handle:
         public_handle.write(enclave_public_key)
     key_return_code = subprocess.call(
-        shlex.split("{}/key_exchange/key_exchange {} {} {}".format(
-            SCRIPT_PATH,
+        shlex.split("{} {} {} {}".format(
+            key_exchange_binary,
             os.path.abspath(enclave_public_key_file),
             os.path.abspath(secret_key_file),
             os.path.abspath(secret_file)
@@ -75,7 +75,11 @@ def get_shared_secret(secret_key_file, enclave_public_key):
 
 
 def verify_attestation(
-    attestation_data, verify_file=None, secret_key_file=None
+    base_url,
+    attestation_data,
+    verify_file=None,
+    secret_key_file=None,
+    key_exchange_binary=None
 ):
     server_public_key = bytearray(
         binascii.unhexlify(get_public_key(base_url))
@@ -129,8 +133,12 @@ def verify_attestation(
                     "Remote hash matches hash of {}. Attstation "
                     "success.".format(verify_file))
                 if secret_key_file:
+                    if key_exchange_binary is None:
+                        key_exchange_binary = (
+                            "{}/key_exchange/key_exchange".format(SCRIPT_PATH)
+                        )
                     shared_secret = get_shared_secret(
-                        secret_key_file, public_key
+                        secret_key_file, public_key, key_exchange_binary
                     )
                     return True, True, shared_secret
                 else:
@@ -152,7 +160,7 @@ def upload(base_url, program_file, enclave_file):
         "program": open(program_file, 'rb')
     }
     data = {
-        "binary_file_name":args.enclave_file
+        "binary_file_name":enclave_file
     }
     response = requests.post(url, files=files, data=data)
     response_json = response.json()
@@ -247,6 +255,7 @@ if __name__ == "__main__":
                     print("Ticket not found. Error in attestation\n");
                     sys.exit(0)
             verify_attestation(
+                base_url,
                 attestation_data,
                 verify_file=args.verification_file,
                 secret_key_file=args.secret_key_file

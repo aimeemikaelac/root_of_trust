@@ -40,28 +40,38 @@ if __name__ == "__main__":
         help="private key to use for shared secret establishment",
         required=True
     )
+    parser.add_argument(
+        "--key_exchange_binary",
+        help="Path to key exchange binary",
+        required=True
+    )
     args = parser.parse_args()
     base_url = "http://{}:{}".format(args.server, args.port)
-    success = upload(base_url, args.program_file, args.enclave_file)
+    success = sdk_client.upload(base_url, args.program_file, args.enclave_file)
     if not success:
         print("Error uploading. Try again later?")
         sys.exit(-1)
-    ticket = start_attestation(base_url, args.local_public_key_file)
+    time.sleep(5)
+    ticket = sdk_client.start_attestation(base_url, args.local_public_key_file)
     if ticket is None:
         print("Error getting ticket. Try again?")
         sys.exit(-1)
     attestation_data = None
     while attestation_data is None:
-        attestation_data, no_error = check_attestation_ticket(base_url, ticket)
+        attestation_data, no_error = sdk_client.check_attestation_ticket(
+            base_url, ticket
+        )
         if not no_error:
             print("Error checking ticket status")
             sys.exit(-1)
         time.sleep(1)
     verification_passed, hashed_correct, shared_secret = (
-        verify_attestation(
+        sdk_client.verify_attestation(
+            base_url,
             attestation_data,
             verify_file=args.enclave_file,
-            secret_key_file=args.local_private_key_file
+            secret_key_file=args.local_private_key_file,
+            key_exchange_binary=args.key_exchange_binary
         )
     )
     if not verification_passed:
@@ -71,5 +81,5 @@ if __name__ == "__main__":
         print("Hash check failed")
         sys.exit(-1)
     print("Intersection result:\n{}".format(
-        intersection_client.go(shared_secret, args.server, args.port)
+        intersection_client.go(bytes(shared_secret), args.server, 1234)
     ))

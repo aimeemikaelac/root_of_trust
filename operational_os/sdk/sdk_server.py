@@ -261,6 +261,9 @@ def attestation_request():
     # Get attestation data
     if request.method == 'POST':
         attestation_data = request.form['attestation_data']
+        print("Received attestation data: {}".format(
+            binascii.hexlify(attestation_data
+        )))
         # Program to memory
         ticket = get_increment_ticket()
         tickets_issued.append(ticket)

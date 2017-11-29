@@ -33,7 +33,7 @@ def start_attestation(base_url, message_file):
     with open(message_file, "rb") as file_handle:
         attestation_data = file_handle.read(32)
     response = requests.post(url, data={
-        "attestation_data": bytearray(attestation_data)
+        "attestation_data": str(binascii.hexlify(attestation_data), "ascii")
     })
     print("Message data: {}".format(binascii.hexlify(attestation_data)))
     return response.json()["ticket"]

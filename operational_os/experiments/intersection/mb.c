@@ -31,10 +31,12 @@ uint32_t unpad(uint8_t *data, uint32_t data_len)
 // Takes the set intersection of (encrypted) data1 and data2.
 // lengths can be no more than 100 uint32's
 // first 16 bytes of enc_data1 (and enc_out) are the IV
-void intersection(uint8_t *enc_data1, uint32_t enc_data1_len,
-                  uint32_t *data2, uint32_t data2_len, uint8_t *enc_out, uint32_t *out_len)
+void intersection(uint8_t *enc_data1, uint32_t *enc_data1_len_in,
+                  uint32_t *data2, uint32_t *data2_len_in, uint8_t *enc_out, uint32_t *out_len)
 {
 
+    uint8_t enc_data1_len = *enc_data1_len_in;
+    uint8_t data2_len = *data2_len_in;
     if (enc_data1_len < 16) {
         *out_len = 0;
         return;
@@ -71,5 +73,3 @@ void intersection(uint8_t *enc_data1, uint32_t enc_data1_len,
     *out_len = padded_out + 16;
     AES_CBC_encrypt_buffer(&enc_out[16], (uint8_t*)out, padded_out, (uint8_t*)shared_secret, enc_out);
 }
-
-

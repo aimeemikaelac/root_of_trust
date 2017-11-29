@@ -1,19 +1,21 @@
-
+#include "unistd.h"
 #include <stdint.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <stdio.h>
+#include "enclave_library.h"
+#include "arm_protocol_header.h"
 
 #define PORT 1234
 
-void intersection(uint8_t *enc_data1, uint32_t enc_data1_len,
-                  uint32_t *data2, uint32_t data2_len, uint8_t *enc_out, uint32_t *out_len);
-void intialize_enclave();
+// void intersection(uint8_t *enc_data1, uint32_t *enc_data1_len_in,
+//                   uint32_t *data2, uint32_t *data2_len_in, uint8_t *enc_out, uint32_t *out_len);
 
 int main()
 {
-    intialize_enclave();
+    enclave_init_with_file("intersection.bin");
 
     uint32_t my_data[] = {5, 18, 23, 112, 999, 53};
     uint32_t my_data_len = sizeof(my_data) / sizeof(uint32_t);
@@ -67,7 +69,7 @@ int main()
 
         uint8_t enc_out[416];
         uint32_t enc_out_len = 0;
-        intersection(buf, rcvd, my_data, my_data_len, enc_out, &enc_out_len);
+        intersection(buf, &rcvd, my_data, &my_data_len, enc_out, &enc_out_len);
 
         // Send back to client for decryption
         uint16_t send_out_len = htons(enc_out_len & 0xffff);

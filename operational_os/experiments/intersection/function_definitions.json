@@ -1,0 +1,41 @@
+{
+  "trusted":[
+    {
+      "name":"intersection",
+      "inputs":[
+        {
+          "name":"enc_data1",
+          "type": "unsigned char",
+          "length": 416
+        },
+        {
+          "name": "enc_data1_len_in",
+          "type": "unsigned int",
+          "length": 4
+        },
+        {
+          "name":"data2",
+          "type":"unsigned int",
+          "length":416
+        },
+        {
+          "name":"data2_len_in",
+          "type":"unsigned int",
+          "length":4
+        }
+      ],
+      "outputs":[
+        {
+          "name":"enc_out",
+          "type":"unsigned char",
+          "length":416
+        },
+        {
+          "name":"out_len",
+          "type":"unsigned int",
+          "length":4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "program_name":"intersection",
+  "arm":{
+    "cross_compile":"arm-linux-gnueabihf-",
+    "sources":[
+      "arm.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  },
+  "microblaze":{
+    "sources":[
+      "mb.c", "aes.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+      "aes.h"
+    ],
+    "include_directories":[
+    ]
+  }
+}

@@ -8,6 +8,8 @@ extern "C" {
 #define SHARED_BUFFER_ADDRESS {{ shared_buffer }}
 #define SHARED_BUFFER_SIZE {{ shared_buffer_length }}
 
+extern unsigned char *shared_secret;
+
 {% for function in functions %}
 {{ function.return_type }} {{ function.function_name }}({{ ", ".join(function.argument_list) }});
 {% endfor %}

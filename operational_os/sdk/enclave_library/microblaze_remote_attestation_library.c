@@ -21,6 +21,7 @@
 #define SHARED_SECRET_OUT 0x300
 
 static unsigned char xor_key[16];
+unsigned char shared_secret[32];
 
 void start_attestation(unsigned char *remote_message, unsigned char *message_out){
   //TODO: generate dh keypair using random number using the static dh prime
@@ -31,6 +32,7 @@ void start_attestation(unsigned char *remote_message, unsigned char *message_out
   volatile unsigned char *signature = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + SIGNATURE_OFFSET);
   volatile unsigned char *data = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + DATA_OFFSET);
   volatile unsigned char *remote_public_key = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + REMOTE_PUBLIC_KEY);
+  volatile unsigned char *shared_secret_buffer = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + SHARED_SECRET_OUT);
   srand(0);
   for(i=0; i<16; i++){
     xor_key[i] = (unsigned char)rand();
@@ -56,10 +58,13 @@ void start_attestation(unsigned char *remote_message, unsigned char *message_out
   for(i=0; i<TOTAL_LENGTH; i++){
     message_out[i] = signature[i];
   }
+  //copy in shared secret
+  for(i=0; i<32; i++){
+    shared_secret[i] = shared_secret_buffer[i];
+  }
 }
 
 void generate_encrypted_message(unsigned char *message, unsigned int *message_length){
-  volatile unsigned char *shared_secret = (volatile unsigned char*)(ECDSA_SHARED_BUFFER + SHARED_SECRET_OUT);
   char *message_test = "hello!";
   int i;
   unsigned char message_temp[0x100];

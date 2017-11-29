@@ -9,6 +9,8 @@ import ed25519
 import hashlib
 import subprocess
 import shlex
+import os
+import sys
 
 #using Python bindings for ed25519 from:
 #https://github.com/warner/python-ed25519
@@ -33,6 +35,7 @@ def start_attestation(base_url, message_file):
     response = requests.post(url, data={
         "attestation_data": bytearray(attestation_data)
     })
+    print("Message data: {}".format(binascii.hexlify(attestation_data)))
     return response.json()["ticket"]
 
 def get_public_key(base_url):
@@ -53,17 +56,18 @@ def get_shared_secret(secret_key_file, enclave_public_key):
         public_handle.write(enclave_public_key)
     key_return_code = subprocess.call(
         shlex.split("{}/key_exchange/key_exchange {} {} {}".format(
+            SCRIPT_PATH,
             os.path.abspath(enclave_public_key_file),
             os.path.abspath(secret_key_file),
             os.path.abspath(secret_file)
-        )
+        ))
     )
     if key_return_code != 0:
         return None
     with open(secret_file, "rb") as secret_handle:
-        shared_secret = bytes(secret_file.read())
+        shared_secret = bytes(secret_handle.read())
     print("Shared secret is available in file: {}".format(secret_file))
-    print("Shared secret is: {}".binascii.hexlify(shared_secret))
+    print("Shared secret is: {}".format(binascii.hexlify(shared_secret)))
     return shared_secret
 
 
@@ -122,7 +126,9 @@ def verify_attestation(
                     "Remote hash matches hash of {}. Attstation "
                     "success.".format(verify_file))
                 if secret_key_file:
-                    shared_secret = get_shared_secret(secret_key_file)
+                    shared_secret = get_shared_secret(
+                        secret_key_file, public_key
+                    )
                     return True, True, shared_secret
                 else:
                     return True, True, None
@@ -232,7 +238,7 @@ if __name__ == "__main__":
                 )
                 if not ticket_exists:
                     print("Ticket not found. Error in attestation\n");
-                    return
+                    sys.exit(0)
             verify_attestation(
                 attestation_data,
                 verify_file=args.verification_file,

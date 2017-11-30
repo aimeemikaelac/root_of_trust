@@ -332,9 +332,18 @@ if __name__ == "__main__":
         help="File to output microblaze header to",
         default="microblaze_protocol_header.h"
     )
-    clean_build_directory(ARM_BUILD_DIRECTORY)
-    clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
-    clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
+    try:
+        os.makedirs(ARM_BUILD_DIRECTORY)
+    except FileExistsError:
+        clean_build_directory(ARM_BUILD_DIRECTORY)
+    try:
+        os.makedirs(MICROBLAZE_BUILD_DIRECTORY)
+    except FileExistsError:
+        clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
+    try:
+        os.makedirs(MICROBLAZE_BUILD_SRC_DIRECTORY)
+    except FileExistsError:
+        clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
     args = parser.parse_args()
     system_config = parse_system_config(args.system_configuration)
     function_definitions = parse_function_definitions(args.function_definitions)

@@ -117,7 +117,7 @@ int enclave_init_with_file(char const *filename){
   char current_char;
   int buffer_index = 0, i, iteration=0;
   unsigned int count = 0;
-  volatile unsigned char *control, *data;
+  volatile unsigned char *control, *data, *block_start;
   volatile unsigned int *count_out;
   // 1. Program memory
   shared_memory reset_controller = getSharedMemoryArea(RESET_CONTROLLER_ADDRESS, 0x1000);
@@ -135,12 +135,18 @@ int enclave_init_with_file(char const *filename){
   //start ecdsa function
   control[0] = 0xFF;
   std::ifstream is(filename);
+  cleanupSharedMemoryPointer(program_buffer);
   while(is.get(current_char)){
+    getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
+    control = (volatile unsigned char*)(program_buffer->ptr);
+    data = (volatile unsigned char*)(control + 0x100);
+    count_out = (volatile unsigned int*)(control + 0x4);
+    block_start = (volatile unsigned char*)(control + 0x8);
     //clear the buffer
     if(buffer_index == 0){
 //      printf("Clearing buffer\n");
-      control[0x8] = 0;
-      control[0xC] = 0;
+//      control[0x8] = 0;
+//      control[0xC] = 0;
       for(i=0; i<HASH_BLOCK_SIZE; i++){
         data[i] = 0;
       }
@@ -155,7 +161,8 @@ int enclave_init_with_file(char const *filename){
     if(buffer_index >= HASH_BLOCK_SIZE){
 //      printf("Waiting for hash\n");
       *count_out = count;
-      control[0x8] = 0xFF;
+//      control[0x8] = 0xFF;
+      *block_start = 0xFF;
 //      printf("Buffer index: %i\n", buffer_index);
       while(control[0xC] == 0){
         __asm__("");
@@ -166,11 +173,18 @@ int enclave_init_with_file(char const *filename){
 //      printf("Hash finished\n");
       buffer_index=0;
     }
+    cleanupSharedMemoryPointer(program_buffer);
   }
+  getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
+  control = (volatile unsigned char*)(program_buffer->ptr);
+  data = (volatile unsigned char*)(control + 0x100);
+  count_out = (volatile unsigned int*)(control + 0x4);
+  block_start = (volatile unsigned char*)(control + 0x8);
   //say that was the last block
   *count_out = count;
   control[0x10] = 0xFF;
-  control[0x8] = 0xFF;
+//  control[0x8] = 0xFF;
+  *block_start = 0xFF;
   fprintf(stderr, "Waiting for program hash and load to finish\n");
   while(control[0x14] == 0){
     asm("");

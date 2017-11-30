@@ -8,9 +8,12 @@ mkdir -p data/
 
 echo "DATA_SIZE,DURATION" >> $OUTPUT_FILE
 
-for (( i=512; i<$MAX_SIZE; i+=1024 ))
+for (( i=512; i<$MAX_SIZE; i+=10240 ))
 do
   filename=microblaze_binaries/mb_$i
+  if [ -f $filename ]; then
+    continue
+  fi
   data_size=$(stat --printf="%s" $filename)
   for (( iteration=0; iteration<$ITERATIONS; iteration++ ))
   do

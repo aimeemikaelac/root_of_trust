@@ -1,0 +1,26 @@
+{
+  "trusted":[
+    {
+      "name":"memory_test",
+      "inputs":[
+        {
+          "name":"in_buffer",
+          "type":"unsigned char",
+          "length":2048
+        },
+        {
+          "name":"in_length",
+          "type":"unsigned int",
+          "length":4
+        }
+      ],
+      "outputs":[
+        {
+          "name":"out_buffer",
+          "type":"unsigned char",
+          "length":2048
+        }
+      ]
+    }
+  ]
+}

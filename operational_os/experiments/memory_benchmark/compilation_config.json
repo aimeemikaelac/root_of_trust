@@ -1,0 +1,30 @@
+{
+  "program_name":"memory_test",
+  "arm":{
+    "cross_compile":"arm-linux-gnueabihf-",
+    "sources":[
+      "arm.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  },
+  "microblaze":{
+    "sources":[
+      "mb.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+#ifndef MB_STATIC_DATA
+#define MB_STATIC_DATA
+
+static unsigned int static_data_size = {{ static_data_size }};
+
+static unsigned char static_data[{{ static_data_size }}] = {
+{{ static_data }}
+};
+
+#endif

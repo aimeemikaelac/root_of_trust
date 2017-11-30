@@ -1,0 +1,33 @@
+{
+  "program_name":"enclave_loading_throughput",
+  "arm":{
+    "cross_compile":"arm-linux-gnueabihf-",
+    "sources":[
+      "arm.c"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  },
+  "microblaze":{
+    "sources":[
+      "mb.c"
+    ],
+    "source_directories":[
+      "ed25519_ecdsa/"
+    ],
+    "includes":[
+      "mb.h"
+    ],
+    "include_directories":[
+      "ed25519_ecdsa/"
+    ]
+  }
+}

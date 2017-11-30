@@ -1,0 +1,16 @@
+{
+  "trusted":[
+    {
+      "name":"hash_buffer",
+      "inputs":[
+      ],
+      "outputs":[
+        {
+          "name":"out",
+          "type":"unsigned char",
+          "length":64
+        }
+      ]
+    }
+  ]
+}

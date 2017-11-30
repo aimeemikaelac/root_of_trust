@@ -12,6 +12,9 @@
 
 void memory_test_ref(unsigned char *in_buffer, unsigned int *in_length, unsigned char *out_buffer){
   int i, length=*in_length;
+  for(i=0; i<2048; i++){
+    out_buffer[i]=0;
+  }
   for(i=0; i<length; i++){
     out_buffer[length-1-i] = in_buffer[i];
   }
@@ -41,7 +44,7 @@ int main(int argc, char **argv){
       memory_test(input, &data_size, output);
       mb_end = clock();
       arm_start = clock();
-      memory_test_ref(input, &data_size, output);
+      memory_test_ref(input, &data_size, output_ref);
       arm_end = clock();
       arm_elapsed = ((double)(arm_end - arm_start)/CLOCKS_PER_SEC);
       mb_elapsed = ((double)(mb_end - mb_start)/CLOCKS_PER_SEC);

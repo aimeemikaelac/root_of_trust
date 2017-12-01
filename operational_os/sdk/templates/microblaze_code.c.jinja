@@ -1,7 +1,9 @@
-#include "xil_io.h"
 #include "{{ header_file_name }}"
 
 void watch_mem_buffer(){
+  volatile unsigned char *control_function = (unsigned char*)(SHARED_BUFFER_ADDRESS + 0x60);
+  volatile unsigned char *control_start = (unsigned char*)(SHARED_BUFFER_ADDRESS + 0x70);
+  volatile unsigned char *control_finished = (unsigned char*)(SHARED_BUFFER_ADDRESS + 0x80);
   {% for return_value in return_values %}
   volatile {{ return_value.type }} *{{ return_value.name}} = ({{ return_value.type }}*)(SHARED_BUFFER_ADDRESS + return_value.start);
   {% endfor %}
@@ -11,10 +13,10 @@ void watch_mem_buffer(){
   while(1){
     // Check if a ready signal is set
     //TODO: use this register with a bitmask for more data?
-    if(Xil_In32(SHARED_BUFFER_ADDRESS + 0x70) == 0){
+    if(*control_start == 0){
       continue;
     }
-    function = Xil_In32(SHARED_BUFFER_ADDRESS + 0x60);
+    function = *control_function;
     switch(function){
     {% for statement in statements %}
       case {{ statement.function_id }} :
@@ -25,8 +27,8 @@ void watch_mem_buffer(){
         {% endif %}
         {{ statement.arguments }}
         );
-        Xil_Out32(SHARED_BUFFER_ADDRESS + 0x80, 0xFF);
-        Xil_Out32(SHARED_BUFFER_ADDRESS + 0x70, 0);
+        *control_start = 0;
+        *control_finished = 0xFF;
       break;
     {% endfor %}
       default :

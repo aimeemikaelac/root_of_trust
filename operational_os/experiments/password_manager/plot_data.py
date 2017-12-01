@@ -32,6 +32,8 @@ if __name__ == "__main__":
     sizes_ref = set()
     for item in data_mb:
         size = int(item["DATA_LENGTH"])
+        if size > 100:
+            continue
         mb_time_write = float(item["WRITE_TIME"])
         mb_time_read = float(item["READ_TIME"])
         # ref_time = float(item["ARM_TIME"])
@@ -41,6 +43,8 @@ if __name__ == "__main__":
         sizes_mb.add(size)
     for item in data_arm:
         size = int(item["DATA_LENGTH"])
+        if size > 100:
+            continue
         ref_time_write = float(item["WRITE_TIME"])
         ref_time_read = float(item["READ_TIME"])
         # ref_time = float(item["ARM_TIME"])
@@ -76,17 +80,17 @@ if __name__ == "__main__":
     # print(ref_stds)
     # yerr=mb_stds,
     pylab.errorbar(
-        ordered_sizes_mb, mb_avgs_read,yerr=mb_stds_read, fmt="*-", label="Enclave Password Read"
+        ordered_sizes_mb, mb_avgs_read, fmt="*-", label="Enclave Password Read"
     )
     # yerr=ref_stds,
     pylab.errorbar(
-        ordered_sizes_ref, ref_avgs_read,yerr=ref_stds_read, fmt="x-", label="Reference Password Read"
+        ordered_sizes_ref, ref_avgs_read, fmt="x-", label="Reference Password Read"
     )
     # pylab.yscale("log")
     # pylab.xscale("log")
-    pylab.ylabel("Execution Time (s)")
-    pylab.xlabel("Data size (bytes)")
-    pylab.legend(loc=1)
+    pylab.ylabel("Password Read Time (s)")
+    pylab.xlabel("Password size (characters)")
+    pylab.legend(loc=0)
     pylab.savefig("password_manager_read.pdf")
     pylab.savefig("password_manager_read.png")
     # pylab.show()
@@ -94,17 +98,19 @@ if __name__ == "__main__":
     pylab.figure()
     # pylab.yscale("log")
     pylab.errorbar(
-        ordered_sizes_mb, mb_avgs_write, yerr=mb_stds_write, fmt="*-", label="Enclave Password Write"
+        ordered_sizes_mb, mb_avgs_write, fmt="*-", label="Enclave Password Write"
     )
-    pylab.legend(loc=4)
-    pylab.savefig("password_manager_write_mb.pdf")
-    pylab.savefig("password_manager_write_mb.png")
-    pylab.figure()
+    # pylab.legend(loc=0)
+    # pylab.savefig("password_manager_write_mb.pdf")
+    # pylab.savefig("password_manager_write_mb.png")
+    # pylab.figure()
     # yerr=ref_stds,
     pylab.errorbar(
-        ordered_sizes_ref, ref_avgs_write, yerr=ref_stds_write, fmt="x-", label="Reference Password Write"
+        ordered_sizes_ref, ref_avgs_write,  fmt="x-", label="Reference Password Write"
     )
-    pylab.legend(loc=4)
-    pylab.savefig("password_manager_write_ref.pdf")
-    pylab.savefig("password_manager_write_ref.png")
+    pylab.ylabel("Password Write Time (s)")
+    pylab.xlabel("Password size (characters)")
+    pylab.legend(loc=0)
+    pylab.savefig("password_manager_write.pdf")
+    pylab.savefig("password_manager_write.png")
     pylab.show()

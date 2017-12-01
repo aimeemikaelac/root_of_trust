@@ -1,0 +1,5 @@
+**/*.pdf
+**/*.png
+**/generated_code_out
+**/public_key.bin
+**/private_key.bin

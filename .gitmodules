@@ -1,0 +1,3 @@
+[submodule "operational_os/experiments/Secure-Hardware"]
+	path = operational_os/experiments/Secure-Hardware
+	url = git@github.com:gregcusack/Secure-Hardware.git

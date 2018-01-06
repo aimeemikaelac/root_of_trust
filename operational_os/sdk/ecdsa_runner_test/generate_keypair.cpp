@@ -14,11 +14,15 @@ int main(){
   ed25519_create_keypair(public_key, private_key, seed);
   ofstream public_file;
   ofstream private_file;
+  ofstream secret_key;
   public_file.open("public_key.bin", ofstream::out | ofstream::binary | ofstream::trunc);
   public_file.write((char*)public_key, 32);
   public_file.close();
-  private_file.open("private_key.bin", ofstream::out | ofstream::binary | ofstream::trunc);
+  private_file.open("private_key_hash.bin", ofstream::out | ofstream::binary | ofstream::trunc);
   private_file.write((char*)private_key, 64);
   private_file.close();
+  secret_key.open("secret_key.bin", ofstream::out | ofstream::binary | ofstream::trunc);
+  secret_key.write((char*)seed, 32);
+  secret_key.close();
   return 0;
 }

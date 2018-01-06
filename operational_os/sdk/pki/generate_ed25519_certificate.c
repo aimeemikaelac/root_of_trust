@@ -46,7 +46,7 @@ int main(){
 
         //read CA cert
         bio = BIO_new(BIO_s_file());
-        BIO_read_filename(bio, "ca_cert.crt");
+        BIO_read_filename(bio, "ca_cert.pem");
         ca_cert = PEM_read_bio_X509(bio, NULL, NULL, NULL);
         BIO_free_all(bio);
 

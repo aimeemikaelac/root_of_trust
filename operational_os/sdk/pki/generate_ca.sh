@@ -51,7 +51,7 @@ openssl req -config intermediate/openssl_intermediate_setup.cnf -new -sha256 \
       -out intermediate/csr/intermediate.csr.pem
 
 ## Sign Intermediate CSR ##
-openssl ca -config openssl.cnf -extensions v3_intermediate_ca \
+openssl ca -batch -config openssl.cnf -extensions v3_intermediate_ca \
       -days 3650 -notext -md sha256 \
       -in intermediate/csr/intermediate.csr.pem \
       -out intermediate/certs/intermediate.cert.pem

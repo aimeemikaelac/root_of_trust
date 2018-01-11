@@ -2,5 +2,5 @@
 	path = operational_os/experiments/Secure-Hardware
 	url = git@github.com:gregcusack/Secure-Hardware.git
 [submodule "operational_os/sdk/pki/openssl"]
-	path = operational_os/sdk/pki/openssl
+	path = sdk/pki/openssl
 	url = https://github.com/openssl/openssl.git

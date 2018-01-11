@@ -59,7 +59,7 @@ int main(){
         X509_NAME_add_entry_by_txt(name, "L", MBSTRING_ASC, (const unsigned char*)("Boulder"), -1, -1, 0);
         X509_NAME_add_entry_by_txt(name, "O", MBSTRING_ASC, (const unsigned char*)("NSR"), -1, -1, 0);
         // X509_NAME_add_entry_by_txt(name, "", MBSTRING_ASC, (const unsigned char*)REQ_DN_OU, -1, -1, 0);
-        X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC, (const unsigned char*)("test"), -1, -1, 0);
+        X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC, (const unsigned char*)("BYOSH Remote Attestation Certificate"), -1, -1, 0);
         X509_REQ_sign(req, device_privkey, EVP_sha256());
 
         //sign CSR to create cert

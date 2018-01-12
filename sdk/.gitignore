@@ -3,3 +3,5 @@ microblaze_build/
 arm_build/
 Secure-Hardware/
 **/__pycache__
+thrift/
+thrift-0.10.0.tar.gz*

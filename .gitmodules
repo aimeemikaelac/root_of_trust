@@ -4,3 +4,12 @@
 [submodule "operational_os/sdk/pki/openssl"]
 	path = sdk/pki/openssl
 	url = https://github.com/openssl/openssl.git
+[submodule "sdk/enclave_library/picojson"]
+	path = sdk/enclave_library/picojson
+	url = https://github.com/kazuho/picojson.git
+[submodule "sdk/enclave_library/cpp-base64"]
+	path = sdk/enclave_library/cpp-base64
+	url = https://github.com/ReneNyffenegger/cpp-base64.git
+[submodule "sdk/enclave_library/pistache"]
+	path = sdk/enclave_library/pistache
+	url = https://github.com/oktal/pistache.git

@@ -1,9 +1,9 @@
-CC={{ cross_compile }}gcc
+CC={{ cross_compile }}g++
 THRIFT_GEN_DIR=../gen-cpp-arm
-CPP_LIBS=-lstdc++ -lc
-CFLAGS=-I. -I../user_mmap_driver/ -I/usr/local/include/thrift/ -I/usr/local/include -I/usr/local/include/thrift/cpp -I$(THRIFT_GEN_DIR) {{ include_dirs }}
-LDFLAGS=-L/usr/local/lib/ {{ lib_dirs }} -lthrift -lpthread {{ libs }}
-SOURCES=$(THRIFT_GEN_DIR)/CommunicationToProgram.cpp $(THRIFT_GEN_DIR)/server_to_enclave_program_constants.cpp $(THRIFT_GEN_DIR)/server_to_enclave_program_types.cpp arm_code.c enclave_library.cpp ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c)
+CPP_LIBS=#-lstdc++ -lc
+CFLAGS=-std=c++11 -I. -I../user_mmap_driver/ -I/usr/local/include -I../enclave_library/pistache/include/ -I../enclave_library/picojson -I../enclave_library/cpp-base64 {{ include_dirs }}
+LDFLAGS=-L/usr/local/lib/ -L../enclave_library/pistache/build/src {{ lib_dirs }} -lpistache -lpthread {{ libs }}
+SOURCES=../enclave_library/cpp-base64/base64.cpp arm_code.c enclave_library.cpp ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c)
 EXECUTABLE={{ program_name }}
 
 all: $(EXECUTABLE)

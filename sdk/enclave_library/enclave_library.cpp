@@ -9,22 +9,24 @@
 #include <pistache/router.h>
 #include "picojson.h"
 #include "enclave_library.h"
-
-#ifndef SIMULATION
 #include "arm_protocol_header.h"
-#endif
+
+// #ifndef SIMULATION
+// #endif
 
 using namespace Pistache;
 
 #ifdef SIMULATION
+// extern static const char default_private_key_file[];
+
 int load_private_key(const char *private_key_file){
   FILE *fp;
   fp = fopen(private_key_file, "rb");
-  if(fread(private_key, 1, 32, fp) != 32)){
+  if(fread(private_key, 1, 32, fp) != 32){
     return -1;
   }
   fclose(fp);
-  ed25519_key_create_keypair(public_key, private_key_hash, private_key);
+  ed25519_create_keypair(public_key, private_key_hash, private_key);
   return 0;
 }
 
@@ -47,15 +49,15 @@ void calculate_hash(const char* filename){
   fclose(fp);
 }
 
-void start_attestation(unsigned char* data, message){
+void start_attestation(unsigned char* data, unsigned char *message){
   unsigned char remote_public_key[0x20];
   memcpy(remote_public_key, data, 0x20);
   memset(message, 0, 0x140);
   ed25519_create_keypair(session_public_key, session_private_key_hash, hash);
   memcpy(message + 0x40, hash, 0x40);
   memcpy(message + 0x80, session_public_key, 0x20);
-  ed25519_sign(message, message + 0x40, 0x100, session_public_key, session_private_key);
-  ed25519_key_exchange(shared_secret, remote_public_key, session_private_key);
+  ed25519_sign(message, message + 0x40, 0x100, public_key, private_key_hash);
+  ed25519_key_exchange(shared_secret, remote_public_key, session_private_key_hash);
 }
 
 void generate_encrypted_message(unsigned char *message, unsigned int *message_length){
@@ -338,7 +340,8 @@ int enclave_init(){
 int enclave_init_with_file(char const *filename){
 #ifdef SIMULATION
   calculate_hash(filename);
-#else
+#endif
+#ifndef SIMULATION
   initialize_hardware(filename);
 #endif
   // 3. Launch attestation thread that listens for thrift connections and

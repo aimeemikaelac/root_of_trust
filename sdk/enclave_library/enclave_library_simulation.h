@@ -11,14 +11,14 @@ extern "C" {
 #define SIMULATION
 #endif
 
-char default_private_key_file = "server_private_key_dev.bin";
-unsigned char shared_secret[0x20];
-unsigned char private_key[0x20];
-unsigned char private_key_hash[0x40];
-unsigned char public_key[0x20];
-unsigned char hash[0x40];
-unsigned char session_private_key[0x20];
-unsigned char session_public_key[0x20];
+static const char default_private_key_file[] = "server_private_key_dev.bin";
+static unsigned char shared_secret[0x20];
+static unsigned char private_key[0x20];
+static unsigned char private_key_hash[0x40];
+static unsigned char public_key[0x20];
+static unsigned char hash[0x40];
+static unsigned char session_private_key_hash[0x40];
+static unsigned char session_public_key[0x20];
 
 int enclave_init_simulation(char const *filename, char const *private_key);
 

@@ -116,24 +116,42 @@ def copy_sources_includes(source, destination):
                 print("Copying {} to {}".format(f, destination))
                 shutil.copy(os.path.join(source, f), destination)
 
-def generate_microblaze_makefiles(compilation_config):
+
+def copy_microblaze_sources_headers(compilation_config, dest_dir):
+    try:
+        microblaze_config = compilation_config["microblaze"]
+        sources = microblaze_config["sources"]
+        # source_directories = microblaze_config["source_directories"]
+        includes = microblaze_config["includes"]
+        # include_directories = microblaze_config["include_directories"]
+        # clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
+        # clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
+        sources_all = (
+            sources +  includes
+        )
+        for source_item in sources_all:
+            print("Copying {}".format(source_item))
+            copy_sources_includes(source_item, dest_dir)
+        return True
+    except KeyError:
+        return False
+
+
+def generate_microblaze_makefiles(compilation_config, program_name):
     try:
         microblaze_config = compilation_config["microblaze"]
         sources = microblaze_config["sources"]
         source_directories = microblaze_config["source_directories"]
         includes = microblaze_config["includes"]
         include_directories = microblaze_config["include_directories"]
-        program_name = compilation_config["program_name"]
         # clean_build_directory(MICROBLAZE_BUILD_DIRECTORY)
         # clean_build_directory(MICROBLAZE_BUILD_SRC_DIRECTORY)
         sources_all = (
             sources + source_directories + includes + include_directories
         )
-        print("Sources all: {}".format(sources_all))
-        print("Includes: {}".format(includes))
         for source_item in sources_all:
             print("Copying {}".format(source_item))
-            copy_sources_includes(source_item, MICROBLAZE_BUILD_SRC_DIRECTORY)
+            copy_sources_includes(source_item, MICROBLAZE_BUILD_DIRECTORY)
         return render_template(
             MICROBLAZE_MAKEFILE_TEMPLATE,
             {
@@ -148,7 +166,7 @@ def generate_microblaze_makefiles(compilation_config):
     except KeyError:
         return None, None, None
 
-def generate_arm_makefile(compile_config, cross_compile=""):
+def generate_arm_makefile(compile_config, program_name, cross_compile=""):
     try:
         arm_config = compile_config["arm"]
         sources = arm_config["sources"]
@@ -157,7 +175,6 @@ def generate_arm_makefile(compile_config, cross_compile=""):
         include_directories = arm_config["include_directories"]
         libraries = arm_config["libraries"]
         library_directories = arm_config["library_directories"]
-        program_name = compile_config["program_name"]
         # clean_build_directory(ARM_BUILD_DIRECTORY)
         sources_all = (
             sources + source_directories + includes + include_directories
@@ -388,9 +405,10 @@ if __name__ == "__main__":
         OUTPUT_DIRECTORY, DEFAULT_SYSTEM_CONFIG_HEADER
     ))
 
-    with open(ARM_CODE_OUT, 'w') as arm_code_file:
-        arm_code_file.write(arm_code)
-    shutil.copy2(ARM_CODE_OUT, OUTPUT_DIRECTORY)
+    if not args.simulation_mode:
+        with open(ARM_CODE_OUT, 'w') as arm_code_file:
+            arm_code_file.write(arm_code)
+        shutil.copy2(ARM_CODE_OUT, OUTPUT_DIRECTORY)
     print("Generated {}/{}".format(
         OUTPUT_DIRECTORY, DEFAULT_ARM_CODE
     ))
@@ -419,7 +437,7 @@ if __name__ == "__main__":
     if args.compilation_config is not None:
         compilation_config = parse_compilation_config(args.compilation_config)
         microblaze_makefile, microblaze_sub_makefile, microblaze_program = (
-            generate_microblaze_makefiles(compilation_config)
+            generate_microblaze_makefiles(compilation_config, args.program_name)
         )
         with open(MICROBLAZE_MAKEFILE, 'w') as microblaze_makefile_out:
             microblaze_makefile_out.write(microblaze_makefile)
@@ -465,8 +483,15 @@ if __name__ == "__main__":
                 os.getcwd()
             )
         arm_makefile, arm_program = generate_arm_makefile(
-            compilation_config, cross_compile=args.arm_cross_compile
+            compilation_config,
+            args.program_name,
+            cross_compile=args.arm_cross_compile
         )
+        if args.simulation_mode:
+            # Copy mb sources from comilation config
+            copy_microblaze_sources_headers(
+                compilation_config, ARM_BUILD_DIRECTORY
+            )
         with open(ARM_MAKEFILE_OUT, 'w') as arm_makefile_out:
             arm_makefile_out.write(arm_makefile)
         shutil.copy2(ARM_MAKEFILE_OUT, OUTPUT_DIRECTORY)
@@ -487,6 +512,9 @@ if __name__ == "__main__":
                     ARM_BUILD_DIRECTORY + "/enclave_library.h"
                 )
             shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
+            arm_build = subprocess.call(
+                shlex.split("make clean"), cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
+            )
             arm_build = subprocess.call(
                 "make", cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
             )

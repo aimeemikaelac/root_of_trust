@@ -5,7 +5,7 @@ CFLAGS=-I. -I../user_mmap_driver/ -I/usr/local/include -I../enclave_library/pist
 CXXFLAGS=-std=c++14 $(CFLAGS)
 LDFLAGS=-L/usr/local/lib/ -L../enclave_library/pistache/build/src {{ lib_dirs }} -lpistache -lpthread {{ libs }}
 SOURCES_CPP=../enclave_library/cpp-base64/base64.cpp ../enclave_library/enclave_library.cpp
-SOURCES_C= arm_code.c ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c) $(wildcard ../enclave_library/ed25519/src/*.c)
+SOURCES_C= ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c) $(wildcard ../enclave_library/ed25519/src/*.c)
 OBJS=$(SOURCES_CPP:.cpp=.o) $(SOURCES_C:.c=.o)
 EXECUTABLE={{ program_name }}
 
@@ -15,4 +15,4 @@ $(EXECUTABLE): $(OBJS)
 	$(CXX) -o $@ $^ $(LDFLAGS) $(CPP_LIBS) $(C_LIBS)
 
 clean:
-	(RM) $(EXECUTABLE) $(OBJS)
+	$(RM) $(EXECUTABLE) $(OBJS)

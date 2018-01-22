@@ -75,8 +75,11 @@ MICROBLAZE_ENCLAVE_LIBRARY = (
     )
 )
 ARM_ENCLAVE_LIBRARY = "{}/enclave_library.cpp".format(ENCLAVE_LIBRARY_DIRECTORY)
-ARM_ENCLAVE_LIBRARY_HEADER = "{}/enclave_library.h".format(
+ARM_ENCLAVE_LIBRARY_HEADER = "{}/enclave_library_hardware.h".format(
     ENCLAVE_LIBRARY_DIRECTORY
+)
+ARM_ENCLAVE_LIBRARY_HEADER_SIMULATION =  (
+    "{}/enclave_library_simulation.h".format(ENCLAVE_LIBRARY_DIRECTORY)
 )
 LOAD_SCRIPT = "{}/lscript.ld".format(SCRIPT_PATH)
 
@@ -289,6 +292,10 @@ if __name__ == "__main__":
         action="store_true"
     )
     parser.add_argument(
+        "--simulation_mode",
+        action="store_true"
+    )
+    parser.add_argument(
         "--arm_cross_compile",
         help="Cross-compile prefix for arm code",
         default=""
@@ -468,8 +475,18 @@ if __name__ == "__main__":
         ))
 
         if args.build_arm:
+            if args.simulation_mode:
+                shutil.copy2(
+                    ARM_ENCLAVE_LIBRARY_HEADER_SIMULATION,
+                    ARM_BUILD_DIRECTORY + "/enclave_library.h"
+                )
+                shutil.copy2(ARM_ENCLAVE_LIBRARY_HEADER, ARM_BUILD_DIRECTORY)
+            else:
+                shutil.copy2(
+                    ARM_ENCLAVE_LIBRARY_HEADER,
+                    ARM_BUILD_DIRECTORY + "/enclave_library.h"
+                )
             shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
-            shutil.copy2(ARM_ENCLAVE_LIBRARY_HEADER, ARM_BUILD_DIRECTORY)
             arm_build = subprocess.call(
                 "make", cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
             )

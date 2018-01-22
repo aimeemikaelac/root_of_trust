@@ -1,15 +1,18 @@
-CC={{ cross_compile }}g++
+CC={{ cross_compile }}gcc
+CXX={{ cross_compile}}g++
 THRIFT_GEN_DIR=../gen-cpp-arm
-CPP_LIBS=#-lstdc++ -lc
-CFLAGS=-std=c++11 -I. -I../user_mmap_driver/ -I/usr/local/include -I../enclave_library/pistache/include/ -I../enclave_library/picojson -I../enclave_library/cpp-base64 {{ include_dirs }}
+CFLAGS=-I. -I../user_mmap_driver/ -I/usr/local/include -I../enclave_library/pistache/include/ -I../enclave_library/picojson -I../enclave_library/cpp-base64 -I ../enclave_library/ed25519/src/ {{ include_dirs }}
+CXXFLAGS=-std=c++14 $(CFLAGS)
 LDFLAGS=-L/usr/local/lib/ -L../enclave_library/pistache/build/src {{ lib_dirs }} -lpistache -lpthread {{ libs }}
-SOURCES=../enclave_library/cpp-base64/base64.cpp arm_code.c enclave_library.cpp ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c)
+SOURCES_CPP=../enclave_library/cpp-base64/base64.cpp ../enclave_library/enclave_library.cpp
+SOURCES_C= arm_code.c ../user_mmap_driver/user_mmap_driver.c $(wildcard *.c) $(wildcard ../enclave_library/ed25519/src/*.c)
+OBJS=$(SOURCES_CPP:.cpp=.o) $(SOURCES_C:.c=.o)
 EXECUTABLE={{ program_name }}
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(SOURCES)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(CPP_LIBS)
+$(EXECUTABLE): $(OBJS)
+	$(CXX) -o $@ $^ $(LDFLAGS) $(CPP_LIBS) $(C_LIBS)
 
 clean:
-	rm -f {{ program_name }}
+	(RM) $(EXECUTABLE) $(OBJS)

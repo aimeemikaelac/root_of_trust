@@ -6,10 +6,8 @@
       "sha512_enclave_arm.c"
     ],
     "source_directories":[
-      "ed25519_ecdsa/"
     ],
     "includes":[
-      "ed25519_ecdsa/"
     ],
     "include_directories":[
     ],

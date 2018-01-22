@@ -4,7 +4,7 @@
 #include <sys/syscall.h>
 #include "arm_protocol_header.h"
 #include "enclave_library.h"
-#include "sha512.h"
+// #include "sha512.h"
 #include <stdlib.h>
 
 #define MAX_SIZE_BUFFER 0x100000

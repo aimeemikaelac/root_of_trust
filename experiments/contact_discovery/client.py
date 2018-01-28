@@ -47,11 +47,11 @@ def load_database(filename):
 def upload_database(database, server, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((server, port))
-    sock.send("hashes:\n")
+    sock.send("h\n")
     for hashed in database:
         sock.send(hashed)
         sock.send("\n")
-    sock.send("finished\n")
+    sock.send("f\n")
     sock.close()
 
 
@@ -77,25 +77,25 @@ def generate_contacts(size, database, percentage_database=None):
 def perform_remote_matching(contacts, server, port):
     # perform_remote_attestation()
     sock.connect((server, port))
-    sock.send("contacts:\n")
+    sock.send("c\n")
     for contact in contacts:
         sock.send(hashed)
         sock.send("\n")
-    sock.send("finished\n")
+    sock.send("f\n")
     received = ''
     results = ''
     while received != '\n':
         received = sock.recv(1)
         results += received
     matched_contacts = list()
-    if results == "matched:":
+    if results == "m":
         current_result = ''
         while True:
             received = ''
             while received != '\n':
                 received = sock.recv(1)
                 current_result += received
-            if current_result == "finished":
+            if current_result == "f":
                 break
             matched_contacts.append(current_result)
     matched_contacts_num = 0

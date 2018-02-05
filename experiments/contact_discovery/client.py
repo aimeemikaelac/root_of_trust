@@ -77,26 +77,26 @@ def generate_contacts(size, database, percentage_database=None):
 def perform_remote_matching(contacts, server, port):
     # perform_remote_attestation()
     sock.connect((server, port))
-    sock.send("c\n")
+    sock.send("c")
     for contact in contacts:
         sock.send(hashed)
-        sock.send("\n")
-    sock.send("f\n")
+        # sock.send("\n")
+    sock.send("f")
     received = ''
     results = ''
-    while received != '\n':
-        received = sock.recv(1)
-        results += received
+    # while received != '\n':
+    received = sock.recv(1)
+    results += received
     matched_contacts = list()
     if results == "m":
-        current_result = ''
+        # current_result = ''
         while True:
             received = ''
-            while received != '\n':
-                received = sock.recv(1)
-                current_result += received
-            if current_result == "f":
-                break
+            # while received != '\n':
+            current_result = sock.recv(512)
+            # current_result += received
+            # if current_result == "f":
+                # break
             matched_contacts.append(current_result)
     matched_contacts_num = 0
     unknown_contacts_num = 0

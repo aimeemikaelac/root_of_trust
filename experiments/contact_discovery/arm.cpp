@@ -8,15 +8,63 @@
 #include <string>
 
 #define PORT 9000
-#define ENCLAVE_DATABASE_HASHES 20
+#define ENCLAVE_DATABASE_HASHES 6
 
-static std::list<std::string> hashes_database;
-static std::list<std::string> contacts;
+static std::vector<std::string> hashes_database;
+static std::vector<std::string> contacts;
+
+void build_contacts_hash(std::vector<std::string> contacts){
+  int i;
+  unsigned char transfer[ENCLAVE_DATABASE_HASHES*6];
+  memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
+  for(i=0; i < contacts.size(); i++){
+    std::string current = contacts[i];
+    memcpy(transfer + transfer_index, current.data(), 512);
+    transfer_index += 512;
+    index++;
+    if(index >= ENCLAVE_DATABASE_HASHES || i+1 == hashes_database.size()){
+      enclave_build_contacts_hash(transfer, &index);
+      transfer_index=0;
+      index=0;
+      memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
+    }
+  }
+}
+
+std::vector<std::string> match_database(){
+  int results_count, unsigned int results_indexes[ENCLAVE_DATABASE_HASHES];
+  int index = 0, transfer_index = 0, i, j;
+  unsigned char transfer[ENCLAVE_DATABASE_HASHES*512];
+  std::vector<std::string> results;
+  std::vector<int> current_indexes(ENCLAVE_DATABASE_HASHES);
+
+  memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
+  for(int i=0; i<hashes_database.size(); i++){
+    current = hashes_database[i];
+    current_indexes.push_back(i);
+    memcpy(transfer + transfer_index, current.data(), 512);
+    transfer_index += 512;
+    index++;
+    if(index >= ENCLAVE_DATABASE_HASHES || i+1 == hashes_database.size()){
+      enclave_match_chunk(transfer, &index, results_indexes, &results_count);
+      for(j=0; j<results_count; j++){
+        result_index = results_indexes[j];
+        current_result_index = current_indexes[result_index];
+        results.push_back(hashes_database[current_result_index]);
+      }
+      memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
+      transfer_index=0;
+      index=0;
+      current_indexes.clear();
+    }
+  }
+}
 
 int listen_on_port(){
   int sock = socket(AF_INET, SOCK_STREAM, 0);
   struct sockaddr_in sin;
   sin.sin_family = AF_INET;
+
   inet_aton("0.0.0.0", &sin.sin_addr);
   sin.sin_port = htons(PORT);
   if (bind(sock, (struct sockaddr*)&sin, sizeof(sin)) < 0) {
@@ -45,32 +93,34 @@ int listen_on_port(){
         return -1;
     }
     int i;
-    std::list<std::string> current_list;
+    std::vector<std::string> current_list;
     while(true){
       rc = recv(fd, recv_buf, 512, 0);
       if(rc != 512){
         break;
       }
       std::string current_hash((char*)(recv_buf), 512);
-      current_list.push_front(current_hash);
+      current_list.push_back(current_hash);
     }
     switch(operation){
       case 'c':
         //assume that a match operation is not going on
+        std::vectr<std::string> results;
         contacts = current_list;
-        enclave_build_contacts_hash(current_list);
-        int index = 0;
-        std::list<std::string> current;
-        for(std::list<std::string>::iterator it=hashes_database.begin(); it != hashes_database.end(); ++it){
-          current.push_front(*it);
-          index++;
-          if(index >= ENCLAVE_DATABASE_HASHES){
-            enclave_match_chunk(current);
-            index=0;
-            current.clear();
+        //have enclave build hash table of contacts
+        build_contacts_hash(contacts);
+        //send the database to be matched chunk by chunk
+        results = match_database();
+        //TODO: send results back over the socket
+        char m = 'm';
+        send(fd, &m, 1, 0);
+        for(i =0; i<results.size(); i++){
+          rc = send(fd, results[i].data(), 512, 0);
+          if(rc < 0){
+            perror("send");
+            return -1;
           }
         }
-
         break;
       case 'h':
         //assume that the matching is not happening
@@ -80,25 +130,17 @@ int listen_on_port(){
         perror("protocol");
         return -1;
     }
+    rc = shutdown(fd, 2);
+    if(rc < 0){
+      perror("shutdown");
+      return -1;
+    }
+    close(fd);
   }
-}
-
-//receive a database from a client
-void receive_database(){
-
-}
-
-//receive the uploaded number hashes
-void receive_hashes(){
-
 }
 
 
 int main(){
-  //launch a rest server here to provide the api?
-  receive_database();
-  while(true){
-    receive_hashes();
-  }
+  listen_on_port();
   return 0;
 }

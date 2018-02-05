@@ -2,10 +2,13 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include "enclave_library.h"
 #include "arm_protocol_header.h"
+#include "enclave_library.h"
 #include <list>
 #include <string>
+#include <vector>
+#include "string.h"
+#include <unistd.h>
 
 #define PORT 9000
 #define ENCLAVE_DATABASE_HASHES 6
@@ -14,7 +17,7 @@ static std::vector<std::string> hashes_database;
 static std::vector<std::string> contacts;
 
 void build_contacts_hash(std::vector<std::string> contacts){
-  int i;
+  int i, transfer_index = 0, index = 0;
   unsigned char transfer[ENCLAVE_DATABASE_HASHES*6];
   memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
   for(i=0; i < contacts.size(); i++){
@@ -32,7 +35,8 @@ void build_contacts_hash(std::vector<std::string> contacts){
 }
 
 std::vector<std::string> match_database(){
-  int results_count, unsigned int results_indexes[ENCLAVE_DATABASE_HASHES];
+  int results_count, result_index, current_result_index;
+  int results_indexes[ENCLAVE_DATABASE_HASHES];
   int index = 0, transfer_index = 0, i, j;
   unsigned char transfer[ENCLAVE_DATABASE_HASHES*512];
   std::vector<std::string> results;
@@ -40,7 +44,7 @@ std::vector<std::string> match_database(){
 
   memset(transfer, 0, 512*ENCLAVE_DATABASE_HASHES);
   for(int i=0; i<hashes_database.size(); i++){
-    current = hashes_database[i];
+    std::string current = hashes_database[i];
     current_indexes.push_back(i);
     memcpy(transfer + transfer_index, current.data(), 512);
     transfer_index += 512;
@@ -103,17 +107,17 @@ int listen_on_port(){
       current_list.push_back(current_hash);
     }
     switch(operation){
-      case 'c':
+      case 'c': {
         //assume that a match operation is not going on
-        std::vectr<std::string> results;
+        std::vector<std::string> results;
         contacts = current_list;
         //have enclave build hash table of contacts
         build_contacts_hash(contacts);
         //send the database to be matched chunk by chunk
         results = match_database();
         //TODO: send results back over the socket
-        char m = 'm';
-        send(fd, &m, 1, 0);
+        char _m = 'm';
+        send(fd, &_m, 1, 0);
         for(i =0; i<results.size(); i++){
           rc = send(fd, results[i].data(), 512, 0);
           if(rc < 0){
@@ -122,10 +126,12 @@ int listen_on_port(){
           }
         }
         break;
-      case 'h':
+      }
+      case 'h':{
         //assume that the matching is not happening
         hashes_database = current_list;
         break;
+      }
       default:
         perror("protocol");
         return -1;

@@ -1,0 +1,42 @@
+CC=mb-gcc
+CXX=mb-g++
+CFLAGS=-I../enclave_test_bsp/enclave_microblaze/include -Isrc -I. -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mxl-multiply-high -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)"
+CXXFLAGS=$(CFLAGS)
+LDFLAGS=-Wl,-T -Wl,lscript.ld -L../enclave_test_bsp/enclave_microblaze/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mxl-multiply-high -mhard-float -mxl-float-convert -mxl-float-sqrt -Wl,--no-relax -Wl,--gc-sections
+SOURCES_C=$(wildcard src/*.c) $(wildcard *.c)
+SOURCES_CPP=$(wildcard src/*.cpp) $(wildcard *.cpp)
+OBJS=$(SOURCES_CPP:.cpp=.o) $(SOURCES_C:.c=.o)
+LIBS=
+USER_OBJS=
+EXECUTABLE={{ program_name }}
+PROGRAM_NAME=$(EXECUTABLE)
+ELFSIZE += \
+$(PROGRAM_NAME).elf.size \
+
+all: $(PROGRAM_NAME).elf secondary-outputs
+
+$(PROGRAM_NAME).elf: $(OBJS) lscript.ld $(USER_OBJS)
+	@echo $(SOURCES_CXX)
+	@echo $(SOURCES_C)
+	@echo $(OBJS)
+	@echo $()
+	@echo 'Building target: $@'
+	@echo 'Invoking: MicroBlaze gcc linker'
+	$(CXX) $(LDFLAGS) -o "$(PROGRAM_NAME).elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+
+$(PROGRAM_NAME).elf.size: $(PROGRAM_NAME).elf
+	@echo 'Invoking: MicroBlaze Print Size'
+	mb-size $(PROGRAM_NAME).elf  |tee "$(PROGRAM_NAME).elf.size"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+clean:
+	-$(RM) $(EXECUTABLES)$(OBJS)$(S_UPPER_DEPS)$(C_DEPS)$(ELFSIZE) $(PROGRAM_NAME).elf
+	-@echo ' '
+
+secondary-outputs: $(ELFSIZE)
+
+.PHONY: all clean dependents

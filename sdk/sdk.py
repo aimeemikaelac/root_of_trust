@@ -35,11 +35,11 @@ MICROBLAZE_HEADER_TEMPLATE = "{}/templates/{}".format(
     SCRIPT_PATH, DEFAULT_MICROBLAZE_HEADER_TEMPLATE
 )
 MICROBLAZE_BUILD_DIRECTORY = "{}/microblaze_build/".format(SCRIPT_PATH)
-MICROBLAZE_BUILD_SRC_DIRECTORY = "{}src".format(MICROBLAZE_BUILD_DIRECTORY)
-MICROBLAZE_MAKEFILE = "{}/makefile".format(
+MICROBLAZE_BUILD_SRC_DIRECTORY = "{}".format(MICROBLAZE_BUILD_DIRECTORY)
+MICROBLAZE_MAKEFILE = "{}/Makefile".format(
     MICROBLAZE_BUILD_DIRECTORY
 )
-MICROBLAZE_MAKEFILE_TEMPLATE = "{}/templates/makefile.jinja".format(
+MICROBLAZE_MAKEFILE_TEMPLATE = "{}/templates/Makefile_mb.jinja".format(
     SCRIPT_PATH
 )
 MICROBLAZE_SUB_MAKEFILE = "{}/subdir.mk".format(
@@ -446,9 +446,9 @@ if __name__ == "__main__":
             OUTPUT_DIRECTORY, "makefile"
         ))
 
-        with open(MICROBLAZE_SUB_MAKEFILE, 'w') as sub_makefile_out:
-            sub_makefile_out.write(microblaze_sub_makefile)
-        shutil.copy2(MICROBLAZE_SUB_MAKEFILE, OUTPUT_DIRECTORY)
+        # with open(MICROBLAZE_SUB_MAKEFILE, 'w') as sub_makefile_out:
+        #     sub_makefile_out.write(microblaze_sub_makefile)
+        # shutil.copy2(MICROBLAZE_SUB_MAKEFILE, OUTPUT_DIRECTORY)
         print("Generated {}/{}".format(
             OUTPUT_DIRECTORY, "subdir.mk"
         ))
@@ -511,7 +511,7 @@ if __name__ == "__main__":
                     ARM_ENCLAVE_LIBRARY_HEADER,
                     ARM_BUILD_DIRECTORY + "/enclave_library.h"
                 )
-            shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
+            # shutil.copy2(ARM_ENCLAVE_LIBRARY, ARM_BUILD_DIRECTORY)
             arm_build = subprocess.call(
                 shlex.split("make clean"), cwd=ARM_BUILD_DIRECTORY, stderr=subprocess.STDOUT
             )

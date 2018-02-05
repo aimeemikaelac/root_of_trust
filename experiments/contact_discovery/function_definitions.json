@@ -1,0 +1,47 @@
+{
+  "trusted":[
+    {
+      "name":"enclave_build_contacts_hash",
+      "inputs":[
+        {
+          "name":"transfer",
+          "type":"unsigned char",
+          "length":3072
+        },
+        {
+          "name":"transfer_length",
+          "type":"int",
+          "length":4
+        }
+      ],
+      "outputs":[]
+    },
+    {
+      "name":"enclave_match_chunk",
+      "inputs":[
+        {
+          "name":"transfer",
+          "type":"unsigned char",
+          "length":3072
+        },
+        {
+          "name":"transfer_length",
+          "type":"int",
+          "length":4
+        }
+      ],
+      "outputs":[
+        {
+          "name":"results_indexes",
+          "type":"int",
+          "length":192
+        },
+        {
+          "name":"results_count",
+          "type":"int",
+          "length":4
+        }
+      ]
+    }
+  ]
+}

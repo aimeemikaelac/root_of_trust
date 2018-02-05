@@ -1,0 +1,30 @@
+{
+  "program_name":"contact_discovery",
+  "arm":{
+    "cross_compile":"arm-linux-gnueabihf-",
+    "sources":[
+      "arm.cpp"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ],
+    "libraries":[
+    ],
+    "library_directories":[
+    ]
+  },
+  "microblaze":{
+    "sources":[
+      "mb.cpp"
+    ],
+    "source_directories":[
+    ],
+    "includes":[
+    ],
+    "include_directories":[
+    ]
+  }
+}

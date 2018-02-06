@@ -7,6 +7,8 @@ import pickle
 import socket
 import os
 import argparse
+import binascii
+import struct
 
 DATABASE_FILE = "phone_number_database.pkl"
 CONTACTS_FILE = "contacts.pkl"
@@ -47,11 +49,14 @@ def load_database(filename):
 def upload_database(database, server, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((server, port))
-    sock.send("h\n")
+    sock.send("h")
+    sock.send(struct.pack("!i", len(database)))
+    print("Chunks to send: {}".format(len(database)))
     for hashed in database:
         sock.send(hashed)
-        sock.send("\n")
-    sock.send("f\n")
+        print("Sent chunk: {}".format(binascii.hexlify(hashed)))
+        # sock.send("\n")
+    sock.send("f")
     sock.close()
 
 
@@ -66,43 +71,48 @@ def generate_contacts(size, database, percentage_database=None):
     contacts.update(
         generate_database(number_new, comparison_database=database)
     )
+    print("Number new: {}".format(number_new))
     for _number in range(number_database):
         while True:
-            random_choice = random.SystemRandom.choice(database)
+            random_choice = random.SystemRandom().choice(list(database))
             if random_choice not in contacts:
                 contacts.add(random_choice)
                 break
+    return contacts
 
 # send the hashed numbers to the enclave after verifying a remote attestation
 def perform_remote_matching(contacts, server, port):
-    # perform_remote_attestation()
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((server, port))
     sock.send("c")
+    sock.send(struct.pack("!i", len(contacts)))
+    print("Chunks to send: {}".format(len(contacts)))
     for contact in contacts:
-        sock.send(hashed)
+        sock.send(contact)
+        print("Sent chunk: {}".format(binascii.hexlify(contact)))
         # sock.send("\n")
     sock.send("f")
-    received = ''
+    received = 0
     results = ''
     # while received != '\n':
-    received = sock.recv(1)
-    results += received
+    operation = sock.recv(1)
     matched_contacts = list()
-    if results == "m":
+    if operation == 'm':
         # current_result = ''
-        while True:
-            received = ''
-            # while received != '\n':
-            current_result = sock.recv(512)
-            # current_result += received
-            # if current_result == "f":
-                # break
+        length = struct.unpack("!i", sock.recv(struct.calcsize("!i")))[0]
+        print("Expecting to receive {}".format(length))
+        while received < length:
+            current_result = sock.recv(64)
+            # current_result = struct.unpack("B"*64, current_result)
             matched_contacts.append(current_result)
+            print("Received chunk: {}".format(binascii.hexlify(current_result)))
+            received += 1
+    sock.close()
     matched_contacts_num = 0
     unknown_contacts_num = 0
     for contact in matched_contacts:
         if contact in contacts:
-            matched_contacts += 1
+            matched_contacts_num += 1
         else:
             unknown_contacts_num += 1
     return matched_contacts, matched_contacts_num, unknown_contacts_num
@@ -127,15 +137,24 @@ if __name__ == "__main__":
         "--regenerate_contacts", required=False, action="store_true"
     )
     argparser.add_argument(
-        "--contacts_percentage", required=False, type=float
+        "--contacts_percentage", required=False, type=float, default=.5
+    )
+    argparser.add_argument(
+        "--server", required=True
+    )
+    argparser.add_argument(
+        "--port", type=int, required=False, default=9000
     )
     args = argparser.parse_args()
     if not database_exists(args.db_file) or args.regenerate_db:
+        print("Regenerating database")
         database = generate_database(args.db_size)
         save_database(args.db_file, database)
     else:
+        print("Loading database")
         database = load_database(args.db_file)
-    if not database_exists(args.contacts_file):
+    if not database_exists(args.contacts_file) or args.regenerate_contacts:
+        print("Generating contacts list")
         contacts = generate_contacts(
             args.contacts_size,
             database,
@@ -143,15 +162,18 @@ if __name__ == "__main__":
         )
         save_database(args.contacts_file, contacts)
     else:
+        print("Loading contacts list")
         contacts = load_database(args.contacts_file)
-    upload_database(database)
+    print("Uploading database")
+    upload_database(database, args.server, args.port)
     # begin timing
+    print("Performing remote matching")
     matched_contacts, matched_contacts_num, unknown_contacts_num = (
-        perform_remote_matching(contacts)
+        perform_remote_matching(contacts, args.server, args.port)
     )
     #end timing
     print("Number of contacts expected to match: {}".format(
-        args.contacts_size * args.contacts_percentage
+        int(args.contacts_size * args.contacts_percentage)
     ))
     print("Number of contacts matched: {}".format(matched_contacts_num))
     print("Number of unknown contacts returned: {}".format(

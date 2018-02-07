@@ -18,11 +18,12 @@
   },
   "microblaze":{
     "sources":[
-      "mb.cpp"
+      "mb.cpp", "aes.c"
     ],
     "source_directories":[
     ],
     "includes":[
+      "aes.h"
     ],
     "include_directories":[
     ]

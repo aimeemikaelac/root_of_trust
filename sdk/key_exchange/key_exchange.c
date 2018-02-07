@@ -9,12 +9,20 @@ int main(int argc, char **argv){
     return -1;
   }
   public_key_file = fopen(argv[1], "rb");
+  if(public_key_file == NULL){
+    printf("Couldn't open public key file\n");
+    return -1;
+  }
   if(fread(public_key, 1, 32, public_key_file) != 32){
     printf("Error reading public key\n");
     return -1;
   }
   fclose(public_key_file);
   private_key_file = fopen(argv[2], "rb");
+  if(private_key_file == NULL){
+    printf("Couldn't open private key file\n");
+    return -1;
+  }
   if(fread(private_key, 1, 64, private_key_file) != 64){
     printf("Error reading private key\n");
     return -1;

@@ -16,6 +16,8 @@ import base64
 import pexpect
 import time
 import sys
+import requests
+import base64
 from devmem import DevMem
 from threading import Thread
 from program_memory import write_bin_file, trigger_reset
@@ -23,11 +25,11 @@ from program_memory import write_bin_file, trigger_reset
 # from ecdsa_utils import generate_ecdsa_attestation
 from flask import Flask, request
 # from flask.ext.api import status
-import gen_py.communication_to_program.CommunicationToProgram as comm
-from thrift import Thrift
-from thrift.transport import TSocket
-from thrift.transport import TTransport
-from thrift.protocol import TBinaryProtocol
+# import gen_py.communication_to_program.CommunicationToProgram as comm
+# from thrift import Thrift
+# from thrift.transport import TSocket
+# from thrift.transport import TTransport
+# from thrift.protocol import TBinaryProtocol
 
 
 ##########################################
@@ -88,11 +90,10 @@ def initialize_ecdsa_key_dev(public_key_file, private_key_file):
         private_key = key_file_handle.read(64)
     SERVER_PUBLIC_KEY = bytearray(public_key)
     SERVER_PRIVATE_KEY = bytearray(private_key)
-    secure_storage = DevMem(SECURE_STORAGE_DEV, length=SECURE_STORAGE_LENGTH)
-#    for i in range(0x20):
-    secure_storage.write(SECURE_STORAGE_PUBLIC_OFFSET, public_key)
-#    for i in range(0x40):
-    secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
+    #TODO: have this stuff run only in non-simulation mode
+    # secure_storage = DevMem(SECURE_STORAGE_DEV, length=SECURE_STORAGE_LENGTH)
+    # secure_storage.write(SECURE_STORAGE_PUBLIC_OFFSET, public_key)
+    # secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
 
 def initialize_ecdsa_core_dev():
     print("Ecdsa buffer address: {}".format(ECDSA_BUFFER))
@@ -105,7 +106,7 @@ def initialize_ecdsa_core_dev():
 
 app = Flask(__name__)
 parse_system_config(DEV_SYSTEM_CONFIG)
-initialize_ecdsa_core_dev()
+# initialize_ecdsa_core_dev()
 initialize_ecdsa_key_dev(PUBLIC_KEY_FILE_DEV, PRIVATE_KEY_FILE_DEV)
 # Event loops for async
 program_loop = asyncio.new_event_loop()
@@ -181,7 +182,7 @@ def program_enclave():
         print("Error launching enclave")
 
 
-def perform_attestation(attestation_data, ticket):
+def perform_attestation(attestation_data, ticket, port=8080):
     # Receive attestation data and wait for result
     # TODO: interface with FPGA-side IP to handle triggering attestation
     # For now, assume signing a message buffer
@@ -198,25 +199,40 @@ def perform_attestation(attestation_data, ticket):
 #    work_item = await queue.get()
 #    message_data_raw = work_item["attestation_data"]
 #    ticket = work_item["ticket"]
-    socket = TSocket.TSocket("localhost", 9090)
-    transport = TTransport.TBufferedTransport(socket)
-    protocol = TBinaryProtocol.TBinaryProtocol(transport)
-    client = comm.Client(protocol)
-    transport.open()
-    message_data = attestation_data
+    # socket = TSocket.TSocket("localhost", 9090)
+    # transport = TTransport.TBufferedTransport(socket)
+    # protocol = TBinaryProtocol.TBinaryProtocol(transport)
+    # client = comm.Client(protocol)
+    # transport.open()
+    # message_data = attestation_data
+    url = "http://localhost:{}/v1/start_attestation".format(port)
+    # attestation_data_str = str(base64.b64encode(attestation_data), 'ascii')
+    # print(type(attestation_data_str))
     print("Beggining attestation")
     print("Recieved attestation data: {}".format(
-        binascii.hexlify(message_data))
+        binascii.hexlify(attestation_data))
     )
-    message = client.begin_attestation(message_data)
-    print("Thrift attestation call finished")
-    print("Attestation message: {}".format(
-        str(binascii.hexlify(message))
-    ))
-    attestation_outputs[ticket] = {
-        "message": message
-    }
-    transport.close()
+    # message = client.begin_attestation(message_data)
+    response = requests.post(
+        url,
+        json={
+            "attestation_data": str(base64.b64encode(attestation_data), 'ascii')
+        }
+    )
+    if response.status_code == 200:
+        message = base64.b64decode(response.json()["attestation_data"])
+        print("REST attestation call finished")
+        print("Attestation message: {}".format(
+            str(binascii.hexlify(message))
+        ))
+        attestation_outputs[ticket] = {
+            "message": message
+        }
+    else:
+        print("Error in attestation")
+        print("Error code: {}".format(response.status_code))
+        print("Error message: {}".format(response.text))
+    # transport.close()
 #    queue.task_done()
 
 

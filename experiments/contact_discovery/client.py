@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import random
 import string
@@ -6,9 +6,16 @@ import hashlib
 import pickle
 import socket
 import os
+import sys
 import argparse
 import binascii
 import struct
+import subprocess
+import shlex
+SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
+sys.path.append("{}/../../sdk/".format(SCRIPT_PATH))
+import sdk_client
+from Crypto.Cipher import AES
 
 DATABASE_FILE = "phone_number_database.pkl"
 CONTACTS_FILE = "contacts.pkl"
@@ -25,7 +32,7 @@ def generate_database(size, comparison_database=None):
         comparison_database = set()
     for _number in range(size):
         while True:
-            random_number = generate_random_phone_number()
+            random_number = generate_random_phone_number().encode('utf-8')
             sha512 = hashlib.sha512()
             sha512.update(random_number)
             digest = sha512.digest()
@@ -49,14 +56,14 @@ def load_database(filename):
 def upload_database(database, server, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((server, port))
-    sock.send("h")
+    sock.send(struct.pack("!c", 'h'.encode()))
     sock.send(struct.pack("!i", len(database)))
     print("Chunks to send: {}".format(len(database)))
     for hashed in database:
         sock.send(hashed)
         print("Sent chunk: {}".format(binascii.hexlify(hashed)))
         # sock.send("\n")
-    sock.send("f")
+    sock.send(struct.pack("!c","f".encode()))
     sock.close()
 
 
@@ -81,21 +88,23 @@ def generate_contacts(size, database, percentage_database=None):
     return contacts
 
 # send the hashed numbers to the enclave after verifying a remote attestation
-def perform_remote_matching(contacts, server, port):
+def perform_remote_matching(contacts, shared_secret, server, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((server, port))
-    sock.send("c")
+    sock.send(struct.pack("!c","c".encode()))
     sock.send(struct.pack("!i", len(contacts)))
     print("Chunks to send: {}".format(len(contacts)))
+    cipher = AES.new(shared_secret[:16], AES.MODE_ECB)
     for contact in contacts:
-        sock.send(contact)
+        sock.send(cipher.encrypt(contact))
         print("Sent chunk: {}".format(binascii.hexlify(contact)))
         # sock.send("\n")
-    sock.send("f")
+    sock.send(struct.pack("!c","f".encode()))
     received = 0
     results = ''
     # while received != '\n':
-    operation = sock.recv(1)
+    operation = str(struct.unpack("!c", sock.recv(1))[0], 'ascii')
+    print("operation: {}".format(operation))
     matched_contacts = list()
     if operation == 'm':
         # current_result = ''
@@ -145,6 +154,21 @@ if __name__ == "__main__":
     argparser.add_argument(
         "--port", type=int, required=False, default=9000
     )
+    argparser.add_argument(
+        "--generate_keypair_binary",
+        help="Path to keypair binary",
+        required=True
+    )
+    argparser.add_argument(
+        "--key_exchange_binary",
+        help="Path to key exchange binary",
+        required=True
+    )
+    argparser.add_argument(
+        "--enclave_file",
+        help="Enclave program file to upload",
+        required=True
+    )
     args = argparser.parse_args()
     if not database_exists(args.db_file) or args.regenerate_db:
         print("Regenerating database")
@@ -164,12 +188,54 @@ if __name__ == "__main__":
     else:
         print("Loading contacts list")
         contacts = load_database(args.contacts_file)
+
+
+    print("Starting remote attestation")
+    keypair_return = subprocess.call(
+        shlex.split(args.generate_keypair_binary)
+    )
+    if keypair_return != 0:
+        print("Error generating keypair", file=sys.stderr)
+        sys.exit(-1)
+    base_url = "http://{}:{}".format(args.server, 5000)
+    ticket = sdk_client.start_attestation(base_url, "public_key.bin")
+    if ticket is None:
+        print("Error getting ticket. Try again?", file=sys.stderr)
+        sys.exit(-1)
+    attestation_data = None
+    while attestation_data is None:
+        attestation_data, no_error = sdk_client.check_attestation_ticket(
+            base_url, ticket
+        )
+        if not no_error:
+            print("Error checking ticket status", file=sys.stderr)
+            sys.exit(-1)
+        # time.sleep(1)
+    verification_passed, hashed_correct, shared_secret = (
+        sdk_client.verify_attestation(
+            base_url,
+            attestation_data,
+            verify_file=args.enclave_file,
+            secret_key_file="private_key_hash.bin",
+            key_exchange_binary=args.key_exchange_binary
+        )
+    )
+    print("Finished remote attestation")
+    if verification_passed:
+        print("Shared secret: {}".format(binascii.hexlify(shared_secret)))
+    else:
+        print("Verification failed")
+        sys.exit(-1)
+
+
     print("Uploading database")
     upload_database(database, args.server, args.port)
     # begin timing
     print("Performing remote matching")
     matched_contacts, matched_contacts_num, unknown_contacts_num = (
-        perform_remote_matching(contacts, args.server, args.port)
+        perform_remote_matching(
+            contacts, bytes(shared_secret), args.server, args.port
+        )
     )
     #end timing
     print("Number of contacts expected to match: {}".format(

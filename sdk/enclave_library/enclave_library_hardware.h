@@ -16,6 +16,7 @@ extern "C" {
 int enclave_init();
 int enclave_init_with_file(char const *filename);
 void initialize_hardware();
+void enclave_cleanup();
 
 
 #ifdef __cplusplus

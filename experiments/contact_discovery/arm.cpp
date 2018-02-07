@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "string.h"
+#include <signal.h>
 #include <unistd.h>
 #include <iostream>
 
@@ -197,8 +198,24 @@ int listen_on_port(){
   }
 }
 
+void signal_handler(int s){
+  printf("Received signal %d\n", s);
+  enclave_cleanup();
+  exit(1);
+}
 
 int main(){
+  struct sigaction sigIntHandler;
+
+  sigIntHandler.sa_handler = signal_handler;
+  sigemptyset(&sigIntHandler.sa_mask);
+  sigIntHandler.sa_flags = 0;
+
+  sigaction(SIGINT, &sigIntHandler, NULL);
+  signal(SIGINT, signal_handler);
+
+  enclave_init_with_file("contact_discovery.bin");
   listen_on_port();
+  // for (;;) {}
   return 0;
 }

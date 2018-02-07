@@ -10,18 +10,29 @@
 #include "picojson.h"
 #include "enclave_library.h"
 #include "arm_protocol_header.h"
+#include <iostream>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
 
 // #ifndef SIMULATION
 // #endif
 
 using namespace Pistache;
 
+// pthread_t *remote_attestation_thread;
+
 #ifdef SIMULATION
 // extern static const char default_private_key_file[];
+
+unsigned char shared_secret[0x20];
 
 int load_private_key(const char *private_key_file){
   FILE *fp;
   fp = fopen(private_key_file, "rb");
+  if(fp == NULL){
+    return -1;
+  }
   if(fread(private_key, 1, 32, fp) != 32){
     return -1;
   }
@@ -30,34 +41,64 @@ int load_private_key(const char *private_key_file){
   return 0;
 }
 
+unsigned long get_size_by_fd(int fd) {
+    struct stat statbuf;
+    if(fstat(fd, &statbuf) < 0) exit(-1);
+    return statbuf.st_size;
+}
+
 void calculate_hash(const char* filename){
-  unsigned char buffer[128];
+  unsigned long file_size;
+  char* file_buffer;
   int count;
   sha512_context context;
 
-  FILE *fp = fopen(filename, "rb");
-  sha512_init(&context);
-  while(1){
-    memset(buffer, 0, 128);
-    count = fread(buffer, 1, 128, fp);
-    sha512_update(&context, buffer, 128);
-    if(count != 128){
-      break;
-    }
+  int fp = open(filename, O_RDONLY);
+  if(fp < 0){
+    printf("Could not open file to hash");
+    exit(-1);
   }
+
+  memset(hash, 0, 64);
+  sha512_init(&context);
+  file_size = get_size_by_fd(fp);
+  printf("file size:\t%lu\n", file_size);
+
+  file_buffer = (char*)mmap(0, file_size, PROT_READ, MAP_SHARED, fp, 0);
+  if(file_buffer == MAP_FAILED){
+    printf("Could not map file\n");
+    exit(-1);
+  }
+  sha512_update(&context, (unsigned char*)file_buffer, file_size);
   sha512_final(&context, hash);
-  fclose(fp);
+  munmap(file_buffer, file_size);
+
+  close(fp);
+  printf("Calculated file hash:\n0x");
+  for(int i=0; i<64; i++){
+    printf("%02x", hash[i]);
+  }
+  printf("\n");
 }
 
 void start_attestation(unsigned char* data, unsigned char *message){
+  int i;
   unsigned char remote_public_key[0x20];
+  printf("Starting attestation in simulation mode\n");
   memcpy(remote_public_key, data, 0x20);
   memset(message, 0, 0x140);
   ed25519_create_keypair(session_public_key, session_private_key_hash, hash);
+
   memcpy(message + 0x40, hash, 0x40);
   memcpy(message + 0x80, session_public_key, 0x20);
   ed25519_sign(message, message + 0x40, 0x100, public_key, private_key_hash);
   ed25519_key_exchange(shared_secret, remote_public_key, session_private_key_hash);
+  printf("Finished attestation in simulation mode\n");
+  printf("Shared secret:\n0x");
+  for(i=0; i<32; i++){
+    printf("%02x", shared_secret[i]);
+  }
+  printf("\n");
 }
 
 void generate_encrypted_message(unsigned char *message, unsigned int *message_length){
@@ -76,6 +117,7 @@ void generate_encrypted_message(unsigned char *message, unsigned int *message_le
 
 int enclave_init_simulation(char const *filename, char const *private_key){
   load_private_key(private_key);
+  printf("Initializing remote attestation server\n");
   enclave_init_with_file(filename);
   return 0;
 }
@@ -109,6 +151,7 @@ public:
   }
 
   void start() {
+    printf("Starting Remote Attestation Service\n");
     router.initFromDescription(desc);
 
     // Rest::Swagger swagger(desc);
@@ -121,10 +164,13 @@ public:
 
     httpEndpoint->setHandler(router.handler());
     httpEndpoint->serve();
+    // httpEndpoint->serveThreaded();
+    printf("Remote Attestation Service served");
   }
 
   void shutdown() {
     httpEndpoint->shutdown();
+    printf("Remote Attestation Service shut down");
   }
 
 private:
@@ -167,42 +213,55 @@ private:
 
   void beginAttestation(const Rest::Request& request, Http::ResponseWriter response){
     unsigned char message_out[0x140];
+
+    printf("Got begin attestation request\n");
     std::string body = request.body();
+    std::cout << "Message body: " << std::endl << body << std::endl;
     picojson::value body_json;
     std::string err = picojson::parse(body_json, body);
     if(!err.empty()) {
       response.send(Http::Code::Bad_Request, "{\"error\":\"JSON parsing error\"}");
+      printf("Json parsing error in start attestation\n");
       return;
     }
     if(!body_json.is<picojson::object>()) {
       response.send(Http::Code::Bad_Request, "{\"error\":\"Malformed JSON\"}");
+      printf("Malformed JSON in start attestation\n");
       return;
     }
     std::string remote_attestation_data;
-    if(body_json.contains("attestion_data") && body_json.get("attestation_data").is<std::string>()) {
+    if(body_json.contains("attestation_data") && body_json.get("attestation_data").is<std::string>()) {
       remote_attestation_data = base64_decode(body_json.get("attestation_data").get<std::string>());
+      printf("Atestation data decoded\n");
     } else{
       response.send(Http::Code::Bad_Request, "{\"error\":\"Malformed JSON\"}");
+      printf("Malformed JSON in start attestation parsing\n");
       return;
     }
+
+    printf("Starting attestation request\n");
+
     start_attestation((unsigned char*)(remote_attestation_data.data()), message_out);
     std::stringstream json_builder;
     json_builder << "{\"attestation_data\":\"";
     json_builder << base64_encode(message_out, 0x140);
     json_builder << "\"}" << std::endl;
     response.send(Http::Code::Ok, json_builder.str());
+    printf("Sending attestation reply\n");
     return;
   }
 
   void getMessage(const Rest::Request& request, Http::ResponseWriter response){
     unsigned char message_buffer[0x100];
     unsigned int message_length;
+    printf("Get message request\n");
     generate_encrypted_message(message_buffer, &message_length);
     std::stringstream json_builder;
     json_builder << "{\"message_data\":\"";
     json_builder << base64_encode(message_buffer, message_length);
     json_builder << "\"}" << std::endl;
     response.send(Http::Code::Ok, json_builder.str());
+    printf("Get message request finished\n");
     return;
   }
 
@@ -210,6 +269,8 @@ private:
   Rest::Description desc;
   Rest::Router router;
 };
+
+RemoteAttestationService *service;
 
 void initialize_hardware(const char *filename){
   int count, buffer_index, i, iteration=0;
@@ -298,11 +359,15 @@ void initialize_hardware(const char *filename){
 
 // int main(int argc, char **argv) {
 void * attestation_server_serve(void * args){
-  Port port(8080);
+  int port_num = 8080;
+  printf("Startign Remote Attestation server on port %i\n", port_num);
+  Port port(port_num);
   Address addr(Ipv4::any(), port);
-  RemoteAttestationService attestation_service(addr);
-  attestation_service.init(1);
-  attestation_service.start();
+  service = new RemoteAttestationService(addr);
+  printf("Remote attestation thread started\n");
+  service->init(1);
+  service->start();
+  // service->shutdown();
   return 0;
 }
 
@@ -312,6 +377,7 @@ void initialize_remote_attestion_server(){
     fprintf(stderr, "Error launching remote attestation server\n");
     exit(-1);
   }
+  printf("Launched remote attestation server\n");
 }
 
 void * watch_ocall_buffer(void * args){
@@ -331,14 +397,22 @@ void initialize_ocall_listener(){
 
 int enclave_init(){
   #ifdef SIMULATION
-  load_private_key(default_private_key_file);
+  if(load_private_key(default_private_key_file) < 0){
+    printf("Could not load development private key\n");
+    exit(-1);
+  }
   #endif
   return enclave_init_with_file(DEFAULT_MICROBLAZE_BINARY);
 }
 
 
 int enclave_init_with_file(char const *filename){
+  printf("Initializing enclave\n");
 #ifdef SIMULATION
+  if(load_private_key(default_private_key_file) < 0){
+    printf("Could not load development private key\n");
+    exit(-1);
+  }
   calculate_hash(filename);
 #endif
 #ifndef SIMULATION
@@ -351,4 +425,11 @@ int enclave_init_with_file(char const *filename){
   // TODO: requires the watch_ocall_buffer() to be autogenerated
   // initialize_ocall_listener();
   return 0;
+}
+
+
+void enclave_cleanup(){
+  service->shutdown();
+  delete service;
+  printf("Enclave shutdown");
 }

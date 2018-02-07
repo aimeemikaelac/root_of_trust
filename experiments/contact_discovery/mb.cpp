@@ -1,19 +1,26 @@
 #include <string>
 #include <unordered_set>
 #include "stdio.h"
+#include "aes.h"
 
 #define ENCLAVE_DATABASE_HASHES 32
 static std::unordered_set<std::string> contacts;
+
+extern unsigned char shared_secret[0x20];
 
 //function to receive encrypted phone number hashes
 extern "C" void enclave_build_contacts_hash(
   unsigned char transfer[ENCLAVE_DATABASE_HASHES*64],
   int transfer_length[1]
 ){
-  int i, transfer_index = 0;
+  int i, j, transfer_index = 0;
+  unsigned char temp[64];
   for(i=0; i<transfer_length[0]; i++){
     //TODO: decrypt contacts
-    std::string current((char*)transfer + transfer_index, 64);
+    for(j=0; j<64; j+=16){
+      AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, temp + j, 16);
+    }
+    std::string current((char*)temp, 64);
     printf("Adding hash: 0x");
     for(int j=0; j<64; j++){
       printf("%02x", (unsigned char)current.data()[j]);

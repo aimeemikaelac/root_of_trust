@@ -297,7 +297,8 @@ def attestation_request():
 #        attestation_data_queue.put(
 #            {"ticket": ticket, "attestation_data": attestation_data}
 #        )
-        attestation_loop.call_soon_threadsafe(perform_attestation, attestation_data, ticket)
+        # attestation_loop.call_soon_threadsafe(perform_attestation, attestation_data, ticket)
+        perform_attestation(attestation_data, ticket)
         return json.dumps({"ticket": ticket}), 201
 
 @app.route("/attestation/result/<ticket>")

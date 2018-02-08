@@ -17,9 +17,9 @@ extern "C" void enclave_build_contacts_hash(
   unsigned char temp[64];
   for(i=0; i<transfer_length[0]; i++){
     //TODO: decrypt contacts
-    for(j=0; j<64; j+=16){
-      AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, temp + j, 16);
-    }
+    // for(j=0; j<64; j+=16){
+    //   AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, temp + j, 16);
+    // }
     std::string current((char*)temp, 64);
     // printf("Adding hash: 0x");
     // for(int j=0; j<64; j++){

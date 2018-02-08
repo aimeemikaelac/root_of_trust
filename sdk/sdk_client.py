@@ -110,7 +110,7 @@ def verify_attestation(
         binascii.hexlify(server_public_key)
     ))
     print("Signed message:\n{}".format(
-        len(str(binascii.hexlify(signed_message), 'ascii'))
+        str(binascii.hexlify(signed_message), 'ascii')
     ))
     print("Signature:\n{}".format(
         str(binascii.hexlify(signature), 'ascii')
@@ -153,8 +153,17 @@ def verify_attestation(
                 return True, False, None
     except ed25519.BadSignatureError:
         print("Verification failed")
+        print("Received vk: {}".format(binascii.hexlify(vk.to_bytes())))
         # sk,vk = ed25519.create_keypair()
         # print(vk.to_ascii(encoding="hex"))
+        signed_test = b"37d2a2903f3516dbdc051731de0b737f378c60d676cb79a583fce79a46dd2641d7cabd84a84b7a7bb379685e193631ad2bbdd9cf9d34e09cd4fa8b0d77ce8b73ebb109ddd63f7dfc68c872811f61018338e2d33db363fdc51e6b98d2026b6a1100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        print("Length of signed test: {}".format(len(signed_test)))
+        with open("/home/michael/root_of_trust/sdk/server_private_key_dev.bin", "rb") as priv:
+            sk_dev = ed25519.SigningKey(priv.read())
+        print("Expected sk: {}".format(binascii.hexlify(sk_dev.to_bytes())))
+        print("Expected vk: {}".format(binascii.hexlify(sk_dev.get_verifying_key().to_bytes())))
+        sig_dev = sk_dev.sign(bytes(signed_message))
+        print("Expected signature: {}".format(binascii.hexlify(sig_dev)))
         return False, False, None
 
 

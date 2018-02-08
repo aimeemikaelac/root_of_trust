@@ -60,7 +60,7 @@ SECURE_STORAGE_PUBLIC_OFFSET = 0x40
 SERVER_PUBLIC_KEY = None
 SERVER_PRIVATE_KEY = None
 PUBLIC_KEY_FILE_DEV = "server_public_key_dev.bin"
-PRIVATE_KEY_FILE_DEV = "server_private_key_dev.bin"
+PRIVATE_KEY_FILE_DEV = "server_private_key_dev.bin"#"server_private_key_hash_dev.bin"
 
 def parse_system_config(config_file):
     with open(config_file) as handle:
@@ -87,13 +87,13 @@ def initialize_ecdsa_key_dev(public_key_file, private_key_file):
     with open(public_key_file, "rb") as key_file_handle:
         public_key = key_file_handle.read(32)
     with open(private_key_file, "rb") as key_file_handle:
-        private_key = key_file_handle.read(64)
+        private_key = key_file_handle.read(32)
     SERVER_PUBLIC_KEY = bytearray(public_key)
     SERVER_PRIVATE_KEY = bytearray(private_key)
     #TODO: have this stuff run only in non-simulation mode
-    # secure_storage = DevMem(SECURE_STORAGE_DEV, length=SECURE_STORAGE_LENGTH)
-    # secure_storage.write(SECURE_STORAGE_PUBLIC_OFFSET, public_key)
-    # secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
+    secure_storage = DevMem(SECURE_STORAGE_DEV, length=SECURE_STORAGE_LENGTH)
+#    secure_storage.write(SECURE_STORAGE_PUBLIC_OFFSET, public_key)
+    secure_storage.write(SECURE_STORAGE_PRIVATE_OFFSET, private_key)
 
 def initialize_ecdsa_core_dev():
     print("Ecdsa buffer address: {}".format(ECDSA_BUFFER))
@@ -109,13 +109,13 @@ parse_system_config(DEV_SYSTEM_CONFIG)
 # initialize_ecdsa_core_dev()
 initialize_ecdsa_key_dev(PUBLIC_KEY_FILE_DEV, PRIVATE_KEY_FILE_DEV)
 # Event loops for async
-program_loop = asyncio.new_event_loop()
-attestation_loop = asyncio.new_event_loop()
+#program_loop = asyncio.new_event_loop()
+#attestation_loop = asyncio.new_event_loop()
 # Event loops in separate thread
-program_thread = Thread(target=start_loop, args=(program_loop,))
-program_thread.start()
-attestation_thread = Thread(target=start_loop, args=(attestation_loop,))
-attestation_thread.start()
+#program_thread = Thread(target=start_loop, args=(program_loop,))
+#program_thread.start()
+#attestation_thread = Thread(target=start_loop, args=(attestation_loop,))
+#attestation_thread.start()
 
 # initialize workers
 #enclave_queue = asyncio.Queue(loop=event_loop)

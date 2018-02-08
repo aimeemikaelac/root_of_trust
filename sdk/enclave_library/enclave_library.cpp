@@ -55,7 +55,7 @@ void calculate_hash(const char* filename){
 
   int fp = open(filename, O_RDONLY);
   if(fp < 0){
-    printf("Could not open file to hash");
+    printf("Could not open file to hash\n");
     exit(-1);
   }
 
@@ -165,12 +165,12 @@ public:
     httpEndpoint->setHandler(router.handler());
     httpEndpoint->serve();
     // httpEndpoint->serveThreaded();
-    printf("Remote Attestation Service served");
+    printf("Remote Attestation Service served\n");
   }
 
   void shutdown() {
     httpEndpoint->shutdown();
-    printf("Remote Attestation Service shut down");
+    printf("Remote Attestation Service shut down\n");
   }
 
 private:
@@ -212,7 +212,9 @@ private:
   }
 
   void beginAttestation(const Rest::Request& request, Http::ResponseWriter response){
+    int i;
     unsigned char message_out[0x140];
+    memset(message_out, 0, 0x140);
 
     printf("Got begin attestation request\n");
     std::string body = request.body();
@@ -248,6 +250,11 @@ private:
     json_builder << "\"}" << std::endl;
     response.send(Http::Code::Ok, json_builder.str());
     printf("Sending attestation reply\n");
+    printf("Message:\n0x");
+    for(i=0; i<0x140; i++){
+      printf("%02x", message_out[i]);
+    }
+    printf("\n");
     return;
   }
 
@@ -273,10 +280,11 @@ private:
 RemoteAttestationService *service;
 
 void initialize_hardware(const char *filename){
-  int count, buffer_index, i, iteration=0;
+  int count, buffer_index, i, iteration=0, enclave_size = 0, enclave_index = 0;
   char current_char;
   volatile unsigned char *control, *data, *block_start;
   volatile unsigned int *count_out;
+  FILE *enclave_file = NULL;
   // 1. Program memory
   shared_memory reset_controller = getSharedMemoryArea(RESET_CONTROLLER_ADDRESS, 0x1000);
   ((unsigned char*)reset_controller->ptr)[0] = 1;
@@ -292,9 +300,20 @@ void initialize_hardware(const char *filename){
   control[0x14] = 0;
   //start ecdsa function
   control[0] = 0xFF;
-  std::ifstream is(filename);
+  //std::ifstream is(filename);
+  enclave_file = fopen(filename, "rb");
+  if(enclave_file == NULL){
+    printf("Invalid enclave file\n");
+    exit(-1);
+  }
+  fseek(enclave_file, 0, SEEK_END);
+  enclave_size = ftell(enclave_file);
+  rewind(enclave_file);
   cleanupSharedMemoryPointer(program_buffer);
-  while(is.get(current_char)) {
+  int debug_counter = 0;
+  printf("enclave size: %i\n", enclave_size);
+  for(enclave_index = 0; enclave_index<enclave_size; enclave_index++) {
+    fread(&current_char, 1, 1, enclave_file);
     getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
     control = (volatile unsigned char*)(program_buffer->ptr);
     data = (volatile unsigned char*)(control + 0x100);
@@ -304,7 +323,7 @@ void initialize_hardware(const char *filename){
     if(buffer_index == 0) {
 //      printf("Clearing buffer\n");
 //      control[0x8] = 0;
-//      control[0xC] = 0;
+      control[0xC] = 0;
       for(i=0; i<HASH_BLOCK_SIZE; i++) {
         data[i] = 0;
       }
@@ -313,6 +332,15 @@ void initialize_hardware(const char *filename){
     //TODO: handle 4 byte vs. 1 byte writes
     //copy data to buffer for current block
     data[buffer_index] = (unsigned char)current_char;
+    if(debug_counter<0x218 && debug_counter >= 0x210){
+//      printf("Debug char: %02x\n", (unsigned char)current_char);
+//      exit(-1);
+    } else if(debug_counter > 0x218){
+//      exit(-1);
+    } else{
+    }
+//    printf("Debug ecdsa enclave index: %i\n", *((int*)(control + 0x30)));
+    debug_counter++;
     buffer_index++;
     count++;
     //if block finished, set signal, wait for hashing to complete
@@ -333,6 +361,7 @@ void initialize_hardware(const char *filename){
     }
     cleanupSharedMemoryPointer(program_buffer);
   }
+  printf("Debug count final: %i\n", debug_counter);
   getSharedMemoryArea(PROGRAM_BUFFER_ADDRESS, PROGRAM_BUFFER_SIZE);
   control = (volatile unsigned char*)(program_buffer->ptr);
   data = (volatile unsigned char*)(control + 0x100);
@@ -341,8 +370,8 @@ void initialize_hardware(const char *filename){
   //say that was the last block
   *count_out = count;
   control[0x10] = 0xFF;
-//  control[0x8] = 0xFF;
-  *block_start = 0xFF;
+  control[0x8] = 0xFF;
+//  *block_start = 0xFF;
   fprintf(stderr, "Waiting for program hash and load to finish\n");
   while(control[0x14] == 0) {
     asm ("");
@@ -350,7 +379,8 @@ void initialize_hardware(const char *filename){
   }
   fprintf(stderr, "Program hash and load finished\n");
   // fclose(program_file);
-  is.close();
+//  is.close();
+  fclose(enclave_file);
   cleanupSharedMemoryPointer(program_buffer);
   // 2. Reset microblaze
   ((unsigned char*)reset_controller->ptr)[0] = 1;
@@ -362,7 +392,8 @@ void * attestation_server_serve(void * args){
   int port_num = 8080;
   printf("Startign Remote Attestation server on port %i\n", port_num);
   Port port(port_num);
-  Address addr(Ipv4::any(), port);
+  //Address addr(Ipv4::any(), port);
+  Address addr("127.0.0.1", port);
   service = new RemoteAttestationService(addr);
   printf("Remote attestation thread started\n");
   service->init(1);
@@ -416,9 +447,9 @@ int enclave_init_with_file(char const *filename){
   calculate_hash(filename);
 #endif
 #ifndef SIMULATION
-  printf("Launching %s in enclave", filename);
+  printf("Launching %s in enclave\n", filename);
   initialize_hardware(filename);
-  printf("Finished launching %s", filename);
+  printf("Finished launching %s\n", filename);
 #endif
   // 3. Launch attestation thread that listens for thrift connections and
   // talks thift back
@@ -433,5 +464,5 @@ int enclave_init_with_file(char const *filename){
 void enclave_cleanup(){
   service->shutdown();
   delete service;
-  printf("Enclave shutdown");
+  printf("Enclave shutdown\n");
 }

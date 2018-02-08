@@ -26,7 +26,7 @@ extern "C" void enclave_build_contacts_hash(
     //   printf("%02x", (unsigned char)current.data()[j]);
     // }
     // printf("\n");
-    contacts.insert(current);
+    // contacts.insert(current);
     transfer_index += 64;
   }
 }

@@ -4,7 +4,9 @@
 #include "aes.h"
 
 #define ENCLAVE_DATABASE_HASHES 32
-static char contacts[ENCLAVE_DATABASE_HASHES*64];
+#define MAX_CONTACTS 100
+static char contacts[MAX_CONTACTS*64];
+static int build_index = 0;
 
 extern unsigned char shared_secret[0x20];
 
@@ -18,7 +20,7 @@ extern "C" void enclave_build_contacts_hash(
   for(i=0; i<transfer_length[0]; i++){
     //TODO: decrypt contacts
     for(j=0; j<64; j+=16){
-      AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, (unsigned char*)(contacts + transfer_index + j), 16);
+      AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, (unsigned char*)(contacts + build_index + j), 16);
     }
     // std::string current((char*)temp, 64);
     // printf("Adding hash: 0x");
@@ -28,6 +30,7 @@ extern "C" void enclave_build_contacts_hash(
     // printf("\n");
     // contacts.insert(current);
     transfer_index += 64;
+    build_index += 64;
   }
 }
 
@@ -50,11 +53,11 @@ extern "C" void enclave_match_chunk(
     //   results_indexes[results_index] = i;
     //   results_index++;
     // }
-    found = 0;
+    // found = 0;
     for(j=0; j<ENCLAVE_DATABASE_HASHES; j++){
       found = 1;
       for(k=0; k<64; k++){
-        if(transfer[j*64 + k] != contacts[j*64 + k]){
+        if(transfer[i*64 + k] != contacts[j*64 + k]){
           found = 0;
           break;
         }
@@ -67,7 +70,7 @@ extern "C" void enclave_match_chunk(
       results_indexes[results_index] = i;
       results_index++;
     }
-    transfer_index += 64;
+    // transfer_index += 64;
   }
   results_count[0] = results_index;
 }

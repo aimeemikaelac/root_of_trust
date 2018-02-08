@@ -52,15 +52,15 @@ extern "C" void enclave_match_chunk(
     // }
     found = 0;
     for(j=0; j<ENCLAVE_DATABASE_HASHES; j++){
-      if(found == 1){
-        break;
-      }
+      found = 1;
       for(k=0; k<64; k++){
-        found = 1;
-        if(transfer[transfer_index + k] != contacts[j*64 + k]){
+        if(transfer[j*64 + k] != contacts[j*64 + k]){
           found = 0;
           break;
         }
+      }
+      if(found == 1){
+        break;
       }
     }
     if(found == 1){

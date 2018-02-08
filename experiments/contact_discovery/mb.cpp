@@ -20,7 +20,7 @@ extern "C" void enclave_build_contacts_hash(
     // for(j=0; j<64; j+=16){
     //   AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, temp + j, 16);
     // }
-    std::string current((char*)temp, 64);
+    // std::string current((char*)temp, 64);
     // printf("Adding hash: 0x");
     // for(int j=0; j<64; j++){
     //   printf("%02x", (unsigned char)current.data()[j]);

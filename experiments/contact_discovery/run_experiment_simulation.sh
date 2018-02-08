@@ -6,4 +6,5 @@
   --key_exchange_binary ../../sdk/key_exchange/key_exchange \
   --regenerate_db \
   --regenerate_contacts \
-  --enclave_file contact_discovery.bin
+  --enclave_file contact_discovery.bin \
+  --server 192.168.1.123

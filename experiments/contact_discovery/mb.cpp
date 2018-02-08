@@ -56,6 +56,7 @@ extern "C" void enclave_match_chunk(
         break;
       }
       for(k=0; k<64; k++){
+        found = 1;
         if(transfer[transfer_index + k] != contacts[j*64 + k]){
           found = 0;
           break;

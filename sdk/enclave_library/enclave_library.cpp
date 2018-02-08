@@ -416,7 +416,9 @@ int enclave_init_with_file(char const *filename){
   calculate_hash(filename);
 #endif
 #ifndef SIMULATION
+  printf("Launching %s in enclave", filename);
   initialize_hardware(filename);
+  printf("Finished launching %s", filename);
 #endif
   // 3. Launch attestation thread that listens for thrift connections and
   // talks thift back

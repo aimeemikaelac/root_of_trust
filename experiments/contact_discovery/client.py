@@ -190,42 +190,43 @@ if __name__ == "__main__":
         contacts = load_database(args.contacts_file)
 
 
-    print("Starting remote attestation")
-    keypair_return = subprocess.call(
-        shlex.split(args.generate_keypair_binary)
-    )
-    if keypair_return != 0:
-        print("Error generating keypair", file=sys.stderr)
-        sys.exit(-1)
-    base_url = "http://{}:{}".format(args.server, 5000)
-    ticket = sdk_client.start_attestation(base_url, "public_key.bin")
-    if ticket is None:
-        print("Error getting ticket. Try again?", file=sys.stderr)
-        sys.exit(-1)
-    attestation_data = None
-    while attestation_data is None:
-        attestation_data, no_error = sdk_client.check_attestation_ticket(
-            base_url, ticket
-        )
-        if not no_error:
-            print("Error checking ticket status", file=sys.stderr)
-            sys.exit(-1)
-        # time.sleep(1)
-    verification_passed, hashed_correct, shared_secret = (
-        sdk_client.verify_attestation(
-            base_url,
-            attestation_data,
-            verify_file=args.enclave_file,
-            secret_key_file="private_key_hash.bin",
-            key_exchange_binary=args.key_exchange_binary
-        )
-    )
-    print("Finished remote attestation")
-    if verification_passed:
-        print("Shared secret: {}".format(binascii.hexlify(shared_secret)))
-    else:
-        print("Verification failed")
-        sys.exit(-1)
+    # print("Starting remote attestation")
+    # keypair_return = subprocess.call(
+    #     shlex.split(args.generate_keypair_binary)
+    # )
+    # if keypair_return != 0:
+    #     print("Error generating keypair", file=sys.stderr)
+    #     sys.exit(-1)
+    # base_url = "http://{}:{}".format(args.server, 5000)
+    # ticket = sdk_client.start_attestation(base_url, "public_key.bin")
+    # if ticket is None:
+    #     print("Error getting ticket. Try again?", file=sys.stderr)
+    #     sys.exit(-1)
+    # attestation_data = None
+    # while attestation_data is None:
+    #     attestation_data, no_error = sdk_client.check_attestation_ticket(
+    #         base_url, ticket
+    #     )
+    #     if not no_error:
+    #         print("Error checking ticket status", file=sys.stderr)
+    #         sys.exit(-1)
+    #     # time.sleep(1)
+    # verification_passed, hashed_correct, shared_secret = (
+    #     sdk_client.verify_attestation(
+    #         base_url,
+    #         attestation_data,
+    #         verify_file=args.enclave_file,
+    #         secret_key_file="private_key_hash.bin",
+    #         key_exchange_binary=args.key_exchange_binary
+    #     )
+    # )
+    # print("Finished remote attestation")
+    # if verification_passed:
+    #     print("Shared secret: {}".format(binascii.hexlify(shared_secret)))
+    # else:
+    #     print("Verification failed")
+    #     sys.exit(-1)
+    shared_secret = bytes("0"*32)
 
 
     print("Uploading database")

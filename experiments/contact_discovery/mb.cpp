@@ -8,7 +8,8 @@
 static char contacts[MAX_CONTACTS*64];
 static int build_index = 0;
 
-extern unsigned char shared_secret[0x20];
+// extern unsigned char shared_secret[0x20];
+unsigned char secret[0x20] = {0};
 
 //function to receive encrypted phone number hashes
 extern "C" void enclave_build_contacts_hash(
@@ -20,7 +21,7 @@ extern "C" void enclave_build_contacts_hash(
   for(i=0; i<transfer_length[0]; i++){
     //TODO: decrypt contacts
     for(j=0; j<64; j+=16){
-      AES_ECB_decrypt(transfer + transfer_index + j, shared_secret, (unsigned char*)(contacts + build_index + j), 16);
+      AES_ECB_decrypt(transfer + transfer_index + j, secret, (unsigned char*)(contacts + build_index + j), 16);
     }
     // std::string current((char*)temp, 64);
     // printf("Adding hash: 0x");

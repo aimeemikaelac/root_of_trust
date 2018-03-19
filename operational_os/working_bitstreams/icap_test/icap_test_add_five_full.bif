@@ -1,0 +1,4 @@
+all:
+{
+  zcu_icap_add_5.bit
+}

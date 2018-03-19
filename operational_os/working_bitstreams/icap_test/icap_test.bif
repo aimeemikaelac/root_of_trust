@@ -1,0 +1,7 @@
+the_ROM_image:
+{
+[destination_cpu=a53-0, bootloader] fsbl.elf
+[destination_device=pl] zcu_icap_add_5.bit
+[destination_cpu=a53-0, exception_level=el-3, trustzone] atf.elf
+[destination_cpu=a53-0, exception_level=el-2] u-boot.elf
+}

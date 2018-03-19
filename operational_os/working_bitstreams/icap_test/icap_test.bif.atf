@@ -1,0 +1,8 @@
+the_ROM_image:
+{
+[destination_cpu=a53-0, bootloader] fsbl_reference.elf
+[pmufw_image] pmufw.elf
+[destination_cpu=a53-0] bl31.elf
+[destination_cpu=a53-0, exception_level=el-2] u-boot-custom.elf
+zcu_icap_add_5.bit
+}

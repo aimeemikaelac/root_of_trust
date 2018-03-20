@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="aes.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/aes.c"/>
+    <originFiles name="aes.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/aes.h"/>
+    <originFiles name="contact_discovery.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/contact_discovery.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="contact_discovery_tb.cpp" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/contact_discovery_tb.cpp"/>
+    <originFiles name="fixedint.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/fixedint.h"/>
+    <originFiles name="sha512.c" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/sha512.c"/>
+    <originFiles name="sha512.h" path="/home/michael/hardware_security/zcu102/root_of_trust/operational_os/hls/contact_discovery/src/sha512.h"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

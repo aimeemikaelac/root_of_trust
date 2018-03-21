@@ -25,6 +25,7 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.899962008" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1906461730" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1861033728" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/aimee/root_of_trust/operational_os/hls"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include/etc"/>
@@ -42,6 +43,7 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1341942239" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.676722397" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1792776803" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/aimee/root_of_trust/operational_os/hls"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include/etc"/>
@@ -79,7 +81,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="solution12|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -109,6 +111,7 @@
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.366618051" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.2112427988" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1547315520" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/aimee/root_of_trust/operational_os/hls"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include/etc"/>
@@ -121,6 +124,7 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.1455739447" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.674720776" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1661230889" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/aimee/root_of_trust/operational_os/hls"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/Xilinx/Vivado_HLS/2017.2/include/etc"/>
@@ -153,7 +157,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="solution12|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

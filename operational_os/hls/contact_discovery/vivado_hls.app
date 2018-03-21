@@ -14,7 +14,10 @@
         <SimFlow name="csim" csimMode="0" lastCsimMode="0" compiler="true"/>
     </Simulation>
     <solutions xmlns="">
-        <solution name="solution1" status="active"/>
+        <solution name="solution1" status="inactive"/>
+        <solution name="solution1" status="inactive"/>
+        <solution name="solution1" status="inactive"/>
+        <solution name="solution12" status="active"/>
     </solutions>
 </project>
 

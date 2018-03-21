@@ -59,7 +59,7 @@ void contact_discovery(
 			*error_out = 0;
 			*contacts_size_out = contacts_size;
 			*database_size_out = database_size;
-			if(contacts_size + 1 >= CONTACTS_SIZE){
+			if(contacts_size >= CONTACTS_SIZE){
 				*error_out = 1;
 				*contacts_size_out = contacts_size;
 			} else{
@@ -72,7 +72,7 @@ void contact_discovery(
 		case 1:
 			*matched_finished = 0;
 			*error_out = 0;
-			if(database_size + 1 >= DATABASE_CHUNK_SIZE){
+			if(database_size >= DATABASE_CHUNK_SIZE){
 				*error_out = 2;
 				*database_size_out = database_size;
 			} else{
@@ -92,14 +92,14 @@ void contact_discovery(
 				for(contacts_index = 0; contacts_index < contacts_size; contacts_index++){
 					current_matched = true;
 					for(i = 0; i<64; i++){
-						if(database[database_index + i*64] != contacts[contacts_index + i*64]){
+						if(database[database_index*64 + i] != contacts[contacts_index*64 + i]){
 							current_matched = false;
 							break;
 						}
-						if(current_matched){
-							matched = true;
-							break;
-						}
+					}
+					if(current_matched){
+						matched = true;
+						break;
 					}
 				}
 				results[database_index] = matched;
@@ -107,7 +107,7 @@ void contact_discovery(
 			for(i=0; i<DATABASE_CHUNK_SIZE; i++){
 				matched_out[i] = results[i];
 			}
-			*matched_out = true;
+			*matched_finished = 1;
 			break;
 		// clear database
 		case 3:
@@ -147,3 +147,8 @@ void contact_discovery(
 	}
 //	}
 }
+
+
+
+
+

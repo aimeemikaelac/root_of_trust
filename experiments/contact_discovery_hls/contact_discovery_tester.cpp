@@ -62,11 +62,11 @@ void contact_discovery(
 	*contacts_size_out = *((unsigned int*)(control + 0xE8));
 	//read match result
 	if(operation == 2){
-        for(i=0; i<10; i++){
-          matched_out[i] = (bool)(control[0xC0 + i]);
-        }
+    for(i=0; i<10; i++){
+      matched_out[i] = (bool)(control[0xC0 + i]);
+    }
 	}
-    cleanupSharedMemoryPointer(control_mem);
+  cleanupSharedMemoryPointer(control_mem);
 }
 
 typedef struct number{

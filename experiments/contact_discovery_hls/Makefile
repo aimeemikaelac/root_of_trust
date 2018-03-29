@@ -1,19 +1,27 @@
-SRCS_C    := $(wildcard *.c) $(wildcard **/*.c)
-SRCS_CPP  := $(wildcard *.cpp) $(wildcard **/*.cpp)
 INCLUDES  := -I user_mmap_driver/
 CFLAGS    := $(INCLUDES)
 CXXFLAGS  := $(INCLUDES)
 LDFLAGS		:=
-OBJS      := $(SRCS_CPP:.cpp=.o) $(SRCS_C:.c=.o)
-EXEC      := contact_discovery_runner
+LIBS      := user_mmap_driver/user_mmap_driver.o sha512.o
+TEST      := contact_discovery_tester
+EXP				:= contact_discovery_experiment
 
 .PHONY: clean
 
-all: $(EXEC)
+all: $(EXP)
 
-$(EXEC): $(OBJS)
+exp: $(EXP)
+
+test: $(TEST)
+
+$(EXP): $(EXP).o $(LIBS)
+	$(CXX) -o $@ $^ $(LDFLAGS)
+
+$(TEST): $(TEST).o $(LIBS)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
-	$(RM) -rf $(OBJS)
+	$(RM) -rf $(LIBS)
+	$(RM) -rf *.o
 	$(RM) -rf $(EXEC)
+	$(RM) -rf $(TEST)

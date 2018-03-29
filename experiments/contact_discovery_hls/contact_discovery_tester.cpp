@@ -12,22 +12,11 @@
 #include "sha512.h"
 #include "user_mmap_driver.h"
 
-#define __mbstate_t_defined	1
 #define DATABASE_CHUNK_SIZE 10
 #define CONTACTS_SIZE 128
 #define DATABASE_SIZE 3000
 #define BASE 0xA0000000
 
-// extern void contact_discovery(
-// 		int operation,
-// 		unsigned char contact_in[512],
-// 		unsigned char database_in[512],
-// 		bool matched_out[DATABASE_CHUNK_SIZE],
-// 		int *matched_finished,
-// 		int *error_out,
-// 		int *database_size_out,
-// 		int *contacts_size_out
-// );
 
 void contact_discovery(
 	int operation,
@@ -60,6 +49,8 @@ void contact_discovery(
 	}
 	//start current call
 	control[0x0] = 1;
+    //set operation valid
+    control[0x14] = 1;
 	//wait for done
 	while(control[0] & 0x2 != 1){
 		asm("");
@@ -71,18 +62,11 @@ void contact_discovery(
 	*contacts_size_out = *((unsigned int*)(control + 0xE8));
 	//read match result
 	if(operation == 2){
-		unsigned int matched_int = *((unsigned int*)(control + 0xCF));
-		matched_out[0] = (bool)(matched_int & 0x1);
-		matched_out[1] = (bool)(matched_int & 0x2);
-		matched_out[2] = (bool)(matched_int & 0x4);
-		matched_out[3] = (bool)(matched_int & 0x8);
-		matched_out[4] = (bool)(matched_int & 0x10);
-		matched_out[5] = (bool)(matched_int & 0x20);
-		matched_out[6] = (bool)(matched_int & 0x40);
-		matched_out[7] = (bool)(matched_int & 0x80);
-		matched_out[8] = (bool)(matched_int & 0x100);
-		matched_out[9] = (bool)(matched_int & 0x200);
+        for(i=0; i<10; i++){
+          matched_out[i] = (bool)(control[0xC0 + i]);
+        }
 	}
+    cleanupSharedMemoryPointer(control_mem);
 }
 
 typedef struct number{

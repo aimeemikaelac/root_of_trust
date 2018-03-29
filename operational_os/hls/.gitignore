@@ -1,2 +1,4 @@
 */solution*
 *.log
+*.app
+*.xml

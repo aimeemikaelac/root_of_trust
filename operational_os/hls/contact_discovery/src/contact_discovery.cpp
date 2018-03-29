@@ -26,7 +26,6 @@ void contact_discovery(
 	int *database_size_out,
 	int *contacts_size_out
 ){
-#pragma HLS INTERFACE ap_vld port=operation
 #pragma HLS INTERFACE ap_none port=matched_finished
 #pragma HLS INTERFACE ap_none port=contacts_size_out
 #pragma HLS INTERFACE s_axilite port=contacts_size_out
@@ -36,7 +35,7 @@ void contact_discovery(
 #pragma HLS INTERFACE s_axilite port=matched_finished
 #pragma HLS INTERFACE s_axilite port=error_out
 #pragma HLS INTERFACE s_axilite port=operation
-#pragma HLS INTERFACE ap_ctrl_none port=return
+#pragma HLS INTERFACE ap_ctrl_hs port=return
 #pragma HLS INTERFACE s_axilite port=matched_out
 #pragma HLS INTERFACE s_axilite port=database_in
 #pragma HLS INTERFACE s_axilite port=contact_in

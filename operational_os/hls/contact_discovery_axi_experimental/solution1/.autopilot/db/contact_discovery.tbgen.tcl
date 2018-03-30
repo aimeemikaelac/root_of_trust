@@ -1,0 +1,3 @@
+set C_TypeInfoList {{ 
+"contact_discovery" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"operation": [[], {"scalar": "int"}] }, {"contact_in": [[], {"array": [ {"scalar": "unsigned char"}, [64]]}] }, {"database_in": [[], {"array": [ {"scalar": "unsigned char"}, [64]]}] }, {"matched_out": [[], {"array": [ {"scalar": "bool"}, [30000]]}] }, {"matched_finished": [[],{ "pointer":  {"scalar": "int"}}] }, {"error_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"database_size_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"contacts_size_out": [[],{ "pointer":  {"scalar": "int"}}] }],[],""]
+}}

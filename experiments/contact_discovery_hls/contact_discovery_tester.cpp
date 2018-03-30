@@ -42,9 +42,9 @@ void contact_discovery(
 		asm("");
 		__asm__("");
 	}
-	*matched_finished = *((unsigned int*)(control + 0xD0));
-	*error_out = *((unsigned int*)(control + 0xD8));
-	*contacts_size_out = *((unsigned int*)(control + 0xE8));
+	*matched_finished = *((unsigned int*)(control + 0x18));
+	*error_out = *((unsigned int*)(control + 0x20));
+	*contacts_size_out = *((unsigned int*)(control + 0x28));
 	//read match result
   cleanupSharedMemoryPointer(control_mem);
 }

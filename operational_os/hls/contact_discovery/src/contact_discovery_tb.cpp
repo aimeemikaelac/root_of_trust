@@ -10,21 +10,21 @@
 #include "assert.h"
 #include "time.h"
 #include "fixedint.h"
+#include "hls_stream.h"
 
 #define __mbstate_t_defined	1
-#define DATABASE_CHUNK_SIZE 10
+#define DATABASE_CHUNK_SIZE 200
 #define CONTACTS_SIZE 128
 #define DATABASE_SIZE 3000
 
 extern void contact_discovery(
-		int operation,
-		unsigned char contact_in[512],
-		unsigned char database_in[512],
-		bool matched_out[DATABASE_CHUNK_SIZE],
-		int *matched_finished,
-		int *error_out,
-		int *database_size_out,
-		int *contacts_size_out
+	int operation,
+	hls::stream<unsigned char> &contacts_in,
+	hls::stream<unsigned char> &database_in,
+	hls::stream<bool> &matched_out,
+	int *matched_finished,
+	int *error_out,
+	int *contacts_size_out
 );
 
 typedef struct number{
@@ -87,10 +87,12 @@ void hash_numbers(){
 int main(){
 	unsigned int seed;
 	int i, j, random_index;
-	volatile unsigned char contact_in[64];
-	volatile unsigned char database_in[64];
-	volatile bool matched_out[DATABASE_CHUNK_SIZE];
-	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
+//	volatile unsigned char contact_in[64];
+//	volatile unsigned char database_in[64];
+//	volatile bool matched_out[DATABASE_CHUNK_SIZE];
+	volatile int matched_finished, error_out, contacts_size_out;
+	hls::stream<unsigned char> contacts_in, database_in;
+	hls::stream<bool> matched_out;
 
 	// generate random database
 //	if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
@@ -130,28 +132,26 @@ int main(){
 	printf("Checking initial conditions\n");
 	//check initial conditions of clearing db, contacts
 	contact_discovery(
-		3,
-		(unsigned char*)NULL,
-		(unsigned char*)NULL,
-		(bool*)matched_out,
+		2,
+		contacts_in,
+		database_in,
+		matched_out,
 		(int*)&matched_finished,
 		(int*)&error_out,
-		(int*)&database_size_out,
 		(int*)&contacts_size_out
 	);
-	contact_discovery(
-		4,
-		(unsigned char*)NULL,
-		(unsigned char*)NULL,
-		(bool*)matched_out,
-		(int*)&matched_finished,
-		(int*)&error_out,
-		(int*)&database_size_out,
-		(int*)&contacts_size_out
-	);
+//	contact_discovery(
+//		4,
+//		(unsigned char*)NULL,
+//		(unsigned char*)NULL,
+//		(bool*)matched_out,
+//		(int*)&matched_finished,
+//		(int*)&error_out,
+//		(int*)&database_size_out,
+//		(int*)&contacts_size_out
+//	);
 	assert(error_out == 0);
 	assert(matched_finished == 0);
-	assert(database_size_out == 0);
 	assert(contacts_size_out == 0);
 
 	printf("Populating contacts\n");
@@ -160,95 +160,93 @@ int main(){
 	int contacts_size = 0;
 	for(it = contacts.begin(); it != contacts.end(); ++it){
 		std::string current = *it;
-		contact_discovery(
-			0,
-			(unsigned char*)current.data(),
-			NULL,
-			(bool*)matched_out,
-			(int*)&matched_finished,
-			(int*)&error_out,
-			(int*)&database_size_out,
-			(int*)&contacts_size_out
-		);
+
 		contacts_size++;
 //		printf("Current contacts size: %i\n", contacts_size);
-		assert(error_out == 0);
-		assert(database_size_out == 0);
-		assert(contacts_size_out == contacts_size);
+		for(i=0; i<64; i++){
+			contacts_in.write((unsigned char)(current.data()[i]));
+		}
+
 	}
+	contact_discovery(
+		0,
+		contacts_in,
+		database_in,
+		matched_out,
+		(int*)&matched_finished,
+		(int*)&error_out,
+		(int*)&contacts_size_out
+	);
+	assert(error_out == 0);
+	assert(contacts_size_out == contacts_size);
 
 	printf("Starting matching\n");
 	//build chunks and perform matching
 	int current_chunk_size = 0;
 	int current_chunk_count = 0;
-	bool matched_correct[DATABASE_CHUNK_SIZE];
+	bool matched_correct[DATABASE_SIZE];
 	for(i=0; i<DATABASE_SIZE; i++){
 		unsigned char current_hash[64];
 		memcpy(current_hash, db_hashes + i*64, 64);
-		contact_discovery(
-			1,
-			NULL,
-			current_hash,
-			(bool*)matched_out,
-			(int*)&matched_finished,
-			(int*)&error_out,
-			(int*)&database_size_out,
-			(int*)&contacts_size_out
-		);
+		for(j=0; j<64; j++){
+			database_in.write(current_hash[j]);
+		}
 		std::string current((char*)(current_hash), 64);
+		if(contacts.count(current) > 0){
+			matched_correct[i] = true;
+		} else{
+			matched_correct[i] = false;
+		}
+	}
+	contact_discovery(
+		1,
+		contacts_in,
+		database_in,
+		matched_out,
+		(int*)&matched_finished,
+		(int*)&error_out,
+		(int*)&contacts_size_out
+	);
+	for(i=0; i<DATABASE_SIZE; i++){
+		assert(!matched_out.empty());
+		bool current = matched_out.read();
+		printf("HW: %i, REF: %i\n", current, matched_correct[i]);
+		assert(matched_correct[i] == current);
+	}
+
 //		printf("Current hash:0x");
 //		for(j=0; j<64; j++){
 //			printf("%02x", (unsigned char)current.data()[j]);
 //		}
 //		printf("\n");
 //		printf("Contacts size: %i\n", contacts.size());
-		if(contacts.count(current) > 0){
-//			printf("Found\n");
-			matched_correct[current_chunk_size] = true;
-		} else{
-			matched_correct[current_chunk_size] = false;
-//			printf("Not found\n");
-		}
-		current_chunk_size++;
-		assert(current_chunk_size == database_size_out);
-		if(current_chunk_size >= DATABASE_CHUNK_SIZE || i+1 == DATABASE_SIZE){
-			printf("Starting matching for chunk %i\n", current_chunk_count);
-			contact_discovery(
-				2,
-				NULL,
-				NULL,
-				(bool*)matched_out,
-				(int*)&matched_finished,
-				(int*)&error_out,
-				(int*)&database_size_out,
-				(int*)&contacts_size_out
-			);
-			assert(matched_finished == 1);
-			int num_matched = 0, num_unmatched = 0;
-			for(j=0; j<current_chunk_size; j++){
-				assert(matched_out[j] == matched_correct[j]);
-				if(matched_out[j]){
-					num_matched++;
-				} else{
-					num_unmatched++;
-				}
-			}
-			printf("Contacts match %i, unmatched %i for block %i\n", num_matched, num_unmatched, current_chunk_count);
-			current_chunk_count++;
-			current_chunk_size = 0;
-			contact_discovery(
-				3,
-				(unsigned char*)NULL,
-				(unsigned char*)NULL,
-				(bool*)matched_out,
-				(int*)&matched_finished,
-				(int*)&error_out,
-				(int*)&database_size_out,
-				(int*)&contacts_size_out
-			);
-			assert(database_size_out == 0);
-		}
-	}
+
+//		current_chunk_size++;
+//		if(current_chunk_size >= DATABASE_CHUNK_SIZE || i+1 == DATABASE_SIZE){
+//			printf("Starting matching for chunk %i\n", current_chunk_count);
+//			contact_discovery(
+//				2,
+//				contacts_in,
+//				database_in,
+//				(bool*)matched_out,
+//				(int*)&matched_finished,
+//				(int*)&error_out,
+//				(int*)&contacts_size_out
+//			);
+//			assert(matched_finished == 1);
+//			int num_matched = 0, num_unmatched = 0;
+//			for(j=0; j<current_chunk_size; j++){
+//				assert(matched_out[j] == matched_correct[j]);
+//				if(matched_out[j]){
+//					num_matched++;
+//				} else{
+//					num_unmatched++;
+//				}
+//			}
+//			printf("Contacts match %i, unmatched %i for block %i\n", num_matched, num_unmatched, current_chunk_count);
+//			current_chunk_count++;
+//			current_chunk_size = 0;
+//		}
 	return 0;
 }
 

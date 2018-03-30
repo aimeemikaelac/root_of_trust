@@ -2521,9 +2521,10 @@ void contact_discovery(
  int *error_out,
  int *contacts_size_out
 ){
+#pragma HLS INTERFACE axis register both port=matched_out
+#pragma HLS INTERFACE axis register both port=database_in
+#pragma HLS INTERFACE axis register both port=contacts_in
 #pragma HLS INTERFACE ap_vld register port=operation
-#pragma HLS STREAM variable=database_in depth=512 dim=1
-#pragma HLS STREAM variable=contacts_in depth=512 dim=1
 #pragma HLS INTERFACE ap_none register port=matched_finished
 #pragma HLS INTERFACE ap_none register port=contacts_size_out
 #pragma HLS INTERFACE s_axilite port=contacts_size_out

@@ -228,50 +228,62 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler contact_discovery_AXILiteS_s_axi
 }
 
-# Direct connection:
+# Native AXIS:
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     id 4 \
     name contacts_in_V \
-    type fifo \
-    dir I \
     reset_level 0 \
     sync_rst true \
-    corename dc_contacts_in_V \
+    corename {} \
+    metadata {  } \
     op interface \
-    ports { contacts_in_V_dout { I 8 vector } contacts_in_V_empty_n { I 1 bit } contacts_in_V_read { O 1 bit } } \
+    ports { contacts_in_V_TDATA { I 8 vector } contacts_in_V_TVALID { I 1 bit } contacts_in_V_TREADY { O 1 bit } } \
 } "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'contacts_in_V'"
+}
 }
 
-# Direct connection:
+
+# Native AXIS:
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     id 5 \
     name database_in_V \
-    type fifo \
-    dir I \
     reset_level 0 \
     sync_rst true \
-    corename dc_database_in_V \
+    corename {} \
+    metadata {  } \
     op interface \
-    ports { database_in_V_dout { I 8 vector } database_in_V_empty_n { I 1 bit } database_in_V_read { O 1 bit } } \
+    ports { database_in_V_TDATA { I 8 vector } database_in_V_TVALID { I 1 bit } database_in_V_TREADY { O 1 bit } } \
 } "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'database_in_V'"
+}
 }
 
-# Direct connection:
+
+# Native AXIS:
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     id 6 \
     name matched_out_V \
-    type fifo \
-    dir O \
     reset_level 0 \
     sync_rst true \
-    corename dc_matched_out_V \
+    corename {} \
+    metadata {  } \
     op interface \
-    ports { matched_out_V_din { O 1 bit } matched_out_V_full_n { I 1 bit } matched_out_V_write { O 1 bit } } \
+    ports { matched_out_V_TDATA { O 8 vector } matched_out_V_TVALID { O 1 bit } matched_out_V_TREADY { I 1 bit } } \
 } "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'matched_out_V'"
 }
+}
+
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

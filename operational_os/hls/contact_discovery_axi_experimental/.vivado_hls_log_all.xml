@@ -6,7 +6,18 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:34:34.792-0600"/>
+        <logs message="@E Simulation failed." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:34:34.755-0600"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:32:47.805-0600"/>
+        <logs message="@E Simulation failed." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:32:47.791-0600"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:32:13.066-0600"/>
+        <logs message="@E Simulation failed." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:32:13.055-0600"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:29:46.363-0600"/>
+        <logs message="@E Simulation failed." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:29:46.344-0600"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:26:59.281-0600"/>
+        <logs message="@E Simulation failed." projectName="contact_discovery_axi_experimental" solutionName="solution1" date="2018-03-30T16:26:59.265-0600"/>
+      </csimLog>
     </logs>
   </errorLogs>
   <warningLogs>

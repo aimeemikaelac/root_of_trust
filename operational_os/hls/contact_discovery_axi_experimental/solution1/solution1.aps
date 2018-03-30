@@ -1,4 +1,10 @@
 <solution AutoPilot="com.autoesl.autopilot.solution">
+    <downStreamTool>
+        <DownStreamTool name="vivado"/>
+    </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <config>
         <schedule model="contact_discovery"/>
     </config>
@@ -52,7 +58,7 @@
         <value string="solution1"/>
     </name>
     <project>
-        <value string="contact_discovery_axi"/>
+        <value string="contact_discovery_axi_experimental"/>
     </project>
     <targetInfo>
         <TargetInfo value="xczu9eg:-ffvb1156:-1-i"/>
@@ -61,11 +67,5 @@
         <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus"/>
         <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus_fpv7"/>
     </libraryList>
-    <downStreamTool>
-        <DownStreamTool name="vivado"/>
-    </downStreamTool>
-    <clockList>
-        <clock default="false" name="default" period="10"/>
-    </clockList>
 </solution>
 

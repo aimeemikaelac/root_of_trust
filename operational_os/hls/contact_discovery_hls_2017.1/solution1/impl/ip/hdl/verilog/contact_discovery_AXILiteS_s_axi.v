@@ -32,7 +32,12 @@ module contact_discovery_AXILiteS_s_axi
     output wire [1:0]                    RRESP,
     output wire                          RVALID,
     input  wire                          RREADY,
+    output wire                          interrupt,
     // user signals
+    output wire                          ap_start,
+    input  wire                          ap_done,
+    input  wire                          ap_ready,
+    input  wire                          ap_idle,
     output wire [31:0]                   operation,
     output wire                          operation_ap_vld,
     input  wire [31:0]                   matched_finished,
@@ -40,10 +45,24 @@ module contact_discovery_AXILiteS_s_axi
     input  wire [31:0]                   contacts_size_out
 );
 //------------------------Address Info-------------------
-// 0x00 : reserved
-// 0x04 : reserved
-// 0x08 : reserved
-// 0x0c : reserved
+// 0x00 : Control signals
+//        bit 0  - ap_start (Read/Write/COH)
+//        bit 1  - ap_done (Read/COR)
+//        bit 2  - ap_idle (Read)
+//        bit 3  - ap_ready (Read)
+//        bit 7  - auto_restart (Read/Write)
+//        others - reserved
+// 0x04 : Global Interrupt Enable Register
+//        bit 0  - Global Interrupt Enable (Read/Write)
+//        others - reserved
+// 0x08 : IP Interrupt Enable Register (Read/Write)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
+// 0x0c : IP Interrupt Status Register (Read/TOW)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
 // 0x10 : Data signal of operation
 //        bit 31~0 - operation[31:0] (Read/Write)
 // 0x14 : Control signal of operation
@@ -62,6 +81,10 @@ module contact_discovery_AXILiteS_s_axi
 
 //------------------------Parameter----------------------
 localparam
+    ADDR_AP_CTRL                  = 6'h00,
+    ADDR_GIE                      = 6'h04,
+    ADDR_IER                      = 6'h08,
+    ADDR_ISR                      = 6'h0c,
     ADDR_OPERATION_DATA_0         = 6'h10,
     ADDR_OPERATION_CTRL           = 6'h14,
     ADDR_MATCHED_FINISHED_DATA_0  = 6'h18,
@@ -92,6 +115,14 @@ localparam
     wire                          ar_hs;
     wire [ADDR_BITS-1:0]          raddr;
     // internal registers
+    wire                          int_ap_idle;
+    wire                          int_ap_ready;
+    reg                           int_ap_done = 1'b0;
+    reg                           int_ap_start = 1'b0;
+    reg                           int_auto_restart = 1'b0;
+    reg                           int_gie = 1'b0;
+    reg  [1:0]                    int_ier = 2'b0;
+    reg  [1:0]                    int_isr = 2'b0;
     reg  [31:0]                   int_operation = 'b0;
     reg                           int_operation_ap_vld = 1'b0;
     reg  [31:0]                   int_matched_finished = 'b0;
@@ -188,6 +219,22 @@ always @(posedge ACLK) begin
         if (ar_hs) begin
             rdata <= 1'b0;
             case (raddr)
+                ADDR_AP_CTRL: begin
+                    rdata[0] <= int_ap_start;
+                    rdata[1] <= int_ap_done;
+                    rdata[2] <= int_ap_idle;
+                    rdata[3] <= int_ap_ready;
+                    rdata[7] <= int_auto_restart;
+                end
+                ADDR_GIE: begin
+                    rdata <= int_gie;
+                end
+                ADDR_IER: begin
+                    rdata <= int_ier;
+                end
+                ADDR_ISR: begin
+                    rdata <= int_isr;
+                end
                 ADDR_OPERATION_DATA_0: begin
                     rdata <= int_operation[31:0];
                 end
@@ -210,8 +257,90 @@ end
 
 
 //------------------------Register logic-----------------
+assign interrupt        = int_gie & (|int_isr);
+assign ap_start         = int_ap_start;
+assign int_ap_idle      = ap_idle;
+assign int_ap_ready     = ap_ready;
 assign operation        = int_operation;
 assign operation_ap_vld = int_operation_ap_vld;
+// int_ap_start
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_ap_start <= 1'b0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_AP_CTRL && WSTRB[0] && WDATA[0])
+            int_ap_start <= 1'b1;
+        else if (int_ap_ready)
+            int_ap_start <= int_auto_restart; // clear on handshake/auto restart
+    end
+end
+
+// int_ap_done
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_ap_done <= 1'b0;
+    else if (ACLK_EN) begin
+        if (ap_done)
+            int_ap_done <= 1'b1;
+        else if (ar_hs && raddr == ADDR_AP_CTRL)
+            int_ap_done <= 1'b0; // clear on read
+    end
+end
+
+// int_auto_restart
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_auto_restart <= 1'b0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_AP_CTRL && WSTRB[0])
+            int_auto_restart <=  WDATA[7];
+    end
+end
+
+// int_gie
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_gie <= 1'b0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_GIE && WSTRB[0])
+            int_gie <= WDATA[0];
+    end
+end
+
+// int_ier
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_ier <= 1'b0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_IER && WSTRB[0])
+            int_ier <= WDATA[1:0];
+    end
+end
+
+// int_isr[0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_isr[0] <= 1'b0;
+    else if (ACLK_EN) begin
+        if (int_ier[0] & ap_done)
+            int_isr[0] <= 1'b1;
+        else if (w_hs && waddr == ADDR_ISR && WSTRB[0])
+            int_isr[0] <= int_isr[0] ^ WDATA[0]; // toggle on write
+    end
+end
+
+// int_isr[1]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_isr[1] <= 1'b0;
+    else if (ACLK_EN) begin
+        if (int_ier[1] & ap_ready)
+            int_isr[1] <= 1'b1;
+        else if (w_hs && waddr == ADDR_ISR && WSTRB[0])
+            int_isr[1] <= int_isr[1] ^ WDATA[1]; // toggle on write
+    end
+end
+
 // int_operation[31:0]
 always @(posedge ACLK) begin
     if (ARESET)

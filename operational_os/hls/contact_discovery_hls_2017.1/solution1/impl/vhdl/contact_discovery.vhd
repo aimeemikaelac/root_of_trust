@@ -16,10 +16,6 @@ generic (
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
-    ap_start : IN STD_LOGIC;
-    ap_done : OUT STD_LOGIC;
-    ap_idle : OUT STD_LOGIC;
-    ap_ready : OUT STD_LOGIC;
     contacts_in_V_TDATA : IN STD_LOGIC_VECTOR (7 downto 0);
     contacts_in_V_TVALID : IN STD_LOGIC;
     contacts_in_V_TREADY : OUT STD_LOGIC;
@@ -45,14 +41,15 @@ port (
     s_axi_AXILiteS_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
     s_axi_AXILiteS_BVALID : OUT STD_LOGIC;
     s_axi_AXILiteS_BREADY : IN STD_LOGIC;
-    s_axi_AXILiteS_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0) );
+    s_axi_AXILiteS_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    interrupt : OUT STD_LOGIC );
 end;
 
 
 architecture behav of contact_discovery is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.932500,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=455,HLS_SYN_LUT=838}";
+    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.932500,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=461,HLS_SYN_LUT=838}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (14 downto 0) := "000000000000001";
@@ -104,11 +101,15 @@ architecture behav of contact_discovery is
     constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
+    signal ap_start : STD_LOGIC;
+    signal ap_done : STD_LOGIC;
+    signal ap_idle : STD_LOGIC;
     signal ap_CS_fsm : STD_LOGIC_VECTOR (14 downto 0) := "000000000000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
+    signal ap_ready : STD_LOGIC;
     signal operation : STD_LOGIC_VECTOR (31 downto 0);
     signal operation_preg : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal operation_ap_vld : STD_LOGIC;
@@ -288,6 +289,11 @@ architecture behav of contact_discovery is
         ACLK : IN STD_LOGIC;
         ARESET : IN STD_LOGIC;
         ACLK_EN : IN STD_LOGIC;
+        ap_start : OUT STD_LOGIC;
+        interrupt : OUT STD_LOGIC;
+        ap_ready : IN STD_LOGIC;
+        ap_done : IN STD_LOGIC;
+        ap_idle : IN STD_LOGIC;
         operation : OUT STD_LOGIC_VECTOR (31 downto 0);
         operation_ap_vld : OUT STD_LOGIC;
         matched_finished : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -351,6 +357,11 @@ begin
         ACLK => ap_clk,
         ARESET => ap_rst_n_inv,
         ACLK_EN => ap_const_logic_1,
+        ap_start => ap_start,
+        interrupt => interrupt,
+        ap_ready => ap_ready,
+        ap_done => ap_done,
+        ap_idle => ap_idle,
         operation => operation,
         operation_ap_vld => operation_ap_vld,
         matched_finished => matched_finished_1_data_reg,

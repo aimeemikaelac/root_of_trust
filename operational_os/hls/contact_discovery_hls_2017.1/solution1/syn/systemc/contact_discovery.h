@@ -20,13 +20,9 @@ namespace ap_rtl {
 template<unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 6,
          unsigned int C_S_AXI_AXILITES_DATA_WIDTH = 32>
 struct contact_discovery : public sc_module {
-    // Port declarations 32
+    // Port declarations 29
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst_n;
-    sc_in< sc_logic > ap_start;
-    sc_out< sc_logic > ap_done;
-    sc_out< sc_logic > ap_idle;
-    sc_out< sc_logic > ap_ready;
     sc_in< sc_lv<8> > contacts_in_V_TDATA;
     sc_in< sc_logic > contacts_in_V_TVALID;
     sc_out< sc_logic > contacts_in_V_TREADY;
@@ -53,6 +49,7 @@ struct contact_discovery : public sc_module {
     sc_out< sc_logic > s_axi_AXILiteS_BVALID;
     sc_in< sc_logic > s_axi_AXILiteS_BREADY;
     sc_out< sc_lv<2> > s_axi_AXILiteS_BRESP;
+    sc_out< sc_logic > interrupt;
     sc_signal< sc_logic > ap_var_for_const0;
 
 
@@ -70,8 +67,12 @@ struct contact_discovery : public sc_module {
     contact_discoverycud* current_database_ite_U;
     contact_discovery_AXILiteS_s_axi<C_S_AXI_AXILITES_ADDR_WIDTH,C_S_AXI_AXILITES_DATA_WIDTH>* contact_discovery_AXILiteS_s_axi_U;
     sc_signal< sc_logic > ap_rst_n_inv;
+    sc_signal< sc_logic > ap_start;
+    sc_signal< sc_logic > ap_done;
+    sc_signal< sc_logic > ap_idle;
     sc_signal< sc_lv<15> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
+    sc_signal< sc_logic > ap_ready;
     sc_signal< sc_lv<32> > operation;
     sc_signal< sc_lv<32> > operation_preg;
     sc_signal< sc_logic > operation_ap_vld;

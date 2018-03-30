@@ -100,6 +100,11 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_AXILiteS_s_axi_U->ACLK(ap_clk);
     contact_discovery_AXILiteS_s_axi_U->ARESET(ap_rst_n_inv);
     contact_discovery_AXILiteS_s_axi_U->ACLK_EN(ap_var_for_const0);
+    contact_discovery_AXILiteS_s_axi_U->ap_start(ap_start);
+    contact_discovery_AXILiteS_s_axi_U->interrupt(interrupt);
+    contact_discovery_AXILiteS_s_axi_U->ap_ready(ap_ready);
+    contact_discovery_AXILiteS_s_axi_U->ap_done(ap_done);
+    contact_discovery_AXILiteS_s_axi_U->ap_idle(ap_idle);
     contact_discovery_AXILiteS_s_axi_U->operation(operation);
     contact_discovery_AXILiteS_s_axi_U->operation_ap_vld(operation_ap_vld);
     contact_discovery_AXILiteS_s_axi_U->matched_finished(matched_finished_1_data_reg);
@@ -549,10 +554,6 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
 #ifdef __HLS_TRACE_LEVEL_PORT__
     sc_trace(mVcdFile, ap_clk, "(port)ap_clk");
     sc_trace(mVcdFile, ap_rst_n, "(port)ap_rst_n");
-    sc_trace(mVcdFile, ap_start, "(port)ap_start");
-    sc_trace(mVcdFile, ap_done, "(port)ap_done");
-    sc_trace(mVcdFile, ap_idle, "(port)ap_idle");
-    sc_trace(mVcdFile, ap_ready, "(port)ap_ready");
     sc_trace(mVcdFile, contacts_in_V_TDATA, "(port)contacts_in_V_TDATA");
     sc_trace(mVcdFile, contacts_in_V_TVALID, "(port)contacts_in_V_TVALID");
     sc_trace(mVcdFile, contacts_in_V_TREADY, "(port)contacts_in_V_TREADY");
@@ -579,11 +580,16 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, s_axi_AXILiteS_BVALID, "(port)s_axi_AXILiteS_BVALID");
     sc_trace(mVcdFile, s_axi_AXILiteS_BREADY, "(port)s_axi_AXILiteS_BREADY");
     sc_trace(mVcdFile, s_axi_AXILiteS_BRESP, "(port)s_axi_AXILiteS_BRESP");
+    sc_trace(mVcdFile, interrupt, "(port)interrupt");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_rst_n_inv, "ap_rst_n_inv");
+    sc_trace(mVcdFile, ap_start, "ap_start");
+    sc_trace(mVcdFile, ap_done, "ap_done");
+    sc_trace(mVcdFile, ap_idle, "ap_idle");
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
+    sc_trace(mVcdFile, ap_ready, "ap_ready");
     sc_trace(mVcdFile, operation, "operation");
     sc_trace(mVcdFile, operation_preg, "operation_preg");
     sc_trace(mVcdFile, operation_ap_vld, "operation_ap_vld");
@@ -1618,13 +1624,9 @@ void contact_discovery::thread_hdltv_gen() {
         wait();
         const char* mComma = ap_cycleNo == 0 ? " " : ", " ;
         mHdltvinHandle << mComma << "{"  <<  " \"ap_rst_n\" :  \"" << ap_rst_n.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"ap_start\" :  \"" << ap_start.read() << "\" ";
-        mHdltvoutHandle << mComma << "{"  <<  " \"ap_done\" :  \"" << ap_done.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"ap_idle\" :  \"" << ap_idle.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"ap_ready\" :  \"" << ap_ready.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"contacts_in_V_TDATA\" :  \"" << contacts_in_V_TDATA.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"contacts_in_V_TVALID\" :  \"" << contacts_in_V_TVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"contacts_in_V_TREADY\" :  \"" << contacts_in_V_TREADY.read() << "\" ";
+        mHdltvoutHandle << mComma << "{"  <<  " \"contacts_in_V_TREADY\" :  \"" << contacts_in_V_TREADY.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"database_in_V_TDATA\" :  \"" << database_in_V_TDATA.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"database_in_V_TVALID\" :  \"" << database_in_V_TVALID.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"database_in_V_TREADY\" :  \"" << database_in_V_TREADY.read() << "\" ";
@@ -1648,6 +1650,7 @@ void contact_discovery::thread_hdltv_gen() {
         mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_BVALID\" :  \"" << s_axi_AXILiteS_BVALID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_BREADY\" :  \"" << s_axi_AXILiteS_BREADY.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_BRESP\" :  \"" << s_axi_AXILiteS_BRESP.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"interrupt\" :  \"" << interrupt.read() << "\" ";
         mHdltvinHandle << "}" << std::endl;
         mHdltvoutHandle << "}" << std::endl;
         ap_cycleNo++;

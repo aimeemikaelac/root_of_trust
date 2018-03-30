@@ -74,7 +74,7 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>4</BRAM_18K>
-<FF>455</FF>
+<FF>461</FF>
 <LUT>838</LUT>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -100,7 +100,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_AWREADY</name>
@@ -113,7 +113,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_AWADDR</name>
@@ -126,7 +126,7 @@
 <Bits>6</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_WVALID</name>
@@ -139,7 +139,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_WREADY</name>
@@ -152,7 +152,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_WDATA</name>
@@ -165,7 +165,7 @@
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_WSTRB</name>
@@ -178,7 +178,7 @@
 <Bits>4</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_ARVALID</name>
@@ -191,7 +191,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_ARREADY</name>
@@ -204,7 +204,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_ARADDR</name>
@@ -217,7 +217,7 @@
 <Bits>6</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_RVALID</name>
@@ -230,7 +230,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_RREADY</name>
@@ -243,7 +243,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_RDATA</name>
@@ -256,7 +256,7 @@
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_RRESP</name>
@@ -269,7 +269,7 @@
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_BVALID</name>
@@ -282,7 +282,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_BREADY</name>
@@ -295,7 +295,7 @@
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>s_axi_AXILiteS_BRESP</name>
@@ -308,7 +308,7 @@
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
-<HasCtrl>0</HasCtrl>
+<HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
 <name>ap_clk</name>
@@ -333,18 +333,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ap_start</name>
-<Object>contact_discovery</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_done</name>
+<name>interrupt</name>
 <Object>contact_discovery</Object>
 <Type>return value</Type>
 <Scope></Scope>
@@ -352,29 +341,7 @@
 <IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_idle</name>
-<Object>contact_discovery</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_ready</name>
-<Object>contact_discovery</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
+<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>contacts_in_V_TDATA</name>

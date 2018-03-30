@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Thu Mar 29 20:55:18 2018
+* Date:           Thu Mar 29 20:59:26 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_hls_2017.1
@@ -62,12 +62,12 @@
 |DSP              |        -|      -|       -|       -|    -|
 |Expression       |        -|      -|       0|     229|    -|
 |FIFO             |        -|      -|       -|       -|    -|
-|Instance         |        0|      -|     182|     296|    -|
+|Instance         |        0|      -|     188|     296|    -|
 |Memory           |        4|      -|      16|       8|    -|
 |Multiplexer      |        -|      -|       -|     305|    -|
 |Register         |        -|      -|     257|       -|    -|
 +-----------------+---------+-------+--------+--------+-----+
-|Total            |        4|      0|     455|     838|    0|
+|Total            |        4|      0|     461|     838|    0|
 +-----------------+---------+-------+--------+--------+-----+
 |Available        |     1824|   2520|  548160|  274080|    0|
 +-----------------+---------+-------+--------+--------+-----+
@@ -79,9 +79,9 @@
     +------------------------------------+----------------------------------+---------+-------+-----+-----+
     |              Instance              |              Module              | BRAM_18K| DSP48E|  FF | LUT |
     +------------------------------------+----------------------------------+---------+-------+-----+-----+
-    |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|  182|  296|
+    |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|  188|  296|
     +------------------------------------+----------------------------------+---------+-------+-----+-----+
-    |Total                               |                                  |        0|      0|  182|  296|
+    |Total                               |                                  |        0|      0|  188|  296|
     +------------------------------------+----------------------------------+---------+-------+-----+-----+
 
     * DSP48: 
@@ -222,10 +222,7 @@
 |s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |      AXILiteS     |    pointer   |
 |ap_clk                  |  in |    1| ap_ctrl_hs | contact_discovery | return value |
 |ap_rst_n                |  in |    1| ap_ctrl_hs | contact_discovery | return value |
-|ap_start                |  in |    1| ap_ctrl_hs | contact_discovery | return value |
-|ap_done                 | out |    1| ap_ctrl_hs | contact_discovery | return value |
-|ap_idle                 | out |    1| ap_ctrl_hs | contact_discovery | return value |
-|ap_ready                | out |    1| ap_ctrl_hs | contact_discovery | return value |
+|interrupt               | out |    1| ap_ctrl_hs | contact_discovery | return value |
 |contacts_in_V_TDATA     |  in |    8|    axis    |   contacts_in_V   |    pointer   |
 |contacts_in_V_TVALID    |  in |    1|    axis    |   contacts_in_V   |    pointer   |
 |contacts_in_V_TREADY    | out |    1|    axis    |   contacts_in_V   |    pointer   |

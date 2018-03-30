@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Thu Mar 29 20:55:18 2018
+<item name = "Date">Thu Mar 29 20:59:26 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_hls_2017.1</item>
@@ -56,7 +56,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 229, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">0, -, 182, 296, -</column>
+<column name="Instance">0, -, 188, 296, -</column>
 <column name="Memory">4, -, 16, 8, -</column>
 <column name="Multiplexer">-, -, -, 305, -</column>
 <column name="Register">-, -, 257, -, -</column>
@@ -68,7 +68,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 0, 0, 182, 296</column>
+<column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 0, 0, 188, 296</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -193,10 +193,7 @@
 <column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, pointer</column>
 <column name="ap_clk">in, 1, ap_ctrl_hs, contact_discovery, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_hs, contact_discovery, return value</column>
-<column name="ap_start">in, 1, ap_ctrl_hs, contact_discovery, return value</column>
-<column name="ap_done">out, 1, ap_ctrl_hs, contact_discovery, return value</column>
-<column name="ap_idle">out, 1, ap_ctrl_hs, contact_discovery, return value</column>
-<column name="ap_ready">out, 1, ap_ctrl_hs, contact_discovery, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, contact_discovery, return value</column>
 <column name="contacts_in_V_TDATA">in, 8, axis, contacts_in_V, pointer</column>
 <column name="contacts_in_V_TVALID">in, 1, axis, contacts_in_V, pointer</column>
 <column name="contacts_in_V_TREADY">out, 1, axis, contacts_in_V, pointer</column>

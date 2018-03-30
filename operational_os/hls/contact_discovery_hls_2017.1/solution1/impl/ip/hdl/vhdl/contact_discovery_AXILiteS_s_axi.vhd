@@ -35,7 +35,12 @@ port (
     RRESP                 :out  STD_LOGIC_VECTOR(1 downto 0);
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
+    interrupt             :out  STD_LOGIC;
     -- user signals
+    ap_start              :out  STD_LOGIC;
+    ap_done               :in   STD_LOGIC;
+    ap_ready              :in   STD_LOGIC;
+    ap_idle               :in   STD_LOGIC;
     operation             :out  STD_LOGIC_VECTOR(31 downto 0);
     operation_ap_vld      :out  STD_LOGIC;
     matched_finished      :in   STD_LOGIC_VECTOR(31 downto 0);
@@ -45,10 +50,24 @@ port (
 end entity contact_discovery_AXILiteS_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x00 : reserved
--- 0x04 : reserved
--- 0x08 : reserved
--- 0x0c : reserved
+-- 0x00 : Control signals
+--        bit 0  - ap_start (Read/Write/COH)
+--        bit 1  - ap_done (Read/COR)
+--        bit 2  - ap_idle (Read)
+--        bit 3  - ap_ready (Read)
+--        bit 7  - auto_restart (Read/Write)
+--        others - reserved
+-- 0x04 : Global Interrupt Enable Register
+--        bit 0  - Global Interrupt Enable (Read/Write)
+--        others - reserved
+-- 0x08 : IP Interrupt Enable Register (Read/Write)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x0c : IP Interrupt Status Register (Read/TOW)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
 -- 0x10 : Data signal of operation
 --        bit 31~0 - operation[31:0] (Read/Write)
 -- 0x14 : Control signal of operation
@@ -70,6 +89,10 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
+    constant ADDR_AP_CTRL                  : INTEGER := 16#00#;
+    constant ADDR_GIE                      : INTEGER := 16#04#;
+    constant ADDR_IER                      : INTEGER := 16#08#;
+    constant ADDR_ISR                      : INTEGER := 16#0c#;
     constant ADDR_OPERATION_DATA_0         : INTEGER := 16#10#;
     constant ADDR_OPERATION_CTRL           : INTEGER := 16#14#;
     constant ADDR_MATCHED_FINISHED_DATA_0  : INTEGER := 16#18#;
@@ -92,6 +115,14 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal ARREADY_t           : STD_LOGIC;
     signal RVALID_t            : STD_LOGIC;
     -- internal registers
+    signal int_ap_idle         : STD_LOGIC;
+    signal int_ap_ready        : STD_LOGIC;
+    signal int_ap_done         : STD_LOGIC := '0';
+    signal int_ap_start        : STD_LOGIC := '0';
+    signal int_auto_restart    : STD_LOGIC := '0';
+    signal int_gie             : STD_LOGIC := '0';
+    signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
+    signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_operation       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_operation_ap_vld : STD_LOGIC := '0';
     signal int_matched_finished : UNSIGNED(31 downto 0) := (others => '0');
@@ -210,6 +241,14 @@ begin
             if (ACLK_EN = '1') then
                 if (ar_hs = '1') then
                     case (TO_INTEGER(raddr)) is
+                    when ADDR_AP_CTRL =>
+                        rdata_data <= (7 => int_auto_restart, 3 => int_ap_ready, 2 => int_ap_idle, 1 => int_ap_done, 0 => int_ap_start, others => '0');
+                    when ADDR_GIE =>
+                        rdata_data <= (0 => int_gie, others => '0');
+                    when ADDR_IER =>
+                        rdata_data <= (1 => int_ier(1), 0 => int_ier(0), others => '0');
+                    when ADDR_ISR =>
+                        rdata_data <= (1 => int_isr(1), 0 => int_isr(0), others => '0');
                     when ADDR_OPERATION_DATA_0 =>
                         rdata_data <= RESIZE(int_operation(31 downto 0), 32);
                     when ADDR_OPERATION_CTRL =>
@@ -229,8 +268,111 @@ begin
     end process;
 
 -- ----------------------- Register logic ----------------
+    interrupt            <= int_gie and (int_isr(0) or int_isr(1));
+    ap_start             <= int_ap_start;
+    int_ap_idle          <= ap_idle;
+    int_ap_ready         <= ap_ready;
     operation            <= STD_LOGIC_VECTOR(int_operation);
     operation_ap_vld     <= int_operation_ap_vld;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_ap_start <= '0';
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_AP_CTRL and WSTRB(0) = '1' and WDATA(0) = '1') then
+                    int_ap_start <= '1';
+                elsif (int_ap_ready = '1') then
+                    int_ap_start <= int_auto_restart; -- clear on handshake/auto restart
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_ap_done <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ap_done = '1') then
+                    int_ap_done <= '1';
+                elsif (ar_hs = '1' and raddr = ADDR_AP_CTRL) then
+                    int_ap_done <= '0'; -- clear on read
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_auto_restart <= '0';
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_AP_CTRL and WSTRB(0) = '1') then
+                    int_auto_restart <= WDATA(7);
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_gie <= '0';
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_GIE and WSTRB(0) = '1') then
+                    int_gie <= WDATA(0);
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_ier <= "00";
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_IER and WSTRB(0) = '1') then
+                    int_ier <= UNSIGNED(WDATA(1 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_isr(0) <= '0';
+            elsif (ACLK_EN = '1') then
+                if (int_ier(0) = '1' and ap_done = '1') then
+                    int_isr(0) <= '1';
+                elsif (w_hs = '1' and waddr = ADDR_ISR and WSTRB(0) = '1') then
+                    int_isr(0) <= int_isr(0) xor WDATA(0); -- toggle on write
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_isr(1) <= '0';
+            elsif (ACLK_EN = '1') then
+                if (int_ier(1) = '1' and ap_ready = '1') then
+                    int_isr(1) <= '1';
+                elsif (w_hs = '1' and waddr = ADDR_ISR and WSTRB(0) = '1') then
+                    int_isr(1) <= int_isr(1) xor WDATA(1); -- toggle on write
+                end if;
+            end if;
+        end if;
+    end process;
 
     process (ACLK)
     begin

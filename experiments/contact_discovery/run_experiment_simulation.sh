@@ -7,4 +7,7 @@
   --regenerate_db \
   --regenerate_contacts \
   --enclave_file contact_discovery.bin \
-  --server 192.168.1.123
+  --contacts_size 5 \
+  --db_size 10
+  # \
+  # --server 192.168.1.123

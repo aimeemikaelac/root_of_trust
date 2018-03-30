@@ -96,7 +96,8 @@ def perform_remote_matching(contacts, shared_secret, server, port):
     print("Chunks to send: {}".format(len(contacts)))
     cipher = AES.new(shared_secret[:16], AES.MODE_ECB)
     for contact in contacts:
-        sock.send(cipher.encrypt(contact))
+        # sock.send(cipher.encrypt(contact))
+        sock.send(contact)
         print("Sent chunk: {}".format(binascii.hexlify(contact)))
         # sock.send("\n")
     sock.send(struct.pack("!c","f".encode()))
@@ -226,7 +227,7 @@ if __name__ == "__main__":
     # else:
     #     print("Verification failed")
     #     sys.exit(-1)
-    shared_secret = bytes("0"*32)
+    shared_secret = bytes(bytearray(32))
 
 
     print("Uploading database")

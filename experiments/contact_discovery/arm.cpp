@@ -52,14 +52,14 @@ std::vector<int> match_database(){
   for(i=0; i<hashes_database.size(); i++){
     std::string current = hashes_database[i];
     current_indexes.push_back(i);
-    std::cout << "Pushed index " << i <<std::endl;
+    // std::cout << "Pushed index " << i <<std::endl;
 
     memcpy(transfer + transfer_index, current.data(), 64);
     transfer_index += 64;
     index++;
 
     if(index >= ENCLAVE_DATABASE_HASHES || i+1 == hashes_database.size()){
-      std::cout << "Matching chunk" << std::endl;
+      // std::cout << "Matching chunk" << std::endl;
       enclave_match_chunk(transfer, &index, results_indexes, &results_count);
       std::cout << "Results count: " << results_count << std::endl;
 
@@ -131,11 +131,11 @@ int listen_on_port(){
         std::string current_hash((char*)(recv_buf), 64);
         current_list.push_back(current_hash);
         recv_index=0;
-        printf("Received chunk: 0x");
-        for(i=0; i<64; i++){
-          printf("%02x", recv_buf[i]);
-        }
-        printf("\n");
+        // printf("Received chunk: 0x");
+        // for(i=0; i<64; i++){
+        //   printf("%02x", recv_buf[i]);
+        // }
+        // printf("\n");
       }
       rc = recv(fd, &recved, 1, 0);
       recv_buf[recv_index] = recved;
@@ -166,11 +166,11 @@ int listen_on_port(){
           std::cout << "Current string length: " << current_length << std::endl;
           if(current_length == 64){
             rc = send(fd, current.data(), 64, 0);
-            printf("Sent: 0x");
-            for(j=0; j<64; j++){
-              printf("%02x", (unsigned char)(current.data()[j]));
-            }
-            printf("\n");
+            // printf("Sent: 0x");
+            // for(j=0; j<64; j++){
+            //   printf("%02x", (unsigned char)(current.data()[j]));
+            // }
+            // printf("\n");
             if(rc < 0){
               perror("send");
               return -1;

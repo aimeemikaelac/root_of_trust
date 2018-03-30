@@ -20,8 +20,11 @@ extern "C" void enclave_build_contacts_hash(
   unsigned char temp[64];
   for(i=0; i<transfer_length[0]; i++){
     //TODO: decrypt contacts
-    for(j=0; j<64; j+=16){
-      AES_ECB_decrypt(transfer + transfer_index + j, secret, (unsigned char*)(contacts + build_index + j), 16);
+    // for(j=0; j<64; j+=16){
+    //   AES_ECB_decrypt(transfer + transfer_index + j, secret, temp + j, 16);
+    // }
+    for(j=0; j<64; j++){
+      contacts[build_index + j] = transfer[transfer_index + j];
     }
     // std::string current((char*)temp, 64);
     // printf("Adding hash: 0x");
@@ -56,15 +59,17 @@ extern "C" void enclave_match_chunk(
     // }
     // found = 0;
     for(j=0; j<ENCLAVE_DATABASE_HASHES; j++){
+      if(found == 1){
+        printf("Found\n");
+        break;
+      }
       found = 1;
       for(k=0; k<64; k++){
         if(transfer[i*64 + k] != contacts[j*64 + k]){
           found = 0;
+          printf("%02x, %02x\n", transfer[i*64 + k], contacts[j*64 + k]);
           break;
         }
-      }
-      if(found == 1){
-        break;
       }
     }
     if(found == 1){

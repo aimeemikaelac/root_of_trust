@@ -1,0 +1,229 @@
+
+
+================================================================
+== Vivado HLS Report for 'contact_discovery'
+================================================================
+* Date:           Thu Mar 29 20:34:25 2018
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        contact_discovery_hls_2017.1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.93|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-------+-------+----------+-----------+-----------+------+----------+
+        |                 |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1         |      ?|      ?|  3 ~ 67  |          -|          -|     ?|    no    |
+        | + Loop 1.1      |     64|     64|         1|          -|          -|    64|    no    |
+        |- Loop 2         |      ?|      ?|     16707|          -|          -|     ?|    no    |
+        | + Loop 2.1      |     64|     64|         1|          -|          -|    64|    no    |
+        | + Loop 2.2      |  16640|  16640|       130|          -|          -|   128|    no    |
+        |  ++ Loop 2.2.1  |    128|    128|         2|          -|          -|    64|    no    |
+        |- Loop 3         |    128|    128|         1|          -|          -|   128|    no    |
+        +-----------------+-------+-------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     224|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        0|      -|     182|     296|    -|
+|Memory           |        4|      -|      16|       8|    -|
+|Multiplexer      |        -|      -|       -|     278|    -|
+|Register         |        -|      -|     236|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        4|      0|     434|     806|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------+----------------------------------+---------+-------+-----+-----+
+    |              Instance              |              Module              | BRAM_18K| DSP48E|  FF | LUT |
+    +------------------------------------+----------------------------------+---------+-------+-----+-----+
+    |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|  182|  296|
+    +------------------------------------+----------------------------------+---------+-------+-----+-----+
+    |Total                               |                                  |        0|      0|  182|  296|
+    +------------------------------------+----------------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +------------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |         Memory         |        Module        | BRAM_18K| FF | LUT| Words| Bits| Banks| W*Bits*Banks|
+    +------------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |contacts_U              |contact_discoverybkb  |        4|   0|   0|  8192|    8|     1|        65536|
+    |current_database_ite_U  |contact_discoverycud  |        0|  16|   8|    64|    8|     1|          512|
+    +------------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |Total                   |                      |        4|  16|   8|  8256|   16|     2|        66048|
+    +------------------------+----------------------+---------+----+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |i_2_fu_372_p2         |     +    |      0|  0|  15|           7|           1|
+    |i_4_fu_482_p2         |     +    |      0|  0|  15|           7|           1|
+    |i_5_fu_389_p2         |     +    |      0|  0|  15|           8|           1|
+    |i_6_fu_417_p2         |     +    |      0|  0|  15|           7|           1|
+    |i_fu_355_p2           |     +    |      0|  0|  15|           8|           1|
+    |tmp_12_i_fu_428_p2    |     +    |      0|  0|  20|          13|          13|
+    |tmp_8_fu_494_p2       |     +    |      0|  0|  39|          32|          32|
+    |tmp_9_fu_505_p2       |     +    |      0|  0|  39|          32|           1|
+    |ap_block_state12      |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state6       |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state7       |    and   |      0|  0|   2|           1|           1|
+    |found_1_fu_450_p2     |    and   |      0|  0|   2|           1|           1|
+    |exitcond7_fu_383_p2   |   icmp   |      0|  0|   5|           8|           9|
+    |exitcond8_fu_366_p2   |   icmp   |      0|  0|   4|           7|           8|
+    |exitcond9_fu_476_p2   |   icmp   |      0|  0|   4|           7|           8|
+    |exitcond_fu_349_p2    |   icmp   |      0|  0|   5|           8|           9|
+    |exitcond_i_fu_411_p2  |   icmp   |      0|  0|   4|           7|           8|
+    |icmp_fu_466_p2        |   icmp   |      0|  0|  13|          25|           1|
+    |tmp_14_i_fu_444_p2    |   icmp   |      0|  0|   4|           8|           8|
+    |ap_block_state10      |    or    |      0|  0|   2|           1|           1|
+    |found_fu_438_p2       |    or    |      0|  0|   2|           1|           1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0| 224|         190|         108|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                      |  62|         15|    1|         15|
+    |comp_reg_310                   |   9|          2|    1|          2|
+    |contact_index_assign_reg_288   |   9|          2|    8|         16|
+    |contacts_address0              |  21|          4|   13|         52|
+    |contacts_d0                    |  15|          3|    8|         24|
+    |contacts_in_V_blk_n            |   9|          2|    1|          2|
+    |contacts_size                  |   9|          2|   32|         64|
+    |contacts_size_out_1_data_in    |  21|          4|   32|        128|
+    |current_database_ite_address0  |  15|          3|    6|         18|
+    |database_in_V_blk_n            |   9|          2|    1|          2|
+    |error_out_1_data_in            |  21|          4|   32|        128|
+    |i1_reg_322                     |   9|          2|    7|         14|
+    |i_1_reg_264                    |   9|          2|    7|         14|
+    |i_3_reg_253                    |   9|          2|    8|         16|
+    |i_i_reg_299                    |   9|          2|    7|         14|
+    |matched_finished_1_data_in     |  15|          3|   32|         96|
+    |matched_out_V_blk_n            |   9|          2|    1|          2|
+    |operation_ap_vld_preg          |   9|          2|    1|          2|
+    |tmp_10_reg_275                 |   9|          2|    1|          2|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          | 278|         60|  199|        611|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+----+----+-----+-----------+
+    |             Name             | FF | LUT| Bits| Const Bits|
+    +------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                     |  14|   0|   14|          0|
+    |comp_reg_310                  |   1|   0|    1|          0|
+    |contact_index_assign_reg_288  |   8|   0|    8|          0|
+    |contacts_size                 |  32|   0|   32|          0|
+    |contacts_size_out_1_data_reg  |  32|   0|   32|          0|
+    |contacts_size_out_1_vld_reg   |   0|   0|    1|          1|
+    |error_out_1_data_reg          |  32|   0|   32|          0|
+    |error_out_1_vld_reg           |   0|   0|    1|          1|
+    |i1_reg_322                    |   7|   0|    7|          0|
+    |i_1_reg_264                   |   7|   0|    7|          0|
+    |i_3_reg_253                   |   8|   0|    8|          0|
+    |i_5_reg_544                   |   8|   0|    8|          0|
+    |i_6_reg_557                   |   7|   0|    7|          0|
+    |i_i_reg_299                   |   7|   0|    7|          0|
+    |matched_finished_1_data_reg   |  32|   0|   32|          0|
+    |matched_finished_1_vld_reg    |   0|   0|    1|          1|
+    |operation_ap_vld_preg         |   1|   0|    1|          0|
+    |operation_preg                |  32|   0|   32|          0|
+    |tmp_10_reg_275                |   1|   0|    1|          0|
+    |tmp_i_reg_549                 |   7|   0|   13|          6|
+    +------------------------------+----+----+-----+-----------+
+    |Total                         | 236|   0|  245|          9|
+    +------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+-------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++------------------------+-----+-----+------------+-------------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_AWADDR   |  in |    6|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_ARADDR   |  in |    6|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |      AXILiteS     |    pointer   |
+|ap_clk                  |  in |    1| ap_ctrl_hs | contact_discovery | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs | contact_discovery | return value |
+|ap_start                |  in |    1| ap_ctrl_hs | contact_discovery | return value |
+|ap_done                 | out |    1| ap_ctrl_hs | contact_discovery | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs | contact_discovery | return value |
+|ap_ready                | out |    1| ap_ctrl_hs | contact_discovery | return value |
+|contacts_in_V_dout      |  in |    8|   ap_fifo  |   contacts_in_V   |    pointer   |
+|contacts_in_V_empty_n   |  in |    1|   ap_fifo  |   contacts_in_V   |    pointer   |
+|contacts_in_V_read      | out |    1|   ap_fifo  |   contacts_in_V   |    pointer   |
+|database_in_V_dout      |  in |    8|   ap_fifo  |   database_in_V   |    pointer   |
+|database_in_V_empty_n   |  in |    1|   ap_fifo  |   database_in_V   |    pointer   |
+|database_in_V_read      | out |    1|   ap_fifo  |   database_in_V   |    pointer   |
+|matched_out_V_din       | out |    1|   ap_fifo  |   matched_out_V   |    pointer   |
+|matched_out_V_full_n    |  in |    1|   ap_fifo  |   matched_out_V   |    pointer   |
+|matched_out_V_write     | out |    1|   ap_fifo  |   matched_out_V   |    pointer   |
++------------------------+-----+-----+------------+-------------------+--------------+
+

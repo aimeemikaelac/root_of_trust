@@ -12,7 +12,7 @@
 #include "sha512.h"
 #include "user_mmap_driver.h"
 
-#define DATABASE_CHUNK_SIZE 10
+#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
 #define DATABASE_SIZE 3000
 #define BASE 0xA0000000

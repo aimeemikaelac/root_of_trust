@@ -80,6 +80,12 @@ int XContact_discovery_Initialize(XContact_discovery *InstancePtr, const char* I
 int XContact_discovery_Release(XContact_discovery *InstancePtr);
 #endif
 
+void XContact_discovery_Start(XContact_discovery *InstancePtr);
+u32 XContact_discovery_IsDone(XContact_discovery *InstancePtr);
+u32 XContact_discovery_IsIdle(XContact_discovery *InstancePtr);
+u32 XContact_discovery_IsReady(XContact_discovery *InstancePtr);
+void XContact_discovery_EnableAutoRestart(XContact_discovery *InstancePtr);
+void XContact_discovery_DisableAutoRestart(XContact_discovery *InstancePtr);
 
 void XContact_discovery_Set_operation(XContact_discovery *InstancePtr, u32 Data);
 u32 XContact_discovery_Get_operation(XContact_discovery *InstancePtr);
@@ -88,6 +94,14 @@ u32 XContact_discovery_Get_operation_vld(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_matched_finished(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_error_out(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_contacts_size_out(XContact_discovery *InstancePtr);
+
+void XContact_discovery_InterruptGlobalEnable(XContact_discovery *InstancePtr);
+void XContact_discovery_InterruptGlobalDisable(XContact_discovery *InstancePtr);
+void XContact_discovery_InterruptEnable(XContact_discovery *InstancePtr, u32 Mask);
+void XContact_discovery_InterruptDisable(XContact_discovery *InstancePtr, u32 Mask);
+void XContact_discovery_InterruptClear(XContact_discovery *InstancePtr, u32 Mask);
+u32 XContact_discovery_InterruptGetEnabled(XContact_discovery *InstancePtr);
+u32 XContact_discovery_InterruptGetStatus(XContact_discovery *InstancePtr);
 
 #ifdef __cplusplus
 }

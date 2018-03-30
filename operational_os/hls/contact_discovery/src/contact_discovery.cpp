@@ -35,6 +35,7 @@ void contact_discovery(
 	int *error_out,
 	int *contacts_size_out
 ){
+#pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE axis register both port=matched_out
 #pragma HLS INTERFACE axis register both port=database_in
 #pragma HLS INTERFACE axis register both port=contacts_in

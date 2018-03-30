@@ -7,15 +7,11 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.932500,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=455,HLS_SYN_LUT=838}" *)
+(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.932500,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=461,HLS_SYN_LUT=838}" *)
 
 module contact_discovery (
         ap_clk,
         ap_rst_n,
-        ap_start,
-        ap_done,
-        ap_idle,
-        ap_ready,
         contacts_in_V_TDATA,
         contacts_in_V_TVALID,
         contacts_in_V_TREADY,
@@ -41,7 +37,8 @@ module contact_discovery (
         s_axi_AXILiteS_RRESP,
         s_axi_AXILiteS_BVALID,
         s_axi_AXILiteS_BREADY,
-        s_axi_AXILiteS_BRESP
+        s_axi_AXILiteS_BRESP,
+        interrupt
 );
 
 parameter    ap_ST_fsm_state1 = 15'd1;
@@ -68,10 +65,6 @@ parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
 
 input   ap_clk;
 input   ap_rst_n;
-input   ap_start;
-output   ap_done;
-output   ap_idle;
-output   ap_ready;
 input  [7:0] contacts_in_V_TDATA;
 input   contacts_in_V_TVALID;
 output   contacts_in_V_TREADY;
@@ -98,16 +91,18 @@ output  [1:0] s_axi_AXILiteS_RRESP;
 output   s_axi_AXILiteS_BVALID;
 input   s_axi_AXILiteS_BREADY;
 output  [1:0] s_axi_AXILiteS_BRESP;
+output   interrupt;
 
-reg ap_done;
-reg ap_idle;
-reg ap_ready;
 reg contacts_in_V_TREADY;
 reg database_in_V_TREADY;
 
 reg    ap_rst_n_inv;
+wire    ap_start;
+reg    ap_done;
+reg    ap_idle;
 (* fsm_encoding = "none" *) reg   [14:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
+reg    ap_ready;
 wire   [31:0] operation;
 reg   [31:0] operation_preg;
 wire    operation_ap_vld;
@@ -286,6 +281,11 @@ contact_discovery_AXILiteS_s_axi_U(
     .ACLK(ap_clk),
     .ARESET(ap_rst_n_inv),
     .ACLK_EN(1'b1),
+    .ap_start(ap_start),
+    .interrupt(interrupt),
+    .ap_ready(ap_ready),
+    .ap_done(ap_done),
+    .ap_idle(ap_idle),
     .operation(operation),
     .operation_ap_vld(operation_ap_vld),
     .matched_finished(matched_finished_1_data_reg),

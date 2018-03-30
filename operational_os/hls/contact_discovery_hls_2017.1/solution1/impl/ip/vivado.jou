@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu Mar 29 20:55:27 2018
-# Process ID: 10652
+# Start of session at: Thu Mar 29 20:59:55 2018
+# Process ID: 10931
 # Current directory: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_hls_2017.1/solution1/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_hls_2017.1/solution1/impl/ip/vivado.log

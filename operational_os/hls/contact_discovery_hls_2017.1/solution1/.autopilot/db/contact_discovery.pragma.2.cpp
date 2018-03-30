@@ -2732,9 +2732,10 @@ void contact_discovery(
  int *error_out,
  int *contacts_size_out
 ){
+_ssdm_op_SpecInterface(&matched_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&database_in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&contacts_in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(operation, "ap_vld", 1, 1, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_SpecStream( &database_in, 1, 512, "");
-_ssdm_SpecStream( &contacts_in, 1, 512, "");
 _ssdm_op_SpecInterface(matched_finished, "ap_none", 1, 1, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(contacts_size_out, "ap_none", 1, 1, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(contacts_size_out, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");

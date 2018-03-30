@@ -17,18 +17,18 @@ set C_modelName {contact_discovery}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ operation int 32 regular {axi_slave 0}  }
-	{ contacts_in_V int 8 regular {fifo 0 volatile }  }
-	{ database_in_V int 8 regular {fifo 0 volatile }  }
-	{ matched_out_V int 1 regular {fifo 1 volatile }  }
+	{ contacts_in_V int 8 regular {axi_s 0 volatile  { contacts_in_V Data } }  }
+	{ database_in_V int 8 regular {axi_s 0 volatile  { database_in_V Data } }  }
+	{ matched_out_V int 8 regular {axi_s 1 volatile  { matched_out_V Data } }  }
 	{ matched_finished int 32 regular {axi_slave 1}  }
 	{ error_out int 32 regular {axi_slave 1}  }
 	{ contacts_size_out int 32 regular {axi_slave 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "operation", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_vld","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "operation","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
- 	{ "Name" : "contacts_in_V", "interface" : "fifo", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "contacts_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "database_in_V", "interface" : "fifo", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "database_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "matched_out_V", "interface" : "fifo", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "matched_out.V","cData": "bool","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "contacts_in_V", "interface" : "axis", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "contacts_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "database_in_V", "interface" : "axis", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "database_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "matched_out_V", "interface" : "axis", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "matched_out.V","cData": "bool","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "matched_finished", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "matched_finished","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":24}, "offset_end" : {"out":31}} , 
  	{ "Name" : "error_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "error_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":32}, "offset_end" : {"out":39}} , 
  	{ "Name" : "contacts_size_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "contacts_size_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":40}, "offset_end" : {"out":47}} ]}
@@ -41,15 +41,15 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ contacts_in_V_dout sc_in sc_lv 8 signal 1 } 
-	{ contacts_in_V_empty_n sc_in sc_logic 1 signal 1 } 
-	{ contacts_in_V_read sc_out sc_logic 1 signal 1 } 
-	{ database_in_V_dout sc_in sc_lv 8 signal 2 } 
-	{ database_in_V_empty_n sc_in sc_logic 1 signal 2 } 
-	{ database_in_V_read sc_out sc_logic 1 signal 2 } 
-	{ matched_out_V_din sc_out sc_logic 1 signal 3 } 
-	{ matched_out_V_full_n sc_in sc_logic 1 signal 3 } 
-	{ matched_out_V_write sc_out sc_logic 1 signal 3 } 
+	{ contacts_in_V_TDATA sc_in sc_lv 8 signal 1 } 
+	{ contacts_in_V_TVALID sc_in sc_logic 1 invld 1 } 
+	{ contacts_in_V_TREADY sc_out sc_logic 1 inacc 1 } 
+	{ database_in_V_TDATA sc_in sc_lv 8 signal 2 } 
+	{ database_in_V_TVALID sc_in sc_logic 1 invld 2 } 
+	{ database_in_V_TREADY sc_out sc_logic 1 inacc 2 } 
+	{ matched_out_V_TDATA sc_out sc_lv 8 signal 3 } 
+	{ matched_out_V_TVALID sc_out sc_logic 1 outvld 3 } 
+	{ matched_out_V_TREADY sc_in sc_logic 1 outacc 3 } 
 	{ s_axi_AXILiteS_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_AWREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_AWADDR sc_in sc_lv 6 signal -1 } 
@@ -92,15 +92,15 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "contacts_in_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "contacts_in_V", "role": "dout" }} , 
- 	{ "name": "contacts_in_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "contacts_in_V", "role": "empty_n" }} , 
- 	{ "name": "contacts_in_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "contacts_in_V", "role": "read" }} , 
- 	{ "name": "database_in_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "database_in_V", "role": "dout" }} , 
- 	{ "name": "database_in_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "database_in_V", "role": "empty_n" }} , 
- 	{ "name": "database_in_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "database_in_V", "role": "read" }} , 
- 	{ "name": "matched_out_V_din", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "matched_out_V", "role": "din" }} , 
- 	{ "name": "matched_out_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "matched_out_V", "role": "full_n" }} , 
- 	{ "name": "matched_out_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "matched_out_V", "role": "write" }}  ]}
+ 	{ "name": "contacts_in_V_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "contacts_in_V", "role": "TDATA" }} , 
+ 	{ "name": "contacts_in_V_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "contacts_in_V", "role": "TVALID" }} , 
+ 	{ "name": "contacts_in_V_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "contacts_in_V", "role": "TREADY" }} , 
+ 	{ "name": "database_in_V_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "database_in_V", "role": "TDATA" }} , 
+ 	{ "name": "database_in_V_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "database_in_V", "role": "TVALID" }} , 
+ 	{ "name": "database_in_V_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "database_in_V", "role": "TREADY" }} , 
+ 	{ "name": "matched_out_V_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "matched_out_V", "role": "TDATA" }} , 
+ 	{ "name": "matched_out_V_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "matched_out_V", "role": "TVALID" }} , 
+ 	{ "name": "matched_out_V_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "matched_out_V", "role": "TREADY" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
@@ -115,15 +115,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "operation", "Type" : "Vld", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "operation_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "contacts_in_V", "Type" : "Fifo", "Direction" : "I",
+			{"Name" : "contacts_in_V", "Type" : "Axis", "Direction" : "I",
 				"BlockSignal" : [
-					{"Name" : "contacts_in_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "database_in_V", "Type" : "Fifo", "Direction" : "I",
+					{"Name" : "contacts_in_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "database_in_V", "Type" : "Axis", "Direction" : "I",
 				"BlockSignal" : [
-					{"Name" : "database_in_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "matched_out_V", "Type" : "Fifo", "Direction" : "O",
+					{"Name" : "database_in_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "matched_out_V", "Type" : "Axis", "Direction" : "O",
 				"BlockSignal" : [
-					{"Name" : "matched_out_V_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "matched_out_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "matched_finished", "Type" : "None", "Direction" : "O"},
 			{"Name" : "error_out", "Type" : "None", "Direction" : "O"},
 			{"Name" : "contacts_size_out", "Type" : "None", "Direction" : "O"},
@@ -159,9 +159,9 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	contacts_in_V { ap_fifo {  { contacts_in_V_dout fifo_data 0 8 }  { contacts_in_V_empty_n fifo_status 0 1 }  { contacts_in_V_read fifo_update 1 1 } } }
-	database_in_V { ap_fifo {  { database_in_V_dout fifo_data 0 8 }  { database_in_V_empty_n fifo_status 0 1 }  { database_in_V_read fifo_update 1 1 } } }
-	matched_out_V { ap_fifo {  { matched_out_V_din fifo_data 1 1 }  { matched_out_V_full_n fifo_status 0 1 }  { matched_out_V_write fifo_update 1 1 } } }
+	contacts_in_V { axis {  { contacts_in_V_TDATA in_data 0 8 }  { contacts_in_V_TVALID in_vld 0 1 }  { contacts_in_V_TREADY in_acc 1 1 } } }
+	database_in_V { axis {  { database_in_V_TDATA in_data 0 8 }  { database_in_V_TVALID in_vld 0 1 }  { database_in_V_TREADY in_acc 1 1 } } }
+	matched_out_V { axis {  { matched_out_V_TDATA out_data 1 8 }  { matched_out_V_TVALID out_vld 1 1 }  { matched_out_V_TREADY out_acc 0 1 } } }
 }
 
 set busDeadlockParameterList { 
@@ -169,9 +169,6 @@ set busDeadlockParameterList {
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 
-	contacts_in_V { fifo_read 66 has_conditional }
-	database_in_V { fifo_read 65 has_conditional }
-	matched_out_V { fifo_write 1 has_conditional }
 }
 
 # RTL bus port read request latency information:

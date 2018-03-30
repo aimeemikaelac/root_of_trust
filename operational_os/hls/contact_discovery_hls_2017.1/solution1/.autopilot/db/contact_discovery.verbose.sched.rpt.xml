@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Thu Mar 29 20:34:24 2018
+<item name = "Date">Thu Mar 29 20:55:17 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_hls_2017.1</item>
@@ -37,7 +37,7 @@
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">?, ?, 3 ~ 67, -, -, ?, no</column>
 <column name=" + Loop 1.1">64, 64, 1, -, -, 64, no</column>
-<column name="- Loop 2">?, ?, 16707, -, -, ?, no</column>
+<column name="- Loop 2">?, ?, 16708, -, -, ?, no</column>
 <column name=" + Loop 2.1">64, 64, 1, -, -, 64, no</column>
 <column name=" + Loop 2.2">16640, 16640, 130, -, -, 128, no</column>
 <column name="  ++ Loop 2.2.1">128, 128, 2, -, -, 64, no</column>

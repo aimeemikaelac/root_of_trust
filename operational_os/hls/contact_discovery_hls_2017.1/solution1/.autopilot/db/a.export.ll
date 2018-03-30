@@ -6,57 +6,40 @@ target triple = "x86_64-unknown-linux-gnu"
 @contacts_size = internal unnamed_addr global i32 0, align 4
 @contacts = internal unnamed_addr global [8192 x i8] zeroinitializer, align 16
 @contact_discovery_st = internal unnamed_addr constant [18 x i8] c"contact_discovery\00"
-@ap_fifo_str = internal unnamed_addr constant [8 x i8] c"ap_fifo\00"
-@p_str9 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str8 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str7 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str6 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str5 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str4 = private unnamed_addr constant [11 x i8] c"ap_ctrl_hs\00", align 1
-@p_str3 = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1
-@p_str22 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str21 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str20 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str2 = private unnamed_addr constant [8 x i8] c"ap_none\00", align 1
-@p_str19 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str18 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str17 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str16 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str15 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str14 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str13 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str12 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str11 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str10 = internal unnamed_addr constant [1 x i8] zeroinitializer
-@p_str1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@p_str = private unnamed_addr constant [7 x i8] c"ap_vld\00", align 1
+@p_str6 = private unnamed_addr constant [11 x i8] c"ap_ctrl_hs\00", align 1
+@p_str5 = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1
+@p_str4 = private unnamed_addr constant [8 x i8] c"ap_none\00", align 1
+@p_str3 = private unnamed_addr constant [7 x i8] c"ap_vld\00", align 1
+@p_str2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@p_str1 = private unnamed_addr constant [5 x i8] c"both\00", align 1
+@p_str = private unnamed_addr constant [5 x i8] c"axis\00", align 1
 
 declare i32 @llvm.part.select.i32(i32, i32, i32) nounwind readnone
 
 declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
-define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database_in_V, i1* %matched_out_V, i32* %matched_finished, i32* %error_out, i32* %contacts_size_out) {
-  call void (...)* @_ssdm_op_SpecInterface(i1* %matched_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str17, i32 0, i32 0, [1 x i8]* @p_str18, [1 x i8]* @p_str19, [1 x i8]* @p_str20, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str21, [1 x i8]* @p_str22)
-  call void (...)* @_ssdm_op_SpecInterface(i8* %database_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str11, i32 0, i32 0, [1 x i8]* @p_str12, [1 x i8]* @p_str13, [1 x i8]* @p_str14, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str15, [1 x i8]* @p_str16)
-  call void (...)* @_ssdm_op_SpecInterface(i8* %contacts_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str7, [1 x i8]* @p_str8, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str9, [1 x i8]* @p_str10)
+define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database_in_V, i8* %matched_out_V, i32* %matched_finished, i32* %error_out, i32* %contacts_size_out) {
   call void (...)* @_ssdm_op_SpecBitsMap(i32 %operation), !map !28
   call void (...)* @_ssdm_op_SpecBitsMap(i8* %contacts_in_V), !map !34
   call void (...)* @_ssdm_op_SpecBitsMap(i8* %database_in_V), !map !40
-  call void (...)* @_ssdm_op_SpecBitsMap(i1* %matched_out_V), !map !44
+  call void (...)* @_ssdm_op_SpecBitsMap(i8* %matched_out_V), !map !44
   call void (...)* @_ssdm_op_SpecBitsMap(i32* %matched_finished), !map !48
   call void (...)* @_ssdm_op_SpecBitsMap(i32* %error_out), !map !52
   call void (...)* @_ssdm_op_SpecBitsMap(i32* %contacts_size_out), !map !56
   call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @contact_discovery_st) nounwind
   %operation_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %operation)
-  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [7 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %matched_finished, [8 x i8]* @p_str2, i32 1, i32 1, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [8 x i8]* @p_str2, i32 1, i32 1, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [8 x i8]* @p_str2, i32 1, i32 1, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %matched_finished, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32 0, [11 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i8* %matched_out_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2)
+  call void (...)* @_ssdm_op_SpecInterface(i8* %database_in_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i8* %contacts_in_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [7 x i8]* @p_str3, i32 1, i32 1, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %matched_finished, [8 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [8 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [8 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %matched_finished, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 0, [11 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
   switch i32 %operation_read, label %19 [
     i32 0, label %1
     i32 1, label %8
@@ -71,7 +54,7 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
   br label %2
 
 ; <label>:2                                       ; preds = %7, %1
-  %tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i8P(i8* %contacts_in_V, i32 1)
+  %tmp = call i1 @_ssdm_op_NbReadReq.axis.i8P(i8* %contacts_in_V, i32 1)
   br i1 %tmp, label %3, label %.loopexit.loopexit5
 
 ; <label>:3                                       ; preds = %2
@@ -85,22 +68,22 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
 
 ; <label>:4                                       ; preds = %3
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 1)
-  %tmp_4_0 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %contacts_in_V)
+  %tmp_4_0 = call i8 @_ssdm_op_Read.axis.volatile.i8P(i8* %contacts_in_V)
   br label %7
 
 .preheader11:                                     ; preds = %.preheader11.preheader, %5
   %i1 = phi i7 [ %i_4, %5 ], [ 0, %.preheader11.preheader ]
-  %i1_cast6 = zext i7 %i1 to i32
+  %i1_cast = zext i7 %i1 to i32
   %exitcond9 = icmp eq i7 %i1, -64
   %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
   %i_4 = add i7 %i1, 1
   br i1 %exitcond9, label %6, label %5
 
 ; <label>:5                                       ; preds = %.preheader11
-  %tmp_5 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %contacts_in_V)
+  %tmp_5 = call i8 @_ssdm_op_Read.axis.volatile.i8P(i8* %contacts_in_V)
   %contacts_size_load_5 = load i32* @contacts_size, align 4
   %tmp_6 = shl i32 %contacts_size_load_5, 6
-  %tmp_8 = add nsw i32 %tmp_6, %i1_cast6
+  %tmp_8 = add nsw i32 %tmp_6, %i1_cast
   %tmp_s = sext i32 %tmp_8 to i64
   %contacts_addr_1 = getelementptr inbounds [8192 x i8]* @contacts, i64 0, i64 %tmp_s
   store i8 %tmp_5, i8* %contacts_addr_1, align 1
@@ -124,7 +107,7 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
   br label %9
 
 ; <label>:9                                       ; preds = %14, %8
-  %tmp_1 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i8P(i8* %database_in_V, i32 1)
+  %tmp_1 = call i1 @_ssdm_op_NbReadReq.axis.i8P(i8* %database_in_V, i32 1)
   br i1 %tmp_1, label %.preheader10.preheader, label %15
 
 .preheader10.preheader:                           ; preds = %9
@@ -133,7 +116,7 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
 .preheader10:                                     ; preds = %.preheader10.preheader, %10
   %i_1 = phi i7 [ %i_2, %10 ], [ 0, %.preheader10.preheader ]
   %exitcond8 = icmp eq i7 %i_1, -64
-  %empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
   %i_2 = add i7 %i_1, 1
   br i1 %exitcond8, label %.preheader.preheader, label %10
 
@@ -141,7 +124,7 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
   br label %.preheader
 
 ; <label>:10                                      ; preds = %.preheader10
-  %tmp_4 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %database_in_V)
+  %tmp_4 = call i8 @_ssdm_op_Read.axis.volatile.i8P(i8* %database_in_V)
   %tmp_7 = zext i7 %i_1 to i64
   %current_database_ite = getelementptr inbounds [64 x i8]* @current_database_ite, i64 0, i64 %tmp_7
   store i8 %tmp_4, i8* %current_database_ite, align 1
@@ -151,7 +134,7 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
   %tmp_10 = phi i1 [ %found, %compare.exit ], [ false, %.preheader.preheader ]
   %contact_index_assign = phi i8 [ %i_5, %compare.exit ], [ 0, %.preheader.preheader ]
   %exitcond7 = icmp eq i8 %contact_index_assign, -128
-  %empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+  %empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
   %i_5 = add i8 %contact_index_assign, 1
   br i1 %exitcond7, label %14, label %11
 
@@ -163,17 +146,17 @@ define void @contact_discovery(i32 %operation, i8* %contacts_in_V, i8* %database
 ; <label>:12                                      ; preds = %13, %11
   %i_i = phi i7 [ 0, %11 ], [ %i_6, %13 ]
   %comp = phi i1 [ true, %11 ], [ %found_1, %13 ]
-  %i_i_cast3 = zext i7 %i_i to i13
+  %i_i_cast7 = zext i7 %i_i to i13
   %exitcond_i = icmp eq i7 %i_i, -64
-  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+  %empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
   %i_6 = add i7 %i_i, 1
   br i1 %exitcond_i, label %compare.exit, label %13
 
 ; <label>:13                                      ; preds = %12
-  %tmp_i_8 = zext i7 %i_i to i64
-  %current_database_ite_1 = getelementptr inbounds [64 x i8]* @current_database_ite, i64 0, i64 %tmp_i_8
+  %tmp_i_7 = zext i7 %i_i to i64
+  %current_database_ite_1 = getelementptr inbounds [64 x i8]* @current_database_ite, i64 0, i64 %tmp_i_7
   %current_database_ite_2 = load i8* %current_database_ite_1, align 1
-  %tmp_12_i = add i13 %i_i_cast3, %tmp_i
+  %tmp_12_i = add i13 %i_i_cast7, %tmp_i
   %tmp_13_i = zext i13 %tmp_12_i to i64
   %contacts_addr_2 = getelementptr inbounds [8192 x i8]* @contacts, i64 0, i64 %tmp_13_i
   %contacts_load = load i8* %contacts_addr_2, align 1
@@ -186,7 +169,8 @@ compare.exit:                                     ; preds = %12
   br label %.preheader
 
 ; <label>:14                                      ; preds = %.preheader
-  call void @_ssdm_op_Write.ap_fifo.volatile.i1P(i1* %matched_out_V, i1 %tmp_10)
+  %cast = zext i1 %tmp_10 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %matched_out_V, i8 %cast)
   br label %9
 
 ; <label>:15                                      ; preds = %9
@@ -203,7 +187,7 @@ compare.exit:                                     ; preds = %12
 ; <label>:17                                      ; preds = %18, %16
   %i_3 = phi i8 [ 0, %16 ], [ %i, %18 ]
   %exitcond = icmp eq i8 %i_3, -128
-  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
   %i = add i8 %i_3, 1
   br i1 %exitcond, label %.loopexit.loopexit, label %18
 
@@ -230,15 +214,15 @@ compare.exit:                                     ; preds = %12
   ret void
 }
 
-define weak void @_ssdm_op_Write.ap_none.i32P(i32*, i32) {
+define weak void @_ssdm_op_Write.axis.volatile.i8P(i8*, i8) {
 entry:
-  store i32 %1, i32* %0
+  store i8 %1, i8* %0
   ret void
 }
 
-define weak void @_ssdm_op_Write.ap_fifo.volatile.i1P(i1*, i1) {
+define weak void @_ssdm_op_Write.ap_none.i32P(i32*, i32) {
 entry:
-  %empty = call i1 @_autotb_FifoWrite_i1(i1* %0, i1 %1)
+  store i32 %1, i32* %0
   ret void
 }
 
@@ -262,15 +246,15 @@ entry:
   ret void
 }
 
+define weak i8 @_ssdm_op_Read.axis.volatile.i8P(i8*) {
+entry:
+  %empty = load i8* %0
+  ret i8 %empty
+}
+
 define weak i32 @_ssdm_op_Read.ap_vld.i32(i32) {
 entry:
   ret i32 %0
-}
-
-define weak i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8*) {
-entry:
-  %empty = call i8 @_autotb_FifoRead_i8(i8* %0)
-  ret i8 %empty
 }
 
 declare i7 @_ssdm_op_PartSelect.i7.i8.i32.i32(i8, i32, i32) nounwind readnone
@@ -280,14 +264,13 @@ declare i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32, i32, i32) nounwind readnon
 define weak i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32, i32, i32) nounwind readnone {
 entry:
   %empty = call i32 @llvm.part.select.i32(i32 %0, i32 %1, i32 %2)
-  %empty_10 = trunc i32 %empty to i25
-  ret i25 %empty_10
+  %empty_9 = trunc i32 %empty to i25
+  ret i25 %empty_9
 }
 
-define weak i1 @_ssdm_op_NbReadReq.ap_fifo.i8P(i8*, i32) {
+define weak i1 @_ssdm_op_NbReadReq.axis.i8P(i8*, i32) {
 entry:
-  %empty = call i1 @_autotb_FifoCanRead_i8(i8* %0)
-  ret i1 %empty
+  ret i1 true
 }
 
 declare i32 @_ssdm_op_BitConcatenate.i32.i26.i6(i26, i6) nounwind readnone
@@ -295,17 +278,11 @@ declare i32 @_ssdm_op_BitConcatenate.i32.i26.i6(i26, i6) nounwind readnone
 define weak i13 @_ssdm_op_BitConcatenate.i13.i7.i6(i7, i6) nounwind readnone {
 entry:
   %empty = zext i7 %0 to i13
-  %empty_11 = zext i6 %1 to i13
-  %empty_12 = shl i13 %empty, 6
-  %empty_13 = or i13 %empty_12, %empty_11
-  ret i13 %empty_13
+  %empty_10 = zext i6 %1 to i13
+  %empty_11 = shl i13 %empty, 6
+  %empty_12 = or i13 %empty_11, %empty_10
+  ret i13 %empty_12
 }
-
-declare i1 @_autotb_FifoWrite_i1(i1*, i1)
-
-declare i8 @_autotb_FifoRead_i8(i8*)
-
-declare i1 @_autotb_FifoCanRead_i8(i8*)
 
 !opencl.kernels = !{!0, !7, !13, !19, !22, !22}
 !hls.encrypted.func = !{}

@@ -1,0 +1,211 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../src/contact_discovery_tb.cpp in debug mode
+   Generating csim.exe
+Generating numbers database
+Generating contacts
+Checking initial conditions
+Populating contacts
+Starting matching
+Starting matching for chunk 0
+Contacts match 0, unmatched 300 for block 0
+Starting matching for chunk 1
+Contacts match 1, unmatched 299 for block 1
+Starting matching for chunk 2
+Contacts match 0, unmatched 300 for block 2
+Starting matching for chunk 3
+Contacts match 2, unmatched 298 for block 3
+Starting matching for chunk 4
+Contacts match 1, unmatched 299 for block 4
+Starting matching for chunk 5
+Contacts match 0, unmatched 300 for block 5
+Starting matching for chunk 6
+Contacts match 0, unmatched 300 for block 6
+Starting matching for chunk 7
+Contacts match 2, unmatched 298 for block 7
+Starting matching for chunk 8
+Contacts match 1, unmatched 299 for block 8
+Starting matching for chunk 9
+Contacts match 0, unmatched 300 for block 9
+Starting matching for chunk 10
+Contacts match 2, unmatched 298 for block 10
+Starting matching for chunk 11
+Contacts match 3, unmatched 297 for block 11
+Starting matching for chunk 12
+Contacts match 1, unmatched 299 for block 12
+Starting matching for chunk 13
+Contacts match 1, unmatched 299 for block 13
+Starting matching for chunk 14
+Contacts match 0, unmatched 300 for block 14
+Starting matching for chunk 15
+Contacts match 5, unmatched 295 for block 15
+Starting matching for chunk 16
+Contacts match 2, unmatched 298 for block 16
+Starting matching for chunk 17
+Contacts match 2, unmatched 298 for block 17
+Starting matching for chunk 18
+Contacts match 1, unmatched 299 for block 18
+Starting matching for chunk 19
+Contacts match 2, unmatched 298 for block 19
+Starting matching for chunk 20
+Contacts match 0, unmatched 300 for block 20
+Starting matching for chunk 21
+Contacts match 3, unmatched 297 for block 21
+Starting matching for chunk 22
+Contacts match 5, unmatched 295 for block 22
+Starting matching for chunk 23
+Contacts match 1, unmatched 299 for block 23
+Starting matching for chunk 24
+Contacts match 1, unmatched 299 for block 24
+Starting matching for chunk 25
+Contacts match 2, unmatched 298 for block 25
+Starting matching for chunk 26
+Contacts match 2, unmatched 298 for block 26
+Starting matching for chunk 27
+Contacts match 0, unmatched 300 for block 27
+Starting matching for chunk 28
+Contacts match 1, unmatched 299 for block 28
+Starting matching for chunk 29
+Contacts match 2, unmatched 298 for block 29
+Starting matching for chunk 30
+Contacts match 1, unmatched 299 for block 30
+Starting matching for chunk 31
+Contacts match 0, unmatched 300 for block 31
+Starting matching for chunk 32
+Contacts match 3, unmatched 297 for block 32
+Starting matching for chunk 33
+Contacts match 2, unmatched 298 for block 33
+Starting matching for chunk 34
+Contacts match 3, unmatched 297 for block 34
+Starting matching for chunk 35
+Contacts match 2, unmatched 298 for block 35
+Starting matching for chunk 36
+Contacts match 3, unmatched 297 for block 36
+Starting matching for chunk 37
+Contacts match 1, unmatched 299 for block 37
+Starting matching for chunk 38
+Contacts match 2, unmatched 298 for block 38
+Starting matching for chunk 39
+Contacts match 1, unmatched 299 for block 39
+Starting matching for chunk 40
+Contacts match 1, unmatched 299 for block 40
+Starting matching for chunk 41
+Contacts match 2, unmatched 298 for block 41
+Starting matching for chunk 42
+Contacts match 1, unmatched 299 for block 42
+Starting matching for chunk 43
+Contacts match 1, unmatched 299 for block 43
+Starting matching for chunk 44
+Contacts match 1, unmatched 299 for block 44
+Starting matching for chunk 45
+Contacts match 0, unmatched 300 for block 45
+Starting matching for chunk 46
+Contacts match 0, unmatched 300 for block 46
+Starting matching for chunk 47
+Contacts match 0, unmatched 300 for block 47
+Starting matching for chunk 48
+Contacts match 1, unmatched 299 for block 48
+Starting matching for chunk 49
+Contacts match 1, unmatched 299 for block 49
+Starting matching for chunk 50
+Contacts match 1, unmatched 299 for block 50
+Starting matching for chunk 51
+Contacts match 2, unmatched 298 for block 51
+Starting matching for chunk 52
+Contacts match 1, unmatched 299 for block 52
+Starting matching for chunk 53
+Contacts match 1, unmatched 299 for block 53
+Starting matching for chunk 54
+Contacts match 1, unmatched 299 for block 54
+Starting matching for chunk 55
+Contacts match 2, unmatched 298 for block 55
+Starting matching for chunk 56
+Contacts match 2, unmatched 298 for block 56
+Starting matching for chunk 57
+Contacts match 3, unmatched 297 for block 57
+Starting matching for chunk 58
+Contacts match 0, unmatched 300 for block 58
+Starting matching for chunk 59
+Contacts match 0, unmatched 300 for block 59
+Starting matching for chunk 60
+Contacts match 1, unmatched 299 for block 60
+Starting matching for chunk 61
+Contacts match 1, unmatched 299 for block 61
+Starting matching for chunk 62
+Contacts match 2, unmatched 298 for block 62
+Starting matching for chunk 63
+Contacts match 1, unmatched 299 for block 63
+Starting matching for chunk 64
+Contacts match 3, unmatched 297 for block 64
+Starting matching for chunk 65
+Contacts match 0, unmatched 300 for block 65
+Starting matching for chunk 66
+Contacts match 1, unmatched 299 for block 66
+Starting matching for chunk 67
+Contacts match 3, unmatched 297 for block 67
+Starting matching for chunk 68
+Contacts match 3, unmatched 297 for block 68
+Starting matching for chunk 69
+Contacts match 1, unmatched 299 for block 69
+Starting matching for chunk 70
+Contacts match 0, unmatched 300 for block 70
+Starting matching for chunk 71
+Contacts match 0, unmatched 300 for block 71
+Starting matching for chunk 72
+Contacts match 0, unmatched 300 for block 72
+Starting matching for chunk 73
+Contacts match 0, unmatched 300 for block 73
+Starting matching for chunk 74
+Contacts match 1, unmatched 299 for block 74
+Starting matching for chunk 75
+Contacts match 2, unmatched 298 for block 75
+Starting matching for chunk 76
+Contacts match 2, unmatched 298 for block 76
+Starting matching for chunk 77
+Contacts match 0, unmatched 300 for block 77
+Starting matching for chunk 78
+Contacts match 0, unmatched 300 for block 78
+Starting matching for chunk 79
+Contacts match 0, unmatched 300 for block 79
+Starting matching for chunk 80
+Contacts match 1, unmatched 299 for block 80
+Starting matching for chunk 81
+Contacts match 2, unmatched 298 for block 81
+Starting matching for chunk 82
+Contacts match 0, unmatched 300 for block 82
+Starting matching for chunk 83
+Contacts match 1, unmatched 299 for block 83
+Starting matching for chunk 84
+Contacts match 2, unmatched 298 for block 84
+Starting matching for chunk 85
+Contacts match 1, unmatched 299 for block 85
+Starting matching for chunk 86
+Contacts match 2, unmatched 298 for block 86
+Starting matching for chunk 87
+Contacts match 2, unmatched 298 for block 87
+Starting matching for chunk 88
+Contacts match 2, unmatched 298 for block 88
+Starting matching for chunk 89
+Contacts match 1, unmatched 299 for block 89
+Starting matching for chunk 90
+Contacts match 0, unmatched 300 for block 90
+Starting matching for chunk 91
+Contacts match 0, unmatched 300 for block 91
+Starting matching for chunk 92
+Contacts match 1, unmatched 299 for block 92
+Starting matching for chunk 93
+Contacts match 0, unmatched 300 for block 93
+Starting matching for chunk 94
+Contacts match 0, unmatched 300 for block 94
+Starting matching for chunk 95
+Contacts match 0, unmatched 300 for block 95
+Starting matching for chunk 96
+Contacts match 6, unmatched 294 for block 96
+Starting matching for chunk 97
+Contacts match 2, unmatched 298 for block 97
+Starting matching for chunk 98
+Contacts match 1, unmatched 299 for block 98
+Starting matching for chunk 99
+Contacts match 1, unmatched 299 for block 99
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

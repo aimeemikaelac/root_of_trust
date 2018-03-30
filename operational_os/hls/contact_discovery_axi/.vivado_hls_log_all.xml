@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'database_size' is power-on initialization." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.608-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'contacts_size' is power-on initialization." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.605-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'contacts_size_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.603-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'database_size_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.592-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'error_out' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.589-0600" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'matched_finished' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T01:01:50.586-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Dropped interface mode 'ap_none' on 'matched_out' (contact_discovery_axi/src/contact_discovery.cpp:35) as it is incompatible with its interface mode 's_axilite'." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T00:59:56.710-0600" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-1' (contact_discovery_axi/src/contact_discovery.cpp:102) in function 'contact_discovery' completely: variable loop bound." projectName="contact_discovery_axi" solutionName="solution1" date="2018-03-30T00:59:54.094-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

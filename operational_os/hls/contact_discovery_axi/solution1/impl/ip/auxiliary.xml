@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="contact_discovery" xd:componentRef="contact_discovery" xd:initiationInterval="1305903" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="operation" xd:originalName="operation" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="contact_in[]" xd:originalName="contact_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x40" xd:arraySize="64" xd:dataWidth="8"/>
+  <xd:arg xd:name="database_in[]" xd:originalName="database_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x80" xd:arraySize="64" xd:dataWidth="8"/>
+  <xd:arg xd:name="matched_out[]" xd:originalName="matched_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x200" xd:arraySize="300" xd:dataWidth="1"/>
+  <xd:arg xd:name="*(matched_finished)" xd:originalName="matched_finished" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x400" xd:statusOffset="0x404" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x408" xd:statusOffset="0x40C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(database_size_out)" xd:originalName="database_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x410" xd:statusOffset="0x414" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x418" xd:statusOffset="0x41C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="2" xd:worst-case="1305902" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="10541" xd:FF="1771" xd:BRAM="20" xd:DSP="0"/>
+</xd:acceleratorMap>

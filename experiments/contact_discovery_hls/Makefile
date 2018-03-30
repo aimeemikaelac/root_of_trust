@@ -3,25 +3,25 @@ CFLAGS    := $(INCLUDES)
 CXXFLAGS  := $(INCLUDES)
 LDFLAGS		:=
 LIBS      := user_mmap_driver/user_mmap_driver.o sha512.o
-TEST      := contact_discovery_tester
-EXP				:= contact_discovery_experiment
+TEST_DB_LOAD      := contact_discovery_tester_db_load
+DB_EXP				:= contact_discovery_experiment_db_loading
 
 .PHONY: clean
 
-all: $(EXP)
+all: $(DB_EXP)
 
-exp: $(EXP)
+db_exp: $(DB_EXP)
 
-test: $(TEST)
+test_db_load: $(TEST_DB_LOAD)
 
-$(EXP): $(EXP).o $(LIBS)
+$(DB_EXP): $(DB_EXP).o $(LIBS)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-$(TEST): $(TEST).o $(LIBS)
+$(TEST_DB_LOAD): $(TEST_DB_LOAD).o $(LIBS)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
 	$(RM) -rf $(LIBS)
 	$(RM) -rf *.o
-	$(RM) -rf $(EXEC)
+	$(RM) -rf $(DB_EXP)
 	$(RM) -rf $(TEST)

@@ -106,6 +106,19 @@ void hash_numbers(){
 	}
 }
 
+void write_hash_to_fifo(unsigned long long fifo_base, unsigned char *hash){
+	int i;
+	unsigned int *hash_int = (unsigned int*)hash;
+	writeValueToAddress(0xFFFFFFFF, fifo_base);
+	writeValueToAddress(0x0C000000, fifo_base + 0x4);
+	writeValueToAddress(0x2, fifo_base + 0x2c);
+	for(i=0; i<64/4; i++){
+		writeValueToAddress(hash[i], fifo_base + 0x10);
+	}
+	writeValueToAddress(16, fifo_base + 0x14);
+}
+
+
 int main(){
 	unsigned int seed;
 	int i, j, random_index;
@@ -187,15 +200,7 @@ int main(){
 		std::string current = *it;
 
 		contacts_size++;
-//		printf("Current contacts size: %i\n", contacts_size);
-		for(i=0; i<64; i++){
-			// contacts_in.write((unsigned char)(current.data()[i]));
-			unsigned int contacts_vacancy = 0;
-			while(contacts_vacancy == 0){
-				getValueAtAddress(CONTACTS_FIFO + 0xC, &contacts_vacancy);
-			}
-			writeValueToAddress((unsigned char)(current.data()[i]), CONTACTS_FIFO + 0x10);
-		}
+		write_hash_to_fifo(CONTACTS_FIFO, (unsigned char*)contacts.data());
 
 	}
 
@@ -218,11 +223,7 @@ int main(){
 		memcpy(current_hash, db_hashes + i*64, 64);
 		for(j=0; j<64; j++){
 			// database_in.write(current_hash[j]);
-			unsigned int db_vacancy = 0;
-			while(db_vacancy == 0){
-				getValueAtAddress(DATABASE_FIFO + 0xC, &db_vacancy);
-			}
-			writeValueToAddress(current_hash[j], DATABASE_FIFO + 0x10);
+			write_hash_to_fifo(DATABASE_FIFO, current_hash);
 		}
 		std::string current((char*)(current_hash), 64);
 		if(contacts.count(current) > 0){
@@ -232,15 +233,28 @@ int main(){
 		}
 	}
 
-	for(i=0; i<DATABASE_SIZE; i++){
+	bool results[DATABASE_SIZE];
+	for(i=0; i<DATABASE_SIZE; i+=4){
+		unsigned int current_result;
+		bool* current_bools = (bool*)&current_result;
+		writeValueToAddress(1, MATCHED_FIFO + 0x24);
+		writeValueToAddress(2, MATCHED_FIFO + 0x30);
+		getValueAtAddress(MATCHED_FIFO + 0x20, &current_result);
+		for(j=0; j<4; j++){
+			if(i+j<DATABASE_SIZE){
+				results[i+j] = current_bools[j];
+			}
+		}
+	}
 		// assert(!matched_out.empty());
 		// bool current = matched_out.read();
-		unsigned int current_bool;
-		getValueAtAddress(MATCHED_FIFO + 0x20, &current_bool);
-		bool current = (bool)(current_bool);
-		printf("HW: %i, REF: %i\n", current, matched_correct[i]);
-		// assert(matched_correct[i] == current);
+		// unsigned int current_bool;
+		// getValueAtAddress(MATCHED_FIFO + 0x20, &current_bool);
+		// bool current = (bool)(current_bool);
+	for(i=0; i<DATABASE_SIZE; i++){
+		printf("HW: %i, REF: %i\n", results[i], matched_correct[i]);
 	}
+		// assert(matched_correct[i] == current);
 
 //		printf("Current hash:0x");
 //		for(j=0; j<64; j++){

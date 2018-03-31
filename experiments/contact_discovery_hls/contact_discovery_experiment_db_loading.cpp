@@ -224,7 +224,7 @@ int main(int argc, char **argv){
     }
 
     DATABASE_SIZE = atoi(argv[1]);
-    printf("Database size: %i\n", DATABASE_SIZE);
+    //printf("Database size: %i\n", DATABASE_SIZE);
     numbers = (number*)malloc(sizeof(number)*DATABASE_SIZE);
     db_hashes = (unsigned char*)malloc(64*DATABASE_SIZE);
     if(numbers == NULL || db_hashes == NULL){
@@ -326,7 +326,7 @@ int main(int argc, char **argv){
 	hw_elapsed = ((double)(hw_end - hw_start)/CLOCKS_PER_SEC);
 //	printf("Hardware matched: %i\n", num_matched);
 //	printf("Hardware elapsed: %fs\n", hw_elapsed);
-    printf("%i,%f,%i,%f\n", software_count, sw_elapsed, num_matched, hw_elapsed);
+    printf("%i,%i,%f,%i,%f\n", DATABASE_SIZE, software_count, sw_elapsed, num_matched, hw_elapsed);
     cleanupSharedMemoryPointer(control_mem);
     free(numbers);
     free(db_hashes);

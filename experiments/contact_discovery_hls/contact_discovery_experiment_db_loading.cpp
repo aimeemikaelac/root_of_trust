@@ -14,11 +14,12 @@
 
 #define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 3000
+//#define DATABASE_SIZE 3000
 #define BASE 0xB0000000
 
 static shared_memory control_mem;
 static volatile unsigned char *control;
+static unsigned int DATABASE_SIZE = 0;
 
 void contact_discovery(
 	int operation,
@@ -77,9 +78,9 @@ typedef struct number{
 } number;
 
 
-number numbers[DATABASE_SIZE];
+static number *numbers; //[DATABASE_SIZE];
 
-unsigned char db_hashes[64*DATABASE_SIZE];
+static unsigned char *db_hashes;//[64*DATABASE_SIZE];
 
 static std::set<std::string> contacts;
 
@@ -207,7 +208,7 @@ void populate_contacts_hw(){
 }
 
 
-int main(){
+int main(int argc, char **argv){
 	unsigned int seed;
 	int i, j, random_index;
 	volatile unsigned char contact_in[64];
@@ -216,6 +217,20 @@ int main(){
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 	clock_t sw_start, sw_end, hw_start, hw_end;
 	double sw_elapsed, hw_elapsed;
+//    unsigned int DATABASE_SIZE;
+
+    if(argc != 2){
+      return -1;
+    }
+
+    DATABASE_SIZE = atoi(argv[1]);
+    printf("Database size: %i\n", DATABASE_SIZE);
+    numbers = (number*)malloc(sizeof(number)*DATABASE_SIZE);
+    db_hashes = (unsigned char*)malloc(64*DATABASE_SIZE);
+    if(numbers == NULL || db_hashes == NULL){
+      return -1;
+    }
+
 
 	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
 	control = (volatile unsigned char*)(control_mem->ptr);
@@ -313,5 +328,7 @@ int main(){
 //	printf("Hardware elapsed: %fs\n", hw_elapsed);
     printf("%i,%f,%i,%f\n", software_count, sw_elapsed, num_matched, hw_elapsed);
     cleanupSharedMemoryPointer(control_mem);
+    free(numbers);
+    free(db_hashes);
 	return 0;
 }

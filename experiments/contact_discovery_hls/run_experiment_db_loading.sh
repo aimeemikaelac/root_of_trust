@@ -4,15 +4,16 @@ SCRIPT=$(realpath $0)
 SCRIPTPATH=$(dirname $SCRIPT)
 
 ITERATIONS=100
+MAX=15000
 
 mkdir -p $SCRIPTPATH/data/db_loading_exp
 OUTPUT_FILE="data/db_loading_exp/db_loading_exp_$(date +"%Y%m%d%H%M").csv"
 
 make db_exp
 
-echo "SW_MATCHED,SW_ELAPSED,HW_MATCHED,HW_ELAPSED" | tee $OUTPUT_FILE
+echo "SW_MATCHED,SW_ELAPSED,SW_MATCH_TIME,HW_MATCHED,HW_ELAPSED,HW_MATCH_TIME" | tee $OUTPUT_FILE
 
-for (( size=300; size<3000; size+=50 ))
+for (( size=500; size<$MAX; size+=500 ))
 do
   for (( i=0; i<$ITERATIONS; i++ ))
   do

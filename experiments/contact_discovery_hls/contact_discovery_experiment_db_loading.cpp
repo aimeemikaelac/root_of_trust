@@ -210,13 +210,13 @@ void populate_contacts_hw(){
 
 int main(int argc, char **argv){
 	unsigned int seed;
-	int i, j, random_index;
+	int i, j, random_index, num_hw_matches = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
 	volatile bool matched_out[DATABASE_CHUNK_SIZE];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
-	clock_t sw_start, sw_end, hw_start, hw_end;
-	double sw_elapsed, hw_elapsed;
+	clock_t sw_start, sw_end, hw_start, hw_end, sw_match_start, sw_match_end, hw_match_start, hw_match_end;
+	double sw_elapsed, hw_elapsed, sw_match_sum, sw_match_avg, hw_match_sum, hw_match_avg;
 //    unsigned int DATABASE_SIZE;
 
     if(argc != 2){
@@ -254,12 +254,16 @@ int main(int argc, char **argv){
 		unsigned char current_hash[64];
 		// memcpy(current_hash, db_hashes + i*64, 64);
 		std::string current((char*)(db_hashes + i*64), 64);
+        sw_match_start = clock();
 		if(contacts.count(current) > 0){
 			software_count++;
 		}
+        sw_match_end = clock();
+        sw_match_sum += (double)(sw_match_end - sw_match_start)/CLOCKS_PER_SEC;
 	}
 	sw_end = clock();
 	sw_elapsed = ((double)(sw_end - sw_start)/CLOCKS_PER_SEC);
+    sw_match_avg = sw_match_sum/((double)DATABASE_SIZE);
 //	printf("Software matched: %i\n", software_count);
 //	printf("Software elapse time: %fs\n", sw_elapsed);
 
@@ -288,6 +292,7 @@ int main(int argc, char **argv){
 		current_chunk_size++;
 		if(current_chunk_size >= DATABASE_CHUNK_SIZE || i+1 == DATABASE_SIZE){
 			// printf("Starting matching for chunk %i\n", current_chunk_count);
+            hw_match_start = clock();
 			contact_discovery(
 				2,
 				NULL,
@@ -298,6 +303,9 @@ int main(int argc, char **argv){
 				(int*)&database_size_out,
 				(int*)&contacts_size_out
 			);
+            hw_match_end = clock();
+            hw_match_sum += (double)(hw_match_end - hw_match_start)/current_chunk_size/CLOCKS_PER_SEC;
+            num_hw_matches++;
             assert(error_out == 0);
 			for(j=0; j<current_chunk_size; j++){
             //  printf("Matched: %i\n", matched_out[j]);
@@ -324,9 +332,10 @@ int main(int argc, char **argv){
 	}
 	hw_end = clock();
 	hw_elapsed = ((double)(hw_end - hw_start)/CLOCKS_PER_SEC);
+    hw_match_avg = (hw_match_sum)/((double)num_hw_matches);
 //	printf("Hardware matched: %i\n", num_matched);
 //	printf("Hardware elapsed: %fs\n", hw_elapsed);
-    printf("%i,%i,%f,%i,%f\n", DATABASE_SIZE, software_count, sw_elapsed, num_matched, hw_elapsed);
+    printf("%i,%i,%f,%f,%i,%f,%f\n", DATABASE_SIZE, software_count, sw_elapsed, sw_match_avg, num_matched, hw_elapsed, hw_match_avg);
     cleanupSharedMemoryPointer(control_mem);
     free(numbers);
     free(db_hashes);

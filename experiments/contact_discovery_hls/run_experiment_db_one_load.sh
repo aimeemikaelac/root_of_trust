@@ -6,8 +6,8 @@ SCRIPTPATH=$(dirname $SCRIPT)
 ITERATIONS=100
 MAX=7500
 
-mkdir -p $SCRIPTPATH/data/db_loading_exp
-OUTPUT_FILE="data/db_loading_exp/db_loading_exp_$(date +"%Y%m%d%H%M").csv"
+mkdir -p $SCRIPTPATH/data/one_load_exp
+OUTPUT_FILE="data/one_load_exp/one_load_exp_$(date +"%Y%m%d%H%M").csv"
 
 make db_exp
 

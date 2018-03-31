@@ -18,25 +18,25 @@
 #define DATABASE_MAX 7500
 #define BASE 0xB0000000
 
-static shared_memory control_mem;
-static volatile unsigned char *control;
+static shared_memory control_mem, control_mem_2;
+static volatile unsigned char *control, *control_2;
 static unsigned int DATABASE_SIZE = 0;
 
 void contact_discovery(
 	int operation,
 	unsigned char contact_in[64],
 	unsigned char database_in[64],
-	bool matched_out[DATABASE_SIZE],
+	bool matched_out[DATABASE_MAX],
 	int *matched_finished,
 	int *error_out,
 	int *database_size_out,
 	int *contacts_size_out
 ){
 	int i;
-	volatile unsigned char *control;
+//	volatile unsigned char *control;
     unsigned int temp;
-	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
-	control = (volatile unsigned char*)(control_mem->ptr);
+//	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
+//	control = (volatile unsigned char*)(control_mem->ptr);
 
 	//set operation
 	control[0x10] = operation;
@@ -61,23 +61,23 @@ void contact_discovery(
 		asm("");
 		__asm__("");
 	}
-//	*matched_finished = *((unsigned int*)(control + 0x4000));
-    getValueAtAddress(BASE + 0x4000, (unsigned int*)matched_finished);
-//	*error_out = *((unsigned int*)(control + 0x4008));
-    getValueAtAddress(BASE + 0x4008, (unsigned int*)error_out);
-//	*database_size_out = *((unsigned int*)(control + 0x4010));
-    getValueAtAddress(BASE + 0x4010, (unsigned int *)database_size_out);
-//	*contacts_size_out = *((unsigned int*)(control + 0x4018));
-    getValueAtAddress(BASE + 0x4018, (unsigned int *)contacts_size_out);
+	*matched_finished = *((unsigned int*)(control_2));
+//    getValueAtAddress(BASE + 0x4000, (unsigned int*)matched_finished);
+	*error_out = *((unsigned int*)(control_2 + 0x8));
+//    getValueAtAddress(BASE + 0x4008, (unsigned int*)error_out);
+	*database_size_out = *((unsigned int*)(control_2 + 0x10));
+//    getValueAtAddress(BASE + 0x4010, (unsigned int *)database_size_out);
+	*contacts_size_out = *((unsigned int*)(control_2 + 0x18));
+//    getValueAtAddress(BASE + 0x4018, (unsigned int *)contacts_size_out);
 	//read match result
-	if(operation == 2){
-    for(i=0; i<DATABASE_SIZE; i+=4){
+//	if(operation == 2){
+//    for(i=0; i<DATABASE_SIZE; i+=4){
 //      matched_out[i] = (bool)(control[0x2000 + i]);
-      getValueAtAddress(BASE + 0x2000 + i, (unsigned int*)(matched_out + i));
+//      getValueAtAddress(BASE + 0x2000 + i, (unsigned int*)(matched_out + i));
 //      matched_out[i] = (bool)(temp);
-    }
-	}
-  cleanupSharedMemoryPointer(control_mem);
+//    }
+//	}
+//  cleanupSharedMemoryPointer(control_mem);
 }
 
 typedef struct number{
@@ -220,7 +220,7 @@ int main(int argc, char **argv){
 	int i, j, random_index, num_hw_matches = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
-	volatile bool matched_out[DATABASE_CHUNK_SIZE];
+	volatile bool matched_out[DATABASE_MAX];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 	clock_t sw_start, sw_end, hw_start, hw_end, sw_match_start, sw_match_end, hw_match_start, hw_match_end;
 	double sw_elapsed, hw_elapsed, sw_match_sum, sw_match_avg, hw_match_sum, hw_match_avg;
@@ -239,8 +239,10 @@ int main(int argc, char **argv){
     }
 
 
-	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
+	control_mem = getSharedMemoryArea(BASE, 0x1000);
+	control_mem_2 = getSharedMemoryArea(BASE+0x4000, 0x1000);
 	control = (volatile unsigned char*)(control_mem->ptr);
+	control_2 = (volatile unsigned char*)(control_mem_2->ptr);
 
 	// generate random database
 	if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
@@ -274,36 +276,13 @@ int main(int argc, char **argv){
 //	printf("Software matched: %i\n", software_count);
 //	printf("Software elapse time: %fs\n", sw_elapsed);
 
-	printf("Populating contacts\n");
-	//populate contacts
-	std::set<std::string>::iterator it;
-	int contacts_size = 0;
-	for(it = contacts.begin(); it != contacts.end(); ++it){
-		std::string current = *it;
-		contact_discovery(
-			0,
-			(unsigned char*)current.data(),
-			NULL,
-			(bool*)matched_out,
-			(int*)&matched_finished,
-			(int*)&error_out,
-			(int*)&database_size_out,
-			(int*)&contacts_size_out
-		);
-		contacts_size++;
-	//		printf("Current contacts size: %i\n", contacts_size);
-		assert(error_out == 0);
-		assert(database_size_out == 0);
-		assert(contacts_size_out == contacts_size);
-	}
-
 
 
 
 //	printf("Starting matching HW\n");
 	//build chunks and perform matching
 	bool matched_correct[DATABASE_SIZE];
-	printf("Populating database\n");
+//	printf("Populating database\n");
 	for(i=0; i<DATABASE_SIZE; i++){
 		unsigned char current_hash[64];
 		memcpy(current_hash, db_hashes + i*64, 64);
@@ -324,7 +303,7 @@ int main(int argc, char **argv){
 	}
 
 
-	printf("Starting matching\n");
+//	printf("Starting matching\n");
 	//build chunks and perform matching
 	int current_chunk_size = 0;
 	int current_chunk_count = 0;
@@ -341,6 +320,9 @@ int main(int argc, char **argv){
 		(int*)&contacts_size_out
 	);
 	hw_end = clock();
+	for(i=0; i<DATABASE_SIZE; i+=4){
+		getValueAtAddress(BASE + 0x2000 + i, (unsigned int*)(matched_out + i));
+	}
 	int num_matched = 0, num_unmatched = 0;
 	for(j=0; j<DATABASE_SIZE; j++){
 		assert(matched_out[j] == matched_correct[j]);
@@ -357,7 +339,7 @@ int main(int argc, char **argv){
     // hw_match_avg = (hw_match_sum)/((double)num_hw_matches);
 //	printf("Hardware matched: %i\n", num_matched);
 //	printf("Hardware elapsed: %fs\n", hw_elapsed);
-    printf("%i,%i,%f,%f,%i,%f,%f\n", DATABASE_SIZE, software_count, sw_elapsed, num_matched, hw_elapsed);
+    printf("%i,%i,%f,%i,%f\n", DATABASE_SIZE, software_count, sw_elapsed, num_matched, hw_elapsed);
     cleanupSharedMemoryPointer(control_mem);
     free(numbers);
     free(db_hashes);

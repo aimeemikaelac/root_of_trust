@@ -209,9 +209,9 @@ extern "C" {
 
 
 static unsigned char contacts[64*128];
-static unsigned char database[64*15000];
+static unsigned char database[64*7500];
 static unsigned char current_database_item[64];
-static bool results[15000];
+static bool results[7500];
 static int contacts_size = 0;
 static int database_size = 0;
 //static int operation_internal = 5;
@@ -272,7 +272,7 @@ void contact_discovery(
  int operation,
  unsigned char contact_in[64],
  unsigned char database_in[64],
- bool matched_out[15000],
+ bool matched_out[7500],
  int *matched_finished,
  int *error_out,
  int *database_size_out,
@@ -324,7 +324,7 @@ void contact_discovery(
   case 1:
    *matched_finished = 0;
    *error_out = 0;
-   if(database_size >= 15000){
+   if(database_size >= 7500){
     *error_out = 2;
     *database_size_out = database_size;
    } else{
@@ -343,7 +343,7 @@ void contact_discovery(
 //				db_stream.write(database[database_index]);
 //			}
 //			assert(db_stream.size() == DATABASE_SIZE*64);
-   for(database_index = 0; database_index < 15000; database_index++){
+   for(database_index = 0; database_index < 7500; database_index++){
 #pragma HLS PIPELINE
 //				for(contacts_index = 0; contacts_index < contacts_size; contacts_index++){
 //					current_matched = true;
@@ -360,7 +360,7 @@ void contact_discovery(
 //				}
     match_db_contact(database_index);
    }
-   for(i=0; i<15000; i++){
+   for(i=0; i<7500; i++){
 #pragma HLS PIPELINE
  matched_out[i] = results[i];
    }

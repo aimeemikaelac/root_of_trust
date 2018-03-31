@@ -153,7 +153,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_AXILITES.ADDR_WIDTH">16</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_AXILITES.ADDR_WIDTH">15</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
@@ -177,10 +177,10 @@ pe immediate dependency {} format string minimum {} maximum {}} value {}} bitwid
 ue {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} ARREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long min
 imum {} maximum {}} value 0}}} RVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type 
 immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RRESP {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {sig
-ned {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} AWADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool mini
+ned {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} AWADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 15} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool mini
 mum {} maximum {}} value false}}}} WDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}} WSTRB {datatype {name {attribs {re
 solve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} ARADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum 
-{}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} RDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {
+{}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 15} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} RDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {
 } format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
@@ -592,7 +592,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
           <spirit:name>matched_finished</spirit:name>
           <spirit:displayName>matched_finished</spirit:displayName>
           <spirit:description>Data signal of matched_finished</spirit:description>
-          <spirit:addressOffset>32768</spirit:addressOffset>
+          <spirit:addressOffset>16384</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-only</spirit:access>
           <spirit:reset>
@@ -616,7 +616,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
           <spirit:name>error_out</spirit:name>
           <spirit:displayName>error_out</spirit:displayName>
           <spirit:description>Data signal of error_out</spirit:description>
-          <spirit:addressOffset>32776</spirit:addressOffset>
+          <spirit:addressOffset>16392</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-only</spirit:access>
           <spirit:reset>
@@ -640,7 +640,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
           <spirit:name>database_size_out</spirit:name>
           <spirit:displayName>database_size_out</spirit:displayName>
           <spirit:description>Data signal of database_size_out</spirit:description>
-          <spirit:addressOffset>32784</spirit:addressOffset>
+          <spirit:addressOffset>16400</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-only</spirit:access>
           <spirit:reset>
@@ -664,7 +664,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
           <spirit:name>contacts_size_out</spirit:name>
           <spirit:displayName>contacts_size_out</spirit:displayName>
           <spirit:description>Data signal of contacts_size_out</spirit:description>
-          <spirit:addressOffset>32792</spirit:addressOffset>
+          <spirit:addressOffset>16408</spirit:addressOffset>
           <spirit:size spirit:format="long">32</spirit:size>
           <spirit:access>read-only</spirit:access>
           <spirit:reset>
@@ -710,8 +710,8 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
           <spirit:name>Memory_matched_out</spirit:name>
           <spirit:displayName>Memory_matched_out</spirit:displayName>
           <spirit:description>Memory matched_out</spirit:description>
-          <spirit:addressOffset>16384</spirit:addressOffset>
-          <spirit:size spirit:format="long">16384</spirit:size>
+          <spirit:addressOffset>8192</spirit:addressOffset>
+          <spirit:size spirit:format="long">8192</spirit:size>
           <spirit:access>read-write</spirit:access>
           <spirit:reset>
             <spirit:value spirit:format="long">0</spirit:value>
@@ -809,7 +809,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -955,7 +955,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1096,7 +1096,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>C_S_AXI_AXILITES_ADDR_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_AXILITES_ADDR_WIDTH">15</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_AXILITES_DATA_WIDTH</spirit:name>
@@ -1332,7 +1332,7 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
       <spirit:file>
         <spirit:name>xgui/contact_discovery_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_108f9ab6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_93e64a75</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1382,8 +1382,8 @@ solve_type immediate dependency {} format string minimum {} maximum {}} value {}
       </xilinx:taxonomies>
       <xilinx:displayName>Contact_discovery</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1803302013</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-03-31T02:13:55Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1803302102</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-03-31T03:02:28Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.1</xilinx:xilinxVersion>

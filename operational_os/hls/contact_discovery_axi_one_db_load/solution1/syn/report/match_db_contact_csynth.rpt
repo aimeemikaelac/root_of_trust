@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'match_db_contact'
 ================================================================
-* Date:           Fri Mar 30 20:10:18 2018
+* Date:           Fri Mar 30 21:00:25 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_one_db_load
@@ -56,12 +56,12 @@
 |DSP              |        -|      -|       -|       -|    -|
 |Expression       |        -|      -|       0|     254|    -|
 |FIFO             |        -|      -|       -|       -|    -|
-|Instance         |        -|      -|     102|    2982|    -|
+|Instance         |        -|      -|     101|    2919|    -|
 |Memory           |        -|      -|       -|       -|    -|
 |Multiplexer      |        -|      -|       -|    2819|    -|
 |Register         |        -|      -|    4352|       -|    -|
 +-----------------+---------+-------+--------+--------+-----+
-|Total            |        0|      0|    4454|    6055|    0|
+|Total            |        0|      0|    4453|    5992|    0|
 +-----------------+---------+-------+--------+--------+-----+
 |Available        |     1824|   2520|  548160|  274080|    0|
 +-----------------+---------+-------+--------+--------+-----+
@@ -73,9 +73,9 @@
     +--------------------+---------+---------+-------+-----+------+
     |      Instance      |  Module | BRAM_18K| DSP48E|  FF |  LUT |
     +--------------------+---------+---------+-------+-----+------+
-    |grp_compare_fu_288  |compare  |        0|      0|  102|  2982|
+    |grp_compare_fu_288  |compare  |        0|      0|  101|  2919|
     +--------------------+---------+---------+-------+-----+------+
-    |Total               |         |        0|      0|  102|  2982|
+    |Total               |         |        0|      0|  101|  2919|
     +--------------------+---------+---------+-------+-----+------+
 
     * DSP48: 
@@ -389,20 +389,20 @@
 |ap_done            | out |    1| ap_ctrl_hs | match_db_contact | return value |
 |ap_idle            | out |    1| ap_ctrl_hs | match_db_contact | return value |
 |ap_ready           | out |    1| ap_ctrl_hs | match_db_contact | return value |
-|database_index     |  in |   14|   ap_none  |  database_index  |    scalar    |
+|database_index     |  in |   13|   ap_none  |  database_index  |    scalar    |
 |contacts_address0  | out |   13|  ap_memory |     contacts     |     array    |
 |contacts_ce0       | out |    1|  ap_memory |     contacts     |     array    |
 |contacts_q0        |  in |    8|  ap_memory |     contacts     |     array    |
 |contacts_address1  | out |   13|  ap_memory |     contacts     |     array    |
 |contacts_ce1       | out |    1|  ap_memory |     contacts     |     array    |
 |contacts_q1        |  in |    8|  ap_memory |     contacts     |     array    |
-|database_address0  | out |   20|  ap_memory |     database     |     array    |
+|database_address0  | out |   19|  ap_memory |     database     |     array    |
 |database_ce0       | out |    1|  ap_memory |     database     |     array    |
 |database_q0        |  in |    8|  ap_memory |     database     |     array    |
-|database_address1  | out |   20|  ap_memory |     database     |     array    |
+|database_address1  | out |   19|  ap_memory |     database     |     array    |
 |database_ce1       | out |    1|  ap_memory |     database     |     array    |
 |database_q1        |  in |    8|  ap_memory |     database     |     array    |
-|results_address0   | out |   14|  ap_memory |      results     |     array    |
+|results_address0   | out |   13|  ap_memory |      results     |     array    |
 |results_ce0        | out |    1|  ap_memory |      results     |     array    |
 |results_we0        | out |    1|  ap_memory |      results     |     array    |
 |results_d0         | out |    1|  ap_memory |      results     |     array    |

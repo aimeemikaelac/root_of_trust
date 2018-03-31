@@ -14,8 +14,8 @@ entity contact_discoverydEe_ram is
     generic(
             mem_type    : string := "block"; 
             dwidth     : integer := 1; 
-            awidth     : integer := 14; 
-            mem_size    : integer := 15000
+            awidth     : integer := 13; 
+            mem_size    : integer := 7500
     ); 
     port (
           addr0     : in std_logic_vector(awidth-1 downto 0); 
@@ -77,8 +77,8 @@ use IEEE.std_logic_1164.all;
 entity contact_discoverydEe is
     generic (
         DataWidth : INTEGER := 1;
-        AddressRange : INTEGER := 15000;
-        AddressWidth : INTEGER := 14);
+        AddressRange : INTEGER := 7500;
+        AddressWidth : INTEGER := 13);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;

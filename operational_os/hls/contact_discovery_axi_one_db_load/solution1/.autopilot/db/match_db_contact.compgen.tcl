@@ -37,7 +37,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename database \
     op interface \
-    ports { database_address0 { O 20 vector } database_ce0 { O 1 bit } database_q0 { I 8 vector } database_address1 { O 20 vector } database_ce1 { O 1 bit } database_q1 { I 8 vector } } \
+    ports { database_address0 { O 19 vector } database_ce0 { O 1 bit } database_q0 { I 8 vector } database_address1 { O 19 vector } database_ce1 { O 1 bit } database_q1 { I 8 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'database'"
@@ -56,7 +56,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir O \
     corename results \
     op interface \
-    ports { results_address0 { O 14 vector } results_ce0 { O 1 bit } results_we0 { O 1 bit } results_d0 { O 1 vector } } \
+    ports { results_address0 { O 13 vector } results_ce0 { O 1 bit } results_we0 { O 1 bit } results_d0 { O 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'results'"
@@ -75,7 +75,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_database_index \
     op interface \
-    ports { database_index { I 14 vector } } \
+    ports { database_index { I 13 vector } } \
 } "
 }
 

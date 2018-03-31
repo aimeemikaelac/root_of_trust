@@ -10,13 +10,13 @@ set StallSigGenFlag 0
 set C_modelName {compare}
 set C_modelType { int 1 }
 set C_modelArgList {
-	{ db_index int 14 regular  }
+	{ db_index int 13 regular  }
 	{ contacts_index int 8 regular  }
 	{ contacts int 8 regular {array 8192 { 1 1 } 1 1 } {global 0}  }
-	{ database int 8 regular {array 960000 { 1 1 } 1 1 } {global 0}  }
+	{ database int 8 regular {array 480000 { 1 1 } 1 1 } {global 0}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "db_index", "interface" : "wire", "bitwidth" : 14, "direction" : "READONLY"} , 
+	{ "Name" : "db_index", "interface" : "wire", "bitwidth" : 13, "direction" : "READONLY"} , 
  	{ "Name" : "contacts_index", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "contacts", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "database", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY", "extern" : 0} , 
@@ -31,7 +31,7 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ ap_ce sc_in sc_logic 1 ce -1 } 
-	{ db_index sc_in sc_lv 14 signal 0 } 
+	{ db_index sc_in sc_lv 13 signal 0 } 
 	{ contacts_index sc_in sc_lv 8 signal 1 } 
 	{ contacts_address0 sc_out sc_lv 13 signal 2 } 
 	{ contacts_ce0 sc_out sc_logic 1 signal 2 } 
@@ -39,10 +39,10 @@ set portList {
 	{ contacts_address1 sc_out sc_lv 13 signal 2 } 
 	{ contacts_ce1 sc_out sc_logic 1 signal 2 } 
 	{ contacts_q1 sc_in sc_lv 8 signal 2 } 
-	{ database_address0 sc_out sc_lv 20 signal 3 } 
+	{ database_address0 sc_out sc_lv 19 signal 3 } 
 	{ database_ce0 sc_out sc_logic 1 signal 3 } 
 	{ database_q0 sc_in sc_lv 8 signal 3 } 
-	{ database_address1 sc_out sc_lv 20 signal 3 } 
+	{ database_address1 sc_out sc_lv 19 signal 3 } 
 	{ database_ce1 sc_out sc_logic 1 signal 3 } 
 	{ database_q1 sc_in sc_lv 8 signal 3 } 
 	{ ap_return sc_out sc_lv 1 signal -1 } 
@@ -55,7 +55,7 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }} , 
- 	{ "name": "db_index", "direction": "in", "datatype": "sc_lv", "bitwidth":14, "type": "signal", "bundle":{"name": "db_index", "role": "default" }} , 
+ 	{ "name": "db_index", "direction": "in", "datatype": "sc_lv", "bitwidth":13, "type": "signal", "bundle":{"name": "db_index", "role": "default" }} , 
  	{ "name": "contacts_index", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "contacts_index", "role": "default" }} , 
  	{ "name": "contacts_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":13, "type": "signal", "bundle":{"name": "contacts", "role": "address0" }} , 
  	{ "name": "contacts_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "contacts", "role": "ce0" }} , 
@@ -63,10 +63,10 @@ set NewPortList {[
  	{ "name": "contacts_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":13, "type": "signal", "bundle":{"name": "contacts", "role": "address1" }} , 
  	{ "name": "contacts_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "contacts", "role": "ce1" }} , 
  	{ "name": "contacts_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "contacts", "role": "q1" }} , 
- 	{ "name": "database_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":20, "type": "signal", "bundle":{"name": "database", "role": "address0" }} , 
+ 	{ "name": "database_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":19, "type": "signal", "bundle":{"name": "database", "role": "address0" }} , 
  	{ "name": "database_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "database", "role": "ce0" }} , 
  	{ "name": "database_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "database", "role": "q0" }} , 
- 	{ "name": "database_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":20, "type": "signal", "bundle":{"name": "database", "role": "address1" }} , 
+ 	{ "name": "database_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":19, "type": "signal", "bundle":{"name": "database", "role": "address1" }} , 
  	{ "name": "database_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "database", "role": "ce1" }} , 
  	{ "name": "database_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "database", "role": "q1" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
@@ -106,8 +106,8 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	db_index { ap_none {  { db_index in_data 0 14 } } }
+	db_index { ap_none {  { db_index in_data 0 13 } } }
 	contacts_index { ap_none {  { contacts_index in_data 0 8 } } }
 	contacts { ap_memory {  { contacts_address0 mem_address 1 13 }  { contacts_ce0 mem_ce 1 1 }  { contacts_q0 mem_dout 0 8 }  { contacts_address1 mem_address 1 13 }  { contacts_ce1 mem_ce 1 1 }  { contacts_q1 mem_dout 0 8 } } }
-	database { ap_memory {  { database_address0 mem_address 1 20 }  { database_ce0 mem_ce 1 1 }  { database_q0 mem_dout 0 8 }  { database_address1 mem_address 1 20 }  { database_ce1 mem_ce 1 1 }  { database_q1 mem_dout 0 8 } } }
+	database { ap_memory {  { database_address0 mem_address 1 19 }  { database_ce0 mem_ce 1 1 }  { database_q0 mem_dout 0 8 }  { database_address1 mem_address 1 19 }  { database_ce1 mem_ce 1 1 }  { database_q1 mem_dout 0 8 } } }
 }

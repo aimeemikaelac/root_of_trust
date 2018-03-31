@@ -47,7 +47,7 @@ set Const3 "0"
 set Volatile3 "0"
 set Pointer3 "0"
 set Reference3 "0"
-set Dims3 [list 15000]
+set Dims3 [list 7500]
 set Interface3 "wire"
 set DataType3 "bool"
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3]

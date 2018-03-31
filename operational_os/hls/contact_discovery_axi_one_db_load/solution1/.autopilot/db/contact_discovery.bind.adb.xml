@@ -242,7 +242,7 @@
 
 <Node id="17" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:3  call void (...)* @_ssdm_op_SpecBitsMap([15000 x i1]* %matched_out) nounwind, !map !41
+:3  call void (...)* @_ssdm_op_SpecBitsMap([7500 x i1]* %matched_out) nounwind, !map !41
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -512,7 +512,7 @@
 
 <Node id="35" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:21  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([15000 x i1]* %matched_out, [1 x i8]* @p_str8, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str8, i32 -1, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8) nounwind
+:21  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([7500 x i1]* %matched_out, [1 x i8]* @p_str8, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str8, i32 -1, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8, [1 x i8]* @p_str8) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -527,7 +527,7 @@
 
 <Node id="36" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:22  call void (...)* @_ssdm_op_SpecInterface([15000 x i1]* %matched_out, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+:22  call void (...)* @_ssdm_op_SpecInterface([7500 x i1]* %matched_out, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1281,7 +1281,7 @@
 
 <Node id="99" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-:2  %tmp_7 = icmp sgt i32 %database_size_load, 14999
+:2  %tmp_7 = icmp sgt i32 %database_size_load, 7499
 
 ]]></Node>
 <StgValue><ssdm name="tmp_7"/></StgValue>
@@ -1312,9 +1312,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="102" bw="15" op_0_bw="32">
+<Node id="102" bw="14" op_0_bw="32">
 <![CDATA[
-:0  %tmp_128 = trunc i32 %database_size_load to i15
+:0  %tmp_128 = trunc i32 %database_size_load to i14
 
 ]]></Node>
 <StgValue><ssdm name="tmp_128"/></StgValue>
@@ -1329,9 +1329,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="103" bw="21" op_0_bw="21" op_1_bw="15" op_2_bw="6">
+<Node id="103" bw="20" op_0_bw="20" op_1_bw="14" op_2_bw="6">
 <![CDATA[
-:1  %tmp_2_cast = call i21 @_ssdm_op_BitConcatenate.i21.i15.i6(i15 %tmp_128, i6 0)
+:1  %tmp_2_cast = call i20 @_ssdm_op_BitConcatenate.i20.i14.i6(i14 %tmp_128, i6 0)
 
 ]]></Node>
 <StgValue><ssdm name="tmp_2_cast"/></StgValue>
@@ -1645,9 +1645,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="14" op_0_bw="14" op_1_bw="0">
+<Node id="64" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-:0  %database_index = phi i14 [ 0, %13 ], [ %database_index_1, %15 ]
+:0  %database_index = phi i13 [ 0, %13 ], [ %database_index_1, %15 ]
 
 ]]></Node>
 <StgValue><ssdm name="database_index"/></StgValue>
@@ -1660,9 +1660,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="65" bw="1" op_0_bw="14" op_1_bw="14">
+<Node id="65" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-:1  %exitcond2 = icmp eq i14 %database_index, -1384
+:1  %exitcond2 = icmp eq i13 %database_index, -692
 
 ]]></Node>
 <StgValue><ssdm name="exitcond2"/></StgValue>
@@ -1675,9 +1675,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="14" op_0_bw="14" op_1_bw="14">
+<Node id="66" bw="13" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-:2  %database_index_1 = add i14 %database_index, 1
+:2  %database_index_1 = add i13 %database_index, 1
 
 ]]></Node>
 <StgValue><ssdm name="database_index_1"/></StgValue>
@@ -1706,9 +1706,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="72" bw="0" op_0_bw="0" op_1_bw="14">
+<Node id="72" bw="0" op_0_bw="0" op_1_bw="13">
 <![CDATA[
-:3  call fastcc void @match_db_contact(i14 %database_index) nounwind
+:3  call fastcc void @match_db_contact(i13 %database_index) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1742,7 +1742,7 @@
 
 <Node id="69" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:0  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 15000, i64 15000, i64 15000) nounwind
+:0  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7500, i64 7500, i64 7500) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="empty_8"/></StgValue>
@@ -1785,9 +1785,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="72" bw="0" op_0_bw="0" op_1_bw="14">
+<Node id="72" bw="0" op_0_bw="0" op_1_bw="13">
 <![CDATA[
-:3  call fastcc void @match_db_contact(i14 %database_index) nounwind
+:3  call fastcc void @match_db_contact(i13 %database_index) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1833,9 +1833,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="78" bw="14" op_0_bw="14" op_1_bw="0">
+<Node id="78" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-.preheader:0  %i = phi i14 [ %i_1, %16 ], [ 0, %.preheader.preheader ]
+.preheader:0  %i = phi i13 [ %i_1, %16 ], [ 0, %.preheader.preheader ]
 
 ]]></Node>
 <StgValue><ssdm name="i"/></StgValue>
@@ -1848,9 +1848,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="79" bw="1" op_0_bw="14" op_1_bw="14">
+<Node id="79" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-.preheader:1  %exitcond = icmp eq i14 %i, -1384
+.preheader:1  %exitcond = icmp eq i13 %i, -692
 
 ]]></Node>
 <StgValue><ssdm name="exitcond"/></StgValue>
@@ -1863,9 +1863,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="14" op_0_bw="14" op_1_bw="14">
+<Node id="80" bw="13" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-.preheader:2  %i_1 = add i14 %i, 1
+.preheader:2  %i_1 = add i13 %i, 1
 
 ]]></Node>
 <StgValue><ssdm name="i_1"/></StgValue>
@@ -1894,9 +1894,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="86" bw="64" op_0_bw="14">
+<Node id="86" bw="64" op_0_bw="13">
 <![CDATA[
-:3  %tmp_4 = zext i14 %i to i64
+:3  %tmp_4 = zext i13 %i to i64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_4"/></StgValue>
@@ -1910,9 +1910,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="14" op_0_bw="1" op_1_bw="64" op_2_bw="64">
+<Node id="87" bw="13" op_0_bw="1" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-:4  %results_addr = getelementptr inbounds [15000 x i1]* @results, i64 0, i64 %tmp_4
+:4  %results_addr = getelementptr inbounds [7500 x i1]* @results, i64 0, i64 %tmp_4
 
 ]]></Node>
 <StgValue><ssdm name="results_addr"/></StgValue>
@@ -1926,7 +1926,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="1" op_0_bw="14">
+<Node id="88" bw="1" op_0_bw="13">
 <![CDATA[
 :5  %results_load = load i1* %results_addr, align 1
 
@@ -1947,7 +1947,7 @@
 
 <Node id="83" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:0  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 15000, i64 15000, i64 15000) nounwind
+:0  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 7500, i64 7500, i64 7500) nounwind
 
 ]]></Node>
 <StgValue><ssdm name="empty_10"/></StgValue>
@@ -1993,7 +1993,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="1" op_0_bw="14">
+<Node id="88" bw="1" op_0_bw="13">
 <![CDATA[
 :5  %results_load = load i1* %results_addr, align 1
 
@@ -2009,9 +2009,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="89" bw="14" op_0_bw="1" op_1_bw="64" op_2_bw="64">
+<Node id="89" bw="13" op_0_bw="1" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-:6  %matched_out_addr = getelementptr [15000 x i1]* %matched_out, i64 0, i64 %tmp_4
+:6  %matched_out_addr = getelementptr [7500 x i1]* %matched_out, i64 0, i64 %tmp_4
 
 ]]></Node>
 <StgValue><ssdm name="matched_out_addr"/></StgValue>
@@ -2025,7 +2025,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="90" bw="0" op_0_bw="1" op_1_bw="14">
+<Node id="90" bw="0" op_0_bw="1" op_1_bw="13">
 <![CDATA[
 :7  store i1 %results_load, i1* %matched_out_addr, align 1
 
@@ -2235,9 +2235,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="113" bw="21" op_0_bw="7">
+<Node id="113" bw="20" op_0_bw="7">
 <![CDATA[
-:1  %tmp_i6_cast = zext i7 %i_i4 to i21
+:1  %tmp_i6_cast = zext i7 %i_i4 to i20
 
 ]]></Node>
 <StgValue><ssdm name="tmp_i6_cast"/></StgValue>
@@ -2283,9 +2283,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="116" bw="21" op_0_bw="21" op_1_bw="21">
+<Node id="116" bw="20" op_0_bw="20" op_1_bw="20">
 <![CDATA[
-:4  %sum_i9 = add i21 %tmp_i6_cast, %tmp_2_cast
+:4  %sum_i9 = add i20 %tmp_i6_cast, %tmp_2_cast
 
 ]]></Node>
 <StgValue><ssdm name="sum_i9"/></StgValue>
@@ -2364,9 +2364,9 @@ _memcpy.1.exit:2  br label %12
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="117" bw="64" op_0_bw="21">
+<Node id="117" bw="64" op_0_bw="20">
 <![CDATA[
-:5  %sum_i9_cast = sext i21 %sum_i9 to i64
+:5  %sum_i9_cast = sext i20 %sum_i9 to i64
 
 ]]></Node>
 <StgValue><ssdm name="sum_i9_cast"/></StgValue>
@@ -2379,9 +2379,9 @@ _memcpy.1.exit:2  br label %12
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="118" bw="20" op_0_bw="8" op_1_bw="64" op_2_bw="64">
+<Node id="118" bw="19" op_0_bw="8" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-:6  %database_addr = getelementptr [960000 x i8]* @database, i64 0, i64 %sum_i9_cast
+:6  %database_addr = getelementptr [480000 x i8]* @database, i64 0, i64 %sum_i9_cast
 
 ]]></Node>
 <StgValue><ssdm name="database_addr"/></StgValue>
@@ -2394,7 +2394,7 @@ _memcpy.1.exit:2  br label %12
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="119" bw="0" op_0_bw="8" op_1_bw="20">
+<Node id="119" bw="0" op_0_bw="8" op_1_bw="19">
 <![CDATA[
 :7  store i8 %database_in_load, i8* %database_addr, align 1
 
@@ -3764,7 +3764,7 @@ _memcpy.exit:2  br label %6
 </dataflow>
 <dataflow id="671" from="database_size_load" to="tmp_128" fromId="47" toId="89">
 </dataflow>
-<dataflow id="673" from="_ssdm_op_BitConcatenate.i21.i15.i6" to="tmp_2_cast" fromId="672" toId="90">
+<dataflow id="673" from="_ssdm_op_BitConcatenate.i20.i14.i6" to="tmp_2_cast" fromId="672" toId="90">
 </dataflow>
 <dataflow id="674" from="tmp_128" to="tmp_2_cast" fromId="89" toId="90">
 </dataflow>

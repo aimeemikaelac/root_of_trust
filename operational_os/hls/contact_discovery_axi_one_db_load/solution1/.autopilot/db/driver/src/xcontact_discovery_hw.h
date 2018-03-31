@@ -29,18 +29,18 @@
 // 0x0014 : Control signal of operation
 //          bit 0  - operation_ap_vld (Read/Write/SC)
 //          others - reserved
-// 0x8000 : Data signal of matched_finished
+// 0x4000 : Data signal of matched_finished
 //          bit 31~0 - matched_finished[31:0] (Read)
-// 0x8004 : reserved
-// 0x8008 : Data signal of error_out
+// 0x4004 : reserved
+// 0x4008 : Data signal of error_out
 //          bit 31~0 - error_out[31:0] (Read)
-// 0x800c : reserved
-// 0x8010 : Data signal of database_size_out
+// 0x400c : reserved
+// 0x4010 : Data signal of database_size_out
 //          bit 31~0 - database_size_out[31:0] (Read)
-// 0x8014 : reserved
-// 0x8018 : Data signal of contacts_size_out
+// 0x4014 : reserved
+// 0x4018 : Data signal of contacts_size_out
 //          bit 31~0 - contacts_size_out[31:0] (Read)
-// 0x801c : reserved
+// 0x401c : reserved
 // 0x0040 ~
 // 0x007f : Memory 'contact_in' (64 * 8b)
 //          Word n : bit [ 7: 0] - contact_in[4n]
@@ -53,8 +53,8 @@
 //                   bit [15: 8] - database_in[4n+1]
 //                   bit [23:16] - database_in[4n+2]
 //                   bit [31:24] - database_in[4n+3]
-// 0x4000 ~
-// 0x7fff : Memory 'matched_out' (15000 * 1b)
+// 0x2000 ~
+// 0x3fff : Memory 'matched_out' (7500 * 1b)
 //          Word n : bit [ 0: 0] - matched_out[4n]
 //                   bit [ 8: 8] - matched_out[4n+1]
 //                   bit [16:16] - matched_out[4n+2]
@@ -69,13 +69,13 @@
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_OPERATION_DATA         0x0010
 #define XCONTACT_DISCOVERY_AXILITES_BITS_OPERATION_DATA         32
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_OPERATION_CTRL         0x0014
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_FINISHED_DATA  0x8000
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_FINISHED_DATA  0x4000
 #define XCONTACT_DISCOVERY_AXILITES_BITS_MATCHED_FINISHED_DATA  32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_ERROR_OUT_DATA         0x8008
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_ERROR_OUT_DATA         0x4008
 #define XCONTACT_DISCOVERY_AXILITES_BITS_ERROR_OUT_DATA         32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_DATABASE_SIZE_OUT_DATA 0x8010
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_DATABASE_SIZE_OUT_DATA 0x4010
 #define XCONTACT_DISCOVERY_AXILITES_BITS_DATABASE_SIZE_OUT_DATA 32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA 0x8018
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA 0x4018
 #define XCONTACT_DISCOVERY_AXILITES_BITS_CONTACTS_SIZE_OUT_DATA 32
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE        0x0040
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH        0x007f
@@ -85,8 +85,8 @@
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_DATABASE_IN_HIGH       0x00bf
 #define XCONTACT_DISCOVERY_AXILITES_WIDTH_DATABASE_IN           8
 #define XCONTACT_DISCOVERY_AXILITES_DEPTH_DATABASE_IN           64
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_OUT_BASE       0x4000
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_OUT_HIGH       0x7fff
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_OUT_BASE       0x2000
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_MATCHED_OUT_HIGH       0x3fff
 #define XCONTACT_DISCOVERY_AXILITES_WIDTH_MATCHED_OUT           1
-#define XCONTACT_DISCOVERY_AXILITES_DEPTH_MATCHED_OUT           15000
+#define XCONTACT_DISCOVERY_AXILITES_DEPTH_MATCHED_OUT           7500
 

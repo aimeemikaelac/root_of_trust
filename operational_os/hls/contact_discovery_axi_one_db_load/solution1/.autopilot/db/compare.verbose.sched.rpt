@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'compare'
 ================================================================
-* Date:           Fri Mar 30 20:08:12 2018
+* Date:           Fri Mar 30 20:58:16 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_one_db_load
@@ -146,7 +146,7 @@ ST_1: contacts_index_read (5)  [1/1] 0.00ns
 .preheader.preheader:0  %contacts_index_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %contacts_index)
 
 ST_1: db_index_read (6)  [1/1] 0.00ns
-.preheader.preheader:1  %db_index_read = call i14 @_ssdm_op_Read.ap_auto.i14(i14 %db_index)
+.preheader.preheader:1  %db_index_read = call i13 @_ssdm_op_Read.ap_auto.i13(i13 %db_index)
 
 ST_1: tmp_129 (7)  [1/1] 0.00ns
 .preheader.preheader:2  %tmp_129 = trunc i8 %contacts_index_read to i7
@@ -155,7 +155,7 @@ ST_1: tmp (8)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_
 .preheader.preheader:3  %tmp = call i13 @_ssdm_op_BitConcatenate.i13.i7.i6(i7 %tmp_129, i6 0)
 
 ST_1: tmp_s (9)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:4  %tmp_s = call i20 @_ssdm_op_BitConcatenate.i20.i14.i6(i14 %db_index_read, i6 0)
+.preheader.preheader:4  %tmp_s = call i19 @_ssdm_op_BitConcatenate.i19.i13.i6(i13 %db_index_read, i6 0)
 
 ST_1: tmp_6 (10)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:5  %tmp_6 = zext i13 %tmp to i64
@@ -167,10 +167,10 @@ ST_1: contacts_load (12)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/s
 .preheader.preheader:7  %contacts_load = load i8* %contacts_addr, align 16
 
 ST_1: tmp_8 (13)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:8  %tmp_8 = zext i20 %tmp_s to i64
+.preheader.preheader:8  %tmp_8 = zext i19 %tmp_s to i64
 
 ST_1: database_addr (14)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:9  %database_addr = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8
+.preheader.preheader:9  %database_addr = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8
 
 ST_1: database_load (15)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:10  %database_load = load i8* %database_addr, align 16
@@ -188,13 +188,13 @@ ST_1: contacts_load_1 (20)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:15  %contacts_load_1 = load i8* %contacts_addr_1, align 1
 
 ST_1: tmp_7_s (21)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:16  %tmp_7_s = or i20 %tmp_s, 1
+.preheader.preheader:16  %tmp_7_s = or i19 %tmp_s, 1
 
 ST_1: tmp_8_1 (22)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:17  %tmp_8_1 = zext i20 %tmp_7_s to i64
+.preheader.preheader:17  %tmp_8_1 = zext i19 %tmp_7_s to i64
 
 ST_1: database_addr_1 (23)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:18  %database_addr_1 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_1
+.preheader.preheader:18  %database_addr_1 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_1
 
 ST_1: database_load_1 (24)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:19  %database_load_1 = load i8* %database_addr_1, align 1
@@ -232,13 +232,13 @@ ST_2: contacts_load_2 (29)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:24  %contacts_load_2 = load i8* %contacts_addr_2, align 2
 
 ST_2: tmp_7_1 (30)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:25  %tmp_7_1 = or i20 %tmp_s, 2
+.preheader.preheader:25  %tmp_7_1 = or i19 %tmp_s, 2
 
 ST_2: tmp_8_2 (31)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:26  %tmp_8_2 = zext i20 %tmp_7_1 to i64
+.preheader.preheader:26  %tmp_8_2 = zext i19 %tmp_7_1 to i64
 
 ST_2: database_addr_2 (32)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:27  %database_addr_2 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_2
+.preheader.preheader:27  %database_addr_2 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_2
 
 ST_2: database_load_2 (33)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:28  %database_load_2 = load i8* %database_addr_2, align 2
@@ -256,13 +256,13 @@ ST_2: contacts_load_3 (38)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:33  %contacts_load_3 = load i8* %contacts_addr_3, align 1
 
 ST_2: tmp_7_2 (39)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:34  %tmp_7_2 = or i20 %tmp_s, 3
+.preheader.preheader:34  %tmp_7_2 = or i19 %tmp_s, 3
 
 ST_2: tmp_8_3 (40)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:35  %tmp_8_3 = zext i20 %tmp_7_2 to i64
+.preheader.preheader:35  %tmp_8_3 = zext i19 %tmp_7_2 to i64
 
 ST_2: database_addr_3 (41)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:36  %database_addr_3 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_3
+.preheader.preheader:36  %database_addr_3 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_3
 
 ST_2: database_load_3 (42)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:37  %database_load_3 = load i8* %database_addr_3, align 1
@@ -300,13 +300,13 @@ ST_3: contacts_load_4 (47)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:42  %contacts_load_4 = load i8* %contacts_addr_4, align 4
 
 ST_3: tmp_7_3 (48)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:43  %tmp_7_3 = or i20 %tmp_s, 4
+.preheader.preheader:43  %tmp_7_3 = or i19 %tmp_s, 4
 
 ST_3: tmp_8_4 (49)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:44  %tmp_8_4 = zext i20 %tmp_7_3 to i64
+.preheader.preheader:44  %tmp_8_4 = zext i19 %tmp_7_3 to i64
 
 ST_3: database_addr_4 (50)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:45  %database_addr_4 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_4
+.preheader.preheader:45  %database_addr_4 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_4
 
 ST_3: database_load_4 (51)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:46  %database_load_4 = load i8* %database_addr_4, align 4
@@ -324,13 +324,13 @@ ST_3: contacts_load_5 (56)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:51  %contacts_load_5 = load i8* %contacts_addr_5, align 1
 
 ST_3: tmp_7_4 (57)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:52  %tmp_7_4 = or i20 %tmp_s, 5
+.preheader.preheader:52  %tmp_7_4 = or i19 %tmp_s, 5
 
 ST_3: tmp_8_5 (58)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:53  %tmp_8_5 = zext i20 %tmp_7_4 to i64
+.preheader.preheader:53  %tmp_8_5 = zext i19 %tmp_7_4 to i64
 
 ST_3: database_addr_5 (59)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:54  %database_addr_5 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_5
+.preheader.preheader:54  %database_addr_5 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_5
 
 ST_3: database_load_5 (60)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:55  %database_load_5 = load i8* %database_addr_5, align 1
@@ -377,13 +377,13 @@ ST_4: contacts_load_6 (65)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:60  %contacts_load_6 = load i8* %contacts_addr_6, align 2
 
 ST_4: tmp_7_5 (66)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:61  %tmp_7_5 = or i20 %tmp_s, 6
+.preheader.preheader:61  %tmp_7_5 = or i19 %tmp_s, 6
 
 ST_4: tmp_8_6 (67)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:62  %tmp_8_6 = zext i20 %tmp_7_5 to i64
+.preheader.preheader:62  %tmp_8_6 = zext i19 %tmp_7_5 to i64
 
 ST_4: database_addr_6 (68)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:63  %database_addr_6 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_6
+.preheader.preheader:63  %database_addr_6 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_6
 
 ST_4: database_load_6 (69)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:64  %database_load_6 = load i8* %database_addr_6, align 2
@@ -401,13 +401,13 @@ ST_4: contacts_load_7 (74)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:69  %contacts_load_7 = load i8* %contacts_addr_7, align 1
 
 ST_4: tmp_7_6 (75)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:70  %tmp_7_6 = or i20 %tmp_s, 7
+.preheader.preheader:70  %tmp_7_6 = or i19 %tmp_s, 7
 
 ST_4: tmp_8_7 (76)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:71  %tmp_8_7 = zext i20 %tmp_7_6 to i64
+.preheader.preheader:71  %tmp_8_7 = zext i19 %tmp_7_6 to i64
 
 ST_4: database_addr_7 (77)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:72  %database_addr_7 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_7
+.preheader.preheader:72  %database_addr_7 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_7
 
 ST_4: database_load_7 (78)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:73  %database_load_7 = load i8* %database_addr_7, align 1
@@ -445,13 +445,13 @@ ST_5: contacts_load_8 (83)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:78  %contacts_load_8 = load i8* %contacts_addr_8, align 8
 
 ST_5: tmp_7_7 (84)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:79  %tmp_7_7 = or i20 %tmp_s, 8
+.preheader.preheader:79  %tmp_7_7 = or i19 %tmp_s, 8
 
 ST_5: tmp_8_8 (85)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:80  %tmp_8_8 = zext i20 %tmp_7_7 to i64
+.preheader.preheader:80  %tmp_8_8 = zext i19 %tmp_7_7 to i64
 
 ST_5: database_addr_8 (86)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:81  %database_addr_8 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_8
+.preheader.preheader:81  %database_addr_8 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_8
 
 ST_5: database_load_8 (87)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:82  %database_load_8 = load i8* %database_addr_8, align 8
@@ -469,13 +469,13 @@ ST_5: contacts_load_9 (92)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load
 .preheader.preheader:87  %contacts_load_9 = load i8* %contacts_addr_9, align 1
 
 ST_5: tmp_7_8 (93)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:88  %tmp_7_8 = or i20 %tmp_s, 9
+.preheader.preheader:88  %tmp_7_8 = or i19 %tmp_s, 9
 
 ST_5: tmp_8_9 (94)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:89  %tmp_8_9 = zext i20 %tmp_7_8 to i64
+.preheader.preheader:89  %tmp_8_9 = zext i19 %tmp_7_8 to i64
 
 ST_5: database_addr_9 (95)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:90  %database_addr_9 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_9
+.preheader.preheader:90  %database_addr_9 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_9
 
 ST_5: database_load_9 (96)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:91  %database_load_9 = load i8* %database_addr_9, align 1
@@ -525,13 +525,13 @@ ST_6: contacts_load_10 (101)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:96  %contacts_load_10 = load i8* %contacts_addr_10, align 2
 
 ST_6: tmp_7_9 (102)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:97  %tmp_7_9 = or i20 %tmp_s, 10
+.preheader.preheader:97  %tmp_7_9 = or i19 %tmp_s, 10
 
 ST_6: tmp_8_s (103)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:98  %tmp_8_s = zext i20 %tmp_7_9 to i64
+.preheader.preheader:98  %tmp_8_s = zext i19 %tmp_7_9 to i64
 
 ST_6: database_addr_10 (104)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:99  %database_addr_10 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_s
+.preheader.preheader:99  %database_addr_10 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_s
 
 ST_6: database_load_10 (105)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:100  %database_load_10 = load i8* %database_addr_10, align 2
@@ -549,13 +549,13 @@ ST_6: contacts_load_11 (110)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:105  %contacts_load_11 = load i8* %contacts_addr_11, align 1
 
 ST_6: tmp_7_10 (111)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:106  %tmp_7_10 = or i20 %tmp_s, 11
+.preheader.preheader:106  %tmp_7_10 = or i19 %tmp_s, 11
 
 ST_6: tmp_8_10 (112)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:107  %tmp_8_10 = zext i20 %tmp_7_10 to i64
+.preheader.preheader:107  %tmp_8_10 = zext i19 %tmp_7_10 to i64
 
 ST_6: database_addr_11 (113)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:108  %database_addr_11 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_10
+.preheader.preheader:108  %database_addr_11 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_10
 
 ST_6: database_load_11 (114)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:109  %database_load_11 = load i8* %database_addr_11, align 1
@@ -593,13 +593,13 @@ ST_7: contacts_load_12 (119)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:114  %contacts_load_12 = load i8* %contacts_addr_12, align 4
 
 ST_7: tmp_7_11 (120)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:115  %tmp_7_11 = or i20 %tmp_s, 12
+.preheader.preheader:115  %tmp_7_11 = or i19 %tmp_s, 12
 
 ST_7: tmp_8_11 (121)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:116  %tmp_8_11 = zext i20 %tmp_7_11 to i64
+.preheader.preheader:116  %tmp_8_11 = zext i19 %tmp_7_11 to i64
 
 ST_7: database_addr_12 (122)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:117  %database_addr_12 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_11
+.preheader.preheader:117  %database_addr_12 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_11
 
 ST_7: database_load_12 (123)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:118  %database_load_12 = load i8* %database_addr_12, align 4
@@ -617,13 +617,13 @@ ST_7: contacts_load_13 (128)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:123  %contacts_load_13 = load i8* %contacts_addr_13, align 1
 
 ST_7: tmp_7_12 (129)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:124  %tmp_7_12 = or i20 %tmp_s, 13
+.preheader.preheader:124  %tmp_7_12 = or i19 %tmp_s, 13
 
 ST_7: tmp_8_12 (130)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:125  %tmp_8_12 = zext i20 %tmp_7_12 to i64
+.preheader.preheader:125  %tmp_8_12 = zext i19 %tmp_7_12 to i64
 
 ST_7: database_addr_13 (131)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:126  %database_addr_13 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_12
+.preheader.preheader:126  %database_addr_13 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_12
 
 ST_7: database_load_13 (132)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:127  %database_load_13 = load i8* %database_addr_13, align 1
@@ -670,13 +670,13 @@ ST_8: contacts_load_14 (137)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:132  %contacts_load_14 = load i8* %contacts_addr_14, align 2
 
 ST_8: tmp_7_13 (138)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:133  %tmp_7_13 = or i20 %tmp_s, 14
+.preheader.preheader:133  %tmp_7_13 = or i19 %tmp_s, 14
 
 ST_8: tmp_8_13 (139)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:134  %tmp_8_13 = zext i20 %tmp_7_13 to i64
+.preheader.preheader:134  %tmp_8_13 = zext i19 %tmp_7_13 to i64
 
 ST_8: database_addr_14 (140)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:135  %database_addr_14 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_13
+.preheader.preheader:135  %database_addr_14 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_13
 
 ST_8: database_load_14 (141)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:136  %database_load_14 = load i8* %database_addr_14, align 2
@@ -694,13 +694,13 @@ ST_8: contacts_load_15 (146)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:141  %contacts_load_15 = load i8* %contacts_addr_15, align 1
 
 ST_8: tmp_7_14 (147)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:142  %tmp_7_14 = or i20 %tmp_s, 15
+.preheader.preheader:142  %tmp_7_14 = or i19 %tmp_s, 15
 
 ST_8: tmp_8_14 (148)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:143  %tmp_8_14 = zext i20 %tmp_7_14 to i64
+.preheader.preheader:143  %tmp_8_14 = zext i19 %tmp_7_14 to i64
 
 ST_8: database_addr_15 (149)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:144  %database_addr_15 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_14
+.preheader.preheader:144  %database_addr_15 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_14
 
 ST_8: database_load_15 (150)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:145  %database_load_15 = load i8* %database_addr_15, align 1
@@ -738,13 +738,13 @@ ST_9: contacts_load_16 (155)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:150  %contacts_load_16 = load i8* %contacts_addr_16, align 16
 
 ST_9: tmp_7_15 (156)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:151  %tmp_7_15 = or i20 %tmp_s, 16
+.preheader.preheader:151  %tmp_7_15 = or i19 %tmp_s, 16
 
 ST_9: tmp_8_15 (157)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:152  %tmp_8_15 = zext i20 %tmp_7_15 to i64
+.preheader.preheader:152  %tmp_8_15 = zext i19 %tmp_7_15 to i64
 
 ST_9: database_addr_16 (158)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:153  %database_addr_16 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_15
+.preheader.preheader:153  %database_addr_16 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_15
 
 ST_9: database_load_16 (159)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:154  %database_load_16 = load i8* %database_addr_16, align 16
@@ -762,13 +762,13 @@ ST_9: contacts_load_17 (164)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_lo
 .preheader.preheader:159  %contacts_load_17 = load i8* %contacts_addr_17, align 1
 
 ST_9: tmp_7_16 (165)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:160  %tmp_7_16 = or i20 %tmp_s, 17
+.preheader.preheader:160  %tmp_7_16 = or i19 %tmp_s, 17
 
 ST_9: tmp_8_16 (166)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:161  %tmp_8_16 = zext i20 %tmp_7_16 to i64
+.preheader.preheader:161  %tmp_8_16 = zext i19 %tmp_7_16 to i64
 
 ST_9: database_addr_17 (167)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:162  %database_addr_17 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_16
+.preheader.preheader:162  %database_addr_17 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_16
 
 ST_9: database_load_17 (168)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:163  %database_load_17 = load i8* %database_addr_17, align 1
@@ -821,13 +821,13 @@ ST_10: contacts_load_18 (173)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:168  %contacts_load_18 = load i8* %contacts_addr_18, align 2
 
 ST_10: tmp_7_17 (174)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:169  %tmp_7_17 = or i20 %tmp_s, 18
+.preheader.preheader:169  %tmp_7_17 = or i19 %tmp_s, 18
 
 ST_10: tmp_8_17 (175)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:170  %tmp_8_17 = zext i20 %tmp_7_17 to i64
+.preheader.preheader:170  %tmp_8_17 = zext i19 %tmp_7_17 to i64
 
 ST_10: database_addr_18 (176)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:171  %database_addr_18 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_17
+.preheader.preheader:171  %database_addr_18 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_17
 
 ST_10: database_load_18 (177)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:172  %database_load_18 = load i8* %database_addr_18, align 2
@@ -845,13 +845,13 @@ ST_10: contacts_load_19 (182)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:177  %contacts_load_19 = load i8* %contacts_addr_19, align 1
 
 ST_10: tmp_7_18 (183)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:178  %tmp_7_18 = or i20 %tmp_s, 19
+.preheader.preheader:178  %tmp_7_18 = or i19 %tmp_s, 19
 
 ST_10: tmp_8_18 (184)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:179  %tmp_8_18 = zext i20 %tmp_7_18 to i64
+.preheader.preheader:179  %tmp_8_18 = zext i19 %tmp_7_18 to i64
 
 ST_10: database_addr_19 (185)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:180  %database_addr_19 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_18
+.preheader.preheader:180  %database_addr_19 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_18
 
 ST_10: database_load_19 (186)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:181  %database_load_19 = load i8* %database_addr_19, align 1
@@ -889,13 +889,13 @@ ST_11: contacts_load_20 (191)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:186  %contacts_load_20 = load i8* %contacts_addr_20, align 4
 
 ST_11: tmp_7_19 (192)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:187  %tmp_7_19 = or i20 %tmp_s, 20
+.preheader.preheader:187  %tmp_7_19 = or i19 %tmp_s, 20
 
 ST_11: tmp_8_19 (193)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:188  %tmp_8_19 = zext i20 %tmp_7_19 to i64
+.preheader.preheader:188  %tmp_8_19 = zext i19 %tmp_7_19 to i64
 
 ST_11: database_addr_20 (194)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:189  %database_addr_20 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_19
+.preheader.preheader:189  %database_addr_20 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_19
 
 ST_11: database_load_20 (195)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:190  %database_load_20 = load i8* %database_addr_20, align 4
@@ -913,13 +913,13 @@ ST_11: contacts_load_21 (200)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:195  %contacts_load_21 = load i8* %contacts_addr_21, align 1
 
 ST_11: tmp_7_20 (201)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:196  %tmp_7_20 = or i20 %tmp_s, 21
+.preheader.preheader:196  %tmp_7_20 = or i19 %tmp_s, 21
 
 ST_11: tmp_8_20 (202)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:197  %tmp_8_20 = zext i20 %tmp_7_20 to i64
+.preheader.preheader:197  %tmp_8_20 = zext i19 %tmp_7_20 to i64
 
 ST_11: database_addr_21 (203)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:198  %database_addr_21 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_20
+.preheader.preheader:198  %database_addr_21 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_20
 
 ST_11: database_load_21 (204)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:199  %database_load_21 = load i8* %database_addr_21, align 1
@@ -966,13 +966,13 @@ ST_12: contacts_load_22 (209)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:204  %contacts_load_22 = load i8* %contacts_addr_22, align 2
 
 ST_12: tmp_7_21 (210)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:205  %tmp_7_21 = or i20 %tmp_s, 22
+.preheader.preheader:205  %tmp_7_21 = or i19 %tmp_s, 22
 
 ST_12: tmp_8_21 (211)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:206  %tmp_8_21 = zext i20 %tmp_7_21 to i64
+.preheader.preheader:206  %tmp_8_21 = zext i19 %tmp_7_21 to i64
 
 ST_12: database_addr_22 (212)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:207  %database_addr_22 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_21
+.preheader.preheader:207  %database_addr_22 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_21
 
 ST_12: database_load_22 (213)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:208  %database_load_22 = load i8* %database_addr_22, align 2
@@ -990,13 +990,13 @@ ST_12: contacts_load_23 (218)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:213  %contacts_load_23 = load i8* %contacts_addr_23, align 1
 
 ST_12: tmp_7_22 (219)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:214  %tmp_7_22 = or i20 %tmp_s, 23
+.preheader.preheader:214  %tmp_7_22 = or i19 %tmp_s, 23
 
 ST_12: tmp_8_22 (220)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:215  %tmp_8_22 = zext i20 %tmp_7_22 to i64
+.preheader.preheader:215  %tmp_8_22 = zext i19 %tmp_7_22 to i64
 
 ST_12: database_addr_23 (221)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:216  %database_addr_23 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_22
+.preheader.preheader:216  %database_addr_23 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_22
 
 ST_12: database_load_23 (222)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:217  %database_load_23 = load i8* %database_addr_23, align 1
@@ -1034,13 +1034,13 @@ ST_13: contacts_load_24 (227)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:222  %contacts_load_24 = load i8* %contacts_addr_24, align 8
 
 ST_13: tmp_7_23 (228)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:223  %tmp_7_23 = or i20 %tmp_s, 24
+.preheader.preheader:223  %tmp_7_23 = or i19 %tmp_s, 24
 
 ST_13: tmp_8_23 (229)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:224  %tmp_8_23 = zext i20 %tmp_7_23 to i64
+.preheader.preheader:224  %tmp_8_23 = zext i19 %tmp_7_23 to i64
 
 ST_13: database_addr_24 (230)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:225  %database_addr_24 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_23
+.preheader.preheader:225  %database_addr_24 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_23
 
 ST_13: database_load_24 (231)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:226  %database_load_24 = load i8* %database_addr_24, align 8
@@ -1058,13 +1058,13 @@ ST_13: contacts_load_25 (236)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:231  %contacts_load_25 = load i8* %contacts_addr_25, align 1
 
 ST_13: tmp_7_24 (237)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:232  %tmp_7_24 = or i20 %tmp_s, 25
+.preheader.preheader:232  %tmp_7_24 = or i19 %tmp_s, 25
 
 ST_13: tmp_8_24 (238)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:233  %tmp_8_24 = zext i20 %tmp_7_24 to i64
+.preheader.preheader:233  %tmp_8_24 = zext i19 %tmp_7_24 to i64
 
 ST_13: database_addr_25 (239)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:234  %database_addr_25 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_24
+.preheader.preheader:234  %database_addr_25 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_24
 
 ST_13: database_load_25 (240)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:235  %database_load_25 = load i8* %database_addr_25, align 1
@@ -1114,13 +1114,13 @@ ST_14: contacts_load_26 (245)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:240  %contacts_load_26 = load i8* %contacts_addr_26, align 2
 
 ST_14: tmp_7_25 (246)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:241  %tmp_7_25 = or i20 %tmp_s, 26
+.preheader.preheader:241  %tmp_7_25 = or i19 %tmp_s, 26
 
 ST_14: tmp_8_25 (247)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:242  %tmp_8_25 = zext i20 %tmp_7_25 to i64
+.preheader.preheader:242  %tmp_8_25 = zext i19 %tmp_7_25 to i64
 
 ST_14: database_addr_26 (248)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:243  %database_addr_26 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_25
+.preheader.preheader:243  %database_addr_26 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_25
 
 ST_14: database_load_26 (249)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:244  %database_load_26 = load i8* %database_addr_26, align 2
@@ -1138,13 +1138,13 @@ ST_14: contacts_load_27 (254)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:249  %contacts_load_27 = load i8* %contacts_addr_27, align 1
 
 ST_14: tmp_7_26 (255)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:250  %tmp_7_26 = or i20 %tmp_s, 27
+.preheader.preheader:250  %tmp_7_26 = or i19 %tmp_s, 27
 
 ST_14: tmp_8_26 (256)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:251  %tmp_8_26 = zext i20 %tmp_7_26 to i64
+.preheader.preheader:251  %tmp_8_26 = zext i19 %tmp_7_26 to i64
 
 ST_14: database_addr_27 (257)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:252  %database_addr_27 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_26
+.preheader.preheader:252  %database_addr_27 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_26
 
 ST_14: database_load_27 (258)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:253  %database_load_27 = load i8* %database_addr_27, align 1
@@ -1182,13 +1182,13 @@ ST_15: contacts_load_28 (263)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:258  %contacts_load_28 = load i8* %contacts_addr_28, align 4
 
 ST_15: tmp_7_27 (264)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:259  %tmp_7_27 = or i20 %tmp_s, 28
+.preheader.preheader:259  %tmp_7_27 = or i19 %tmp_s, 28
 
 ST_15: tmp_8_27 (265)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:260  %tmp_8_27 = zext i20 %tmp_7_27 to i64
+.preheader.preheader:260  %tmp_8_27 = zext i19 %tmp_7_27 to i64
 
 ST_15: database_addr_28 (266)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:261  %database_addr_28 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_27
+.preheader.preheader:261  %database_addr_28 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_27
 
 ST_15: database_load_28 (267)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:262  %database_load_28 = load i8* %database_addr_28, align 4
@@ -1206,13 +1206,13 @@ ST_15: contacts_load_29 (272)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:267  %contacts_load_29 = load i8* %contacts_addr_29, align 1
 
 ST_15: tmp_7_28 (273)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:268  %tmp_7_28 = or i20 %tmp_s, 29
+.preheader.preheader:268  %tmp_7_28 = or i19 %tmp_s, 29
 
 ST_15: tmp_8_28 (274)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:269  %tmp_8_28 = zext i20 %tmp_7_28 to i64
+.preheader.preheader:269  %tmp_8_28 = zext i19 %tmp_7_28 to i64
 
 ST_15: database_addr_29 (275)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:270  %database_addr_29 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_28
+.preheader.preheader:270  %database_addr_29 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_28
 
 ST_15: database_load_29 (276)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:271  %database_load_29 = load i8* %database_addr_29, align 1
@@ -1259,13 +1259,13 @@ ST_16: contacts_load_30 (281)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:276  %contacts_load_30 = load i8* %contacts_addr_30, align 2
 
 ST_16: tmp_7_29 (282)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:277  %tmp_7_29 = or i20 %tmp_s, 30
+.preheader.preheader:277  %tmp_7_29 = or i19 %tmp_s, 30
 
 ST_16: tmp_8_29 (283)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:278  %tmp_8_29 = zext i20 %tmp_7_29 to i64
+.preheader.preheader:278  %tmp_8_29 = zext i19 %tmp_7_29 to i64
 
 ST_16: database_addr_30 (284)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:279  %database_addr_30 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_29
+.preheader.preheader:279  %database_addr_30 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_29
 
 ST_16: database_load_30 (285)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:280  %database_load_30 = load i8* %database_addr_30, align 2
@@ -1283,13 +1283,13 @@ ST_16: contacts_load_31 (290)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:285  %contacts_load_31 = load i8* %contacts_addr_31, align 1
 
 ST_16: tmp_7_30 (291)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:286  %tmp_7_30 = or i20 %tmp_s, 31
+.preheader.preheader:286  %tmp_7_30 = or i19 %tmp_s, 31
 
 ST_16: tmp_8_30 (292)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:287  %tmp_8_30 = zext i20 %tmp_7_30 to i64
+.preheader.preheader:287  %tmp_8_30 = zext i19 %tmp_7_30 to i64
 
 ST_16: database_addr_31 (293)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:288  %database_addr_31 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_30
+.preheader.preheader:288  %database_addr_31 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_30
 
 ST_16: database_load_31 (294)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:289  %database_load_31 = load i8* %database_addr_31, align 1
@@ -1327,13 +1327,13 @@ ST_17: contacts_load_32 (299)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:294  %contacts_load_32 = load i8* %contacts_addr_32, align 16
 
 ST_17: tmp_7_31 (300)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:295  %tmp_7_31 = or i20 %tmp_s, 32
+.preheader.preheader:295  %tmp_7_31 = or i19 %tmp_s, 32
 
 ST_17: tmp_8_31 (301)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:296  %tmp_8_31 = zext i20 %tmp_7_31 to i64
+.preheader.preheader:296  %tmp_8_31 = zext i19 %tmp_7_31 to i64
 
 ST_17: database_addr_32 (302)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:297  %database_addr_32 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_31
+.preheader.preheader:297  %database_addr_32 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_31
 
 ST_17: database_load_32 (303)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:298  %database_load_32 = load i8* %database_addr_32, align 16
@@ -1351,13 +1351,13 @@ ST_17: contacts_load_33 (308)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:303  %contacts_load_33 = load i8* %contacts_addr_33, align 1
 
 ST_17: tmp_7_32 (309)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:304  %tmp_7_32 = or i20 %tmp_s, 33
+.preheader.preheader:304  %tmp_7_32 = or i19 %tmp_s, 33
 
 ST_17: tmp_8_32 (310)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:305  %tmp_8_32 = zext i20 %tmp_7_32 to i64
+.preheader.preheader:305  %tmp_8_32 = zext i19 %tmp_7_32 to i64
 
 ST_17: database_addr_33 (311)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:306  %database_addr_33 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_32
+.preheader.preheader:306  %database_addr_33 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_32
 
 ST_17: database_load_33 (312)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:307  %database_load_33 = load i8* %database_addr_33, align 1
@@ -1410,13 +1410,13 @@ ST_18: contacts_load_34 (317)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:312  %contacts_load_34 = load i8* %contacts_addr_34, align 2
 
 ST_18: tmp_7_33 (318)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:313  %tmp_7_33 = or i20 %tmp_s, 34
+.preheader.preheader:313  %tmp_7_33 = or i19 %tmp_s, 34
 
 ST_18: tmp_8_33 (319)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:314  %tmp_8_33 = zext i20 %tmp_7_33 to i64
+.preheader.preheader:314  %tmp_8_33 = zext i19 %tmp_7_33 to i64
 
 ST_18: database_addr_34 (320)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:315  %database_addr_34 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_33
+.preheader.preheader:315  %database_addr_34 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_33
 
 ST_18: database_load_34 (321)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:316  %database_load_34 = load i8* %database_addr_34, align 2
@@ -1434,13 +1434,13 @@ ST_18: contacts_load_35 (326)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:321  %contacts_load_35 = load i8* %contacts_addr_35, align 1
 
 ST_18: tmp_7_34 (327)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:322  %tmp_7_34 = or i20 %tmp_s, 35
+.preheader.preheader:322  %tmp_7_34 = or i19 %tmp_s, 35
 
 ST_18: tmp_8_34 (328)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:323  %tmp_8_34 = zext i20 %tmp_7_34 to i64
+.preheader.preheader:323  %tmp_8_34 = zext i19 %tmp_7_34 to i64
 
 ST_18: database_addr_35 (329)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:324  %database_addr_35 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_34
+.preheader.preheader:324  %database_addr_35 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_34
 
 ST_18: database_load_35 (330)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:325  %database_load_35 = load i8* %database_addr_35, align 1
@@ -1478,13 +1478,13 @@ ST_19: contacts_load_36 (335)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:330  %contacts_load_36 = load i8* %contacts_addr_36, align 4
 
 ST_19: tmp_7_35 (336)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:331  %tmp_7_35 = or i20 %tmp_s, 36
+.preheader.preheader:331  %tmp_7_35 = or i19 %tmp_s, 36
 
 ST_19: tmp_8_35 (337)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:332  %tmp_8_35 = zext i20 %tmp_7_35 to i64
+.preheader.preheader:332  %tmp_8_35 = zext i19 %tmp_7_35 to i64
 
 ST_19: database_addr_36 (338)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:333  %database_addr_36 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_35
+.preheader.preheader:333  %database_addr_36 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_35
 
 ST_19: database_load_36 (339)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:334  %database_load_36 = load i8* %database_addr_36, align 4
@@ -1502,13 +1502,13 @@ ST_19: contacts_load_37 (344)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:339  %contacts_load_37 = load i8* %contacts_addr_37, align 1
 
 ST_19: tmp_7_36 (345)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:340  %tmp_7_36 = or i20 %tmp_s, 37
+.preheader.preheader:340  %tmp_7_36 = or i19 %tmp_s, 37
 
 ST_19: tmp_8_36 (346)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:341  %tmp_8_36 = zext i20 %tmp_7_36 to i64
+.preheader.preheader:341  %tmp_8_36 = zext i19 %tmp_7_36 to i64
 
 ST_19: database_addr_37 (347)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:342  %database_addr_37 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_36
+.preheader.preheader:342  %database_addr_37 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_36
 
 ST_19: database_load_37 (348)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:343  %database_load_37 = load i8* %database_addr_37, align 1
@@ -1555,13 +1555,13 @@ ST_20: contacts_load_38 (353)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:348  %contacts_load_38 = load i8* %contacts_addr_38, align 2
 
 ST_20: tmp_7_37 (354)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:349  %tmp_7_37 = or i20 %tmp_s, 38
+.preheader.preheader:349  %tmp_7_37 = or i19 %tmp_s, 38
 
 ST_20: tmp_8_37 (355)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:350  %tmp_8_37 = zext i20 %tmp_7_37 to i64
+.preheader.preheader:350  %tmp_8_37 = zext i19 %tmp_7_37 to i64
 
 ST_20: database_addr_38 (356)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:351  %database_addr_38 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_37
+.preheader.preheader:351  %database_addr_38 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_37
 
 ST_20: database_load_38 (357)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:352  %database_load_38 = load i8* %database_addr_38, align 2
@@ -1579,13 +1579,13 @@ ST_20: contacts_load_39 (362)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:357  %contacts_load_39 = load i8* %contacts_addr_39, align 1
 
 ST_20: tmp_7_38 (363)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:358  %tmp_7_38 = or i20 %tmp_s, 39
+.preheader.preheader:358  %tmp_7_38 = or i19 %tmp_s, 39
 
 ST_20: tmp_8_38 (364)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:359  %tmp_8_38 = zext i20 %tmp_7_38 to i64
+.preheader.preheader:359  %tmp_8_38 = zext i19 %tmp_7_38 to i64
 
 ST_20: database_addr_39 (365)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:360  %database_addr_39 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_38
+.preheader.preheader:360  %database_addr_39 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_38
 
 ST_20: database_load_39 (366)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:361  %database_load_39 = load i8* %database_addr_39, align 1
@@ -1623,13 +1623,13 @@ ST_21: contacts_load_40 (371)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:366  %contacts_load_40 = load i8* %contacts_addr_40, align 8
 
 ST_21: tmp_7_39 (372)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:367  %tmp_7_39 = or i20 %tmp_s, 40
+.preheader.preheader:367  %tmp_7_39 = or i19 %tmp_s, 40
 
 ST_21: tmp_8_39 (373)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:368  %tmp_8_39 = zext i20 %tmp_7_39 to i64
+.preheader.preheader:368  %tmp_8_39 = zext i19 %tmp_7_39 to i64
 
 ST_21: database_addr_40 (374)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:369  %database_addr_40 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_39
+.preheader.preheader:369  %database_addr_40 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_39
 
 ST_21: database_load_40 (375)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:370  %database_load_40 = load i8* %database_addr_40, align 8
@@ -1647,13 +1647,13 @@ ST_21: contacts_load_41 (380)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:375  %contacts_load_41 = load i8* %contacts_addr_41, align 1
 
 ST_21: tmp_7_40 (381)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:376  %tmp_7_40 = or i20 %tmp_s, 41
+.preheader.preheader:376  %tmp_7_40 = or i19 %tmp_s, 41
 
 ST_21: tmp_8_40 (382)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:377  %tmp_8_40 = zext i20 %tmp_7_40 to i64
+.preheader.preheader:377  %tmp_8_40 = zext i19 %tmp_7_40 to i64
 
 ST_21: database_addr_41 (383)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:378  %database_addr_41 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_40
+.preheader.preheader:378  %database_addr_41 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_40
 
 ST_21: database_load_41 (384)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:379  %database_load_41 = load i8* %database_addr_41, align 1
@@ -1703,13 +1703,13 @@ ST_22: contacts_load_42 (389)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:384  %contacts_load_42 = load i8* %contacts_addr_42, align 2
 
 ST_22: tmp_7_41 (390)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:385  %tmp_7_41 = or i20 %tmp_s, 42
+.preheader.preheader:385  %tmp_7_41 = or i19 %tmp_s, 42
 
 ST_22: tmp_8_41 (391)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:386  %tmp_8_41 = zext i20 %tmp_7_41 to i64
+.preheader.preheader:386  %tmp_8_41 = zext i19 %tmp_7_41 to i64
 
 ST_22: database_addr_42 (392)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:387  %database_addr_42 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_41
+.preheader.preheader:387  %database_addr_42 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_41
 
 ST_22: database_load_42 (393)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:388  %database_load_42 = load i8* %database_addr_42, align 2
@@ -1727,13 +1727,13 @@ ST_22: contacts_load_43 (398)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:393  %contacts_load_43 = load i8* %contacts_addr_43, align 1
 
 ST_22: tmp_7_42 (399)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:394  %tmp_7_42 = or i20 %tmp_s, 43
+.preheader.preheader:394  %tmp_7_42 = or i19 %tmp_s, 43
 
 ST_22: tmp_8_42 (400)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:395  %tmp_8_42 = zext i20 %tmp_7_42 to i64
+.preheader.preheader:395  %tmp_8_42 = zext i19 %tmp_7_42 to i64
 
 ST_22: database_addr_43 (401)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:396  %database_addr_43 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_42
+.preheader.preheader:396  %database_addr_43 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_42
 
 ST_22: database_load_43 (402)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:397  %database_load_43 = load i8* %database_addr_43, align 1
@@ -1771,13 +1771,13 @@ ST_23: contacts_load_44 (407)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:402  %contacts_load_44 = load i8* %contacts_addr_44, align 4
 
 ST_23: tmp_7_43 (408)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:403  %tmp_7_43 = or i20 %tmp_s, 44
+.preheader.preheader:403  %tmp_7_43 = or i19 %tmp_s, 44
 
 ST_23: tmp_8_43 (409)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:404  %tmp_8_43 = zext i20 %tmp_7_43 to i64
+.preheader.preheader:404  %tmp_8_43 = zext i19 %tmp_7_43 to i64
 
 ST_23: database_addr_44 (410)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:405  %database_addr_44 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_43
+.preheader.preheader:405  %database_addr_44 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_43
 
 ST_23: database_load_44 (411)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:406  %database_load_44 = load i8* %database_addr_44, align 4
@@ -1795,13 +1795,13 @@ ST_23: contacts_load_45 (416)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:411  %contacts_load_45 = load i8* %contacts_addr_45, align 1
 
 ST_23: tmp_7_44 (417)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:412  %tmp_7_44 = or i20 %tmp_s, 45
+.preheader.preheader:412  %tmp_7_44 = or i19 %tmp_s, 45
 
 ST_23: tmp_8_44 (418)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:413  %tmp_8_44 = zext i20 %tmp_7_44 to i64
+.preheader.preheader:413  %tmp_8_44 = zext i19 %tmp_7_44 to i64
 
 ST_23: database_addr_45 (419)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:414  %database_addr_45 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_44
+.preheader.preheader:414  %database_addr_45 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_44
 
 ST_23: database_load_45 (420)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:415  %database_load_45 = load i8* %database_addr_45, align 1
@@ -1848,13 +1848,13 @@ ST_24: contacts_load_46 (425)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:420  %contacts_load_46 = load i8* %contacts_addr_46, align 2
 
 ST_24: tmp_7_45 (426)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:421  %tmp_7_45 = or i20 %tmp_s, 46
+.preheader.preheader:421  %tmp_7_45 = or i19 %tmp_s, 46
 
 ST_24: tmp_8_45 (427)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:422  %tmp_8_45 = zext i20 %tmp_7_45 to i64
+.preheader.preheader:422  %tmp_8_45 = zext i19 %tmp_7_45 to i64
 
 ST_24: database_addr_46 (428)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:423  %database_addr_46 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_45
+.preheader.preheader:423  %database_addr_46 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_45
 
 ST_24: database_load_46 (429)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:424  %database_load_46 = load i8* %database_addr_46, align 2
@@ -1872,13 +1872,13 @@ ST_24: contacts_load_47 (434)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:429  %contacts_load_47 = load i8* %contacts_addr_47, align 1
 
 ST_24: tmp_7_46 (435)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:430  %tmp_7_46 = or i20 %tmp_s, 47
+.preheader.preheader:430  %tmp_7_46 = or i19 %tmp_s, 47
 
 ST_24: tmp_8_46 (436)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:431  %tmp_8_46 = zext i20 %tmp_7_46 to i64
+.preheader.preheader:431  %tmp_8_46 = zext i19 %tmp_7_46 to i64
 
 ST_24: database_addr_47 (437)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:432  %database_addr_47 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_46
+.preheader.preheader:432  %database_addr_47 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_46
 
 ST_24: database_load_47 (438)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:433  %database_load_47 = load i8* %database_addr_47, align 1
@@ -1916,13 +1916,13 @@ ST_25: contacts_load_48 (443)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:438  %contacts_load_48 = load i8* %contacts_addr_48, align 16
 
 ST_25: tmp_7_47 (444)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:439  %tmp_7_47 = or i20 %tmp_s, 48
+.preheader.preheader:439  %tmp_7_47 = or i19 %tmp_s, 48
 
 ST_25: tmp_8_47 (445)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:440  %tmp_8_47 = zext i20 %tmp_7_47 to i64
+.preheader.preheader:440  %tmp_8_47 = zext i19 %tmp_7_47 to i64
 
 ST_25: database_addr_48 (446)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:441  %database_addr_48 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_47
+.preheader.preheader:441  %database_addr_48 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_47
 
 ST_25: database_load_48 (447)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:442  %database_load_48 = load i8* %database_addr_48, align 16
@@ -1940,13 +1940,13 @@ ST_25: contacts_load_49 (452)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:447  %contacts_load_49 = load i8* %contacts_addr_49, align 1
 
 ST_25: tmp_7_48 (453)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:448  %tmp_7_48 = or i20 %tmp_s, 49
+.preheader.preheader:448  %tmp_7_48 = or i19 %tmp_s, 49
 
 ST_25: tmp_8_48 (454)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:449  %tmp_8_48 = zext i20 %tmp_7_48 to i64
+.preheader.preheader:449  %tmp_8_48 = zext i19 %tmp_7_48 to i64
 
 ST_25: database_addr_49 (455)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:450  %database_addr_49 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_48
+.preheader.preheader:450  %database_addr_49 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_48
 
 ST_25: database_load_49 (456)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:451  %database_load_49 = load i8* %database_addr_49, align 1
@@ -1999,13 +1999,13 @@ ST_26: contacts_load_50 (461)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:456  %contacts_load_50 = load i8* %contacts_addr_50, align 2
 
 ST_26: tmp_7_49 (462)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:457  %tmp_7_49 = or i20 %tmp_s, 50
+.preheader.preheader:457  %tmp_7_49 = or i19 %tmp_s, 50
 
 ST_26: tmp_8_49 (463)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:458  %tmp_8_49 = zext i20 %tmp_7_49 to i64
+.preheader.preheader:458  %tmp_8_49 = zext i19 %tmp_7_49 to i64
 
 ST_26: database_addr_50 (464)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:459  %database_addr_50 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_49
+.preheader.preheader:459  %database_addr_50 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_49
 
 ST_26: database_load_50 (465)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:460  %database_load_50 = load i8* %database_addr_50, align 2
@@ -2023,13 +2023,13 @@ ST_26: contacts_load_51 (470)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:465  %contacts_load_51 = load i8* %contacts_addr_51, align 1
 
 ST_26: tmp_7_50 (471)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:466  %tmp_7_50 = or i20 %tmp_s, 51
+.preheader.preheader:466  %tmp_7_50 = or i19 %tmp_s, 51
 
 ST_26: tmp_8_50 (472)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:467  %tmp_8_50 = zext i20 %tmp_7_50 to i64
+.preheader.preheader:467  %tmp_8_50 = zext i19 %tmp_7_50 to i64
 
 ST_26: database_addr_51 (473)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:468  %database_addr_51 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_50
+.preheader.preheader:468  %database_addr_51 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_50
 
 ST_26: database_load_51 (474)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:469  %database_load_51 = load i8* %database_addr_51, align 1
@@ -2067,13 +2067,13 @@ ST_27: contacts_load_52 (479)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:474  %contacts_load_52 = load i8* %contacts_addr_52, align 4
 
 ST_27: tmp_7_51 (480)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:475  %tmp_7_51 = or i20 %tmp_s, 52
+.preheader.preheader:475  %tmp_7_51 = or i19 %tmp_s, 52
 
 ST_27: tmp_8_51 (481)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:476  %tmp_8_51 = zext i20 %tmp_7_51 to i64
+.preheader.preheader:476  %tmp_8_51 = zext i19 %tmp_7_51 to i64
 
 ST_27: database_addr_52 (482)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:477  %database_addr_52 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_51
+.preheader.preheader:477  %database_addr_52 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_51
 
 ST_27: database_load_52 (483)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:478  %database_load_52 = load i8* %database_addr_52, align 4
@@ -2091,13 +2091,13 @@ ST_27: contacts_load_53 (488)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:483  %contacts_load_53 = load i8* %contacts_addr_53, align 1
 
 ST_27: tmp_7_52 (489)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:484  %tmp_7_52 = or i20 %tmp_s, 53
+.preheader.preheader:484  %tmp_7_52 = or i19 %tmp_s, 53
 
 ST_27: tmp_8_52 (490)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:485  %tmp_8_52 = zext i20 %tmp_7_52 to i64
+.preheader.preheader:485  %tmp_8_52 = zext i19 %tmp_7_52 to i64
 
 ST_27: database_addr_53 (491)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:486  %database_addr_53 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_52
+.preheader.preheader:486  %database_addr_53 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_52
 
 ST_27: database_load_53 (492)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:487  %database_load_53 = load i8* %database_addr_53, align 1
@@ -2144,13 +2144,13 @@ ST_28: contacts_load_54 (497)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:492  %contacts_load_54 = load i8* %contacts_addr_54, align 2
 
 ST_28: tmp_7_53 (498)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:493  %tmp_7_53 = or i20 %tmp_s, 54
+.preheader.preheader:493  %tmp_7_53 = or i19 %tmp_s, 54
 
 ST_28: tmp_8_53 (499)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:494  %tmp_8_53 = zext i20 %tmp_7_53 to i64
+.preheader.preheader:494  %tmp_8_53 = zext i19 %tmp_7_53 to i64
 
 ST_28: database_addr_54 (500)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:495  %database_addr_54 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_53
+.preheader.preheader:495  %database_addr_54 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_53
 
 ST_28: database_load_54 (501)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:496  %database_load_54 = load i8* %database_addr_54, align 2
@@ -2168,13 +2168,13 @@ ST_28: contacts_load_55 (506)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:501  %contacts_load_55 = load i8* %contacts_addr_55, align 1
 
 ST_28: tmp_7_54 (507)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:502  %tmp_7_54 = or i20 %tmp_s, 55
+.preheader.preheader:502  %tmp_7_54 = or i19 %tmp_s, 55
 
 ST_28: tmp_8_54 (508)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:503  %tmp_8_54 = zext i20 %tmp_7_54 to i64
+.preheader.preheader:503  %tmp_8_54 = zext i19 %tmp_7_54 to i64
 
 ST_28: database_addr_55 (509)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:504  %database_addr_55 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_54
+.preheader.preheader:504  %database_addr_55 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_54
 
 ST_28: database_load_55 (510)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:505  %database_load_55 = load i8* %database_addr_55, align 1
@@ -2212,13 +2212,13 @@ ST_29: contacts_load_56 (515)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:510  %contacts_load_56 = load i8* %contacts_addr_56, align 8
 
 ST_29: tmp_7_55 (516)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:511  %tmp_7_55 = or i20 %tmp_s, 56
+.preheader.preheader:511  %tmp_7_55 = or i19 %tmp_s, 56
 
 ST_29: tmp_8_55 (517)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:512  %tmp_8_55 = zext i20 %tmp_7_55 to i64
+.preheader.preheader:512  %tmp_8_55 = zext i19 %tmp_7_55 to i64
 
 ST_29: database_addr_56 (518)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:513  %database_addr_56 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_55
+.preheader.preheader:513  %database_addr_56 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_55
 
 ST_29: database_load_56 (519)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:514  %database_load_56 = load i8* %database_addr_56, align 8
@@ -2236,13 +2236,13 @@ ST_29: contacts_load_57 (524)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:519  %contacts_load_57 = load i8* %contacts_addr_57, align 1
 
 ST_29: tmp_7_56 (525)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:520  %tmp_7_56 = or i20 %tmp_s, 57
+.preheader.preheader:520  %tmp_7_56 = or i19 %tmp_s, 57
 
 ST_29: tmp_8_56 (526)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:521  %tmp_8_56 = zext i20 %tmp_7_56 to i64
+.preheader.preheader:521  %tmp_8_56 = zext i19 %tmp_7_56 to i64
 
 ST_29: database_addr_57 (527)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:522  %database_addr_57 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_56
+.preheader.preheader:522  %database_addr_57 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_56
 
 ST_29: database_load_57 (528)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:523  %database_load_57 = load i8* %database_addr_57, align 1
@@ -2292,13 +2292,13 @@ ST_30: contacts_load_58 (533)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:528  %contacts_load_58 = load i8* %contacts_addr_58, align 2
 
 ST_30: tmp_7_57 (534)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:529  %tmp_7_57 = or i20 %tmp_s, 58
+.preheader.preheader:529  %tmp_7_57 = or i19 %tmp_s, 58
 
 ST_30: tmp_8_57 (535)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:530  %tmp_8_57 = zext i20 %tmp_7_57 to i64
+.preheader.preheader:530  %tmp_8_57 = zext i19 %tmp_7_57 to i64
 
 ST_30: database_addr_58 (536)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:531  %database_addr_58 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_57
+.preheader.preheader:531  %database_addr_58 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_57
 
 ST_30: database_load_58 (537)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:532  %database_load_58 = load i8* %database_addr_58, align 2
@@ -2316,13 +2316,13 @@ ST_30: contacts_load_59 (542)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:537  %contacts_load_59 = load i8* %contacts_addr_59, align 1
 
 ST_30: tmp_7_58 (543)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:538  %tmp_7_58 = or i20 %tmp_s, 59
+.preheader.preheader:538  %tmp_7_58 = or i19 %tmp_s, 59
 
 ST_30: tmp_8_58 (544)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:539  %tmp_8_58 = zext i20 %tmp_7_58 to i64
+.preheader.preheader:539  %tmp_8_58 = zext i19 %tmp_7_58 to i64
 
 ST_30: database_addr_59 (545)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:540  %database_addr_59 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_58
+.preheader.preheader:540  %database_addr_59 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_58
 
 ST_30: database_load_59 (546)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:541  %database_load_59 = load i8* %database_addr_59, align 1
@@ -2360,13 +2360,13 @@ ST_31: contacts_load_60 (551)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:546  %contacts_load_60 = load i8* %contacts_addr_60, align 4
 
 ST_31: tmp_7_59 (552)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:547  %tmp_7_59 = or i20 %tmp_s, 60
+.preheader.preheader:547  %tmp_7_59 = or i19 %tmp_s, 60
 
 ST_31: tmp_8_59 (553)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:548  %tmp_8_59 = zext i20 %tmp_7_59 to i64
+.preheader.preheader:548  %tmp_8_59 = zext i19 %tmp_7_59 to i64
 
 ST_31: database_addr_60 (554)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:549  %database_addr_60 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_59
+.preheader.preheader:549  %database_addr_60 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_59
 
 ST_31: database_load_60 (555)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:550  %database_load_60 = load i8* %database_addr_60, align 4
@@ -2384,13 +2384,13 @@ ST_31: contacts_load_61 (560)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:555  %contacts_load_61 = load i8* %contacts_addr_61, align 1
 
 ST_31: tmp_7_60 (561)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:556  %tmp_7_60 = or i20 %tmp_s, 61
+.preheader.preheader:556  %tmp_7_60 = or i19 %tmp_s, 61
 
 ST_31: tmp_8_60 (562)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:557  %tmp_8_60 = zext i20 %tmp_7_60 to i64
+.preheader.preheader:557  %tmp_8_60 = zext i19 %tmp_7_60 to i64
 
 ST_31: database_addr_61 (563)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:558  %database_addr_61 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_60
+.preheader.preheader:558  %database_addr_61 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_60
 
 ST_31: database_load_61 (564)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:559  %database_load_61 = load i8* %database_addr_61, align 1
@@ -2437,13 +2437,13 @@ ST_32: contacts_load_62 (569)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:564  %contacts_load_62 = load i8* %contacts_addr_62, align 2
 
 ST_32: tmp_7_61 (570)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:565  %tmp_7_61 = or i20 %tmp_s, 62
+.preheader.preheader:565  %tmp_7_61 = or i19 %tmp_s, 62
 
 ST_32: tmp_8_61 (571)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:566  %tmp_8_61 = zext i20 %tmp_7_61 to i64
+.preheader.preheader:566  %tmp_8_61 = zext i19 %tmp_7_61 to i64
 
 ST_32: database_addr_62 (572)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:567  %database_addr_62 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_61
+.preheader.preheader:567  %database_addr_62 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_61
 
 ST_32: database_load_62 (573)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:568  %database_load_62 = load i8* %database_addr_62, align 2
@@ -2461,13 +2461,13 @@ ST_32: contacts_load_63 (578)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_l
 .preheader.preheader:573  %contacts_load_63 = load i8* %contacts_addr_63, align 1
 
 ST_32: tmp_7_62 (579)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:574  %tmp_7_62 = or i20 %tmp_s, 63
+.preheader.preheader:574  %tmp_7_62 = or i19 %tmp_s, 63
 
 ST_32: tmp_8_62 (580)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:575  %tmp_8_62 = zext i20 %tmp_7_62 to i64
+.preheader.preheader:575  %tmp_8_62 = zext i19 %tmp_7_62 to i64
 
 ST_32: database_addr_63 (581)  [1/1] 0.00ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
-.preheader.preheader:576  %database_addr_63 = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp_8_62
+.preheader.preheader:576  %database_addr_63 = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp_8_62
 
 ST_32: database_load_63 (582)  [2/2] 1.35ns  loc: contact_discovery_axi_one_db_load/src/contact_discovery.cpp:37
 .preheader.preheader:577  %database_load_63 = load i8* %database_addr_63, align 1

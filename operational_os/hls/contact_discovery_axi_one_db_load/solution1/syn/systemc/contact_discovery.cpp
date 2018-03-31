@@ -42,7 +42,7 @@ const bool contact_discovery::ap_const_boolean_0 = false;
 const sc_lv<32> contact_discovery::ap_const_lv32_7 = "111";
 const sc_lv<1> contact_discovery::ap_const_lv1_1 = "1";
 const sc_lv<32> contact_discovery::ap_const_lv32_C = "1100";
-const sc_lv<14> contact_discovery::ap_const_lv14_0 = "00000000000000";
+const sc_lv<13> contact_discovery::ap_const_lv13_0 = "0000000000000";
 const sc_lv<32> contact_discovery::ap_const_lv32_3 = "11";
 const sc_lv<7> contact_discovery::ap_const_lv7_0 = "0000000";
 const sc_lv<32> contact_discovery::ap_const_lv32_8 = "1000";
@@ -52,12 +52,12 @@ const sc_lv<32> contact_discovery::ap_const_lv32_E = "1110";
 const sc_lv<32> contact_discovery::ap_const_lv32_5 = "101";
 const sc_lv<32> contact_discovery::ap_const_lv32_F = "1111";
 const sc_lv<32> contact_discovery::ap_const_lv32_A = "1010";
-const sc_lv<32> contact_discovery::ap_const_lv32_3A97 = "11101010010111";
+const sc_lv<32> contact_discovery::ap_const_lv32_1D4B = "1110101001011";
 const sc_lv<6> contact_discovery::ap_const_lv6_0 = "000000";
 const sc_lv<32> contact_discovery::ap_const_lv32_1F = "11111";
 const sc_lv<25> contact_discovery::ap_const_lv25_0 = "0000000000000000000000000";
-const sc_lv<14> contact_discovery::ap_const_lv14_3A98 = "11101010011000";
-const sc_lv<14> contact_discovery::ap_const_lv14_1 = "1";
+const sc_lv<13> contact_discovery::ap_const_lv13_1D4C = "1110101001100";
+const sc_lv<13> contact_discovery::ap_const_lv13_1 = "1";
 const sc_lv<7> contact_discovery::ap_const_lv7_40 = "1000000";
 const sc_lv<7> contact_discovery::ap_const_lv7_1 = "1";
 const sc_lv<32> contact_discovery::ap_const_lv32_6 = "110";
@@ -841,7 +841,7 @@ void contact_discovery::thread_ap_clk_no_reset_() {
         database_index_reg_233 = database_index_1_reg_531.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
                 esl_seteq<1,32,32>(operation_read_read_fu_116_p2.read(), ap_const_lv32_2))) {
-        database_index_reg_233 = ap_const_lv14_0;
+        database_index_reg_233 = ap_const_lv13_0;
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
          esl_seteq<1,1,1>(exitcond_i5_fu_407_p2.read(), ap_const_lv1_1))) {
@@ -867,7 +867,7 @@ void contact_discovery::thread_ap_clk_no_reset_() {
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
          esl_seteq<1,1,1>(exitcond2_fu_378_p2.read(), ap_const_lv1_1))) {
-        i_reg_245 = ap_const_lv14_0;
+        i_reg_245 = ap_const_lv13_0;
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_pp0_stage0.read()) && 
                 esl_seteq<1,1,1>(ap_block_pp0_stage0_flag00011001.read(), ap_const_boolean_0) && 
                 esl_seteq<1,1,1>(ap_const_logic_1, ap_enable_reg_pp0_iter0.read()) && 
@@ -1220,11 +1220,11 @@ void contact_discovery::thread_contacts_we0() {
 
 void contact_discovery::thread_database_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        database_address0 =  (sc_lv<20>) (sum_i9_cast_fu_444_p1.read());
+        database_address0 =  (sc_lv<19>) (sum_i9_cast_fu_444_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
         database_address0 = grp_match_db_contact_fu_302_database_address0.read();
     } else {
-        database_address0 =  (sc_lv<20>) ("XXXXXXXXXXXXXXXXXXXX");
+        database_address0 =  (sc_lv<19>) ("XXXXXXXXXXXXXXXXXXX");
     }
 }
 
@@ -1259,7 +1259,7 @@ void contact_discovery::thread_database_in_ce0() {
 }
 
 void contact_discovery::thread_database_index_1_fu_384_p2() {
-    database_index_1_fu_384_p2 = (!database_index_reg_233.read().is_01() || !ap_const_lv14_1.is_01())? sc_lv<14>(): (sc_biguint<14>(database_index_reg_233.read()) + sc_biguint<14>(ap_const_lv14_1));
+    database_index_1_fu_384_p2 = (!database_index_reg_233.read().is_01() || !ap_const_lv13_1.is_01())? sc_lv<13>(): (sc_biguint<13>(database_index_reg_233.read()) + sc_biguint<13>(ap_const_lv13_1));
 }
 
 void contact_discovery::thread_database_size_out_1_ack_in() {
@@ -1420,11 +1420,11 @@ void contact_discovery::thread_error_out_1_vld_in() {
 }
 
 void contact_discovery::thread_exitcond2_fu_378_p2() {
-    exitcond2_fu_378_p2 = (!database_index_reg_233.read().is_01() || !ap_const_lv14_3A98.is_01())? sc_lv<1>(): sc_lv<1>(database_index_reg_233.read() == ap_const_lv14_3A98);
+    exitcond2_fu_378_p2 = (!database_index_reg_233.read().is_01() || !ap_const_lv13_1D4C.is_01())? sc_lv<1>(): sc_lv<1>(database_index_reg_233.read() == ap_const_lv13_1D4C);
 }
 
 void contact_discovery::thread_exitcond_fu_390_p2() {
-    exitcond_fu_390_p2 = (!i_reg_245.read().is_01() || !ap_const_lv14_3A98.is_01())? sc_lv<1>(): sc_lv<1>(i_reg_245.read() == ap_const_lv14_3A98);
+    exitcond_fu_390_p2 = (!i_reg_245.read().is_01() || !ap_const_lv13_1D4C.is_01())? sc_lv<1>(): sc_lv<1>(i_reg_245.read() == ap_const_lv13_1D4C);
 }
 
 void contact_discovery::thread_exitcond_i5_fu_407_p2() {
@@ -1440,7 +1440,7 @@ void contact_discovery::thread_grp_match_db_contact_fu_302_ap_start() {
 }
 
 void contact_discovery::thread_i_1_fu_396_p2() {
-    i_1_fu_396_p2 = (!i_reg_245.read().is_01() || !ap_const_lv14_1.is_01())? sc_lv<14>(): (sc_biguint<14>(i_reg_245.read()) + sc_biguint<14>(ap_const_lv14_1));
+    i_1_fu_396_p2 = (!i_reg_245.read().is_01() || !ap_const_lv13_1.is_01())? sc_lv<13>(): (sc_biguint<13>(i_reg_245.read()) + sc_biguint<13>(ap_const_lv13_1));
 }
 
 void contact_discovery::thread_i_2_fu_454_p2() {
@@ -1521,7 +1521,7 @@ void contact_discovery::thread_matched_finished_1_vld_in() {
 }
 
 void contact_discovery::thread_matched_out_address0() {
-    matched_out_address0 =  (sc_lv<14>) (tmp_4_reg_545.read());
+    matched_out_address0 =  (sc_lv<13>) (tmp_4_reg_545.read());
 }
 
 void contact_discovery::thread_matched_out_ce0() {
@@ -1578,11 +1578,11 @@ void contact_discovery::thread_results_address0() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_pp0_stage0.read()) && 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_enable_reg_pp0_iter0.read()) && 
          esl_seteq<1,1,1>(ap_block_pp0_stage0_flag00000000.read(), ap_const_boolean_0))) {
-        results_address0 =  (sc_lv<14>) (tmp_4_fu_402_p1.read());
+        results_address0 =  (sc_lv<13>) (tmp_4_fu_402_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
         results_address0 = grp_match_db_contact_fu_302_results_address0.read();
     } else {
-        results_address0 =  (sc_lv<14>) ("XXXXXXXXXXXXXX");
+        results_address0 = "XXXXXXXXXXXXX";
     }
 }
 
@@ -1607,11 +1607,11 @@ void contact_discovery::thread_results_we0() {
 }
 
 void contact_discovery::thread_sum_i9_cast_fu_444_p1() {
-    sum_i9_cast_fu_444_p1 = esl_sext<64,21>(sum_i9_reg_568.read());
+    sum_i9_cast_fu_444_p1 = esl_sext<64,20>(sum_i9_reg_568.read());
 }
 
 void contact_discovery::thread_sum_i9_fu_428_p2() {
-    sum_i9_fu_428_p2 = (!tmp_i6_cast_fu_424_p1.read().is_01() || !tmp_2_cast_reg_514.read().is_01())? sc_lv<21>(): (sc_biguint<21>(tmp_i6_cast_fu_424_p1.read()) + sc_biguint<21>(tmp_2_cast_reg_514.read()));
+    sum_i9_fu_428_p2 = (!tmp_i6_cast_fu_424_p1.read().is_01() || !tmp_2_cast_reg_514.read().is_01())? sc_lv<20>(): (sc_biguint<20>(tmp_i6_cast_fu_424_p1.read()) + sc_biguint<20>(tmp_2_cast_reg_514.read()));
 }
 
 void contact_discovery::thread_sum_i_cast_fu_485_p1() {
@@ -1627,11 +1627,11 @@ void contact_discovery::thread_tmp_127_fu_367_p1() {
 }
 
 void contact_discovery::thread_tmp_128_fu_341_p1() {
-    tmp_128_fu_341_p1 = database_size_load_reg_502.read().range(15-1, 0);
+    tmp_128_fu_341_p1 = database_size_load_reg_502.read().range(14-1, 0);
 }
 
 void contact_discovery::thread_tmp_2_cast_fu_344_p3() {
-    tmp_2_cast_fu_344_p3 = esl_concat<15,6>(tmp_128_fu_341_p1.read(), ap_const_lv6_0);
+    tmp_2_cast_fu_344_p3 = esl_concat<14,6>(tmp_128_fu_341_p1.read(), ap_const_lv6_0);
 }
 
 void contact_discovery::thread_tmp_3_fu_433_p2() {
@@ -1639,11 +1639,11 @@ void contact_discovery::thread_tmp_3_fu_433_p2() {
 }
 
 void contact_discovery::thread_tmp_4_fu_402_p1() {
-    tmp_4_fu_402_p1 = esl_zext<64,14>(i_reg_245.read());
+    tmp_4_fu_402_p1 = esl_zext<64,13>(i_reg_245.read());
 }
 
 void contact_discovery::thread_tmp_7_fu_336_p2() {
-    tmp_7_fu_336_p2 = (!database_size_load_reg_502.read().is_01() || !ap_const_lv32_3A97.is_01())? sc_lv<1>(): (sc_bigint<32>(database_size_load_reg_502.read()) > sc_bigint<32>(ap_const_lv32_3A97));
+    tmp_7_fu_336_p2 = (!database_size_load_reg_502.read().is_01() || !ap_const_lv32_1D4B.is_01())? sc_lv<1>(): (sc_bigint<32>(database_size_load_reg_502.read()) > sc_bigint<32>(ap_const_lv32_1D4B));
 }
 
 void contact_discovery::thread_tmp_9_cast_fu_370_p3() {
@@ -1655,7 +1655,7 @@ void contact_discovery::thread_tmp_fu_352_p4() {
 }
 
 void contact_discovery::thread_tmp_i6_cast_fu_424_p1() {
-    tmp_i6_cast_fu_424_p1 = esl_zext<21,7>(i_i4_reg_256.read());
+    tmp_i6_cast_fu_424_p1 = esl_zext<20,7>(i_i4_reg_256.read());
 }
 
 void contact_discovery::thread_tmp_i6_fu_419_p1() {

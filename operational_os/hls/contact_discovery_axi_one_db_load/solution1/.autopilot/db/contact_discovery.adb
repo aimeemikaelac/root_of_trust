@@ -116,7 +116,7 @@
           </Value>
           <direction>1</direction>
           <if_type>1</if_type>
-          <array_size>15000</array_size>
+          <array_size>7500</array_size>
           <bit_vecs>
             <count>0</count>
             <item_version>0</item_version>
@@ -1120,7 +1120,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>4</count>
@@ -1208,7 +1208,7 @@
               <rtlName>database_index_1_fu_384_p2</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>2</count>
@@ -1411,7 +1411,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>4</count>
@@ -1499,7 +1499,7 @@
               <rtlName>i_1_fu_396_p2</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>2</count>
@@ -1628,7 +1628,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -1714,7 +1714,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -2104,7 +2104,7 @@
               <rtlName>tmp_128_fu_341_p1</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>15</bitwidth>
+            <bitwidth>14</bitwidth>
           </Value>
           <oprand_edges>
             <count>1</count>
@@ -2153,7 +2153,7 @@
               <rtlName>tmp_2_cast_fu_344_p3</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>21</bitwidth>
+            <bitwidth>20</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -2484,7 +2484,7 @@
               <rtlName>tmp_i6_cast_fu_424_p1</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>21</bitwidth>
+            <bitwidth>20</bitwidth>
           </Value>
           <oprand_edges>
             <count>1</count>
@@ -2633,7 +2633,7 @@
               <rtlName>sum_i9_fu_428_p2</rtlName>
               <coreName/>
             </Obj>
-            <bitwidth>21</bitwidth>
+            <bitwidth>20</bitwidth>
           </Value>
           <oprand_edges>
             <count>2</count>
@@ -2732,7 +2732,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>20</bitwidth>
+            <bitwidth>19</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -5127,7 +5127,7 @@
             <bitwidth>32</bitwidth>
           </Value>
           <const_type>0</const_type>
-          <content>14999</content>
+          <content>7499</content>
         </item>
         <item class_id_reference="16" object_id="_126">
           <Value>
@@ -5147,7 +5147,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <const_type>0</const_type>
           <content>0</content>
@@ -5170,10 +5170,10 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <const_type>0</const_type>
-          <content>15000</content>
+          <content>7500</content>
         </item>
         <item class_id_reference="16" object_id="_128">
           <Value>
@@ -5193,7 +5193,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>14</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <const_type>0</const_type>
           <content>1</content>
@@ -7443,7 +7443,7 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>63390005</mMinLatency>
+        <mMinLatency>31695005</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
@@ -7496,9 +7496,9 @@
         </basic_blocks>
         <mII>-1</mII>
         <mDepth>-1</mDepth>
-        <mMinTripCount>15000</mMinTripCount>
-        <mMaxTripCount>15000</mMaxTripCount>
-        <mMinLatency>63375000</mMinLatency>
+        <mMinTripCount>7500</mMinTripCount>
+        <mMaxTripCount>7500</mMaxTripCount>
+        <mMinLatency>31687500</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
@@ -7541,9 +7541,9 @@
         </basic_blocks>
         <mII>1</mII>
         <mDepth>2</mDepth>
-        <mMinTripCount>15000</mMinTripCount>
-        <mMaxTripCount>15000</mMaxTripCount>
-        <mMinLatency>15000</mMinLatency>
+        <mMinTripCount>7500</mMinTripCount>
+        <mMaxTripCount>7500</mMaxTripCount>
+        <mMinLatency>7500</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
@@ -9266,7 +9266,7 @@
             <item_version>0</item_version>
             <item class_id="40" tracking_level="0" version="0">
               <first>BRAM</first>
-              <second>12</second>
+              <second>8</second>
             </item>
             <item>
               <first>FF</first>
@@ -9285,11 +9285,11 @@
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>4454</second>
+              <second>4453</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>6055</second>
+              <second>5992</second>
             </item>
           </second>
         </item>
@@ -9396,7 +9396,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(1P1)</first>
@@ -9408,7 +9408,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>20</second>
             </item>
           </second>
         </item>
@@ -9419,11 +9419,11 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(1P1)</first>
-              <second>12</second>
+              <second>11</second>
             </item>
             <item>
               <first>FF</first>
@@ -9442,11 +9442,11 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(1P1)</first>
-              <second>12</second>
+              <second>11</second>
             </item>
             <item>
               <first>FF</first>
@@ -9511,7 +9511,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(1P1)</first>
@@ -9523,7 +9523,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>21</second>
+              <second>20</second>
             </item>
           </second>
         </item>
@@ -9603,11 +9603,11 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>21</second>
+              <second>20</second>
             </item>
             <item>
               <first>(1P1)</first>
-              <second>21</second>
+              <second>20</second>
             </item>
             <item>
               <first>FF</first>
@@ -9615,7 +9615,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>28</second>
+              <second>27</second>
             </item>
           </second>
         </item>
@@ -9676,7 +9676,7 @@
             </item>
             <item>
               <first>(1P1)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>FF</first>
@@ -9761,7 +9761,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Words)</first>
-              <second>960000</second>
+              <second>480000</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -9773,11 +9773,11 @@
             </item>
             <item>
               <first>(3W*Bits*Banks)</first>
-              <second>7680000</second>
+              <second>3840000</second>
             </item>
             <item>
               <first>BRAM</first>
-              <second>470</second>
+              <second>236</second>
             </item>
             <item>
               <first>FF</first>
@@ -9796,7 +9796,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Words)</first>
-              <second>15000</second>
+              <second>7500</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -9808,7 +9808,7 @@
             </item>
             <item>
               <first>(3W*Bits*Banks)</first>
-              <second>15000</second>
+              <second>7500</second>
             </item>
             <item>
               <first>BRAM</first>
@@ -10000,11 +10000,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>20</second>
+              <second>19</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>60</second>
+              <second>57</second>
             </item>
             <item>
               <first>LUT</first>
@@ -10069,11 +10069,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>28</second>
+              <second>26</second>
             </item>
             <item>
               <first>LUT</first>
@@ -10207,11 +10207,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>28</second>
+              <second>26</second>
             </item>
             <item>
               <first>LUT</first>
@@ -10345,11 +10345,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>42</second>
+              <second>39</second>
             </item>
             <item>
               <first>LUT</first>
@@ -10612,7 +10612,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -10620,7 +10620,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>14</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -10631,7 +10631,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -10639,7 +10639,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>14</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -10859,7 +10859,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>14</second>
+              <second>13</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -10867,7 +10867,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>14</second>
+              <second>13</second>
             </item>
           </second>
         </item>
@@ -10992,7 +10992,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>21</second>
+              <second>20</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -11000,7 +11000,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>21</second>
+              <second>20</second>
             </item>
           </second>
         </item>
@@ -11030,7 +11030,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>21</second>
+              <second>20</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -11038,7 +11038,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>15</second>
+              <second>14</second>
             </item>
           </second>
         </item>
@@ -11053,11 +11053,11 @@
             </item>
             <item>
               <first>(Consts)</first>
-              <second>50</second>
+              <second>51</second>
             </item>
             <item>
               <first>FF</first>
-              <second>14</second>
+              <second>13</second>
             </item>
           </second>
         </item>

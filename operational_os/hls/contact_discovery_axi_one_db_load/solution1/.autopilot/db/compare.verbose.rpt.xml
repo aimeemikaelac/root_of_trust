@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'compare'" level="0">
-<item name = "Date">Fri Mar 30 20:08:50 2018
+<item name = "Date">Fri Mar 30 20:58:55 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_one_db_load</item>
@@ -47,12 +47,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 2219, -</column>
+<column name="Expression">-, -, 0, 2156, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 763, -</column>
-<column name="Register">-, -, 102, -, -</column>
+<column name="Register">-, -, 101, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
 </table>
@@ -207,69 +207,69 @@
 <column name="tmp_5_8_fu_1542_p2">or, 0, 0, 13, 13, 4</column>
 <column name="tmp_5_9_fu_1583_p2">or, 0, 0, 13, 13, 4</column>
 <column name="tmp_5_s_fu_1364_p2">or, 0, 0, 13, 13, 1</column>
-<column name="tmp_7_10_fu_1613_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_11_fu_1633_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_12_fu_1653_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_13_fu_1689_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_14_fu_1709_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_15_fu_1729_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_16_fu_1749_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_17_fu_1795_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_18_fu_1815_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_19_fu_1835_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_1_fu_1396_p2">or, 0, 0, 20, 20, 2</column>
-<column name="tmp_7_20_fu_1855_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_21_fu_1891_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_22_fu_1911_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_23_fu_1931_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_24_fu_1951_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_25_fu_1992_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_26_fu_2012_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_27_fu_2032_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_28_fu_2052_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_29_fu_2088_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_2_fu_1416_p2">or, 0, 0, 20, 20, 2</column>
-<column name="tmp_7_30_fu_2108_p2">or, 0, 0, 20, 20, 5</column>
-<column name="tmp_7_31_fu_2128_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_32_fu_2148_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_33_fu_2194_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_34_fu_2214_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_35_fu_2234_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_36_fu_2254_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_37_fu_2290_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_38_fu_2310_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_39_fu_2330_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_3_fu_1436_p2">or, 0, 0, 20, 20, 3</column>
-<column name="tmp_7_40_fu_2350_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_41_fu_2391_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_42_fu_2411_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_43_fu_2431_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_44_fu_2451_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_45_fu_2487_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_46_fu_2507_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_47_fu_2527_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_48_fu_2547_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_49_fu_2593_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_4_fu_1456_p2">or, 0, 0, 20, 20, 3</column>
-<column name="tmp_7_50_fu_2613_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_51_fu_2633_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_52_fu_2653_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_53_fu_2689_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_54_fu_2709_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_55_fu_2729_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_56_fu_2749_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_57_fu_2790_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_58_fu_2810_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_59_fu_2830_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_5_fu_1492_p2">or, 0, 0, 20, 20, 3</column>
-<column name="tmp_7_60_fu_2850_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_61_fu_2886_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_62_fu_2906_p2">or, 0, 0, 20, 20, 6</column>
-<column name="tmp_7_6_fu_1512_p2">or, 0, 0, 20, 20, 3</column>
-<column name="tmp_7_7_fu_1532_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_8_fu_1552_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_9_fu_1593_p2">or, 0, 0, 20, 20, 4</column>
-<column name="tmp_7_s_fu_1375_p2">or, 0, 0, 20, 20, 1</column>
+<column name="tmp_7_10_fu_1613_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_11_fu_1633_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_12_fu_1653_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_13_fu_1689_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_14_fu_1709_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_15_fu_1729_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_16_fu_1749_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_17_fu_1795_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_18_fu_1815_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_19_fu_1835_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_1_fu_1396_p2">or, 0, 0, 19, 19, 2</column>
+<column name="tmp_7_20_fu_1855_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_21_fu_1891_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_22_fu_1911_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_23_fu_1931_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_24_fu_1951_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_25_fu_1992_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_26_fu_2012_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_27_fu_2032_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_28_fu_2052_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_29_fu_2088_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_2_fu_1416_p2">or, 0, 0, 19, 19, 2</column>
+<column name="tmp_7_30_fu_2108_p2">or, 0, 0, 19, 19, 5</column>
+<column name="tmp_7_31_fu_2128_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_32_fu_2148_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_33_fu_2194_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_34_fu_2214_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_35_fu_2234_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_36_fu_2254_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_37_fu_2290_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_38_fu_2310_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_39_fu_2330_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_3_fu_1436_p2">or, 0, 0, 19, 19, 3</column>
+<column name="tmp_7_40_fu_2350_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_41_fu_2391_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_42_fu_2411_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_43_fu_2431_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_44_fu_2451_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_45_fu_2487_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_46_fu_2507_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_47_fu_2527_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_48_fu_2547_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_49_fu_2593_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_4_fu_1456_p2">or, 0, 0, 19, 19, 3</column>
+<column name="tmp_7_50_fu_2613_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_51_fu_2633_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_52_fu_2653_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_53_fu_2689_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_54_fu_2709_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_55_fu_2729_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_56_fu_2749_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_57_fu_2790_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_58_fu_2810_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_59_fu_2830_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_5_fu_1492_p2">or, 0, 0, 19, 19, 3</column>
+<column name="tmp_7_60_fu_2850_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_61_fu_2886_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_62_fu_2906_p2">or, 0, 0, 19, 19, 6</column>
+<column name="tmp_7_6_fu_1512_p2">or, 0, 0, 19, 19, 3</column>
+<column name="tmp_7_7_fu_1532_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_8_fu_1552_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_9_fu_1593_p2">or, 0, 0, 19, 19, 4</column>
+<column name="tmp_7_s_fu_1375_p2">or, 0, 0, 19, 19, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -280,8 +280,8 @@
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
 <column name="contacts_address0">149, 33, 13, 429</column>
 <column name="contacts_address1">149, 33, 13, 429</column>
-<column name="database_address0">149, 33, 20, 660</column>
-<column name="database_address1">149, 33, 20, 660</column>
+<column name="database_address0">149, 33, 19, 627</column>
+<column name="database_address1">149, 33, 19, 627</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -337,7 +337,7 @@
 <column name="tmp_9_9_reg_3224">1, 0, 1, 0</column>
 <column name="tmp_9_reg_3109">1, 0, 1, 0</column>
 <column name="tmp_reg_2957">7, 0, 13, 6</column>
-<column name="tmp_s_reg_3023">14, 0, 20, 6</column>
+<column name="tmp_s_reg_3023">13, 0, 19, 6</column>
 </table>
 </item>
 </section>
@@ -355,7 +355,7 @@
 <column name="ap_ready">out, 1, ap_ctrl_hs, compare, return value</column>
 <column name="ap_ce">in, 1, ap_ctrl_hs, compare, return value</column>
 <column name="ap_return">out, 1, ap_ctrl_hs, compare, return value</column>
-<column name="db_index">in, 14, ap_none, db_index, scalar</column>
+<column name="db_index">in, 13, ap_none, db_index, scalar</column>
 <column name="contacts_index">in, 8, ap_none, contacts_index, scalar</column>
 <column name="contacts_address0">out, 13, ap_memory, contacts, array</column>
 <column name="contacts_ce0">out, 1, ap_memory, contacts, array</column>
@@ -363,10 +363,10 @@
 <column name="contacts_address1">out, 13, ap_memory, contacts, array</column>
 <column name="contacts_ce1">out, 1, ap_memory, contacts, array</column>
 <column name="contacts_q1">in, 8, ap_memory, contacts, array</column>
-<column name="database_address0">out, 20, ap_memory, database, array</column>
+<column name="database_address0">out, 19, ap_memory, database, array</column>
 <column name="database_ce0">out, 1, ap_memory, database, array</column>
 <column name="database_q0">in, 8, ap_memory, database, array</column>
-<column name="database_address1">out, 20, ap_memory, database, array</column>
+<column name="database_address1">out, 19, ap_memory, database, array</column>
 <column name="database_ce1">out, 1, ap_memory, database, array</column>
 <column name="database_q1">in, 8, ap_memory, database, array</column>
 </table>

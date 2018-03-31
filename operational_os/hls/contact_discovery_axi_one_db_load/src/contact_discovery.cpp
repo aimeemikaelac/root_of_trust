@@ -1,7 +1,7 @@
 
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 15000
+#define DATABASE_SIZE 7500
 
 static unsigned char contacts[64*CONTACTS_SIZE];
 static unsigned char database[64*DATABASE_SIZE];

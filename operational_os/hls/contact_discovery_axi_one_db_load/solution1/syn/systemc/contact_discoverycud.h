@@ -22,8 +22,8 @@ using namespace sc_dt;
 struct contact_discoverycud_ram : public sc_core::sc_module {
 
   static const unsigned DataWidth = 8;
-  static const unsigned AddressRange = 960000;
-  static const unsigned AddressWidth = 20;
+  static const unsigned AddressRange = 480000;
+  static const unsigned AddressWidth = 19;
 
 //latency = 1
 //input_reg = 1
@@ -44,7 +44,7 @@ sc_lv<DataWidth> ram[AddressRange];
 
 
    SC_CTOR(contact_discoverycud_ram) {
-        for (unsigned i = 0; i < 960000; i = i + 1) {
+        for (unsigned i = 0; i < 480000; i = i + 1) {
             ram[i] = 0;
         }
 
@@ -101,8 +101,8 @@ SC_MODULE(contact_discoverycud) {
 
 
 static const unsigned DataWidth = 8;
-static const unsigned AddressRange = 960000;
-static const unsigned AddressWidth = 20;
+static const unsigned AddressRange = 480000;
+static const unsigned AddressWidth = 19;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;

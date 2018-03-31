@@ -15,7 +15,7 @@
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
 #define DATABASE_SIZE 1500
-#define DATABASE_MAX 15000
+#define DATABASE_MAX 7500
 
 extern void contact_discovery(
 		int operation,

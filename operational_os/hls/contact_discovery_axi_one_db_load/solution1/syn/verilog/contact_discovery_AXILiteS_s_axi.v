@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module contact_discovery_AXILiteS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 16,
+    C_S_AXI_ADDR_WIDTH = 15,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -46,7 +46,7 @@ module contact_discovery_AXILiteS_s_axi
     input  wire [5:0]                    database_in_address0,
     input  wire                          database_in_ce0,
     output wire [7:0]                    database_in_q0,
-    input  wire [13:0]                   matched_out_address0,
+    input  wire [12:0]                   matched_out_address0,
     input  wire                          matched_out_ce0,
     input  wire                          matched_out_we0,
     input  wire [0:0]                    matched_out_d0,
@@ -79,18 +79,18 @@ module contact_discovery_AXILiteS_s_axi
 // 0x0014 : Control signal of operation
 //          bit 0  - operation_ap_vld (Read/Write/SC)
 //          others - reserved
-// 0x8000 : Data signal of matched_finished
+// 0x4000 : Data signal of matched_finished
 //          bit 31~0 - matched_finished[31:0] (Read)
-// 0x8004 : reserved
-// 0x8008 : Data signal of error_out
+// 0x4004 : reserved
+// 0x4008 : Data signal of error_out
 //          bit 31~0 - error_out[31:0] (Read)
-// 0x800c : reserved
-// 0x8010 : Data signal of database_size_out
+// 0x400c : reserved
+// 0x4010 : Data signal of database_size_out
 //          bit 31~0 - database_size_out[31:0] (Read)
-// 0x8014 : reserved
-// 0x8018 : Data signal of contacts_size_out
+// 0x4014 : reserved
+// 0x4018 : Data signal of contacts_size_out
 //          bit 31~0 - contacts_size_out[31:0] (Read)
-// 0x801c : reserved
+// 0x401c : reserved
 // 0x0040 ~
 // 0x007f : Memory 'contact_in' (64 * 8b)
 //          Word n : bit [ 7: 0] - contact_in[4n]
@@ -103,8 +103,8 @@ module contact_discovery_AXILiteS_s_axi
 //                   bit [15: 8] - database_in[4n+1]
 //                   bit [23:16] - database_in[4n+2]
 //                   bit [31:24] - database_in[4n+3]
-// 0x4000 ~
-// 0x7fff : Memory 'matched_out' (15000 * 1b)
+// 0x2000 ~
+// 0x3fff : Memory 'matched_out' (7500 * 1b)
 //          Word n : bit [ 0: 0] - matched_out[4n]
 //                   bit [ 8: 8] - matched_out[4n+1]
 //                   bit [16:16] - matched_out[4n+2]
@@ -114,26 +114,26 @@ module contact_discovery_AXILiteS_s_axi
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL                  = 16'h0000,
-    ADDR_GIE                      = 16'h0004,
-    ADDR_IER                      = 16'h0008,
-    ADDR_ISR                      = 16'h000c,
-    ADDR_OPERATION_DATA_0         = 16'h0010,
-    ADDR_OPERATION_CTRL           = 16'h0014,
-    ADDR_MATCHED_FINISHED_DATA_0  = 16'h8000,
-    ADDR_MATCHED_FINISHED_CTRL    = 16'h8004,
-    ADDR_ERROR_OUT_DATA_0         = 16'h8008,
-    ADDR_ERROR_OUT_CTRL           = 16'h800c,
-    ADDR_DATABASE_SIZE_OUT_DATA_0 = 16'h8010,
-    ADDR_DATABASE_SIZE_OUT_CTRL   = 16'h8014,
-    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 16'h8018,
-    ADDR_CONTACTS_SIZE_OUT_CTRL   = 16'h801c,
-    ADDR_CONTACT_IN_BASE          = 16'h0040,
-    ADDR_CONTACT_IN_HIGH          = 16'h007f,
-    ADDR_DATABASE_IN_BASE         = 16'h0080,
-    ADDR_DATABASE_IN_HIGH         = 16'h00bf,
-    ADDR_MATCHED_OUT_BASE         = 16'h4000,
-    ADDR_MATCHED_OUT_HIGH         = 16'h7fff,
+    ADDR_AP_CTRL                  = 15'h0000,
+    ADDR_GIE                      = 15'h0004,
+    ADDR_IER                      = 15'h0008,
+    ADDR_ISR                      = 15'h000c,
+    ADDR_OPERATION_DATA_0         = 15'h0010,
+    ADDR_OPERATION_CTRL           = 15'h0014,
+    ADDR_MATCHED_FINISHED_DATA_0  = 15'h4000,
+    ADDR_MATCHED_FINISHED_CTRL    = 15'h4004,
+    ADDR_ERROR_OUT_DATA_0         = 15'h4008,
+    ADDR_ERROR_OUT_CTRL           = 15'h400c,
+    ADDR_DATABASE_SIZE_OUT_DATA_0 = 15'h4010,
+    ADDR_DATABASE_SIZE_OUT_CTRL   = 15'h4014,
+    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 15'h4018,
+    ADDR_CONTACTS_SIZE_OUT_CTRL   = 15'h401c,
+    ADDR_CONTACT_IN_BASE          = 15'h0040,
+    ADDR_CONTACT_IN_HIGH          = 15'h007f,
+    ADDR_DATABASE_IN_BASE         = 15'h0080,
+    ADDR_DATABASE_IN_HIGH         = 15'h00bf,
+    ADDR_MATCHED_OUT_BASE         = 15'h2000,
+    ADDR_MATCHED_OUT_HIGH         = 15'h3fff,
     WRIDLE                        = 2'd0,
     WRDATA                        = 2'd1,
     WRRESP                        = 2'd2,
@@ -141,7 +141,7 @@ localparam
     RDIDLE                        = 2'd0,
     RDDATA                        = 2'd1,
     RDRESET                       = 2'd2,
-    ADDR_BITS         = 16;
+    ADDR_BITS         = 15;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -201,13 +201,13 @@ localparam
     reg                           int_database_in_read;
     reg                           int_database_in_write;
     reg  [1:0]                    int_database_in_shift;
-    wire [11:0]                   int_matched_out_address0;
+    wire [10:0]                   int_matched_out_address0;
     wire                          int_matched_out_ce0;
     wire                          int_matched_out_we0;
     wire [3:0]                    int_matched_out_be0;
     wire [31:0]                   int_matched_out_d0;
     wire [31:0]                   int_matched_out_q0;
-    wire [11:0]                   int_matched_out_address1;
+    wire [10:0]                   int_matched_out_address1;
     wire                          int_matched_out_ce1;
     wire                          int_matched_out_we1;
     wire [3:0]                    int_matched_out_be1;
@@ -261,7 +261,7 @@ contact_discovery_AXILiteS_s_axi_ram #(
 // int_matched_out
 contact_discovery_AXILiteS_s_axi_ram #(
     .BYTES    ( 4 ),
-    .DEPTH    ( 3750 )
+    .DEPTH    ( 1875 )
 ) int_matched_out (
     .clk0     ( ACLK ),
     .address0 ( int_matched_out_address0 ),
@@ -591,7 +591,7 @@ assign int_matched_out_ce0      = matched_out_ce0;
 assign int_matched_out_we0      = matched_out_we0;
 assign int_matched_out_be0      = 1 << matched_out_address0[1:0];
 assign int_matched_out_d0       = {4{7'd0, matched_out_d0}};
-assign int_matched_out_address1 = ar_hs? raddr[13:2] : waddr[13:2];
+assign int_matched_out_address1 = ar_hs? raddr[12:2] : waddr[12:2];
 assign int_matched_out_ce1      = ar_hs | (int_matched_out_write & WVALID);
 assign int_matched_out_we1      = int_matched_out_write & WVALID;
 assign int_matched_out_be1      = WSTRB;

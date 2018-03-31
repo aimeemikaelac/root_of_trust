@@ -2,14 +2,14 @@
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@results = internal unnamed_addr global [15000 x i1] zeroinitializer, align 16 ; [#uses=2 type=[15000 x i1]*]
+@results = internal unnamed_addr global [7500 x i1] zeroinitializer, align 16 ; [#uses=2 type=[7500 x i1]*]
 @database_size = internal unnamed_addr global i32 0, align 4 ; [#uses=10 type=i32*]
-@database = internal global [960000 x i8] zeroinitializer, align 16 ; [#uses=2 type=[960000 x i8]*]
+@database = internal global [480000 x i8] zeroinitializer, align 16 ; [#uses=2 type=[480000 x i8]*]
 @contacts_size = internal unnamed_addr global i32 0, align 4 ; [#uses=9 type=i32*]
 @contacts = internal global [8192 x i8] zeroinitializer, align 16 ; [#uses=2 type=[8192 x i8]*]
 @contact_discovery.str = internal unnamed_addr constant [18 x i8] c"contact_discovery\00" ; [#uses=1 type=[18 x i8]*]
-@.str5 = private unnamed_addr constant [12 x i8] c"hls_label_1\00", align 1 ; [#uses=1 type=[12 x i8]*]
-@.str4 = private unnamed_addr constant [12 x i8] c"hls_label_0\00", align 1 ; [#uses=1 type=[12 x i8]*]
+@.str5 = private unnamed_addr constant [12 x i8] c"hls_label_0\00", align 1 ; [#uses=1 type=[12 x i8]*]
+@.str4 = private unnamed_addr constant [12 x i8] c"hls_label_1\00", align 1 ; [#uses=1 type=[12 x i8]*]
 @.str3 = private unnamed_addr constant [8 x i8] c"ap_none\00", align 1 ; [#uses=1 type=[8 x i8]*]
 @.str2 = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1 ; [#uses=1 type=[10 x i8]*]
 @.str1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=1 type=[1 x i8]*]
@@ -59,7 +59,7 @@ define internal fastcc void @match_db_contact(i32 %database_index) nounwind uwta
 ; <label>:4                                       ; preds = %.preheader
   %matched.0.lcssa = phi i1 [ %matched, %.preheader ] ; [#uses=1 type=i1]
   %tmp.3 = sext i32 %database_index to i64, !dbg !88 ; [#uses=1 type=i64] [debug line = 61:2]
-  %results.addr = getelementptr inbounds [15000 x i1]* @results, i64 0, i64 %tmp.3, !dbg !88 ; [#uses=1 type=i1*] [debug line = 61:2]
+  %results.addr = getelementptr inbounds [7500 x i1]* @results, i64 0, i64 %tmp.3, !dbg !88 ; [#uses=1 type=i1*] [debug line = 61:2]
   store i1 %matched.0.lcssa, i1* %results.addr, align 1, !dbg !88 ; [debug line = 61:2]
   ret void, !dbg !89                              ; [debug line = 62:1]
 }
@@ -83,7 +83,7 @@ define void @contact_discovery(i32 %operation, i8* %contact_in, i8* %database_in
   call void @llvm.dbg.value(metadata !{i32* %contacts_size_out}, i64 0, metadata !104), !dbg !105 ; [debug line = 74:7] [debug variable = contacts_size_out]
   call void (...)* @_ssdm_SpecArrayDimSize(i8* %contact_in, i32 64) nounwind, !dbg !106 ; [debug line = 75:3]
   call void (...)* @_ssdm_SpecArrayDimSize(i8* %database_in, i32 64) nounwind, !dbg !108 ; [debug line = 75:41]
-  call void (...)* @_ssdm_SpecArrayDimSize(i1* %matched_out, i32 15000) nounwind, !dbg !109 ; [debug line = 75:80]
+  call void (...)* @_ssdm_SpecArrayDimSize(i1* %matched_out, i32 7500) nounwind, !dbg !109 ; [debug line = 75:80]
   call void (...)* @_ssdm_op_SpecInterface(i32 %operation, i8* getelementptr inbounds ([7 x i8]* @.str, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !110 ; [debug line = 78:1]
   call void (...)* @_ssdm_op_SpecInterface(i32 0, i8* getelementptr inbounds ([10 x i8]* @.str2, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !111 ; [debug line = 79:1]
   call void (...)* @_ssdm_op_SpecInterface(i32* %matched_finished, i8* getelementptr inbounds ([8 x i8]* @.str3, i64 0, i64 0), i32 1, i32 1, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !112 ; [debug line = 80:1]
@@ -141,7 +141,7 @@ define void @contact_discovery(i32 %operation, i8* %contact_in, i8* %database_in
   store i32 0, i32* %matched_finished, align 4, !dbg !139 ; [debug line = 120:4]
   store i32 0, i32* %error_out, align 4, !dbg !140 ; [debug line = 121:4]
   %database_size.load.2 = load i32* @database_size, align 4, !dbg !141 ; [#uses=2 type=i32] [debug line = 122:4]
-  %tmp.7 = icmp sgt i32 %database_size.load.2, 14999, !dbg !141 ; [#uses=1 type=i1] [debug line = 122:4]
+  %tmp.7 = icmp sgt i32 %database_size.load.2, 7499, !dbg !141 ; [#uses=1 type=i1] [debug line = 122:4]
   br i1 %tmp.7, label %6, label %7, !dbg !141     ; [debug line = 122:4]
 
 ; <label>:6                                       ; preds = %5
@@ -152,7 +152,7 @@ define void @contact_discovery(i32 %operation, i8* %contact_in, i8* %database_in
 ; <label>:7                                       ; preds = %5
   %tmp.11 = shl nsw i32 %database_size.load.2, 6, !dbg !146 ; [#uses=1 type=i32] [debug line = 126:5]
   %tmp.12 = sext i32 %tmp.11 to i64, !dbg !146    ; [#uses=1 type=i64] [debug line = 126:5]
-  %database.addr = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp.12, !dbg !146 ; [#uses=1 type=i8*] [debug line = 126:5]
+  %database.addr = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp.12, !dbg !146 ; [#uses=1 type=i8*] [debug line = 126:5]
   call fastcc void @_memcpy(i8* %database.addr, i8* %database_in), !dbg !146 ; [debug line = 126:5]
   %database_size.load.7 = load i32* @database_size, align 4, !dbg !148 ; [#uses=1 type=i32] [debug line = 127:5]
   %tmp.13 = add nsw i32 %database_size.load.7, 1, !dbg !148 ; [#uses=2 type=i32] [debug line = 127:5]
@@ -175,39 +175,39 @@ define void @contact_discovery(i32 %operation, i8* %contact_in, i8* %database_in
 
 ; <label>:10                                      ; preds = %11, %9
   %database_index = phi i32 [ 0, %9 ], [ %database_index.1, %11 ] ; [#uses=3 type=i32]
-  %exitcond2 = icmp eq i32 %database_index, 15000, !dbg !154 ; [#uses=1 type=i1] [debug line = 141:8]
+  %exitcond2 = icmp eq i32 %database_index, 7500, !dbg !154 ; [#uses=1 type=i1] [debug line = 141:8]
   br i1 %exitcond2, label %.preheader.preheader, label %11, !dbg !154 ; [debug line = 141:8]
 
 .preheader.preheader:                             ; preds = %10
   br label %.preheader, !dbg !156                 ; [debug line = 158:8]
 
 ; <label>:11                                      ; preds = %10
-  %rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str4, i64 0, i64 0)) nounwind, !dbg !158 ; [#uses=1 type=i32] [debug line = 141:70]
+  %rbegin3 = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str4, i64 0, i64 0)) nounwind, !dbg !158 ; [#uses=1 type=i32] [debug line = 141:69]
   call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !160 ; [debug line = 142:1]
   call fastcc void @match_db_contact(i32 %database_index), !dbg !161 ; [debug line = 156:5]
-  %rend = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str4, i64 0, i64 0), i32 %rbegin) nounwind, !dbg !162 ; [#uses=0 type=i32] [debug line = 157:4]
-  %database_index.1 = add nsw i32 %database_index, 1, !dbg !163 ; [#uses=1 type=i32] [debug line = 141:52]
-  call void @llvm.dbg.value(metadata !{i32 %database_index.1}, i64 0, metadata !164), !dbg !163 ; [debug line = 141:52] [debug variable = database_index]
-  br label %10, !dbg !163                         ; [debug line = 141:52]
+  %rend4 = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str4, i64 0, i64 0), i32 %rbegin3) nounwind, !dbg !162 ; [#uses=0 type=i32] [debug line = 157:4]
+  %database_index.1 = add nsw i32 %database_index, 1, !dbg !163 ; [#uses=1 type=i32] [debug line = 141:51]
+  call void @llvm.dbg.value(metadata !{i32 %database_index.1}, i64 0, metadata !164), !dbg !163 ; [debug line = 141:51] [debug variable = database_index]
+  br label %10, !dbg !163                         ; [debug line = 141:51]
 
 .preheader:                                       ; preds = %12, %.preheader.preheader
   %i = phi i32 [ %i.1, %12 ], [ 0, %.preheader.preheader ] ; [#uses=3 type=i32]
-  %exitcond = icmp eq i32 %i, 15000, !dbg !156    ; [#uses=1 type=i1] [debug line = 158:8]
+  %exitcond = icmp eq i32 %i, 7500, !dbg !156     ; [#uses=1 type=i1] [debug line = 158:8]
   br i1 %exitcond, label %13, label %12, !dbg !156 ; [debug line = 158:8]
 
 ; <label>:12                                      ; preds = %.preheader
-  %rbegin3 = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str5, i64 0, i64 0)) nounwind, !dbg !165 ; [#uses=1 type=i32] [debug line = 158:27]
+  %rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin(i8* getelementptr inbounds ([12 x i8]* @.str5, i64 0, i64 0)) nounwind, !dbg !165 ; [#uses=1 type=i32] [debug line = 158:26]
   call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !167 ; [debug line = 159:1]
   %tmp.15 = sext i32 %i to i64, !dbg !168         ; [#uses=2 type=i64] [debug line = 160:2]
-  %results.addr = getelementptr inbounds [15000 x i1]* @results, i64 0, i64 %tmp.15, !dbg !168 ; [#uses=1 type=i1*] [debug line = 160:2]
+  %results.addr = getelementptr inbounds [7500 x i1]* @results, i64 0, i64 %tmp.15, !dbg !168 ; [#uses=1 type=i1*] [debug line = 160:2]
   %results.load = load i1* %results.addr, align 1, !dbg !168 ; [#uses=2 type=i1] [debug line = 160:2]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i1 %results.load) nounwind
   %matched_out.addr = getelementptr inbounds i1* %matched_out, i64 %tmp.15, !dbg !168 ; [#uses=1 type=i1*] [debug line = 160:2]
   store i1 %results.load, i1* %matched_out.addr, align 1, !dbg !168 ; [debug line = 160:2]
-  %rend4 = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str5, i64 0, i64 0), i32 %rbegin3) nounwind, !dbg !169 ; [#uses=0 type=i32] [debug line = 161:4]
-  %i.1 = add nsw i32 %i, 1, !dbg !170             ; [#uses=1 type=i32] [debug line = 158:22]
-  call void @llvm.dbg.value(metadata !{i32 %i.1}, i64 0, metadata !171), !dbg !170 ; [debug line = 158:22] [debug variable = i]
-  br label %.preheader, !dbg !170                 ; [debug line = 158:22]
+  %rend = call i32 (...)* @_ssdm_op_SpecRegionEnd(i8* getelementptr inbounds ([12 x i8]* @.str5, i64 0, i64 0), i32 %rbegin) nounwind, !dbg !169 ; [#uses=0 type=i32] [debug line = 161:4]
+  %i.1 = add nsw i32 %i, 1, !dbg !170             ; [#uses=1 type=i32] [debug line = 158:21]
+  call void @llvm.dbg.value(metadata !{i32 %i.1}, i64 0, metadata !171), !dbg !170 ; [debug line = 158:21] [debug variable = i]
+  br label %.preheader, !dbg !170                 ; [debug line = 158:21]
 
 ; <label>:13                                      ; preds = %.preheader
   store i32 1, i32* %matched_finished, align 4, !dbg !172 ; [debug line = 162:4]
@@ -271,7 +271,7 @@ define internal fastcc zeroext i1 @compare(i32 %db_index, i32 %contacts_index) n
   call void (...)* @_ssdm_SpecKeepArrayLoad(i8 %contacts.load) nounwind
   %tmp.20 = add nsw i32 %i, %tmp.17, !dbg !202    ; [#uses=1 type=i32] [debug line = 37:3]
   %tmp.21 = sext i32 %tmp.20 to i64, !dbg !202    ; [#uses=1 type=i64] [debug line = 37:3]
-  %database.addr = getelementptr inbounds [960000 x i8]* @database, i64 0, i64 %tmp.21, !dbg !202 ; [#uses=1 type=i8*] [debug line = 37:3]
+  %database.addr = getelementptr inbounds [480000 x i8]* @database, i64 0, i64 %tmp.21, !dbg !202 ; [#uses=1 type=i8*] [debug line = 37:3]
   %database.load = load i8* %database.addr, align 1, !dbg !202 ; [#uses=2 type=i8] [debug line = 37:3]
   call void (...)* @_ssdm_SpecKeepArrayLoad(i8 %database.load) nounwind
   %tmp.22 = icmp eq i8 %contacts.load, %database.load, !dbg !202 ; [#uses=1 type=i1] [debug line = 37:3]
@@ -386,14 +386,14 @@ define internal fastcc void @_memcpy(i8* %dest, i8* %src) nounwind uwtable {
 !28 = metadata !{metadata !29, metadata !30, metadata !31, metadata !35, metadata !39}
 !29 = metadata !{i32 786484, i32 0, null, metadata !"database_size", metadata !"database_size", metadata !"_ZL13database_size", metadata !7, i32 11, metadata !12, i32 1, i32 1, i32* @database_size} ; [ DW_TAG_variable ]
 !30 = metadata !{i32 786484, i32 0, null, metadata !"contacts_size", metadata !"contacts_size", metadata !"_ZL13contacts_size", metadata !7, i32 10, metadata !12, i32 1, i32 1, i32* @contacts_size} ; [ DW_TAG_variable ]
-!31 = metadata !{i32 786484, i32 0, null, metadata !"results", metadata !"results", metadata !"_ZL7results", metadata !7, i32 9, metadata !32, i32 1, i32 1, [15000 x i1]* @results} ; [ DW_TAG_variable ]
-!32 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 120000, i64 8, i32 0, i32 0, metadata !18, metadata !33, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!31 = metadata !{i32 786484, i32 0, null, metadata !"results", metadata !"results", metadata !"_ZL7results", metadata !7, i32 9, metadata !32, i32 1, i32 1, [7500 x i1]* @results} ; [ DW_TAG_variable ]
+!32 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 60000, i64 8, i32 0, i32 0, metadata !18, metadata !33, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !33 = metadata !{metadata !34}
-!34 = metadata !{i32 786465, i64 0, i64 14999}    ; [ DW_TAG_subrange_type ]
-!35 = metadata !{i32 786484, i32 0, null, metadata !"database", metadata !"database", metadata !"_ZL8database", metadata !7, i32 7, metadata !36, i32 1, i32 1, [960000 x i8]* @database} ; [ DW_TAG_variable ]
-!36 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 7680000, i64 8, i32 0, i32 0, metadata !11, metadata !37, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!34 = metadata !{i32 786465, i64 0, i64 7499}     ; [ DW_TAG_subrange_type ]
+!35 = metadata !{i32 786484, i32 0, null, metadata !"database", metadata !"database", metadata !"_ZL8database", metadata !7, i32 7, metadata !36, i32 1, i32 1, [480000 x i8]* @database} ; [ DW_TAG_variable ]
+!36 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 3840000, i64 8, i32 0, i32 0, metadata !11, metadata !37, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !37 = metadata !{metadata !38}
-!38 = metadata !{i32 786465, i64 0, i64 959999}   ; [ DW_TAG_subrange_type ]
+!38 = metadata !{i32 786465, i64 0, i64 479999}   ; [ DW_TAG_subrange_type ]
 !39 = metadata !{i32 786484, i32 0, null, metadata !"contacts", metadata !"contacts", metadata !"_ZL8contacts", metadata !7, i32 6, metadata !40, i32 1, i32 1, [8192 x i8]* @contacts} ; [ DW_TAG_variable ]
 !40 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 65536, i64 8, i32 0, i32 0, metadata !11, metadata !41, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !41 = metadata !{metadata !42}
@@ -498,7 +498,7 @@ define internal fastcc void @_memcpy(i8* %dest, i8* %src) nounwind uwtable {
 !140 = metadata !{i32 121, i32 4, metadata !126, null}
 !141 = metadata !{i32 122, i32 4, metadata !126, null}
 !142 = metadata !{i32 123, i32 5, metadata !143, null}
-!143 = metadata !{i32 786443, metadata !126, i32 122, i32 30, metadata !7, i32 17} ; [ DW_TAG_lexical_block ]
+!143 = metadata !{i32 786443, metadata !126, i32 122, i32 29, metadata !7, i32 17} ; [ DW_TAG_lexical_block ]
 !144 = metadata !{i32 124, i32 5, metadata !143, null}
 !145 = metadata !{i32 125, i32 4, metadata !143, null}
 !146 = metadata !{i32 126, i32 5, metadata !147, null}
@@ -513,19 +513,19 @@ define internal fastcc void @_memcpy(i8* %dest, i8* %src) nounwind uwtable {
 !155 = metadata !{i32 786443, metadata !126, i32 141, i32 4, metadata !7, i32 19} ; [ DW_TAG_lexical_block ]
 !156 = metadata !{i32 158, i32 8, metadata !157, null}
 !157 = metadata !{i32 786443, metadata !126, i32 158, i32 4, metadata !7, i32 21} ; [ DW_TAG_lexical_block ]
-!158 = metadata !{i32 141, i32 70, metadata !159, null}
-!159 = metadata !{i32 786443, metadata !155, i32 141, i32 69, metadata !7, i32 20} ; [ DW_TAG_lexical_block ]
+!158 = metadata !{i32 141, i32 69, metadata !159, null}
+!159 = metadata !{i32 786443, metadata !155, i32 141, i32 68, metadata !7, i32 20} ; [ DW_TAG_lexical_block ]
 !160 = metadata !{i32 142, i32 1, metadata !159, null}
 !161 = metadata !{i32 156, i32 5, metadata !159, null}
 !162 = metadata !{i32 157, i32 4, metadata !159, null}
-!163 = metadata !{i32 141, i32 52, metadata !155, null}
+!163 = metadata !{i32 141, i32 51, metadata !155, null}
 !164 = metadata !{i32 786688, metadata !107, metadata !"database_index", metadata !7, i32 92, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!165 = metadata !{i32 158, i32 27, metadata !166, null}
-!166 = metadata !{i32 786443, metadata !157, i32 158, i32 26, metadata !7, i32 22} ; [ DW_TAG_lexical_block ]
+!165 = metadata !{i32 158, i32 26, metadata !166, null}
+!166 = metadata !{i32 786443, metadata !157, i32 158, i32 25, metadata !7, i32 22} ; [ DW_TAG_lexical_block ]
 !167 = metadata !{i32 159, i32 1, metadata !166, null}
 !168 = metadata !{i32 160, i32 2, metadata !166, null}
 !169 = metadata !{i32 161, i32 4, metadata !166, null}
-!170 = metadata !{i32 158, i32 22, metadata !157, null}
+!170 = metadata !{i32 158, i32 21, metadata !157, null}
 !171 = metadata !{i32 786688, metadata !107, metadata !"i", metadata !7, i32 92, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !172 = metadata !{i32 162, i32 4, metadata !126, null}
 !173 = metadata !{i32 163, i32 4, metadata !126, null}

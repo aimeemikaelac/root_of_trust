@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Fri Mar 30 16:43:21 2018
+<item name = "Date">Fri Mar 30 20:08:49 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
-<item name = "Project">contact_discovery_axi</item>
+<item name = "Project">contact_discovery_axi_one_db_load</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
 <item name = "Target device">xczu9eg-ffvb1156-1-i</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">2, 126780005, 3, 126780006, none</column>
+<column name="">2, 63390005, 3, 63390006, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -37,8 +37,8 @@
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">128, 128, 2, -, -, 64, no</column>
 <column name="- Loop 2">128, 128, 2, -, -, 64, no</column>
-<column name="- Loop 3">126750000, 126750000, 4225, -, -, 30000, no</column>
-<column name="- Loop 4">30000, 30000, 2, 1, 1, 30000, yes</column>
+<column name="- Loop 3">63375000, 63375000, 4225, -, -, 15000, no</column>
+<column name="- Loop 4">15000, 15000, 2, 1, 1, 15000, yes</column>
 </table>
 </item>
 </section>

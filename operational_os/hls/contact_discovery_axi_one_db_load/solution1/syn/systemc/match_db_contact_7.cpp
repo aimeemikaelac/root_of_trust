@@ -18652,7 +18652,7 @@ void match_db_contact::thread_grp_compare_fu_288_contacts_index() {
 }
 
 void match_db_contact::thread_results_address0() {
-    results_address0 =  (sc_lv<15>) (tmp_3_fu_1063_p1.read());
+    results_address0 =  (sc_lv<14>) (tmp_3_fu_1063_p1.read());
 }
 
 void match_db_contact::thread_results_ce0() {
@@ -19180,7 +19180,7 @@ void match_db_contact::thread_tmp9_fu_441_p2() {
 }
 
 void match_db_contact::thread_tmp_3_fu_1063_p1() {
-    tmp_3_fu_1063_p1 = esl_zext<64,15>(database_index.read());
+    tmp_3_fu_1063_p1 = esl_zext<64,14>(database_index.read());
 }
 
 }

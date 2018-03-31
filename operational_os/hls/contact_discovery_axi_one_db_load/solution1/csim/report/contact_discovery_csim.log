@@ -1,6 +1,6 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../src/contact_discovery.cpp in debug mode
+   Compiling ../../../src/contact_discovery_tb.cpp in debug mode
    Generating csim.exe
 Generating numbers database
 Generating contacts
@@ -8,6 +8,6 @@ Checking initial conditions
 Populating contacts
 Populating database
 Starting matching
-Contacts match 128, unmatched 29872
+Contacts match 128, unmatched 1372
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

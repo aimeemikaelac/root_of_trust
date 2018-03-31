@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.619000,HLS_SYN_LAT=21130025,HLS_SYN_TPT=none,HLS_SYN_MEM=964,HLS_SYN_DSP=0,HLS_SYN_FF=5445,HLS_SYN_LUT=7365}" *)
+(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.619000,HLS_SYN_LAT=10565025,HLS_SYN_TPT=none,HLS_SYN_MEM=487,HLS_SYN_DSP=0,HLS_SYN_FF=5438,HLS_SYN_LUT=7297}" *)
 
 module contact_discovery (
         ap_clk,
@@ -50,7 +50,7 @@ parameter    ap_ST_fsm_state16 = 17'd16384;
 parameter    ap_ST_fsm_state17 = 17'd32768;
 parameter    ap_ST_fsm_state18 = 17'd65536;
 parameter    C_S_AXI_AXILITES_DATA_WIDTH = 32;
-parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 17;
+parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 16;
 parameter    C_S_AXI_DATA_WIDTH = 32;
 
 parameter C_S_AXI_AXILITES_WSTRB_WIDTH = (32 / 8);
@@ -96,7 +96,7 @@ wire   [7:0] contact_in_q0;
 wire   [5:0] database_in_address0;
 reg    database_in_ce0;
 wire   [7:0] database_in_q0;
-wire   [14:0] matched_out_address0;
+wire   [13:0] matched_out_address0;
 reg    matched_out_ce0;
 reg    matched_out_we0;
 reg   [31:0] matched_finished_1_data_reg;
@@ -127,24 +127,24 @@ reg    contacts_we0;
 wire   [7:0] contacts_q0;
 reg    contacts_ce1;
 wire   [7:0] contacts_q1;
-reg   [20:0] database_address0;
+reg   [19:0] database_address0;
 reg    database_ce0;
 reg    database_we0;
 wire   [7:0] database_q0;
 reg    database_ce1;
 wire   [7:0] database_q1;
-reg   [14:0] results_address0;
+reg   [13:0] results_address0;
 reg    results_ce0;
 reg    results_we0;
 wire   [0:0] results_q0;
 reg    operation_blk_n;
-reg   [14:0] i_reg_245;
+reg   [13:0] i_reg_245;
 wire   [31:0] operation_read_read_fu_116_p2;
 reg    ap_block_state1;
 reg   [31:0] contacts_size_load_reg_493;
 reg   [31:0] database_size_load_reg_502;
-wire   [21:0] tmp_2_cast_fu_344_p3;
-reg   [21:0] tmp_2_cast_reg_514;
+wire   [20:0] tmp_2_cast_fu_344_p3;
+reg   [20:0] tmp_2_cast_reg_514;
 wire    ap_CS_fsm_state2;
 wire   [0:0] tmp_7_fu_336_p2;
 wire   [14:0] tmp_9_cast_fu_370_p3;
@@ -152,15 +152,15 @@ reg   [14:0] tmp_9_cast_reg_522;
 wire   [0:0] icmp_fu_361_p2;
 wire   [0:0] exitcond2_fu_378_p2;
 wire    ap_CS_fsm_state3;
-wire   [14:0] database_index_1_fu_384_p2;
-reg   [14:0] database_index_1_reg_531;
+wire   [13:0] database_index_1_fu_384_p2;
+reg   [13:0] database_index_1_reg_531;
 wire   [0:0] exitcond_fu_390_p2;
 reg   [0:0] exitcond_reg_536;
 wire    ap_CS_fsm_pp0_stage0;
 wire    ap_block_state5_pp0_stage0_iter0;
 wire    ap_block_state6_pp0_stage0_iter1;
 wire    ap_block_pp0_stage0_flag00011001;
-wire   [14:0] i_1_fu_396_p2;
+wire   [13:0] i_1_fu_396_p2;
 reg    ap_enable_reg_pp0_iter0;
 wire   [63:0] tmp_4_fu_402_p1;
 reg   [63:0] tmp_4_reg_545;
@@ -168,8 +168,8 @@ wire   [6:0] i_3_fu_413_p2;
 reg   [6:0] i_3_reg_558;
 wire    ap_CS_fsm_state9;
 wire   [0:0] exitcond_i5_fu_407_p2;
-wire   [21:0] sum_i9_fu_428_p2;
-reg   [21:0] sum_i9_reg_568;
+wire   [20:0] sum_i9_fu_428_p2;
+reg   [20:0] sum_i9_reg_568;
 wire   [31:0] tmp_3_fu_433_p2;
 wire   [6:0] i_2_fu_454_p2;
 reg   [6:0] i_2_reg_581;
@@ -189,15 +189,15 @@ wire   [12:0] grp_match_db_contact_fu_302_contacts_address0;
 wire    grp_match_db_contact_fu_302_contacts_ce0;
 wire   [12:0] grp_match_db_contact_fu_302_contacts_address1;
 wire    grp_match_db_contact_fu_302_contacts_ce1;
-wire   [20:0] grp_match_db_contact_fu_302_database_address0;
+wire   [19:0] grp_match_db_contact_fu_302_database_address0;
 wire    grp_match_db_contact_fu_302_database_ce0;
-wire   [20:0] grp_match_db_contact_fu_302_database_address1;
+wire   [19:0] grp_match_db_contact_fu_302_database_address1;
 wire    grp_match_db_contact_fu_302_database_ce1;
-wire   [14:0] grp_match_db_contact_fu_302_results_address0;
+wire   [13:0] grp_match_db_contact_fu_302_results_address0;
 wire    grp_match_db_contact_fu_302_results_ce0;
 wire    grp_match_db_contact_fu_302_results_we0;
 wire   [0:0] grp_match_db_contact_fu_302_results_d0;
-reg   [14:0] database_index_reg_233;
+reg   [13:0] database_index_reg_233;
 wire    ap_CS_fsm_state4;
 reg   [6:0] i_i4_reg_256;
 wire    ap_CS_fsm_state10;
@@ -216,10 +216,10 @@ wire  signed [63:0] sum_i_cast_fu_485_p1;
 wire    ap_CS_fsm_state7;
 wire    ap_CS_fsm_state17;
 wire    ap_CS_fsm_state12;
-wire   [15:0] tmp_128_fu_341_p1;
+wire   [14:0] tmp_128_fu_341_p1;
 wire   [24:0] tmp_fu_352_p4;
 wire   [8:0] tmp_127_fu_367_p1;
-wire   [21:0] tmp_i6_cast_fu_424_p1;
+wire   [20:0] tmp_i6_cast_fu_424_p1;
 wire   [14:0] tmp_i_cast_fu_465_p1;
 wire    ap_CS_fsm_state8;
 reg    ap_block_state8;
@@ -266,8 +266,8 @@ contacts_U(
 
 contact_discoverycud #(
     .DataWidth( 8 ),
-    .AddressRange( 1920000 ),
-    .AddressWidth( 21 ))
+    .AddressRange( 960000 ),
+    .AddressWidth( 20 ))
 database_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -283,8 +283,8 @@ database_U(
 
 contact_discoverydEe #(
     .DataWidth( 1 ),
-    .AddressRange( 30000 ),
-    .AddressWidth( 15 ))
+    .AddressRange( 15000 ),
+    .AddressWidth( 14 ))
 results_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -448,7 +448,7 @@ always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state4) & (grp_match_db_contact_fu_302_ap_done == 1'b1))) begin
         database_index_reg_233 <= database_index_1_reg_531;
     end else if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_116_p2 == 32'd2))) begin
-        database_index_reg_233 <= 15'd0;
+        database_index_reg_233 <= 14'd0;
     end
 end
 
@@ -478,7 +478,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state3) & (exitcond2_fu_378_p2 == 1'd1))) begin
-        i_reg_245 <= 15'd0;
+        i_reg_245 <= 14'd0;
     end else if (((1'b1 == ap_CS_fsm_pp0_stage0) & (ap_block_pp0_stage0_flag00011001 == 1'b0) & (1'b1 == ap_enable_reg_pp0_iter0) & (1'd0 == exitcond_fu_390_p2))) begin
         i_reg_245 <= i_1_fu_396_p2;
     end
@@ -569,13 +569,13 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_116_p2 == 32'd1) & (tmp_7_fu_336_p2 == 1'd0))) begin
-        tmp_2_cast_reg_514[21 : 6] <= tmp_2_cast_fu_344_p3[21 : 6];
+        tmp_2_cast_reg_514[20 : 6] <= tmp_2_cast_fu_344_p3[20 : 6];
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_pp0_stage0) & (ap_block_pp0_stage0_flag00011001 == 1'b0) & (1'd0 == exitcond_fu_390_p2))) begin
-        tmp_4_reg_545[14 : 0] <= tmp_4_fu_402_p1[14 : 0];
+        tmp_4_reg_545[13 : 0] <= tmp_4_fu_402_p1[13 : 0];
     end
 end
 
@@ -1052,11 +1052,11 @@ assign contact_in_address0 = tmp_i_fu_460_p1;
 
 assign database_in_address0 = tmp_i6_fu_419_p1;
 
-assign database_index_1_fu_384_p2 = (database_index_reg_233 + 15'd1);
+assign database_index_1_fu_384_p2 = (database_index_reg_233 + 14'd1);
 
-assign exitcond2_fu_378_p2 = ((database_index_reg_233 == 15'd30000) ? 1'b1 : 1'b0);
+assign exitcond2_fu_378_p2 = ((database_index_reg_233 == 14'd15000) ? 1'b1 : 1'b0);
 
-assign exitcond_fu_390_p2 = ((i_reg_245 == 15'd30000) ? 1'b1 : 1'b0);
+assign exitcond_fu_390_p2 = ((i_reg_245 == 14'd15000) ? 1'b1 : 1'b0);
 
 assign exitcond_i5_fu_407_p2 = ((i_i4_reg_256 == 7'd64) ? 1'b1 : 1'b0);
 
@@ -1064,7 +1064,7 @@ assign exitcond_i_fu_448_p2 = ((i_i_reg_279 == 7'd64) ? 1'b1 : 1'b0);
 
 assign grp_match_db_contact_fu_302_ap_start = ap_reg_grp_match_db_contact_fu_302_ap_start;
 
-assign i_1_fu_396_p2 = (i_reg_245 + 15'd1);
+assign i_1_fu_396_p2 = (i_reg_245 + 14'd1);
 
 assign i_2_fu_454_p2 = (i_i_reg_279 + 7'd1);
 
@@ -1086,7 +1086,7 @@ assign sum_i_fu_469_p2 = (tmp_i_cast_fu_465_p1 + tmp_9_cast_reg_522);
 
 assign tmp_127_fu_367_p1 = contacts_size_load_reg_493[8:0];
 
-assign tmp_128_fu_341_p1 = database_size_load_reg_502[15:0];
+assign tmp_128_fu_341_p1 = database_size_load_reg_502[14:0];
 
 assign tmp_2_cast_fu_344_p3 = {{tmp_128_fu_341_p1}, {6'd0}};
 
@@ -1094,7 +1094,7 @@ assign tmp_3_fu_433_p2 = (database_size_load_reg_502 + 32'd1);
 
 assign tmp_4_fu_402_p1 = i_reg_245;
 
-assign tmp_7_fu_336_p2 = (($signed(database_size_load_reg_502) > $signed(32'd29999)) ? 1'b1 : 1'b0);
+assign tmp_7_fu_336_p2 = (($signed(database_size_load_reg_502) > $signed(32'd14999)) ? 1'b1 : 1'b0);
 
 assign tmp_9_cast_fu_370_p3 = {{tmp_127_fu_367_p1}, {6'd0}};
 
@@ -1113,7 +1113,7 @@ assign tmp_s_fu_474_p2 = (contacts_size_load_reg_493 + 32'd1);
 always @ (posedge ap_clk) begin
     tmp_2_cast_reg_514[5:0] <= 6'b000000;
     tmp_9_cast_reg_522[5:0] <= 6'b000000;
-    tmp_4_reg_545[63:15] <= 49'b0000000000000000000000000000000000000000000000000;
+    tmp_4_reg_545[63:14] <= 50'b00000000000000000000000000000000000000000000000000;
 end
 
 endmodule //contact_discovery

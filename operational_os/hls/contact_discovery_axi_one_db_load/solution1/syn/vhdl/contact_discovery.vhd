@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity contact_discovery is
 generic (
-    C_S_AXI_AXILITES_ADDR_WIDTH : INTEGER := 17;
+    C_S_AXI_AXILITES_ADDR_WIDTH : INTEGER := 16;
     C_S_AXI_AXILITES_DATA_WIDTH : INTEGER := 32 );
 port (
     ap_clk : IN STD_LOGIC;
@@ -40,7 +40,7 @@ end;
 architecture behav of contact_discovery is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.619000,HLS_SYN_LAT=21130025,HLS_SYN_TPT=none,HLS_SYN_MEM=964,HLS_SYN_DSP=0,HLS_SYN_FF=5445,HLS_SYN_LUT=7365}";
+    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.619000,HLS_SYN_LAT=10565025,HLS_SYN_TPT=none,HLS_SYN_MEM=487,HLS_SYN_DSP=0,HLS_SYN_FF=5438,HLS_SYN_LUT=7297}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000001";
@@ -71,7 +71,7 @@ architecture behav of contact_discovery is
     constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv32_C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001100";
-    constant ap_const_lv15_0 : STD_LOGIC_VECTOR (14 downto 0) := "000000000000000";
+    constant ap_const_lv14_0 : STD_LOGIC_VECTOR (13 downto 0) := "00000000000000";
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
     constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
     constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
@@ -81,12 +81,12 @@ architecture behav of contact_discovery is
     constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
     constant ap_const_lv32_F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001111";
     constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
-    constant ap_const_lv32_752F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000111010100101111";
+    constant ap_const_lv32_3A97 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000011101010010111";
     constant ap_const_lv6_0 : STD_LOGIC_VECTOR (5 downto 0) := "000000";
     constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
     constant ap_const_lv25_0 : STD_LOGIC_VECTOR (24 downto 0) := "0000000000000000000000000";
-    constant ap_const_lv15_7530 : STD_LOGIC_VECTOR (14 downto 0) := "111010100110000";
-    constant ap_const_lv15_1 : STD_LOGIC_VECTOR (14 downto 0) := "000000000000001";
+    constant ap_const_lv14_3A98 : STD_LOGIC_VECTOR (13 downto 0) := "11101010011000";
+    constant ap_const_lv14_1 : STD_LOGIC_VECTOR (13 downto 0) := "00000000000001";
     constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
     constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
     constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
@@ -113,7 +113,7 @@ architecture behav of contact_discovery is
     signal database_in_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal database_in_ce0 : STD_LOGIC;
     signal database_in_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal matched_out_address0 : STD_LOGIC_VECTOR (14 downto 0);
+    signal matched_out_address0 : STD_LOGIC_VECTOR (13 downto 0);
     signal matched_out_ce0 : STD_LOGIC;
     signal matched_out_we0 : STD_LOGIC;
     signal matched_finished_1_data_reg : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
@@ -144,24 +144,24 @@ architecture behav of contact_discovery is
     signal contacts_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal contacts_ce1 : STD_LOGIC;
     signal contacts_q1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal database_address0 : STD_LOGIC_VECTOR (20 downto 0);
+    signal database_address0 : STD_LOGIC_VECTOR (19 downto 0);
     signal database_ce0 : STD_LOGIC;
     signal database_we0 : STD_LOGIC;
     signal database_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal database_ce1 : STD_LOGIC;
     signal database_q1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal results_address0 : STD_LOGIC_VECTOR (14 downto 0);
+    signal results_address0 : STD_LOGIC_VECTOR (13 downto 0);
     signal results_ce0 : STD_LOGIC;
     signal results_we0 : STD_LOGIC;
     signal results_q0 : STD_LOGIC_VECTOR (0 downto 0);
     signal operation_blk_n : STD_LOGIC;
-    signal i_reg_245 : STD_LOGIC_VECTOR (14 downto 0);
+    signal i_reg_245 : STD_LOGIC_VECTOR (13 downto 0);
     signal operation_read_read_fu_116_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_block_state1 : BOOLEAN;
     signal contacts_size_load_reg_493 : STD_LOGIC_VECTOR (31 downto 0);
     signal database_size_load_reg_502 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_2_cast_fu_344_p3 : STD_LOGIC_VECTOR (21 downto 0);
-    signal tmp_2_cast_reg_514 : STD_LOGIC_VECTOR (21 downto 0);
+    signal tmp_2_cast_fu_344_p3 : STD_LOGIC_VECTOR (20 downto 0);
+    signal tmp_2_cast_reg_514 : STD_LOGIC_VECTOR (20 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal tmp_7_fu_336_p2 : STD_LOGIC_VECTOR (0 downto 0);
@@ -171,8 +171,8 @@ architecture behav of contact_discovery is
     signal exitcond2_fu_378_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal database_index_1_fu_384_p2 : STD_LOGIC_VECTOR (14 downto 0);
-    signal database_index_1_reg_531 : STD_LOGIC_VECTOR (14 downto 0);
+    signal database_index_1_fu_384_p2 : STD_LOGIC_VECTOR (13 downto 0);
+    signal database_index_1_reg_531 : STD_LOGIC_VECTOR (13 downto 0);
     signal exitcond_fu_390_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal exitcond_reg_536 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm_pp0_stage0 : STD_LOGIC;
@@ -180,7 +180,7 @@ architecture behav of contact_discovery is
     signal ap_block_state5_pp0_stage0_iter0 : BOOLEAN;
     signal ap_block_state6_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_pp0_stage0_flag00011001 : BOOLEAN;
-    signal i_1_fu_396_p2 : STD_LOGIC_VECTOR (14 downto 0);
+    signal i_1_fu_396_p2 : STD_LOGIC_VECTOR (13 downto 0);
     signal ap_enable_reg_pp0_iter0 : STD_LOGIC := '0';
     signal tmp_4_fu_402_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal tmp_4_reg_545 : STD_LOGIC_VECTOR (63 downto 0);
@@ -189,8 +189,8 @@ architecture behav of contact_discovery is
     signal ap_CS_fsm_state9 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
     signal exitcond_i5_fu_407_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sum_i9_fu_428_p2 : STD_LOGIC_VECTOR (21 downto 0);
-    signal sum_i9_reg_568 : STD_LOGIC_VECTOR (21 downto 0);
+    signal sum_i9_fu_428_p2 : STD_LOGIC_VECTOR (20 downto 0);
+    signal sum_i9_reg_568 : STD_LOGIC_VECTOR (20 downto 0);
     signal tmp_3_fu_433_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal i_2_fu_454_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal i_2_reg_581 : STD_LOGIC_VECTOR (6 downto 0);
@@ -211,15 +211,15 @@ architecture behav of contact_discovery is
     signal grp_match_db_contact_fu_302_contacts_ce0 : STD_LOGIC;
     signal grp_match_db_contact_fu_302_contacts_address1 : STD_LOGIC_VECTOR (12 downto 0);
     signal grp_match_db_contact_fu_302_contacts_ce1 : STD_LOGIC;
-    signal grp_match_db_contact_fu_302_database_address0 : STD_LOGIC_VECTOR (20 downto 0);
+    signal grp_match_db_contact_fu_302_database_address0 : STD_LOGIC_VECTOR (19 downto 0);
     signal grp_match_db_contact_fu_302_database_ce0 : STD_LOGIC;
-    signal grp_match_db_contact_fu_302_database_address1 : STD_LOGIC_VECTOR (20 downto 0);
+    signal grp_match_db_contact_fu_302_database_address1 : STD_LOGIC_VECTOR (19 downto 0);
     signal grp_match_db_contact_fu_302_database_ce1 : STD_LOGIC;
-    signal grp_match_db_contact_fu_302_results_address0 : STD_LOGIC_VECTOR (14 downto 0);
+    signal grp_match_db_contact_fu_302_results_address0 : STD_LOGIC_VECTOR (13 downto 0);
     signal grp_match_db_contact_fu_302_results_ce0 : STD_LOGIC;
     signal grp_match_db_contact_fu_302_results_we0 : STD_LOGIC;
     signal grp_match_db_contact_fu_302_results_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal database_index_reg_233 : STD_LOGIC_VECTOR (14 downto 0);
+    signal database_index_reg_233 : STD_LOGIC_VECTOR (13 downto 0);
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
     signal i_i4_reg_256 : STD_LOGIC_VECTOR (6 downto 0);
@@ -246,10 +246,10 @@ architecture behav of contact_discovery is
     attribute fsm_encoding of ap_CS_fsm_state17 : signal is "none";
     signal ap_CS_fsm_state12 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state12 : signal is "none";
-    signal tmp_128_fu_341_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal tmp_128_fu_341_p1 : STD_LOGIC_VECTOR (14 downto 0);
     signal tmp_fu_352_p4 : STD_LOGIC_VECTOR (24 downto 0);
     signal tmp_127_fu_367_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_i6_cast_fu_424_p1 : STD_LOGIC_VECTOR (21 downto 0);
+    signal tmp_i6_cast_fu_424_p1 : STD_LOGIC_VECTOR (20 downto 0);
     signal tmp_i_cast_fu_465_p1 : STD_LOGIC_VECTOR (14 downto 0);
     signal ap_CS_fsm_state8 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
@@ -266,20 +266,20 @@ architecture behav of contact_discovery is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        database_index : IN STD_LOGIC_VECTOR (14 downto 0);
+        database_index : IN STD_LOGIC_VECTOR (13 downto 0);
         contacts_address0 : OUT STD_LOGIC_VECTOR (12 downto 0);
         contacts_ce0 : OUT STD_LOGIC;
         contacts_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         contacts_address1 : OUT STD_LOGIC_VECTOR (12 downto 0);
         contacts_ce1 : OUT STD_LOGIC;
         contacts_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
-        database_address0 : OUT STD_LOGIC_VECTOR (20 downto 0);
+        database_address0 : OUT STD_LOGIC_VECTOR (19 downto 0);
         database_ce0 : OUT STD_LOGIC;
         database_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        database_address1 : OUT STD_LOGIC_VECTOR (20 downto 0);
+        database_address1 : OUT STD_LOGIC_VECTOR (19 downto 0);
         database_ce1 : OUT STD_LOGIC;
         database_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
-        results_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
+        results_address0 : OUT STD_LOGIC_VECTOR (13 downto 0);
         results_ce0 : OUT STD_LOGIC;
         results_we0 : OUT STD_LOGIC;
         results_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
@@ -313,12 +313,12 @@ architecture behav of contact_discovery is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (20 downto 0);
+        address0 : IN STD_LOGIC_VECTOR (19 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (7 downto 0);
         q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        address1 : IN STD_LOGIC_VECTOR (20 downto 0);
+        address1 : IN STD_LOGIC_VECTOR (19 downto 0);
         ce1 : IN STD_LOGIC;
         q1 : OUT STD_LOGIC_VECTOR (7 downto 0) );
     end component;
@@ -332,7 +332,7 @@ architecture behav of contact_discovery is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        address0 : IN STD_LOGIC_VECTOR (13 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (0 downto 0);
@@ -378,7 +378,7 @@ architecture behav of contact_discovery is
         database_in_address0 : IN STD_LOGIC_VECTOR (5 downto 0);
         database_in_ce0 : IN STD_LOGIC;
         database_in_q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        matched_out_address0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        matched_out_address0 : IN STD_LOGIC_VECTOR (13 downto 0);
         matched_out_ce0 : IN STD_LOGIC;
         matched_out_we0 : IN STD_LOGIC;
         matched_out_d0 : IN STD_LOGIC_VECTOR (0 downto 0);
@@ -411,8 +411,8 @@ begin
     database_U : component contact_discoverycud
     generic map (
         DataWidth => 8,
-        AddressRange => 1920000,
-        AddressWidth => 21)
+        AddressRange => 960000,
+        AddressWidth => 20)
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -428,8 +428,8 @@ begin
     results_U : component contact_discoverydEe
     generic map (
         DataWidth => 1,
-        AddressRange => 30000,
-        AddressWidth => 15)
+        AddressRange => 15000,
+        AddressWidth => 14)
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -631,7 +631,7 @@ begin
             if (((ap_const_logic_1 = ap_CS_fsm_state4) and (grp_match_db_contact_fu_302_ap_done = ap_const_logic_1))) then 
                 database_index_reg_233 <= database_index_1_reg_531;
             elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_116_p2 = ap_const_lv32_2))) then 
-                database_index_reg_233 <= ap_const_lv15_0;
+                database_index_reg_233 <= ap_const_lv14_0;
             end if; 
         end if;
     end process;
@@ -685,7 +685,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state3) and (exitcond2_fu_378_p2 = ap_const_lv1_1))) then 
-                i_reg_245 <= ap_const_lv15_0;
+                i_reg_245 <= ap_const_lv14_0;
             elsif (((ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_block_pp0_stage0_flag00011001 = ap_const_boolean_0) and (ap_const_logic_1 = ap_enable_reg_pp0_iter0) and (ap_const_lv1_0 = exitcond_fu_390_p2))) then 
                 i_reg_245 <= i_1_fu_396_p2;
             end if; 
@@ -812,7 +812,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_116_p2 = ap_const_lv32_1) and (tmp_7_fu_336_p2 = ap_const_lv1_0))) then
-                    tmp_2_cast_reg_514(21 downto 6) <= tmp_2_cast_fu_344_p3(21 downto 6);
+                    tmp_2_cast_reg_514(20 downto 6) <= tmp_2_cast_fu_344_p3(20 downto 6);
             end if;
         end if;
     end process;
@@ -820,7 +820,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_block_pp0_stage0_flag00011001 = ap_const_boolean_0) and (ap_const_lv1_0 = exitcond_fu_390_p2))) then
-                    tmp_4_reg_545(14 downto 0) <= tmp_4_fu_402_p1(14 downto 0);
+                    tmp_4_reg_545(13 downto 0) <= tmp_4_fu_402_p1(13 downto 0);
             end if;
         end if;
     end process;
@@ -834,7 +834,7 @@ begin
     end process;
     tmp_2_cast_reg_514(5 downto 0) <= "000000";
     tmp_9_cast_reg_522(5 downto 0) <= "000000";
-    tmp_4_reg_545(63 downto 15) <= "0000000000000000000000000000000000000000000000000";
+    tmp_4_reg_545(63 downto 14) <= "00000000000000000000000000000000000000000000000000";
 
     ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, operation_ap_vld_in_sig, matched_finished_1_ack_in, error_out_1_ack_in, database_size_out_1_ack_in, contacts_size_out_1_ack_in, operation_read_read_fu_116_p2, ap_CS_fsm_state2, tmp_7_fu_336_p2, icmp_fu_361_p2, exitcond2_fu_378_p2, ap_CS_fsm_state3, exitcond_fu_390_p2, ap_enable_reg_pp0_iter0, ap_CS_fsm_state9, exitcond_i5_fu_407_p2, ap_CS_fsm_state14, exitcond_i_fu_448_p2, ap_block_pp0_stage0_flag00011011, grp_match_db_contact_fu_302_ap_done, ap_CS_fsm_state4, ap_CS_fsm_state8)
     begin
@@ -1101,11 +1101,11 @@ begin
     database_address0_assign_proc : process(grp_match_db_contact_fu_302_database_address0, ap_CS_fsm_state4, ap_CS_fsm_state10, sum_i9_cast_fu_444_p1)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            database_address0 <= sum_i9_cast_fu_444_p1(21 - 1 downto 0);
+            database_address0 <= sum_i9_cast_fu_444_p1(20 - 1 downto 0);
         elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
             database_address0 <= grp_match_db_contact_fu_302_database_address0;
         else 
-            database_address0 <= "XXXXXXXXXXXXXXXXXXXXX";
+            database_address0 <= "XXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
@@ -1142,7 +1142,7 @@ begin
         end if; 
     end process;
 
-    database_index_1_fu_384_p2 <= std_logic_vector(unsigned(database_index_reg_233) + unsigned(ap_const_lv15_1));
+    database_index_1_fu_384_p2 <= std_logic_vector(unsigned(database_index_reg_233) + unsigned(ap_const_lv14_1));
 
     database_size_out_1_ack_in_assign_proc : process(database_size_out_1_vld_reg)
     begin
@@ -1223,12 +1223,12 @@ begin
         end if; 
     end process;
 
-    exitcond2_fu_378_p2 <= "1" when (database_index_reg_233 = ap_const_lv15_7530) else "0";
-    exitcond_fu_390_p2 <= "1" when (i_reg_245 = ap_const_lv15_7530) else "0";
+    exitcond2_fu_378_p2 <= "1" when (database_index_reg_233 = ap_const_lv14_3A98) else "0";
+    exitcond_fu_390_p2 <= "1" when (i_reg_245 = ap_const_lv14_3A98) else "0";
     exitcond_i5_fu_407_p2 <= "1" when (i_i4_reg_256 = ap_const_lv7_40) else "0";
     exitcond_i_fu_448_p2 <= "1" when (i_i_reg_279 = ap_const_lv7_40) else "0";
     grp_match_db_contact_fu_302_ap_start <= ap_reg_grp_match_db_contact_fu_302_ap_start;
-    i_1_fu_396_p2 <= std_logic_vector(unsigned(i_reg_245) + unsigned(ap_const_lv15_1));
+    i_1_fu_396_p2 <= std_logic_vector(unsigned(i_reg_245) + unsigned(ap_const_lv14_1));
     i_2_fu_454_p2 <= std_logic_vector(unsigned(i_i_reg_279) + unsigned(ap_const_lv7_1));
     i_3_fu_413_p2 <= std_logic_vector(unsigned(i_i4_reg_256) + unsigned(ap_const_lv7_1));
     icmp_fu_361_p2 <= "1" when (signed(tmp_fu_352_p4) > signed(ap_const_lv25_0)) else "0";
@@ -1264,7 +1264,7 @@ begin
         end if; 
     end process;
 
-    matched_out_address0 <= tmp_4_reg_545(15 - 1 downto 0);
+    matched_out_address0 <= tmp_4_reg_545(14 - 1 downto 0);
 
     matched_out_ce0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0_flag00011001, ap_enable_reg_pp0_iter1)
     begin
@@ -1320,11 +1320,11 @@ begin
     results_address0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter0, tmp_4_fu_402_p1, grp_match_db_contact_fu_302_results_address0, ap_CS_fsm_state4, ap_block_pp0_stage0_flag00000000)
     begin
         if (((ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_const_logic_1 = ap_enable_reg_pp0_iter0) and (ap_block_pp0_stage0_flag00000000 = ap_const_boolean_0))) then 
-            results_address0 <= tmp_4_fu_402_p1(15 - 1 downto 0);
+            results_address0 <= tmp_4_fu_402_p1(14 - 1 downto 0);
         elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
             results_address0 <= grp_match_db_contact_fu_302_results_address0;
         else 
-            results_address0 <= "XXXXXXXXXXXXXXX";
+            results_address0 <= "XXXXXXXXXXXXXX";
         end if; 
     end process;
 
@@ -1357,14 +1357,14 @@ begin
 
     sum_i_fu_469_p2 <= std_logic_vector(unsigned(tmp_i_cast_fu_465_p1) + unsigned(tmp_9_cast_reg_522));
     tmp_127_fu_367_p1 <= contacts_size_load_reg_493(9 - 1 downto 0);
-    tmp_128_fu_341_p1 <= database_size_load_reg_502(16 - 1 downto 0);
+    tmp_128_fu_341_p1 <= database_size_load_reg_502(15 - 1 downto 0);
     tmp_2_cast_fu_344_p3 <= (tmp_128_fu_341_p1 & ap_const_lv6_0);
     tmp_3_fu_433_p2 <= std_logic_vector(unsigned(database_size_load_reg_502) + unsigned(ap_const_lv32_1));
     tmp_4_fu_402_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_reg_245),64));
-    tmp_7_fu_336_p2 <= "1" when (signed(database_size_load_reg_502) > signed(ap_const_lv32_752F)) else "0";
+    tmp_7_fu_336_p2 <= "1" when (signed(database_size_load_reg_502) > signed(ap_const_lv32_3A97)) else "0";
     tmp_9_cast_fu_370_p3 <= (tmp_127_fu_367_p1 & ap_const_lv6_0);
     tmp_fu_352_p4 <= contacts_size_load_reg_493(31 downto 7);
-    tmp_i6_cast_fu_424_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i4_reg_256),22));
+    tmp_i6_cast_fu_424_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i4_reg_256),21));
     tmp_i6_fu_419_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i4_reg_256),64));
     tmp_i_cast_fu_465_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_279),15));
     tmp_i_fu_460_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_279),64));

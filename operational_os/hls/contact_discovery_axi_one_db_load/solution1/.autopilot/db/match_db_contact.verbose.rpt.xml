@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'match_db_contact'" level="0">
-<item name = "Date">Fri Mar 30 16:44:51 2018
+<item name = "Date">Fri Mar 30 20:10:19 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
-<item name = "Project">contact_discovery_axi</item>
+<item name = "Project">contact_discovery_axi_one_db_load</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
 <item name = "Target device">xczu9eg-ffvb1156-1-i</item>
@@ -50,7 +50,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 254, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 103, 3045, -</column>
+<column name="Instance">-, -, 102, 2982, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 2819, -</column>
 <column name="Register">-, -, 4352, -, -</column>
@@ -62,7 +62,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_compare_fu_288">compare, 0, 0, 103, 3045</column>
+<column name="grp_compare_fu_288">compare, 0, 0, 102, 2982</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -365,20 +365,20 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, match_db_contact, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, match_db_contact, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, match_db_contact, return value</column>
-<column name="database_index">in, 15, ap_none, database_index, scalar</column>
+<column name="database_index">in, 14, ap_none, database_index, scalar</column>
 <column name="contacts_address0">out, 13, ap_memory, contacts, array</column>
 <column name="contacts_ce0">out, 1, ap_memory, contacts, array</column>
 <column name="contacts_q0">in, 8, ap_memory, contacts, array</column>
 <column name="contacts_address1">out, 13, ap_memory, contacts, array</column>
 <column name="contacts_ce1">out, 1, ap_memory, contacts, array</column>
 <column name="contacts_q1">in, 8, ap_memory, contacts, array</column>
-<column name="database_address0">out, 21, ap_memory, database, array</column>
+<column name="database_address0">out, 20, ap_memory, database, array</column>
 <column name="database_ce0">out, 1, ap_memory, database, array</column>
 <column name="database_q0">in, 8, ap_memory, database, array</column>
-<column name="database_address1">out, 21, ap_memory, database, array</column>
+<column name="database_address1">out, 20, ap_memory, database, array</column>
 <column name="database_ce1">out, 1, ap_memory, database, array</column>
 <column name="database_q1">in, 8, ap_memory, database, array</column>
-<column name="results_address0">out, 15, ap_memory, results, array</column>
+<column name="results_address0">out, 14, ap_memory, results, array</column>
 <column name="results_ce0">out, 1, ap_memory, results, array</column>
 <column name="results_we0">out, 1, ap_memory, results, array</column>
 <column name="results_d0">out, 1, ap_memory, results, array</column>

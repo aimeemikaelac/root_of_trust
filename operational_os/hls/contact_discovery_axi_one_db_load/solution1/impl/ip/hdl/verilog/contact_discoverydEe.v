@@ -9,8 +9,8 @@
 module contact_discoverydEe_ram (addr0, ce0, d0, we0, q0,  clk);
 
 parameter DWIDTH = 1;
-parameter AWIDTH = 15;
-parameter MEM_SIZE = 30000;
+parameter AWIDTH = 14;
+parameter MEM_SIZE = 15000;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -56,8 +56,8 @@ module contact_discoverydEe(
     q0);
 
 parameter DataWidth = 32'd1;
-parameter AddressRange = 32'd30000;
-parameter AddressWidth = 32'd15;
+parameter AddressRange = 32'd15000;
+parameter AddressWidth = 32'd14;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

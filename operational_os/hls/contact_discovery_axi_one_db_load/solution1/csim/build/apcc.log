@@ -1,6 +1,6 @@
 INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/apcc'
-INFO: [HLS 200-10] For user 'aimee' on host 'aimee-VirtualBox' (Linux_x86_64 version 4.13.0-37-generic) on Fri Mar 30 00:34:00 MDT 2018
+INFO: [HLS 200-10] For user 'aimee' on host 'aimee-VirtualBox' (Linux_x86_64 version 4.13.0-37-generic) on Fri Mar 30 19:24:06 MDT 2018
 INFO: [HLS 200-10] On os Ubuntu 16.04.4 LTS
-INFO: [HLS 200-10] In directory '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_aimee/122601522391640084461
+INFO: [HLS 200-10] In directory '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_aimee/26521522459446841522
 INFO: [APCC 202-1] APCC is done.

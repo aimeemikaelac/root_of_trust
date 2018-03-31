@@ -58,7 +58,7 @@
         <value string="solution1"/>
     </name>
     <project>
-        <value string="contact_discovery_axi"/>
+        <value string="contact_discovery_axi_one_db_load"/>
     </project>
     <targetInfo>
         <TargetInfo value="xczu9eg:-ffvb1156:-1-i"/>

@@ -14,7 +14,8 @@
 #define __mbstate_t_defined	1
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 30000
+#define DATABASE_SIZE 1500
+#define DATABASE_MAX 15000
 
 extern void contact_discovery(
 		int operation,
@@ -89,7 +90,7 @@ int main(){
 	int i, j, random_index;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
-	volatile bool matched_out[DATABASE_SIZE];
+	volatile bool matched_out[DATABASE_MAX];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 
 	// generate random database

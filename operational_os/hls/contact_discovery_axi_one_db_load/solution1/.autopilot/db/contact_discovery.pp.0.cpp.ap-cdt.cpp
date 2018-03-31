@@ -1,5 +1,5 @@
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp"
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp" 1
+#pragma line 1 "contact_discovery_axi_one_db_load/src/contact_discovery.cpp"
+#pragma line 1 "contact_discovery_axi_one_db_load/src/contact_discovery.cpp" 1
 #pragma line 1 "<built-in>" 1
 #pragma line 1 "<built-in>" 3
 #pragma line 155 "<built-in>" 3
@@ -202,16 +202,16 @@ extern "C" {
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #pragma line 7 "<command line>" 2
 #pragma line 1 "<built-in>" 2
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp" 2
+#pragma line 1 "contact_discovery_axi_one_db_load/src/contact_discovery.cpp" 2
 #pragma empty_line
 //#define DATABASE_CHUNK_SIZE 300
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
 static unsigned char contacts[64*128];
-static unsigned char database[64*30000];
+static unsigned char database[64*15000];
 static unsigned char current_database_item[64];
-static bool results[30000];
+static bool results[15000];
 static int contacts_size = 0;
 static int database_size = 0;
 //static int operation_internal = 5;
@@ -272,12 +272,12 @@ void contact_discovery(
  int operation,
  unsigned char contact_in[64],
  unsigned char database_in[64],
- bool matched_out[30000],
+ bool matched_out[15000],
  int *matched_finished,
  int *error_out,
  int *database_size_out,
  int *contacts_size_out
-){_ssdm_SpecArrayDimSize(contact_in,64);_ssdm_SpecArrayDimSize(database_in,64);_ssdm_SpecArrayDimSize(matched_out,30000);
+){_ssdm_SpecArrayDimSize(contact_in,64);_ssdm_SpecArrayDimSize(database_in,64);_ssdm_SpecArrayDimSize(matched_out,15000);
 //#pragma HLS ARRAY_PARTITION variable=contacts block factor=64 dim=1
 //#pragma HLS ARRAY_PARTITION variable=database block factor=64 dim=1
 #pragma HLS INTERFACE ap_vld port=operation
@@ -324,7 +324,7 @@ void contact_discovery(
   case 1:
    *matched_finished = 0;
    *error_out = 0;
-   if(database_size >= 30000){
+   if(database_size >= 15000){
     *error_out = 2;
     *database_size_out = database_size;
    } else{
@@ -343,7 +343,7 @@ void contact_discovery(
 //				db_stream.write(database[database_index]);
 //			}
 //			assert(db_stream.size() == DATABASE_SIZE*64);
-   for(database_index = 0; database_index < 30000; database_index++){
+   for(database_index = 0; database_index < 15000; database_index++){
 #pragma HLS PIPELINE
 //				for(contacts_index = 0; contacts_index < contacts_size; contacts_index++){
 //					current_matched = true;
@@ -360,7 +360,7 @@ void contact_discovery(
 //				}
     match_db_contact(database_index);
    }
-   for(i=0; i<30000; i++){
+   for(i=0; i<15000; i++){
 #pragma HLS PIPELINE
  matched_out[i] = results[i];
    }

@@ -11,7 +11,7 @@
 source ./settings.tcl
 source ./extraction.tcl
 
-set projectName contact_discovery_axi
+set projectName contact_discovery_axi_one_db_load
 set solutionName solution1
 set targetPart ${device}${package}${speed}
 set outputBaseName $top_module

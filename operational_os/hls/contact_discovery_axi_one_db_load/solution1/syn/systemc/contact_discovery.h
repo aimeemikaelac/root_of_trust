@@ -19,7 +19,7 @@
 
 namespace ap_rtl {
 
-template<unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 17,
+template<unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 16,
          unsigned int C_S_AXI_AXILITES_DATA_WIDTH = 32>
 struct contact_discovery : public sc_module {
     // Port declarations 20
@@ -80,7 +80,7 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_lv<6> > database_in_address0;
     sc_signal< sc_logic > database_in_ce0;
     sc_signal< sc_lv<8> > database_in_q0;
-    sc_signal< sc_lv<15> > matched_out_address0;
+    sc_signal< sc_lv<14> > matched_out_address0;
     sc_signal< sc_logic > matched_out_ce0;
     sc_signal< sc_logic > matched_out_we0;
     sc_signal< sc_lv<32> > matched_finished_1_data_reg;
@@ -111,24 +111,24 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_lv<8> > contacts_q0;
     sc_signal< sc_logic > contacts_ce1;
     sc_signal< sc_lv<8> > contacts_q1;
-    sc_signal< sc_lv<21> > database_address0;
+    sc_signal< sc_lv<20> > database_address0;
     sc_signal< sc_logic > database_ce0;
     sc_signal< sc_logic > database_we0;
     sc_signal< sc_lv<8> > database_q0;
     sc_signal< sc_logic > database_ce1;
     sc_signal< sc_lv<8> > database_q1;
-    sc_signal< sc_lv<15> > results_address0;
+    sc_signal< sc_lv<14> > results_address0;
     sc_signal< sc_logic > results_ce0;
     sc_signal< sc_logic > results_we0;
     sc_signal< sc_lv<1> > results_q0;
     sc_signal< sc_logic > operation_blk_n;
-    sc_signal< sc_lv<15> > i_reg_245;
+    sc_signal< sc_lv<14> > i_reg_245;
     sc_signal< sc_lv<32> > operation_read_read_fu_116_p2;
     sc_signal< bool > ap_block_state1;
     sc_signal< sc_lv<32> > contacts_size_load_reg_493;
     sc_signal< sc_lv<32> > database_size_load_reg_502;
-    sc_signal< sc_lv<22> > tmp_2_cast_fu_344_p3;
-    sc_signal< sc_lv<22> > tmp_2_cast_reg_514;
+    sc_signal< sc_lv<21> > tmp_2_cast_fu_344_p3;
+    sc_signal< sc_lv<21> > tmp_2_cast_reg_514;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     sc_signal< sc_lv<1> > tmp_7_fu_336_p2;
     sc_signal< sc_lv<15> > tmp_9_cast_fu_370_p3;
@@ -136,15 +136,15 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_lv<1> > icmp_fu_361_p2;
     sc_signal< sc_lv<1> > exitcond2_fu_378_p2;
     sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_lv<15> > database_index_1_fu_384_p2;
-    sc_signal< sc_lv<15> > database_index_1_reg_531;
+    sc_signal< sc_lv<14> > database_index_1_fu_384_p2;
+    sc_signal< sc_lv<14> > database_index_1_reg_531;
     sc_signal< sc_lv<1> > exitcond_fu_390_p2;
     sc_signal< sc_lv<1> > exitcond_reg_536;
     sc_signal< sc_logic > ap_CS_fsm_pp0_stage0;
     sc_signal< bool > ap_block_state5_pp0_stage0_iter0;
     sc_signal< bool > ap_block_state6_pp0_stage0_iter1;
     sc_signal< bool > ap_block_pp0_stage0_flag00011001;
-    sc_signal< sc_lv<15> > i_1_fu_396_p2;
+    sc_signal< sc_lv<14> > i_1_fu_396_p2;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter0;
     sc_signal< sc_lv<64> > tmp_4_fu_402_p1;
     sc_signal< sc_lv<64> > tmp_4_reg_545;
@@ -152,8 +152,8 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_lv<7> > i_3_reg_558;
     sc_signal< sc_logic > ap_CS_fsm_state9;
     sc_signal< sc_lv<1> > exitcond_i5_fu_407_p2;
-    sc_signal< sc_lv<22> > sum_i9_fu_428_p2;
-    sc_signal< sc_lv<22> > sum_i9_reg_568;
+    sc_signal< sc_lv<21> > sum_i9_fu_428_p2;
+    sc_signal< sc_lv<21> > sum_i9_reg_568;
     sc_signal< sc_lv<32> > tmp_3_fu_433_p2;
     sc_signal< sc_lv<7> > i_2_fu_454_p2;
     sc_signal< sc_lv<7> > i_2_reg_581;
@@ -173,15 +173,15 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_logic > grp_match_db_contact_fu_302_contacts_ce0;
     sc_signal< sc_lv<13> > grp_match_db_contact_fu_302_contacts_address1;
     sc_signal< sc_logic > grp_match_db_contact_fu_302_contacts_ce1;
-    sc_signal< sc_lv<21> > grp_match_db_contact_fu_302_database_address0;
+    sc_signal< sc_lv<20> > grp_match_db_contact_fu_302_database_address0;
     sc_signal< sc_logic > grp_match_db_contact_fu_302_database_ce0;
-    sc_signal< sc_lv<21> > grp_match_db_contact_fu_302_database_address1;
+    sc_signal< sc_lv<20> > grp_match_db_contact_fu_302_database_address1;
     sc_signal< sc_logic > grp_match_db_contact_fu_302_database_ce1;
-    sc_signal< sc_lv<15> > grp_match_db_contact_fu_302_results_address0;
+    sc_signal< sc_lv<14> > grp_match_db_contact_fu_302_results_address0;
     sc_signal< sc_logic > grp_match_db_contact_fu_302_results_ce0;
     sc_signal< sc_logic > grp_match_db_contact_fu_302_results_we0;
     sc_signal< sc_lv<1> > grp_match_db_contact_fu_302_results_d0;
-    sc_signal< sc_lv<15> > database_index_reg_233;
+    sc_signal< sc_lv<14> > database_index_reg_233;
     sc_signal< sc_logic > ap_CS_fsm_state4;
     sc_signal< sc_lv<7> > i_i4_reg_256;
     sc_signal< sc_logic > ap_CS_fsm_state10;
@@ -200,10 +200,10 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_logic > ap_CS_fsm_state7;
     sc_signal< sc_logic > ap_CS_fsm_state17;
     sc_signal< sc_logic > ap_CS_fsm_state12;
-    sc_signal< sc_lv<16> > tmp_128_fu_341_p1;
+    sc_signal< sc_lv<15> > tmp_128_fu_341_p1;
     sc_signal< sc_lv<25> > tmp_fu_352_p4;
     sc_signal< sc_lv<9> > tmp_127_fu_367_p1;
-    sc_signal< sc_lv<22> > tmp_i6_cast_fu_424_p1;
+    sc_signal< sc_lv<21> > tmp_i6_cast_fu_424_p1;
     sc_signal< sc_lv<15> > tmp_i_cast_fu_465_p1;
     sc_signal< sc_logic > ap_CS_fsm_state8;
     sc_signal< bool > ap_block_state8;
@@ -240,7 +240,7 @@ struct contact_discovery : public sc_module {
     static const sc_lv<32> ap_const_lv32_7;
     static const sc_lv<1> ap_const_lv1_1;
     static const sc_lv<32> ap_const_lv32_C;
-    static const sc_lv<15> ap_const_lv15_0;
+    static const sc_lv<14> ap_const_lv14_0;
     static const sc_lv<32> ap_const_lv32_3;
     static const sc_lv<7> ap_const_lv7_0;
     static const sc_lv<32> ap_const_lv32_8;
@@ -250,12 +250,12 @@ struct contact_discovery : public sc_module {
     static const sc_lv<32> ap_const_lv32_5;
     static const sc_lv<32> ap_const_lv32_F;
     static const sc_lv<32> ap_const_lv32_A;
-    static const sc_lv<32> ap_const_lv32_752F;
+    static const sc_lv<32> ap_const_lv32_3A97;
     static const sc_lv<6> ap_const_lv6_0;
     static const sc_lv<32> ap_const_lv32_1F;
     static const sc_lv<25> ap_const_lv25_0;
-    static const sc_lv<15> ap_const_lv15_7530;
-    static const sc_lv<15> ap_const_lv15_1;
+    static const sc_lv<14> ap_const_lv14_3A98;
+    static const sc_lv<14> ap_const_lv14_1;
     static const sc_lv<7> ap_const_lv7_40;
     static const sc_lv<7> ap_const_lv7_1;
     static const sc_lv<32> ap_const_lv32_6;

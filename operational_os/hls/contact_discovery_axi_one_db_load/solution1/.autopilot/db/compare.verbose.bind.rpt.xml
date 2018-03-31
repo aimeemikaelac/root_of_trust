@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'compare'" level="0">
-<item name = "Date">Fri Mar 30 16:42:43 2018
+<item name = "Date">Fri Mar 30 20:08:12 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
-<item name = "Project">contact_discovery_axi</item>
+<item name = "Project">contact_discovery_axi_one_db_load</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynquplus</item>
 <item name = "Target device">xczu9eg-ffvb1156-1-i</item>

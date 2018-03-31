@@ -89,8 +89,8 @@ set MemName contact_discoverycud
 set CoreName ap_simcore_mem
 set PortList { 2 1 }
 set DataWd 8
-set AddrRange 1920000
-set AddrWd 21
+set AddrRange 960000
+set AddrWd 20
 set impl_style block
 set TrueReset 0
 set IsROM 0
@@ -172,8 +172,8 @@ set MemName contact_discoverydEe
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 1
-set AddrRange 30000
-set AddrWd 15
+set AddrRange 15000
+set AddrWd 14
 set impl_style block
 set TrueReset 0
 set IsROM 0
@@ -288,42 +288,42 @@ database_in {
 matched_out { 
 	dir O
 	width 1
-	depth 30000
+	depth 15000
 	mode ap_memory
-	offset 32768
-	offset_end 65535
+	offset 16384
+	offset_end 32767
 }
 matched_finished { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 65536
-	offset_end 65543
+	offset 32768
+	offset_end 32775
 }
 error_out { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 65544
-	offset_end 65551
+	offset 32776
+	offset_end 32783
 }
 database_size_out { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 65552
-	offset_end 65559
+	offset 32784
+	offset_end 32791
 }
 contacts_size_out { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 65560
-	offset_end 65567
+	offset 32792
+	offset_end 32799
 }
 }
 

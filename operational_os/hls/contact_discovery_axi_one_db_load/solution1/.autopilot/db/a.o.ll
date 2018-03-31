@@ -1,10 +1,10 @@
-; ModuleID = '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi/solution1/.autopilot/db/a.o.bc'
+; ModuleID = '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/.autopilot/db/a.o.bc'
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
 @_ZL8contacts = internal global [8192 x i8] zeroinitializer, align 16 ; [#uses=2 type=[8192 x i8]*]
-@_ZL8database = internal global [1920000 x i8] zeroinitializer, align 16 ; [#uses=2 type=[1920000 x i8]*]
-@_ZL7results = internal global [30000 x i1] zeroinitializer, align 16 ; [#uses=2 type=[30000 x i1]*]
+@_ZL8database = internal global [960000 x i8] zeroinitializer, align 16 ; [#uses=2 type=[960000 x i8]*]
+@_ZL7results = internal global [15000 x i1] zeroinitializer, align 16 ; [#uses=2 type=[15000 x i1]*]
 @.str = private unnamed_addr constant [7 x i8] c"ap_vld\00", align 1 ; [#uses=1 type=[7 x i8]*]
 @.str1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=1 type=[1 x i8]*]
 @.str2 = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1 ; [#uses=1 type=[10 x i8]*]
@@ -101,7 +101,7 @@ define zeroext i1 @_Z7compareii(i32 %db_index, i32 %contacts_index) nounwind uwt
   %17 = load i32* %i, align 4, !dbg !103          ; [#uses=1 type=i32] [debug line = 37:3]
   %18 = add nsw i32 %16, %17, !dbg !103           ; [#uses=1 type=i32] [debug line = 37:3]
   %19 = sext i32 %18 to i64, !dbg !103            ; [#uses=1 type=i64] [debug line = 37:3]
-  %20 = getelementptr inbounds [1920000 x i8]* @_ZL8database, i32 0, i64 %19, !dbg !103 ; [#uses=1 type=i8*] [debug line = 37:3]
+  %20 = getelementptr inbounds [960000 x i8]* @_ZL8database, i32 0, i64 %19, !dbg !103 ; [#uses=1 type=i8*] [debug line = 37:3]
   %21 = load i8* %20, align 1, !dbg !103          ; [#uses=1 type=i8] [debug line = 37:3]
   %22 = zext i8 %21 to i32, !dbg !103             ; [#uses=1 type=i32] [debug line = 37:3]
   %23 = icmp eq i32 %14, %22, !dbg !103           ; [#uses=1 type=i1] [debug line = 37:3]
@@ -220,7 +220,7 @@ define void @_Z16match_db_contacti(i32 %database_index) nounwind uwtable {
   %33 = load i1* %matched, align 1, !dbg !141     ; [#uses=1 type=i1] [debug line = 61:2]
   %34 = load i32* %1, align 4, !dbg !141          ; [#uses=1 type=i32] [debug line = 61:2]
   %35 = sext i32 %34 to i64, !dbg !141            ; [#uses=1 type=i64] [debug line = 61:2]
-  %36 = getelementptr inbounds [30000 x i1]* @_ZL7results, i32 0, i64 %35, !dbg !141 ; [#uses=1 type=i1*] [debug line = 61:2]
+  %36 = getelementptr inbounds [15000 x i1]* @_ZL7results, i32 0, i64 %35, !dbg !141 ; [#uses=1 type=i1*] [debug line = 61:2]
   store i1 %33, i1* %36, align 1, !dbg !141       ; [debug line = 61:2]
   ret void, !dbg !142                             ; [debug line = 62:1]
 }
@@ -261,7 +261,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
   %10 = load i8** %3, align 8, !dbg !161          ; [#uses=1 type=i8*] [debug line = 75:41]
   call void (...)* @_ssdm_SpecArrayDimSize(i8* %10, i32 64) nounwind, !dbg !161 ; [debug line = 75:41]
   %11 = load i1** %4, align 8, !dbg !162          ; [#uses=1 type=i1*] [debug line = 75:80]
-  call void (...)* @_ssdm_SpecArrayDimSize(i1* %11, i32 30000) nounwind, !dbg !162 ; [debug line = 75:80]
+  call void (...)* @_ssdm_SpecArrayDimSize(i1* %11, i32 15000) nounwind, !dbg !162 ; [debug line = 75:80]
   %12 = load i32* %1, align 4, !dbg !163          ; [#uses=1 type=i32] [debug line = 78:1]
   call void (...)* @_ssdm_op_SpecInterface(i32 %12, i8* getelementptr inbounds ([7 x i8]* @.str, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !163 ; [debug line = 78:1]
   call void (...)* @_ssdm_op_SpecInterface(i32 0, i8* getelementptr inbounds ([10 x i8]* @.str2, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !164 ; [debug line = 79:1]
@@ -350,7 +350,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
   %52 = load i32** %6, align 8, !dbg !204         ; [#uses=1 type=i32*] [debug line = 121:4]
   store i32 0, i32* %52, align 4, !dbg !204       ; [debug line = 121:4]
   %53 = load i32* @_ZL13database_size, align 4, !dbg !205 ; [#uses=1 type=i32] [debug line = 122:4]
-  %54 = icmp sge i32 %53, 30000, !dbg !205        ; [#uses=1 type=i1] [debug line = 122:4]
+  %54 = icmp sge i32 %53, 15000, !dbg !205        ; [#uses=1 type=i1] [debug line = 122:4]
   br i1 %54, label %55, label %59, !dbg !205      ; [debug line = 122:4]
 
 ; <label>:55                                      ; preds = %50
@@ -365,7 +365,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
   %60 = load i32* @_ZL13database_size, align 4, !dbg !210 ; [#uses=1 type=i32] [debug line = 126:5]
   %61 = mul nsw i32 %60, 64, !dbg !210            ; [#uses=1 type=i32] [debug line = 126:5]
   %62 = sext i32 %61 to i64, !dbg !210            ; [#uses=1 type=i64] [debug line = 126:5]
-  %63 = getelementptr inbounds i8* getelementptr inbounds ([1920000 x i8]* @_ZL8database, i32 0, i32 0), i64 %62, !dbg !210 ; [#uses=1 type=i8*] [debug line = 126:5]
+  %63 = getelementptr inbounds i8* getelementptr inbounds ([960000 x i8]* @_ZL8database, i32 0, i32 0), i64 %62, !dbg !210 ; [#uses=1 type=i8*] [debug line = 126:5]
   %64 = load i8** %3, align 8, !dbg !210          ; [#uses=1 type=i8*] [debug line = 126:5]
   call void @_Z7_memcpyPhS_i(i8* %63, i8* %64, i32 64), !dbg !210 ; [debug line = 126:5]
   %65 = load i32* @_ZL13database_size, align 4, !dbg !212 ; [#uses=1 type=i32] [debug line = 127:5]
@@ -395,7 +395,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
 
 ; <label>:77                                      ; preds = %82, %70
   %78 = load i32* %database_index, align 4, !dbg !219 ; [#uses=1 type=i32] [debug line = 141:8]
-  %79 = icmp slt i32 %78, 30000, !dbg !219        ; [#uses=1 type=i1] [debug line = 141:8]
+  %79 = icmp slt i32 %78, 15000, !dbg !219        ; [#uses=1 type=i1] [debug line = 141:8]
   br i1 %79, label %80, label %85, !dbg !219      ; [debug line = 141:8]
 
 ; <label>:80                                      ; preds = %77
@@ -418,7 +418,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
 
 ; <label>:86                                      ; preds = %98, %85
   %87 = load i32* %i, align 4, !dbg !227          ; [#uses=1 type=i32] [debug line = 158:8]
-  %88 = icmp slt i32 %87, 30000, !dbg !227        ; [#uses=1 type=i1] [debug line = 158:8]
+  %88 = icmp slt i32 %87, 15000, !dbg !227        ; [#uses=1 type=i1] [debug line = 158:8]
   br i1 %88, label %89, label %101, !dbg !227     ; [debug line = 158:8]
 
 ; <label>:89                                      ; preds = %86
@@ -426,7 +426,7 @@ define void @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_(i32 %operation, i8* %contac
   call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !231 ; [debug line = 159:1]
   %90 = load i32* %i, align 4, !dbg !232          ; [#uses=1 type=i32] [debug line = 160:2]
   %91 = sext i32 %90 to i64, !dbg !232            ; [#uses=1 type=i64] [debug line = 160:2]
-  %92 = getelementptr inbounds [30000 x i1]* @_ZL7results, i32 0, i64 %91, !dbg !232 ; [#uses=1 type=i1*] [debug line = 160:2]
+  %92 = getelementptr inbounds [15000 x i1]* @_ZL7results, i32 0, i64 %91, !dbg !232 ; [#uses=1 type=i1*] [debug line = 160:2]
   %93 = load i1* %92, align 1, !dbg !232          ; [#uses=1 type=i1] [debug line = 160:2]
   %94 = load i32* %i, align 4, !dbg !232          ; [#uses=1 type=i32] [debug line = 160:2]
   %95 = sext i32 %94 to i64, !dbg !232            ; [#uses=1 type=i64] [debug line = 160:2]
@@ -507,53 +507,53 @@ declare void @_ssdm_op_SpecPipeline(...) nounwind
 ; [#uses=2]
 declare void @_ssdm_RegionEnd(...) nounwind
 
-!llvm.dbg.cu = !{!0, !42}
-!opencl.kernels = !{!43, !50, !56, !62}
+!llvm.dbg.cu = !{!0, !3}
 !hls.encrypted.func = !{}
+!opencl.kernels = !{!43, !50, !56, !62}
 
-!0 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi/solution1/.autopilot/db/contact_discovery.pragma.2.cpp", metadata !"/home/aimee/root_of_trust/operational_os/hls", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !3, metadata !26} ; [ DW_TAG_compile_unit ]
+!0 = metadata !{i32 786449, i32 0, i32 1, metadata !"/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/.autopilot/db/sha512.pragma.2.c", metadata !"/home/aimee/root_of_trust/operational_os/hls", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !1, metadata !1} ; [ DW_TAG_compile_unit ]
 !1 = metadata !{metadata !2}
 !2 = metadata !{i32 0}
-!3 = metadata !{metadata !4}
-!4 = metadata !{metadata !5, metadata !14, metadata !18, metadata !21}
-!5 = metadata !{i32 786478, i32 0, metadata !6, metadata !"_memcpy", metadata !"_memcpy", metadata !"_Z7_memcpyPhS_i", metadata !6, i32 15, metadata !7, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i8*, i8*, i32)* @_Z7_memcpyPhS_i, null, null, metadata !12, i32 15} ; [ DW_TAG_subprogram ]
-!6 = metadata !{i32 786473, metadata !"contact_discovery_axi/src/contact_discovery.cpp", metadata !"/home/aimee/root_of_trust/operational_os/hls", null} ; [ DW_TAG_file_type ]
-!7 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !8, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
-!8 = metadata !{null, metadata !9, metadata !9, metadata !11}
-!9 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
-!10 = metadata !{i32 786468, null, metadata !"unsigned char", null, i32 0, i64 8, i64 8, i64 0, i32 0, i32 8} ; [ DW_TAG_base_type ]
-!11 = metadata !{i32 786468, null, metadata !"int", null, i32 0, i64 32, i64 32, i64 0, i32 0, i32 5} ; [ DW_TAG_base_type ]
-!12 = metadata !{metadata !13}
-!13 = metadata !{i32 786468}                      ; [ DW_TAG_base_type ]
-!14 = metadata !{i32 786478, i32 0, metadata !6, metadata !"compare", metadata !"compare", metadata !"_Z7compareii", metadata !6, i32 22, metadata !15, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, i1 (i32, i32)* @_Z7compareii, null, null, metadata !12, i32 22} ; [ DW_TAG_subprogram ]
-!15 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !16, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
-!16 = metadata !{metadata !17, metadata !11, metadata !11}
-!17 = metadata !{i32 786468, null, metadata !"bool", null, i32 0, i64 8, i64 8, i64 0, i32 0, i32 2} ; [ DW_TAG_base_type ]
-!18 = metadata !{i32 786478, i32 0, metadata !6, metadata !"match_db_contact", metadata !"match_db_contact", metadata !"_Z16match_db_contacti", metadata !6, i32 45, metadata !19, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i32)* @_Z16match_db_contacti, null, null, metadata !12, i32 45} ; [ DW_TAG_subprogram ]
-!19 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !20, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
-!20 = metadata !{null, metadata !11}
-!21 = metadata !{i32 786478, i32 0, metadata !6, metadata !"contact_discovery", metadata !"contact_discovery", metadata !"_Z17contact_discoveryiPhS_PbPiS1_S1_S1_", metadata !6, i32 66, metadata !22, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i32, i8*, i8*, i1*, i32*, i32*, i32*, i32*)* @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_, null, null, metadata !12, i32 75} ; [ DW_TAG_subprogram ]
-!22 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !23, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
-!23 = metadata !{null, metadata !11, metadata !9, metadata !9, metadata !24, metadata !25, metadata !25, metadata !25, metadata !25}
-!24 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !17} ; [ DW_TAG_pointer_type ]
-!25 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !11} ; [ DW_TAG_pointer_type ]
-!26 = metadata !{metadata !27}
-!27 = metadata !{metadata !28, metadata !29, metadata !30, metadata !34, metadata !38}
-!28 = metadata !{i32 786484, i32 0, null, metadata !"database_size", metadata !"database_size", metadata !"_ZL13database_size", metadata !6, i32 11, metadata !11, i32 1, i32 1, i32* @_ZL13database_size} ; [ DW_TAG_variable ]
-!29 = metadata !{i32 786484, i32 0, null, metadata !"contacts_size", metadata !"contacts_size", metadata !"_ZL13contacts_size", metadata !6, i32 10, metadata !11, i32 1, i32 1, i32* @_ZL13contacts_size} ; [ DW_TAG_variable ]
-!30 = metadata !{i32 786484, i32 0, null, metadata !"results", metadata !"results", metadata !"_ZL7results", metadata !6, i32 9, metadata !31, i32 1, i32 1, [30000 x i1]* @_ZL7results} ; [ DW_TAG_variable ]
-!31 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 240000, i64 8, i32 0, i32 0, metadata !17, metadata !32, i32 0, i32 0} ; [ DW_TAG_array_type ]
-!32 = metadata !{metadata !33}
-!33 = metadata !{i32 786465, i64 0, i64 29999}    ; [ DW_TAG_subrange_type ]
-!34 = metadata !{i32 786484, i32 0, null, metadata !"database", metadata !"database", metadata !"_ZL8database", metadata !6, i32 7, metadata !35, i32 1, i32 1, [1920000 x i8]* @_ZL8database} ; [ DW_TAG_variable ]
-!35 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 15360000, i64 8, i32 0, i32 0, metadata !10, metadata !36, i32 0, i32 0} ; [ DW_TAG_array_type ]
-!36 = metadata !{metadata !37}
-!37 = metadata !{i32 786465, i64 0, i64 1919999}  ; [ DW_TAG_subrange_type ]
-!38 = metadata !{i32 786484, i32 0, null, metadata !"contacts", metadata !"contacts", metadata !"_ZL8contacts", metadata !6, i32 6, metadata !39, i32 1, i32 1, [8192 x i8]* @_ZL8contacts} ; [ DW_TAG_variable ]
-!39 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 65536, i64 8, i32 0, i32 0, metadata !10, metadata !40, i32 0, i32 0} ; [ DW_TAG_array_type ]
-!40 = metadata !{metadata !41}
-!41 = metadata !{i32 786465, i64 0, i64 8191}     ; [ DW_TAG_subrange_type ]
-!42 = metadata !{i32 786449, i32 0, i32 1, metadata !"/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi/solution1/.autopilot/db/sha512.pragma.2.c", metadata !"/home/aimee/root_of_trust/operational_os/hls", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !1, metadata !1} ; [ DW_TAG_compile_unit ]
+!3 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/.autopilot/db/contact_discovery.pragma.2.cpp", metadata !"/home/aimee/root_of_trust/operational_os/hls", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !4, metadata !27} ; [ DW_TAG_compile_unit ]
+!4 = metadata !{metadata !5}
+!5 = metadata !{metadata !6, metadata !15, metadata !19, metadata !22}
+!6 = metadata !{i32 786478, i32 0, metadata !7, metadata !"_memcpy", metadata !"_memcpy", metadata !"_Z7_memcpyPhS_i", metadata !7, i32 15, metadata !8, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i8*, i8*, i32)* @_Z7_memcpyPhS_i, null, null, metadata !13, i32 15} ; [ DW_TAG_subprogram ]
+!7 = metadata !{i32 786473, metadata !"contact_discovery_axi_one_db_load/src/contact_discovery.cpp", metadata !"/home/aimee/root_of_trust/operational_os/hls", null} ; [ DW_TAG_file_type ]
+!8 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !9, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
+!9 = metadata !{null, metadata !10, metadata !10, metadata !12}
+!10 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !11} ; [ DW_TAG_pointer_type ]
+!11 = metadata !{i32 786468, null, metadata !"unsigned char", null, i32 0, i64 8, i64 8, i64 0, i32 0, i32 8} ; [ DW_TAG_base_type ]
+!12 = metadata !{i32 786468, null, metadata !"int", null, i32 0, i64 32, i64 32, i64 0, i32 0, i32 5} ; [ DW_TAG_base_type ]
+!13 = metadata !{metadata !14}
+!14 = metadata !{i32 786468}                      ; [ DW_TAG_base_type ]
+!15 = metadata !{i32 786478, i32 0, metadata !7, metadata !"compare", metadata !"compare", metadata !"_Z7compareii", metadata !7, i32 22, metadata !16, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, i1 (i32, i32)* @_Z7compareii, null, null, metadata !13, i32 22} ; [ DW_TAG_subprogram ]
+!16 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !17, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
+!17 = metadata !{metadata !18, metadata !12, metadata !12}
+!18 = metadata !{i32 786468, null, metadata !"bool", null, i32 0, i64 8, i64 8, i64 0, i32 0, i32 2} ; [ DW_TAG_base_type ]
+!19 = metadata !{i32 786478, i32 0, metadata !7, metadata !"match_db_contact", metadata !"match_db_contact", metadata !"_Z16match_db_contacti", metadata !7, i32 45, metadata !20, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i32)* @_Z16match_db_contacti, null, null, metadata !13, i32 45} ; [ DW_TAG_subprogram ]
+!20 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !21, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
+!21 = metadata !{null, metadata !12}
+!22 = metadata !{i32 786478, i32 0, metadata !7, metadata !"contact_discovery", metadata !"contact_discovery", metadata !"_Z17contact_discoveryiPhS_PbPiS1_S1_S1_", metadata !7, i32 66, metadata !23, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (i32, i8*, i8*, i1*, i32*, i32*, i32*, i32*)* @_Z17contact_discoveryiPhS_PbPiS1_S1_S1_, null, null, metadata !13, i32 75} ; [ DW_TAG_subprogram ]
+!23 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !24, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
+!24 = metadata !{null, metadata !12, metadata !10, metadata !10, metadata !25, metadata !26, metadata !26, metadata !26, metadata !26}
+!25 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !18} ; [ DW_TAG_pointer_type ]
+!26 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !12} ; [ DW_TAG_pointer_type ]
+!27 = metadata !{metadata !28}
+!28 = metadata !{metadata !29, metadata !30, metadata !31, metadata !35, metadata !39}
+!29 = metadata !{i32 786484, i32 0, null, metadata !"database_size", metadata !"database_size", metadata !"_ZL13database_size", metadata !7, i32 11, metadata !12, i32 1, i32 1, i32* @_ZL13database_size} ; [ DW_TAG_variable ]
+!30 = metadata !{i32 786484, i32 0, null, metadata !"contacts_size", metadata !"contacts_size", metadata !"_ZL13contacts_size", metadata !7, i32 10, metadata !12, i32 1, i32 1, i32* @_ZL13contacts_size} ; [ DW_TAG_variable ]
+!31 = metadata !{i32 786484, i32 0, null, metadata !"results", metadata !"results", metadata !"_ZL7results", metadata !7, i32 9, metadata !32, i32 1, i32 1, [15000 x i1]* @_ZL7results} ; [ DW_TAG_variable ]
+!32 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 120000, i64 8, i32 0, i32 0, metadata !18, metadata !33, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!33 = metadata !{metadata !34}
+!34 = metadata !{i32 786465, i64 0, i64 14999}    ; [ DW_TAG_subrange_type ]
+!35 = metadata !{i32 786484, i32 0, null, metadata !"database", metadata !"database", metadata !"_ZL8database", metadata !7, i32 7, metadata !36, i32 1, i32 1, [960000 x i8]* @_ZL8database} ; [ DW_TAG_variable ]
+!36 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 7680000, i64 8, i32 0, i32 0, metadata !11, metadata !37, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!37 = metadata !{metadata !38}
+!38 = metadata !{i32 786465, i64 0, i64 959999}   ; [ DW_TAG_subrange_type ]
+!39 = metadata !{i32 786484, i32 0, null, metadata !"contacts", metadata !"contacts", metadata !"_ZL8contacts", metadata !7, i32 6, metadata !40, i32 1, i32 1, [8192 x i8]* @_ZL8contacts} ; [ DW_TAG_variable ]
+!40 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 65536, i64 8, i32 0, i32 0, metadata !11, metadata !41, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!41 = metadata !{metadata !42}
+!42 = metadata !{i32 786465, i64 0, i64 8191}     ; [ DW_TAG_subrange_type ]
 !43 = metadata !{void (i8*, i8*, i32)* @_Z7_memcpyPhS_i, metadata !44, metadata !45, metadata !46, metadata !47, metadata !48, metadata !49}
 !44 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1, i32 0}
 !45 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none"}
@@ -579,99 +579,99 @@ declare void @_ssdm_RegionEnd(...) nounwind
 !65 = metadata !{metadata !"kernel_arg_type", metadata !"int", metadata !"uchar*", metadata !"uchar*", metadata !"_Bool*", metadata !"int*", metadata !"int*", metadata !"int*", metadata !"int*"}
 !66 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !""}
 !67 = metadata !{metadata !"kernel_arg_name", metadata !"operation", metadata !"contact_in", metadata !"database_in", metadata !"matched_out", metadata !"matched_finished", metadata !"error_out", metadata !"database_size_out", metadata !"contacts_size_out"}
-!68 = metadata !{i32 786689, metadata !5, metadata !"dest", metadata !6, i32 16777231, metadata !9, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!69 = metadata !{i32 15, i32 29, metadata !5, null}
-!70 = metadata !{i32 786689, metadata !5, metadata !"src", metadata !6, i32 33554447, metadata !9, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!71 = metadata !{i32 15, i32 50, metadata !5, null}
-!72 = metadata !{i32 786689, metadata !5, metadata !"length", metadata !6, i32 50331663, metadata !11, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!73 = metadata !{i32 15, i32 59, metadata !5, null}
-!74 = metadata !{i32 786688, metadata !75, metadata !"i", metadata !6, i32 16, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!75 = metadata !{i32 786443, metadata !5, i32 15, i32 66, metadata !6, i32 0} ; [ DW_TAG_lexical_block ]
+!68 = metadata !{i32 786689, metadata !6, metadata !"dest", metadata !7, i32 16777231, metadata !10, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!69 = metadata !{i32 15, i32 29, metadata !6, null}
+!70 = metadata !{i32 786689, metadata !6, metadata !"src", metadata !7, i32 33554447, metadata !10, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!71 = metadata !{i32 15, i32 50, metadata !6, null}
+!72 = metadata !{i32 786689, metadata !6, metadata !"length", metadata !7, i32 50331663, metadata !12, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!73 = metadata !{i32 15, i32 59, metadata !6, null}
+!74 = metadata !{i32 786688, metadata !75, metadata !"i", metadata !7, i32 16, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!75 = metadata !{i32 786443, metadata !6, i32 15, i32 66, metadata !7, i32 0} ; [ DW_TAG_lexical_block ]
 !76 = metadata !{i32 16, i32 6, metadata !75, null}
 !77 = metadata !{i32 17, i32 6, metadata !78, null}
-!78 = metadata !{i32 786443, metadata !75, i32 17, i32 2, metadata !6, i32 1} ; [ DW_TAG_lexical_block ]
+!78 = metadata !{i32 786443, metadata !75, i32 17, i32 2, metadata !7, i32 1} ; [ DW_TAG_lexical_block ]
 !79 = metadata !{i32 18, i32 3, metadata !80, null}
-!80 = metadata !{i32 786443, metadata !78, i32 17, i32 25, metadata !6, i32 2} ; [ DW_TAG_lexical_block ]
+!80 = metadata !{i32 786443, metadata !78, i32 17, i32 25, metadata !7, i32 2} ; [ DW_TAG_lexical_block ]
 !81 = metadata !{i32 19, i32 2, metadata !80, null}
 !82 = metadata !{i32 17, i32 21, metadata !78, null}
 !83 = metadata !{i32 20, i32 1, metadata !75, null}
-!84 = metadata !{i32 786689, metadata !14, metadata !"db_index", metadata !6, i32 16777238, metadata !11, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!85 = metadata !{i32 22, i32 18, metadata !14, null}
-!86 = metadata !{i32 786689, metadata !14, metadata !"contacts_index", metadata !6, i32 33554454, metadata !11, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!87 = metadata !{i32 22, i32 32, metadata !14, null}
-!88 = metadata !{i32 786688, metadata !89, metadata !"i", metadata !6, i32 24, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!89 = metadata !{i32 786443, metadata !14, i32 22, i32 47, metadata !6, i32 3} ; [ DW_TAG_lexical_block ]
+!84 = metadata !{i32 786689, metadata !15, metadata !"db_index", metadata !7, i32 16777238, metadata !12, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!85 = metadata !{i32 22, i32 18, metadata !15, null}
+!86 = metadata !{i32 786689, metadata !15, metadata !"contacts_index", metadata !7, i32 33554454, metadata !12, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!87 = metadata !{i32 22, i32 32, metadata !15, null}
+!88 = metadata !{i32 786688, metadata !89, metadata !"i", metadata !7, i32 24, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!89 = metadata !{i32 786443, metadata !15, i32 22, i32 47, metadata !7, i32 3} ; [ DW_TAG_lexical_block ]
 !90 = metadata !{i32 24, i32 6, metadata !89, null}
-!91 = metadata !{i32 786688, metadata !89, metadata !"j", metadata !6, i32 24, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!91 = metadata !{i32 786688, metadata !89, metadata !"j", metadata !7, i32 24, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !92 = metadata !{i32 24, i32 9, metadata !89, null}
-!93 = metadata !{i32 786688, metadata !89, metadata !"found", metadata !6, i32 25, metadata !17, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!93 = metadata !{i32 786688, metadata !89, metadata !"found", metadata !7, i32 25, metadata !18, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !94 = metadata !{i32 25, i32 7, metadata !89, null}
 !95 = metadata !{i32 25, i32 19, metadata !89, null}
-!96 = metadata !{i32 786688, metadata !89, metadata !"results_local", metadata !6, i32 26, metadata !97, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!97 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 512, i64 8, i32 0, i32 0, metadata !17, metadata !98, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!96 = metadata !{i32 786688, metadata !89, metadata !"results_local", metadata !7, i32 26, metadata !97, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!97 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 512, i64 8, i32 0, i32 0, metadata !18, metadata !98, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !98 = metadata !{metadata !99}
 !99 = metadata !{i32 786465, i64 0, i64 63}       ; [ DW_TAG_subrange_type ]
 !100 = metadata !{i32 26, i32 7, metadata !89, null}
 !101 = metadata !{i32 32, i32 6, metadata !102, null}
-!102 = metadata !{i32 786443, metadata !89, i32 32, i32 2, metadata !6, i32 4} ; [ DW_TAG_lexical_block ]
+!102 = metadata !{i32 786443, metadata !89, i32 32, i32 2, metadata !7, i32 4} ; [ DW_TAG_lexical_block ]
 !103 = metadata !{i32 37, i32 3, metadata !104, null}
-!104 = metadata !{i32 786443, metadata !102, i32 32, i32 21, metadata !6, i32 5} ; [ DW_TAG_lexical_block ]
+!104 = metadata !{i32 786443, metadata !102, i32 32, i32 21, metadata !7, i32 5} ; [ DW_TAG_lexical_block ]
 !105 = metadata !{i32 38, i32 2, metadata !104, null}
 !106 = metadata !{i32 32, i32 17, metadata !102, null}
 !107 = metadata !{i32 39, i32 6, metadata !108, null}
-!108 = metadata !{i32 786443, metadata !89, i32 39, i32 2, metadata !6, i32 6} ; [ DW_TAG_lexical_block ]
+!108 = metadata !{i32 786443, metadata !89, i32 39, i32 2, metadata !7, i32 6} ; [ DW_TAG_lexical_block ]
 !109 = metadata !{i32 40, i32 3, metadata !110, null}
-!110 = metadata !{i32 786443, metadata !108, i32 39, i32 21, metadata !6, i32 7} ; [ DW_TAG_lexical_block ]
+!110 = metadata !{i32 786443, metadata !108, i32 39, i32 21, metadata !7, i32 7} ; [ DW_TAG_lexical_block ]
 !111 = metadata !{i32 41, i32 2, metadata !110, null}
 !112 = metadata !{i32 39, i32 17, metadata !108, null}
 !113 = metadata !{i32 42, i32 2, metadata !89, null}
-!114 = metadata !{i32 786689, metadata !18, metadata !"database_index", metadata !6, i32 16777261, metadata !11, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!115 = metadata !{i32 45, i32 27, metadata !18, null}
-!116 = metadata !{i32 786688, metadata !117, metadata !"contacts_index", metadata !6, i32 47, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!117 = metadata !{i32 786443, metadata !18, i32 45, i32 42, metadata !6, i32 8} ; [ DW_TAG_lexical_block ]
+!114 = metadata !{i32 786689, metadata !19, metadata !"database_index", metadata !7, i32 16777261, metadata !12, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!115 = metadata !{i32 45, i32 27, metadata !19, null}
+!116 = metadata !{i32 786688, metadata !117, metadata !"contacts_index", metadata !7, i32 47, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!117 = metadata !{i32 786443, metadata !19, i32 45, i32 42, metadata !7, i32 8} ; [ DW_TAG_lexical_block ]
 !118 = metadata !{i32 47, i32 6, metadata !117, null}
-!119 = metadata !{i32 786688, metadata !117, metadata !"i", metadata !6, i32 47, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!119 = metadata !{i32 786688, metadata !117, metadata !"i", metadata !7, i32 47, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !120 = metadata !{i32 47, i32 22, metadata !117, null}
-!121 = metadata !{i32 786688, metadata !117, metadata !"matched", metadata !6, i32 48, metadata !17, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!121 = metadata !{i32 786688, metadata !117, metadata !"matched", metadata !7, i32 48, metadata !18, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !122 = metadata !{i32 48, i32 7, metadata !117, null}
 !123 = metadata !{i32 48, i32 22, metadata !117, null}
-!124 = metadata !{i32 786688, metadata !117, metadata !"local_results", metadata !6, i32 49, metadata !125, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!125 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 1024, i64 8, i32 0, i32 0, metadata !17, metadata !126, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!124 = metadata !{i32 786688, metadata !117, metadata !"local_results", metadata !7, i32 49, metadata !125, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!125 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 1024, i64 8, i32 0, i32 0, metadata !18, metadata !126, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !126 = metadata !{metadata !127}
 !127 = metadata !{i32 786465, i64 0, i64 127}     ; [ DW_TAG_subrange_type ]
 !128 = metadata !{i32 49, i32 7, metadata !117, null}
 !129 = metadata !{i32 50, i32 6, metadata !130, null}
-!130 = metadata !{i32 786443, metadata !117, i32 50, i32 2, metadata !6, i32 9} ; [ DW_TAG_lexical_block ]
+!130 = metadata !{i32 786443, metadata !117, i32 50, i32 2, metadata !7, i32 9} ; [ DW_TAG_lexical_block ]
 !131 = metadata !{i32 56, i32 35, metadata !132, null}
-!132 = metadata !{i32 786443, metadata !130, i32 50, i32 63, metadata !6, i32 10} ; [ DW_TAG_lexical_block ]
+!132 = metadata !{i32 786443, metadata !130, i32 50, i32 63, metadata !7, i32 10} ; [ DW_TAG_lexical_block ]
 !133 = metadata !{i32 57, i32 2, metadata !132, null}
 !134 = metadata !{i32 50, i32 46, metadata !130, null}
 !135 = metadata !{i32 58, i32 6, metadata !136, null}
-!136 = metadata !{i32 786443, metadata !117, i32 58, i32 2, metadata !6, i32 11} ; [ DW_TAG_lexical_block ]
+!136 = metadata !{i32 786443, metadata !117, i32 58, i32 2, metadata !7, i32 11} ; [ DW_TAG_lexical_block ]
 !137 = metadata !{i32 59, i32 3, metadata !138, null}
-!138 = metadata !{i32 786443, metadata !136, i32 58, i32 63, metadata !6, i32 12} ; [ DW_TAG_lexical_block ]
+!138 = metadata !{i32 786443, metadata !136, i32 58, i32 63, metadata !7, i32 12} ; [ DW_TAG_lexical_block ]
 !139 = metadata !{i32 60, i32 2, metadata !138, null}
 !140 = metadata !{i32 58, i32 46, metadata !136, null}
 !141 = metadata !{i32 61, i32 2, metadata !117, null}
 !142 = metadata !{i32 62, i32 1, metadata !117, null}
-!143 = metadata !{i32 786689, metadata !21, metadata !"operation", metadata !6, i32 16777283, metadata !11, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!144 = metadata !{i32 67, i32 6, metadata !21, null}
-!145 = metadata !{i32 786689, metadata !21, metadata !"contact_in", metadata !6, i32 33554500, metadata !9, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!146 = metadata !{i32 68, i32 16, metadata !21, null}
-!147 = metadata !{i32 786689, metadata !21, metadata !"database_in", metadata !6, i32 50331717, metadata !9, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!148 = metadata !{i32 69, i32 16, metadata !21, null}
-!149 = metadata !{i32 786689, metadata !21, metadata !"matched_out", metadata !6, i32 67108934, metadata !24, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!150 = metadata !{i32 70, i32 7, metadata !21, null}
-!151 = metadata !{i32 786689, metadata !21, metadata !"matched_finished", metadata !6, i32 83886151, metadata !25, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!152 = metadata !{i32 71, i32 7, metadata !21, null}
-!153 = metadata !{i32 786689, metadata !21, metadata !"error_out", metadata !6, i32 100663368, metadata !25, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!154 = metadata !{i32 72, i32 7, metadata !21, null}
-!155 = metadata !{i32 786689, metadata !21, metadata !"database_size_out", metadata !6, i32 117440585, metadata !25, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!156 = metadata !{i32 73, i32 7, metadata !21, null}
-!157 = metadata !{i32 786689, metadata !21, metadata !"contacts_size_out", metadata !6, i32 134217802, metadata !25, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!158 = metadata !{i32 74, i32 7, metadata !21, null}
+!143 = metadata !{i32 786689, metadata !22, metadata !"operation", metadata !7, i32 16777283, metadata !12, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!144 = metadata !{i32 67, i32 6, metadata !22, null}
+!145 = metadata !{i32 786689, metadata !22, metadata !"contact_in", metadata !7, i32 33554500, metadata !10, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!146 = metadata !{i32 68, i32 16, metadata !22, null}
+!147 = metadata !{i32 786689, metadata !22, metadata !"database_in", metadata !7, i32 50331717, metadata !10, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!148 = metadata !{i32 69, i32 16, metadata !22, null}
+!149 = metadata !{i32 786689, metadata !22, metadata !"matched_out", metadata !7, i32 67108934, metadata !25, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!150 = metadata !{i32 70, i32 7, metadata !22, null}
+!151 = metadata !{i32 786689, metadata !22, metadata !"matched_finished", metadata !7, i32 83886151, metadata !26, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!152 = metadata !{i32 71, i32 7, metadata !22, null}
+!153 = metadata !{i32 786689, metadata !22, metadata !"error_out", metadata !7, i32 100663368, metadata !26, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!154 = metadata !{i32 72, i32 7, metadata !22, null}
+!155 = metadata !{i32 786689, metadata !22, metadata !"database_size_out", metadata !7, i32 117440585, metadata !26, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!156 = metadata !{i32 73, i32 7, metadata !22, null}
+!157 = metadata !{i32 786689, metadata !22, metadata !"contacts_size_out", metadata !7, i32 134217802, metadata !26, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!158 = metadata !{i32 74, i32 7, metadata !22, null}
 !159 = metadata !{i32 75, i32 3, metadata !160, null}
-!160 = metadata !{i32 786443, metadata !21, i32 75, i32 2, metadata !6, i32 13} ; [ DW_TAG_lexical_block ]
+!160 = metadata !{i32 786443, metadata !22, i32 75, i32 2, metadata !7, i32 13} ; [ DW_TAG_lexical_block ]
 !161 = metadata !{i32 75, i32 41, metadata !160, null}
 !162 = metadata !{i32 75, i32 80, metadata !160, null}
 !163 = metadata !{i32 78, i32 1, metadata !160, null}
@@ -688,29 +688,29 @@ declare void @_ssdm_RegionEnd(...) nounwind
 !174 = metadata !{i32 89, i32 1, metadata !160, null}
 !175 = metadata !{i32 90, i32 1, metadata !160, null}
 !176 = metadata !{i32 91, i32 1, metadata !160, null}
-!177 = metadata !{i32 786688, metadata !160, metadata !"database_index", metadata !6, i32 92, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!177 = metadata !{i32 786688, metadata !160, metadata !"database_index", metadata !7, i32 92, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !178 = metadata !{i32 92, i32 6, metadata !160, null}
-!179 = metadata !{i32 786688, metadata !160, metadata !"contacts_index", metadata !6, i32 92, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!179 = metadata !{i32 786688, metadata !160, metadata !"contacts_index", metadata !7, i32 92, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !180 = metadata !{i32 92, i32 22, metadata !160, null}
-!181 = metadata !{i32 786688, metadata !160, metadata !"i", metadata !6, i32 92, metadata !11, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!181 = metadata !{i32 786688, metadata !160, metadata !"i", metadata !7, i32 92, metadata !12, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !182 = metadata !{i32 92, i32 38, metadata !160, null}
-!183 = metadata !{i32 786688, metadata !160, metadata !"matched", metadata !6, i32 93, metadata !17, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!183 = metadata !{i32 786688, metadata !160, metadata !"matched", metadata !7, i32 93, metadata !18, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !184 = metadata !{i32 93, i32 7, metadata !160, null}
-!185 = metadata !{i32 786688, metadata !160, metadata !"current_matched", metadata !6, i32 93, metadata !17, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!185 = metadata !{i32 786688, metadata !160, metadata !"current_matched", metadata !7, i32 93, metadata !18, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !186 = metadata !{i32 93, i32 16, metadata !160, null}
 !187 = metadata !{i32 102, i32 2, metadata !160, null}
 !188 = metadata !{i32 105, i32 4, metadata !189, null}
-!189 = metadata !{i32 786443, metadata !160, i32 102, i32 19, metadata !6, i32 14} ; [ DW_TAG_lexical_block ]
+!189 = metadata !{i32 786443, metadata !160, i32 102, i32 19, metadata !7, i32 14} ; [ DW_TAG_lexical_block ]
 !190 = metadata !{i32 106, i32 4, metadata !189, null}
 !191 = metadata !{i32 107, i32 4, metadata !189, null}
 !192 = metadata !{i32 108, i32 4, metadata !189, null}
 !193 = metadata !{i32 109, i32 4, metadata !189, null}
 !194 = metadata !{i32 110, i32 5, metadata !195, null}
-!195 = metadata !{i32 786443, metadata !189, i32 109, i32 28, metadata !6, i32 15} ; [ DW_TAG_lexical_block ]
+!195 = metadata !{i32 786443, metadata !189, i32 109, i32 28, metadata !7, i32 15} ; [ DW_TAG_lexical_block ]
 !196 = metadata !{i32 111, i32 5, metadata !195, null}
 !197 = metadata !{i32 112, i32 4, metadata !195, null}
 !198 = metadata !{i32 113, i32 5, metadata !199, null}
-!199 = metadata !{i32 786443, metadata !189, i32 112, i32 10, metadata !6, i32 16} ; [ DW_TAG_lexical_block ]
+!199 = metadata !{i32 786443, metadata !189, i32 112, i32 10, metadata !7, i32 16} ; [ DW_TAG_lexical_block ]
 !200 = metadata !{i32 114, i32 5, metadata !199, null}
 !201 = metadata !{i32 115, i32 5, metadata !199, null}
 !202 = metadata !{i32 117, i32 4, metadata !189, null}
@@ -718,11 +718,11 @@ declare void @_ssdm_RegionEnd(...) nounwind
 !204 = metadata !{i32 121, i32 4, metadata !189, null}
 !205 = metadata !{i32 122, i32 4, metadata !189, null}
 !206 = metadata !{i32 123, i32 5, metadata !207, null}
-!207 = metadata !{i32 786443, metadata !189, i32 122, i32 30, metadata !6, i32 17} ; [ DW_TAG_lexical_block ]
+!207 = metadata !{i32 786443, metadata !189, i32 122, i32 30, metadata !7, i32 17} ; [ DW_TAG_lexical_block ]
 !208 = metadata !{i32 124, i32 5, metadata !207, null}
 !209 = metadata !{i32 125, i32 4, metadata !207, null}
 !210 = metadata !{i32 126, i32 5, metadata !211, null}
-!211 = metadata !{i32 786443, metadata !189, i32 125, i32 10, metadata !6, i32 18} ; [ DW_TAG_lexical_block ]
+!211 = metadata !{i32 786443, metadata !189, i32 125, i32 10, metadata !7, i32 18} ; [ DW_TAG_lexical_block ]
 !212 = metadata !{i32 127, i32 5, metadata !211, null}
 !213 = metadata !{i32 128, i32 5, metadata !211, null}
 !214 = metadata !{i32 130, i32 4, metadata !189, null}
@@ -731,17 +731,17 @@ declare void @_ssdm_RegionEnd(...) nounwind
 !217 = metadata !{i32 135, i32 4, metadata !189, null}
 !218 = metadata !{i32 136, i32 4, metadata !189, null}
 !219 = metadata !{i32 141, i32 8, metadata !220, null}
-!220 = metadata !{i32 786443, metadata !189, i32 141, i32 4, metadata !6, i32 19} ; [ DW_TAG_lexical_block ]
+!220 = metadata !{i32 786443, metadata !189, i32 141, i32 4, metadata !7, i32 19} ; [ DW_TAG_lexical_block ]
 !221 = metadata !{i32 141, i32 70, metadata !222, null}
-!222 = metadata !{i32 786443, metadata !220, i32 141, i32 69, metadata !6, i32 20} ; [ DW_TAG_lexical_block ]
+!222 = metadata !{i32 786443, metadata !220, i32 141, i32 69, metadata !7, i32 20} ; [ DW_TAG_lexical_block ]
 !223 = metadata !{i32 142, i32 1, metadata !222, null}
 !224 = metadata !{i32 156, i32 5, metadata !222, null}
 !225 = metadata !{i32 157, i32 4, metadata !222, null}
 !226 = metadata !{i32 141, i32 52, metadata !220, null}
 !227 = metadata !{i32 158, i32 8, metadata !228, null}
-!228 = metadata !{i32 786443, metadata !189, i32 158, i32 4, metadata !6, i32 21} ; [ DW_TAG_lexical_block ]
+!228 = metadata !{i32 786443, metadata !189, i32 158, i32 4, metadata !7, i32 21} ; [ DW_TAG_lexical_block ]
 !229 = metadata !{i32 158, i32 27, metadata !230, null}
-!230 = metadata !{i32 786443, metadata !228, i32 158, i32 26, metadata !6, i32 22} ; [ DW_TAG_lexical_block ]
+!230 = metadata !{i32 786443, metadata !228, i32 158, i32 26, metadata !7, i32 22} ; [ DW_TAG_lexical_block ]
 !231 = metadata !{i32 159, i32 1, metadata !230, null}
 !232 = metadata !{i32 160, i32 2, metadata !230, null}
 !233 = metadata !{i32 161, i32 4, metadata !230, null}

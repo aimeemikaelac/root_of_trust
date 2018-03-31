@@ -1,3 +1,99 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
-<sourceFile name=""/>
+<sourceFile name="">
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="ap_vld" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="operation"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="return"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="ap_none" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="port" positionalBoolean="4" value="matched_finished"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="ap_none" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="port" positionalBoolean="4" value="contacts_size_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="contacts_size_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="ap_none" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="port" positionalBoolean="4" value="database_size_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="database_size_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="ap_none" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="port" positionalBoolean="4" value="error_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="matched_finished"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="error_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="port" positionalBoolean="4" value="operation"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="matched_out"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="database_in"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="contact_in"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="PIPELINE"/>
+</directive>
+<directive functionLabel="" functionName="contact_discovery" label="">
+<pragma name="PIPELINE"/>
+</directive>
+</sourceFile>
 </AutoPilot:ProjectResources>

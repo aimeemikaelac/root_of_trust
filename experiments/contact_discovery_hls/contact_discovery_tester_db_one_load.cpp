@@ -31,6 +31,7 @@ void contact_discovery(
 ){
 	int i;
 	volatile unsigned char *control;
+    unsigned int temp;
 	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
 	control = (volatile unsigned char*)(control_mem->ptr);
 
@@ -57,14 +58,20 @@ void contact_discovery(
 		asm("");
 		__asm__("");
 	}
-	*matched_finished = *((unsigned int*)(control + 0x4000));
-	*error_out = *((unsigned int*)(control + 0x4008));
-	*database_size_out = *((unsigned int*)(control + 0x4010));
-	*contacts_size_out = *((unsigned int*)(control + 0x4018));
+//	*matched_finished = *((unsigned int*)(control + 0x4000));
+    getValueAtAddress(BASE + 0x4000, (unsigned int*)matched_finished);
+//	*error_out = *((unsigned int*)(control + 0x4008));
+    getValueAtAddress(BASE + 0x4008, (unsigned int*)error_out);
+//	*database_size_out = *((unsigned int*)(control + 0x4010));
+    getValueAtAddress(BASE + 0x4010, (unsigned int *)database_size_out);
+//	*contacts_size_out = *((unsigned int*)(control + 0x4018));
+    getValueAtAddress(BASE + 0x4018, (unsigned int *)contacts_size_out);
 	//read match result
 	if(operation == 2){
-    for(i=0; i<DATABASE_SIZE; i++){
-      matched_out[i] = (bool)(control[0x2000 + i]);
+    for(i=0; i<DATABASE_SIZE; i+=4){
+//      matched_out[i] = (bool)(control[0x2000 + i]);
+      getValueAtAddress(BASE + 0x2000 + i, (unsigned int*)(matched_out + i));
+//      matched_out[i] = (bool)(temp);
     }
 	}
   cleanupSharedMemoryPointer(control_mem);
@@ -217,6 +224,7 @@ int main(){
 //		printf("Current contacts size: %i\n", contacts_size);
 		assert(error_out == 0);
 		assert(database_size_out == 0);
+  //      printf("contacts size out: %i\n", contacts_size_out);
 		assert(contacts_size_out == contacts_size);
 	}
 
@@ -267,7 +275,7 @@ int main(){
 		}
 
 	}
-	printf("Contacts match %i, unmatched %i", num_matched, num_unmatched);
+	printf("Contacts match %i, unmatched %i\n", num_matched, num_unmatched);
 
 	return 0;
 }

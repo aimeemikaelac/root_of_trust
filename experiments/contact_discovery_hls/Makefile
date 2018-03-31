@@ -7,6 +7,7 @@ TEST_DB_LOAD      := contact_discovery_tester_db_load
 TEST_DB_ONE		:= contact_discovery_tester_db_one_load
 DB_EXP				:= contact_discovery_experiment_db_loading
 DB_EXP_ONE		:= contact_discovery_experiment_db_one_load
+ICAP	:= icap_program
 
 .PHONY: clean
 
@@ -19,6 +20,11 @@ db_exp_one: $(DB_EXP_ONE)
 test_db_load: $(TEST_DB_LOAD)
 
 test_db_one: $(TEST_DB_ONE)
+
+icap: $(ICAP)
+
+$(ICAP): $(ICAP).o $(LIBS)
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 $(DB_EXP): $(DB_EXP).o $(LIBS)
 	$(CXX) -o $@ $^ $(LDFLAGS)
@@ -39,3 +45,4 @@ clean:
 	$(RM) -rf $(TEST_DB_LOAD)
 	$(RM) -rf $(TEST_DB_ONE)
 	$(RM) -rf $(DB_EXP_ONE)
+	$(RM) -rf $(ICAP)

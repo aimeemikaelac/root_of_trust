@@ -1,0 +1,879 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Thu Apr 19 14:54:41 2018
+# Process ID: 9618
+# Current directory: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog
+# Command line: vivado -notrace -mode batch -source run_vivadosyn.tcl
+# Log file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/vivado.log
+# Journal file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/vivado.jou
+#-----------------------------------------------------------
+source run_vivadosyn.tcl -notrace
+[Thu Apr 19 14:54:52 2018] Launched synth_1...
+Run output will be captured here: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/runme.log
+[Thu Apr 19 14:54:52 2018] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log contact_discovery.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source contact_discovery.tcl
+
+
+****** Vivado v2017.1 (64-bit)
+  **** SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+  **** IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source contact_discovery.tcl -notrace
+Command: synth_design -top contact_discovery -part xczu9eg-ffvb1156-1-i -no_iobuf -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9695 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1241.688 ; gain = 77.988 ; free physical = 131 ; free virtual = 5624
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 10'b0000000001 
+	Parameter ap_ST_fsm_state2 bound to: 10'b0000000010 
+	Parameter ap_ST_fsm_state3 bound to: 10'b0000000100 
+	Parameter ap_ST_fsm_state4 bound to: 10'b0000001000 
+	Parameter ap_ST_fsm_state5 bound to: 10'b0000010000 
+	Parameter ap_ST_fsm_state6 bound to: 10'b0000100000 
+	Parameter ap_ST_fsm_state7 bound to: 10'b0001000000 
+	Parameter ap_ST_fsm_state8 bound to: 10'b0010000000 
+	Parameter ap_ST_fsm_state9 bound to: 10'b0100000000 
+	Parameter ap_ST_fsm_state10 bound to: 10'b1000000000 
+	Parameter C_S_AXI_AXILITES_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_AXILITES_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_AXILITES_WSTRB_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:92]
+INFO: [Synth 8-638] synthesizing module 'contact_discoveryeOg' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:49]
+	Parameter DataWidth bound to: 8 - type: integer 
+	Parameter AddressRange bound to: 8192 - type: integer 
+	Parameter AddressWidth bound to: 13 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'contact_discoveryeOg_ram' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:9]
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter AWIDTH bound to: 13 - type: integer 
+	Parameter MEM_SIZE bound to: 8192 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:22]
+INFO: [Synth 8-3876] $readmem data file './contact_discoveryeOg_ram.dat' is read successfully [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:25]
+INFO: [Synth 8-256] done synthesizing module 'contact_discoveryeOg_ram' (1#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:9]
+INFO: [Synth 8-256] done synthesizing module 'contact_discoveryeOg' (2#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:49]
+INFO: [Synth 8-638] synthesizing module 'contact_discovery_AXILiteS_s_axi' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:9]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDR_AP_CTRL bound to: 8'b00000000 
+	Parameter ADDR_GIE bound to: 8'b00000100 
+	Parameter ADDR_IER bound to: 8'b00001000 
+	Parameter ADDR_ISR bound to: 8'b00001100 
+	Parameter ADDR_OPERATION_DATA_0 bound to: 8'b00010000 
+	Parameter ADDR_OPERATION_CTRL bound to: 8'b00010100 
+	Parameter ADDR_DB_SIZE_IN_DATA_0 bound to: 8'b10000000 
+	Parameter ADDR_DB_SIZE_IN_CTRL bound to: 8'b10000100 
+	Parameter ADDR_ERROR_OUT_DATA_0 bound to: 8'b10001000 
+	Parameter ADDR_ERROR_OUT_CTRL bound to: 8'b10001100 
+	Parameter ADDR_CONTACTS_SIZE_OUT_DATA_0 bound to: 8'b10010000 
+	Parameter ADDR_CONTACTS_SIZE_OUT_CTRL bound to: 8'b10010100 
+	Parameter ADDR_CONTACT_IN_BASE bound to: 8'b01000000 
+	Parameter ADDR_CONTACT_IN_HIGH bound to: 8'b01111111 
+	Parameter WRIDLE bound to: 2'b00 
+	Parameter WRDATA bound to: 2'b01 
+	Parameter WRRESP bound to: 2'b10 
+	Parameter WRRESET bound to: 2'b11 
+	Parameter RDIDLE bound to: 2'b00 
+	Parameter RDDATA bound to: 2'b01 
+	Parameter RDRESET bound to: 2'b10 
+	Parameter ADDR_BITS bound to: 8 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'contact_discovery_AXILiteS_s_axi_ram' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:497]
+	Parameter BYTES bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+	Parameter AWIDTH bound to: 4 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. 
+INFO: [Synth 8-256] done synthesizing module 'contact_discovery_AXILiteS_s_axi_ram' (3#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:497]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:268]
+WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:310]
+WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:386]
+INFO: [Synth 8-256] done synthesizing module 'contact_discovery_AXILiteS_s_axi' (4#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:9]
+INFO: [Synth 8-638] synthesizing module 'match_db_contact' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 10'b0000000001 
+	Parameter ap_ST_fsm_state2 bound to: 10'b0000000010 
+	Parameter ap_ST_fsm_state3 bound to: 10'b0000000100 
+	Parameter ap_ST_fsm_state4 bound to: 10'b0000001000 
+	Parameter ap_ST_fsm_state5 bound to: 10'b0000010000 
+	Parameter ap_ST_fsm_state6 bound to: 10'b0000100000 
+	Parameter ap_ST_fsm_state7 bound to: 10'b0001000000 
+	Parameter ap_ST_fsm_state8 bound to: 10'b0010000000 
+	Parameter ap_ST_fsm_state9 bound to: 10'b0100000000 
+	Parameter ap_ST_fsm_state10 bound to: 10'b1000000000 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:58]
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_bkb' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_bkb.v:46]
+	Parameter DataWidth bound to: 1 - type: integer 
+	Parameter AddressRange bound to: 64 - type: integer 
+	Parameter AddressWidth bound to: 6 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_bkb_ram' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_bkb.v:9]
+	Parameter DWIDTH bound to: 1 - type: integer 
+	Parameter AWIDTH bound to: 6 - type: integer 
+	Parameter MEM_SIZE bound to: 64 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_bkb.v:22]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_bkb_ram' (5#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_bkb.v:9]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_bkb' (6#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_bkb.v:46]
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_cud' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_cud.v:46]
+	Parameter DataWidth bound to: 1 - type: integer 
+	Parameter AddressRange bound to: 128 - type: integer 
+	Parameter AddressWidth bound to: 7 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_cud_ram' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_cud.v:9]
+	Parameter DWIDTH bound to: 1 - type: integer 
+	Parameter AWIDTH bound to: 7 - type: integer 
+	Parameter MEM_SIZE bound to: 128 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_cud.v:22]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_cud_ram' (7#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_cud.v:9]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_cud' (8#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_cud.v:46]
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_dEe' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_dEe.v:46]
+	Parameter DataWidth bound to: 8 - type: integer 
+	Parameter AddressRange bound to: 64 - type: integer 
+	Parameter AddressWidth bound to: 6 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'match_db_contact_dEe_ram' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_dEe.v:9]
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter AWIDTH bound to: 6 - type: integer 
+	Parameter MEM_SIZE bound to: 64 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_dEe.v:22]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_dEe_ram' (9#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_dEe.v:9]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact_dEe' (10#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact_dEe.v:46]
+INFO: [Synth 8-638] synthesizing module 'fifo_w8_d128_A' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:45]
+	Parameter MEM_STYLE bound to: shiftreg - type: string 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 129 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'fifo_w8_d128_A_shiftReg' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:11]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 129 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element i was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:33]
+INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A_shiftReg' (11#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:11]
+INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A' (12#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:45]
+WARNING: [Synth 8-6014] Unused sequential element db_stream_V_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:423]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state2_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:584]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state5_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:588]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state6_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:592]
+WARNING: [Synth 8-6014] Unused sequential element db_item_V_read_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:208]
+WARNING: [Synth 8-6014] Unused sequential element db_item_V_write_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:205]
+WARNING: [Synth 8-6014] Unused sequential element db_stream_V_read_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:431]
+WARNING: [Synth 8-6014] Unused sequential element results_local_we0_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:152]
+WARNING: [Synth 8-6014] Unused sequential element tmp_3_reg_488_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:319]
+WARNING: [Synth 8-6014] Unused sequential element tmp_3_reg_488_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:647]
+INFO: [Synth 8-256] done synthesizing module 'match_db_contact' (13#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:10]
+INFO: [Synth 8-638] synthesizing module 'fifo_w8_d128_A_x' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:45]
+	Parameter MEM_STYLE bound to: shiftreg - type: string 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 129 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'fifo_w8_d128_A_x_shiftReg' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:11]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 129 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element i was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:33]
+INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A_x_shiftReg' (14#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:11]
+INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A_x' (15#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:45]
+WARNING: [Synth 8-6014] Unused sequential element db_in_V_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:486]
+WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:554]
+WARNING: [Synth 8-6014] Unused sequential element results_out_V_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:570]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:677]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state10_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:681]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state4_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:685]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state4_ignore_call0_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:689]
+WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:230]
+WARNING: [Synth 8-6014] Unused sequential element db_stream_V_write_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:266]
+WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_394_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:392]
+WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_394_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:720]
+INFO: [Synth 8-256] done synthesizing module 'contact_discovery' (16#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[31] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[30] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[29] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[28] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[27] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[26] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[25] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[24] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[23] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[22] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[21] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[20] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[19] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[18] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[17] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[16] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[15] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[14] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[13] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[12] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[11] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[10] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[9] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[8] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[7] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[6] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[5] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[4] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[3] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[2] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[1] driven by constant 0
+WARNING: [Synth 8-3331] design match_db_contact_dEe has unconnected port reset
+WARNING: [Synth 8-3331] design match_db_contact_cud has unconnected port reset
+WARNING: [Synth 8-3331] design match_db_contact_bkb has unconnected port reset
+WARNING: [Synth 8-3331] design contact_discoveryeOg has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1290.188 ; gain = 126.488 ; free physical = 178 ; free virtual = 5630
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1290.188 ; gain = 126.488 ; free physical = 182 ; free virtual = 5635
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.xdc]
+Finished Parsing XDC File [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2010.008 ; gain = 2.000 ; free physical = 111 ; free virtual = 5011
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 2010.008 ; gain = 846.309 ; free physical = 183 ; free virtual = 5083
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-1-i
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 2010.008 ; gain = 846.309 ; free physical = 183 ; free virtual = 5083
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 2010.008 ; gain = 846.309 ; free physical = 181 ; free virtual = 5082
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_shift_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:453]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[0] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[1] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[2] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[3] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[4] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[5] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[6] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[7] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[8] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[9] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[10] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[11] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[12] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[13] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[14] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[15] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[16] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[17] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[18] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[19] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[20] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[21] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[22] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[23] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[24] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[25] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[26] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[27] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[28] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[29] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[30] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[31] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[32] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[33] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[34] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[35] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[36] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[37] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[38] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[39] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[40] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[41] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[42] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[43] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[44] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[45] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[46] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[47] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[48] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[49] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[50] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[51] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[52] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[53] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[54] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[55] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[56] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[57] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[58] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[59] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[60] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[61] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[62] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[63] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[64] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[65] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[66] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[67] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:92]
+INFO: [Synth 8-5546] ROM "internal_empty_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "internal_full_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond_fu_437_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond1_fu_313_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond9_fu_330_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond8_fu_358_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond3_i_fu_385_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_i_fu_409_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:92]
+INFO: [Synth 8-5546] ROM "internal_empty_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "internal_full_n" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 'sum_i_reg_428_reg' and it is trimmed from '15' to '13' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:386]
+WARNING: [Synth 8-3936] Found unconnected internal register 'tmp_1_cast_reg_394_reg' and it is trimmed from '9' to '7' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:392]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond_fu_315_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_i_fu_332_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM ram_reg
+INFO: [Synth 8-3971] The signal gen_write[1].mem_reg was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 2010.008 ; gain = 846.309 ; free physical = 177 ; free virtual = 5077
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     13 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 6     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 14    
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 7     
+	                7 Bit    Registers := 11    
+	                6 Bit    Registers := 2     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 22    
++---RAMs : 
+	              64K Bit         RAMs := 1     
+	              512 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 18    
+	   2 Input     13 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 3     
+	   4 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 7     
+	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 3     
+	   2 Input      5 Bit        Muxes := 2     
+	   3 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 36    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module contact_discovery 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 7     
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                7 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     13 Bit        Muxes := 1     
+	   4 Input     10 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 7     
+Module contact_discoveryeOg_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	              64K Bit         RAMs := 1     
+Module contact_discovery_AXILiteS_s_axi_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
++---RAMs : 
+	              512 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 12    
+	   2 Input      8 Bit        Muxes := 2     
+Module contact_discovery_AXILiteS_s_axi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 5     
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module match_db_contact_bkb_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module match_db_contact_cud_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module match_db_contact_dEe_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+Module fifo_w8_d128_A 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module match_db_contact 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 4     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                7 Bit    Registers := 7     
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 3     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+Module fifo_w8_d128_A_x 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'tmp_1_cast_reg_394_reg[5:0]' into 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5:0]' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:720]
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/contact_V_fifo_U/internal_full_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/contact_V_fifo_U/internal_empty_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/db_item_V_fifo_U/internal_full_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/db_item_V_fifo_U/internal_empty_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond1_fu_313_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond8_fu_358_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond3_i_fu_385_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond_i_fu_409_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond9_fu_330_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_match_db_contact_fu_259/exitcond_fu_437_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "db_stream_V_fifo_U/internal_full_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "db_stream_V_fifo_U/internal_empty_n" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_i_fu_332_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_fu_315_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[31] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[30] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[29] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[28] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[27] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[26] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[25] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[24] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[23] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[22] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[21] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[20] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[19] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[18] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[17] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[16] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[15] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[14] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[13] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[12] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[11] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[10] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[9] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[8] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[7] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[6] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[5] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[4] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[3] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[2] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[1] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port s_axi_AXILiteS_RRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port s_axi_AXILiteS_RRESP[0] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port s_axi_AXILiteS_BRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port s_axi_AXILiteS_BRESP[0] driven by constant 0
+INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg
+INFO: [Synth 8-3971] The signal contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[0]' (FD) to 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[1]' (FD) to 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[2]' (FD) to 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[3]' (FD) to 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[4]' (FD) to 'grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5] )
+WARNING: [Synth 8-3332] Sequential element (grp_match_db_contact_fu_259/tmp_3_reg_488_reg[5]) is unused and will be removed from module contact_discovery.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 2010.008 ; gain = 846.309 ; free physical = 157 ; free virtual = 5060
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++--------------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                           | RTL Object           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|contact_discoveryeOg_ram:             | ram_reg              | 8 K x 8(WRITE_FIRST)   | W | R |                        |   |   | Port A           | 0      | 2      | 
+|contact_discovery_AXILiteS_s_axi_ram: | gen_write[1].mem_reg | 16 x 32(READ_FIRST)    | W | R | 16 x 32(READ_FIRST)    | W | R | Port A and B     | 0      | 1      | 
++--------------------------------------+----------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
+|Module Name       | RTL Object                                                                     | Inference      | Size (Depth x Width) | Primitives      | 
++------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
+|contact_discovery | grp_match_db_contact_fu_259/results_local_U/match_db_contact_bkb_ram_U/ram_reg | User Attribute | 64 x 1               | RAM64X1S x 1    | 
+|contact_discovery | grp_match_db_contact_fu_259/local_results_U/match_db_contact_cud_ram_U/ram_reg | User Attribute | 128 x 1              | RAM128X1S x 1   | 
+|contact_discovery | grp_match_db_contact_fu_259/db_item_temp_U/match_db_contact_dEe_ram_U/ram_reg  | User Attribute | 64 x 8               | RAM64X1S x 8    | 
++------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 2655.961 ; gain = 1492.262 ; free physical = 102 ; free virtual = 4358
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5556] The block RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg may be mapped as a cascade chain, because it is not timing critical.
+INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:38 . Memory (MB): peak = 2693.828 ; gain = 1530.129 ; free physical = 119 ; free virtual = 4330
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance contacts_U/contact_discoveryeOg_ram_U/ram_reg_bram_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 138 ; free virtual = 4328
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 138 ; free virtual = 4328
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 138 ; free virtual = 4328
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 137 ; free virtual = 4328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 137 ; free virtual = 4328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 134 ; free virtual = 4326
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 134 ; free virtual = 4326
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Dynamic Shift Register Report:
++------------+------------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name         | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+------------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | SRL_SIG_reg[128] | 256    | 8          | 0      | 64      | 32     | 16     | 0      | 
+|dsrl__1     | SRL_SIG_reg[128] | 256    | 8          | 0      | 64      | 32     | 16     | 0      | 
+|dsrl__3     | SRL_SIG_reg[128] | 256    | 8          | 0      | 64      | 32     | 16     | 0      | 
++------------+------------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |CARRY8     |    17|
+|2     |LUT1       |    93|
+|3     |LUT2       |   104|
+|4     |LUT3       |   206|
+|5     |LUT4       |    83|
+|6     |LUT5       |    94|
+|7     |LUT6       |   131|
+|8     |MUXF7      |   104|
+|9     |MUXF8      |    48|
+|10    |RAM128X1S  |     1|
+|11    |RAM64X1S   |     9|
+|12    |RAMB36E2_2 |     1|
+|13    |RAMB36E2_3 |     1|
+|14    |RAMB36E2_4 |     1|
+|15    |SRLC32E    |   192|
+|16    |FDRE       |   604|
+|17    |FDSE       |    33|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-------------------------------------+-------------------------------------+------+
+|      |Instance                             |Module                               |Cells |
++------+-------------------------------------+-------------------------------------+------+
+|1     |top                                  |                                     |  1722|
+|2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi     |   454|
+|3     |    int_contact_in                   |contact_discovery_AXILiteS_s_axi_ram |    41|
+|4     |  contacts_U                         |contact_discoveryeOg                 |     4|
+|5     |    contact_discoveryeOg_ram_U       |contact_discoveryeOg_ram             |     4|
+|6     |  db_stream_V_fifo_U                 |fifo_w8_d128_A_x                     |   167|
+|7     |    U_fifo_w8_d128_A_x_ram           |fifo_w8_d128_A_x_shiftReg            |   136|
+|8     |  grp_match_db_contact_fu_259        |match_db_contact                     |   559|
+|9     |    contact_V_fifo_U                 |fifo_w8_d128_A                       |   160|
+|10    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg_1            |   127|
+|11    |    db_item_V_fifo_U                 |fifo_w8_d128_A_0                     |   159|
+|12    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg              |   121|
+|13    |    db_item_temp_U                   |match_db_contact_dEe                 |    27|
+|14    |      match_db_contact_dEe_ram_U     |match_db_contact_dEe_ram             |    27|
+|15    |    local_results_U                  |match_db_contact_cud                 |    13|
+|16    |      match_db_contact_cud_ram_U     |match_db_contact_cud_ram             |    13|
+|17    |    results_local_U                  |match_db_contact_bkb                 |    10|
+|18    |      match_db_contact_bkb_ram_U     |match_db_contact_bkb_ram             |    10|
++------+-------------------------------------+-------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.844 ; gain = 1548.145 ; free physical = 137 ; free virtual = 4329
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 309 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 2711.844 ; gain = 828.324 ; free physical = 176 ; free virtual = 4369
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 2711.852 ; gain = 1548.145 ; free physical = 174 ; free virtual = 4369
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 10 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 1 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 9 instances
+
+98 Infos, 173 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:43 . Memory (MB): peak = 2724.844 ; gain = 1619.586 ; free physical = 166 ; free virtual = 4360
+INFO: [Common 17-1381] The checkpoint '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/contact_discovery.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.30 . Memory (MB): peak = 2748.855 ; gain = 0.000 ; free physical = 130 ; free virtual = 4364
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 14:55:44 2018...
+[Thu Apr 19 14:55:49 2018] synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:57 . Memory (MB): peak = 1171.285 ; gain = 8.000 ; free physical = 1731 ; free virtual = 6003
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xczu9eg-ffvb1156-1-i
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.1
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.xdc]
+INFO: [Vivado 12-4761] HD.CLK_SRC property is set on port ap_clk. The net connecting to the port drives either clock PIN or hierarchical black box. Use the create_clock constraint to create a clock on this port prior to setting HD.CLK_SRC.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.xdc:2]
+Finished Parsing XDC File [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 10 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 1 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 9 instances
+
+open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1840.703 ; gain = 669.418 ; free physical = 908 ; free virtual = 5328
+report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1840.703 ; gain = 0.000 ; free physical = 901 ; free virtual = 5327
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+report_timing: Time (s): cpu = 00:00:45 ; elapsed = 00:01:07 . Memory (MB): peak = 3552.480 ; gain = 1711.777 ; free physical = 316 ; free virtual = 4044
+
+
+Implementation tool: Xilinx Vivado v.2017.1
+Project:             contact_discovery_axi_experimental
+Solution:            solution1
+Device target:       xczu9eg-ffvb1156-1-i
+Report date:         Thu Apr 19 14:57:03 MDT 2018
+
+#=== Post-Synthesis Resource usage ===
+SLICE:            0
+LUT:            762
+FF:             637
+DSP:              0
+BRAM:             6
+SRL:            192
+#=== Final timing ===
+CP required:    10.000
+CP achieved post-synthesis:    2.289
+Timing met
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 14:57:03 2018...

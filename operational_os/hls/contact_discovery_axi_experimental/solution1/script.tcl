@@ -17,4 +17,4 @@ create_clock -period 10 -name default
 csim_design -compiler gcc
 csynth_design
 cosim_design
-export_design -rtl verilog -format ip_catalog
+export_design -flow syn -rtl verilog -format ip_catalog

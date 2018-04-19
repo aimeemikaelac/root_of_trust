@@ -10,6 +10,7 @@
 #include "assert.h"
 #include "time.h"
 #include "fixedint.h"
+#include "hls_stream.h"
 
 #define __mbstate_t_defined	1
 //#define DATABASE_CHUNK_SIZE 300
@@ -18,13 +19,12 @@
 
 extern void contact_discovery(
 		int operation,
-		unsigned char contact_in[512],
-		unsigned char database_in[512],
-		bool matched_out[DATABASE_SIZE],
-		int *matched_finished,
+		unsigned char contact_in[64],
+		hls::stream<unsigned char> &db_in,
+		unsigned int db_size_in,
 		int *error_out,
-		int *database_size_out,
-		int *contacts_size_out
+		int *contacts_size_out,
+		hls::stream<unsigned int> &results_out
 );
 
 typedef struct number{
@@ -86,11 +86,14 @@ void hash_numbers(){
 
 int main(){
 	unsigned int seed;
-	int i, j, random_index;
+	int i, j, random_index, num_matched = 0, num_unmatched = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
-	volatile bool matched_out[DATABASE_SIZE];
+	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
+
+	hls::stream<unsigned char> db_stream;
+	hls::stream<unsigned int> results_stream;
 
 	// generate random database
 //	if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
@@ -127,32 +130,25 @@ int main(){
 		}
 	}
 
+	printf("Populating db stream\n");
+	for(i=0; i<DATABASE_SIZE*64; i++){
+		db_stream.write(db_hashes[i]);
+	}
+
 	printf("Checking initial conditions\n");
-	//check initial conditions of clearing db, contacts
+	//check initial conditions of clearing contacts
 	contact_discovery(
-		3,
+		2,
 		(unsigned char*)NULL,
-		(unsigned char*)NULL,
-		(bool*)matched_out,
-		(int*)&matched_finished,
+		db_stream,
+		0,
 		(int*)&error_out,
-		(int*)&database_size_out,
-		(int*)&contacts_size_out
-	);
-	contact_discovery(
-		4,
-		(unsigned char*)NULL,
-		(unsigned char*)NULL,
-		(bool*)matched_out,
-		(int*)&matched_finished,
-		(int*)&error_out,
-		(int*)&database_size_out,
-		(int*)&contacts_size_out
+		(int*)&contacts_size_out,
+		results_stream
 	);
 	assert(error_out == 0);
-	assert(matched_finished == 0);
-	assert(database_size_out == 0);
 	assert(contacts_size_out == 0);
+
 
 	printf("Populating contacts\n");
 	//populate contacts
@@ -163,59 +159,40 @@ int main(){
 		contact_discovery(
 			0,
 			(unsigned char*)current.data(),
-			NULL,
-			(bool*)matched_out,
-			(int*)&matched_finished,
+			db_stream,
+			0,
 			(int*)&error_out,
-			(int*)&database_size_out,
-			(int*)&contacts_size_out
+			(int*)&contacts_size_out,
+			results_stream
 		);
 		contacts_size++;
 //		printf("Current contacts size: %i\n", contacts_size);
 		assert(error_out == 0);
-		assert(database_size_out == 0);
 		assert(contacts_size_out == contacts_size);
 	}
 
-	bool matched_correct[DATABASE_SIZE];
-	printf("Populating database\n");
+	printf("Running Match\n");
+	contact_discovery(
+		1,
+		NULL,
+		db_stream,
+		DATABASE_SIZE,
+		(int*)&error_out,
+		(int*)&contacts_size_out,
+		results_stream
+	);
+	assert(error_out == 0);
+
 	for(i=0; i<DATABASE_SIZE; i++){
 		unsigned char current_hash[64];
 		memcpy(current_hash, db_hashes + i*64, 64);
-		contact_discovery(
-			1,
-			NULL,
-			current_hash,
-			(bool*)matched_out,
-			(int*)&matched_finished,
-			(int*)&error_out,
-			(int*)&database_size_out,
-			(int*)&contacts_size_out
-		);
-		assert(error_out == 0);
-		assert(database_size_out == i+1);
 		std::string current((char*)(current_hash), 64);
 		matched_correct[i] = (contacts.count(current) > 0);
 	}
 
 
-	printf("Starting matching\n");
-	//build chunks and perform matching
-	int current_chunk_size = 0;
-	int current_chunk_count = 0;
-
-	contact_discovery(
-		2,
-		NULL,
-		NULL,
-		(bool*)matched_out,
-		(int*)&matched_finished,
-		(int*)&error_out,
-		(int*)&database_size_out,
-		(int*)&contacts_size_out
-	);
-	int num_matched = 0, num_unmatched = 0;
 	for(j=0; j<DATABASE_SIZE; j++){
+		matched_out[j] = (bool)(results_stream.read());
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;
@@ -224,7 +201,7 @@ int main(){
 		}
 
 	}
-	printf("Contacts match %i, unmatched %i", num_matched, num_unmatched);
+	printf("Contacts match %i, unmatched %i\n", num_matched, num_unmatched);
 
 	return 0;
 }

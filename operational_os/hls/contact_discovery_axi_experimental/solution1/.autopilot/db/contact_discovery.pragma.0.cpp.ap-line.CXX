@@ -1,5 +1,5 @@
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp" ::: -10
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp" 1 ::: -9
+#pragma line 1 "contact_discovery_axi_experimental/src/contact_discovery.cpp" ::: -10
+#pragma line 1 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 1 ::: -9
 #pragma line 1 "<built-in>" 1 ::: -8
 #pragma line 1 "<built-in>" 3 ::: -7
 #pragma line 155 "<built-in>" 3 ::: -6
@@ -11,11 +11,11 @@
 #pragma line 427 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 190
 #pragma line 7 "<command line>" 2 ::: 192
 #pragma line 1 "<built-in>" 2 ::: 193
-#pragma line 1 "contact_discovery_axi/src/contact_discovery.cpp" 2 ::: 194
+#pragma line 1 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2 ::: 194
 #pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 1 ::: 195
 #pragma line 1 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 262
 #pragma line 67 "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls_stream.h" 2 ::: 397
-#pragma line 2 "contact_discovery_axi/src/contact_discovery.cpp" 2 ::: 503
+#pragma line 2 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2 ::: 503
 #pragma line 1 "/usr/include/assert.h" 1 3 4 ::: 504
 #pragma line 35 "/usr/include/assert.h" 3 4 ::: 525
 #pragma line 1 "/usr/include/features.h" 1 3 4 ::: 526
@@ -51,7 +51,7 @@
 #pragma line 36 "/usr/include/assert.h" 2 3 4 ::: 1036
 #pragma line 66 "/usr/include/assert.h" 3 4 ::: 1048
 #pragma line 100 "/usr/include/assert.h" 3 4 ::: 1069
-#pragma line 3 "contact_discovery_axi/src/contact_discovery.cpp" 2 ::: 1075
+#pragma line 3 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2 ::: 1075
 #pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 1076
 #pragma line 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 1110
 #pragma line 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 1146
@@ -107,4 +107,4 @@
 #pragma line 854 "/usr/include/stdio.h" 2 3 4 ::: 2466
 #pragma line 930 "/usr/include/stdio.h" 3 4 ::: 2533
 #pragma line 942 "/usr/include/stdio.h" 3 4 ::: 2536
-#pragma line 4 "contact_discovery_axi/src/contact_discovery.cpp" 2 ::: 2538
+#pragma line 4 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2 ::: 2538

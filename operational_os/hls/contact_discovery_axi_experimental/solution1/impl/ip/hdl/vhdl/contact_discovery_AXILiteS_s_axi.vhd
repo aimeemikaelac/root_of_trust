@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity contact_discovery_AXILiteS_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 11;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 8;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -46,75 +46,51 @@ port (
     contact_in_address0   :in   STD_LOGIC_VECTOR(5 downto 0);
     contact_in_ce0        :in   STD_LOGIC;
     contact_in_q0         :out  STD_LOGIC_VECTOR(7 downto 0);
-    database_in_address0  :in   STD_LOGIC_VECTOR(5 downto 0);
-    database_in_ce0       :in   STD_LOGIC;
-    database_in_q0        :out  STD_LOGIC_VECTOR(7 downto 0);
-    matched_out_address0  :in   STD_LOGIC_VECTOR(8 downto 0);
-    matched_out_ce0       :in   STD_LOGIC;
-    matched_out_we0       :in   STD_LOGIC;
-    matched_out_d0        :in   STD_LOGIC_VECTOR(0 downto 0);
-    matched_finished      :in   STD_LOGIC_VECTOR(31 downto 0);
+    db_size_in            :out  STD_LOGIC_VECTOR(31 downto 0);
     error_out             :in   STD_LOGIC_VECTOR(31 downto 0);
-    database_size_out     :in   STD_LOGIC_VECTOR(31 downto 0);
     contacts_size_out     :in   STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity contact_discovery_AXILiteS_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x000 : Control signals
---         bit 0  - ap_start (Read/Write/COH)
---         bit 1  - ap_done (Read/COR)
---         bit 2  - ap_idle (Read)
---         bit 3  - ap_ready (Read)
---         bit 7  - auto_restart (Read/Write)
---         others - reserved
--- 0x004 : Global Interrupt Enable Register
---         bit 0  - Global Interrupt Enable (Read/Write)
---         others - reserved
--- 0x008 : IP Interrupt Enable Register (Read/Write)
---         bit 0  - Channel 0 (ap_done)
---         bit 1  - Channel 1 (ap_ready)
---         others - reserved
--- 0x00c : IP Interrupt Status Register (Read/TOW)
---         bit 0  - Channel 0 (ap_done)
---         bit 1  - Channel 1 (ap_ready)
---         others - reserved
--- 0x010 : Data signal of operation
---         bit 31~0 - operation[31:0] (Read/Write)
--- 0x014 : Control signal of operation
---         bit 0  - operation_ap_vld (Read/Write/SC)
---         others - reserved
--- 0x400 : Data signal of matched_finished
---         bit 31~0 - matched_finished[31:0] (Read)
--- 0x404 : reserved
--- 0x408 : Data signal of error_out
---         bit 31~0 - error_out[31:0] (Read)
--- 0x40c : reserved
--- 0x410 : Data signal of database_size_out
---         bit 31~0 - database_size_out[31:0] (Read)
--- 0x414 : reserved
--- 0x418 : Data signal of contacts_size_out
---         bit 31~0 - contacts_size_out[31:0] (Read)
--- 0x41c : reserved
--- 0x040 ~
--- 0x07f : Memory 'contact_in' (64 * 8b)
---         Word n : bit [ 7: 0] - contact_in[4n]
---                  bit [15: 8] - contact_in[4n+1]
---                  bit [23:16] - contact_in[4n+2]
---                  bit [31:24] - contact_in[4n+3]
--- 0x080 ~
--- 0x0bf : Memory 'database_in' (64 * 8b)
---         Word n : bit [ 7: 0] - database_in[4n]
---                  bit [15: 8] - database_in[4n+1]
---                  bit [23:16] - database_in[4n+2]
---                  bit [31:24] - database_in[4n+3]
--- 0x200 ~
--- 0x3ff : Memory 'matched_out' (300 * 1b)
---         Word n : bit [ 0: 0] - matched_out[4n]
---                  bit [ 8: 8] - matched_out[4n+1]
---                  bit [16:16] - matched_out[4n+2]
---                  bit [24:24] - matched_out[4n+3]
---                  others      - reserved
+-- 0x00 : Control signals
+--        bit 0  - ap_start (Read/Write/COH)
+--        bit 1  - ap_done (Read/COR)
+--        bit 2  - ap_idle (Read)
+--        bit 3  - ap_ready (Read)
+--        bit 7  - auto_restart (Read/Write)
+--        others - reserved
+-- 0x04 : Global Interrupt Enable Register
+--        bit 0  - Global Interrupt Enable (Read/Write)
+--        others - reserved
+-- 0x08 : IP Interrupt Enable Register (Read/Write)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x0c : IP Interrupt Status Register (Read/TOW)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x10 : Data signal of operation
+--        bit 31~0 - operation[31:0] (Read/Write)
+-- 0x14 : Control signal of operation
+--        bit 0  - operation_ap_vld (Read/Write/SC)
+--        others - reserved
+-- 0x80 : Data signal of db_size_in
+--        bit 31~0 - db_size_in[31:0] (Read/Write)
+-- 0x84 : reserved
+-- 0x88 : Data signal of error_out
+--        bit 31~0 - error_out[31:0] (Read)
+-- 0x8c : reserved
+-- 0x90 : Data signal of contacts_size_out
+--        bit 31~0 - contacts_size_out[31:0] (Read)
+-- 0x94 : reserved
+-- 0x40 ~
+-- 0x7f : Memory 'contact_in' (64 * 8b)
+--        Word n : bit [ 7: 0] - contact_in[4n]
+--                 bit [15: 8] - contact_in[4n+1]
+--                 bit [23:16] - contact_in[4n+2]
+--                 bit [31:24] - contact_in[4n+3]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of contact_discovery_AXILiteS_s_axi is
@@ -122,27 +98,21 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL                  : INTEGER := 16#000#;
-    constant ADDR_GIE                      : INTEGER := 16#004#;
-    constant ADDR_IER                      : INTEGER := 16#008#;
-    constant ADDR_ISR                      : INTEGER := 16#00c#;
-    constant ADDR_OPERATION_DATA_0         : INTEGER := 16#010#;
-    constant ADDR_OPERATION_CTRL           : INTEGER := 16#014#;
-    constant ADDR_MATCHED_FINISHED_DATA_0  : INTEGER := 16#400#;
-    constant ADDR_MATCHED_FINISHED_CTRL    : INTEGER := 16#404#;
-    constant ADDR_ERROR_OUT_DATA_0         : INTEGER := 16#408#;
-    constant ADDR_ERROR_OUT_CTRL           : INTEGER := 16#40c#;
-    constant ADDR_DATABASE_SIZE_OUT_DATA_0 : INTEGER := 16#410#;
-    constant ADDR_DATABASE_SIZE_OUT_CTRL   : INTEGER := 16#414#;
-    constant ADDR_CONTACTS_SIZE_OUT_DATA_0 : INTEGER := 16#418#;
-    constant ADDR_CONTACTS_SIZE_OUT_CTRL   : INTEGER := 16#41c#;
-    constant ADDR_CONTACT_IN_BASE          : INTEGER := 16#040#;
-    constant ADDR_CONTACT_IN_HIGH          : INTEGER := 16#07f#;
-    constant ADDR_DATABASE_IN_BASE         : INTEGER := 16#080#;
-    constant ADDR_DATABASE_IN_HIGH         : INTEGER := 16#0bf#;
-    constant ADDR_MATCHED_OUT_BASE         : INTEGER := 16#200#;
-    constant ADDR_MATCHED_OUT_HIGH         : INTEGER := 16#3ff#;
-    constant ADDR_BITS         : INTEGER := 11;
+    constant ADDR_AP_CTRL                  : INTEGER := 16#00#;
+    constant ADDR_GIE                      : INTEGER := 16#04#;
+    constant ADDR_IER                      : INTEGER := 16#08#;
+    constant ADDR_ISR                      : INTEGER := 16#0c#;
+    constant ADDR_OPERATION_DATA_0         : INTEGER := 16#10#;
+    constant ADDR_OPERATION_CTRL           : INTEGER := 16#14#;
+    constant ADDR_DB_SIZE_IN_DATA_0        : INTEGER := 16#80#;
+    constant ADDR_DB_SIZE_IN_CTRL          : INTEGER := 16#84#;
+    constant ADDR_ERROR_OUT_DATA_0         : INTEGER := 16#88#;
+    constant ADDR_ERROR_OUT_CTRL           : INTEGER := 16#8c#;
+    constant ADDR_CONTACTS_SIZE_OUT_DATA_0 : INTEGER := 16#90#;
+    constant ADDR_CONTACTS_SIZE_OUT_CTRL   : INTEGER := 16#94#;
+    constant ADDR_CONTACT_IN_BASE          : INTEGER := 16#40#;
+    constant ADDR_CONTACT_IN_HIGH          : INTEGER := 16#7f#;
+    constant ADDR_BITS         : INTEGER := 8;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -166,9 +136,8 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_operation       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_operation_ap_vld : STD_LOGIC := '0';
-    signal int_matched_finished : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_db_size_in      : UNSIGNED(31 downto 0) := (others => '0');
     signal int_error_out       : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_database_size_out : UNSIGNED(31 downto 0) := (others => '0');
     signal int_contacts_size_out : UNSIGNED(31 downto 0) := (others => '0');
     -- memory signals
     signal int_contact_in_address0 : UNSIGNED(3 downto 0);
@@ -186,36 +155,6 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal int_contact_in_read : STD_LOGIC;
     signal int_contact_in_write : STD_LOGIC;
     signal int_contact_in_shift : UNSIGNED(1 downto 0);
-    signal int_database_in_address0 : UNSIGNED(3 downto 0);
-    signal int_database_in_ce0 : STD_LOGIC;
-    signal int_database_in_we0 : STD_LOGIC;
-    signal int_database_in_be0 : UNSIGNED(3 downto 0);
-    signal int_database_in_d0  : UNSIGNED(31 downto 0);
-    signal int_database_in_q0  : UNSIGNED(31 downto 0);
-    signal int_database_in_address1 : UNSIGNED(3 downto 0);
-    signal int_database_in_ce1 : STD_LOGIC;
-    signal int_database_in_we1 : STD_LOGIC;
-    signal int_database_in_be1 : UNSIGNED(3 downto 0);
-    signal int_database_in_d1  : UNSIGNED(31 downto 0);
-    signal int_database_in_q1  : UNSIGNED(31 downto 0);
-    signal int_database_in_read : STD_LOGIC;
-    signal int_database_in_write : STD_LOGIC;
-    signal int_database_in_shift : UNSIGNED(1 downto 0);
-    signal int_matched_out_address0 : UNSIGNED(6 downto 0);
-    signal int_matched_out_ce0 : STD_LOGIC;
-    signal int_matched_out_we0 : STD_LOGIC;
-    signal int_matched_out_be0 : UNSIGNED(3 downto 0);
-    signal int_matched_out_d0  : UNSIGNED(31 downto 0);
-    signal int_matched_out_q0  : UNSIGNED(31 downto 0);
-    signal int_matched_out_address1 : UNSIGNED(6 downto 0);
-    signal int_matched_out_ce1 : STD_LOGIC;
-    signal int_matched_out_we1 : STD_LOGIC;
-    signal int_matched_out_be1 : UNSIGNED(3 downto 0);
-    signal int_matched_out_d1  : UNSIGNED(31 downto 0);
-    signal int_matched_out_q1  : UNSIGNED(31 downto 0);
-    signal int_matched_out_read : STD_LOGIC;
-    signal int_matched_out_write : STD_LOGIC;
-    signal int_matched_out_shift : UNSIGNED(1 downto 0);
 
     component contact_discovery_AXILiteS_s_axi_ram is
         generic (
@@ -274,48 +213,6 @@ port map (
      be1      => int_contact_in_be1,
      d1       => int_contact_in_d1,
      q1       => int_contact_in_q1);
--- int_database_in
-int_database_in : contact_discovery_AXILiteS_s_axi_ram
-generic map (
-     BYTES    => 4,
-     DEPTH    => 16,
-     AWIDTH   => log2(16))
-port map (
-     clk0     => ACLK,
-     address0 => int_database_in_address0,
-     ce0      => int_database_in_ce0,
-     we0      => int_database_in_we0,
-     be0      => int_database_in_be0,
-     d0       => int_database_in_d0,
-     q0       => int_database_in_q0,
-     clk1     => ACLK,
-     address1 => int_database_in_address1,
-     ce1      => int_database_in_ce1,
-     we1      => int_database_in_we1,
-     be1      => int_database_in_be1,
-     d1       => int_database_in_d1,
-     q1       => int_database_in_q1);
--- int_matched_out
-int_matched_out : contact_discovery_AXILiteS_s_axi_ram
-generic map (
-     BYTES    => 4,
-     DEPTH    => 75,
-     AWIDTH   => log2(75))
-port map (
-     clk0     => ACLK,
-     address0 => int_matched_out_address0,
-     ce0      => int_matched_out_ce0,
-     we0      => int_matched_out_we0,
-     be0      => int_matched_out_be0,
-     d0       => int_matched_out_d0,
-     q0       => int_matched_out_q0,
-     clk1     => ACLK,
-     address1 => int_matched_out_address1,
-     ce1      => int_matched_out_ce1,
-     we1      => int_matched_out_we1,
-     be1      => int_matched_out_be1,
-     d1       => int_matched_out_d1,
-     q1       => int_matched_out_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -382,7 +279,7 @@ port map (
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) and (int_contact_in_read = '0') and (int_database_in_read = '0') and (int_matched_out_read = '0') else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_contact_in_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -437,12 +334,10 @@ port map (
                         rdata_data <= RESIZE(int_operation(31 downto 0), 32);
                     when ADDR_OPERATION_CTRL =>
                         rdata_data <= (0 => int_operation_ap_vld, others => '0');
-                    when ADDR_MATCHED_FINISHED_DATA_0 =>
-                        rdata_data <= RESIZE(int_matched_finished(31 downto 0), 32);
+                    when ADDR_DB_SIZE_IN_DATA_0 =>
+                        rdata_data <= RESIZE(int_db_size_in(31 downto 0), 32);
                     when ADDR_ERROR_OUT_DATA_0 =>
                         rdata_data <= RESIZE(int_error_out(31 downto 0), 32);
-                    when ADDR_DATABASE_SIZE_OUT_DATA_0 =>
-                        rdata_data <= RESIZE(int_database_size_out(31 downto 0), 32);
                     when ADDR_CONTACTS_SIZE_OUT_DATA_0 =>
                         rdata_data <= RESIZE(int_contacts_size_out(31 downto 0), 32);
                     when others =>
@@ -450,10 +345,6 @@ port map (
                     end case;
                 elsif (int_contact_in_read = '1') then
                     rdata_data <= int_contact_in_q1;
-                elsif (int_database_in_read = '1') then
-                    rdata_data <= int_database_in_q1;
-                elsif (int_matched_out_read = '1') then
-                    rdata_data <= int_matched_out_q1;
                 end if;
             end if;
         end if;
@@ -466,6 +357,7 @@ port map (
     int_ap_ready         <= ap_ready;
     operation            <= STD_LOGIC_VECTOR(int_operation);
     operation_ap_vld     <= int_operation_ap_vld;
+    db_size_in           <= STD_LOGIC_VECTOR(int_db_size_in);
 
     process (ACLK)
     begin
@@ -595,11 +487,9 @@ port map (
     process (ACLK)
     begin
         if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_matched_finished <= (others => '0');
-            elsif (ACLK_EN = '1') then
-                if (true) then
-                    int_matched_finished <= UNSIGNED(matched_finished); -- clear on read
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_DB_SIZE_IN_DATA_0) then
+                    int_db_size_in(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_db_size_in(31 downto 0));
                 end if;
             end if;
         end if;
@@ -613,19 +503,6 @@ port map (
             elsif (ACLK_EN = '1') then
                 if (true) then
                     int_error_out <= UNSIGNED(error_out); -- clear on read
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_database_size_out <= (others => '0');
-            elsif (ACLK_EN = '1') then
-                if (true) then
-                    int_database_size_out <= UNSIGNED(database_size_out); -- clear on read
                 end if;
             end if;
         end if;
@@ -658,29 +535,6 @@ port map (
     int_contact_in_we1   <= '1' when int_contact_in_write = '1' and WVALID = '1' else '0';
     int_contact_in_be1   <= UNSIGNED(WSTRB);
     int_contact_in_d1    <= UNSIGNED(WDATA);
-    -- database_in
-    int_database_in_address0 <= SHIFT_RIGHT(UNSIGNED(database_in_address0), 2)(3 downto 0);
-    int_database_in_ce0  <= database_in_ce0;
-    int_database_in_we0  <= '0';
-    int_database_in_be0  <= (others => '0');
-    int_database_in_d0   <= (others => '0');
-    database_in_q0       <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_database_in_q0, TO_INTEGER(int_database_in_shift) * 8)(7 downto 0));
-    int_database_in_address1 <= raddr(5 downto 2) when ar_hs = '1' else waddr(5 downto 2);
-    int_database_in_ce1  <= '1' when ar_hs = '1' or (int_database_in_write = '1' and WVALID  = '1') else '0';
-    int_database_in_we1  <= '1' when int_database_in_write = '1' and WVALID = '1' else '0';
-    int_database_in_be1  <= UNSIGNED(WSTRB);
-    int_database_in_d1   <= UNSIGNED(WDATA);
-    -- matched_out
-    int_matched_out_address0 <= SHIFT_RIGHT(UNSIGNED(matched_out_address0), 2)(6 downto 0);
-    int_matched_out_ce0  <= matched_out_ce0;
-    int_matched_out_we0  <= matched_out_we0;
-    int_matched_out_be0  <= SHIFT_LEFT(TO_UNSIGNED(1, 4), TO_INTEGER(UNSIGNED(matched_out_address0(1 downto 0))));
-    int_matched_out_d0   <= UNSIGNED(RESIZE(UNSIGNED(matched_out_d0), 8)) & UNSIGNED(RESIZE(UNSIGNED(matched_out_d0), 8)) & UNSIGNED(RESIZE(UNSIGNED(matched_out_d0), 8)) & UNSIGNED(RESIZE(UNSIGNED(matched_out_d0), 8));
-    int_matched_out_address1 <= raddr(8 downto 2) when ar_hs = '1' else waddr(8 downto 2);
-    int_matched_out_ce1  <= '1' when ar_hs = '1' or (int_matched_out_write = '1' and WVALID  = '1') else '0';
-    int_matched_out_we1  <= '1' when int_matched_out_write = '1' and WVALID = '1' else '0';
-    int_matched_out_be1  <= UNSIGNED(WSTRB);
-    int_matched_out_d1   <= UNSIGNED(WDATA);
 
     process (ACLK)
     begin
@@ -718,88 +572,6 @@ port map (
             if (ACLK_EN = '1') then
                 if (contact_in_ce0 = '1') then
                     int_contact_in_shift <= UNSIGNED(contact_in_address0(1 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_database_in_read <= '0';
-            elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_DATABASE_IN_BASE and raddr <= ADDR_DATABASE_IN_HIGH) then
-                    int_database_in_read <= '1';
-                else
-                    int_database_in_read <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_database_in_write <= '0';
-            elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_DATABASE_IN_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_DATABASE_IN_HIGH) then
-                    int_database_in_write <= '1';
-                elsif (WVALID = '1') then
-                    int_database_in_write <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (database_in_ce0 = '1') then
-                    int_database_in_shift <= UNSIGNED(database_in_address0(1 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_matched_out_read <= '0';
-            elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_MATCHED_OUT_BASE and raddr <= ADDR_MATCHED_OUT_HIGH) then
-                    int_matched_out_read <= '1';
-                else
-                    int_matched_out_read <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_matched_out_write <= '0';
-            elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_MATCHED_OUT_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_MATCHED_OUT_HIGH) then
-                    int_matched_out_write <= '1';
-                elsif (WVALID = '1') then
-                    int_matched_out_write <= '0';
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (matched_out_ce0 = '1') then
-                    int_matched_out_shift <= UNSIGNED(matched_out_address0(1 downto 0));
                 end if;
             end if;
         end if;

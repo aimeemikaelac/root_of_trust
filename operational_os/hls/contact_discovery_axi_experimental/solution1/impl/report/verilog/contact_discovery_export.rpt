@@ -4,12 +4,12 @@ Implementation tool: Xilinx Vivado v.2017.1
 Project:             contact_discovery_axi_experimental
 Solution:            solution1
 Device target:       xczu9eg-ffvb1156-1-i
-Report date:         Thu Apr 19 14:57:03 MDT 2018
+Report date:         Thu Apr 19 15:22:04 MDT 2018
 
 #=== Post-Synthesis Resource usage ===
 SLICE:            0
-LUT:            762
-FF:             637
+LUT:            787
+FF:             665
 DSP:              0
 BRAM:             6
 SRL:            192

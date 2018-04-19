@@ -120,7 +120,7 @@
 
 <Node id="3" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str37, i32 0, i32 0, [1 x i8]* @p_str38, [1 x i8]* @p_str39, [1 x i8]* @p_str40, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str41, [1 x i8]* @p_str42)
+:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str31, i32 0, i32 0, [1 x i8]* @p_str32, [1 x i8]* @p_str33, [1 x i8]* @p_str34, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str35, [1 x i8]* @p_str36)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1615,17 +1615,17 @@ compare.exit:4  br label %.preheader11
 </dataflow>
 <dataflow id="132" from="StgValue_130" to="StgValue_11" fromId="130" toId="11">
 </dataflow>
-<dataflow id="134" from="p_str37" to="StgValue_11" fromId="133" toId="11">
+<dataflow id="134" from="p_str31" to="StgValue_11" fromId="133" toId="11">
 </dataflow>
 <dataflow id="135" from="StgValue_130" to="StgValue_11" fromId="130" toId="11">
 </dataflow>
 <dataflow id="136" from="StgValue_130" to="StgValue_11" fromId="130" toId="11">
 </dataflow>
-<dataflow id="138" from="p_str38" to="StgValue_11" fromId="137" toId="11">
+<dataflow id="138" from="p_str32" to="StgValue_11" fromId="137" toId="11">
 </dataflow>
-<dataflow id="140" from="p_str39" to="StgValue_11" fromId="139" toId="11">
+<dataflow id="140" from="p_str33" to="StgValue_11" fromId="139" toId="11">
 </dataflow>
-<dataflow id="142" from="p_str40" to="StgValue_11" fromId="141" toId="11">
+<dataflow id="142" from="p_str34" to="StgValue_11" fromId="141" toId="11">
 </dataflow>
 <dataflow id="144" from="StgValue_143" to="StgValue_11" fromId="143" toId="11">
 </dataflow>
@@ -1635,9 +1635,9 @@ compare.exit:4  br label %.preheader11
 </dataflow>
 <dataflow id="148" from="StgValue_146" to="StgValue_11" fromId="146" toId="11">
 </dataflow>
-<dataflow id="150" from="p_str41" to="StgValue_11" fromId="149" toId="11">
+<dataflow id="150" from="p_str35" to="StgValue_11" fromId="149" toId="11">
 </dataflow>
-<dataflow id="152" from="p_str42" to="StgValue_11" fromId="151" toId="11">
+<dataflow id="152" from="p_str36" to="StgValue_11" fromId="151" toId="11">
 </dataflow>
 <dataflow id="154" from="StgValue_153" to="results_local" fromId="153" toId="12">
 </dataflow>

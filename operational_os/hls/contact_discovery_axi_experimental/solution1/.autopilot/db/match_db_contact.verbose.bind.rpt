@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'match_db_contact'
 ================================================================
-* Date:           Thu Apr 19 14:53:38 2018
+* Date:           Thu Apr 19 15:19:28 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -109,7 +109,7 @@ IsGatedGlobalClock: 0
 
  <State 1>: 0.79ns
 ST_1: StgValue_11 (3)  [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str37, i32 0, i32 0, [1 x i8]* @p_str38, [1 x i8]* @p_str39, [1 x i8]* @p_str40, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str41, [1 x i8]* @p_str42)
+:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str31, i32 0, i32 0, [1 x i8]* @p_str32, [1 x i8]* @p_str33, [1 x i8]* @p_str34, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str35, [1 x i8]* @p_str36)
 
 ST_1: results_local (4)  [1/1] 0.79ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:23->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 :1  %results_local = alloca [64 x i1], align 16
@@ -575,7 +575,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str37"/></StgValue>
+<StgValue><ssdm name="p_str31"/></StgValue>
 </bind>
 </comp>
 
@@ -584,7 +584,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str38"/></StgValue>
+<StgValue><ssdm name="p_str32"/></StgValue>
 </bind>
 </comp>
 
@@ -593,7 +593,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str39"/></StgValue>
+<StgValue><ssdm name="p_str33"/></StgValue>
 </bind>
 </comp>
 
@@ -602,7 +602,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str40"/></StgValue>
+<StgValue><ssdm name="p_str34"/></StgValue>
 </bind>
 </comp>
 
@@ -629,7 +629,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str41"/></StgValue>
+<StgValue><ssdm name="p_str35"/></StgValue>
 </bind>
 </comp>
 
@@ -638,7 +638,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str42"/></StgValue>
+<StgValue><ssdm name="p_str36"/></StgValue>
 </bind>
 </comp>
 

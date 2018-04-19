@@ -18,7 +18,7 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ operation int 32 regular {axi_slave 0}  }
 	{ contact_in int 8 regular {axi_slave 0}  }
-	{ db_in_V int 8 regular {fifo 0 volatile }  }
+	{ db_in_V int 8 regular {axi_s 0 volatile  { db_in_V Data } }  }
 	{ db_size_in int 32 regular {axi_slave 0}  }
 	{ error_out int 32 regular {axi_slave 1}  }
 	{ contacts_size_out int 32 regular {axi_slave 1}  }
@@ -27,7 +27,7 @@ set C_modelArgList {
 set C_modelArgMapList {[ 
 	{ "Name" : "operation", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_vld","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "operation","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
  	{ "Name" : "contact_in", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_memory","bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "contact_in","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 63,"step" : 1}]}]}], "offset" : {"in":64}, "offset_end" : {"in":127}} , 
- 	{ "Name" : "db_in_V", "interface" : "fifo", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "db_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "db_in_V", "interface" : "axis", "bitwidth" : 8, "direction" : "READONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "db_in.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "db_size_in", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "db_size_in","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":128}, "offset_end" : {"in":135}} , 
  	{ "Name" : "error_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "error_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":136}, "offset_end" : {"out":143}} , 
  	{ "Name" : "contacts_size_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "contacts_size_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":144}, "offset_end" : {"out":151}} , 
@@ -37,9 +37,9 @@ set portNum 26
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst_n sc_in sc_logic 1 reset -1 active_low_sync } 
-	{ db_in_V_dout sc_in sc_lv 8 signal 2 } 
-	{ db_in_V_empty_n sc_in sc_logic 1 signal 2 } 
-	{ db_in_V_read sc_out sc_logic 1 signal 2 } 
+	{ db_in_V_TDATA sc_in sc_lv 8 signal 2 } 
+	{ db_in_V_TVALID sc_in sc_logic 1 invld 2 } 
+	{ db_in_V_TREADY sc_out sc_logic 1 inacc 2 } 
 	{ results_out_V_din sc_out sc_lv 32 signal 6 } 
 	{ results_out_V_full_n sc_in sc_logic 1 signal 6 } 
 	{ results_out_V_write sc_out sc_logic 1 signal 6 } 
@@ -83,9 +83,9 @@ set NewPortList {[
 	{ "name": "interrupt", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "interrupt" } }, 
  	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
- 	{ "name": "db_in_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "db_in_V", "role": "dout" }} , 
- 	{ "name": "db_in_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_in_V", "role": "empty_n" }} , 
- 	{ "name": "db_in_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_in_V", "role": "read" }} , 
+ 	{ "name": "db_in_V_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "db_in_V", "role": "TDATA" }} , 
+ 	{ "name": "db_in_V_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "db_in_V", "role": "TVALID" }} , 
+ 	{ "name": "db_in_V_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "db_in_V", "role": "TREADY" }} , 
  	{ "name": "results_out_V_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "results_out_V", "role": "din" }} , 
  	{ "name": "results_out_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "results_out_V", "role": "full_n" }} , 
  	{ "name": "results_out_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "results_out_V", "role": "write" }}  ]}
@@ -100,15 +100,15 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state5", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_259"}],
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_251"}],
 		"Port" : [
 			{"Name" : "operation", "Type" : "Vld", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "operation_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "contact_in", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "db_in_V", "Type" : "Fifo", "Direction" : "I",
+			{"Name" : "db_in_V", "Type" : "Axis", "Direction" : "I",
 				"BlockSignal" : [
-					{"Name" : "db_in_V_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "db_in_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "db_size_in", "Type" : "None", "Direction" : "I"},
 			{"Name" : "error_out", "Type" : "None", "Direction" : "O"},
 			{"Name" : "contacts_size_out", "Type" : "None", "Direction" : "O"},
@@ -118,13 +118,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "contacts_size", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "contacts", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_match_db_contact_fu_259", "Port" : "contacts"}]},
+					{"ID" : "3", "SubInstance" : "grp_match_db_contact_fu_251", "Port" : "contacts"}]},
 			{"Name" : "db_stream_V", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_match_db_contact_fu_259", "Port" : "db_stream_V"}]}]},
+					{"ID" : "3", "SubInstance" : "grp_match_db_contact_fu_251", "Port" : "db_stream_V"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contacts_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_AXILiteS_s_axi_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259", "Parent" : "0", "Child" : ["4", "5", "6", "7", "8"],
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251", "Parent" : "0", "Child" : ["4", "5", "6", "7", "8"],
 		"CDFG" : "match_db_contact",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -137,11 +137,11 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "db_stream_V_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "contacts", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259.results_local_U", "Parent" : "3"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259.local_results_U", "Parent" : "3"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259.db_item_temp_U", "Parent" : "3"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259.contact_V_fifo_U", "Parent" : "3"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_259.db_item_V_fifo_U", "Parent" : "3"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251.results_local_U", "Parent" : "3"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251.local_results_U", "Parent" : "3"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251.db_item_temp_U", "Parent" : "3"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251.contact_V_fifo_U", "Parent" : "3"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_251.db_item_V_fifo_U", "Parent" : "3"},
 	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.db_stream_V_fifo_U", "Parent" : "0"}]}
 
 
@@ -172,7 +172,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	db_in_V { ap_fifo {  { db_in_V_dout fifo_data 0 8 }  { db_in_V_empty_n fifo_status 0 1 }  { db_in_V_read fifo_update 1 1 } } }
+	db_in_V { axis {  { db_in_V_TDATA in_data 0 8 }  { db_in_V_TVALID in_vld 0 1 }  { db_in_V_TREADY in_acc 1 1 } } }
 	results_out_V { ap_fifo {  { results_out_V_din fifo_data 1 32 }  { results_out_V_full_n fifo_status 0 1 }  { results_out_V_write fifo_update 1 1 } } }
 }
 
@@ -181,7 +181,6 @@ set busDeadlockParameterList {
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 
-	db_in_V { fifo_read 64 has_conditional }
 	results_out_V { fifo_write 1 has_conditional }
 }
 

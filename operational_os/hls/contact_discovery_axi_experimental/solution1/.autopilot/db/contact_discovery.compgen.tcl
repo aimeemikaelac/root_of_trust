@@ -221,20 +221,24 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler contact_discovery_AXILiteS_s_axi
 }
 
-# Direct connection:
+# Native AXIS:
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     id 11 \
     name db_in_V \
-    type fifo \
-    dir I \
     reset_level 0 \
     sync_rst true \
-    corename dc_db_in_V \
+    corename {} \
+    metadata {  } \
     op interface \
-    ports { db_in_V_dout { I 8 vector } db_in_V_empty_n { I 1 bit } db_in_V_read { O 1 bit } } \
+    ports { db_in_V_TDATA { I 8 vector } db_in_V_TVALID { I 1 bit } db_in_V_TREADY { O 1 bit } } \
 } "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'db_in_V'"
 }
+}
+
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

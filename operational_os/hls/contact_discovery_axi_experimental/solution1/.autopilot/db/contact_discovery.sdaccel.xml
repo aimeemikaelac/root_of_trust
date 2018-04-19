@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Thu Apr 19 14:53:38 2018
+<item name = "Date">Thu Apr 19 15:19:28 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_experimental</item>
@@ -29,14 +29,14 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_match_db_contact_fu_259">match_db_contact, 41795, 41795, 41795, 41795, none</column>
+<column name="grp_match_db_contact_fu_251">match_db_contact, 41795, 41795, 41795, 41795, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">128, 128, 2, -, -, 64, no</column>
-<column name="- Loop 2">?, ?, 41862, -, -, ?, no</column>
-<column name=" + Loop 2.1">64, 64, 1, -, -, 64, no</column>
+<column name="- Loop 2">?, ?, 41926, -, -, ?, no</column>
+<column name=" + Loop 2.1">128, 128, 2, -, -, 64, no</column>
 </table>
 </item>
 </section>
@@ -49,12 +49,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 173, -</column>
+<column name="Expression">-, -, 0, 178, -</column>
 <column name="FIFO">0, -, 0, 1, -</column>
 <column name="Instance">2, -, 382, 714, -</column>
 <column name="Memory">4, -, 0, 0, -</column>
-<column name="Multiplexer">-, -, -, 230, -</column>
-<column name="Register">-, -, 313, -, -</column>
+<column name="Multiplexer">-, -, -, 257, -</column>
+<column name="Register">-, -, 341, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
 <specialColumn name="Utilization (%)">~0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -64,7 +64,7 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 2, 0, 268, 366</column>
-<column name="grp_match_db_contact_fu_259">match_db_contact, 0, 0, 114, 348</column>
+<column name="grp_match_db_contact_fu_251">match_db_contact, 0, 0, 114, 348</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -83,61 +83,72 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="database_index_1_fu_309_p2">+, 0, 0, 39, 32, 1</column>
-<column name="i_4_fu_321_p2">+, 0, 0, 15, 7, 1</column>
-<column name="i_6_fu_338_p2">+, 0, 0, 15, 7, 1</column>
-<column name="sum_i_fu_353_p2">+, 0, 0, 22, 15, 15</column>
-<column name="tmp_2_fu_358_p2">+, 0, 0, 39, 32, 1</column>
-<column name="exitcond4_fu_304_p2">icmp, 0, 0, 16, 32, 32</column>
-<column name="exitcond_fu_315_p2">icmp, 0, 0, 4, 7, 8</column>
-<column name="exitcond_i_fu_332_p2">icmp, 0, 0, 4, 7, 8</column>
-<column name="icmp_fu_287_p2">icmp, 0, 0, 13, 25, 1</column>
+<column name="database_index_1_fu_301_p2">+, 0, 0, 39, 32, 1</column>
+<column name="i_4_fu_313_p2">+, 0, 0, 15, 7, 1</column>
+<column name="i_6_fu_330_p2">+, 0, 0, 15, 7, 1</column>
+<column name="sum_i_fu_345_p2">+, 0, 0, 22, 15, 15</column>
+<column name="tmp_2_fu_350_p2">+, 0, 0, 39, 32, 1</column>
+<column name="db_in_V_0_load_A">and, 0, 0, 2, 1, 1</column>
+<column name="db_in_V_0_load_B">and, 0, 0, 2, 1, 1</column>
+<column name="db_in_V_0_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
+<column name="exitcond4_fu_296_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="exitcond_fu_307_p2">icmp, 0, 0, 4, 7, 8</column>
+<column name="exitcond_i_fu_324_p2">icmp, 0, 0, 4, 7, 8</column>
+<column name="icmp_fu_279_p2">icmp, 0, 0, 13, 25, 1</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state10">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state4">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state11">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state5">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">50, 11, 1, 11</column>
+<column name="ap_NS_fsm">53, 12, 1, 12</column>
 <column name="contacts_address0">15, 3, 13, 39</column>
 <column name="contacts_ce0">15, 3, 1, 3</column>
 <column name="contacts_size">9, 2, 32, 64</column>
 <column name="contacts_size_out_1_data_in">21, 4, 32, 128</column>
-<column name="database_index_reg_214">9, 2, 32, 64</column>
-<column name="db_in_V_blk_n">9, 2, 1, 2</column>
+<column name="database_index_reg_206">9, 2, 32, 64</column>
+<column name="db_in_V_0_data_out">9, 2, 8, 16</column>
+<column name="db_in_V_0_state">15, 3, 2, 6</column>
+<column name="db_in_V_TDATA_blk_n">9, 2, 1, 2</column>
 <column name="db_stream_V_read">9, 2, 1, 2</column>
 <column name="error_out_1_data_in">21, 4, 32, 128</column>
-<column name="i_i_reg_236">9, 2, 7, 14</column>
-<column name="i_reg_225">9, 2, 7, 14</column>
+<column name="i_i_reg_228">9, 2, 7, 14</column>
+<column name="i_reg_217">9, 2, 7, 14</column>
 <column name="operation_ap_vld_in_sig">9, 2, 1, 2</column>
 <column name="operation_ap_vld_preg">9, 2, 1, 2</column>
 <column name="operation_blk_n">9, 2, 1, 2</column>
 <column name="operation_in_sig">9, 2, 32, 64</column>
 <column name="results_out_V_blk_n">9, 2, 1, 2</column>
-<column name="storemerge_reg_247">9, 2, 32, 64</column>
+<column name="storemerge_reg_239">9, 2, 32, 64</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">10, 0, 10, 0</column>
-<column name="ap_reg_grp_match_db_contact_fu_259_ap_start">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">11, 0, 11, 0</column>
+<column name="ap_reg_grp_match_db_contact_fu_251_ap_start">1, 0, 1, 0</column>
 <column name="contacts_size">32, 0, 32, 0</column>
-<column name="contacts_size_load_reg_382">32, 0, 32, 0</column>
+<column name="contacts_size_load_reg_374">32, 0, 32, 0</column>
 <column name="contacts_size_out_1_data_reg">32, 0, 32, 0</column>
 <column name="contacts_size_out_1_vld_reg">0, 0, 1, 1</column>
-<column name="database_index_1_reg_402">32, 0, 32, 0</column>
-<column name="database_index_reg_214">32, 0, 32, 0</column>
+<column name="database_index_1_reg_394">32, 0, 32, 0</column>
+<column name="database_index_reg_206">32, 0, 32, 0</column>
+<column name="db_in_V_0_payload_A">8, 0, 8, 0</column>
+<column name="db_in_V_0_payload_B">8, 0, 8, 0</column>
+<column name="db_in_V_0_sel_rd">1, 0, 1, 0</column>
+<column name="db_in_V_0_sel_wr">1, 0, 1, 0</column>
+<column name="db_in_V_0_state">2, 0, 2, 0</column>
 <column name="error_out_1_data_reg">32, 0, 32, 0</column>
 <column name="error_out_1_vld_reg">0, 0, 1, 1</column>
-<column name="i_6_reg_418">7, 0, 7, 0</column>
-<column name="i_i_reg_236">7, 0, 7, 0</column>
-<column name="i_reg_225">7, 0, 7, 0</column>
+<column name="i_4_reg_402">7, 0, 7, 0</column>
+<column name="i_6_reg_410">7, 0, 7, 0</column>
+<column name="i_i_reg_228">7, 0, 7, 0</column>
+<column name="i_reg_217">7, 0, 7, 0</column>
 <column name="operation_ap_vld_preg">1, 0, 1, 0</column>
 <column name="operation_preg">32, 0, 32, 0</column>
-<column name="storemerge_reg_247">32, 0, 32, 0</column>
-<column name="sum_i_reg_428">15, 0, 15, 0</column>
-<column name="tmp_1_cast_reg_394">9, 0, 15, 6</column>
+<column name="storemerge_reg_239">32, 0, 32, 0</column>
+<column name="sum_i_reg_420">15, 0, 15, 0</column>
+<column name="tmp_1_cast_reg_386">9, 0, 15, 6</column>
 </table>
 </item>
 </section>
@@ -167,9 +178,9 @@
 <column name="ap_clk">in, 1, ap_ctrl_hs, contact_discovery, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_hs, contact_discovery, return value</column>
 <column name="interrupt">out, 1, ap_ctrl_hs, contact_discovery, return value</column>
-<column name="db_in_V_dout">in, 8, ap_fifo, db_in_V, pointer</column>
-<column name="db_in_V_empty_n">in, 1, ap_fifo, db_in_V, pointer</column>
-<column name="db_in_V_read">out, 1, ap_fifo, db_in_V, pointer</column>
+<column name="db_in_V_TDATA">in, 8, axis, db_in_V, pointer</column>
+<column name="db_in_V_TVALID">in, 1, axis, db_in_V, pointer</column>
+<column name="db_in_V_TREADY">out, 1, axis, db_in_V, pointer</column>
 <column name="results_out_V_din">out, 32, ap_fifo, results_out_V, pointer</column>
 <column name="results_out_V_full_n">in, 1, ap_fifo, results_out_V, pointer</column>
 <column name="results_out_V_write">out, 1, ap_fifo, results_out_V, pointer</column>
@@ -178,11 +189,11 @@
 </section>
 
 <section name = "Critical Path" level="0">
-<item name = "Max Delay">3.66</item>
+<item name = "Max Delay">2.87</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'tmp', contact_discovery_axi_experimental/src/contact_discovery.cpp:103">read, 0.79, 0.79, -, -, -, fifo, read, &apos;db_in_V&apos;, -, -, -, -, -</column>
-<column name="contact_discovery_axi_experimental/src/contact_discovery.cpp:103">write, 2.87, 3.66, -, -, -, fifo, write, &apos;db_stream_V&apos;, -, -, -, -, -</column>
+<column name="'tmp', contact_discovery_axi_experimental/src/contact_discovery.cpp:105">read, 0.00, 0.00, -, -, -, axis, read, &apos;db_in_V&apos;, -, -, -, -, -</column>
+<column name="contact_discovery_axi_experimental/src/contact_discovery.cpp:105">write, 2.87, 2.87, -, -, -, fifo, write, &apos;db_stream_V&apos;, -, -, -, -, -</column>
 </table>
 </item>
 </section>

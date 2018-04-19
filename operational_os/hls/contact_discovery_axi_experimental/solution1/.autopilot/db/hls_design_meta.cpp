@@ -2,9 +2,9 @@
 const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
 	Port_Property("ap_rst_n", 1, hls_in, -1, "", "", 1),
-	Port_Property("db_in_V_dout", 8, hls_in, 2, "ap_fifo", "fifo_data", 64),
-	Port_Property("db_in_V_empty_n", 1, hls_in, 2, "ap_fifo", "fifo_status", 64),
-	Port_Property("db_in_V_read", 1, hls_out, 2, "ap_fifo", "fifo_update", 64),
+	Port_Property("db_in_V_TDATA", 8, hls_in, 2, "axis", "in_data", 1),
+	Port_Property("db_in_V_TVALID", 1, hls_in, 2, "axis", "in_vld", 1),
+	Port_Property("db_in_V_TREADY", 1, hls_out, 2, "axis", "in_acc", 1),
 	Port_Property("results_out_V_din", 32, hls_out, 6, "ap_fifo", "fifo_data", 1),
 	Port_Property("results_out_V_full_n", 1, hls_in, 6, "ap_fifo", "fifo_status", 1),
 	Port_Property("results_out_V_write", 1, hls_out, 6, "ap_fifo", "fifo_update", 1),

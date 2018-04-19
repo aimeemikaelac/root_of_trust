@@ -19,9 +19,9 @@ port (
     db_in_V_TDATA : IN STD_LOGIC_VECTOR (7 downto 0);
     db_in_V_TVALID : IN STD_LOGIC;
     db_in_V_TREADY : OUT STD_LOGIC;
-    results_out_V_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    results_out_V_full_n : IN STD_LOGIC;
-    results_out_V_write : OUT STD_LOGIC;
+    results_out_V_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+    results_out_V_TVALID : OUT STD_LOGIC;
+    results_out_V_TREADY : IN STD_LOGIC;
     s_axi_AXILiteS_AWVALID : IN STD_LOGIC;
     s_axi_AXILiteS_AWREADY : OUT STD_LOGIC;
     s_axi_AXILiteS_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_AXILITES_ADDR_WIDTH-1 downto 0);
@@ -46,20 +46,21 @@ end;
 architecture behav of contact_discovery is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.321000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=723,HLS_SYN_LUT=1150}";
+    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.321000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=792,HLS_SYN_LUT=1182}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (10 downto 0) := "00000000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (10 downto 0) := "00000000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (10 downto 0) := "00000000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (10 downto 0) := "00000001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (10 downto 0) := "00000010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (10 downto 0) := "00000100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (10 downto 0) := "00001000000";
-    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (10 downto 0) := "00010000000";
-    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (10 downto 0) := "00100000000";
-    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (10 downto 0) := "01000000000";
-    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (10 downto 0) := "10000000000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (11 downto 0) := "000000000001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (11 downto 0) := "000000000010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (11 downto 0) := "000000000100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (11 downto 0) := "000000001000";
+    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (11 downto 0) := "000000010000";
+    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (11 downto 0) := "000000100000";
+    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (11 downto 0) := "000001000000";
+    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (11 downto 0) := "000010000000";
+    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (11 downto 0) := "000100000000";
+    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (11 downto 0) := "001000000000";
+    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (11 downto 0) := "010000000000";
+    constant ap_ST_fsm_state12 : STD_LOGIC_VECTOR (11 downto 0) := "100000000000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
@@ -69,28 +70,29 @@ architecture behav of contact_discovery is
     constant ap_const_lv2_1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
     constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
     constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
+    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
-    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
-    constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
     constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
+    constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
     constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
     constant ap_const_lv32_9 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001001";
+    constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
     constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
     constant ap_const_lv25_0 : STD_LOGIC_VECTOR (24 downto 0) := "0000000000000000000000000";
     constant ap_const_lv6_0 : STD_LOGIC_VECTOR (5 downto 0) := "000000";
     constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
     constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
-    constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
+    constant ap_const_lv32_B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001011";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
     signal ap_start : STD_LOGIC;
     signal ap_done : STD_LOGIC;
     signal ap_idle : STD_LOGIC;
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (10 downto 0) := "00000000001";
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (11 downto 0) := "000000000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
@@ -130,6 +132,20 @@ architecture behav of contact_discovery is
     signal contacts_size_out_1_vld_reg : STD_LOGIC := '0';
     signal contacts_size_out_1_vld_in : STD_LOGIC;
     signal contacts_size_out_1_ack_in : STD_LOGIC;
+    signal results_out_V_1_data_out : STD_LOGIC_VECTOR (31 downto 0);
+    signal results_out_V_1_vld_in : STD_LOGIC;
+    signal results_out_V_1_vld_out : STD_LOGIC;
+    signal results_out_V_1_ack_in : STD_LOGIC;
+    signal results_out_V_1_ack_out : STD_LOGIC;
+    signal results_out_V_1_payload_A : STD_LOGIC_VECTOR (31 downto 0);
+    signal results_out_V_1_payload_B : STD_LOGIC_VECTOR (31 downto 0);
+    signal results_out_V_1_sel_rd : STD_LOGIC := '0';
+    signal results_out_V_1_sel_wr : STD_LOGIC := '0';
+    signal results_out_V_1_sel : STD_LOGIC;
+    signal results_out_V_1_load_A : STD_LOGIC;
+    signal results_out_V_1_load_B : STD_LOGIC;
+    signal results_out_V_1_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
+    signal results_out_V_1_state_cmp_full : STD_LOGIC;
     signal contacts_size : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal contacts_address0 : STD_LOGIC_VECTOR (12 downto 0);
     signal contacts_ce0 : STD_LOGIC;
@@ -139,69 +155,72 @@ architecture behav of contact_discovery is
     signal db_in_V_TDATA_blk_n : STD_LOGIC;
     signal ap_CS_fsm_state5 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
-    signal results_out_V_blk_n : STD_LOGIC;
+    signal results_out_V_TDATA_blk_n : STD_LOGIC;
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal ap_block_state1 : BOOLEAN;
-    signal operation_read_read_fu_136_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal contacts_size_load_reg_374 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_1_cast_fu_288_p3 : STD_LOGIC_VECTOR (14 downto 0);
-    signal tmp_1_cast_reg_386 : STD_LOGIC_VECTOR (14 downto 0);
-    signal ap_CS_fsm_state2 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal icmp_fu_279_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal database_index_1_fu_301_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal database_index_1_reg_394 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ap_CS_fsm_state3 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal i_4_fu_313_p2 : STD_LOGIC_VECTOR (6 downto 0);
-    signal i_4_reg_402 : STD_LOGIC_VECTOR (6 downto 0);
-    signal ap_CS_fsm_state4 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
-    signal i_6_fu_330_p2 : STD_LOGIC_VECTOR (6 downto 0);
-    signal i_6_reg_410 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_CS_fsm_state7 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal exitcond_i_fu_324_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sum_i_fu_345_p2 : STD_LOGIC_VECTOR (14 downto 0);
-    signal sum_i_reg_420 : STD_LOGIC_VECTOR (14 downto 0);
-    signal tmp_2_fu_350_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_match_db_contact_fu_251_ap_start : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_ap_done : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_ap_idle : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_ap_ready : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_db_stream_V_read : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_contacts_address0 : STD_LOGIC_VECTOR (12 downto 0);
-    signal grp_match_db_contact_fu_251_contacts_ce0 : STD_LOGIC;
-    signal grp_match_db_contact_fu_251_ap_return : STD_LOGIC_VECTOR (0 downto 0);
-    signal database_index_reg_206 : STD_LOGIC_VECTOR (31 downto 0);
-    signal i_reg_217 : STD_LOGIC_VECTOR (6 downto 0);
+    signal ap_block_state1 : BOOLEAN;
+    signal operation_read_read_fu_124_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal contacts_size_load_reg_362 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_1_cast_fu_276_p3 : STD_LOGIC_VECTOR (14 downto 0);
+    signal tmp_1_cast_reg_374 : STD_LOGIC_VECTOR (14 downto 0);
+    signal ap_CS_fsm_state2 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
+    signal icmp_fu_267_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal database_index_1_fu_289_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal database_index_1_reg_382 : STD_LOGIC_VECTOR (31 downto 0);
+    signal ap_CS_fsm_state3 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
+    signal i_4_fu_301_p2 : STD_LOGIC_VECTOR (6 downto 0);
+    signal i_4_reg_390 : STD_LOGIC_VECTOR (6 downto 0);
+    signal ap_CS_fsm_state4 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
+    signal tmp_4_fu_307_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_match_db_contact_fu_239_ap_done : STD_LOGIC;
+    signal i_6_fu_318_p2 : STD_LOGIC_VECTOR (6 downto 0);
+    signal i_6_reg_403 : STD_LOGIC_VECTOR (6 downto 0);
+    signal ap_CS_fsm_state8 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
+    signal exitcond_i_fu_312_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal sum_i_fu_333_p2 : STD_LOGIC_VECTOR (14 downto 0);
+    signal sum_i_reg_413 : STD_LOGIC_VECTOR (14 downto 0);
+    signal tmp_2_fu_338_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_match_db_contact_fu_239_ap_start : STD_LOGIC;
+    signal grp_match_db_contact_fu_239_ap_idle : STD_LOGIC;
+    signal grp_match_db_contact_fu_239_ap_ready : STD_LOGIC;
+    signal grp_match_db_contact_fu_239_db_stream_V_read : STD_LOGIC;
+    signal grp_match_db_contact_fu_239_contacts_address0 : STD_LOGIC_VECTOR (12 downto 0);
+    signal grp_match_db_contact_fu_239_contacts_ce0 : STD_LOGIC;
+    signal grp_match_db_contact_fu_239_ap_return : STD_LOGIC_VECTOR (0 downto 0);
+    signal database_index_reg_194 : STD_LOGIC_VECTOR (31 downto 0);
+    signal i_reg_205 : STD_LOGIC_VECTOR (6 downto 0);
     signal db_stream_V_full_n : STD_LOGIC;
     signal db_stream_V_write : STD_LOGIC;
     signal ap_block_state5 : BOOLEAN;
-    signal exitcond4_fu_296_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal i_i_reg_228 : STD_LOGIC_VECTOR (6 downto 0);
-    signal ap_CS_fsm_state8 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal storemerge_reg_239 : STD_LOGIC_VECTOR (31 downto 0);
+    signal exitcond4_fu_284_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal i_i_reg_216 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_CS_fsm_state9 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
-    signal ap_reg_grp_match_db_contact_fu_251_ap_start : STD_LOGIC := '0';
-    signal exitcond_fu_307_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal storemerge_reg_227 : STD_LOGIC_VECTOR (31 downto 0);
+    signal ap_CS_fsm_state10 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state10 : signal is "none";
+    signal ap_reg_grp_match_db_contact_fu_239_ap_start : STD_LOGIC := '0';
+    signal exitcond_fu_295_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal db_stream_V_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal db_stream_V_empty_n : STD_LOGIC;
     signal db_stream_V_read : STD_LOGIC;
-    signal tmp_i_fu_336_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal sum_i_cast_fu_361_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state10 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state10 : signal is "none";
-    signal tmp_fu_270_p4 : STD_LOGIC_VECTOR (24 downto 0);
-    signal tmp_13_fu_285_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_i_cast_fu_341_p1 : STD_LOGIC_VECTOR (14 downto 0);
+    signal tmp_i_fu_324_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal sum_i_cast_fu_349_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_CS_fsm_state11 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state11 : signal is "none";
-    signal ap_block_state11 : BOOLEAN;
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (10 downto 0);
+    signal tmp_fu_258_p4 : STD_LOGIC_VECTOR (24 downto 0);
+    signal tmp_13_fu_273_p1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal tmp_i_cast_fu_329_p1 : STD_LOGIC_VECTOR (14 downto 0);
+    signal ap_CS_fsm_state12 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state12 : signal is "none";
+    signal ap_block_state12 : BOOLEAN;
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (11 downto 0);
 
     component match_db_contact IS
     port (
@@ -348,21 +367,21 @@ begin
         error_out => error_out_1_data_reg,
         contacts_size_out => contacts_size_out_1_data_reg);
 
-    grp_match_db_contact_fu_251 : component match_db_contact
+    grp_match_db_contact_fu_239 : component match_db_contact
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_match_db_contact_fu_251_ap_start,
-        ap_done => grp_match_db_contact_fu_251_ap_done,
-        ap_idle => grp_match_db_contact_fu_251_ap_idle,
-        ap_ready => grp_match_db_contact_fu_251_ap_ready,
+        ap_start => grp_match_db_contact_fu_239_ap_start,
+        ap_done => grp_match_db_contact_fu_239_ap_done,
+        ap_idle => grp_match_db_contact_fu_239_ap_idle,
+        ap_ready => grp_match_db_contact_fu_239_ap_ready,
         db_stream_V_dout => db_stream_V_dout,
         db_stream_V_empty_n => db_stream_V_empty_n,
-        db_stream_V_read => grp_match_db_contact_fu_251_db_stream_V_read,
-        contacts_address0 => grp_match_db_contact_fu_251_contacts_address0,
-        contacts_ce0 => grp_match_db_contact_fu_251_contacts_ce0,
+        db_stream_V_read => grp_match_db_contact_fu_239_db_stream_V_read,
+        contacts_address0 => grp_match_db_contact_fu_239_contacts_address0,
+        contacts_ce0 => grp_match_db_contact_fu_239_contacts_ce0,
         contacts_q0 => contacts_q0,
-        ap_return => grp_match_db_contact_fu_251_ap_return);
+        ap_return => grp_match_db_contact_fu_239_ap_return);
 
     db_stream_V_fifo_U : component fifo_w8_d128_A_x
     port map (
@@ -393,16 +412,16 @@ begin
     end process;
 
 
-    ap_reg_grp_match_db_contact_fu_251_ap_start_assign_proc : process(ap_clk)
+    ap_reg_grp_match_db_contact_fu_239_ap_start_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                ap_reg_grp_match_db_contact_fu_251_ap_start <= ap_const_logic_0;
+                ap_reg_grp_match_db_contact_fu_239_ap_start <= ap_const_logic_0;
             else
-                if (((ap_const_logic_1 = ap_CS_fsm_state4) and (ap_const_lv1_1 = exitcond_fu_307_p2))) then 
-                    ap_reg_grp_match_db_contact_fu_251_ap_start <= ap_const_logic_1;
-                elsif ((ap_const_logic_1 = grp_match_db_contact_fu_251_ap_ready)) then 
-                    ap_reg_grp_match_db_contact_fu_251_ap_start <= ap_const_logic_0;
+                if (((ap_const_logic_1 = ap_CS_fsm_state4) and (ap_const_lv1_1 = exitcond_fu_295_p2))) then 
+                    ap_reg_grp_match_db_contact_fu_239_ap_start <= ap_const_logic_1;
+                elsif ((ap_const_logic_1 = grp_match_db_contact_fu_239_ap_ready)) then 
+                    ap_reg_grp_match_db_contact_fu_239_ap_start <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -463,7 +482,7 @@ begin
             if (ap_rst_n_inv = '1') then
                 operation_ap_vld_preg <= ap_const_logic_0;
             else
-                if (((ap_const_logic_1 = ap_CS_fsm_state11) and not(((ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
+                if (((ap_const_logic_1 = ap_CS_fsm_state12) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
                     operation_ap_vld_preg <= ap_const_logic_0;
                 elsif (((ap_const_logic_1 = operation_ap_vld) and not(((ap_const_logic_0 = ap_start) and (ap_const_logic_1 = ap_CS_fsm_state1))))) then 
                     operation_ap_vld_preg <= operation_ap_vld;
@@ -487,12 +506,60 @@ begin
     end process;
 
 
+    results_out_V_1_sel_rd_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                results_out_V_1_sel_rd <= ap_const_logic_0;
+            else
+                if (((ap_const_logic_1 = results_out_V_1_ack_out) and (ap_const_logic_1 = results_out_V_1_vld_out))) then 
+                                        results_out_V_1_sel_rd <= not(results_out_V_1_sel_rd);
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    results_out_V_1_sel_wr_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                results_out_V_1_sel_wr <= ap_const_logic_0;
+            else
+                if (((ap_const_logic_1 = results_out_V_1_vld_in) and (ap_const_logic_1 = results_out_V_1_ack_in))) then 
+                                        results_out_V_1_sel_wr <= not(results_out_V_1_sel_wr);
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    results_out_V_1_state_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                results_out_V_1_state <= ap_const_lv2_0;
+            else
+                if ((((ap_const_logic_0 = results_out_V_1_vld_in) and (ap_const_logic_1 = results_out_V_1_ack_out) and (ap_const_lv2_3 = results_out_V_1_state)) or ((ap_const_logic_0 = results_out_V_1_vld_in) and (ap_const_lv2_2 = results_out_V_1_state)))) then 
+                    results_out_V_1_state <= ap_const_lv2_2;
+                elsif ((((ap_const_logic_1 = results_out_V_1_vld_in) and (ap_const_logic_0 = results_out_V_1_ack_out) and (ap_const_lv2_3 = results_out_V_1_state)) or ((ap_const_logic_0 = results_out_V_1_ack_out) and (ap_const_lv2_1 = results_out_V_1_state)))) then 
+                    results_out_V_1_state <= ap_const_lv2_1;
+                elsif ((((ap_const_logic_1 = results_out_V_1_vld_in) and (ap_const_lv2_2 = results_out_V_1_state)) or ((ap_const_logic_1 = results_out_V_1_ack_out) and (ap_const_lv2_1 = results_out_V_1_state)) or ((ap_const_lv2_3 = results_out_V_1_state) and not(((ap_const_logic_1 = results_out_V_1_vld_in) and (ap_const_logic_0 = results_out_V_1_ack_out))) and not(((ap_const_logic_0 = results_out_V_1_vld_in) and (ap_const_logic_1 = results_out_V_1_ack_out)))))) then 
+                    results_out_V_1_state <= ap_const_lv2_3;
+                else 
+                    results_out_V_1_state <= ap_const_lv2_2;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
     contacts_size_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state7) and (ap_const_lv1_1 = exitcond_i_fu_324_p2))) then 
-                contacts_size <= tmp_2_fu_350_p2;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_2))) then 
+            if (((ap_const_logic_1 = ap_CS_fsm_state8) and (ap_const_lv1_1 = exitcond_i_fu_312_p2))) then 
+                contacts_size <= tmp_2_fu_338_p2;
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_2))) then 
                 contacts_size <= ap_const_lv32_0;
             end if; 
         end if;
@@ -504,13 +571,13 @@ begin
         end if;
     end process;
 
-    database_index_reg_206_assign_proc : process (ap_clk)
+    database_index_reg_194_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state6) and not(((ap_const_logic_0 = results_out_V_full_n) or (ap_const_logic_0 = grp_match_db_contact_fu_251_ap_done))))) then 
-                database_index_reg_206 <= database_index_1_reg_394;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_136_p2 = ap_const_lv32_1))) then 
-                database_index_reg_206 <= ap_const_lv32_0;
+            if (((ap_const_logic_1 = ap_CS_fsm_state7) and (results_out_V_1_ack_in = ap_const_logic_1))) then 
+                database_index_reg_194 <= database_index_1_reg_382;
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_124_p2 = ap_const_lv32_1))) then 
+                database_index_reg_194 <= ap_const_lv32_0;
             end if; 
         end if;
     end process;
@@ -521,35 +588,35 @@ begin
         end if;
     end process;
 
-    i_i_reg_228_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-                i_i_reg_228 <= i_6_reg_410;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_0 = icmp_fu_279_p2))) then 
-                i_i_reg_228 <= ap_const_lv7_0;
-            end if; 
-        end if;
-    end process;
-
-    i_reg_217_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state3) and (ap_const_lv1_0 = exitcond4_fu_296_p2))) then 
-                i_reg_217 <= ap_const_lv7_0;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) and not(((ap_const_logic_0 = db_in_V_0_vld_out) or (ap_const_logic_0 = db_stream_V_full_n))))) then 
-                i_reg_217 <= i_4_reg_402;
-            end if; 
-        end if;
-    end process;
-
-    storemerge_reg_239_assign_proc : process (ap_clk)
+    i_i_reg_216_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-                storemerge_reg_239 <= contacts_size_load_reg_374;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state7) and (ap_const_lv1_1 = exitcond_i_fu_324_p2))) then 
-                storemerge_reg_239 <= tmp_2_fu_350_p2;
+                i_i_reg_216 <= i_6_reg_403;
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_0 = icmp_fu_267_p2))) then 
+                i_i_reg_216 <= ap_const_lv7_0;
+            end if; 
+        end if;
+    end process;
+
+    i_reg_205_assign_proc : process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state3) and (ap_const_lv1_0 = exitcond4_fu_284_p2))) then 
+                i_reg_205 <= ap_const_lv7_0;
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) and not(((ap_const_logic_0 = db_in_V_0_vld_out) or (ap_const_logic_0 = db_stream_V_full_n))))) then 
+                i_reg_205 <= i_4_reg_390;
+            end if; 
+        end if;
+    end process;
+
+    storemerge_reg_227_assign_proc : process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
+                storemerge_reg_227 <= contacts_size_load_reg_362;
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state8) and (ap_const_lv1_1 = exitcond_i_fu_312_p2))) then 
+                storemerge_reg_227 <= tmp_2_fu_338_p2;
             end if; 
         end if;
     end process;
@@ -557,7 +624,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))))) then
-                contacts_size_load_reg_374 <= contacts_size;
+                contacts_size_load_reg_362 <= contacts_size;
             end if;
         end if;
     end process;
@@ -573,7 +640,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state3)) then
-                database_index_1_reg_394 <= database_index_1_fu_301_p2;
+                database_index_1_reg_382 <= database_index_1_fu_289_p2;
             end if;
         end if;
     end process;
@@ -605,37 +672,53 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state4)) then
-                i_4_reg_402 <= i_4_fu_313_p2;
+                i_4_reg_390 <= i_4_fu_301_p2;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state7)) then
-                i_6_reg_410 <= i_6_fu_330_p2;
+            if ((ap_const_logic_1 = ap_CS_fsm_state8)) then
+                i_6_reg_403 <= i_6_fu_318_p2;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state7) and (ap_const_lv1_0 = exitcond_i_fu_324_p2))) then
-                sum_i_reg_420 <= sum_i_fu_345_p2;
+            if ((ap_const_logic_1 = results_out_V_1_load_A)) then
+                results_out_V_1_payload_A <= tmp_4_fu_307_p1;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_0 = icmp_fu_279_p2))) then
-                    tmp_1_cast_reg_386(14 downto 6) <= tmp_1_cast_fu_288_p3(14 downto 6);
+            if ((ap_const_logic_1 = results_out_V_1_load_B)) then
+                results_out_V_1_payload_B <= tmp_4_fu_307_p1;
             end if;
         end if;
     end process;
-    tmp_1_cast_reg_386(5 downto 0) <= "000000";
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state8) and (ap_const_lv1_0 = exitcond_i_fu_312_p2))) then
+                sum_i_reg_413 <= sum_i_fu_333_p2;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_0 = icmp_fu_267_p2))) then
+                    tmp_1_cast_reg_374(14 downto 6) <= tmp_1_cast_fu_276_p3(14 downto 6);
+            end if;
+        end if;
+    end process;
+    tmp_1_cast_reg_374(5 downto 0) <= "000000";
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, operation_ap_vld_in_sig, db_in_V_0_vld_out, error_out_1_ack_in, contacts_size_out_1_ack_in, results_out_V_full_n, ap_CS_fsm_state5, ap_CS_fsm_state6, operation_read_read_fu_136_p2, ap_CS_fsm_state2, icmp_fu_279_p2, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state7, exitcond_i_fu_324_p2, grp_match_db_contact_fu_251_ap_done, db_stream_V_full_n, exitcond4_fu_296_p2, exitcond_fu_307_p2, ap_CS_fsm_state11)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, operation_ap_vld_in_sig, db_in_V_0_vld_out, error_out_1_ack_in, contacts_size_out_1_ack_in, results_out_V_1_ack_in, ap_CS_fsm_state5, ap_CS_fsm_state6, ap_CS_fsm_state7, operation_read_read_fu_124_p2, ap_CS_fsm_state2, icmp_fu_267_p2, ap_CS_fsm_state3, ap_CS_fsm_state4, grp_match_db_contact_fu_239_ap_done, ap_CS_fsm_state8, exitcond_i_fu_312_p2, db_stream_V_full_n, exitcond4_fu_284_p2, exitcond_fu_295_p2, ap_CS_fsm_state12)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -645,23 +728,23 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_0 = icmp_fu_279_p2))) then
-                    ap_NS_fsm <= ap_ST_fsm_state7;
-                elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_1 = icmp_fu_279_p2))) then
-                    ap_NS_fsm <= ap_ST_fsm_state9;
-                elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_136_p2 = ap_const_lv32_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_0 = icmp_fu_267_p2))) then
+                    ap_NS_fsm <= ap_ST_fsm_state8;
+                elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_1 = icmp_fu_267_p2))) then
+                    ap_NS_fsm <= ap_ST_fsm_state10;
+                elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (operation_read_read_fu_124_p2 = ap_const_lv32_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state11;
+                    ap_NS_fsm <= ap_ST_fsm_state12;
                 end if;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (ap_const_lv1_1 = exitcond4_fu_296_p2))) then
-                    ap_NS_fsm <= ap_ST_fsm_state11;
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (ap_const_lv1_1 = exitcond4_fu_284_p2))) then
+                    ap_NS_fsm <= ap_ST_fsm_state12;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 end if;
             when ap_ST_fsm_state4 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state4) and (ap_const_lv1_1 = exitcond_fu_307_p2))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state4) and (ap_const_lv1_1 = exitcond_fu_295_p2))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state5;
@@ -673,36 +756,43 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state5;
                 end if;
             when ap_ST_fsm_state6 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state6) and not(((ap_const_logic_0 = results_out_V_full_n) or (ap_const_logic_0 = grp_match_db_contact_fu_251_ap_done))))) then
-                    ap_NS_fsm <= ap_ST_fsm_state3;
+                if (((ap_const_logic_1 = ap_CS_fsm_state6) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = grp_match_db_contact_fu_239_ap_done))))) then
+                    ap_NS_fsm <= ap_ST_fsm_state7;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 end if;
             when ap_ST_fsm_state7 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (ap_const_lv1_1 = exitcond_i_fu_324_p2))) then
-                    ap_NS_fsm <= ap_ST_fsm_state10;
+                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (results_out_V_1_ack_in = ap_const_logic_1))) then
+                    ap_NS_fsm <= ap_ST_fsm_state3;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state8;
+                    ap_NS_fsm <= ap_ST_fsm_state7;
                 end if;
             when ap_ST_fsm_state8 => 
-                ap_NS_fsm <= ap_ST_fsm_state7;
+                if (((ap_const_logic_1 = ap_CS_fsm_state8) and (ap_const_lv1_1 = exitcond_i_fu_312_p2))) then
+                    ap_NS_fsm <= ap_ST_fsm_state11;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state9;
+                end if;
             when ap_ST_fsm_state9 => 
-                ap_NS_fsm <= ap_ST_fsm_state10;
+                ap_NS_fsm <= ap_ST_fsm_state8;
             when ap_ST_fsm_state10 => 
                 ap_NS_fsm <= ap_ST_fsm_state11;
             when ap_ST_fsm_state11 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state11) and not(((ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then
+                ap_NS_fsm <= ap_ST_fsm_state12;
+            when ap_ST_fsm_state12 => 
+                if (((ap_const_logic_1 = ap_CS_fsm_state12) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state11;
+                    ap_NS_fsm <= ap_ST_fsm_state12;
                 end if;
             when others =>  
-                ap_NS_fsm <= "XXXXXXXXXXX";
+                ap_NS_fsm <= "XXXXXXXXXXXX";
         end case;
     end process;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state10 <= ap_CS_fsm(9);
     ap_CS_fsm_state11 <= ap_CS_fsm(10);
+    ap_CS_fsm_state12 <= ap_CS_fsm(11);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
     ap_CS_fsm_state4 <= ap_CS_fsm(3);
@@ -718,9 +808,9 @@ begin
     end process;
 
 
-    ap_block_state11_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in)
+    ap_block_state12_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in, results_out_V_1_ack_in)
     begin
-                ap_block_state11 <= ((ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in));
+                ap_block_state12 <= ((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in));
     end process;
 
 
@@ -730,9 +820,9 @@ begin
     end process;
 
 
-    ap_done_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in, ap_CS_fsm_state11)
+    ap_done_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in, results_out_V_1_ack_in, ap_CS_fsm_state12)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state11) and not(((ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state12) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -750,9 +840,9 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in, ap_CS_fsm_state11)
+    ap_ready_assign_proc : process(error_out_1_ack_in, contacts_size_out_1_ack_in, results_out_V_1_ack_in, ap_CS_fsm_state12)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state11) and not(((ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state12) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = error_out_1_ack_in) or (ap_const_logic_0 = contacts_size_out_1_ack_in))))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
@@ -765,11 +855,11 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    contact_in_address0 <= tmp_i_fu_336_p1(6 - 1 downto 0);
+    contact_in_address0 <= tmp_i_fu_324_p1(6 - 1 downto 0);
 
-    contact_in_ce0_assign_proc : process(ap_CS_fsm_state7)
+    contact_in_ce0_assign_proc : process(ap_CS_fsm_state8)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
             contact_in_ce0 <= ap_const_logic_1;
         else 
             contact_in_ce0 <= ap_const_logic_0;
@@ -777,24 +867,24 @@ begin
     end process;
 
 
-    contacts_address0_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_251_contacts_address0, ap_CS_fsm_state8, sum_i_cast_fu_361_p1)
+    contacts_address0_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_239_contacts_address0, ap_CS_fsm_state9, sum_i_cast_fu_349_p1)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            contacts_address0 <= sum_i_cast_fu_361_p1(13 - 1 downto 0);
+        if ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            contacts_address0 <= sum_i_cast_fu_349_p1(13 - 1 downto 0);
         elsif ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-            contacts_address0 <= grp_match_db_contact_fu_251_contacts_address0;
+            contacts_address0 <= grp_match_db_contact_fu_239_contacts_address0;
         else 
             contacts_address0 <= "XXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    contacts_ce0_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_251_contacts_ce0, ap_CS_fsm_state8)
+    contacts_ce0_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_239_contacts_ce0, ap_CS_fsm_state9)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
             contacts_ce0 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-            contacts_ce0 <= grp_match_db_contact_fu_251_contacts_ce0;
+            contacts_ce0 <= grp_match_db_contact_fu_239_contacts_ce0;
         else 
             contacts_ce0 <= ap_const_logic_0;
         end if; 
@@ -811,13 +901,13 @@ begin
     end process;
 
 
-    contacts_size_out_1_data_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, contacts_size, operation_read_read_fu_136_p2, storemerge_reg_239, ap_CS_fsm_state10)
+    contacts_size_out_1_data_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, contacts_size, operation_read_read_fu_124_p2, storemerge_reg_227, ap_CS_fsm_state11)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            contacts_size_out_1_data_in <= storemerge_reg_239;
-        elsif ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_136_p2)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_2))))) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            contacts_size_out_1_data_in <= storemerge_reg_227;
+        elsif ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_124_p2)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_2))))) then 
             contacts_size_out_1_data_in <= contacts_size;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_2))) then 
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_2))) then 
             contacts_size_out_1_data_in <= ap_const_lv32_0;
         else 
             contacts_size_out_1_data_in <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -825,9 +915,9 @@ begin
     end process;
 
 
-    contacts_size_out_1_vld_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_136_p2, ap_CS_fsm_state10)
+    contacts_size_out_1_vld_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_124_p2, ap_CS_fsm_state11)
     begin
-        if ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_136_p2)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_2))) or (ap_const_logic_1 = ap_CS_fsm_state10))) then 
+        if ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_124_p2)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_2))) or (ap_const_logic_1 = ap_CS_fsm_state11))) then 
             contacts_size_out_1_vld_in <= ap_const_logic_1;
         else 
             contacts_size_out_1_vld_in <= ap_const_logic_0;
@@ -835,16 +925,16 @@ begin
     end process;
 
 
-    contacts_we0_assign_proc : process(ap_CS_fsm_state8)
+    contacts_we0_assign_proc : process(ap_CS_fsm_state9)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
             contacts_we0 <= ap_const_logic_1;
         else 
             contacts_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
-    database_index_1_fu_301_p2 <= std_logic_vector(unsigned(database_index_reg_206) + unsigned(ap_const_lv32_1));
+    database_index_1_fu_289_p2 <= std_logic_vector(unsigned(database_index_reg_194) + unsigned(ap_const_lv32_1));
     db_in_V_0_ack_in <= db_in_V_0_state(1);
 
     db_in_V_0_ack_out_assign_proc : process(db_in_V_0_vld_out, ap_CS_fsm_state5, db_stream_V_full_n)
@@ -884,10 +974,10 @@ begin
 
     db_in_V_TREADY <= db_in_V_0_state(1);
 
-    db_stream_V_read_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_251_db_stream_V_read)
+    db_stream_V_read_assign_proc : process(ap_CS_fsm_state6, grp_match_db_contact_fu_239_db_stream_V_read)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-            db_stream_V_read <= grp_match_db_contact_fu_251_db_stream_V_read;
+            db_stream_V_read <= grp_match_db_contact_fu_239_db_stream_V_read;
         else 
             db_stream_V_read <= ap_const_logic_0;
         end if; 
@@ -914,13 +1004,13 @@ begin
     end process;
 
 
-    error_out_1_data_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_136_p2, ap_CS_fsm_state2, icmp_fu_279_p2)
+    error_out_1_data_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_124_p2, ap_CS_fsm_state2, icmp_fu_267_p2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_1 = icmp_fu_279_p2))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_1 = icmp_fu_267_p2))) then 
             error_out_1_data_in <= ap_const_lv32_1;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_136_p2)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_2)))) then 
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_124_p2)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_2)))) then 
             error_out_1_data_in <= ap_const_lv32_3;
-        elsif ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (ap_const_lv32_0 = operation_read_read_fu_136_p2)))) then 
+        elsif ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (ap_const_lv32_0 = operation_read_read_fu_124_p2)))) then 
             error_out_1_data_in <= ap_const_lv32_0;
         else 
             error_out_1_data_in <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -928,22 +1018,22 @@ begin
     end process;
 
 
-    error_out_1_vld_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_136_p2, ap_CS_fsm_state2, icmp_fu_279_p2)
+    error_out_1_vld_in_assign_proc : process(ap_start, ap_CS_fsm_state1, operation_ap_vld_in_sig, operation_read_read_fu_124_p2, ap_CS_fsm_state2, icmp_fu_267_p2)
     begin
-        if ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_136_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (ap_const_lv32_0 = operation_read_read_fu_136_p2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_136_p2)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_136_p2 = ap_const_lv32_2))) or ((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_136_p2) and (ap_const_lv1_1 = icmp_fu_279_p2)))) then 
+        if ((((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (operation_read_read_fu_124_p2 = ap_const_lv32_1)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and (ap_const_lv32_0 = operation_read_read_fu_124_p2)) or ((ap_const_logic_1 = ap_CS_fsm_state1) and not(((ap_const_logic_0 = ap_start) or (ap_const_logic_0 = operation_ap_vld_in_sig))) and not((ap_const_lv32_0 = operation_read_read_fu_124_p2)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_1)) and not((operation_read_read_fu_124_p2 = ap_const_lv32_2))) or ((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv32_0 = operation_read_read_fu_124_p2) and (ap_const_lv1_1 = icmp_fu_267_p2)))) then 
             error_out_1_vld_in <= ap_const_logic_1;
         else 
             error_out_1_vld_in <= ap_const_logic_0;
         end if; 
     end process;
 
-    exitcond4_fu_296_p2 <= "1" when (database_index_reg_206 = db_size_in) else "0";
-    exitcond_fu_307_p2 <= "1" when (i_reg_217 = ap_const_lv7_40) else "0";
-    exitcond_i_fu_324_p2 <= "1" when (i_i_reg_228 = ap_const_lv7_40) else "0";
-    grp_match_db_contact_fu_251_ap_start <= ap_reg_grp_match_db_contact_fu_251_ap_start;
-    i_4_fu_313_p2 <= std_logic_vector(unsigned(i_reg_217) + unsigned(ap_const_lv7_1));
-    i_6_fu_330_p2 <= std_logic_vector(unsigned(i_i_reg_228) + unsigned(ap_const_lv7_1));
-    icmp_fu_279_p2 <= "1" when (signed(tmp_fu_270_p4) > signed(ap_const_lv25_0)) else "0";
+    exitcond4_fu_284_p2 <= "1" when (database_index_reg_194 = db_size_in) else "0";
+    exitcond_fu_295_p2 <= "1" when (i_reg_205 = ap_const_lv7_40) else "0";
+    exitcond_i_fu_312_p2 <= "1" when (i_i_reg_216 = ap_const_lv7_40) else "0";
+    grp_match_db_contact_fu_239_ap_start <= ap_reg_grp_match_db_contact_fu_239_ap_start;
+    i_4_fu_301_p2 <= std_logic_vector(unsigned(i_reg_205) + unsigned(ap_const_lv7_1));
+    i_6_fu_318_p2 <= std_logic_vector(unsigned(i_i_reg_216) + unsigned(ap_const_lv7_1));
+    icmp_fu_267_p2 <= "1" when (signed(tmp_fu_258_p4) > signed(ap_const_lv25_0)) else "0";
 
     operation_ap_vld_in_sig_assign_proc : process(operation_ap_vld, operation_ap_vld_preg)
     begin
@@ -974,35 +1064,54 @@ begin
         end if; 
     end process;
 
-    operation_read_read_fu_136_p2 <= operation_in_sig;
+    operation_read_read_fu_124_p2 <= operation_in_sig;
+    results_out_V_1_ack_in <= results_out_V_1_state(1);
+    results_out_V_1_ack_out <= results_out_V_TREADY;
 
-    results_out_V_blk_n_assign_proc : process(results_out_V_full_n, ap_CS_fsm_state6)
+    results_out_V_1_data_out_assign_proc : process(results_out_V_1_payload_A, results_out_V_1_payload_B, results_out_V_1_sel)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-            results_out_V_blk_n <= results_out_V_full_n;
+        if ((ap_const_logic_1 = results_out_V_1_sel)) then 
+            results_out_V_1_data_out <= results_out_V_1_payload_B;
         else 
-            results_out_V_blk_n <= ap_const_logic_1;
+            results_out_V_1_data_out <= results_out_V_1_payload_A;
         end if; 
     end process;
 
-    results_out_V_din <= std_logic_vector(IEEE.numeric_std.resize(unsigned(grp_match_db_contact_fu_251_ap_return),32));
+    results_out_V_1_load_A <= (results_out_V_1_state_cmp_full and not(results_out_V_1_sel_wr));
+    results_out_V_1_load_B <= (results_out_V_1_sel_wr and results_out_V_1_state_cmp_full);
+    results_out_V_1_sel <= results_out_V_1_sel_rd;
+    results_out_V_1_state_cmp_full <= '0' when (results_out_V_1_state = ap_const_lv2_1) else '1';
 
-    results_out_V_write_assign_proc : process(results_out_V_full_n, ap_CS_fsm_state6, grp_match_db_contact_fu_251_ap_done)
+    results_out_V_1_vld_in_assign_proc : process(results_out_V_1_ack_in, ap_CS_fsm_state6, grp_match_db_contact_fu_239_ap_done)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state6) and not(((ap_const_logic_0 = results_out_V_full_n) or (ap_const_logic_0 = grp_match_db_contact_fu_251_ap_done))))) then 
-            results_out_V_write <= ap_const_logic_1;
+        if (((ap_const_logic_1 = ap_CS_fsm_state6) and not(((ap_const_logic_0 = results_out_V_1_ack_in) or (ap_const_logic_0 = grp_match_db_contact_fu_239_ap_done))))) then 
+            results_out_V_1_vld_in <= ap_const_logic_1;
         else 
-            results_out_V_write <= ap_const_logic_0;
+            results_out_V_1_vld_in <= ap_const_logic_0;
         end if; 
     end process;
 
-        sum_i_cast_fu_361_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sum_i_reg_420),64));
+    results_out_V_1_vld_out <= results_out_V_1_state(0);
+    results_out_V_TDATA <= results_out_V_1_data_out;
 
-    sum_i_fu_345_p2 <= std_logic_vector(unsigned(tmp_i_cast_fu_341_p1) + unsigned(tmp_1_cast_reg_386));
-    tmp_13_fu_285_p1 <= contacts_size_load_reg_374(9 - 1 downto 0);
-    tmp_1_cast_fu_288_p3 <= (tmp_13_fu_285_p1 & ap_const_lv6_0);
-    tmp_2_fu_350_p2 <= std_logic_vector(unsigned(contacts_size_load_reg_374) + unsigned(ap_const_lv32_1));
-    tmp_fu_270_p4 <= contacts_size_load_reg_374(31 downto 7);
-    tmp_i_cast_fu_341_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_228),15));
-    tmp_i_fu_336_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_228),64));
+    results_out_V_TDATA_blk_n_assign_proc : process(results_out_V_1_state, ap_CS_fsm_state6, ap_CS_fsm_state7)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state6) or (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+            results_out_V_TDATA_blk_n <= results_out_V_1_state(1);
+        else 
+            results_out_V_TDATA_blk_n <= ap_const_logic_1;
+        end if; 
+    end process;
+
+    results_out_V_TVALID <= results_out_V_1_state(0);
+        sum_i_cast_fu_349_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sum_i_reg_413),64));
+
+    sum_i_fu_333_p2 <= std_logic_vector(unsigned(tmp_i_cast_fu_329_p1) + unsigned(tmp_1_cast_reg_374));
+    tmp_13_fu_273_p1 <= contacts_size_load_reg_362(9 - 1 downto 0);
+    tmp_1_cast_fu_276_p3 <= (tmp_13_fu_273_p1 & ap_const_lv6_0);
+    tmp_2_fu_338_p2 <= std_logic_vector(unsigned(contacts_size_load_reg_362) + unsigned(ap_const_lv32_1));
+    tmp_4_fu_307_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(grp_match_db_contact_fu_239_ap_return),32));
+    tmp_fu_258_p4 <= contacts_size_load_reg_362(31 downto 7);
+    tmp_i_cast_fu_329_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_216),15));
+    tmp_i_fu_324_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_i_reg_216),64));
 end behav;

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'match_db_contact'
 ================================================================
-* Date:           Thu Apr 19 15:19:28 2018
+* Date:           Thu Apr 19 15:27:04 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -109,7 +109,7 @@ IsGatedGlobalClock: 0
 
  <State 1>: 0.79ns
 ST_1: StgValue_11 (3)  [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str31, i32 0, i32 0, [1 x i8]* @p_str32, [1 x i8]* @p_str33, [1 x i8]* @p_str34, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str35, [1 x i8]* @p_str36)
+:0  call void (...)* @_ssdm_op_SpecInterface(i8* @db_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str25, i32 0, i32 0, [1 x i8]* @p_str26, [1 x i8]* @p_str27, [1 x i8]* @p_str28, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str29, [1 x i8]* @p_str30)
 
 ST_1: results_local (4)  [1/1] 0.79ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:23->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 :1  %results_local = alloca [64 x i1], align 16
@@ -132,8 +132,8 @@ ST_1: StgValue_17 (9)  [1/1] 0.00ns
 ST_1: db_item_V (10)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:44
 :7  %db_item_V = alloca i8, align 1
 
-ST_1: empty_7 (11)  [1/1] 0.00ns
-:8  %empty_7 = call i32 (...)* @_ssdm_op_SpecChannel([10 x i8]* @db_item_OC_V_str, i32 1, [1 x i8]* @p_str17, [1 x i8]* @p_str17, i32 128, i32 128, i8* %db_item_V, i8* %db_item_V) nounwind
+ST_1: empty_6 (11)  [1/1] 0.00ns
+:8  %empty_6 = call i32 (...)* @_ssdm_op_SpecChannel([10 x i8]* @db_item_OC_V_str, i32 1, [1 x i8]* @p_str17, [1 x i8]* @p_str17, i32 128, i32 128, i8* %db_item_V, i8* %db_item_V) nounwind
 
 ST_1: StgValue_20 (12)  [1/1] 0.00ns
 :9  call void (...)* @_ssdm_op_SpecInterface(i8* %db_item_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str18, i32 0, i32 0, [1 x i8]* @p_str19, [1 x i8]* @p_str20, [1 x i8]* @p_str21, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str22, [1 x i8]* @p_str23)
@@ -149,8 +149,8 @@ ST_2: i (15)  [1/1] 0.00ns
 ST_2: exitcond1 (16)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:38
 :1  %exitcond1 = icmp eq i7 %i, -64
 
-ST_2: empty_8 (17)  [1/1] 0.00ns
-:2  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+ST_2: empty_7 (17)  [1/1] 0.00ns
+:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
 
 ST_2: i_2 (18)  [1/1] 1.27ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:38
 :3  %i_2 = add i7 %i, 1
@@ -184,8 +184,8 @@ ST_3: contacts_index (29)  [1/1] 0.00ns
 ST_3: exitcond9 (30)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:41
 .preheader11:1  %exitcond9 = icmp eq i8 %contacts_index, -128
 
-ST_3: empty_9 (31)  [1/1] 0.00ns
-.preheader11:2  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
+ST_3: empty_8 (31)  [1/1] 0.00ns
+.preheader11:2  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
 
 ST_3: contacts_index_3 (32)  [1/1] 1.28ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:41
 .preheader11:3  %contacts_index_3 = add i8 %contacts_index, 1
@@ -219,8 +219,8 @@ ST_4: i_1_cast5 (41)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/
 ST_4: exitcond8 (42)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:46
 :2  %exitcond8 = icmp eq i7 %i_1, -64
 
-ST_4: empty_10 (43)  [1/1] 0.00ns
-:3  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+ST_4: empty_9 (43)  [1/1] 0.00ns
+:3  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
 
 ST_4: i_3 (44)  [1/1] 1.27ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:46
 :4  %i_3 = add i7 %i_1, 1
@@ -277,8 +277,8 @@ ST_6: i_i (60)  [1/1] 0.00ns
 ST_6: exitcond3_i (61)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:24->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 .preheader3:1  %exitcond3_i = icmp eq i7 %i_i, -64
 
-ST_6: empty_11 (62)  [1/1] 0.00ns
-.preheader3:2  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+ST_6: empty_10 (62)  [1/1] 0.00ns
+.preheader3:2  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
 
 ST_6: i_4 (63)  [1/1] 1.27ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:24->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 .preheader3:3  %i_4 = add i7 %i_i, 1
@@ -321,8 +321,8 @@ ST_7: found_i (77)  [1/1] 0.00ns
 ST_7: exitcond_i (78)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:27->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 .preheader.i:2  %exitcond_i = icmp eq i7 %i_1_i, -64
 
-ST_7: empty_12 (79)  [1/1] 0.00ns
-.preheader.i:3  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+ST_7: empty_11 (79)  [1/1] 0.00ns
+.preheader.i:3  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
 
 ST_7: i_5 (80)  [1/1] 1.27ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:27->contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 .preheader.i:4  %i_5 = add i7 %i_1_i, 1
@@ -348,8 +348,8 @@ compare.exit:1  %local_results_addr_1 = getelementptr inbounds [128 x i1]* %loca
 ST_7: StgValue_86 (91)  [1/1] 0.79ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:50
 compare.exit:2  store i1 %found_i, i1* %local_results_addr_1, align 1
 
-ST_7: empty_13 (92)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:51
-compare.exit:3  %empty_13 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_6) nounwind
+ST_7: empty_12 (92)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:51
+compare.exit:3  %empty_12 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_6) nounwind
 
 ST_7: StgValue_88 (93)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:41
 compare.exit:4  br label %.preheader11
@@ -376,8 +376,8 @@ ST_9: matched (98)  [1/1] 0.00ns
 ST_9: exitcond (99)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:52
 .preheader:2  %exitcond = icmp eq i8 %contacts_index_1, -128
 
-ST_9: empty_14 (100)  [1/1] 0.00ns
-.preheader:3  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
+ST_9: empty_13 (100)  [1/1] 0.00ns
+.preheader:3  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128) nounwind
 
 ST_9: contacts_index_2 (101)  [1/1] 1.28ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:52
 .preheader:4  %contacts_index_2 = add i8 %contacts_index_1, 1
@@ -437,12 +437,12 @@ contact_V            (alloca           ) [ 01111111100]
 empty                (specchannel      ) [ 00000000000]
 StgValue_17          (specinterface    ) [ 00000000000]
 db_item_V            (alloca           ) [ 01111111100]
-empty_7              (specchannel      ) [ 00000000000]
+empty_6              (specchannel      ) [ 00000000000]
 StgValue_20          (specinterface    ) [ 00000000000]
 StgValue_21          (br               ) [ 01100000000]
 i                    (phi              ) [ 00100000000]
 exitcond1            (icmp             ) [ 00100000000]
-empty_8              (speclooptripcount) [ 00000000000]
+empty_7              (speclooptripcount) [ 00000000000]
 i_2                  (add              ) [ 01100000000]
 StgValue_26          (br               ) [ 00000000000]
 tmp                  (read             ) [ 00000000000]
@@ -453,7 +453,7 @@ StgValue_31          (br               ) [ 01100000000]
 StgValue_32          (br               ) [ 00111111100]
 contacts_index       (phi              ) [ 00011111100]
 exitcond9            (icmp             ) [ 00011111100]
-empty_9              (speclooptripcount) [ 00000000000]
+empty_8              (speclooptripcount) [ 00000000000]
 contacts_index_3     (add              ) [ 00111111100]
 StgValue_37          (br               ) [ 00000000000]
 tmp_6                (specregionbegin  ) [ 00001111100]
@@ -464,7 +464,7 @@ StgValue_42          (br               ) [ 00011111111]
 i_1                  (phi              ) [ 00001000000]
 i_1_cast5            (zext             ) [ 00000000000]
 exitcond8            (icmp             ) [ 00011111100]
-empty_10             (speclooptripcount) [ 00000000000]
+empty_9              (speclooptripcount) [ 00000000000]
 i_3                  (add              ) [ 00011111100]
 StgValue_48          (br               ) [ 00000000000]
 tmp_s                (add              ) [ 00000000000]
@@ -480,7 +480,7 @@ StgValue_60          (write            ) [ 00000000000]
 StgValue_61          (br               ) [ 00011111100]
 i_i                  (phi              ) [ 00000010000]
 exitcond3_i          (icmp             ) [ 00011111100]
-empty_11             (speclooptripcount) [ 00000000000]
+empty_10             (speclooptripcount) [ 00000000000]
 i_4                  (add              ) [ 00011111100]
 StgValue_66          (br               ) [ 00000000000]
 tmp_11               (read             ) [ 00000000000]
@@ -494,7 +494,7 @@ StgValue_74          (br               ) [ 00011111100]
 i_1_i                (phi              ) [ 00000001000]
 found_i              (phi              ) [ 00000001100]
 exitcond_i           (icmp             ) [ 00011111100]
-empty_12             (speclooptripcount) [ 00000000000]
+empty_11             (speclooptripcount) [ 00000000000]
 i_5                  (add              ) [ 00011111100]
 StgValue_80          (br               ) [ 00000000000]
 tmp_6_i              (zext             ) [ 00000000000]
@@ -502,7 +502,7 @@ results_local_addr_1 (getelementptr    ) [ 00000000100]
 tmp_8                (zext             ) [ 00000000000]
 local_results_addr_1 (getelementptr    ) [ 00000000000]
 StgValue_86          (store            ) [ 00000000000]
-empty_13             (specregionend    ) [ 00000000000]
+empty_12             (specregionend    ) [ 00000000000]
 StgValue_88          (br               ) [ 00111111100]
 results_local_load   (load             ) [ 00000000000]
 found                (and              ) [ 00011111100]
@@ -510,7 +510,7 @@ StgValue_91          (br               ) [ 00011111100]
 contacts_index_1     (phi              ) [ 00000000010]
 matched              (phi              ) [ 00000000011]
 exitcond             (icmp             ) [ 00000000011]
-empty_14             (speclooptripcount) [ 00000000000]
+empty_13             (speclooptripcount) [ 00000000000]
 contacts_index_2     (add              ) [ 00010000011]
 StgValue_97          (br               ) [ 00000000000]
 tmp_4                (zext             ) [ 00000000000]
@@ -575,7 +575,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str31"/></StgValue>
+<StgValue><ssdm name="p_str25"/></StgValue>
 </bind>
 </comp>
 
@@ -584,7 +584,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str32"/></StgValue>
+<StgValue><ssdm name="p_str26"/></StgValue>
 </bind>
 </comp>
 
@@ -593,7 +593,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str33"/></StgValue>
+<StgValue><ssdm name="p_str27"/></StgValue>
 </bind>
 </comp>
 
@@ -602,7 +602,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str34"/></StgValue>
+<StgValue><ssdm name="p_str28"/></StgValue>
 </bind>
 </comp>
 
@@ -629,7 +629,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str35"/></StgValue>
+<StgValue><ssdm name="p_str29"/></StgValue>
 </bind>
 </comp>
 
@@ -638,7 +638,7 @@ StgValue_104         (br               ) [ 00010000011]
 <pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str36"/></StgValue>
+<StgValue><ssdm name="p_str30"/></StgValue>
 </bind>
 </comp>
 
@@ -2176,7 +2176,7 @@ StgValue_104         (br               ) [ 00010000011]
 	State 1
 		empty : 1
 		StgValue_17 : 1
-		empty_7 : 1
+		empty_6 : 1
 		StgValue_20 : 1
 	State 2
 		exitcond1 : 1

@@ -66,7 +66,7 @@ void contact_discovery(
 	int *contacts_size_out,
 	hls::stream<unsigned int> &results_out
 ){
-#pragma HLS STREAM variable=results_out dim=1
+#pragma HLS INTERFACE axis register both port=results_out
 #pragma HLS INTERFACE axis register both port=db_in
 #pragma HLS INTERFACE ap_none port=db_size_in
 #pragma HLS INTERFACE s_axilite port=db_size_in

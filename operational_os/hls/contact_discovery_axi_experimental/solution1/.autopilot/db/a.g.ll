@@ -311,7 +311,7 @@ define zeroext i1 @_Z16match_db_contactv() nounwind uwtable {
 ; [#uses=1]
 declare void @_ssdm_RegionBegin(...) nounwind
 
-; [#uses=4]
+; [#uses=3]
 declare void @_ssdm_SpecStream(...) nounwind
 
 ; [#uses=3]
@@ -369,7 +369,7 @@ define void @_Z17contact_discoveryiPhRN3hls6streamIhEEjPiS4_RNS1_IjEE(i32 %opera
   %10 = load i8** %2, align 8, !dbg !318          ; [#uses=1 type=i8*] [debug line = 68:3]
   call void (...)* @_ssdm_SpecArrayDimSize(i8* %10, i32 64) nounwind, !dbg !318 ; [debug line = 68:3]
   %11 = load %"class.hls::stream.0"** %7, align 8, !dbg !320 ; [#uses=1 type=%"class.hls::stream.0"*] [debug line = 69:1]
-  call void (...)* @_ssdm_SpecStream(%"class.hls::stream.0"* %11, i32 1, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !320 ; [debug line = 69:1]
+  call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream.0"* %11, i8* getelementptr inbounds ([5 x i8]* @.str2, i32 0, i32 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str3, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !320 ; [debug line = 69:1]
   %12 = load %"class.hls::stream"** %3, align 8, !dbg !321 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 70:1]
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream"* %12, i8* getelementptr inbounds ([5 x i8]* @.str2, i32 0, i32 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str3, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i32 0, i32 0)) nounwind, !dbg !321 ; [debug line = 70:1]
   %13 = load i32* %4, align 4, !dbg !322          ; [#uses=1 type=i32] [debug line = 71:1]
@@ -518,7 +518,7 @@ define void @_Z17contact_discoveryiPhRN3hls6streamIhEEjPiS4_RNS1_IjEE(i32 %opera
 ; [#uses=1]
 declare void @_ssdm_SpecArrayDimSize(...) nounwind
 
-; [#uses=11]
+; [#uses=12]
 declare void @_ssdm_op_SpecInterface(...) nounwind
 
 ; [#uses=1]

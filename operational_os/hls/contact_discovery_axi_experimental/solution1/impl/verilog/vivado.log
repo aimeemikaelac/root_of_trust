@@ -2,18 +2,17 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu Apr 19 15:20:05 2018
-# Process ID: 10260
+# Start of session at: Thu Apr 19 15:27:50 2018
+# Process ID: 10745
 # Current directory: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog
 # Command line: vivado -notrace -mode batch -source run_vivadosyn.tcl
 # Log file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/vivado.log
 # Journal file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/vivado.jou
 #-----------------------------------------------------------
 source run_vivadosyn.tcl -notrace
-[Thu Apr 19 15:20:20 2018] Launched synth_1...
+[Thu Apr 19 15:28:00 2018] Launched synth_1...
 Run output will be captured here: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/runme.log
-launch_runs: Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:06 . Memory (MB): peak = 1163.285 ; gain = 58.035 ; free physical = 1460 ; free virtual = 5927
-[Thu Apr 19 15:20:20 2018] Waiting for synth_1 to finish...
+[Thu Apr 19 15:28:00 2018] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log contact_discovery.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source contact_discovery.tcl
@@ -30,28 +29,29 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10339 
+INFO: Helper process launched with PID 10822 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1241.691 ; gain = 77.988 ; free physical = 1220 ; free virtual = 5690
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1241.691 ; gain = 77.988 ; free physical = 1340 ; free virtual = 5687
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
-	Parameter ap_ST_fsm_state1 bound to: 11'b00000000001 
-	Parameter ap_ST_fsm_state2 bound to: 11'b00000000010 
-	Parameter ap_ST_fsm_state3 bound to: 11'b00000000100 
-	Parameter ap_ST_fsm_state4 bound to: 11'b00000001000 
-	Parameter ap_ST_fsm_state5 bound to: 11'b00000010000 
-	Parameter ap_ST_fsm_state6 bound to: 11'b00000100000 
-	Parameter ap_ST_fsm_state7 bound to: 11'b00001000000 
-	Parameter ap_ST_fsm_state8 bound to: 11'b00010000000 
-	Parameter ap_ST_fsm_state9 bound to: 11'b00100000000 
-	Parameter ap_ST_fsm_state10 bound to: 11'b01000000000 
-	Parameter ap_ST_fsm_state11 bound to: 11'b10000000000 
+	Parameter ap_ST_fsm_state1 bound to: 12'b000000000001 
+	Parameter ap_ST_fsm_state2 bound to: 12'b000000000010 
+	Parameter ap_ST_fsm_state3 bound to: 12'b000000000100 
+	Parameter ap_ST_fsm_state4 bound to: 12'b000000001000 
+	Parameter ap_ST_fsm_state5 bound to: 12'b000000010000 
+	Parameter ap_ST_fsm_state6 bound to: 12'b000000100000 
+	Parameter ap_ST_fsm_state7 bound to: 12'b000001000000 
+	Parameter ap_ST_fsm_state8 bound to: 12'b000010000000 
+	Parameter ap_ST_fsm_state9 bound to: 12'b000100000000 
+	Parameter ap_ST_fsm_state10 bound to: 12'b001000000000 
+	Parameter ap_ST_fsm_state11 bound to: 12'b010000000000 
+	Parameter ap_ST_fsm_state12 bound to: 12'b100000000000 
 	Parameter C_S_AXI_AXILITES_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_AXILITES_ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_AXILITES_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:92]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:91]
 INFO: [Synth 8-638] synthesizing module 'contact_discoveryeOg' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoveryeOg.v:49]
 	Parameter DataWidth bound to: 8 - type: integer 
 	Parameter AddressRange bound to: 8192 - type: integer 
@@ -184,54 +184,23 @@ INFO: [Synth 8-638] synthesizing module 'fifo_w8_d128_A_x_shiftReg' [/home/aimee
 WARNING: [Synth 8-6014] Unused sequential element i was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:33]
 INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A_x_shiftReg' (14#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:11]
 INFO: [Synth 8-256] done synthesizing module 'fifo_w8_d128_A_x' (15#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:45]
-WARNING: [Synth 8-6014] Unused sequential element db_in_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:574]
-WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:634]
-WARNING: [Synth 8-6014] Unused sequential element results_out_V_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:650]
-WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:764]
-WARNING: [Synth 8-6014] Unused sequential element ap_block_state11_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:768]
-WARNING: [Synth 8-6014] Unused sequential element ap_block_state5_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:772]
-WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:248]
-WARNING: [Synth 8-6014] Unused sequential element db_stream_V_write_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:284]
-WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_386_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:464]
-WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_386_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:819]
+WARNING: [Synth 8-6014] Unused sequential element db_in_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:640]
+WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:700]
+WARNING: [Synth 8-6014] Unused sequential element results_out_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:732]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:847]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state12_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:851]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state5_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:855]
+WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:266]
+WARNING: [Synth 8-6014] Unused sequential element db_stream_V_write_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:302]
+WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_374_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:530]
+WARNING: [Synth 8-6014] Unused sequential element tmp_1_cast_reg_374_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:918]
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery' (16#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[31] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[30] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[29] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[28] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[27] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[26] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[25] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[24] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[23] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[22] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[21] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[20] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[19] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[18] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[17] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[16] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[15] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[14] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[13] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[12] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[11] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[10] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[9] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[8] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[7] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[6] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[5] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[4] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[3] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[2] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[1] driven by constant 0
 WARNING: [Synth 8-3331] design match_db_contact_dEe has unconnected port reset
 WARNING: [Synth 8-3331] design match_db_contact_cud has unconnected port reset
 WARNING: [Synth 8-3331] design match_db_contact_bkb has unconnected port reset
 WARNING: [Synth 8-3331] design contact_discoveryeOg has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1290.191 ; gain = 126.488 ; free physical = 1218 ; free virtual = 5690
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1291.191 ; gain = 127.488 ; free physical = 1339 ; free virtual = 5688
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -241,7 +210,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1290.191 ; gain = 126.488 ; free physical = 1223 ; free virtual = 5695
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1291.191 ; gain = 127.488 ; free physical = 1343 ; free virtual = 5693
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -255,22 +224,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2011.012 ; gain = 3.000 ; free physical = 429 ; free virtual = 5030
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2011.012 ; gain = 2.000 ; free physical = 548 ; free virtual = 5027
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 501 ; free virtual = 5101
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 622 ; free virtual = 5101
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-1-i
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 501 ; free virtual = 5102
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 622 ; free virtual = 5101
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 503 ; free virtual = 5104
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 619 ; free virtual = 5098
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element int_contact_in_shift_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:453]
 WARNING: [Synth 8-6014] Unused sequential element SRL_SIG_reg[0] was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A.v:36]
@@ -356,15 +325,15 @@ INFO: [Synth 8-5546] ROM "exitcond_i_fu_409_p2" won't be mapped to RAM because i
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/fifo_w8_d128_A_x.v:92]
 INFO: [Synth 8-5546] ROM "internal_empty_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "internal_full_n" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3936] Found unconnected internal register 'sum_i_reg_420_reg' and it is trimmed from '15' to '13' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:458]
-WARNING: [Synth 8-3936] Found unconnected internal register 'tmp_1_cast_reg_386_reg' and it is trimmed from '9' to '7' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:464]
+WARNING: [Synth 8-3936] Found unconnected internal register 'sum_i_reg_413_reg' and it is trimmed from '15' to '13' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:524]
+WARNING: [Synth 8-3936] Found unconnected internal register 'tmp_1_cast_reg_374_reg' and it is trimmed from '9' to '7' bits. [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:530]
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
-INFO: [Synth 8-5546] ROM "exitcond_fu_307_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "exitcond_i_fu_324_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_fu_295_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_i_fu_312_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM ram_reg
 INFO: [Synth 8-3971] The signal gen_write[1].mem_reg was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 495 ; free virtual = 5096
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 615 ; free virtual = 5093
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -387,34 +356,35 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 14    
 	               13 Bit    Registers := 1     
-	               11 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
 	                9 Bit    Registers := 3     
 	                8 Bit    Registers := 9     
 	                7 Bit    Registers := 12    
 	                6 Bit    Registers := 2     
-	                2 Bit    Registers := 5     
-	                1 Bit    Registers := 24    
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 28    
 +---RAMs : 
 	              64K Bit         RAMs := 1     
 	              512 Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 18    
 	   2 Input     13 Bit        Muxes := 1     
-	   4 Input     11 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 2     
+	   4 Input     12 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 8     
-	   2 Input      7 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 5     
+	   2 Input      7 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 4     
 	   2 Input      5 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      2 Bit        Muxes := 9     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 37    
+	   2 Input      1 Bit        Muxes := 39    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -431,24 +401,25 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 7     
 	               13 Bit    Registers := 1     
-	               11 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                7 Bit    Registers := 5     
 	                6 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 4     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 3     
 	   2 Input     13 Bit        Muxes := 1     
-	   4 Input     11 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 1     
+	   4 Input     12 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 8     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 10    
 Module contact_discoveryeOg_ram 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -565,53 +536,53 @@ INFO: [Synth 8-5546] ROM "exitcond9_fu_330_p2" won't be mapped to RAM because it
 INFO: [Synth 8-5546] ROM "exitcond_fu_437_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "internal_full_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "internal_empty_n" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "exitcond_i_fu_324_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "exitcond_fu_307_p2" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[31] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[30] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[29] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[28] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[27] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[26] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[25] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[24] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[23] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[22] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[21] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[20] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[19] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[18] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[17] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[16] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[15] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[14] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[13] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[12] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[11] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[10] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[9] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[8] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[7] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[6] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[5] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[4] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[3] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[2] driven by constant 0
-WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_din[1] driven by constant 0
+INFO: [Synth 8-5546] ROM "exitcond_i_fu_312_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_fu_295_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[31] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[30] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[29] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[28] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[27] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[26] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[25] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[24] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[23] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[22] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[21] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[20] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[19] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[18] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[17] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[16] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[15] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[14] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[13] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[12] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[11] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[10] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[9] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[8] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[7] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[6] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[5] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[4] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[3] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[2] driven by constant 0
+WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[1] driven by constant 0
 INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg
 INFO: [Synth 8-3971] The signal contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg was recognized as a true dual port RAM template.
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[0]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[1]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[2]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[3]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[4]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_386_reg[5]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]'
-INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[0]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[1]'
-INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[1]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[2]'
-INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[2]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[3]'
-INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[3]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[4]'
-INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[4]' (FD) to 'grp_match_db_contact_fu_251/tmp_3_reg_488_reg[5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\grp_match_db_contact_fu_251/tmp_3_reg_488_reg[5] )
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[0]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[1]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[2]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[3]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[4]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'tmp_1_cast_reg_374_reg[5]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[0]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[1]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[2]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[3]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3886] merging instance 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[4]' (FD) to 'grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5] )
 INFO: [Synth 8-3886] merging instance 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[2]' (FDRE) to 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[3]'
 INFO: [Synth 8-3886] merging instance 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[3]' (FDRE) to 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[4]'
 INFO: [Synth 8-3886] merging instance 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[4]' (FDRE) to 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[5]'
@@ -643,9 +614,9 @@ INFO: [Synth 8-3886] merging instance 'contact_discovery_AXILiteS_s_axi_U/int_er
 INFO: [Synth 8-3886] merging instance 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[30]' (FDRE) to 'contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[31] )
 WARNING: [Synth 8-3332] Sequential element (contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[31]) is unused and will be removed from module contact_discovery.
-WARNING: [Synth 8-3332] Sequential element (grp_match_db_contact_fu_251/tmp_3_reg_488_reg[5]) is unused and will be removed from module contact_discovery.
+WARNING: [Synth 8-3332] Sequential element (grp_match_db_contact_fu_239/tmp_3_reg_488_reg[5]) is unused and will be removed from module contact_discovery.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 468 ; free virtual = 5071
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2011.012 ; gain = 847.309 ; free physical = 586 ; free virtual = 5068
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -665,9 +636,9 @@ Distributed RAM: Preliminary Mapping  Report (see note below)
 +------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
 |Module Name       | RTL Object                                                                     | Inference      | Size (Depth x Width) | Primitives      | 
 +------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
-|contact_discovery | grp_match_db_contact_fu_251/results_local_U/match_db_contact_bkb_ram_U/ram_reg | User Attribute | 64 x 1               | RAM64X1S x 1    | 
-|contact_discovery | grp_match_db_contact_fu_251/local_results_U/match_db_contact_cud_ram_U/ram_reg | User Attribute | 128 x 1              | RAM128X1S x 1   | 
-|contact_discovery | grp_match_db_contact_fu_251/db_item_temp_U/match_db_contact_dEe_ram_U/ram_reg  | User Attribute | 64 x 8               | RAM64X1S x 8    | 
+|contact_discovery | grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/ram_reg | User Attribute | 64 x 1               | RAM64X1S x 1    | 
+|contact_discovery | grp_match_db_contact_fu_239/local_results_U/match_db_contact_cud_ram_U/ram_reg | User Attribute | 128 x 1              | RAM128X1S x 1   | 
+|contact_discovery | grp_match_db_contact_fu_239/db_item_temp_U/match_db_contact_dEe_ram_U/ram_reg  | User Attribute | 64 x 8               | RAM64X1S x 8    | 
 +------------------+--------------------------------------------------------------------------------+----------------+----------------------+-----------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
@@ -684,7 +655,7 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 2655.965 ; gain = 1492.262 ; free physical = 99 ; free virtual = 4305
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 2656.965 ; gain = 1493.262 ; free physical = 109 ; free virtual = 4306
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -692,7 +663,7 @@ Start Timing Optimization
 INFO: [Synth 8-5556] The block RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg may be mapped as a cascade chain, because it is not timing critical.
 INFO: [Synth 8-5555] Implemented Block Ram Cascade chain of height 2 and width 8 for RAM contacts_U/contact_discoveryeOg_ram_U/ram_reg
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 2694.660 ; gain = 1530.957 ; free physical = 107 ; free virtual = 4274
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 2700.754 ; gain = 1537.051 ; free physical = 137 ; free virtual = 4275
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -707,7 +678,7 @@ INFO: [Synth 8-4480] The timing for the instance contacts_U/contact_discoveryeOg
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_AXILiteS_s_axi_U/int_contact_in/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4271
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 134 ; free virtual = 4271
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -731,7 +702,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -744,7 +715,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -756,25 +727,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 118 ; free virtual = 4267
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -808,11 +779,11 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |CARRY8     |    17|
 |2     |LUT1       |    93|
-|3     |LUT2       |   103|
+|3     |LUT2       |   106|
 |4     |LUT3       |   217|
-|5     |LUT4       |    53|
-|6     |LUT5       |   101|
-|7     |LUT6       |   157|
+|5     |LUT4       |    59|
+|6     |LUT5       |    68|
+|7     |LUT6       |   167|
 |8     |MUXF7      |   104|
 |9     |MUXF8      |    48|
 |10    |RAM128X1S  |     1|
@@ -821,7 +792,7 @@ Report Cell Usage:
 |13    |RAMB36E2_3 |     1|
 |14    |RAMB36E2_4 |     1|
 |15    |SRLC32E    |   192|
-|16    |FDRE       |   632|
+|16    |FDRE       |   639|
 |17    |FDSE       |    33|
 +------+-----------+------+
 
@@ -829,18 +800,18 @@ Report Instance Areas:
 +------+-------------------------------------+-------------------------------------+------+
 |      |Instance                             |Module                               |Cells |
 +------+-------------------------------------+-------------------------------------+------+
-|1     |top                                  |                                     |  1763|
-|2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi     |   452|
+|1     |top                                  |                                     |  1756|
+|2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi     |   429|
 |3     |    int_contact_in                   |contact_discovery_AXILiteS_s_axi_ram |    42|
 |4     |  contacts_U                         |contact_discoveryeOg                 |     4|
 |5     |    contact_discoveryeOg_ram_U       |contact_discoveryeOg_ram             |     4|
 |6     |  db_stream_V_fifo_U                 |fifo_w8_d128_A_x                     |   178|
 |7     |    U_fifo_w8_d128_A_x_ram           |fifo_w8_d128_A_x_shiftReg            |   142|
-|8     |  grp_match_db_contact_fu_251        |match_db_contact                     |   559|
-|9     |    contact_V_fifo_U                 |fifo_w8_d128_A                       |   159|
-|10    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg_1            |   127|
-|11    |    db_item_V_fifo_U                 |fifo_w8_d128_A_0                     |   158|
-|12    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg              |   121|
+|8     |  grp_match_db_contact_fu_239        |match_db_contact                     |   564|
+|9     |    contact_V_fifo_U                 |fifo_w8_d128_A                       |   151|
+|10    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg_1            |   121|
+|11    |    db_item_V_fifo_U                 |fifo_w8_d128_A_0                     |   166|
+|12    |      U_fifo_w8_d128_A_ram           |fifo_w8_d128_A_shiftReg              |   128|
 |13    |    db_item_temp_U                   |match_db_contact_dEe                 |    27|
 |14    |      match_db_contact_dEe_ram_U     |match_db_contact_dEe_ram             |    27|
 |15    |    local_results_U                  |match_db_contact_cud                 |    13|
@@ -849,11 +820,11 @@ Report Instance Areas:
 |18    |      match_db_contact_bkb_ram_U     |match_db_contact_bkb_ram             |    10|
 +------+-------------------------------------+-------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.770 ; gain = 1551.066 ; free physical = 122 ; free virtual = 4270
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.855 ; gain = 1548.152 ; free physical = 135 ; free virtual = 4272
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 303 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 2714.770 ; gain = 830.246 ; free physical = 163 ; free virtual = 4312
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2714.777 ; gain = 1551.066 ; free physical = 166 ; free virtual = 4315
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2711.855 ; gain = 828.332 ; free physical = 176 ; free virtual = 4313
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 2711.863 ; gain = 1548.152 ; free physical = 179 ; free virtual = 4316
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -865,14 +836,14 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 1 instances
   RAM64X1S => RAM64X1S (RAMS64E): 9 instances
 
-133 Infos, 170 Warnings, 0 Critical Warnings and 0 Errors encountered.
+133 Infos, 139 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 2727.770 ; gain = 1622.508 ; free physical = 171 ; free virtual = 4307
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 2723.855 ; gain = 1618.594 ; free physical = 180 ; free virtual = 4305
 INFO: [Common 17-1381] The checkpoint '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/contact_discovery.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2751.781 ; gain = 0.000 ; free physical = 161 ; free virtual = 4308
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 15:21:00 2018...
-[Thu Apr 19 15:21:05 2018] synth_1 finished
-wait_on_run: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:45 . Memory (MB): peak = 1171.285 ; gain = 8.000 ; free physical = 1795 ; free virtual = 5950
+report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.20 . Memory (MB): peak = 2747.867 ; gain = 0.000 ; free physical = 171 ; free virtual = 4306
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 15:28:45 2018...
+[Thu Apr 19 15:28:47 2018] synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:47 . Memory (MB): peak = 1171.289 ; gain = 8.000 ; free physical = 1807 ; free virtual = 5948
 Design is defaulting to impl run constrset: constrs_1
 Design is defaulting to synth run part: xczu9eg-ffvb1156-1-i
 INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
@@ -889,25 +860,25 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 1 instances
   RAM64X1S => RAM64X1S (RAMS64E): 9 instances
 
-open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1840.742 ; gain = 669.457 ; free physical = 1016 ; free virtual = 5275
-report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1840.742 ; gain = 0.000 ; free physical = 1015 ; free virtual = 5274
+open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1840.746 ; gain = 669.457 ; free physical = 1028 ; free virtual = 5273
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1840.746 ; gain = 0.000 ; free physical = 1024 ; free virtual = 5269
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
-report_timing: Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 3552.520 ; gain = 1711.777 ; free physical = 332 ; free virtual = 3995
+report_timing: Time (s): cpu = 00:00:47 ; elapsed = 00:00:52 . Memory (MB): peak = 3555.523 ; gain = 1714.777 ; free physical = 336 ; free virtual = 3990
 
 
 Implementation tool: Xilinx Vivado v.2017.1
 Project:             contact_discovery_axi_experimental
 Solution:            solution1
 Device target:       xczu9eg-ffvb1156-1-i
-Report date:         Thu Apr 19 15:22:04 MDT 2018
+Report date:         Thu Apr 19 15:29:46 MDT 2018
 
 #=== Post-Synthesis Resource usage ===
 SLICE:            0
-LUT:            787
-FF:             665
+LUT:            773
+FF:             672
 DSP:              0
 BRAM:             6
 SRL:            192
@@ -915,4 +886,4 @@ SRL:            192
 CP required:    10.000
 CP achieved post-synthesis:    2.289
 Timing met
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 15:22:04 2018...
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 19 15:29:47 2018...

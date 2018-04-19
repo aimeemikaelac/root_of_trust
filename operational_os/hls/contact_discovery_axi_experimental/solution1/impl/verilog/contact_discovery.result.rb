@@ -4,8 +4,8 @@ $Description = "by Vivado"
 
 #=== Resource usage ===
 $SLICE = "0"
-$LUT = "787"
-$FF = "665"
+$LUT = "773"
+$FF = "672"
 $DSP = "0"
 $BRAM ="6"
 $SRL ="192"

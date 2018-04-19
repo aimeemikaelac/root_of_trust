@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu Apr 19 15:21:00 2018
+| Date         : Thu Apr 19 15:28:45 2018
 | Host         : aimee-VirtualBox running 64-bit Ubuntu 16.04.4 LTS
 | Command      : report_utilization -file contact_discovery_utilization_synth.rpt -pb contact_discovery_utilization_synth.pb
 | Design       : contact_discovery
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| CLB LUTs*                  |  787 |     0 |    274080 |  0.29 |
-|   LUT as Logic             |  584 |     0 |    274080 |  0.21 |
+| CLB LUTs*                  |  773 |     0 |    274080 |  0.28 |
+|   LUT as Logic             |  570 |     0 |    274080 |  0.21 |
 |   LUT as Memory            |  203 |     0 |    144000 |  0.14 |
 |     LUT as Distributed RAM |   11 |     0 |           |       |
 |     LUT as Shift Register  |  192 |     0 |           |       |
-| CLB Registers              |  665 |     0 |    548160 |  0.12 |
-|   Register as Flip Flop    |  665 |     0 |    548160 |  0.12 |
+| CLB Registers              |  672 |     0 |    548160 |  0.12 |
+|   Register as Flip Flop    |  672 |     0 |    548160 |  0.12 |
 |   Register as Latch        |    0 |     0 |    548160 |  0.00 |
 | CARRY8                     |   17 |     0 |     34260 |  0.05 |
 | F7 Muxes                   |  105 |     0 |    137040 |  0.08 |
@@ -62,7 +62,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 33    |          Yes |         Set |            - |
-| 632   |          Yes |       Reset |            - |
+| 639   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -155,15 +155,15 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  632 |            Register |
+| FDRE     |  639 |            Register |
 | LUT3     |  217 |                 CLB |
 | SRLC32E  |  192 |                 CLB |
-| LUT6     |  157 |                 CLB |
+| LUT6     |  167 |                 CLB |
+| LUT2     |  106 |                 CLB |
 | MUXF7    |  105 |                 CLB |
-| LUT2     |  103 |                 CLB |
-| LUT5     |  101 |                 CLB |
 | LUT1     |   93 |                 CLB |
-| LUT4     |   53 |                 CLB |
+| LUT5     |   68 |                 CLB |
+| LUT4     |   59 |                 CLB |
 | MUXF8    |   48 |                 CLB |
 | FDSE     |   33 |            Register |
 | CARRY8   |   17 |                 CLB |

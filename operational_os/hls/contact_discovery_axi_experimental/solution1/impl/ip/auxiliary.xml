@@ -7,7 +7,7 @@
   <xd:arg xd:name="db_size_in" xd:originalName="db_size_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x80" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x88" xd:statusOffset="0x8C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x90" xd:statusOffset="0x94" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
-  <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="acc_fifo" xd:firstOut="4" xd:dataWidth="32"/>
+  <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="1150" xd:FF="723" xd:BRAM="6" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="1182" xd:FF="792" xd:BRAM="6" xd:DSP="0"/>
 </xd:acceleratorMap>

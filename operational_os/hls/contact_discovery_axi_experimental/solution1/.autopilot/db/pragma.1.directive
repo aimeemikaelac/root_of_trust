@@ -15,9 +15,11 @@
 </pragma>
 </directive>
 <directive functionLabel="" functionName="contact_discovery" label="">
-<pragma name="STREAM">
-<option name="variable" positionalBoolean="4" value="results_out"/>
-<option name="dim" value="1"/>
+<pragma name="INTERFACE">
+<option name="axis" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="both" positionalBoolean="register_mode" value=""/>
+<option name="port" positionalBoolean="4" value="results_out"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="contact_discovery" label="">

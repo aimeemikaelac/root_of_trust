@@ -187,7 +187,7 @@ define void @contact_discovery(i32 %operation, i8* %contact_in, %"class.hls::str
   call void @llvm.dbg.value(metadata !{i32* %contacts_size_out}, i64 0, metadata !267), !dbg !268 ; [debug line = 66:7] [debug variable = contacts_size_out]
   call void @llvm.dbg.value(metadata !{%"class.hls::stream.0.2"* %results_out}, i64 0, metadata !269), !dbg !270 ; [debug line = 67:29] [debug variable = results_out]
   call void (...)* @_ssdm_SpecArrayDimSize(i8* %contact_in, i32 64) nounwind, !dbg !271 ; [debug line = 68:3]
-  call void (...)* @_ssdm_SpecStream(%"class.hls::stream.0.2"* %results_out, i32 1, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !273 ; [debug line = 69:1]
+  call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream.0.2"* %results_out, i8* getelementptr inbounds ([5 x i8]* @.str2, i64 0, i64 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str3, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !273 ; [debug line = 69:1]
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream.1"* %db_in, i8* getelementptr inbounds ([5 x i8]* @.str2, i64 0, i64 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str3, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !274 ; [debug line = 70:1]
   call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, i8* getelementptr inbounds ([8 x i8]* @.str4, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !275 ; [debug line = 71:1]
   call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, i8* getelementptr inbounds ([10 x i8]* @.str5, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str1, i64 0, i64 0)) nounwind, !dbg !276 ; [debug line = 72:1]
@@ -420,7 +420,7 @@ declare i32 @_ssdm_op_SpecRegionEnd(...)
 ; [#uses=1]
 declare i32 @_ssdm_op_SpecRegionBegin(...)
 
-; [#uses=11]
+; [#uses=12]
 declare void @_ssdm_op_SpecInterface(...) nounwind
 
 ; [#uses=3]
@@ -432,7 +432,7 @@ declare void @_ssdm_op_IfWrite.Stream.i32P.i32P(i32*, i32*)
 ; [#uses=4]
 declare void @_ssdm_op_IfRead.Stream.i8P.i8P(i8*, i8*)
 
-; [#uses=4]
+; [#uses=3]
 declare void @_ssdm_SpecStream(...) nounwind
 
 ; [#uses=5]

@@ -2612,7 +2612,7 @@ void contact_discovery(
  int *contacts_size_out,
  hls::stream<unsigned int> &results_out
 ){_ssdm_SpecArrayDimSize(contact_in,64);
-_ssdm_SpecStream( &results_out, 1, 0, "");
+_ssdm_op_SpecInterface(&results_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&db_in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_size_in, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_size_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");

@@ -11,20 +11,23 @@
 #include "time.h"
 #include "fixedint.h"
 #include "hls_stream.h"
+#include "ap_int.h"
 
 #define __mbstate_t_defined	1
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 30000
+#define DATABASE_SIZE 300000
 
-extern void contact_discovery(
-		int operation,
-		unsigned char contact_in[64],
-		hls::stream<unsigned char> &db_in,
-		unsigned int db_size_in,
-		int *error_out,
-		int *contacts_size_out,
-		hls::stream<unsigned int> &results_out
+typedef ap_uint<512> hash;
+
+void contact_discovery(
+	int operation,
+	hash contact_in,
+	hls::stream<hash> &db_in,
+	unsigned int db_size_in,
+	int *error_out,
+	int *contacts_size_out,
+	hls::stream<unsigned char> &results_out
 );
 
 typedef struct number{
@@ -92,8 +95,8 @@ int main(){
 	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 
-	hls::stream<unsigned char> db_stream;
-	hls::stream<unsigned int> results_stream;
+	hls::stream<hash> db_stream;
+	hls::stream<unsigned char> results_stream;
 
 	// generate random database
 //	if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
@@ -131,15 +134,20 @@ int main(){
 	}
 
 	printf("Populating db stream\n");
-	for(i=0; i<DATABASE_SIZE*64; i++){
-		db_stream.write(db_hashes[i]);
+	for(i=0; i<DATABASE_SIZE; i++){
+		ap_uint<512> current(db_hashes[i*64]);
+		for(j=1; j<64; j++){
+			current = current.concat(ap_uint<8>(db_hashes[i*64 + j]));
+		}
+		db_stream.write(current);
+//		db_stream.write(db_hashes[i]);
 	}
 
 	printf("Checking initial conditions\n");
 	//check initial conditions of clearing contacts
 	contact_discovery(
 		2,
-		(unsigned char*)NULL,
+		hash(0),
 		db_stream,
 		0,
 		(int*)&error_out,
@@ -156,9 +164,20 @@ int main(){
 	int contacts_size = 0;
 	for(it = contacts.begin(); it != contacts.end(); ++it){
 		std::string current = *it;
+		unsigned char* current_data = (unsigned char*)current.data();
+		ap_uint<512> current_hash(current_data[0]);
+		for(i=1; i<64; i++){
+			current_hash = current_hash.concat(ap_uint<8>(current_data[i]));
+		}
+//		printf("Contact original:\n0x");
+//		for(i=0; i<64; i++){
+//			printf("%02x", current_data[i]);
+//		}
+//		printf("\n");
+//		printf("Current ap int:\n0x%s\n", current_hash.to_string(16).c_str());
 		contact_discovery(
 			0,
-			(unsigned char*)current.data(),
+			current_hash,
 			db_stream,
 			0,
 			(int*)&error_out,
@@ -174,7 +193,7 @@ int main(){
 	printf("Running Match\n");
 	contact_discovery(
 		1,
-		NULL,
+		ap_uint<512>(0),
 		db_stream,
 		DATABASE_SIZE,
 		(int*)&error_out,
@@ -192,7 +211,8 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
-		matched_out[j] = (bool)(results_stream.read());
+		matched_out[j] = (bool)results_stream.read();
+//		printf("Matched out: %i, matched correct: %i\n", matched_out[j], matched_correct[j]);
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;

@@ -41,7 +41,7 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xczu9eg:-ffvb1156:-1-i"
-set SourceFiles {sc {} c {../src/sha512.c ../src/contact_discovery.cpp}}
+set SourceFiles {sc {} c {../src/contact_discovery.cpp ../src/sha512.c}}
 set SourceFlags {sc {} c {{} {}}}
 set DirectiveFile {/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/solution1.directive}
 set TBFiles {verilog ../src/contact_discovery_tb.cpp bc ../src/contact_discovery_tb.cpp vhdl ../src/contact_discovery_tb.cpp sc ../src/contact_discovery_tb.cpp cas ../src/contact_discovery_tb.cpp c {}}

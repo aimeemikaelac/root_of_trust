@@ -10,21 +10,21 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>contact_in</name>
+<name>contact_in_V</name>
 <CType>
-<TypeName>unsigned char</TypeName>
-<TypeWidth>8</TypeWidth>
-<PhysicalWidth>8</PhysicalWidth>
+<TypeName>ap_uint 512</TypeName>
+<TypeWidth>512</TypeWidth>
+<PhysicalWidth>512</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>db_in_V</name>
+<name>db_in_V_V</name>
 <CType>
-<TypeName>unsigned char</TypeName>
-<TypeWidth>8</TypeWidth>
-<PhysicalWidth>8</PhysicalWidth>
+<TypeName>ap_uint 512</TypeName>
+<TypeWidth>512</TypeWidth>
+<PhysicalWidth>512</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
@@ -62,9 +62,9 @@
 <RtlPorts>
 <name>results_out_V</name>
 <CType>
-<TypeName>unsigned int</TypeName>
-<TypeWidth>32</TypeWidth>
-<PhysicalWidth>32</PhysicalWidth>
+<TypeName>unsigned char</TypeName>
+<TypeWidth>8</TypeWidth>
+<PhysicalWidth>8</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>

@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module contact_discovery_AXILiteS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 8,
+    C_S_AXI_ADDR_WIDTH = 7,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -40,9 +40,7 @@ module contact_discovery_AXILiteS_s_axi
     input  wire                          ap_idle,
     output wire [31:0]                   operation,
     output wire                          operation_ap_vld,
-    input  wire [5:0]                    contact_in_address0,
-    input  wire                          contact_in_ce0,
-    output wire [7:0]                    contact_in_q0,
+    output wire [511:0]                  contact_in_V,
     output wire [31:0]                   db_size_in,
     input  wire [31:0]                   error_out,
     input  wire [31:0]                   contacts_size_out
@@ -71,39 +69,81 @@ module contact_discovery_AXILiteS_s_axi
 // 0x14 : Control signal of operation
 //        bit 0  - operation_ap_vld (Read/Write/SC)
 //        others - reserved
-// 0x80 : Data signal of db_size_in
+// 0x18 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[31:0] (Read/Write)
+// 0x1c : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[63:32] (Read/Write)
+// 0x20 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[95:64] (Read/Write)
+// 0x24 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[127:96] (Read/Write)
+// 0x28 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[159:128] (Read/Write)
+// 0x2c : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[191:160] (Read/Write)
+// 0x30 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[223:192] (Read/Write)
+// 0x34 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[255:224] (Read/Write)
+// 0x38 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[287:256] (Read/Write)
+// 0x3c : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[319:288] (Read/Write)
+// 0x40 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[351:320] (Read/Write)
+// 0x44 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[383:352] (Read/Write)
+// 0x48 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[415:384] (Read/Write)
+// 0x4c : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[447:416] (Read/Write)
+// 0x50 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[479:448] (Read/Write)
+// 0x54 : Data signal of contact_in_V
+//        bit 31~0 - contact_in_V[511:480] (Read/Write)
+// 0x58 : reserved
+// 0x5c : Data signal of db_size_in
 //        bit 31~0 - db_size_in[31:0] (Read/Write)
-// 0x84 : reserved
-// 0x88 : Data signal of error_out
+// 0x60 : reserved
+// 0x64 : Data signal of error_out
 //        bit 31~0 - error_out[31:0] (Read)
-// 0x8c : reserved
-// 0x90 : Data signal of contacts_size_out
+// 0x68 : reserved
+// 0x6c : Data signal of contacts_size_out
 //        bit 31~0 - contacts_size_out[31:0] (Read)
-// 0x94 : reserved
-// 0x40 ~
-// 0x7f : Memory 'contact_in' (64 * 8b)
-//        Word n : bit [ 7: 0] - contact_in[4n]
-//                 bit [15: 8] - contact_in[4n+1]
-//                 bit [23:16] - contact_in[4n+2]
-//                 bit [31:24] - contact_in[4n+3]
+// 0x70 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL                  = 8'h00,
-    ADDR_GIE                      = 8'h04,
-    ADDR_IER                      = 8'h08,
-    ADDR_ISR                      = 8'h0c,
-    ADDR_OPERATION_DATA_0         = 8'h10,
-    ADDR_OPERATION_CTRL           = 8'h14,
-    ADDR_DB_SIZE_IN_DATA_0        = 8'h80,
-    ADDR_DB_SIZE_IN_CTRL          = 8'h84,
-    ADDR_ERROR_OUT_DATA_0         = 8'h88,
-    ADDR_ERROR_OUT_CTRL           = 8'h8c,
-    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 8'h90,
-    ADDR_CONTACTS_SIZE_OUT_CTRL   = 8'h94,
-    ADDR_CONTACT_IN_BASE          = 8'h40,
-    ADDR_CONTACT_IN_HIGH          = 8'h7f,
+    ADDR_AP_CTRL                  = 7'h00,
+    ADDR_GIE                      = 7'h04,
+    ADDR_IER                      = 7'h08,
+    ADDR_ISR                      = 7'h0c,
+    ADDR_OPERATION_DATA_0         = 7'h10,
+    ADDR_OPERATION_CTRL           = 7'h14,
+    ADDR_CONTACT_IN_V_DATA_0      = 7'h18,
+    ADDR_CONTACT_IN_V_DATA_1      = 7'h1c,
+    ADDR_CONTACT_IN_V_DATA_2      = 7'h20,
+    ADDR_CONTACT_IN_V_DATA_3      = 7'h24,
+    ADDR_CONTACT_IN_V_DATA_4      = 7'h28,
+    ADDR_CONTACT_IN_V_DATA_5      = 7'h2c,
+    ADDR_CONTACT_IN_V_DATA_6      = 7'h30,
+    ADDR_CONTACT_IN_V_DATA_7      = 7'h34,
+    ADDR_CONTACT_IN_V_DATA_8      = 7'h38,
+    ADDR_CONTACT_IN_V_DATA_9      = 7'h3c,
+    ADDR_CONTACT_IN_V_DATA_10     = 7'h40,
+    ADDR_CONTACT_IN_V_DATA_11     = 7'h44,
+    ADDR_CONTACT_IN_V_DATA_12     = 7'h48,
+    ADDR_CONTACT_IN_V_DATA_13     = 7'h4c,
+    ADDR_CONTACT_IN_V_DATA_14     = 7'h50,
+    ADDR_CONTACT_IN_V_DATA_15     = 7'h54,
+    ADDR_CONTACT_IN_V_CTRL        = 7'h58,
+    ADDR_DB_SIZE_IN_DATA_0        = 7'h5c,
+    ADDR_DB_SIZE_IN_CTRL          = 7'h60,
+    ADDR_ERROR_OUT_DATA_0         = 7'h64,
+    ADDR_ERROR_OUT_CTRL           = 7'h68,
+    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 7'h6c,
+    ADDR_CONTACTS_SIZE_OUT_CTRL   = 7'h70,
     WRIDLE                        = 2'd0,
     WRDATA                        = 2'd1,
     WRRESP                        = 2'd2,
@@ -111,7 +151,7 @@ localparam
     RDIDLE                        = 2'd0,
     RDDATA                        = 2'd1,
     RDRESET                       = 2'd2,
-    ADDR_BITS         = 8;
+    ADDR_BITS         = 7;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -136,47 +176,12 @@ localparam
     reg  [1:0]                    int_isr = 2'b0;
     reg  [31:0]                   int_operation = 'b0;
     reg                           int_operation_ap_vld = 1'b0;
+    reg  [511:0]                  int_contact_in_V = 'b0;
     reg  [31:0]                   int_db_size_in = 'b0;
     reg  [31:0]                   int_error_out = 'b0;
     reg  [31:0]                   int_contacts_size_out = 'b0;
-    // memory signals
-    wire [3:0]                    int_contact_in_address0;
-    wire                          int_contact_in_ce0;
-    wire                          int_contact_in_we0;
-    wire [3:0]                    int_contact_in_be0;
-    wire [31:0]                   int_contact_in_d0;
-    wire [31:0]                   int_contact_in_q0;
-    wire [3:0]                    int_contact_in_address1;
-    wire                          int_contact_in_ce1;
-    wire                          int_contact_in_we1;
-    wire [3:0]                    int_contact_in_be1;
-    wire [31:0]                   int_contact_in_d1;
-    wire [31:0]                   int_contact_in_q1;
-    reg                           int_contact_in_read;
-    reg                           int_contact_in_write;
-    reg  [1:0]                    int_contact_in_shift;
 
 //------------------------Instantiation------------------
-// int_contact_in
-contact_discovery_AXILiteS_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 16 )
-) int_contact_in (
-    .clk0     ( ACLK ),
-    .address0 ( int_contact_in_address0 ),
-    .ce0      ( int_contact_in_ce0 ),
-    .we0      ( int_contact_in_we0 ),
-    .be0      ( int_contact_in_be0 ),
-    .d0       ( int_contact_in_d0 ),
-    .q0       ( int_contact_in_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_contact_in_address1 ),
-    .ce1      ( int_contact_in_ce1 ),
-    .we1      ( int_contact_in_we1 ),
-    .be1      ( int_contact_in_be1 ),
-    .d1       ( int_contact_in_d1 ),
-    .q1       ( int_contact_in_q1 )
-);
 
 //------------------------AXI write fsm------------------
 assign AWREADY = (wstate == WRIDLE);
@@ -230,7 +235,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_contact_in_read;
+assign RVALID  = (rstate == RDDATA);
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -288,6 +293,54 @@ always @(posedge ACLK) begin
                 ADDR_OPERATION_CTRL: begin
                     rdata[0] <= int_operation_ap_vld;
                 end
+                ADDR_CONTACT_IN_V_DATA_0: begin
+                    rdata <= int_contact_in_V[31:0];
+                end
+                ADDR_CONTACT_IN_V_DATA_1: begin
+                    rdata <= int_contact_in_V[63:32];
+                end
+                ADDR_CONTACT_IN_V_DATA_2: begin
+                    rdata <= int_contact_in_V[95:64];
+                end
+                ADDR_CONTACT_IN_V_DATA_3: begin
+                    rdata <= int_contact_in_V[127:96];
+                end
+                ADDR_CONTACT_IN_V_DATA_4: begin
+                    rdata <= int_contact_in_V[159:128];
+                end
+                ADDR_CONTACT_IN_V_DATA_5: begin
+                    rdata <= int_contact_in_V[191:160];
+                end
+                ADDR_CONTACT_IN_V_DATA_6: begin
+                    rdata <= int_contact_in_V[223:192];
+                end
+                ADDR_CONTACT_IN_V_DATA_7: begin
+                    rdata <= int_contact_in_V[255:224];
+                end
+                ADDR_CONTACT_IN_V_DATA_8: begin
+                    rdata <= int_contact_in_V[287:256];
+                end
+                ADDR_CONTACT_IN_V_DATA_9: begin
+                    rdata <= int_contact_in_V[319:288];
+                end
+                ADDR_CONTACT_IN_V_DATA_10: begin
+                    rdata <= int_contact_in_V[351:320];
+                end
+                ADDR_CONTACT_IN_V_DATA_11: begin
+                    rdata <= int_contact_in_V[383:352];
+                end
+                ADDR_CONTACT_IN_V_DATA_12: begin
+                    rdata <= int_contact_in_V[415:384];
+                end
+                ADDR_CONTACT_IN_V_DATA_13: begin
+                    rdata <= int_contact_in_V[447:416];
+                end
+                ADDR_CONTACT_IN_V_DATA_14: begin
+                    rdata <= int_contact_in_V[479:448];
+                end
+                ADDR_CONTACT_IN_V_DATA_15: begin
+                    rdata <= int_contact_in_V[511:480];
+                end
                 ADDR_DB_SIZE_IN_DATA_0: begin
                     rdata <= int_db_size_in[31:0];
                 end
@@ -298,9 +351,6 @@ always @(posedge ACLK) begin
                     rdata <= int_contacts_size_out[31:0];
                 end
             endcase
-        end
-        else if (int_contact_in_read) begin
-            rdata <= int_contact_in_q1;
         end
     end
 end
@@ -313,6 +363,7 @@ assign int_ap_idle      = ap_idle;
 assign int_ap_ready     = ap_ready;
 assign operation        = int_operation;
 assign operation_ap_vld = int_operation_ap_vld;
+assign contact_in_V     = int_contact_in_V;
 assign db_size_in       = int_db_size_in;
 // int_ap_start
 always @(posedge ACLK) begin
@@ -414,6 +465,166 @@ always @(posedge ACLK) begin
     end
 end
 
+// int_contact_in_V[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_0)
+            int_contact_in_V[31:0] <= (WDATA[31:0] & wmask) | (int_contact_in_V[31:0] & ~wmask);
+    end
+end
+
+// int_contact_in_V[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_1)
+            int_contact_in_V[63:32] <= (WDATA[31:0] & wmask) | (int_contact_in_V[63:32] & ~wmask);
+    end
+end
+
+// int_contact_in_V[95:64]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[95:64] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_2)
+            int_contact_in_V[95:64] <= (WDATA[31:0] & wmask) | (int_contact_in_V[95:64] & ~wmask);
+    end
+end
+
+// int_contact_in_V[127:96]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[127:96] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_3)
+            int_contact_in_V[127:96] <= (WDATA[31:0] & wmask) | (int_contact_in_V[127:96] & ~wmask);
+    end
+end
+
+// int_contact_in_V[159:128]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[159:128] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_4)
+            int_contact_in_V[159:128] <= (WDATA[31:0] & wmask) | (int_contact_in_V[159:128] & ~wmask);
+    end
+end
+
+// int_contact_in_V[191:160]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[191:160] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_5)
+            int_contact_in_V[191:160] <= (WDATA[31:0] & wmask) | (int_contact_in_V[191:160] & ~wmask);
+    end
+end
+
+// int_contact_in_V[223:192]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[223:192] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_6)
+            int_contact_in_V[223:192] <= (WDATA[31:0] & wmask) | (int_contact_in_V[223:192] & ~wmask);
+    end
+end
+
+// int_contact_in_V[255:224]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[255:224] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_7)
+            int_contact_in_V[255:224] <= (WDATA[31:0] & wmask) | (int_contact_in_V[255:224] & ~wmask);
+    end
+end
+
+// int_contact_in_V[287:256]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[287:256] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_8)
+            int_contact_in_V[287:256] <= (WDATA[31:0] & wmask) | (int_contact_in_V[287:256] & ~wmask);
+    end
+end
+
+// int_contact_in_V[319:288]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[319:288] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_9)
+            int_contact_in_V[319:288] <= (WDATA[31:0] & wmask) | (int_contact_in_V[319:288] & ~wmask);
+    end
+end
+
+// int_contact_in_V[351:320]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[351:320] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_10)
+            int_contact_in_V[351:320] <= (WDATA[31:0] & wmask) | (int_contact_in_V[351:320] & ~wmask);
+    end
+end
+
+// int_contact_in_V[383:352]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[383:352] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_11)
+            int_contact_in_V[383:352] <= (WDATA[31:0] & wmask) | (int_contact_in_V[383:352] & ~wmask);
+    end
+end
+
+// int_contact_in_V[415:384]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[415:384] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_12)
+            int_contact_in_V[415:384] <= (WDATA[31:0] & wmask) | (int_contact_in_V[415:384] & ~wmask);
+    end
+end
+
+// int_contact_in_V[447:416]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[447:416] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_13)
+            int_contact_in_V[447:416] <= (WDATA[31:0] & wmask) | (int_contact_in_V[447:416] & ~wmask);
+    end
+end
+
+// int_contact_in_V[479:448]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[479:448] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_14)
+            int_contact_in_V[479:448] <= (WDATA[31:0] & wmask) | (int_contact_in_V[479:448] & ~wmask);
+    end
+end
+
+// int_contact_in_V[511:480]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_contact_in_V[511:480] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_15)
+            int_contact_in_V[511:480] <= (WDATA[31:0] & wmask) | (int_contact_in_V[511:480] & ~wmask);
+    end
+end
+
 // int_db_size_in[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -444,121 +655,5 @@ end
 
 
 //------------------------Memory logic-------------------
-// contact_in
-assign int_contact_in_address0 = contact_in_address0 >> 2;
-assign int_contact_in_ce0      = contact_in_ce0;
-assign int_contact_in_we0      = 1'b0;
-assign int_contact_in_be0      = 1'b0;
-assign int_contact_in_d0       = 1'b0;
-assign contact_in_q0           = int_contact_in_q0 >> (int_contact_in_shift * 8);
-assign int_contact_in_address1 = ar_hs? raddr[5:2] : waddr[5:2];
-assign int_contact_in_ce1      = ar_hs | (int_contact_in_write & WVALID);
-assign int_contact_in_we1      = int_contact_in_write & WVALID;
-assign int_contact_in_be1      = WSTRB;
-assign int_contact_in_d1       = WDATA;
-// int_contact_in_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_contact_in_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_CONTACT_IN_BASE && raddr <= ADDR_CONTACT_IN_HIGH)
-            int_contact_in_read <= 1'b1;
-        else
-            int_contact_in_read <= 1'b0;
-    end
-end
-
-// int_contact_in_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_contact_in_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_CONTACT_IN_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_CONTACT_IN_HIGH)
-            int_contact_in_write <= 1'b1;
-        else if (WVALID)
-            int_contact_in_write <= 1'b0;
-    end
-end
-
-// int_contact_in_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (contact_in_ce0)
-            int_contact_in_shift <= contact_in_address0[1:0];
-    end
-end
-
 
 endmodule
-
-
-`timescale 1ns/1ps
-
-module contact_discovery_AXILiteS_s_axi_ram
-#(parameter
-    BYTES  = 4,
-    DEPTH  = 256,
-    AWIDTH = log2(DEPTH)
-) (
-    input  wire               clk0,
-    input  wire [AWIDTH-1:0]  address0,
-    input  wire               ce0,
-    input  wire               we0,
-    input  wire [BYTES-1:0]   be0,
-    input  wire [BYTES*8-1:0] d0,
-    output reg  [BYTES*8-1:0] q0,
-    input  wire               clk1,
-    input  wire [AWIDTH-1:0]  address1,
-    input  wire               ce1,
-    input  wire               we1,
-    input  wire [BYTES-1:0]   be1,
-    input  wire [BYTES*8-1:0] d1,
-    output reg  [BYTES*8-1:0] q1
-);
-//------------------------Local signal-------------------
-reg  [BYTES*8-1:0] mem[0:DEPTH-1];
-//------------------------Task and function--------------
-function integer log2;
-    input integer x;
-    integer n, m;
-begin
-    n = 1;
-    m = 2;
-    while (m < x) begin
-        n = n + 1;
-        m = m * 2;
-    end
-    log2 = n;
-end
-endfunction
-//------------------------Body---------------------------
-// read port 0
-always @(posedge clk0) begin
-    if (ce0) q0 <= mem[address0];
-end
-
-// read port 1
-always @(posedge clk1) begin
-    if (ce1) q1 <= mem[address1];
-end
-
-genvar i;
-generate
-    for (i = 0; i < BYTES; i = i + 1) begin : gen_write
-        // write port 0
-        always @(posedge clk0) begin
-            if (ce0 & we0 & be0[i]) begin
-                mem[address0][8*i+7:8*i] <= d0[8*i+7:8*i];
-            end
-        end
-        // write port 1
-        always @(posedge clk1) begin
-            if (ce1 & we1 & be1[i]) begin
-                mem[address1][8*i+7:8*i] <= d1[8*i+7:8*i];
-            end
-        end
-    end
-endgenerate
-
-endmodule
-

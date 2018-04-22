@@ -1805,8 +1805,8 @@ format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type im
       </xilinx:taxonomies>
       <xilinx:displayName>Contact_discovery</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1804221541</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-04-22T21:42:03Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1804221558</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-04-22T21:59:06Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.1</xilinx:xilinxVersion>

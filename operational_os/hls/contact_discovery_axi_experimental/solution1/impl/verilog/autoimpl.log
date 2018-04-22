@@ -12,9 +12,9 @@
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 source run_vivadosyn.tcl -notrace
-[Sun Apr 22 15:42:17 2018] Launched synth_1...
+[Sun Apr 22 15:59:16 2018] Launched synth_1...
 Run output will be captured here: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/runme.log
-[Sun Apr 22 15:42:17 2018] Waiting for synth_1 to finish...
+[Sun Apr 22 15:59:17 2018] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log contact_discovery.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source contact_discovery.tcl
@@ -31,9 +31,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6327 
+INFO: Helper process launched with PID 6795 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1241.684 ; gain = 77.996 ; free physical = 108 ; free virtual = 4667
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1241.688 ; gain = 77.996 ; free physical = 829 ; free virtual = 4565
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 	Parameter ap_ST_fsm_state1 bound to: 10'b0000000001 
@@ -133,7 +133,7 @@ WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/h
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery' (4#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 WARNING: [Synth 8-3331] design contact_discoverybkb has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1283.184 ; gain = 119.496 ; free physical = 175 ; free virtual = 4671
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1283.188 ; gain = 119.496 ; free physical = 832 ; free virtual = 4569
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -143,7 +143,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1283.184 ; gain = 119.496 ; free physical = 178 ; free virtual = 4675
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1283.188 ; gain = 119.496 ; free physical = 835 ; free virtual = 4572
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -157,22 +157,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2008.012 ; gain = 2.000 ; free physical = 108 ; free virtual = 4025
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2008.016 ; gain = 2.000 ; free physical = 107 ; free virtual = 3906
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 2008.012 ; gain = 844.324 ; free physical = 142 ; free virtual = 4098
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2008.016 ; gain = 844.324 ; free physical = 179 ; free virtual = 3978
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-1-i
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 2008.012 ; gain = 844.324 ; free physical = 142 ; free virtual = 4098
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2008.016 ; gain = 844.324 ; free physical = 179 ; free virtual = 3978
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 2008.012 ; gain = 844.324 ; free physical = 142 ; free virtual = 4099
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2008.016 ; gain = 844.324 ; free physical = 181 ; free virtual = 3980
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'contact_discovery_AXILiteS_s_axi'
 WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
@@ -194,7 +194,7 @@ WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/hom
 INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'contact_discovery_AXILiteS_s_axi'
 WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 2008.012 ; gain = 844.324 ; free physical = 125 ; free virtual = 4089
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2008.016 ; gain = 844.324 ; free physical = 171 ; free virtual = 3970
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -350,7 +350,7 @@ WARNING: [Synth 8-3332] Sequential element (int_error_out_reg[31]) is unused and
 WARNING: [Synth 8-3332] Sequential element (results_out_V_1_payload_A_reg[7]) is unused and will be removed from module contact_discovery.
 WARNING: [Synth 8-3332] Sequential element (results_out_V_1_payload_B_reg[7]) is unused and will be removed from module contact_discovery.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:31 . Memory (MB): peak = 2008.012 ; gain = 844.324 ; free physical = 128 ; free virtual = 4055
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 2008.016 ; gain = 844.324 ; free physical = 131 ; free virtual = 3935
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -377,14 +377,14 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:56 . Memory (MB): peak = 2656.965 ; gain = 1493.277 ; free physical = 103 ; free virtual = 3295
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2656.969 ; gain = 1493.277 ; free physical = 117 ; free virtual = 3194
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5556] The block RAM contacts_V_U/contact_discoverybkb_ram_U/ram_reg may be mapped as a cascade chain, because it is not timing critical.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:57 . Memory (MB): peak = 2675.980 ; gain = 1512.293 ; free physical = 104 ; free virtual = 3283
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2675.984 ; gain = 1512.293 ; free physical = 136 ; free virtual = 3185
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -425,7 +425,7 @@ INFO: [Synth 8-4480] The timing for the instance contacts_V_U/contact_discoveryb
 INFO: [Synth 8-4480] The timing for the instance contacts_V_U/contact_discoverybkb_ram_U/ram_reg_13 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance contacts_V_U/contact_discoverybkb_ram_U/ram_reg_14 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:59 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 122 ; free virtual = 3278
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 129 ; free virtual = 3179
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -449,7 +449,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:59 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 115 ; free virtual = 3277
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 127 ; free virtual = 3179
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -462,7 +462,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:59 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 127 ; free virtual = 3179
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -474,25 +474,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 127 ; free virtual = 3179
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 127 ; free virtual = 3179
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 120 ; free virtual = 3180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 120 ; free virtual = 3180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -532,11 +532,11 @@ Report Instance Areas:
 |4     |    contact_discoverybkb_ram_U       |contact_discoverybkb_ram         |   248|
 +------+-------------------------------------+---------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.301 ; gain = 1536.613 ; free physical = 114 ; free virtual = 3277
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 2700.305 ; gain = 1536.613 ; free physical = 120 ; free virtual = 3180
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:45 . Memory (MB): peak = 2700.301 ; gain = 811.785 ; free physical = 151 ; free virtual = 3317
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:01:00 . Memory (MB): peak = 2700.309 ; gain = 1536.613 ; free physical = 148 ; free virtual = 3317
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2700.305 ; gain = 811.785 ; free physical = 158 ; free virtual = 3218
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 2700.312 ; gain = 1536.613 ; free physical = 155 ; free virtual = 3219
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 34 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -562,12 +562,12 @@ No Unisim elements were transformed.
 
 118 Infos, 32 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:01:04 . Memory (MB): peak = 2708.301 ; gain = 1603.047 ; free physical = 132 ; free virtual = 3295
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 2708.305 ; gain = 1603.047 ; free physical = 154 ; free virtual = 3198
 INFO: [Common 17-1381] The checkpoint '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/contact_discovery.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.28 . Memory (MB): peak = 2732.312 ; gain = 0.000 ; free physical = 120 ; free virtual = 3294
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 15:43:30 2018...
-[Sun Apr 22 15:43:34 2018] synth_1 finished
-wait_on_run: Time (s): cpu = 00:00:00.16 ; elapsed = 00:01:16 . Memory (MB): peak = 1171.281 ; gain = 8.000 ; free physical = 1699 ; free virtual = 4928
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.24 . Memory (MB): peak = 2732.316 ; gain = 0.000 ; free physical = 134 ; free virtual = 3199
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 16:00:06 2018...
+[Sun Apr 22 16:00:08 2018] synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:52 . Memory (MB): peak = 1171.285 ; gain = 8.000 ; free physical = 1732 ; free virtual = 4836
 Design is defaulting to impl run constrset: constrs_1
 Design is defaulting to synth run part: xczu9eg-ffvb1156-1-i
 INFO: [Netlist 29-17] Analyzing 34 Unisim elements for replacement
@@ -582,20 +582,20 @@ INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1852.699 ; gain = 681.418 ; free physical = 824 ; free virtual = 4234
-report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1852.699 ; gain = 0.000 ; free physical = 816 ; free virtual = 4234
+open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1852.703 ; gain = 681.418 ; free physical = 918 ; free virtual = 4157
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1852.703 ; gain = 0.000 ; free physical = 918 ; free virtual = 4157
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
-report_timing: Time (s): cpu = 00:00:47 ; elapsed = 00:01:07 . Memory (MB): peak = 3557.477 ; gain = 1704.777 ; free physical = 325 ; free virtual = 2936
+report_timing: Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 3557.480 ; gain = 1704.777 ; free physical = 325 ; free virtual = 2861
 
 
 Implementation tool: Xilinx Vivado v.2017.1
 Project:             contact_discovery_axi_experimental
 Solution:            solution1
 Device target:       xczu9eg-ffvb1156-1-i
-Report date:         Sun Apr 22 15:44:49 MDT 2018
+Report date:         Sun Apr 22 16:01:07 MDT 2018
 
 #=== Post-Synthesis Resource usage ===
 SLICE:            0
@@ -608,4 +608,4 @@ SRL:              0
 CP required:    10.000
 CP achieved post-synthesis:    2.200
 Timing met
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 15:44:49 2018...
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 16:01:07 2018...

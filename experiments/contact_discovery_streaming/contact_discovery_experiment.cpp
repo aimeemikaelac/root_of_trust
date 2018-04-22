@@ -51,7 +51,7 @@ void contact_discovery(
 	}
 	//run match
 	if(operation == 1){
-        printf("starting mapper programming\n");
+        //printf("starting mapper programming\n");
 		// program input stream
         //reset MM2s
         writeValueToAddress(4, INPUT_MAPPER_BASE + 0x0);
@@ -72,7 +72,7 @@ void contact_discovery(
 		writeValueToAddress(RESULTS_BUFFER, RESULTS_MAPPER_BASE + 0x48);
 		//set length for transfer -> db_size*4
 		writeValueToAddress(db_size*4, RESULTS_MAPPER_BASE + 0x58);
-        printf("finished mapper programming\n");
+        //printf("finished mapper programming\n");
         writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x80);
 	}
 	//start current call
@@ -87,16 +87,16 @@ void contact_discovery(
 	*error_out = *((unsigned int*)(control + 0x88));
 	*contacts_size_out = *((unsigned int*)(control + 0x90));
 	//read match result
-	if(operation == 1){
+/*	if(operation == 1){
       // wait for output stream to finish
       unsigned int results_buffer_status;
-      printf("Reading results\n");
+      //printf("Reading results\n");
 		for(i=0; i<db_size; i++){
 			getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
 			matched_out[i] = (bool)(results_val);
 		}
-        printf("Finished reading results\n");
-	}
+        //printf("Finished reading results\n");
+	}*/
   cleanupSharedMemoryPointer(control_mem);
 }
 
@@ -148,12 +148,13 @@ void hash_numbers(){
 }
 
 int main(int argc, char **argv){
-	unsigned int seed;
+	unsigned int seed, results_val;
 	long long i;
 	int j, random_index, iterations, iterations_count, num_matched = 0, num_unmatched = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
-	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
+//	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
+    bool *matched_out, *matched_correct;
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 	clock_t sw_match_start, sw_match_end, hw_match_start, hw_match_end;
 	double sw_elapsed, hw_elapsed;
@@ -167,7 +168,9 @@ int main(int argc, char **argv){
 	//printf("Database size: %i\n", DATABASE_SIZE);
 	numbers = (number*)malloc(sizeof(number)*DATABASE_SIZE);
 	db_hashes = (unsigned char*)malloc(64*DATABASE_SIZE);
-	if(numbers == NULL || db_hashes == NULL){
+    matched_out = (bool*)malloc(sizeof(bool)*DATABASE_SIZE);
+    matched_correct = (bool*)malloc(sizeof(bool)*DATABASE_SIZE);
+	if(numbers == NULL || db_hashes == NULL || matched_out == NULL || matched_correct == NULL){
 		return -1;
 	}
 
@@ -254,6 +257,11 @@ int main(int argc, char **argv){
 		hw_match_end = clock();
 		hw_elapsed = ((double)(hw_match_end - hw_match_start)/CLOCKS_PER_SEC);
 		assert(error_out == 0);
+      
+		for(i=0; i<DATABASE_SIZE; i++){
+			getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
+			matched_out[i] = (bool)(results_val);
+		}
 	    // printf("Matched finished\n");
 
 		sw_match_start = clock();
@@ -280,5 +288,7 @@ int main(int argc, char **argv){
 	// printf("Contacts match %i, unmatched %i\n", num_matched, num_unmatched);
 	free(numbers);
 	free(db_hashes);
+    free(matched_out);
+    free(matched_correct);
 	return 0;
 }

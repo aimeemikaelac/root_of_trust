@@ -52,6 +52,8 @@ void contact_discovery(
 	if(operation == 1){
         printf("starting mapper programming\n");
 		// program input stream
+        //reset MM2s
+        writeValueToAddress(4, INPUT_MAPPER_BASE + 0x0);
 		//enable MM2s
 		writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0);
 		//set MM2S lower address bits
@@ -61,6 +63,8 @@ void contact_discovery(
 		//set length for transfer -> db_size*64
 		writeValueToAddress(db_size*64, INPUT_MAPPER_BASE + 0x28);
 		// program output stream
+        //reset S2MM
+        writeValueToAddress(4, RESULTS_MAPPER_BASE + 0x30);
 		//enable S2MM
 		writeValueToAddress(1, RESULTS_MAPPER_BASE + 0x30);
 		//set S2MM lower address bits

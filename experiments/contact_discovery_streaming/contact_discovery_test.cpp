@@ -1,7 +1,7 @@
-//#include "unistd.h"
+#include "unistd.h"
 #include "stdio.h"
 #include <stdlib.h>
-//#include <sys/syscall.h>
+#include <sys/syscall.h>
 #include "sha512.h"
 #include "string.h"
 #include <string>
@@ -30,14 +30,14 @@ void contact_discovery(
 	int operation,
 	unsigned char contact_in[64],
 	unsigned int db_size,
-	bool matched_out[DATABASE_CHUNK_SIZE],
+	bool *matched_out,
 	int *error_out,
 	int *contacts_size_out
 ){
 	int i;
 	volatile unsigned char *control;
 	unsigned int results_val;
-	shared_memory control_mem = getSharedMemoryArea(BASE, 0x1000);
+	shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
 	control = (volatile unsigned char*)(control_mem->ptr);
 
 	//set operation
@@ -52,7 +52,7 @@ void contact_discovery(
 	if(operation == 1){
 		// program input stream
 		//enable MM2s
-		writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0, 1);
+		writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0);
 		//set MM2S lower address bits
 		writeValueToAddress(FPGA_RAM_LOWER, INPUT_MAPPER_BASE + 0x18);
 		//set MM2s upper address bits
@@ -70,21 +70,19 @@ void contact_discovery(
 	}
 	//start current call
 	control[0x0] = 1;
-    //set operation valid
-    control[0x14] = 1;
+  //set operation valid
+  control[0x14] = 1;
 	//wait for done
 	while(control[0] & 0x2 != 1){
 		asm("");
 		__asm__("");
 	}
-	*matched_finished = *((unsigned int*)(control + 0x400));
-	*error_out = *((unsigned int*)(control + 0x408));
-	*database_size_out = *((unsigned int*)(control + 0x410));
-	*contacts_size_out = *((unsigned int*)(control + 0x418));
+	*error_out = *((unsigned int*)(control + 0x88));
+	*contacts_size_out = *((unsigned int*)(control + 0x90));
 	//read match result
 	if(operation == 1){
 		for(i=0; i<db_size*4; i+=4){
-			getValueAtAddress(RESULTS_BUFFER + i, results_val);
+			getValueAtAddress(RESULTS_BUFFER + i, &results_val);
 			matched_out[i/4] = (bool)(results_val);
 		}
 	}
@@ -146,10 +144,8 @@ int main(){
 	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 
-	hls::stream<unsigned char> db_stream;
-	hls::stream<unsigned int> results_stream;
 
-	generate random database
+	// generate random database
 	if(syscall(SYS_getrandom, (unsigned char*)(&seed), 4, 0) < 0){
 		fprintf(stderr, "Error getting random seed\n");
 		return -1;
@@ -181,7 +177,7 @@ int main(){
 	printf("Populating db stream\n");
 	for(i=0; i<DATABASE_SIZE*64; i++){
 		// db_stream.write(db_hashes[i]);
-		writeValueToAddress(db_hashes[i], )
+		writeValueToAddress(db_hashes[i], RAM_BUFFER);
 	}
 
 	printf("Checking initial conditions\n");
@@ -189,11 +185,10 @@ int main(){
 	contact_discovery(
 		2,
 		(unsigned char*)NULL,
-		db_stream,
 		0,
+		matched_out,
 		(int*)&error_out,
-		(int*)&contacts_size_out,
-		results_stream
+		(int*)&contacts_size_out
 	);
 	assert(error_out == 0);
 	assert(contacts_size_out == 0);
@@ -208,11 +203,10 @@ int main(){
 		contact_discovery(
 			0,
 			(unsigned char*)current.data(),
-			db_stream,
 			0,
+			matched_out,
 			(int*)&error_out,
-			(int*)&contacts_size_out,
-			results_stream
+			(int*)&contacts_size_out
 		);
 		contacts_size++;
 		assert(error_out == 0);
@@ -223,11 +217,10 @@ int main(){
 	contact_discovery(
 		1,
 		NULL,
-		db_stream,
 		DATABASE_SIZE,
+		matched_out,
 		(int*)&error_out,
-		(int*)&contacts_size_out,
-		results_stream
+		(int*)&contacts_size_out
 	);
 	assert(error_out == 0);
 
@@ -240,7 +233,6 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
-		matched_out[j] = (bool)(results_stream.read());
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;

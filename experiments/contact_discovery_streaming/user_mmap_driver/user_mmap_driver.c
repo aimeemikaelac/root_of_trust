@@ -94,7 +94,7 @@ shared_memory getSharedMemoryArea(unsigned long long sharedMemoryAddress, unsign
 //	page_base = (sharedMemoryAddress & (~(page_size-1)));
 	page_base = (sharedMemoryAddress / page_size) * page_size;
 	page_offset = sharedMemoryAddress - page_base;
-	ptr = mmap64(NULL, mmap_length, PROT_READ|PROT_WRITE, MAP_SHARED, fd, page_base);
+	ptr = mmap(NULL, mmap_length, PROT_READ|PROT_WRITE, MAP_SHARED, fd, page_base);
 	if(ptr == MAP_FAILED){
 		perror("Error mmapping /dev/mem");
 		close(fd);
@@ -143,7 +143,7 @@ shared_memory getUioMemoryArea(char* filename, unsigned int mmap_length){
 	unsigned int sharedMemoryAddress = 0x0;
 	page_addr = (sharedMemoryAddress & (~(page_size-1)));
 	page_offset = sharedMemoryAddress - page_addr;
-	ptr = mmap64(NULL, mmap_length, PROT_READ|PROT_WRITE, MAP_SHARED, fd, page_addr);
+	ptr = mmap(NULL, mmap_length, PROT_READ|PROT_WRITE, MAP_SHARED, fd, page_addr);
 	if(ptr == NULL){
 		printf("Error mmaping uio file: %s\n", filename);
 		perror("Error mmapping uio file");

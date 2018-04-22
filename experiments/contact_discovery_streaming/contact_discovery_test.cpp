@@ -14,13 +14,13 @@
 
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 300
+#define DATABASE_SIZE 300000
 
 #define CONTACT_DISCOVERY_BASE 0xB0000000
 #define DB_BUFFER_BASE 0xA0000000
 #define INPUT_MAPPER_BASE 0xB0010000
 #define RESULTS_MAPPER_BASE 0xB0020000
-#define RESULTS_BUFFER 0xB0030000
+#define RESULTS_BUFFER 0xA0000000
 #define FPGA_RAM_LOWER 0x00000000
 #define FPGA_RAM_UPPER 0x00000004
 #define RAM_BUFFER 0x400000000
@@ -72,7 +72,6 @@ void contact_discovery(
 		//set length for transfer -> db_size*4
 		writeValueToAddress(db_size*4, RESULTS_MAPPER_BASE + 0x58);
         printf("finished mapper programming\n");
-        printf("Db size: %08x\n", db_size);
         writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x80);
 	}
 	//start current call
@@ -94,7 +93,6 @@ void contact_discovery(
 		for(i=0; i<db_size; i++){
 			getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
 			matched_out[i] = (bool)(results_val);
-            printf("Result %i: %08x\n", i, results_val);
 		}
         printf("Finished reading results\n");
 	}
@@ -247,8 +245,6 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
-      printf("Correct matched %i: %08x\n", j, matched_correct[j]);
-      printf("HW matched %i: %08x\n", j, matched_out[j]);
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;

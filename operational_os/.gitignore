@@ -4,3 +4,4 @@ bootgen_log.txt
 vivado/*/*
 */solution*/*
 bootgen/
+2017.1-zcu102-release*

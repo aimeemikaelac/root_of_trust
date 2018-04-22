@@ -1,3 +1,10 @@
 /ed25519/
 **/*.pyc
 *.o
+secret_key.bin
+private_key_hash.bin
+public_key.bin
+phone_number_database.pkl
+secret_out.bin
+contacts.pkl
+enclave_public_key

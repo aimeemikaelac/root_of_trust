@@ -14,7 +14,7 @@
 
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 30000
+#define DATABASE_SIZE 300
 
 #define CONTACT_DISCOVERY_BASE 0xB0000000
 #define DB_BUFFER_BASE 0xA0000000
@@ -50,6 +50,7 @@ void contact_discovery(
 	}
 	//run match
 	if(operation == 1){
+        printf("starting mapper programming\n");
 		// program input stream
 		//enable MM2s
 		writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0);
@@ -66,7 +67,9 @@ void contact_discovery(
 		writeValueToAddress(RESULTS_BUFFER, RESULTS_MAPPER_BASE + 0x48);
 		//set length for transfer -> db_size*4
 		writeValueToAddress(db_size*4, RESULTS_MAPPER_BASE + 0x58);
-
+        printf("finished mapper programming\n");
+        printf("Db size: %08x\n", db_size);
+        writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x80);
 	}
 	//start current call
 	control[0x0] = 1;
@@ -81,10 +84,15 @@ void contact_discovery(
 	*contacts_size_out = *((unsigned int*)(control + 0x90));
 	//read match result
 	if(operation == 1){
-		for(i=0; i<db_size*4; i+=4){
-			getValueAtAddress(RESULTS_BUFFER + i, &results_val);
-			matched_out[i/4] = (bool)(results_val);
+      // wait for output stream to finish
+      unsigned int results_buffer_status;
+      printf("Reading results\n");
+		for(i=0; i<db_size; i++){
+			getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
+			matched_out[i] = (bool)(results_val);
+            printf("Result %i: %08x\n", i, results_val);
 		}
+        printf("Finished reading results\n");
 	}
   cleanupSharedMemoryPointer(control_mem);
 }
@@ -138,7 +146,8 @@ void hash_numbers(){
 
 int main(){
 	unsigned int seed;
-	int i, j, random_index, num_matched = 0, num_unmatched = 0;
+    long long i;
+	int j, random_index, num_matched = 0, num_unmatched = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
 	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
@@ -175,9 +184,9 @@ int main(){
 	}
 
 	printf("Populating db stream\n");
-	for(i=0; i<DATABASE_SIZE*64; i++){
+	for(i=0; i<DATABASE_SIZE*64/4; i++){
 		// db_stream.write(db_hashes[i]);
-		writeValueToAddress(db_hashes[i], RAM_BUFFER);
+		writeValueToAddress(((unsigned int*)db_hashes)[i], RAM_BUFFER + i*4);
 	}
 
 	printf("Checking initial conditions\n");
@@ -223,6 +232,7 @@ int main(){
 		(int*)&contacts_size_out
 	);
 	assert(error_out == 0);
+    printf("Matched finished\n");
 
 	for(i=0; i<DATABASE_SIZE; i++){
 		unsigned char current_hash[64];
@@ -233,6 +243,8 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
+      printf("Correct matched %i: %08x\n", j, matched_correct[j]);
+      printf("HW matched %i: %08x\n", j, matched_out[j]);
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;

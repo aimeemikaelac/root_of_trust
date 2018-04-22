@@ -33,7 +33,7 @@ typedef struct shared_memory_struct{
 	volatile void* ptr;
 	volatile void* original_ptr;
 	unsigned length;
-	unsigned offset;
+	unsigned long long offset;
 	unsigned page_size;
 } shared_memory_struct;
 

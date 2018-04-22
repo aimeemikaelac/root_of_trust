@@ -13,7 +13,7 @@ int getValueAtAddress(unsigned long long gpio_addr, unsigned int* value){
 	}
 
 	/* Read value from the device register */
-	*value = *((unsigned int*)(mem->ptr)));
+	*value = *((unsigned int*)(mem->ptr));
 //	printf("gpio dev-mem test: input: %08x\n", *value);
 
 	cleanupSharedMemoryPointer(mem);

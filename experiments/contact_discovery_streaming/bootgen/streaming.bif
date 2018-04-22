@@ -1,0 +1,8 @@
+the_ROM_image:
+{
+[destination_cpu=a53-0, bootloader] fsbl.elf
+[destination_device=pl] contact_discovery_streaming.bit
+[destination_cpu=a53-0, exception_level=el-3, trustzone] atf.elf
+[destination_cpu=a53-0, exception_level=el-2] u-boot.elf
+}
+

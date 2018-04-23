@@ -51,7 +51,7 @@ void contact_discovery(
   }
   //run match
   if(operation == 1){
-    printf("starting mapper programming\n");
+//  printf("starting mapper programming\n");
   // program input stream
   //reset MM2s
   writeValueToAddress(4, INPUT_MAPPER_BASE + 0x0);
@@ -72,7 +72,7 @@ void contact_discovery(
   writeValueToAddress(RESULTS_BUFFER_FPGA, RESULTS_MAPPER_BASE + 0x48);
   //set length for transfer -> db_size*4
   writeValueToAddress(db_size, RESULTS_MAPPER_BASE + 0x58);
-  printf("finished mapper programming\n");
+//  printf("finished mapper programming\n");
   writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x5C);
   }
   //start current call
@@ -263,7 +263,7 @@ int main(int argc, char **argv){
     //   matched_out[i] = (bool)(results_val);
     // }
 
-    for(i=0; i<db_size/4; i++){
+    for(i=0; i<DATABASE_SIZE/4; i++){
       getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
       bool *results_buffer = (bool*)&results_val;
       for(j=0; j<4; j++){

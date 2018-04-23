@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date              : Thu Apr 19 15:29:46 2018
+| Date              : Sun Apr 22 16:01:07 2018
 | Host              : aimee-VirtualBox running 64-bit Ubuntu 16.04.4 LTS
 | Command           : report_timing -file ./report/contact_discovery_timing_synth.rpt
 | Design            : contact_discovery
@@ -12,16 +12,16 @@ Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 Timing Report
 
-Slack (MET) :             7.711ns  (required time - arrival time)
-  Source:                 grp_match_db_contact_fu_239/contact_V_fifo_U/mOutPtr_reg[8]/C
-                            (rising edge-triggered cell FDSE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/q0_reg[0]/D
+Slack (MET) :             7.800ns  (required time - arrival time)
+  Source:                 contacts_V_U/contact_discoverybkb_ram_U/ram_reg_12/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E2 clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matched_i_reg_171_reg[0]/D
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.281ns  (logic 0.656ns (28.759%)  route 1.625ns (71.241%))
-  Logic Levels:           8  (LUT2=1 LUT4=1 LUT6=3 MUXF7=1 MUXF8=1 SRLC32E=1)
+  Data Path Delay:        2.192ns  (logic 1.609ns (73.403%)  route 0.583ns (26.597%))
+  Logic Levels:           6  (CARRY8=4 LUT5=1 LUT6=1)
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -32,43 +32,43 @@ Slack (MET) :             7.711ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=878, unset)          0.000     0.000    grp_match_db_contact_fu_239/contact_V_fifo_U/ap_clk
-                         FDSE                                         r  grp_match_db_contact_fu_239/contact_V_fifo_U/mOutPtr_reg[8]/C
+                         net (fo=3008, unset)         0.000     0.000    contacts_V_U/contact_discoverybkb_ram_U/ap_clk
+                         RAMB18E2                                     r  contacts_V_U/contact_discoverybkb_ram_U/ram_reg_12/CLKARDCLK
   -------------------------------------------------------------------    -------------------
-                         FDSE (Prop_FDSE_C_Q)         0.096     0.096 f  grp_match_db_contact_fu_239/contact_V_fifo_U/mOutPtr_reg[8]/Q
-                         net (fo=14, unplaced)        0.250     0.346    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/Q[6]
-                         LUT2 (Prop_LUT2_I1_O)        0.039     0.385 r  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][0]_srl32_i_5__0/O
-                         net (fo=64, unplaced)        0.236     0.621    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/shiftReg_addr[1]
-                         SRLC32E (Prop_SRLC32E_A[1]_Q)
-                                                      0.116     0.737 r  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_srl32__0/Q
-                         net (fo=1, unplaced)         0.161     0.898    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_srl32__0_n_7
-                         MUXF7 (Prop_MUXF7_I1_O)      0.083     0.981 r  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_mux/O
-                         net (fo=1, unplaced)         0.000     0.981    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_mux_n_7
-                         MUXF8 (Prop_MUXF8_I0_O)      0.027     1.008 r  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_mux__3/O
-                         net (fo=1, unplaced)         0.252     1.260    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/SRL_SIG_reg[128][3]_mux__3_n_7
-                         LUT4 (Prop_LUT4_I3_O)        0.039     1.299 r  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/ram_reg_0_63_0_0_i_18/O
-                         net (fo=1, unplaced)         0.164     1.463    grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/contact_V_dout[3]
-                         LUT6 (Prop_LUT6_I0_O)        0.178     1.641 f  grp_match_db_contact_fu_239/contact_V_fifo_U/U_fifo_w8_d128_A_ram/ram_reg_0_63_0_0_i_11/O
-                         net (fo=1, unplaced)         0.252     1.893    grp_match_db_contact_fu_239/db_item_V_fifo_U/U_fifo_w8_d128_A_ram/mOutPtr_reg[7]
-                         LUT6 (Prop_LUT6_I2_O)        0.039     1.932 r  grp_match_db_contact_fu_239/db_item_V_fifo_U/U_fifo_w8_d128_A_ram/ram_reg_0_63_0_0_i_1__0/O
-                         net (fo=2, unplaced)         0.252     2.184    grp_match_db_contact_fu_239/db_item_V_fifo_U/U_fifo_w8_d128_A_ram/results_local_d0
-                         LUT6 (Prop_LUT6_I0_O)        0.039     2.223 r  grp_match_db_contact_fu_239/db_item_V_fifo_U/U_fifo_w8_d128_A_ram/q0[0]_i_1__0/O
-                         net (fo=1, unplaced)         0.058     2.281    grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/q0_reg[0]_0
-                         FDRE                                         r  grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/q0_reg[0]/D
+                         RAMB18E2 (Prop_RAMB18E2_CLKARDCLK_DOUTADOUT[0])
+                                                      1.014     1.014 r  contacts_V_U/contact_discoverybkb_ram_U/ram_reg_12/DOUTADOUT[0]
+                         net (fo=1, unplaced)         0.233     1.247    contacts_V_U/contact_discoverybkb_ram_U/contacts_V_q0[432]
+                         LUT6 (Prop_LUT6_I0_O)        0.178     1.425 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171[0]_i_125/O
+                         net (fo=1, unplaced)         0.018     1.443    contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171[0]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_S[0]_CO[7])
+                                                      0.245     1.688 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_82/CO[7]
+                         net (fo=1, unplaced)         0.007     1.695    contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_82_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.030     1.725 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_46/CO[7]
+                         net (fo=1, unplaced)         0.007     1.732    contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_46_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.030     1.762 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_15/CO[7]
+                         net (fo=1, unplaced)         0.007     1.769    contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_15_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[2])
+                                                      0.073     1.842 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_3/CO[2]
+                         net (fo=1, unplaced)         0.253     2.095    contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171_reg[0]_i_3_n_5
+                         LUT5 (Prop_LUT5_I2_O)        0.039     2.134 r  contacts_V_U/contact_discoverybkb_ram_U/matched_i_reg_171[0]_i_1/O
+                         net (fo=1, unplaced)         0.058     2.192    matched_fu_274_p2
+                         FDRE                                         r  matched_i_reg_171_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=878, unset)          0.000    10.000    grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/ap_clk
-                         FDRE                                         r  grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/q0_reg[0]/C
+                         net (fo=3008, unset)         0.000    10.000    ap_clk
+                         FDRE                                         r  matched_i_reg_171_reg[0]/C
                          clock pessimism              0.000    10.000    
                          clock uncertainty           -0.035     9.965    
-                         FDRE (Setup_FDRE_C_D)        0.027     9.992    grp_match_db_contact_fu_239/results_local_U/match_db_contact_bkb_ram_U/q0_reg[0]
+                         FDRE (Setup_FDRE_C_D)        0.027     9.992    matched_i_reg_171_reg[0]
   -------------------------------------------------------------------
                          required time                          9.992    
-                         arrival time                          -2.281    
+                         arrival time                          -2.192    
   -------------------------------------------------------------------
-                         slack                                  7.711    
+                         slack                                  7.800    
 
 
 

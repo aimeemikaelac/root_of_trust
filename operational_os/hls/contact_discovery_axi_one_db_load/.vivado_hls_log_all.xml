@@ -35,7 +35,23 @@
       </synLog>
       <simLog/>
       <mgLog/>
-      <packageLog/>
+      <packageLog>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:495]" projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.775-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:420]" projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.770-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element int_matched_out_shift_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_one_db_load/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:691]" projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.763-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.756-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.750-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.725-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.702-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.690-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.677-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.644-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[3].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.620-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.578-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[2].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.534-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.515-0600" type="Warning"/>
+        <logs message="WARNING: [Synth 8-6014] Unused sequential element gen_write[0].mem_reg was removed. " projectName="contact_discovery_axi_one_db_load" solutionName="solution1" date="2018-03-30T21:18:38.494-0600" type="Warning"/>
+      </packageLog>
       <csimLog/>
     </logs>
   </warningLogs>

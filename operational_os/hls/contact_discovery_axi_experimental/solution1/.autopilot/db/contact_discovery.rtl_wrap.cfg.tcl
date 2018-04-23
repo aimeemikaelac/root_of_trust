@@ -17,19 +17,19 @@ set DataType0 "int"
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
 lappend PortList $Port0
 set PortName1 "contact_in"
-set BitWidth1 "64"
+set BitWidth1 "512"
 set ArrayOpt1 ""
 set Const1 "0"
 set Volatile1 "0"
 set Pointer1 "0"
 set Reference1 "0"
-set Dims1 [list 64]
+set Dims1 [list 0]
 set Interface1 "wire"
-set DataType1 "unsigned char"
+set DataType1 "[list ap_uint 512 ]"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set PortName2 "db_in"
-set BitWidth2 "8"
+set BitWidth2 "512"
 set ArrayOpt2 ""
 set Const2 "0"
 set Volatile2 "0"
@@ -37,7 +37,7 @@ set Pointer2 "2"
 set Reference2 "1"
 set Dims2 [list 0]
 set Interface2 [list AP_STREAM 0] 
-set DataType2 "unsigned char"
+set DataType2 "[list ap_uint 512 ]"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2
 set PortName3 "db_size_in"
@@ -77,7 +77,7 @@ set DataType5 "int"
 set Port5 [list $PortName5 $Interface5 $DataType5 $Pointer5 $Dims5 $Const5 $Volatile5 $ArrayOpt5]
 lappend PortList $Port5
 set PortName6 "results_out"
-set BitWidth6 "32"
+set BitWidth6 "8"
 set ArrayOpt6 ""
 set Const6 "0"
 set Volatile6 "0"
@@ -85,12 +85,12 @@ set Pointer6 "2"
 set Reference6 "1"
 set Dims6 [list 0]
 set Interface6 [list AP_STREAM 0] 
-set DataType6 "unsigned int"
+set DataType6 "unsigned char"
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6]
 lappend PortList $Port6
 set globalAPint "" 
 set returnAPInt "" 
-set hasCPPAPInt 0 
+set hasCPPAPInt 1 
 set argAPInt "" 
 set hasCPPAPFix 0 
 set hasSCFix 0 

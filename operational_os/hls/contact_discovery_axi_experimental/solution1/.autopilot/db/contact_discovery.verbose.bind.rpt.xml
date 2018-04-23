@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Thu Apr 19 15:27:04 2018
+<item name = "Date">Sun Apr 22 15:58:30 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_experimental</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 4.32, 1.25</column>
+<column name="ap_clk">10.00, 3.04, 1.25</column>
 </table>
 </item>
 </section>
@@ -31,14 +31,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_match_db_contact_fu_239">match_db_contact, 41795, 41795, 41795, 41795, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">128, 128, 2, -, -, 64, no</column>
-<column name="- Loop 2">?, ?, 41927, -, -, ?, no</column>
-<column name=" + Loop 2.1">128, 128, 2, -, -, 64, no</column>
+<column name="- Loop 1">?, ?, 260, -, -, ?, no</column>
+<column name=" + Loop 1.1">256, 256, 2, -, -, 128, no</column>
 </table>
 </item>
 </section>

@@ -110,6 +110,50 @@ u32 XContact_discovery_Get_operation_vld(XContact_discovery *InstancePtr) {
     return Data & 0x1;
 }
 
+void XContact_discovery_Set_contact_in_V(XContact_discovery *InstancePtr, XContact_discovery_Contact_in_v Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 0, Data.word_0);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 4, Data.word_1);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 8, Data.word_2);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 12, Data.word_3);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 16, Data.word_4);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 20, Data.word_5);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 24, Data.word_6);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 28, Data.word_7);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 32, Data.word_8);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 36, Data.word_9);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 40, Data.word_10);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 44, Data.word_11);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 48, Data.word_12);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 52, Data.word_13);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 56, Data.word_14);
+    XContact_discovery_WriteReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 60, Data.word_15);
+}
+
+XContact_discovery_Contact_in_v XContact_discovery_Get_contact_in_V(XContact_discovery *InstancePtr) {
+    XContact_discovery_Contact_in_v Data;
+
+    Data.word_0 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 0);
+    Data.word_1 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 4);
+    Data.word_2 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 8);
+    Data.word_3 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 12);
+    Data.word_4 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 16);
+    Data.word_5 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 20);
+    Data.word_6 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 24);
+    Data.word_7 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 28);
+    Data.word_8 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 32);
+    Data.word_9 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 36);
+    Data.word_10 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 40);
+    Data.word_11 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 44);
+    Data.word_12 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 48);
+    Data.word_13 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 52);
+    Data.word_14 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 56);
+    Data.word_15 = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA + 60);
+    return Data;
+}
+
 void XContact_discovery_Set_db_size_in(XContact_discovery *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
@@ -145,101 +189,6 @@ u32 XContact_discovery_Get_contacts_size_out(XContact_discovery *InstancePtr) {
 
     Data = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA);
     return Data;
-}
-
-u32 XContact_discovery_Get_contact_in_BaseAddress(XContact_discovery *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE);
-}
-
-u32 XContact_discovery_Get_contact_in_HighAddress(XContact_discovery *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH);
-}
-
-u32 XContact_discovery_Get_contact_in_TotalBytes(XContact_discovery *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH - XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + 1);
-}
-
-u32 XContact_discovery_Get_contact_in_BitWidth(XContact_discovery *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XCONTACT_DISCOVERY_AXILITES_WIDTH_CONTACT_IN;
-}
-
-u32 XContact_discovery_Get_contact_in_Depth(XContact_discovery *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XCONTACT_DISCOVERY_AXILITES_DEPTH_CONTACT_IN;
-}
-
-u32 XContact_discovery_Write_contact_in_Words(XContact_discovery *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH - XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XContact_discovery_Read_contact_in_Words(XContact_discovery *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH - XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XContact_discovery_Write_contact_in_Bytes(XContact_discovery *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH - XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XContact_discovery_Read_contact_in_Bytes(XContact_discovery *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_HIGH - XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Axilites_BaseAddress + XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_BASE + offset + i);
-    }
-    return length;
 }
 
 void XContact_discovery_InterruptGlobalEnable(XContact_discovery *InstancePtr) {

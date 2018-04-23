@@ -49,6 +49,25 @@ typedef struct {
     u32 IsReady;
 } XContact_discovery;
 
+typedef struct {
+    u32 word_0;
+    u32 word_1;
+    u32 word_2;
+    u32 word_3;
+    u32 word_4;
+    u32 word_5;
+    u32 word_6;
+    u32 word_7;
+    u32 word_8;
+    u32 word_9;
+    u32 word_10;
+    u32 word_11;
+    u32 word_12;
+    u32 word_13;
+    u32 word_14;
+    u32 word_15;
+} XContact_discovery_Contact_in_v;
+
 /***************** Macros (Inline Functions) Definitions *********************/
 #ifndef __linux__
 #define XContact_discovery_WriteReg(BaseAddress, RegOffset, Data) \
@@ -91,19 +110,12 @@ void XContact_discovery_Set_operation(XContact_discovery *InstancePtr, u32 Data)
 u32 XContact_discovery_Get_operation(XContact_discovery *InstancePtr);
 void XContact_discovery_Set_operation_vld(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_operation_vld(XContact_discovery *InstancePtr);
+void XContact_discovery_Set_contact_in_V(XContact_discovery *InstancePtr, XContact_discovery_Contact_in_v Data);
+XContact_discovery_Contact_in_v XContact_discovery_Get_contact_in_V(XContact_discovery *InstancePtr);
 void XContact_discovery_Set_db_size_in(XContact_discovery *InstancePtr, u32 Data);
 u32 XContact_discovery_Get_db_size_in(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_error_out(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_contacts_size_out(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Get_contact_in_BaseAddress(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Get_contact_in_HighAddress(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Get_contact_in_TotalBytes(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Get_contact_in_BitWidth(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Get_contact_in_Depth(XContact_discovery *InstancePtr);
-u32 XContact_discovery_Write_contact_in_Words(XContact_discovery *InstancePtr, int offset, int *data, int length);
-u32 XContact_discovery_Read_contact_in_Words(XContact_discovery *InstancePtr, int offset, int *data, int length);
-u32 XContact_discovery_Write_contact_in_Bytes(XContact_discovery *InstancePtr, int offset, char *data, int length);
-u32 XContact_discovery_Read_contact_in_Bytes(XContact_discovery *InstancePtr, int offset, char *data, int length);
 
 void XContact_discovery_InterruptGlobalEnable(XContact_discovery *InstancePtr);
 void XContact_discovery_InterruptGlobalDisable(XContact_discovery *InstancePtr);

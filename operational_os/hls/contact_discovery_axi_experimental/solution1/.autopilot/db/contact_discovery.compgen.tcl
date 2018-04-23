@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 1
+set ID 3
 set MemName contact_discoverybkb
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
@@ -142,7 +142,7 @@ contacts_size_out {
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 2 \
+			id 4 \
 			corename contact_discovery_AXILiteS_axilite \
 			name contact_discovery_AXILiteS_s_axi \
 			ports {$port_AXILiteS} \
@@ -161,7 +161,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 3 \
+    id 5 \
     name db_in_V_V \
     reset_level 0 \
     sync_rst true \
@@ -180,7 +180,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 4 \
+    id 6 \
     name results_out_V \
     reset_level 0 \
     sync_rst true \

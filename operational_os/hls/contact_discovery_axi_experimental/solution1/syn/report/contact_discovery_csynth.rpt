@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Sun Apr 22 15:58:30 2018
+* Date:           Mon Apr 23 10:51:44 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -34,16 +34,20 @@
 
     + Detail: 
         * Instance: 
-        N/A
+        +-----------------------------+------------------+-----+-----+-----+-----+---------+
+        |                             |                  |  Latency  |  Interval | Pipeline|
+        |           Instance          |      Module      | min | max | min | max |   Type  |
+        +-----------------------------+------------------+-----+-----+-----+-----+---------+
+        |grp_match_db_contact_fu_156  |match_db_contact  |  257|  257|  257|  257|   none  |
+        +-----------------------------+------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1     |    ?|    ?|       260|          -|          -|     ?|    no    |
-        | + Loop 1.1  |  256|  256|         2|          -|          -|   128|    no    |
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|      1038|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
 
 
 
@@ -55,14 +59,14 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
 +-----------------+---------+-------+--------+--------+-----+
 |DSP              |        -|      -|       -|       -|    -|
-|Expression       |        -|      -|       0|     402|    -|
+|Expression       |        -|      -|       0|     121|    -|
 |FIFO             |        -|      -|       -|       -|    -|
-|Instance         |        0|      -|     706|    1320|    -|
+|Instance         |        0|      -|     727|    1647|    -|
 |Memory           |       15|      -|       0|       0|    -|
-|Multiplexer      |        -|      -|       -|     254|    -|
-|Register         |        -|      -|    2356|       -|    -|
+|Multiplexer      |        -|      -|       -|     293|    -|
+|Register         |        -|      -|    2345|       -|    -|
 +-----------------+---------+-------+--------+--------+-----+
-|Total            |       15|      0|    3062|    1976|    0|
+|Total            |       15|      0|    3072|    2061|    0|
 +-----------------+---------+-------+--------+--------+-----+
 |Available        |     1824|   2520|  548160|  274080|    0|
 +-----------------+---------+-------+--------+--------+-----+
@@ -75,8 +79,9 @@
     |              Instance              |              Module              | BRAM_18K| DSP48E|  FF |  LUT |
     +------------------------------------+----------------------------------+---------+-------+-----+------+
     |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|  706|  1320|
+    |grp_match_db_contact_fu_156         |match_db_contact                  |        0|      0|   21|   327|
     +------------------------------------+----------------------------------+---------+-------+-----+------+
-    |Total                               |                                  |        0|      0|  706|  1320|
+    |Total                               |                                  |        0|      0|  727|  1647|
     +------------------------------------+----------------------------------+---------+-------+-----+------+
 
     * DSP48: 
@@ -95,91 +100,84 @@
     N/A
 
     * Expression: 
-    +--------------------------------+----------+-------+---+-----+------------+------------+
-    |          Variable Name         | Operation| DSP48E| FF| LUT | Bitwidth P0| Bitwidth P1|
-    +--------------------------------+----------+-------+---+-----+------------+------------+
-    |contacts_index_fu_253_p2        |     +    |      0|  0|   15|           8|           1|
-    |database_index_1_fu_241_p2      |     +    |      0|  0|   39|          32|           1|
-    |tmp_5_fu_225_p2                 |     +    |      0|  0|   39|          32|           1|
-    |ap_block_state5_io              |    and   |      0|  0|    2|           1|           1|
-    |db_in_V_V_0_load_A              |    and   |      0|  0|    2|           1|           1|
-    |db_in_V_V_0_load_B              |    and   |      0|  0|    2|           1|           1|
-    |results_out_V_1_load_A          |    and   |      0|  0|    2|           1|           1|
-    |results_out_V_1_load_B          |    and   |      0|  0|    2|           1|           1|
-    |db_in_V_V_0_state_cmp_full      |   icmp   |      0|  0|    1|           2|           1|
-    |exitcond_fu_236_p2              |   icmp   |      0|  0|   16|          32|          32|
-    |exitcond_i_fu_247_p2            |   icmp   |      0|  0|    5|           8|           9|
-    |icmp_fu_215_p2                  |   icmp   |      0|  0|   13|          25|           1|
-    |results_out_V_1_state_cmp_full  |   icmp   |      0|  0|    1|           2|           1|
-    |tmp_1_i_fu_269_p2               |   icmp   |      0|  0|  257|         512|         512|
-    |ap_block_state1                 |    or    |      0|  0|    2|           1|           1|
-    |ap_block_state10                |    or    |      0|  0|    2|           1|           1|
-    |matched_fu_274_p2               |    or    |      0|  0|    2|           1|           1|
-    +--------------------------------+----------+-------+---+-----+------------+------------+
-    |Total                           |          |      0|  0|  402|         661|         567|
-    +--------------------------------+----------+-------+---+-----+------------+------------+
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |database_index_1_fu_215_p2      |     +    |      0|  0|  39|          32|           3|
+    |tmp_5_fu_199_p2                 |     +    |      0|  0|  39|          32|           1|
+    |db_in_V_V_0_load_A              |    and   |      0|  0|   2|           1|           1|
+    |db_in_V_V_0_load_B              |    and   |      0|  0|   2|           1|           1|
+    |results_out_V_1_load_A          |    and   |      0|  0|   2|           1|           1|
+    |results_out_V_1_load_B          |    and   |      0|  0|   2|           1|           1|
+    |db_in_V_V_0_state_cmp_full      |   icmp   |      0|  0|   1|           2|           1|
+    |icmp_fu_189_p2                  |   icmp   |      0|  0|  13|          25|           1|
+    |results_out_V_1_state_cmp_full  |   icmp   |      0|  0|   1|           2|           1|
+    |tmp_6_fu_210_p2                 |   icmp   |      0|  0|  16|          32|          32|
+    |ap_block_state1                 |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state15                |    or    |      0|  0|   2|           1|           1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0| 121|         131|          45|
+    +--------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
     +-----------------------------+----+-----------+-----+-----------+
     |             Name            | LUT| Input Size| Bits| Total Bits|
     +-----------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                    |  50|         11|    1|         11|
+    |ap_NS_fsm                    |  65|         16|    1|         16|
     |contacts_V_address0          |  15|          3|    7|         21|
-    |contacts_index_i_reg_160     |   9|          2|    8|         16|
+    |contacts_V_ce0               |  15|          3|    1|          3|
     |contacts_size                |   9|          2|   32|         64|
     |contacts_size_out_1_data_in  |  21|          4|   32|        128|
-    |database_index_reg_149       |   9|          2|   32|         64|
+    |database_index_reg_133       |   9|          2|   32|         64|
     |db_in_V_V_0_data_out         |   9|          2|  512|       1024|
     |db_in_V_V_0_state            |  15|          3|    2|          6|
     |db_in_V_V_TDATA_blk_n        |   9|          2|    1|          2|
     |error_out_1_data_in          |  21|          4|   32|        128|
-    |matched_i_reg_171            |   9|          2|    1|          2|
     |operation_ap_vld_in_sig      |   9|          2|    1|          2|
     |operation_ap_vld_preg        |   9|          2|    1|          2|
     |operation_blk_n              |   9|          2|    1|          2|
     |operation_in_sig             |   9|          2|   32|         64|
+    |results_out_V_1_data_in      |  27|          5|    8|         40|
     |results_out_V_1_data_out     |   9|          2|    8|         16|
     |results_out_V_1_state        |  15|          3|    2|          6|
     |results_out_V_TDATA_blk_n    |   9|          2|    1|          2|
-    |storemerge_reg_183           |   9|          2|   32|         64|
+    |storemerge_reg_144           |   9|          2|   32|         64|
     +-----------------------------+----+-----------+-----+-----------+
-    |Total                        | 254|         54|  738|       1624|
+    |Total                        | 293|         63|  738|       1654|
     +-----------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +------------------------------+-----+----+-----+-----------+
-    |             Name             |  FF | LUT| Bits| Const Bits|
-    +------------------------------+-----+----+-----+-----------+
-    |ap_CS_fsm                     |   10|   0|   10|          0|
-    |contact_in_V_read_reg_285     |  512|   0|  512|          0|
-    |contacts_index_i_reg_160      |    8|   0|    8|          0|
-    |contacts_index_reg_327        |    8|   0|    8|          0|
-    |contacts_size                 |   32|   0|   32|          0|
-    |contacts_size_load_reg_294    |   32|   0|   32|          0|
-    |contacts_size_out_1_data_reg  |   32|   0|   32|          0|
-    |contacts_size_out_1_vld_reg   |    0|   0|    1|          1|
-    |database_index_1_reg_314      |   32|   0|   32|          0|
-    |database_index_reg_149        |   32|   0|   32|          0|
-    |db_in_V_V_0_payload_A         |  512|   0|  512|          0|
-    |db_in_V_V_0_payload_B         |  512|   0|  512|          0|
-    |db_in_V_V_0_sel_rd            |    1|   0|    1|          0|
-    |db_in_V_V_0_sel_wr            |    1|   0|    1|          0|
-    |db_in_V_V_0_state             |    2|   0|    2|          0|
-    |error_out_1_data_reg          |   32|   0|   32|          0|
-    |error_out_1_vld_reg           |    0|   0|    1|          1|
-    |matched_i_reg_171             |    1|   0|    1|          0|
-    |operation_ap_vld_preg         |    1|   0|    1|          0|
-    |operation_preg                |   32|   0|   32|          0|
-    |results_out_V_1_payload_A     |    8|   0|    8|          0|
-    |results_out_V_1_payload_B     |    8|   0|    8|          0|
-    |results_out_V_1_sel_rd        |    1|   0|    1|          0|
-    |results_out_V_1_sel_wr        |    1|   0|    1|          0|
-    |results_out_V_1_state         |    2|   0|    2|          0|
-    |storemerge_reg_183            |   32|   0|   32|          0|
-    |tmp_V_reg_319                 |  512|   0|  512|          0|
-    +------------------------------+-----+----+-----+-----------+
-    |Total                         | 2356|   0| 2358|          2|
-    +------------------------------+-----+----+-----+-----------+
+    +---------------------------------------------+-----+----+-----+-----------+
+    |                     Name                    |  FF | LUT| Bits| Const Bits|
+    +---------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                    |   15|   0|   15|          0|
+    |ap_reg_grp_match_db_contact_fu_156_ap_start  |    1|   0|    1|          0|
+    |contact_in_V_read_reg_246                    |  512|   0|  512|          0|
+    |contacts_size                                |   32|   0|   32|          0|
+    |contacts_size_load_reg_255                   |   32|   0|   32|          0|
+    |contacts_size_out_1_data_reg                 |   32|   0|   32|          0|
+    |contacts_size_out_1_vld_reg                  |    0|   0|    1|          1|
+    |database_index_1_reg_275                     |   32|   0|   32|          0|
+    |database_index_reg_133                       |   32|   0|   32|          0|
+    |db_in_V_V_0_payload_A                        |  512|   0|  512|          0|
+    |db_in_V_V_0_payload_B                        |  512|   0|  512|          0|
+    |db_in_V_V_0_sel_rd                           |    1|   0|    1|          0|
+    |db_in_V_V_0_sel_wr                           |    1|   0|    1|          0|
+    |db_in_V_V_0_state                            |    2|   0|    2|          0|
+    |error_out_1_data_reg                         |   32|   0|   32|          0|
+    |error_out_1_vld_reg                          |    0|   0|    1|          1|
+    |operation_ap_vld_preg                        |    1|   0|    1|          0|
+    |operation_preg                               |   32|   0|   32|          0|
+    |reg_164                                      |  512|   0|  512|          0|
+    |results_out_V_1_payload_A                    |    8|   0|    8|          0|
+    |results_out_V_1_payload_B                    |    8|   0|    8|          0|
+    |results_out_V_1_sel_rd                       |    1|   0|    1|          0|
+    |results_out_V_1_sel_wr                       |    1|   0|    1|          0|
+    |results_out_V_1_state                        |    2|   0|    2|          0|
+    |storemerge_reg_144                           |   32|   0|   32|          0|
+    +---------------------------------------------+-----+----+-----+-----------+
+    |Total                                        | 2345|   0| 2347|          2|
+    +---------------------------------------------+-----+----+-----+-----------+
 
 
 

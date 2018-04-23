@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sun Apr 22 15:58:54 2018
-# Process ID: 6677
+# Start of session at: Mon Apr 23 10:52:25 2018
+# Process ID: 32187
 # Current directory: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/ip/vivado.log
@@ -13,4 +13,4 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/Xilinx/Vivado/2017.1/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 15:59:06 2018...
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 23 10:53:12 2018...

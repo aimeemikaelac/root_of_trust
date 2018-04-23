@@ -16,7 +16,7 @@
 #define __mbstate_t_defined	1
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 300000
+#define DATABASE_SIZE 30000
 
 typedef ap_uint<512> hash;
 

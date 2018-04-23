@@ -1,0 +1,179 @@
+
+
+================================================================
+== Vivado HLS Report for 'match_db_contact'
+================================================================
+* Date:           Mon Apr 23 10:51:44 2018
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        contact_discovery_axi_experimental
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      3.04|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  257|  257|  257|  257|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  256|  256|         2|          -|          -|   128|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.76ns
+ST_1: db_item_V_read (3)  [1/1] 0.00ns
+:0  %db_item_V_read = call i512 @_ssdm_op_Read.ap_auto.i512(i512 %db_item_V)
+
+ST_1: StgValue_5 (4)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:18
+:1  br label %1
+
+
+ <State 2>: 1.35ns
+ST_2: contacts_index (6)  [1/1] 0.00ns
+:0  %contacts_index = phi i8 [ 0, %0 ], [ %contacts_index_1, %2 ]
+
+ST_2: matched (7)  [1/1] 0.00ns
+:1  %matched = phi i1 [ false, %0 ], [ %matched_1, %2 ]
+
+ST_2: exitcond (8)  [1/1] 0.66ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:18
+:2  %exitcond = icmp eq i8 %contacts_index, -128
+
+ST_2: empty (9)  [1/1] 0.00ns
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+ST_2: contacts_index_1 (10)  [1/1] 1.28ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:18
+:4  %contacts_index_1 = add i8 %contacts_index, 1
+
+ST_2: StgValue_11 (11)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:18
+:5  br i1 %exitcond, label %3, label %2
+
+ST_2: tmp (13)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:0  %tmp = zext i8 %contacts_index to i64
+
+ST_2: contacts_V_addr (14)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:1  %contacts_V_addr = getelementptr [128 x i512]* @contacts_V, i64 0, i64 %tmp
+
+ST_2: contacts_V_load (15)  [2/2] 1.35ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:2  %contacts_V_load = load i512* %contacts_V_addr, align 64
+
+ST_2: StgValue_15 (20)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:21
+:0  ret i1 %matched
+
+
+ <State 3>: 3.04ns
+ST_3: contacts_V_load (15)  [1/2] 1.35ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:2  %contacts_V_load = load i512* %contacts_V_addr, align 64
+
+ST_3: tmp_1 (16)  [1/1] 1.63ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:3  %tmp_1 = icmp eq i512 %contacts_V_load, %db_item_V_read
+
+ST_3: matched_1 (17)  [1/1] 0.06ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:19
+:4  %matched_1 = or i1 %tmp_1, %matched
+
+ST_3: StgValue_19 (18)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:18
+:5  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.755ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('contacts_index') with incoming values : ('contacts_index', contact_discovery_axi_experimental/src/contact_discovery.cpp:18) [6]  (0.755 ns)
+
+ <State 2>: 1.35ns
+The critical path consists of the following:
+	'phi' operation ('contacts_index') with incoming values : ('contacts_index', contact_discovery_axi_experimental/src/contact_discovery.cpp:18) [6]  (0 ns)
+	'getelementptr' operation ('contacts_V_addr', contact_discovery_axi_experimental/src/contact_discovery.cpp:19) [14]  (0 ns)
+	'load' operation ('contacts_V_load', contact_discovery_axi_experimental/src/contact_discovery.cpp:19) on array 'contacts_V' [15]  (1.35 ns)
+
+ <State 3>: 3.04ns
+The critical path consists of the following:
+	'load' operation ('contacts_V_load', contact_discovery_axi_experimental/src/contact_discovery.cpp:19) on array 'contacts_V' [15]  (1.35 ns)
+	'icmp' operation ('tmp_1', contact_discovery_axi_experimental/src/contact_discovery.cpp:19) [16]  (1.63 ns)
+	'or' operation ('matched', contact_discovery_axi_experimental/src/contact_discovery.cpp:19) [17]  (0.064 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

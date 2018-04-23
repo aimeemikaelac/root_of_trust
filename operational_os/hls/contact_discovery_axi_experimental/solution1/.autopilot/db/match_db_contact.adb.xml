@@ -1,0 +1,378 @@
+<stg><name>match_db_contact</name>
+
+
+<trans_list>
+
+<trans id="20" from="1" to="2">
+<condition id="8">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="21" from="2" to="3">
+<condition id="9">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="23" from="3" to="2">
+<condition id="12">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="512" op_0_bw="512" op_1_bw="512">
+<![CDATA[
+:0  %db_item_V_read = call i512 @_ssdm_op_Read.ap_auto.i512(i512 %db_item_V)
+
+]]></Node>
+<StgValue><ssdm name="db_item_V_read"/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %1
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="6" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="8" op_0_bw="8" op_1_bw="0">
+<![CDATA[
+:0  %contacts_index = phi i8 [ 0, %0 ], [ %contacts_index_1, %2 ]
+
+]]></Node>
+<StgValue><ssdm name="contacts_index"/></StgValue>
+</operation>
+
+<operation id="7" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="1" op_0_bw="1" op_1_bw="0">
+<![CDATA[
+:1  %matched = phi i1 [ false, %0 ], [ %matched_1, %2 ]
+
+]]></Node>
+<StgValue><ssdm name="matched"/></StgValue>
+</operation>
+
+<operation id="8" st_id="2" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:2  %exitcond = icmp eq i8 %contacts_index, -128
+
+]]></Node>
+<StgValue><ssdm name="exitcond"/></StgValue>
+</operation>
+
+<operation id="9" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+
+]]></Node>
+<StgValue><ssdm name="empty"/></StgValue>
+</operation>
+
+<operation id="10" st_id="2" stage="1" lat="1">
+<core>AddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="10" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:4  %contacts_index_1 = add i8 %contacts_index, 1
+
+]]></Node>
+<StgValue><ssdm name="contacts_index_1"/></StgValue>
+</operation>
+
+<operation id="11" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:5  br i1 %exitcond, label %3, label %2
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="12" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="64" op_0_bw="8">
+<![CDATA[
+:0  %tmp = zext i8 %contacts_index to i64
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+
+<operation id="13" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="7" op_0_bw="512" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+:1  %contacts_V_addr = getelementptr [128 x i512]* @contacts_V, i64 0, i64 %tmp
+
+]]></Node>
+<StgValue><ssdm name="contacts_V_addr"/></StgValue>
+</operation>
+
+<operation id="14" st_id="2" stage="2" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="512" op_0_bw="7">
+<![CDATA[
+:2  %contacts_V_load = load i512* %contacts_V_addr, align 64
+
+]]></Node>
+<StgValue><ssdm name="contacts_V_load"/></StgValue>
+</operation>
+
+<operation id="15" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="5">
+<or_exp><and_exp><literal name="exitcond" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="0" op_0_bw="1">
+<![CDATA[
+:0  ret i1 %matched
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="16" st_id="3" stage="1" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="6">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="512" op_0_bw="7">
+<![CDATA[
+:2  %contacts_V_load = load i512* %contacts_V_addr, align 64
+
+]]></Node>
+<StgValue><ssdm name="contacts_V_load"/></StgValue>
+</operation>
+
+<operation id="17" st_id="3" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="6">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="1" op_0_bw="512" op_1_bw="512">
+<![CDATA[
+:3  %tmp_1 = icmp eq i512 %contacts_V_load, %db_item_V_read
+
+]]></Node>
+<StgValue><ssdm name="tmp_1"/></StgValue>
+</operation>
+
+<operation id="18" st_id="3" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="6">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:4  %matched_1 = or i1 %tmp_1, %matched
+
+]]></Node>
+<StgValue><ssdm name="matched_1"/></StgValue>
+</operation>
+
+<operation id="19" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="6">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="0" op_0_bw="0">
+<![CDATA[
+:5  br label %1
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="24" name="db_item_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="db_item_V"/></StgValue>
+</port>
+<port id="25" name="contacts_V" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="contacts_V"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="27" from="_ssdm_op_Read.ap_auto.i512" to="db_item_V_read" fromId="26" toId="4">
+</dataflow>
+<dataflow id="28" from="db_item_V" to="db_item_V_read" fromId="24" toId="4">
+</dataflow>
+<dataflow id="30" from="StgValue_29" to="contacts_index" fromId="29" toId="6">
+<condition id="16">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="31" from="StgValue_5" to="contacts_index" fromId="5" toId="6">
+</dataflow>
+<dataflow id="32" from="contacts_index_1" to="contacts_index" fromId="10" toId="6">
+<BackEdge/>
+<condition id="17">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="33" from="StgValue_19" to="contacts_index" fromId="19" toId="6">
+<BackEdge/>
+</dataflow>
+<dataflow id="35" from="StgValue_34" to="matched" fromId="34" toId="7">
+<condition id="18">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="36" from="StgValue_5" to="matched" fromId="5" toId="7">
+</dataflow>
+<dataflow id="37" from="matched_1" to="matched" fromId="18" toId="7">
+<BackEdge/>
+<condition id="19">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="38" from="StgValue_19" to="matched" fromId="19" toId="7">
+<BackEdge/>
+</dataflow>
+<dataflow id="39" from="contacts_index" to="exitcond" fromId="6" toId="8">
+</dataflow>
+<dataflow id="41" from="StgValue_40" to="exitcond" fromId="40" toId="8">
+</dataflow>
+<dataflow id="43" from="_ssdm_op_SpecLoopTripCount" to="empty" fromId="42" toId="9">
+</dataflow>
+<dataflow id="45" from="StgValue_44" to="empty" fromId="44" toId="9">
+</dataflow>
+<dataflow id="46" from="StgValue_44" to="empty" fromId="44" toId="9">
+</dataflow>
+<dataflow id="47" from="StgValue_44" to="empty" fromId="44" toId="9">
+</dataflow>
+<dataflow id="48" from="contacts_index" to="contacts_index_1" fromId="6" toId="10">
+</dataflow>
+<dataflow id="50" from="StgValue_49" to="contacts_index_1" fromId="49" toId="10">
+</dataflow>
+<dataflow id="51" from="exitcond" to="StgValue_11" fromId="8" toId="11">
+</dataflow>
+<dataflow id="52" from="contacts_index" to="tmp" fromId="6" toId="12">
+</dataflow>
+<dataflow id="53" from="contacts_V" to="contacts_V_addr" fromId="25" toId="13">
+</dataflow>
+<dataflow id="55" from="StgValue_54" to="contacts_V_addr" fromId="54" toId="13">
+</dataflow>
+<dataflow id="56" from="tmp" to="contacts_V_addr" fromId="12" toId="13">
+</dataflow>
+<dataflow id="57" from="contacts_V_addr" to="contacts_V_load" fromId="13" toId="14">
+</dataflow>
+<dataflow id="58" from="matched" to="StgValue_15" fromId="7" toId="15">
+</dataflow>
+<dataflow id="59" from="contacts_V_addr" to="contacts_V_load" fromId="13" toId="16">
+</dataflow>
+<dataflow id="60" from="contacts_V_load" to="tmp_1" fromId="16" toId="17">
+</dataflow>
+<dataflow id="61" from="db_item_V_read" to="tmp_1" fromId="4" toId="17">
+</dataflow>
+<dataflow id="62" from="tmp_1" to="matched_1" fromId="17" toId="18">
+</dataflow>
+<dataflow id="63" from="matched" to="matched_1" fromId="7" toId="18">
+</dataflow>
+<dataflow id="64" from="exitcond" to="StgValue_2" fromId="8" toId="2">
+</dataflow>
+</dataflows>
+
+
+</stg>

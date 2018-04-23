@@ -6,7 +6,7 @@
 <Project Version="7" Minor="20" Path="/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="d6f4b568d791415abbd6a29a44b093e0"/>
+    <Option Name="Id" Val="713641d6aa1e4944a5cf3c5c01396546"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-1-i"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -66,6 +66,13 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/contact_discoverybkb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/match_db_contact.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

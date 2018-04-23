@@ -41556,7 +41556,11 @@ _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 
   case 1:
    *error_out = 0;
    *contacts_size_out = contacts_size;
-   for(database_index = 0; database_index < db_size_in; database_index++){
+   for(database_index = 0; database_index < db_size_in; database_index+=4){
+//			for(database_index = 0; database_index < 38400; database_index+=4){
+    results_out.write((unsigned char)(match_db_contact(db_in.read())));
+    results_out.write((unsigned char)(match_db_contact(db_in.read())));
+    results_out.write((unsigned char)(match_db_contact(db_in.read())));
     results_out.write((unsigned char)(match_db_contact(db_in.read())));
    }
    break;

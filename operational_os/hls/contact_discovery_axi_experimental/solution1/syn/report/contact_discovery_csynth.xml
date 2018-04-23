@@ -31,12 +31,7 @@
 <Loop1>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>260</IterationLatency>
-<Loop1.1>
-<TripCount>128</TripCount>
-<Latency>256</Latency>
-<IterationLatency>2</IterationLatency>
-</Loop1.1>
+<IterationLatency>1038</IterationLatency>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
@@ -44,8 +39,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>15</BRAM_18K>
-<FF>3062</FF>
-<LUT>1976</LUT>
+<FF>3072</FF>
+<LUT>2061</LUT>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
 </Resources>

@@ -41526,6 +41526,7 @@ void contact_discovery(
  int operation,
  hash contact_in,
  hash db_mem[8388608],
+ unsigned long long offset,
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
@@ -41576,10 +41577,10 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-    results_out.write((unsigned char)(match_db_contact(db_mem[database_index])));
-    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 1])));
-    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 2])));
-    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 3])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 1])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 2])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 3])));
    }
    break;
   // clear contacts

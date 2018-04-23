@@ -43,16 +43,18 @@ declare i32 @llvm.part.select.i32(i32, i32, i32) nounwind readnone
 
 declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
-define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem_V, i32 %db_size_in, i32* %error_out, i32* %contacts_size_out, i8* %results_out_V) {
+define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem_V, i64 %offset, i32 %db_size_in, i32* %error_out, i32* %contacts_size_out, i8* %results_out_V) {
   call void (...)* @_ssdm_op_SpecBitsMap(i32 %operation), !map !34
   call void (...)* @_ssdm_op_SpecBitsMap(i512 %contact_in_V), !map !40
   call void (...)* @_ssdm_op_SpecBitsMap(i512* %db_mem_V), !map !44
-  call void (...)* @_ssdm_op_SpecBitsMap(i32 %db_size_in), !map !50
-  call void (...)* @_ssdm_op_SpecBitsMap(i32* %error_out), !map !54
-  call void (...)* @_ssdm_op_SpecBitsMap(i32* %contacts_size_out), !map !58
-  call void (...)* @_ssdm_op_SpecBitsMap(i8* %results_out_V), !map !62
+  call void (...)* @_ssdm_op_SpecBitsMap(i64 %offset), !map !50
+  call void (...)* @_ssdm_op_SpecBitsMap(i32 %db_size_in), !map !54
+  call void (...)* @_ssdm_op_SpecBitsMap(i32* %error_out), !map !58
+  call void (...)* @_ssdm_op_SpecBitsMap(i32* %contacts_size_out), !map !62
+  call void (...)* @_ssdm_op_SpecBitsMap(i8* %results_out_V), !map !66
   call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @contact_discovery_st) nounwind
   %db_size_in_read = call i32 @_ssdm_op_Read.ap_none.i32(i32 %db_size_in)
+  %offset_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %offset)
   %contact_in_V_read = call i512 @_ssdm_op_Read.s_axilite.i512(i512 %contact_in_V)
   %operation_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %operation)
   call void (...)* @_ssdm_op_SpecInterface(i512* %db_mem_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 536870912, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 16, i32 16, i32 4, i32 16, [1 x i8]* @p_str2, [1 x i8]* @p_str2)
@@ -100,6 +102,7 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
 ; <label>:5                                       ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
+  %tmp_1 = trunc i64 %offset_read to i25
   br label %6
 
 ; <label>:6                                       ; preds = %7, %5
@@ -108,26 +111,43 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   br i1 %tmp_6, label %7, label %.loopexit.loopexit
 
 ; <label>:7                                       ; preds = %6
-  %tmp_7 = sext i32 %database_index to i64
-  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_7
-  %db_mem_V_addr_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 4)
+  %tmp_7 = trunc i32 %database_index to i25
+  %sum = add i25 %tmp_7, %tmp_1
+  %sum_cast = zext i25 %sum to i64
+  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %sum_cast
+  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
   %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
-  %tmp_8 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
-  %tmp_1 = zext i1 %tmp_8 to i8
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_1)
-  %db_mem_V_addr_read_1 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
-  %tmp_9 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_1)
+  %tmp_9 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
   %tmp_2 = zext i1 %tmp_9 to i8
   call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2)
-  %db_mem_V_addr_read_2 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
-  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_2)
-  %tmp_3 = zext i1 %tmp_s to i8
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_3)
-  %db_mem_V_addr_read_3 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
-  %tmp_10 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_3)
-  %tmp_11 = zext i1 %tmp_10 to i8
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_11)
-  %database_index_1 = add nsw i32 %database_index, 4
+  %tmp3 = or i25 %tmp_7, 1
+  %sum2 = add i25 %tmp3, %tmp_1
+  %sum2_cast = zext i25 %sum2 to i64
+  %db_mem_V_addr_1 = getelementptr i512* %db_mem_V, i64 %sum2_cast
+  %db_mem_V_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr_1, i32 1)
+  %db_mem_V_addr_1_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr_1)
+  %tmp_3 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_1_read)
+  %tmp_8 = zext i1 %tmp_3 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_8)
+  %tmp9 = or i25 %tmp_7, 2
+  %sum4 = add i25 %tmp9, %tmp_1
+  %sum4_cast = zext i25 %sum4 to i64
+  %db_mem_V_addr_2 = getelementptr i512* %db_mem_V, i64 %sum4_cast
+  %db_mem_V_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr_2, i32 1)
+  %db_mem_V_addr_2_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr_2)
+  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_2_read)
+  %tmp_10 = zext i1 %tmp_s to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_10)
+  %tmp11 = or i25 %tmp_7, 3
+  %sum6 = add i25 %tmp11, %tmp_1
+  %sum6_cast = zext i25 %sum6 to i64
+  %db_mem_V_addr_3 = getelementptr i512* %db_mem_V, i64 %sum6_cast
+  %db_mem_V_load_3_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr_3, i32 1)
+  %db_mem_V_addr_3_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr_3)
+  %tmp_11 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_3_read)
+  %tmp_12 = zext i1 %tmp_11 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_12)
+  %database_index_1 = add nsw i32 4, %database_index
   br label %6
 
 ; <label>:8                                       ; preds = %0
@@ -206,10 +226,17 @@ entry:
   ret i32 %0
 }
 
+define weak i64 @_ssdm_op_Read.ap_auto.i64(i64) {
+entry:
+  ret i64 %0
+}
+
 define weak i512 @_ssdm_op_Read.ap_auto.i512(i512) {
 entry:
   ret i512 %0
 }
+
+declare i25 @_ssdm_op_PartSelect.i25.i64.i32.i32(i64, i32, i32) nounwind readnone
 
 define weak i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32, i32, i32) nounwind readnone {
 entry:
@@ -232,11 +259,11 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !5 = metadata !{metadata !"kernel_arg_name", metadata !"db_item"}
 !6 = metadata !{metadata !"reqd_work_group_size", i32 1, i32 1, i32 1}
 !7 = metadata !{null, metadata !8, metadata !9, metadata !10, metadata !11, metadata !12, metadata !6}
-!8 = metadata !{metadata !"kernel_arg_addr_space", i32 0, i32 0, i32 1, i32 0, i32 1, i32 1, i32 0}
-!9 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none"}
-!10 = metadata !{metadata !"kernel_arg_type", metadata !"int", metadata !"hash", metadata !"hash*", metadata !"uint", metadata !"int*", metadata !"int*", metadata !"hls::stream<uchar> &"}
-!11 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !""}
-!12 = metadata !{metadata !"kernel_arg_name", metadata !"operation", metadata !"contact_in", metadata !"db_mem", metadata !"db_size_in", metadata !"error_out", metadata !"contacts_size_out", metadata !"results_out"}
+!8 = metadata !{metadata !"kernel_arg_addr_space", i32 0, i32 0, i32 1, i32 0, i32 0, i32 1, i32 1, i32 0}
+!9 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none", metadata !"none"}
+!10 = metadata !{metadata !"kernel_arg_type", metadata !"int", metadata !"hash", metadata !"hash*", metadata !"ulong long", metadata !"uint", metadata !"int*", metadata !"int*", metadata !"hls::stream<uchar> &"}
+!11 = metadata !{metadata !"kernel_arg_type_qual", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !"", metadata !""}
+!12 = metadata !{metadata !"kernel_arg_name", metadata !"operation", metadata !"contact_in", metadata !"db_mem", metadata !"offset", metadata !"db_size_in", metadata !"error_out", metadata !"contacts_size_out", metadata !"results_out"}
 !13 = metadata !{null, metadata !1, metadata !2, metadata !14, metadata !4, metadata !15, metadata !6}
 !14 = metadata !{metadata !"kernel_arg_type", metadata !"const uchar &"}
 !15 = metadata !{metadata !"kernel_arg_name", metadata !"din"}
@@ -275,18 +302,22 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !48 = metadata !{metadata !49}
 !49 = metadata !{i32 0, i32 8388607, i32 1}
 !50 = metadata !{metadata !51}
-!51 = metadata !{i32 0, i32 31, metadata !52}
+!51 = metadata !{i32 0, i32 63, metadata !52}
 !52 = metadata !{metadata !53}
-!53 = metadata !{metadata !"db_size_in", metadata !38, metadata !"unsigned int", i32 0, i32 31}
+!53 = metadata !{metadata !"offset", metadata !38, metadata !"long long unsigned int", i32 0, i32 63}
 !54 = metadata !{metadata !55}
 !55 = metadata !{i32 0, i32 31, metadata !56}
 !56 = metadata !{metadata !57}
-!57 = metadata !{metadata !"error_out", metadata !32, metadata !"int", i32 0, i32 31}
+!57 = metadata !{metadata !"db_size_in", metadata !38, metadata !"unsigned int", i32 0, i32 31}
 !58 = metadata !{metadata !59}
 !59 = metadata !{i32 0, i32 31, metadata !60}
 !60 = metadata !{metadata !61}
-!61 = metadata !{metadata !"contacts_size_out", metadata !32, metadata !"int", i32 0, i32 31}
+!61 = metadata !{metadata !"error_out", metadata !32, metadata !"int", i32 0, i32 31}
 !62 = metadata !{metadata !63}
-!63 = metadata !{i32 0, i32 7, metadata !64}
+!63 = metadata !{i32 0, i32 31, metadata !64}
 !64 = metadata !{metadata !65}
-!65 = metadata !{metadata !"results_out.V", metadata !32, metadata !"unsigned char", i32 0, i32 7}
+!65 = metadata !{metadata !"contacts_size_out", metadata !32, metadata !"int", i32 0, i32 31}
+!66 = metadata !{metadata !67}
+!67 = metadata !{i32 0, i32 7, metadata !68}
+!68 = metadata !{metadata !69}
+!69 = metadata !{metadata !"results_out.V", metadata !32, metadata !"unsigned char", i32 0, i32 7}

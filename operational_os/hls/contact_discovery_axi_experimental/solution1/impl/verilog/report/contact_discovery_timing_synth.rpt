@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date              : Mon Apr 23 16:08:30 2018
-| Host              : aimee-VirtualBox running 64-bit Ubuntu 16.04.4 LTS
+| Date              : Mon Apr 23 16:19:48 2018
+| Host              : aimee-VirtualBox running 64-bit unknown
 | Command           : report_timing -file ./report/contact_discovery_timing_synth.rpt
 | Design            : contact_discovery
 | Device            : xczu9eg-ffvb1156
@@ -12,7 +12,7 @@ Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 Timing Report
 
-Slack (MET) :             7.641ns  (required time - arrival time)
+Slack (MET) :             7.652ns  (required time - arrival time)
   Source:                 contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[47]/D
@@ -20,7 +20,7 @@ Slack (MET) :             7.641ns  (required time - arrival time)
   Path Group:             ap_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (ap_clk rise@10.000ns - ap_clk rise@0.000ns)
-  Data Path Delay:        2.351ns  (logic 1.169ns (49.724%)  route 1.182ns (50.276%))
+  Data Path Delay:        2.340ns  (logic 1.169ns (49.957%)  route 1.171ns (50.043%))
   Logic Levels:           12  (CARRY8=9 LUT3=1 LUT6=2)
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -32,7 +32,7 @@ Slack (MET) :             7.641ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock ap_clk rise edge)     0.000     0.000 r  
                                                       0.000     0.000 r  ap_clk (IN)
-                         net (fo=5165, unset)         0.000     0.000    contact_discovery_db_mem_V_m_axi_U/bus_read/ap_clk
+                         net (fo=5141, unset)         0.000     0.000    contact_discovery_db_mem_V_m_axi_U/bus_read/ap_clk
                          FDRE                                         r  contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[2]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_FDRE_C_Q)         0.097     0.097 r  contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[2]/Q
@@ -47,44 +47,44 @@ Slack (MET) :             7.641ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.007     0.772    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/empty_n_reg_i_3_n_0
                          CARRY8 (Prop_CARRY8_CI_CO[1])
                                                       0.055     0.827 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/empty_n_reg_i_2/CO[1]
-                         net (fo=13, unplaced)        0.247     1.074    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/end_addr_buf_reg[63][0]
-                         LUT6 (Prop_LUT6_I4_O)        0.039     1.113 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/end_addr_buf[63]_i_1/O
-                         net (fo=173, unplaced)       0.350     1.463    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/next_rreq
-                         LUT3 (Prop_LUT3_I1_O)        0.085     1.548 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt[0]_i_3/O
-                         net (fo=1, unplaced)         0.297     1.845    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt[0]_i_3_n_0
+                         net (fo=13, unplaced)        0.247     1.074    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/end_addr_buf_reg[32][0]
+                         LUT6 (Prop_LUT6_I4_O)        0.039     1.113 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/end_addr_buf[32]_i_1/O
+                         net (fo=107, unplaced)       0.339     1.452    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/next_rreq
+                         LUT3 (Prop_LUT3_I1_O)        0.085     1.537 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt[0]_i_3/O
+                         net (fo=1, unplaced)         0.297     1.834    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt[0]_i_3_n_0
                          CARRY8 (Prop_CARRY8_DI[0]_CO[7])
-                                                      0.174     2.019 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[0]_i_2/CO[7]
-                         net (fo=1, unplaced)         0.007     2.026    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[0]_i_2_n_0
+                                                      0.174     2.008 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[0]_i_2/CO[7]
+                         net (fo=1, unplaced)         0.007     2.015    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[0]_i_2_n_0
                          CARRY8 (Prop_CARRY8_CI_CO[7])
-                                                      0.030     2.056 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[8]_i_1/CO[7]
-                         net (fo=1, unplaced)         0.007     2.063    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[8]_i_1_n_0
+                                                      0.030     2.045 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[8]_i_1/CO[7]
+                         net (fo=1, unplaced)         0.007     2.052    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[8]_i_1_n_0
                          CARRY8 (Prop_CARRY8_CI_CO[7])
-                                                      0.030     2.093 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[16]_i_1/CO[7]
-                         net (fo=1, unplaced)         0.007     2.100    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[16]_i_1_n_0
+                                                      0.030     2.082 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[16]_i_1/CO[7]
+                         net (fo=1, unplaced)         0.007     2.089    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[16]_i_1_n_0
                          CARRY8 (Prop_CARRY8_CI_CO[7])
-                                                      0.030     2.130 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[24]_i_1/CO[7]
-                         net (fo=1, unplaced)         0.007     2.137    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[24]_i_1_n_0
+                                                      0.030     2.119 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[24]_i_1/CO[7]
+                         net (fo=1, unplaced)         0.007     2.126    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[24]_i_1_n_0
                          CARRY8 (Prop_CARRY8_CI_CO[7])
-                                                      0.030     2.167 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[32]_i_1/CO[7]
-                         net (fo=1, unplaced)         0.007     2.174    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[32]_i_1_n_0
+                                                      0.030     2.156 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[32]_i_1/CO[7]
+                         net (fo=1, unplaced)         0.007     2.163    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[32]_i_1_n_0
                          CARRY8 (Prop_CARRY8_CI_O[7])
-                                                      0.146     2.320 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[40]_i_1/O[7]
-                         net (fo=1, unplaced)         0.031     2.351    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq_n_109
+                                                      0.146     2.309 r  contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq/sect_cnt_reg[40]_i_1/O[7]
+                         net (fo=1, unplaced)         0.031     2.340    contact_discovery_db_mem_V_m_axi_U/bus_read/fifo_rreq_n_75
                          FDRE                                         r  contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[47]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock ap_clk rise edge)    10.000    10.000 r  
                                                       0.000    10.000 r  ap_clk (IN)
-                         net (fo=5165, unset)         0.000    10.000    contact_discovery_db_mem_V_m_axi_U/bus_read/ap_clk
+                         net (fo=5141, unset)         0.000    10.000    contact_discovery_db_mem_V_m_axi_U/bus_read/ap_clk
                          FDRE                                         r  contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[47]/C
                          clock pessimism              0.000    10.000    
                          clock uncertainty           -0.035     9.965    
                          FDRE (Setup_FDRE_C_D)        0.027     9.992    contact_discovery_db_mem_V_m_axi_U/bus_read/sect_cnt_reg[47]
   -------------------------------------------------------------------
                          required time                          9.992    
-                         arrival time                          -2.351    
+                         arrival time                          -2.340    
   -------------------------------------------------------------------
-                         slack                                  7.641    
+                         slack                                  7.652    
 
 
 

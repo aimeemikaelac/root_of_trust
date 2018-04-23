@@ -40,8 +40,8 @@ set Interface2 "wire"
 set DataType2 "[list ap_uint 512 ]"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2
-set PortName3 "db_size_in"
-set BitWidth3 "32"
+set PortName3 "offset"
+set BitWidth3 "64"
 set ArrayOpt3 ""
 set Const3 "0"
 set Volatile3 "0"
@@ -49,22 +49,22 @@ set Pointer3 "0"
 set Reference3 "0"
 set Dims3 [list 0]
 set Interface3 "wire"
-set DataType3 "unsigned int"
+set DataType3 "long long unsigned int"
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3]
 lappend PortList $Port3
-set PortName4 "error_out"
-set BitWidth4 "64"
+set PortName4 "db_size_in"
+set BitWidth4 "32"
 set ArrayOpt4 ""
 set Const4 "0"
 set Volatile4 "0"
-set Pointer4 "1"
+set Pointer4 "0"
 set Reference4 "0"
 set Dims4 [list 0]
 set Interface4 "wire"
-set DataType4 "int"
+set DataType4 "unsigned int"
 set Port4 [list $PortName4 $Interface4 $DataType4 $Pointer4 $Dims4 $Const4 $Volatile4 $ArrayOpt4]
 lappend PortList $Port4
-set PortName5 "contacts_size_out"
+set PortName5 "error_out"
 set BitWidth5 "64"
 set ArrayOpt5 ""
 set Const5 "0"
@@ -76,18 +76,30 @@ set Interface5 "wire"
 set DataType5 "int"
 set Port5 [list $PortName5 $Interface5 $DataType5 $Pointer5 $Dims5 $Const5 $Volatile5 $ArrayOpt5]
 lappend PortList $Port5
-set PortName6 "results_out"
-set BitWidth6 "8"
+set PortName6 "contacts_size_out"
+set BitWidth6 "64"
 set ArrayOpt6 ""
 set Const6 "0"
 set Volatile6 "0"
-set Pointer6 "2"
-set Reference6 "1"
+set Pointer6 "1"
+set Reference6 "0"
 set Dims6 [list 0]
-set Interface6 [list AP_STREAM 0] 
-set DataType6 "unsigned char"
+set Interface6 "wire"
+set DataType6 "int"
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6]
 lappend PortList $Port6
+set PortName7 "results_out"
+set BitWidth7 "8"
+set ArrayOpt7 ""
+set Const7 "0"
+set Volatile7 "0"
+set Pointer7 "2"
+set Reference7 "1"
+set Dims7 [list 0]
+set Interface7 [list AP_STREAM 0] 
+set DataType7 "unsigned char"
+set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7]
+lappend PortList $Port7
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 1 

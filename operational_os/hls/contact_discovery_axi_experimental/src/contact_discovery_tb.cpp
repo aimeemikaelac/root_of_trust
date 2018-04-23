@@ -23,7 +23,8 @@ typedef ap_uint<512> hash;
 void contact_discovery(
 	int operation,
 	hash contact_in,
-	hash db_mem[DATABASE_SIZE],
+	hash db_mem[8388608],
+	unsigned long long offset,
 	unsigned int db_size_in,
 	int *error_out,
 	int *contacts_size_out,
@@ -152,6 +153,7 @@ int main(){
 		hash(0),
 		database,
 		0,
+		0,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
 		results_stream
@@ -182,6 +184,7 @@ int main(){
 			current_hash,
 			database,
 			0,
+			0,
 			(int*)&error_out,
 			(int*)&contacts_size_out,
 			results_stream
@@ -197,6 +200,7 @@ int main(){
 		1,
 		ap_uint<512>(0),
 		database,
+		0,
 		DATABASE_SIZE,
 		(int*)&error_out,
 		(int*)&contacts_size_out,

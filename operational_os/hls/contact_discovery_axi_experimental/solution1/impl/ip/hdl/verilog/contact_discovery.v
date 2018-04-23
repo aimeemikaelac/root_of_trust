@@ -106,7 +106,7 @@ parameter    C_S_AXI_AXILITES_DATA_WIDTH = 32;
 parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 7;
 parameter    C_S_AXI_DATA_WIDTH = 32;
 parameter    C_M_AXI_DB_MEM_V_ID_WIDTH = 1;
-parameter    C_M_AXI_DB_MEM_V_ADDR_WIDTH = 32;
+parameter    C_M_AXI_DB_MEM_V_ADDR_WIDTH = 64;
 parameter    C_M_AXI_DB_MEM_V_DATA_WIDTH = 512;
 parameter    C_M_AXI_DB_MEM_V_AWUSER_WIDTH = 1;
 parameter    C_M_AXI_DB_MEM_V_ARUSER_WIDTH = 1;
@@ -257,7 +257,6 @@ wire    db_mem_V_AWREADY;
 wire    db_mem_V_WREADY;
 reg    db_mem_V_ARVALID;
 wire    db_mem_V_ARREADY;
-wire   [31:0] db_mem_V_ARADDR;
 wire    db_mem_V_RVALID;
 reg    db_mem_V_RREADY;
 wire   [511:0] db_mem_V_RDATA;
@@ -298,7 +297,7 @@ wire    ap_CS_fsm_state20;
 reg    ap_reg_grp_match_db_contact_fu_170_ap_start;
 wire    ap_CS_fsm_state11;
 wire  signed [63:0] tmp_4_fu_208_p1;
-wire  signed [63:0] tmp_7_fu_228_p1;
+wire   [63:0] tmp_7_fu_228_p1;
 reg    ap_reg_ioackin_db_mem_V_ARREADY;
 wire    ap_CS_fsm_state21;
 wire   [24:0] tmp_fu_193_p4;
@@ -376,11 +375,11 @@ contact_discovery_AXILiteS_s_axi_U(
 
 contact_discovery_db_mem_V_m_axi #(
     .USER_DW( 512 ),
-    .USER_AW( 32 ),
+    .USER_AW( 64 ),
     .USER_MAXREQS( 5 ),
     .NUM_READ_OUTSTANDING( 16 ),
     .NUM_WRITE_OUTSTANDING( 16 ),
-    .MAX_READ_BURST_LENGTH( 16 ),
+    .MAX_READ_BURST_LENGTH( 4 ),
     .MAX_WRITE_BURST_LENGTH( 16 ),
     .C_M_AXI_ID_WIDTH( C_M_AXI_DB_MEM_V_ID_WIDTH ),
     .C_M_AXI_ADDR_WIDTH( C_M_AXI_DB_MEM_V_ADDR_WIDTH ),
@@ -445,7 +444,7 @@ contact_discovery_db_mem_V_m_axi_U(
     .ACLK_EN(1'b1),
     .I_ARVALID(db_mem_V_ARVALID),
     .I_ARREADY(db_mem_V_ARREADY),
-    .I_ARADDR(db_mem_V_ARADDR),
+    .I_ARADDR(tmp_7_fu_228_p1),
     .I_ARID(1'd0),
     .I_ARLEN(32'd4),
     .I_ARSIZE(3'd0),
@@ -465,7 +464,7 @@ contact_discovery_db_mem_V_m_axi_U(
     .I_RLAST(db_mem_V_RLAST),
     .I_AWVALID(1'b0),
     .I_AWREADY(db_mem_V_AWREADY),
-    .I_AWADDR(32'd0),
+    .I_AWADDR(64'd0),
     .I_AWID(1'd0),
     .I_AWLEN(32'd0),
     .I_AWSIZE(3'd0),
@@ -1054,8 +1053,6 @@ always @ (*) begin
 end
 
 assign database_index_1_fu_239_p2 = (database_index_reg_147 + 32'd4);
-
-assign db_mem_V_ARADDR = tmp_7_fu_228_p1;
 
 assign grp_match_db_contact_fu_170_ap_start = ap_reg_grp_match_db_contact_fu_170_ap_start;
 

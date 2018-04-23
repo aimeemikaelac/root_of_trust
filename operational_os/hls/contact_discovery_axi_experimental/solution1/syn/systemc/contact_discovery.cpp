@@ -72,8 +72,8 @@ const sc_lv<32> contact_discovery::ap_const_lv32_7 = "111";
 const sc_lv<32> contact_discovery::ap_const_lv32_1F = "11111";
 const sc_lv<25> contact_discovery::ap_const_lv25_0 = "0000000000000000000000000";
 const sc_lv<32> contact_discovery::ap_const_lv32_15 = "10101";
-const sc_lv<512> contact_discovery::ap_const_lv512_lc_1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 const sc_lv<64> contact_discovery::ap_const_lv64_0 = "0000000000000000000000000000000000000000000000000000000000000000";
+const sc_lv<512> contact_discovery::ap_const_lv512_lc_1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 const bool contact_discovery::ap_const_boolean_1 = true;
 
 contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVcdFile(0) {
@@ -117,7 +117,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_AXILiteS_s_axi_U->db_size_in(db_size_in);
     contact_discovery_AXILiteS_s_axi_U->error_out(error_out_1_data_reg);
     contact_discovery_AXILiteS_s_axi_U->contacts_size_out(contacts_size_out_1_data_reg);
-    contact_discovery_db_mem_V_m_axi_U = new contact_discovery_db_mem_V_m_axi<512,32,5,16,16,16,16,C_M_AXI_DB_MEM_V_ID_WIDTH,C_M_AXI_DB_MEM_V_ADDR_WIDTH,C_M_AXI_DB_MEM_V_DATA_WIDTH,C_M_AXI_DB_MEM_V_AWUSER_WIDTH,C_M_AXI_DB_MEM_V_ARUSER_WIDTH,C_M_AXI_DB_MEM_V_WUSER_WIDTH,C_M_AXI_DB_MEM_V_RUSER_WIDTH,C_M_AXI_DB_MEM_V_BUSER_WIDTH,C_M_AXI_DB_MEM_V_TARGET_ADDR,C_M_AXI_DB_MEM_V_USER_VALUE,C_M_AXI_DB_MEM_V_PROT_VALUE,C_M_AXI_DB_MEM_V_CACHE_VALUE>("contact_discovery_db_mem_V_m_axi_U");
+    contact_discovery_db_mem_V_m_axi_U = new contact_discovery_db_mem_V_m_axi<512,64,5,16,16,4,16,C_M_AXI_DB_MEM_V_ID_WIDTH,C_M_AXI_DB_MEM_V_ADDR_WIDTH,C_M_AXI_DB_MEM_V_DATA_WIDTH,C_M_AXI_DB_MEM_V_AWUSER_WIDTH,C_M_AXI_DB_MEM_V_ARUSER_WIDTH,C_M_AXI_DB_MEM_V_WUSER_WIDTH,C_M_AXI_DB_MEM_V_RUSER_WIDTH,C_M_AXI_DB_MEM_V_BUSER_WIDTH,C_M_AXI_DB_MEM_V_TARGET_ADDR,C_M_AXI_DB_MEM_V_USER_VALUE,C_M_AXI_DB_MEM_V_PROT_VALUE,C_M_AXI_DB_MEM_V_CACHE_VALUE>("contact_discovery_db_mem_V_m_axi_U");
     contact_discovery_db_mem_V_m_axi_U->AWVALID(m_axi_db_mem_V_AWVALID);
     contact_discovery_db_mem_V_m_axi_U->AWREADY(m_axi_db_mem_V_AWREADY);
     contact_discovery_db_mem_V_m_axi_U->AWADDR(m_axi_db_mem_V_AWADDR);
@@ -168,7 +168,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_db_mem_V_m_axi_U->ACLK_EN(ap_var_for_const0);
     contact_discovery_db_mem_V_m_axi_U->I_ARVALID(db_mem_V_ARVALID);
     contact_discovery_db_mem_V_m_axi_U->I_ARREADY(db_mem_V_ARREADY);
-    contact_discovery_db_mem_V_m_axi_U->I_ARADDR(db_mem_V_ARADDR);
+    contact_discovery_db_mem_V_m_axi_U->I_ARADDR(tmp_7_fu_228_p1);
     contact_discovery_db_mem_V_m_axi_U->I_ARID(ap_var_for_const1);
     contact_discovery_db_mem_V_m_axi_U->I_ARLEN(ap_var_for_const2);
     contact_discovery_db_mem_V_m_axi_U->I_ARSIZE(ap_var_for_const3);
@@ -190,7 +190,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_db_mem_V_m_axi_U->I_AWREADY(db_mem_V_AWREADY);
     contact_discovery_db_mem_V_m_axi_U->I_AWADDR(ap_var_for_const7);
     contact_discovery_db_mem_V_m_axi_U->I_AWID(ap_var_for_const1);
-    contact_discovery_db_mem_V_m_axi_U->I_AWLEN(ap_var_for_const7);
+    contact_discovery_db_mem_V_m_axi_U->I_AWLEN(ap_var_for_const8);
     contact_discovery_db_mem_V_m_axi_U->I_AWSIZE(ap_var_for_const3);
     contact_discovery_db_mem_V_m_axi_U->I_AWLOCK(ap_var_for_const4);
     contact_discovery_db_mem_V_m_axi_U->I_AWCACHE(ap_var_for_const5);
@@ -201,11 +201,11 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_db_mem_V_m_axi_U->I_AWREGION(ap_var_for_const5);
     contact_discovery_db_mem_V_m_axi_U->I_WVALID(ap_var_for_const6);
     contact_discovery_db_mem_V_m_axi_U->I_WREADY(db_mem_V_WREADY);
-    contact_discovery_db_mem_V_m_axi_U->I_WDATA(ap_var_for_const8);
+    contact_discovery_db_mem_V_m_axi_U->I_WDATA(ap_var_for_const9);
     contact_discovery_db_mem_V_m_axi_U->I_WID(ap_var_for_const1);
     contact_discovery_db_mem_V_m_axi_U->I_WUSER(ap_var_for_const1);
     contact_discovery_db_mem_V_m_axi_U->I_WLAST(ap_var_for_const6);
-    contact_discovery_db_mem_V_m_axi_U->I_WSTRB(ap_var_for_const9);
+    contact_discovery_db_mem_V_m_axi_U->I_WSTRB(ap_var_for_const7);
     contact_discovery_db_mem_V_m_axi_U->I_BVALID(db_mem_V_BVALID);
     contact_discovery_db_mem_V_m_axi_U->I_BREADY(ap_var_for_const6);
     contact_discovery_db_mem_V_m_axi_U->I_BRESP(db_mem_V_BRESP);
@@ -355,12 +355,6 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_database_index_1_fu_239_p2);
     sensitive << ( database_index_reg_147 );
-
-    SC_METHOD(thread_db_mem_V_ARADDR);
-    sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( tmp_6_fu_223_p2 );
-    sensitive << ( tmp_7_fu_228_p1 );
-    sensitive << ( ap_reg_ioackin_db_mem_V_ARREADY );
 
     SC_METHOD(thread_db_mem_V_ARVALID);
     sensitive << ( ap_CS_fsm_state3 );
@@ -565,7 +559,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
 
     SC_THREAD(thread_ap_var_for_const6);
 
-    SC_THREAD(thread_ap_var_for_const7);
+    SC_THREAD(thread_ap_var_for_const8);
 
     SC_THREAD(thread_ap_var_for_const1);
 
@@ -577,7 +571,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
 
     SC_THREAD(thread_ap_var_for_const5);
 
-    SC_THREAD(thread_ap_var_for_const8);
+    SC_THREAD(thread_ap_var_for_const7);
 
     SC_THREAD(thread_ap_var_for_const9);
 
@@ -736,7 +730,6 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, db_mem_V_WREADY, "db_mem_V_WREADY");
     sc_trace(mVcdFile, db_mem_V_ARVALID, "db_mem_V_ARVALID");
     sc_trace(mVcdFile, db_mem_V_ARREADY, "db_mem_V_ARREADY");
-    sc_trace(mVcdFile, db_mem_V_ARADDR, "db_mem_V_ARADDR");
     sc_trace(mVcdFile, db_mem_V_RVALID, "db_mem_V_RVALID");
     sc_trace(mVcdFile, db_mem_V_RREADY, "db_mem_V_RREADY");
     sc_trace(mVcdFile, db_mem_V_RDATA, "db_mem_V_RDATA");
@@ -813,8 +806,8 @@ void contact_discovery::thread_ap_var_for_const6() {
     ap_var_for_const6 = ap_const_logic_0;
 }
 
-void contact_discovery::thread_ap_var_for_const7() {
-    ap_var_for_const7 = ap_const_lv32_0;
+void contact_discovery::thread_ap_var_for_const8() {
+    ap_var_for_const8 = ap_const_lv32_0;
 }
 
 void contact_discovery::thread_ap_var_for_const1() {
@@ -837,12 +830,12 @@ void contact_discovery::thread_ap_var_for_const5() {
     ap_var_for_const5 = ap_const_lv4_0;
 }
 
-void contact_discovery::thread_ap_var_for_const8() {
-    ap_var_for_const8 = ap_const_lv512_lc_1;
+void contact_discovery::thread_ap_var_for_const7() {
+    ap_var_for_const7 = ap_const_lv64_0;
 }
 
 void contact_discovery::thread_ap_var_for_const9() {
-    ap_var_for_const9 = ap_const_lv64_0;
+    ap_var_for_const9 = ap_const_lv512_lc_1;
 }
 
 void contact_discovery::thread_ap_clk_no_reset_() {
@@ -1203,10 +1196,6 @@ void contact_discovery::thread_contacts_size_out_1_vld_in() {
 
 void contact_discovery::thread_database_index_1_fu_239_p2() {
     database_index_1_fu_239_p2 = (!database_index_reg_147.read().is_01() || !ap_const_lv32_4.is_01())? sc_lv<32>(): (sc_biguint<32>(database_index_reg_147.read()) + sc_biguint<32>(ap_const_lv32_4));
-}
-
-void contact_discovery::thread_db_mem_V_ARADDR() {
-    db_mem_V_ARADDR =  (sc_lv<32>) (tmp_7_fu_228_p1.read());
 }
 
 void contact_discovery::thread_db_mem_V_ARVALID() {

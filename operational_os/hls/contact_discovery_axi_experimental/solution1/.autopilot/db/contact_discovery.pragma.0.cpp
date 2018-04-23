@@ -41531,7 +41531,7 @@ void contact_discovery(
  int *contacts_size_out,
  hls::stream<unsigned char> &results_out
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);
-#pragma HLS INTERFACE m_axi depth=536870912 port=db_mem
+#pragma HLS INTERFACE m_axi depth=536870912 port=db_mem max_read_burst_length=4
 #pragma HLS INTERFACE axis register both port=&results_out
 //#pragma HLS INTERFACE axis register both port=db_in
 #pragma HLS INTERFACE ap_none port=db_size_in

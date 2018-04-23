@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Mon Apr 23 15:41:06 2018
+* Date:           Mon Apr 23 16:05:32 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -205,7 +205,7 @@
 |interrupt                | out |    1| ap_ctrl_hs | contact_discovery | return value |
 |m_axi_db_mem_V_AWVALID   | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWREADY   |  in |    1|    m_axi   |      db_mem_V     |    pointer   |
-|m_axi_db_mem_V_AWADDR    | out |   32|    m_axi   |      db_mem_V     |    pointer   |
+|m_axi_db_mem_V_AWADDR    | out |   64|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWID      | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWLEN     | out |    8|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWSIZE    | out |    3|    m_axi   |      db_mem_V     |    pointer   |
@@ -225,7 +225,7 @@
 |m_axi_db_mem_V_WUSER     | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARVALID   | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARREADY   |  in |    1|    m_axi   |      db_mem_V     |    pointer   |
-|m_axi_db_mem_V_ARADDR    | out |   32|    m_axi   |      db_mem_V     |    pointer   |
+|m_axi_db_mem_V_ARADDR    | out |   64|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARID      | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARLEN     | out |    8|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARSIZE    | out |    3|    m_axi   |      db_mem_V     |    pointer   |

@@ -7,6 +7,7 @@
     </clockList>
     <config>
         <schedule model="contact_discovery"/>
+        <config_interface clock_enable="0" expose_global="0" m_axi_addr64="1" m_axi_offset="off" register_io="off" trim_dangling_port="0"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">

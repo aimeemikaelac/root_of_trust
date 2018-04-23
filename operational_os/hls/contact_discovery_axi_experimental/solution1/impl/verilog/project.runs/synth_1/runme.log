@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3833 
+INFO: Helper process launched with PID 4616 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1242.684 ; gain = 77.988 ; free physical = 115 ; free virtual = 4378
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.688 ; gain = 77.988 ; free physical = 157 ; free virtual = 4317
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 	Parameter ap_ST_fsm_state1 bound to: 22'b0000000000000000000001 
@@ -45,7 +45,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of
 	Parameter C_S_AXI_AXILITES_ADDR_WIDTH bound to: 7 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_DB_MEM_V_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_M_AXI_DB_MEM_V_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_DB_MEM_V_ADDR_WIDTH bound to: 64 - type: integer 
 	Parameter C_M_AXI_DB_MEM_V_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_M_AXI_DB_MEM_V_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_DB_MEM_V_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -137,10 +137,10 @@ INFO: [Synth 8-256] done synthesizing module 'contact_discovery_AXILiteS_s_axi' 
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:10]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
-	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter MAX_READ_BURST_LENGTH bound to: 4 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 64 - type: integer 
 	Parameter C_TARGET_ADDR bound to: 0 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
@@ -152,7 +152,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi' [/hom
 	Parameter C_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
 	Parameter USER_DW bound to: 512 - type: integer 
-	Parameter USER_AW bound to: 32 - type: integer 
+	Parameter USER_AW bound to: 64 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_throttl' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:687]
 	Parameter USED_FIX bound to: 0 - type: integer 
@@ -163,7 +163,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_write'
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 64 - type: integer 
 	Parameter C_TARGET_ADDR bound to: 0 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
@@ -173,7 +173,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_write'
 	Parameter C_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
 	Parameter USER_DW bound to: 512 - type: integer 
-	Parameter USER_AW bound to: 32 - type: integer 
+	Parameter USER_AW bound to: 64 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter USER_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter USER_DATA_BYTES bound to: 64 - type: integer 
@@ -191,13 +191,13 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_fifo' 
 WARNING: [Synth 8-6014] Unused sequential element i was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:495]
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery_db_mem_V_m_axi_fifo' (5#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:397]
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_reg_slice' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:293]
-	Parameter N bound to: 64 - type: integer 
+	Parameter N bound to: 96 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery_db_mem_V_m_axi_reg_slice' (6#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:293]
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_fifo__parameterized0' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:397]
-	Parameter DATA_BITS bound to: 64 - type: integer 
+	Parameter DATA_BITS bound to: 96 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element i was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:495]
@@ -227,9 +227,9 @@ WARNING: [Synth 8-3848] Net WUSER in module/entity contact_discovery_db_mem_V_m_
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery_db_mem_V_m_axi_write' (8#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1500]
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_read' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:739]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
-	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter MAX_READ_BURST_LENGTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 64 - type: integer 
 	Parameter C_TARGET_ADDR bound to: 0 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -238,7 +238,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_read' 
 	Parameter C_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
 	Parameter USER_DW bound to: 512 - type: integer 
-	Parameter USER_AW bound to: 32 - type: integer 
+	Parameter USER_AW bound to: 64 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter USER_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter USER_DATA_BYTES bound to: 64 - type: integer 
@@ -246,14 +246,14 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_read' 
 	Parameter BUS_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter BUS_DATA_BYTES bound to: 64 - type: integer 
 	Parameter BUS_ADDR_ALIGN bound to: 6 - type: integer 
-	Parameter NUM_READ_WIDTH bound to: 4 - type: integer 
+	Parameter NUM_READ_WIDTH bound to: 2 - type: integer 
 	Parameter TARGET_ADDR bound to: 0 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 6'b111111 
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_buffer__parameterized0' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:506]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 515 - type: integer 
-	Parameter ADDR_WIDTH bound to: 8 - type: integer 
-	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter DEPTH bound to: 64 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery_db_mem_V_m_axi_buffer__parameterized0' (8#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:506]
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi_reg_slice__parameterized0' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:293]
 	Parameter N bound to: 514 - type: integer 
@@ -271,13 +271,13 @@ INFO: [Synth 8-638] synthesizing module 'match_db_contact' [/home/aimee/root_of_
 	Parameter ap_ST_fsm_state3 bound to: 3'b100 
 INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:46]
 INFO: [Synth 8-256] done synthesizing module 'match_db_contact' (11#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/match_db_contact.v:10]
-WARNING: [Synth 8-6014] Unused sequential element db_mem_V_blk_n_AR_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:772]
-WARNING: [Synth 8-6014] Unused sequential element db_mem_V_blk_n_R_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:780]
-WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:824]
-WARNING: [Synth 8-6014] Unused sequential element results_out_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:870]
-WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1041]
-WARNING: [Synth 8-6014] Unused sequential element ap_block_state22_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1045]
-WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:366]
+WARNING: [Synth 8-6014] Unused sequential element db_mem_V_blk_n_AR_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:771]
+WARNING: [Synth 8-6014] Unused sequential element db_mem_V_blk_n_R_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:779]
+WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:823]
+WARNING: [Synth 8-6014] Unused sequential element results_out_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:869]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1040]
+WARNING: [Synth 8-6014] Unused sequential element ap_block_state22_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1044]
+WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:365]
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery' (12#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[3]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[2]
@@ -338,7 +338,7 @@ WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected 
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port I_ARREGION[0]
 WARNING: [Synth 8-3331] design contact_discoverybkb has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1297.316 ; gain = 132.621 ; free physical = 173 ; free virtual = 4378
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1298.312 ; gain = 133.613 ; free physical = 174 ; free virtual = 4309
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -348,7 +348,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1297.316 ; gain = 132.621 ; free physical = 179 ; free virtual = 4383
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1298.312 ; gain = 133.613 ; free physical = 180 ; free virtual = 4315
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -362,22 +362,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.20 . Memory (MB): peak = 2036.129 ; gain = 4.000 ; free physical = 111 ; free virtual = 3719
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 2038.180 ; gain = 4.000 ; free physical = 120 ; free virtual = 3631
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 2036.129 ; gain = 871.434 ; free physical = 156 ; free virtual = 3809
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2038.180 ; gain = 873.480 ; free physical = 206 ; free virtual = 3725
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-1-i
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 2036.129 ; gain = 871.434 ; free physical = 155 ; free virtual = 3810
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2038.180 ; gain = 873.480 ; free physical = 206 ; free virtual = 3725
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 2036.129 ; gain = 871.434 ; free physical = 156 ; free virtual = 3812
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2038.180 ; gain = 873.480 ; free physical = 205 ; free virtual = 3725
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'contact_discovery_AXILiteS_s_axi'
 WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
@@ -422,6 +422,7 @@ WARNING: [Synth 8-6014] Unused sequential element bus_equal_gen.len_cnt_reg was 
 WARNING: [Synth 8-6014] Unused sequential element sect_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1809]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:589]
 WARNING: [Synth 8-6014] Unused sequential element usedw_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:587]
+WARNING: [Synth 8-6014] Unused sequential element could_multi_bursts.loop_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1127]
 WARNING: [Synth 8-6014] Unused sequential element sect_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1026]
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-5546] ROM "exitcond_fu_61_p2" won't be mapped to RAM because it is too sparse
@@ -440,7 +441,7 @@ WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/hom
 INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'contact_discovery_AXILiteS_s_axi'
 WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2036.129 ; gain = 871.434 ; free physical = 137 ; free virtual = 3801
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 2038.180 ; gain = 873.480 ; free physical = 188 ; free virtual = 3715
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -453,13 +454,15 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 8     
+	   2 Input     64 Bit       Adders := 4     
+	   2 Input     32 Bit       Adders := 4     
 	   2 Input     12 Bit       Adders := 2     
 	   2 Input      9 Bit       Adders := 2     
-	   2 Input      8 Bit       Adders := 9     
-	   2 Input      4 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 3     
 	   2 Input      3 Bit       Adders := 8     
-	   2 Input      2 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
@@ -467,26 +470,28 @@ Detailed RTL Component Info :
 	              515 Bit    Registers := 3     
 	              514 Bit    Registers := 2     
 	              512 Bit    Registers := 5     
-	               64 Bit    Registers := 7     
-	               32 Bit    Registers := 40    
+	               96 Bit    Registers := 6     
+	               64 Bit    Registers := 11    
+	               32 Bit    Registers := 30    
 	               22 Bit    Registers := 1     
-	                8 Bit    Registers := 11    
+	                8 Bit    Registers := 9     
 	                7 Bit    Registers := 1     
-	                6 Bit    Registers := 4     
-	                4 Bit    Registers := 2     
+	                6 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 5     
-	                2 Bit    Registers := 14    
+	                2 Bit    Registers := 13    
 	                1 Bit    Registers := 62    
 +---RAMs : 
 	             144K Bit         RAMs := 1     
-	             128K Bit         RAMs := 1     
 	              64K Bit         RAMs := 1     
+	              32K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input    576 Bit        Muxes := 1     
 	   2 Input    515 Bit        Muxes := 1     
 	   2 Input    514 Bit        Muxes := 1     
-	   2 Input     64 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 13    
+	   2 Input     96 Bit        Muxes := 2     
+	   2 Input     64 Bit        Muxes := 8     
+	   2 Input     32 Bit        Muxes := 5     
 	   4 Input     22 Bit        Muxes := 1     
 	   2 Input     22 Bit        Muxes := 2     
 	   2 Input     19 Bit        Muxes := 2     
@@ -498,14 +503,13 @@ Detailed RTL Component Info :
 	   2 Input     13 Bit        Muxes := 1     
 	   4 Input     12 Bit        Muxes := 2     
 	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 11    
+	   2 Input      8 Bit        Muxes := 7     
 	   4 Input      8 Bit        Muxes := 2     
 	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 8     
-	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 12    
 	   7 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 4     
+	   2 Input      3 Bit        Muxes := 5     
 	   5 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 27    
 	   5 Input      2 Bit        Muxes := 9     
@@ -589,11 +593,11 @@ Detailed RTL Component Info :
 Module contact_discovery_db_mem_V_m_axi_reg_slice 
 Detailed RTL Component Info : 
 +---Registers : 
-	               64 Bit    Registers := 2     
+	               96 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     64 Bit        Muxes := 1     
+	   2 Input     96 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 6     
 	   5 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 3     
@@ -602,7 +606,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      3 Bit       Adders := 2     
 +---Registers : 
-	               64 Bit    Registers := 1     
+	               96 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
@@ -648,21 +652,22 @@ Detailed RTL Component Info :
 Module contact_discovery_db_mem_V_m_axi_write 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 3     
+	   2 Input     64 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
 	              512 Bit    Registers := 1     
-	               64 Bit    Registers := 1     
-	               32 Bit    Registers := 6     
+	               64 Bit    Registers := 6     
+	               32 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                6 Bit    Registers := 2     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 11    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
+	   2 Input     64 Bit        Muxes := 4     
 	   4 Input     12 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 4     
@@ -671,16 +676,16 @@ Detailed RTL Component Info :
 Module contact_discovery_db_mem_V_m_axi_buffer__parameterized0 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      8 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 3     
 +---Registers : 
 	              515 Bit    Registers := 3     
-	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
 	                1 Bit    Registers := 4     
 +---RAMs : 
-	             128K Bit         RAMs := 1     
+	              32K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input    515 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 4     
 	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
 Module contact_discovery_db_mem_V_m_axi_reg_slice__parameterized0 
@@ -697,24 +702,27 @@ Detailed RTL Component Info :
 Module contact_discovery_db_mem_V_m_axi_read 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 3     
+	   2 Input     64 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	              512 Bit    Registers := 1     
-	               32 Bit    Registers := 6     
+	               64 Bit    Registers := 5     
+	               32 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                6 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
+	   2 Input     64 Bit        Muxes := 4     
 	   4 Input     12 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 4     
-	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 6     
 Module match_db_contact 
 Detailed RTL Component Info : 
@@ -743,15 +751,15 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element throttl_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:721]
-WARNING: [Synth 8-6014] Unused sequential element buff_wdata/usedw_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:587]
-WARNING: [Synth 8-6014] Unused sequential element fifo_resp/pout_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:483]
+WARNING: [Synth 8-6014] Unused sequential element usedw_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:587]
+WARNING: [Synth 8-6014] Unused sequential element pout_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:483]
 WARNING: [Synth 8-6014] Unused sequential element sect_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1809]
 WARNING: [Synth 8-6014] Unused sequential element bus_equal_gen.len_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:2074]
-WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:435]
-WARNING: [Synth 8-6014] Unused sequential element buff_rdata/usedw_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:587]
-WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/pout_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:483]
+WARNING: [Synth 8-6014] Unused sequential element usedw_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:587]
+WARNING: [Synth 8-6014] Unused sequential element pout_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:483]
+WARNING: [Synth 8-6014] Unused sequential element could_multi_bursts.loop_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1127]
 WARNING: [Synth 8-6014] Unused sequential element sect_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:1026]
+WARNING: [Synth 8-6014] Unused sequential element wreq_throttl/throttl_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:721]
 INFO: [Synth 8-5546] ROM "exitcond_fu_61_p2" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3917] design contact_discovery has port m_axi_db_mem_V_AWQOS[3] driven by constant 0
 WARNING: [Synth 8-3917] design contact_discovery has port m_axi_db_mem_V_AWQOS[2] driven by constant 0
@@ -814,38 +822,64 @@ INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instan
 warning: Removed RAM buff_wdata/mem_reg due to inactive write enable
 WARNING: [Synth 8-6014] Unused sequential element buff_wdata/mem_reg was removed. 
 WARNING: [Synth 8-5730] RAM buff_wdata/mem_reg got removed due to cross hierarchy optimization. 
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[63]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[61]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[62]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[60]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[59]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[58]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[57]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[56]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[55]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[54]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[53]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[52]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[51]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[50]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[49]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[48]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[47]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[46]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[45]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[44]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[43]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[42]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[41]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[40]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[39]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[38]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[37]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[36]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[35]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_read/\rs_rreq/data_p2_reg[34] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_read/\rs_rreq/data_p2_reg[32] )
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[31]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[32]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[34]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[34]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[35]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[35]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[36]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[36]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[37]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[37]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[38]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[38]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[39]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[39]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[40]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[40]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[41]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[41]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[42]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[42]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[43]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[43]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[44]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[44]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[45]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[45]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[46]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[46]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[47]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[47]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[48]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[48]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[49]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[49]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[50]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[50]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[51]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[51]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[52]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[52]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[53]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[53]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[54]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[54]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[55]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[55]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[56]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[56]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[57]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[95]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[93]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[94]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[92]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[91]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[90]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[89]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[88]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[87]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[86]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[85]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[84]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[83]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[82]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[81]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[80]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[79]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[78]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[77]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[76]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[75]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[74]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[73]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[72]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[71]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[70]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[69]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[68]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[67]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_read/\rs_rreq/data_p2_reg[66] )
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[65]' (FDE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/rs_rreq/data_p2_reg[64]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_read/\rs_rreq/data_p2_reg[64] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[2] )
@@ -872,38 +906,70 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_d
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[23] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[24] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[63] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[61] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[62] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[60] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[59] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[58] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[57] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[56] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[55] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[54] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[53] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[52] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[51] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[50] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[49] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[48] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[47] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[46] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[45] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[44] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[43] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[42] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[41] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[40] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[39] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[38] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[37] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[36] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[35] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[34] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[34] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[35] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[36] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[37] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[38] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[39] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[40] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[41] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[42] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[43] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[44] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[46] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[47] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[48] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[49] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[50] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[51] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[52] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[53] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[54] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[56] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[57] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[95] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[93] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[94] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[92] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[91] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[90] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[89] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[88] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[87] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[86] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[85] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[84] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[83] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[82] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[81] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[80] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[79] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[78] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[77] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[76] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[75] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[74] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[73] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[72] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[71] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[70] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[69] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[68] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[67] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[66] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[65] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\rs_wreq/data_p2_reg[64] )
 INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/start_addr_reg[0]' (FDRE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/start_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/align_len_reg[0]' (FDRE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/align_len_reg[1]'
 INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_read/start_addr_reg[1]' (FDRE) to 'contact_discovery_db_mem_V_m_axi_U/bus_read/start_addr_reg[2]'
@@ -926,124 +992,96 @@ INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_wr
 INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/start_addr_reg[4]' (FDRE) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/start_addr_reg[5]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\start_addr_reg[5] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[512] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[512]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[512]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[513] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[513]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[513]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[514] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[514]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[514]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[515] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[515]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[515]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[516] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[516]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[517] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[517]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[518] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[518]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[519] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[519]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[520] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[520]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[521] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[521]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[522] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[522]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[523] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[523]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[524] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[524]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[525] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[525]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[526] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[526]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[527] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[527]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[528] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[528]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[529] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[529]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[530] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[530]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[531] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[531]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[532] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[532]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[533] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[533]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[534] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[534]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[535] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[535]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[536] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[536]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[537] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[537]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[538] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[538]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[539] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[539]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[540] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[540]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[541] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[541]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[542] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[542]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[543] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[543]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[544] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[544]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[545] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[545]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[546] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[546]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[547] )
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[547]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (contact_discovery_db_mem_V_m_axi_U/bus_write/\buff_wdata/q_tmp_reg[548] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[548]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[549]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[550]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[551]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[552]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[553]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[554]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[555]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[556]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[557]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[558]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[559]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[560]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[561]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[562]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
-INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[563]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/i_4/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[516]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[517]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[518]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[519]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[520]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[521]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[522]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[523]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[524]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[525]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[526]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[527]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[528]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[529]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[530]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[531]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[532]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[533]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[534]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[535]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[536]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
+INFO: [Synth 8-3886] merging instance 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[537]' (FD) to 'contact_discovery_db_mem_V_m_axi_U/bus_write/buff_wdatai_28/buff_wdata/q_buf_reg[0]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3332] Sequential element (contact_discovery_AXILiteS_s_axi_U/int_error_out_reg[31]) is unused and will be removed from module contact_discovery.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[7]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[6]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[5]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[4]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[3]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (throttl_cnt_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_throttl.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/q_buf_reg[511]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[7]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[6]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[5]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[4]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[3]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (buff_wdata/waddr_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[7]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[6]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[5]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[4]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[3]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttl/throttl_cnt_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/pout_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/pout_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/pout_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/full_n_reg) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/data_vld_reg) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/empty_n_reg) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (fifo_wreq/full_n_reg) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[7]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[6]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[5]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[4]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[3]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (bus_equal_gen.fifo_burst/q_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/state_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/state_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/s_ready_t_reg) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[95]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[94]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[93]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[92]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[91]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[90]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[89]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[88]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[87]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[86]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[85]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[84]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[83]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[82]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[81]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[80]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[79]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[78]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[77]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[76]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[75]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[74]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[73]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[72]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[71]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[70]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[69]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[68]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[67]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[66]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[65]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[64]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[63]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[62]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[61]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
@@ -1086,39 +1124,9 @@ WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[25]) is unused a
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[24]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[23]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[22]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[21]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[20]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[19]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[18]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[17]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[16]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[15]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[14]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[13]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[12]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[11]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[10]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[9]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[8]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[7]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[6]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[5]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[4]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[3]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[2]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[1]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[0]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[63]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[62]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[61]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[60]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[59]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[58]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[57]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
-WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p1_reg[56]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2036.129 ; gain = 871.434 ; free physical = 143 ; free virtual = 3754
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 2038.180 ; gain = 873.480 ; free physical = 157 ; free virtual = 3664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1129,7 +1137,7 @@ Block RAM: Preliminary Mapping  Report (see note below)
 |Module Name                                              | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +---------------------------------------------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |contact_discoverybkb_ram:                                | ram_reg    | 128 x 512(WRITE_FIRST) | W | R |                        |   |   | Port A           | 15     | 0      | 
-|contact_discovery_db_mem_V_m_axi_buffer__parameterized0: | mem_reg    | 256 x 515(READ_FIRST)  | W |   | 256 x 515(WRITE_FIRST) |   | R | Port A and B     | 1      | 7      | 
+|contact_discovery_db_mem_V_m_axi_buffer__parameterized0: | mem_reg    | 64 x 515(READ_FIRST)   | W |   | 64 x 515(WRITE_FIRST)  |   | R | Port A and B     | 1      | 7      | 
 +---------------------------------------------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
@@ -1146,14 +1154,14 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:49 . Memory (MB): peak = 2686.082 ; gain = 1521.387 ; free physical = 106 ; free virtual = 2983
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 2688.133 ; gain = 1523.434 ; free physical = 100 ; free virtual = 2954
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5556] The block RAM contacts_V_U/contact_discoverybkb_ram_U/ram_reg may be mapped as a cascade chain, because it is not timing critical.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:56 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 199 ; free virtual = 2900
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 2802.219 ; gain = 1637.520 ; free physical = 129 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1202,7 +1210,7 @@ INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_ax
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_axi_U/bus_read/buff_rdata/mem_reg_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_axi_U/bus_read/buff_rdata/mem_reg_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:59 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 187 ; free virtual = 2896
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:51 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 123 ; free virtual = 2885
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1226,7 +1234,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 182 ; free virtual = 2898
+Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 117 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1239,7 +1247,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 184 ; free virtual = 2900
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 117 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1251,25 +1259,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 183 ; free virtual = 2900
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:53 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 115 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 183 ; free virtual = 2900
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:53 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 115 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 183 ; free virtual = 2900
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 115 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 183 ; free virtual = 2900
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 115 ; free virtual = 2886
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1288,7 +1296,7 @@ Dynamic Shift Register Report:
 |Module Name | RTL Name    | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
 +------------+-------------+--------+------------+--------+---------+--------+--------+--------+
 |dsrl        | mem_reg[4]  | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
-|dsrl__1     | mem_reg[4]  | 8      | 64         | 64     | 0       | 0      | 0      | 0      | 
+|dsrl__1     | mem_reg[4]  | 8      | 96         | 96     | 0       | 0      | 0      | 0      | 
 |dsrl__2     | mem_reg[14] | 16     | 2          | 2      | 0       | 0      | 0      | 0      | 
 |dsrl__3     | mem_reg[4]  | 8      | 2          | 2      | 0       | 0      | 0      | 0      | 
 +------------+-------------+--------+------------+--------+---------+--------+--------+--------+
@@ -1310,18 +1318,18 @@ Report Cell Usage:
 +------+-----------+------+
 |      |Cell       |Count |
 +------+-----------+------+
-|1     |CARRY8     |    49|
-|2     |LUT1       |    95|
-|3     |LUT2       |   125|
-|4     |LUT3       |  1227|
-|5     |LUT4       |   700|
-|6     |LUT5       |    86|
-|7     |LUT6       |   471|
+|1     |CARRY8     |    64|
+|2     |LUT1       |   159|
+|3     |LUT2       |   122|
+|4     |LUT3       |  1296|
+|5     |LUT4       |   673|
+|6     |LUT5       |    88|
+|7     |LUT6       |   548|
 |8     |RAMB18E2   |    15|
 |9     |RAMB18E2_1 |     1|
 |10    |RAMB36E2   |     7|
-|11    |SRL16E     |    28|
-|12    |FDRE       |  4819|
+|11    |SRL16E     |    60|
+|12    |FDRE       |  5049|
 |13    |FDSE       |    11|
 +------+-----------+------+
 
@@ -1329,27 +1337,27 @@ Report Instance Areas:
 +------+-------------------------------------+-----------------------------------------------------------+------+
 |      |Instance                             |Module                                                     |Cells |
 +------+-------------------------------------+-----------------------------------------------------------+------+
-|1     |top                                  |                                                           |  7634|
+|1     |top                                  |                                                           |  8093|
 |2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi                           |  1682|
-|3     |  contact_discovery_db_mem_V_m_axi_U |contact_discovery_db_mem_V_m_axi                           |  4220|
-|4     |    bus_read                         |contact_discovery_db_mem_V_m_axi_read                      |  4220|
-|5     |      buff_rdata                     |contact_discovery_db_mem_V_m_axi_buffer__parameterized0    |  1621|
-|6     |      fifo_rctl                      |contact_discovery_db_mem_V_m_axi_fifo__parameterized1      |    37|
-|7     |      fifo_rreq                      |contact_discovery_db_mem_V_m_axi_fifo__parameterized0      |   109|
+|3     |  contact_discovery_db_mem_V_m_axi_U |contact_discovery_db_mem_V_m_axi                           |  4679|
+|4     |    bus_read                         |contact_discovery_db_mem_V_m_axi_read                      |  4679|
+|5     |      buff_rdata                     |contact_discovery_db_mem_V_m_axi_buffer__parameterized0    |  1605|
+|6     |      fifo_rctl                      |contact_discovery_db_mem_V_m_axi_fifo__parameterized1      |    36|
+|7     |      fifo_rreq                      |contact_discovery_db_mem_V_m_axi_fifo__parameterized0      |   223|
 |8     |      rs_rdata                       |contact_discovery_db_mem_V_m_axi_reg_slice__parameterized0 |  1559|
-|9     |      rs_rreq                        |contact_discovery_db_mem_V_m_axi_reg_slice                 |    85|
+|9     |      rs_rreq                        |contact_discovery_db_mem_V_m_axi_reg_slice                 |   103|
 |10    |  contacts_V_U                       |contact_discoverybkb                                       |   195|
 |11    |    contact_discoverybkb_ram_U       |contact_discoverybkb_ram                                   |   195|
 |12    |  grp_match_db_contact_fu_170        |match_db_contact                                           |    85|
 +------+-------------------------------------+-----------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 2797.168 ; gain = 1632.473 ; free physical = 183 ; free virtual = 2900
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 2806.078 ; gain = 1641.379 ; free physical = 115 ; free virtual = 2885
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2441 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:00:51 . Memory (MB): peak = 2797.168 ; gain = 893.660 ; free physical = 222 ; free virtual = 2940
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 2797.176 ; gain = 1632.473 ; free physical = 219 ; free virtual = 2941
+Synthesis finished with 0 errors, 0 critical warnings and 2732 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 2806.078 ; gain = 901.512 ; free physical = 153 ; free virtual = 2925
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 2806.086 ; gain = 1641.379 ; free physical = 146 ; free virtual = 2922
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 49 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1371,9 +1379,9 @@ INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell contacts_V_U/con
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-317 Infos, 302 Warnings, 0 Critical Warnings and 0 Errors encountered.
+317 Infos, 303 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:01:06 . Memory (MB): peak = 2797.176 ; gain = 1691.922 ; free physical = 195 ; free virtual = 2964
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:57 . Memory (MB): peak = 2806.086 ; gain = 1700.828 ; free physical = 199 ; free virtual = 2948
 INFO: [Common 17-1381] The checkpoint '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/contact_discovery.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.39 . Memory (MB): peak = 2821.180 ; gain = 0.000 ; free physical = 153 ; free virtual = 2961
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 23 15:44:01 2018...
+report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.28 . Memory (MB): peak = 2830.090 ; gain = 0.000 ; free physical = 164 ; free virtual = 2951
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 23 16:07:30 2018...

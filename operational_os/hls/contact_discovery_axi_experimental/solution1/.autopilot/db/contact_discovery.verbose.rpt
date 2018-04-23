@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Mon Apr 23 15:41:06 2018
+* Date:           Mon Apr 23 16:05:32 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -205,7 +205,7 @@
 |interrupt                | out |    1| ap_ctrl_hs | contact_discovery | return value |
 |m_axi_db_mem_V_AWVALID   | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWREADY   |  in |    1|    m_axi   |      db_mem_V     |    pointer   |
-|m_axi_db_mem_V_AWADDR    | out |   32|    m_axi   |      db_mem_V     |    pointer   |
+|m_axi_db_mem_V_AWADDR    | out |   64|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWID      | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWLEN     | out |    8|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_AWSIZE    | out |    3|    m_axi   |      db_mem_V     |    pointer   |
@@ -225,7 +225,7 @@
 |m_axi_db_mem_V_WUSER     | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARVALID   | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARREADY   |  in |    1|    m_axi   |      db_mem_V     |    pointer   |
-|m_axi_db_mem_V_ARADDR    | out |   32|    m_axi   |      db_mem_V     |    pointer   |
+|m_axi_db_mem_V_ARADDR    | out |   64|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARID      | out |    1|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARLEN     | out |    8|    m_axi   |      db_mem_V     |    pointer   |
 |m_axi_db_mem_V_ARSIZE    | out |    3|    m_axi   |      db_mem_V     |    pointer   |
@@ -368,7 +368,7 @@ ST_1: operation_read (20)  [1/1] 0.00ns
 :10  %operation_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %operation)
 
 ST_1: StgValue_34 (21)  [1/1] 0.00ns
-:11  call void (...)* @_ssdm_op_SpecInterface(i512* %db_mem_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 536870912, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str2, [1 x i8]* @p_str2)
+:11  call void (...)* @_ssdm_op_SpecInterface(i512* %db_mem_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 536870912, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 16, i32 16, i32 4, i32 16, [1 x i8]* @p_str2, [1 x i8]* @p_str2)
 
 ST_1: StgValue_35 (22)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:43
 :12  call void (...)* @_ssdm_op_SpecInterface(i8* %results_out_V, [5 x i8]* @p_str3, i32 1, i32 1, [5 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
@@ -978,28 +978,28 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <comp id="42" class="1001" name="const_42">
 <pin_list>
-<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name="p_str3"/></StgValue>
-</bind>
-</comp>
-
-<comp id="44" class="1001" name="const_44">
-<pin_list>
-<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
-<comp id="46" class="1001" name="const_46">
+<comp id="44" class="1001" name="const_44">
 <pin_list>
-<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str4"/></StgValue>
+<StgValue><ssdm name="p_str3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -1008,7 +1008,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str5"/></StgValue>
+<StgValue><ssdm name="p_str4"/></StgValue>
 </bind>
 </comp>
 
@@ -1017,7 +1017,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str6"/></StgValue>
+<StgValue><ssdm name="p_str5"/></StgValue>
 </bind>
 </comp>
 
@@ -1026,7 +1026,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str7"/></StgValue>
+<StgValue><ssdm name="p_str6"/></StgValue>
 </bind>
 </comp>
 
@@ -1035,16 +1035,16 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str7"/></StgValue>
 </bind>
 </comp>
 
 <comp id="56" class="1001" name="const_56">
 <pin_list>
-<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Write.ap_none.i32P"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -1053,7 +1053,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="59" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Write.ap_none.i32P"/></StgValue>
 </bind>
 </comp>
 
@@ -1062,7 +1062,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="61" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_PartSelect.i25.i32.i32.i32"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -1071,7 +1071,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="63" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i25.i32.i32.i32"/></StgValue>
 </bind>
 </comp>
 
@@ -1107,7 +1107,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="71" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_ReadReq.m_axi.i512P"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -1116,7 +1116,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 <pin id="73" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_ReadReq.m_axi.i512P"/></StgValue>
 </bind>
 </comp>
 
@@ -1452,9 +1452,9 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <comp id="232" class="1004" name="db_mem_V_addr_fu_232">
 <pin_list>
-<pin id="233" dir="0" index="0" bw="32" slack="0"/>
-<pin id="234" dir="0" index="1" bw="32" slack="0"/>
-<pin id="235" dir="1" index="2" bw="32" slack="0"/>
+<pin id="233" dir="0" index="0" bw="64" slack="0"/>
+<pin id="234" dir="0" index="1" bw="64" slack="0"/>
+<pin id="235" dir="1" index="2" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
@@ -1643,25 +1643,25 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <net id="97"><net_src comp="0" pin="0"/><net_sink comp="92" pin=1"/></net>
 
-<net id="103"><net_src comp="56" pin="0"/><net_sink comp="98" pin=0"/></net>
+<net id="103"><net_src comp="58" pin="0"/><net_sink comp="98" pin=0"/></net>
 
 <net id="104"><net_src comp="8" pin="0"/><net_sink comp="98" pin=1"/></net>
 
 <net id="105"><net_src comp="34" pin="0"/><net_sink comp="98" pin=2"/></net>
 
-<net id="111"><net_src comp="56" pin="0"/><net_sink comp="106" pin=0"/></net>
+<net id="111"><net_src comp="58" pin="0"/><net_sink comp="106" pin=0"/></net>
 
 <net id="112"><net_src comp="10" pin="0"/><net_sink comp="106" pin=1"/></net>
 
 <net id="113"><net_src comp="34" pin="0"/><net_sink comp="106" pin=2"/></net>
 
-<net id="114"><net_src comp="58" pin="0"/><net_sink comp="98" pin=2"/></net>
+<net id="114"><net_src comp="60" pin="0"/><net_sink comp="98" pin=2"/></net>
 
-<net id="115"><net_src comp="44" pin="0"/><net_sink comp="98" pin=2"/></net>
+<net id="115"><net_src comp="46" pin="0"/><net_sink comp="98" pin=2"/></net>
 
-<net id="121"><net_src comp="70" pin="0"/><net_sink comp="116" pin=0"/></net>
+<net id="121"><net_src comp="72" pin="0"/><net_sink comp="116" pin=0"/></net>
 
-<net id="122"><net_src comp="72" pin="0"/><net_sink comp="116" pin=2"/></net>
+<net id="122"><net_src comp="42" pin="0"/><net_sink comp="116" pin=2"/></net>
 
 <net id="127"><net_src comp="74" pin="0"/><net_sink comp="123" pin=0"/></net>
 
@@ -1671,7 +1671,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <net id="140"><net_src comp="16" pin="0"/><net_sink comp="135" pin=0"/></net>
 
-<net id="141"><net_src comp="68" pin="0"/><net_sink comp="135" pin=1"/></net>
+<net id="141"><net_src comp="70" pin="0"/><net_sink comp="135" pin=1"/></net>
 
 <net id="146"><net_src comp="135" pin="3"/><net_sink comp="142" pin=0"/></net>
 
@@ -1701,19 +1701,19 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <net id="192"><net_src comp="14" pin="0"/><net_sink comp="187" pin=1"/></net>
 
-<net id="199"><net_src comp="60" pin="0"/><net_sink comp="193" pin=0"/></net>
+<net id="199"><net_src comp="62" pin="0"/><net_sink comp="193" pin=0"/></net>
 
-<net id="200"><net_src comp="62" pin="0"/><net_sink comp="193" pin=2"/></net>
+<net id="200"><net_src comp="64" pin="0"/><net_sink comp="193" pin=2"/></net>
 
-<net id="201"><net_src comp="64" pin="0"/><net_sink comp="193" pin=3"/></net>
+<net id="201"><net_src comp="66" pin="0"/><net_sink comp="193" pin=3"/></net>
 
 <net id="206"><net_src comp="193" pin="4"/><net_sink comp="202" pin=0"/></net>
 
-<net id="207"><net_src comp="66" pin="0"/><net_sink comp="202" pin=1"/></net>
+<net id="207"><net_src comp="68" pin="0"/><net_sink comp="202" pin=1"/></net>
 
 <net id="211"><net_src comp="208" pin="1"/><net_sink comp="135" pin=2"/></net>
 
-<net id="216"><net_src comp="44" pin="0"/><net_sink comp="212" pin=1"/></net>
+<net id="216"><net_src comp="46" pin="0"/><net_sink comp="212" pin=1"/></net>
 
 <net id="221"><net_src comp="212" pin="2"/><net_sink comp="217" pin=0"/></net>
 
@@ -1731,7 +1731,7 @@ StgValue_121         (ret          ) [ 00000000000000000000000]
 
 <net id="243"><net_src comp="151" pin="4"/><net_sink comp="239" pin=0"/></net>
 
-<net id="244"><net_src comp="72" pin="0"/><net_sink comp="239" pin=1"/></net>
+<net id="244"><net_src comp="42" pin="0"/><net_sink comp="239" pin=1"/></net>
 
 <net id="248"><net_src comp="170" pin="3"/><net_sink comp="245" pin=0"/></net>
 

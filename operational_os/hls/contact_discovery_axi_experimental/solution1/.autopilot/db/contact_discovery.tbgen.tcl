@@ -40,7 +40,7 @@ set portList {
 	{ ap_rst_n sc_in sc_logic 1 reset -1 active_low_sync } 
 	{ m_axi_db_mem_V_AWVALID sc_out sc_logic 1 signal 2 } 
 	{ m_axi_db_mem_V_AWREADY sc_in sc_logic 1 signal 2 } 
-	{ m_axi_db_mem_V_AWADDR sc_out sc_lv 32 signal 2 } 
+	{ m_axi_db_mem_V_AWADDR sc_out sc_lv 64 signal 2 } 
 	{ m_axi_db_mem_V_AWID sc_out sc_lv 1 signal 2 } 
 	{ m_axi_db_mem_V_AWLEN sc_out sc_lv 8 signal 2 } 
 	{ m_axi_db_mem_V_AWSIZE sc_out sc_lv 3 signal 2 } 
@@ -60,7 +60,7 @@ set portList {
 	{ m_axi_db_mem_V_WUSER sc_out sc_lv 1 signal 2 } 
 	{ m_axi_db_mem_V_ARVALID sc_out sc_logic 1 signal 2 } 
 	{ m_axi_db_mem_V_ARREADY sc_in sc_logic 1 signal 2 } 
-	{ m_axi_db_mem_V_ARADDR sc_out sc_lv 32 signal 2 } 
+	{ m_axi_db_mem_V_ARADDR sc_out sc_lv 64 signal 2 } 
 	{ m_axi_db_mem_V_ARID sc_out sc_lv 1 signal 2 } 
 	{ m_axi_db_mem_V_ARLEN sc_out sc_lv 8 signal 2 } 
 	{ m_axi_db_mem_V_ARSIZE sc_out sc_lv 3 signal 2 } 
@@ -128,7 +128,7 @@ set NewPortList {[
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
  	{ "name": "m_axi_db_mem_V_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWVALID" }} , 
  	{ "name": "m_axi_db_mem_V_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWREADY" }} , 
- 	{ "name": "m_axi_db_mem_V_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_db_mem_V_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWADDR" }} , 
  	{ "name": "m_axi_db_mem_V_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWID" }} , 
  	{ "name": "m_axi_db_mem_V_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWLEN" }} , 
  	{ "name": "m_axi_db_mem_V_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "db_mem_V", "role": "AWSIZE" }} , 
@@ -148,7 +148,7 @@ set NewPortList {[
  	{ "name": "m_axi_db_mem_V_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "WUSER" }} , 
  	{ "name": "m_axi_db_mem_V_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARVALID" }} , 
  	{ "name": "m_axi_db_mem_V_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARREADY" }} , 
- 	{ "name": "m_axi_db_mem_V_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_db_mem_V_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARADDR" }} , 
  	{ "name": "m_axi_db_mem_V_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARID" }} , 
  	{ "name": "m_axi_db_mem_V_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARLEN" }} , 
  	{ "name": "m_axi_db_mem_V_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "db_mem_V", "role": "ARSIZE" }} , 
@@ -250,12 +250,12 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	db_mem_V { m_axi {  { m_axi_db_mem_V_AWVALID VALID 1 1 }  { m_axi_db_mem_V_AWREADY READY 0 1 }  { m_axi_db_mem_V_AWADDR ADDR 1 32 }  { m_axi_db_mem_V_AWID ID 1 1 }  { m_axi_db_mem_V_AWLEN LEN 1 8 }  { m_axi_db_mem_V_AWSIZE SIZE 1 3 }  { m_axi_db_mem_V_AWBURST BURST 1 2 }  { m_axi_db_mem_V_AWLOCK LOCK 1 2 }  { m_axi_db_mem_V_AWCACHE CACHE 1 4 }  { m_axi_db_mem_V_AWPROT PROT 1 3 }  { m_axi_db_mem_V_AWQOS QOS 1 4 }  { m_axi_db_mem_V_AWREGION REGION 1 4 }  { m_axi_db_mem_V_AWUSER USER 1 1 }  { m_axi_db_mem_V_WVALID VALID 1 1 }  { m_axi_db_mem_V_WREADY READY 0 1 }  { m_axi_db_mem_V_WDATA DATA 1 512 }  { m_axi_db_mem_V_WSTRB STRB 1 64 }  { m_axi_db_mem_V_WLAST LAST 1 1 }  { m_axi_db_mem_V_WID ID 1 1 }  { m_axi_db_mem_V_WUSER USER 1 1 }  { m_axi_db_mem_V_ARVALID VALID 1 1 }  { m_axi_db_mem_V_ARREADY READY 0 1 }  { m_axi_db_mem_V_ARADDR ADDR 1 32 }  { m_axi_db_mem_V_ARID ID 1 1 }  { m_axi_db_mem_V_ARLEN LEN 1 8 }  { m_axi_db_mem_V_ARSIZE SIZE 1 3 }  { m_axi_db_mem_V_ARBURST BURST 1 2 }  { m_axi_db_mem_V_ARLOCK LOCK 1 2 }  { m_axi_db_mem_V_ARCACHE CACHE 1 4 }  { m_axi_db_mem_V_ARPROT PROT 1 3 }  { m_axi_db_mem_V_ARQOS QOS 1 4 }  { m_axi_db_mem_V_ARREGION REGION 1 4 }  { m_axi_db_mem_V_ARUSER USER 1 1 }  { m_axi_db_mem_V_RVALID VALID 0 1 }  { m_axi_db_mem_V_RREADY READY 1 1 }  { m_axi_db_mem_V_RDATA DATA 0 512 }  { m_axi_db_mem_V_RLAST LAST 0 1 }  { m_axi_db_mem_V_RID ID 0 1 }  { m_axi_db_mem_V_RUSER USER 0 1 }  { m_axi_db_mem_V_RRESP RESP 0 2 }  { m_axi_db_mem_V_BVALID VALID 0 1 }  { m_axi_db_mem_V_BREADY READY 1 1 }  { m_axi_db_mem_V_BRESP RESP 0 2 }  { m_axi_db_mem_V_BID ID 0 1 }  { m_axi_db_mem_V_BUSER USER 0 1 } } }
+	db_mem_V { m_axi {  { m_axi_db_mem_V_AWVALID VALID 1 1 }  { m_axi_db_mem_V_AWREADY READY 0 1 }  { m_axi_db_mem_V_AWADDR ADDR 1 64 }  { m_axi_db_mem_V_AWID ID 1 1 }  { m_axi_db_mem_V_AWLEN LEN 1 8 }  { m_axi_db_mem_V_AWSIZE SIZE 1 3 }  { m_axi_db_mem_V_AWBURST BURST 1 2 }  { m_axi_db_mem_V_AWLOCK LOCK 1 2 }  { m_axi_db_mem_V_AWCACHE CACHE 1 4 }  { m_axi_db_mem_V_AWPROT PROT 1 3 }  { m_axi_db_mem_V_AWQOS QOS 1 4 }  { m_axi_db_mem_V_AWREGION REGION 1 4 }  { m_axi_db_mem_V_AWUSER USER 1 1 }  { m_axi_db_mem_V_WVALID VALID 1 1 }  { m_axi_db_mem_V_WREADY READY 0 1 }  { m_axi_db_mem_V_WDATA DATA 1 512 }  { m_axi_db_mem_V_WSTRB STRB 1 64 }  { m_axi_db_mem_V_WLAST LAST 1 1 }  { m_axi_db_mem_V_WID ID 1 1 }  { m_axi_db_mem_V_WUSER USER 1 1 }  { m_axi_db_mem_V_ARVALID VALID 1 1 }  { m_axi_db_mem_V_ARREADY READY 0 1 }  { m_axi_db_mem_V_ARADDR ADDR 1 64 }  { m_axi_db_mem_V_ARID ID 1 1 }  { m_axi_db_mem_V_ARLEN LEN 1 8 }  { m_axi_db_mem_V_ARSIZE SIZE 1 3 }  { m_axi_db_mem_V_ARBURST BURST 1 2 }  { m_axi_db_mem_V_ARLOCK LOCK 1 2 }  { m_axi_db_mem_V_ARCACHE CACHE 1 4 }  { m_axi_db_mem_V_ARPROT PROT 1 3 }  { m_axi_db_mem_V_ARQOS QOS 1 4 }  { m_axi_db_mem_V_ARREGION REGION 1 4 }  { m_axi_db_mem_V_ARUSER USER 1 1 }  { m_axi_db_mem_V_RVALID VALID 0 1 }  { m_axi_db_mem_V_RREADY READY 1 1 }  { m_axi_db_mem_V_RDATA DATA 0 512 }  { m_axi_db_mem_V_RLAST LAST 0 1 }  { m_axi_db_mem_V_RID ID 0 1 }  { m_axi_db_mem_V_RUSER USER 0 1 }  { m_axi_db_mem_V_RRESP RESP 0 2 }  { m_axi_db_mem_V_BVALID VALID 0 1 }  { m_axi_db_mem_V_BREADY READY 1 1 }  { m_axi_db_mem_V_BRESP RESP 0 2 }  { m_axi_db_mem_V_BID ID 0 1 }  { m_axi_db_mem_V_BUSER USER 0 1 } } }
 	results_out_V { axis {  { results_out_V_TDATA out_data 1 8 }  { results_out_V_TVALID out_vld 1 1 }  { results_out_V_TREADY out_acc 0 1 } } }
 }
 
 set busDeadlockParameterList { 
-	{ db_mem_V { NUM_READ_OUTSTANDING 16 NUM_WRITE_OUTSTANDING 16 MAX_READ_BURST_LENGTH 16 MAX_WRITE_BURST_LENGTH 16 } } \
+	{ db_mem_V { NUM_READ_OUTSTANDING 16 NUM_WRITE_OUTSTANDING 16 MAX_READ_BURST_LENGTH 4 MAX_WRITE_BURST_LENGTH 16 } } \
 }
 
 # RTL port scheduling information:

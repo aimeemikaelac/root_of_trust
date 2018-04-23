@@ -18,7 +18,7 @@
 
 namespace ap_rtl {
 
-template<unsigned int C_M_AXI_DB_MEM_V_ADDR_WIDTH = 32,
+template<unsigned int C_M_AXI_DB_MEM_V_ADDR_WIDTH = 64,
          unsigned int C_M_AXI_DB_MEM_V_ID_WIDTH = 1,
          unsigned int C_M_AXI_DB_MEM_V_AWUSER_WIDTH = 1,
          unsigned int C_M_AXI_DB_MEM_V_DATA_WIDTH = 512,
@@ -100,14 +100,14 @@ struct contact_discovery : public sc_module {
     sc_out< sc_logic > interrupt;
     sc_signal< sc_logic > ap_var_for_const0;
     sc_signal< sc_logic > ap_var_for_const6;
-    sc_signal< sc_lv<32> > ap_var_for_const7;
+    sc_signal< sc_lv<32> > ap_var_for_const8;
     sc_signal< sc_lv<1> > ap_var_for_const1;
     sc_signal< sc_lv<2> > ap_var_for_const4;
     sc_signal< sc_lv<32> > ap_var_for_const2;
     sc_signal< sc_lv<3> > ap_var_for_const3;
     sc_signal< sc_lv<4> > ap_var_for_const5;
-    sc_signal< sc_lv<512> > ap_var_for_const8;
-    sc_signal< sc_lv<64> > ap_var_for_const9;
+    sc_signal< sc_lv<64> > ap_var_for_const7;
+    sc_signal< sc_lv<512> > ap_var_for_const9;
 
 
     // Module declarations
@@ -122,7 +122,7 @@ struct contact_discovery : public sc_module {
     ofstream mHdltvoutHandle;
     contact_discoverybkb* contacts_V_U;
     contact_discovery_AXILiteS_s_axi<C_S_AXI_AXILITES_ADDR_WIDTH,C_S_AXI_AXILITES_DATA_WIDTH>* contact_discovery_AXILiteS_s_axi_U;
-    contact_discovery_db_mem_V_m_axi<512,32,5,16,16,16,16,C_M_AXI_DB_MEM_V_ID_WIDTH,C_M_AXI_DB_MEM_V_ADDR_WIDTH,C_M_AXI_DB_MEM_V_DATA_WIDTH,C_M_AXI_DB_MEM_V_AWUSER_WIDTH,C_M_AXI_DB_MEM_V_ARUSER_WIDTH,C_M_AXI_DB_MEM_V_WUSER_WIDTH,C_M_AXI_DB_MEM_V_RUSER_WIDTH,C_M_AXI_DB_MEM_V_BUSER_WIDTH,C_M_AXI_DB_MEM_V_TARGET_ADDR,C_M_AXI_DB_MEM_V_USER_VALUE,C_M_AXI_DB_MEM_V_PROT_VALUE,C_M_AXI_DB_MEM_V_CACHE_VALUE>* contact_discovery_db_mem_V_m_axi_U;
+    contact_discovery_db_mem_V_m_axi<512,64,5,16,16,4,16,C_M_AXI_DB_MEM_V_ID_WIDTH,C_M_AXI_DB_MEM_V_ADDR_WIDTH,C_M_AXI_DB_MEM_V_DATA_WIDTH,C_M_AXI_DB_MEM_V_AWUSER_WIDTH,C_M_AXI_DB_MEM_V_ARUSER_WIDTH,C_M_AXI_DB_MEM_V_WUSER_WIDTH,C_M_AXI_DB_MEM_V_RUSER_WIDTH,C_M_AXI_DB_MEM_V_BUSER_WIDTH,C_M_AXI_DB_MEM_V_TARGET_ADDR,C_M_AXI_DB_MEM_V_USER_VALUE,C_M_AXI_DB_MEM_V_PROT_VALUE,C_M_AXI_DB_MEM_V_CACHE_VALUE>* contact_discovery_db_mem_V_m_axi_U;
     match_db_contact* grp_match_db_contact_fu_170;
     sc_signal< sc_logic > ap_rst_n_inv;
     sc_signal< sc_logic > ap_start;
@@ -188,7 +188,6 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_logic > db_mem_V_WREADY;
     sc_signal< sc_logic > db_mem_V_ARVALID;
     sc_signal< sc_logic > db_mem_V_ARREADY;
-    sc_signal< sc_lv<32> > db_mem_V_ARADDR;
     sc_signal< sc_logic > db_mem_V_RVALID;
     sc_signal< sc_logic > db_mem_V_RREADY;
     sc_signal< sc_lv<512> > db_mem_V_RDATA;
@@ -296,19 +295,19 @@ struct contact_discovery : public sc_module {
     static const sc_lv<32> ap_const_lv32_1F;
     static const sc_lv<25> ap_const_lv25_0;
     static const sc_lv<32> ap_const_lv32_15;
-    static const sc_lv<512> ap_const_lv512_lc_1;
     static const sc_lv<64> ap_const_lv64_0;
+    static const sc_lv<512> ap_const_lv512_lc_1;
     static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_var_for_const0();
     void thread_ap_var_for_const6();
-    void thread_ap_var_for_const7();
+    void thread_ap_var_for_const8();
     void thread_ap_var_for_const1();
     void thread_ap_var_for_const4();
     void thread_ap_var_for_const2();
     void thread_ap_var_for_const3();
     void thread_ap_var_for_const5();
-    void thread_ap_var_for_const8();
+    void thread_ap_var_for_const7();
     void thread_ap_var_for_const9();
     void thread_ap_clk_no_reset_();
     void thread_ap_CS_fsm_state1();
@@ -342,7 +341,6 @@ struct contact_discovery : public sc_module {
     void thread_contacts_size_out_1_data_in();
     void thread_contacts_size_out_1_vld_in();
     void thread_database_index_1_fu_239_p2();
-    void thread_db_mem_V_ARADDR();
     void thread_db_mem_V_ARVALID();
     void thread_db_mem_V_RREADY();
     void thread_db_mem_V_blk_n_AR();

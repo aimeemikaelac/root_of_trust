@@ -6,7 +6,7 @@
 <Project Version="7" Minor="20" Path="/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="93424cbf168740d4bac972c43bccd0f9"/>
+    <Option Name="Id" Val="aa41557485c646b589d837e5ee53c7d0"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-1-i"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

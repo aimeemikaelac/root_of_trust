@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Mon Apr 23 15:44:00 2018
+| Date         : Mon Apr 23 16:07:29 2018
 | Host         : aimee-VirtualBox running 64-bit Ubuntu 16.04.4 LTS
 | Command      : report_utilization -file contact_discovery_utilization_synth.rpt -pb contact_discovery_utilization_synth.pb
 | Design       : contact_discovery
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| CLB LUTs*                  | 2050 |     0 |    274080 |  0.75 |
-|   LUT as Logic             | 2022 |     0 |    274080 |  0.74 |
-|   LUT as Memory            |   28 |     0 |    144000 |  0.02 |
+| CLB LUTs*                  | 2248 |     0 |    274080 |  0.82 |
+|   LUT as Logic             | 2188 |     0 |    274080 |  0.80 |
+|   LUT as Memory            |   60 |     0 |    144000 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |   28 |     0 |           |       |
-| CLB Registers              | 4830 |     0 |    548160 |  0.88 |
-|   Register as Flip Flop    | 4830 |     0 |    548160 |  0.88 |
+|     LUT as Shift Register  |   60 |     0 |           |       |
+| CLB Registers              | 5060 |     0 |    548160 |  0.92 |
+|   Register as Flip Flop    | 5060 |     0 |    548160 |  0.92 |
 |   Register as Latch        |    0 |     0 |    548160 |  0.00 |
-| CARRY8                     |   49 |     0 |     34260 |  0.14 |
+| CARRY8                     |   64 |     0 |     34260 |  0.19 |
 | F7 Muxes                   |    0 |     0 |    137040 |  0.00 |
 | F8 Muxes                   |    0 |     0 |     68520 |  0.00 |
 | F9 Muxes                   |    0 |     0 |     34260 |  0.00 |
@@ -62,7 +62,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 11    |          Yes |         Set |            - |
-| 4819  |          Yes |       Reset |            - |
+| 5049  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -156,15 +156,15 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 4819 |            Register |
-| LUT3     | 1227 |                 CLB |
-| LUT4     |  700 |                 CLB |
-| LUT6     |  471 |                 CLB |
-| LUT2     |  125 |                 CLB |
-| LUT1     |   95 |                 CLB |
-| LUT5     |   86 |                 CLB |
-| CARRY8   |   49 |                 CLB |
-| SRL16E   |   28 |                 CLB |
+| FDRE     | 5049 |            Register |
+| LUT3     | 1296 |                 CLB |
+| LUT4     |  673 |                 CLB |
+| LUT6     |  548 |                 CLB |
+| LUT1     |  159 |                 CLB |
+| LUT2     |  122 |                 CLB |
+| LUT5     |   88 |                 CLB |
+| CARRY8   |   64 |                 CLB |
+| SRL16E   |   60 |                 CLB |
 | RAMB18E2 |   16 |           Block Ram |
 | FDSE     |   11 |            Register |
 | RAMB36E2 |    7 |           Block Ram |

@@ -4,11 +4,11 @@
   <xd:arg xd:name="operation" xd:originalName="operation" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
   <xd:arg xd:name="contact_in" xd:originalName="contact_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="512"/>
   <xd:arg xd:name="db_mem[]" xd:originalName="db_mem" xd:direction="inout" xd:interfaceRef="m_axi_db_mem_V" xd:busTypeRef="aximm" xd:arraySize="8388608" xd:dataWidth="512" xd:bufferDirection="in"/>
-  <xd:arg xd:name="offset" xd:originalName="offset" xd:direction="in" xd:interfaceRef="offset" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="64"/>
-  <xd:arg xd:name="db_size_in" xd:originalName="db_size_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:dataWidth="32" xd:offset="0x5C" xd:handshakeRef="ap_none"/>
-  <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:dataWidth="32" xd:offset="0x64" xd:statusOffset="0x68" xd:handshakeRef="ap_none"/>
-  <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:dataWidth="32" xd:offset="0x6C" xd:statusOffset="0x70" xd:handshakeRef="ap_none"/>
+  <xd:arg xd:name="offset" xd:originalName="offset" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x5C" xd:handshakeRef="ap_none" xd:dataWidth="64"/>
+  <xd:arg xd:name="db_size_in" xd:originalName="db_size_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x68" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x70" xd:statusOffset="0x74" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x78" xd:statusOffset="0x7C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="3913" xd:FF="3618" xd:BRAM="45" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="4041" xd:FF="3688" xd:BRAM="45" xd:DSP="0"/>
 </xd:acceleratorMap>

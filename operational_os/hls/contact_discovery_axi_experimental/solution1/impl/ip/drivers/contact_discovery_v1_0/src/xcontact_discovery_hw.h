@@ -62,15 +62,20 @@
 // 0x54 : Data signal of contact_in_V
 //        bit 31~0 - contact_in_V[511:480] (Read/Write)
 // 0x58 : reserved
-// 0x5c : Data signal of db_size_in
+// 0x5c : Data signal of offset
+//        bit 31~0 - offset[31:0] (Read/Write)
+// 0x60 : Data signal of offset
+//        bit 31~0 - offset[63:32] (Read/Write)
+// 0x64 : reserved
+// 0x68 : Data signal of db_size_in
 //        bit 31~0 - db_size_in[31:0] (Read/Write)
-// 0x60 : reserved
-// 0x64 : Data signal of error_out
+// 0x6c : reserved
+// 0x70 : Data signal of error_out
 //        bit 31~0 - error_out[31:0] (Read)
-// 0x68 : reserved
-// 0x6c : Data signal of contacts_size_out
+// 0x74 : reserved
+// 0x78 : Data signal of contacts_size_out
 //        bit 31~0 - contacts_size_out[31:0] (Read)
-// 0x70 : reserved
+// 0x7c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_AP_CTRL                0x00
@@ -84,10 +89,12 @@
 #define XCONTACT_DISCOVERY_AXILITES_BITS_CONTACT_IN_V_DATA      512
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACT_IN_V_DATA_     0x40
 #define XCONTACT_DISCOVERY_AXILITES_BITS_CONTACT_IN_V_DATA      512
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_DB_SIZE_IN_DATA        0x5c
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_OFFSET_DATA            0x5c
+#define XCONTACT_DISCOVERY_AXILITES_BITS_OFFSET_DATA            64
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_DB_SIZE_IN_DATA        0x68
 #define XCONTACT_DISCOVERY_AXILITES_BITS_DB_SIZE_IN_DATA        32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_ERROR_OUT_DATA         0x64
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_ERROR_OUT_DATA         0x70
 #define XCONTACT_DISCOVERY_AXILITES_BITS_ERROR_OUT_DATA         32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA 0x6c
+#define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA 0x78
 #define XCONTACT_DISCOVERY_AXILITES_BITS_CONTACTS_SIZE_OUT_DATA 32
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Mon Apr 23 16:16:57 2018
+<item name = "Date">Mon Apr 23 16:24:09 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_experimental</item>
@@ -49,7 +49,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 319, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">30, -, 2142, 3232, -</column>
+<column name="Instance">30, -, 2212, 3360, -</column>
 <column name="Memory">15, -, 0, 0, -</column>
 <column name="Multiplexer">-, -, -, 362, -</column>
 <column name="Register">-, -, 1476, -, -</column>
@@ -61,7 +61,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 0, 0, 706, 1320</column>
+<column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 0, 0, 776, 1448</column>
 <column name="contact_discovery_db_mem_V_m_axi_U">contact_discovery_db_mem_V_m_axi, 30, 0, 1415, 1585</column>
 <column name="grp_match_db_contact_fu_186">match_db_contact, 0, 0, 21, 327</column>
 </table>
@@ -226,7 +226,6 @@
 <column name="m_axi_db_mem_V_BRESP">in, 2, m_axi, db_mem_V, pointer</column>
 <column name="m_axi_db_mem_V_BID">in, 1, m_axi, db_mem_V, pointer</column>
 <column name="m_axi_db_mem_V_BUSER">in, 1, m_axi, db_mem_V, pointer</column>
-<column name="offset">in, 64, ap_none, offset, scalar</column>
 <column name="results_out_V_TDATA">out, 8, axis, results_out_V, pointer</column>
 <column name="results_out_V_TVALID">out, 1, axis, results_out_V, pointer</column>
 <column name="results_out_V_TREADY">in, 1, axis, results_out_V, pointer</column>
@@ -238,9 +237,9 @@
 <item name = "Max Delay">8.75</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'sum_cast', contact_discovery_axi_experimental/src/contact_discovery.cpp:78">zext, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'db_mem_V_addr', contact_discovery_axi_experimental/src/contact_discovery.cpp:78">getelementptr, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'db_mem_V_load_req', contact_discovery_axi_experimental/src/contact_discovery.cpp:88">readreq, 8.75, 8.75, -, -, -, m_axi, request, &apos;db_mem_V&apos;, -, -, -, -, -</column>
+<column name="'sum_cast', contact_discovery_axi_experimental/src/contact_discovery.cpp:80">zext, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'db_mem_V_addr', contact_discovery_axi_experimental/src/contact_discovery.cpp:80">getelementptr, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'db_mem_V_load_req', contact_discovery_axi_experimental/src/contact_discovery.cpp:90">readreq, 8.75, 8.75, -, -, -, m_axi, request, &apos;db_mem_V&apos;, -, -, -, -, -</column>
 </table>
 </item>
 </section>

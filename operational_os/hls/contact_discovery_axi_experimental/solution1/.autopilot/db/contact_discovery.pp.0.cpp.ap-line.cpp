@@ -41512,6 +41512,8 @@ void contact_discovery(
  int *contacts_size_out,
  hls::stream<unsigned char> &results_out
 ){
+#pragma HLS INTERFACE ap_none port=offset
+#pragma HLS INTERFACE s_axilite port=offset
 #pragma HLS INTERFACE m_axi depth=536870912 port=db_mem max_read_burst_length=4
 #pragma HLS INTERFACE axis register both port=results_out
 //#pragma HLS INTERFACE axis register both port=db_in

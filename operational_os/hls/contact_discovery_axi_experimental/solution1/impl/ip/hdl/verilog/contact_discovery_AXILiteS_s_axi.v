@@ -41,6 +41,7 @@ module contact_discovery_AXILiteS_s_axi
     output wire [31:0]                   operation,
     output wire                          operation_ap_vld,
     output wire [511:0]                  contact_in_V,
+    output wire [63:0]                   offset,
     output wire [31:0]                   db_size_in,
     input  wire [31:0]                   error_out,
     input  wire [31:0]                   contacts_size_out
@@ -102,15 +103,20 @@ module contact_discovery_AXILiteS_s_axi
 // 0x54 : Data signal of contact_in_V
 //        bit 31~0 - contact_in_V[511:480] (Read/Write)
 // 0x58 : reserved
-// 0x5c : Data signal of db_size_in
+// 0x5c : Data signal of offset
+//        bit 31~0 - offset[31:0] (Read/Write)
+// 0x60 : Data signal of offset
+//        bit 31~0 - offset[63:32] (Read/Write)
+// 0x64 : reserved
+// 0x68 : Data signal of db_size_in
 //        bit 31~0 - db_size_in[31:0] (Read/Write)
-// 0x60 : reserved
-// 0x64 : Data signal of error_out
+// 0x6c : reserved
+// 0x70 : Data signal of error_out
 //        bit 31~0 - error_out[31:0] (Read)
-// 0x68 : reserved
-// 0x6c : Data signal of contacts_size_out
+// 0x74 : reserved
+// 0x78 : Data signal of contacts_size_out
 //        bit 31~0 - contacts_size_out[31:0] (Read)
-// 0x70 : reserved
+// 0x7c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -138,12 +144,15 @@ localparam
     ADDR_CONTACT_IN_V_DATA_14     = 7'h50,
     ADDR_CONTACT_IN_V_DATA_15     = 7'h54,
     ADDR_CONTACT_IN_V_CTRL        = 7'h58,
-    ADDR_DB_SIZE_IN_DATA_0        = 7'h5c,
-    ADDR_DB_SIZE_IN_CTRL          = 7'h60,
-    ADDR_ERROR_OUT_DATA_0         = 7'h64,
-    ADDR_ERROR_OUT_CTRL           = 7'h68,
-    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 7'h6c,
-    ADDR_CONTACTS_SIZE_OUT_CTRL   = 7'h70,
+    ADDR_OFFSET_DATA_0            = 7'h5c,
+    ADDR_OFFSET_DATA_1            = 7'h60,
+    ADDR_OFFSET_CTRL              = 7'h64,
+    ADDR_DB_SIZE_IN_DATA_0        = 7'h68,
+    ADDR_DB_SIZE_IN_CTRL          = 7'h6c,
+    ADDR_ERROR_OUT_DATA_0         = 7'h70,
+    ADDR_ERROR_OUT_CTRL           = 7'h74,
+    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 7'h78,
+    ADDR_CONTACTS_SIZE_OUT_CTRL   = 7'h7c,
     WRIDLE                        = 2'd0,
     WRDATA                        = 2'd1,
     WRRESP                        = 2'd2,
@@ -177,6 +186,7 @@ localparam
     reg  [31:0]                   int_operation = 'b0;
     reg                           int_operation_ap_vld = 1'b0;
     reg  [511:0]                  int_contact_in_V = 'b0;
+    reg  [63:0]                   int_offset = 'b0;
     reg  [31:0]                   int_db_size_in = 'b0;
     reg  [31:0]                   int_error_out = 'b0;
     reg  [31:0]                   int_contacts_size_out = 'b0;
@@ -341,6 +351,12 @@ always @(posedge ACLK) begin
                 ADDR_CONTACT_IN_V_DATA_15: begin
                     rdata <= int_contact_in_V[511:480];
                 end
+                ADDR_OFFSET_DATA_0: begin
+                    rdata <= int_offset[31:0];
+                end
+                ADDR_OFFSET_DATA_1: begin
+                    rdata <= int_offset[63:32];
+                end
                 ADDR_DB_SIZE_IN_DATA_0: begin
                     rdata <= int_db_size_in[31:0];
                 end
@@ -364,6 +380,7 @@ assign int_ap_ready     = ap_ready;
 assign operation        = int_operation;
 assign operation_ap_vld = int_operation_ap_vld;
 assign contact_in_V     = int_contact_in_V;
+assign offset           = int_offset;
 assign db_size_in       = int_db_size_in;
 // int_ap_start
 always @(posedge ACLK) begin
@@ -622,6 +639,26 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_CONTACT_IN_V_DATA_15)
             int_contact_in_V[511:480] <= (WDATA[31:0] & wmask) | (int_contact_in_V[511:480] & ~wmask);
+    end
+end
+
+// int_offset[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_offset[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_OFFSET_DATA_0)
+            int_offset[31:0] <= (WDATA[31:0] & wmask) | (int_offset[31:0] & ~wmask);
+    end
+end
+
+// int_offset[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_offset[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_OFFSET_DATA_1)
+            int_offset[63:32] <= (WDATA[31:0] & wmask) | (int_offset[63:32] & ~wmask);
     end
 end
 

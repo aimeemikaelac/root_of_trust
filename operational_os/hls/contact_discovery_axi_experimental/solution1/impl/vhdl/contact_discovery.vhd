@@ -21,10 +21,10 @@ generic (
     C_M_AXI_DB_MEM_V_BUSER_WIDTH : INTEGER := 1;
     C_S_AXI_AXILITES_ADDR_WIDTH : INTEGER := 7;
     C_S_AXI_AXILITES_DATA_WIDTH : INTEGER := 32;
-    C_M_AXI_DB_MEM_V_USER_VALUE : INTEGER := 0;
-    C_M_AXI_DB_MEM_V_CACHE_VALUE : INTEGER := 3;
+    C_M_AXI_DB_MEM_V_PROT_VALUE : INTEGER := 0;
     C_M_AXI_DB_MEM_V_TARGET_ADDR : INTEGER := 0;
-    C_M_AXI_DB_MEM_V_PROT_VALUE : INTEGER := 0 );
+    C_M_AXI_DB_MEM_V_USER_VALUE : INTEGER := 0;
+    C_M_AXI_DB_MEM_V_CACHE_VALUE : INTEGER := 3 );
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
@@ -73,7 +73,6 @@ port (
     m_axi_db_mem_V_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
     m_axi_db_mem_V_BID : IN STD_LOGIC_VECTOR (C_M_AXI_DB_MEM_V_ID_WIDTH-1 downto 0);
     m_axi_db_mem_V_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_DB_MEM_V_BUSER_WIDTH-1 downto 0);
-    offset : IN STD_LOGIC_VECTOR (63 downto 0);
     results_out_V_TDATA : OUT STD_LOGIC_VECTOR (7 downto 0);
     results_out_V_TVALID : OUT STD_LOGIC;
     results_out_V_TREADY : IN STD_LOGIC;
@@ -101,7 +100,7 @@ end;
 architecture behav of contact_discovery is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3618,HLS_SYN_LUT=3913}";
+    "contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3688,HLS_SYN_LUT=4041}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (22 downto 0) := "00000000000000000000001";
@@ -185,6 +184,7 @@ architecture behav of contact_discovery is
     signal operation_ap_vld_preg : STD_LOGIC := '0';
     signal operation_ap_vld_in_sig : STD_LOGIC;
     signal contact_in_V : STD_LOGIC_VECTOR (511 downto 0);
+    signal offset : STD_LOGIC_VECTOR (63 downto 0);
     signal db_size_in : STD_LOGIC_VECTOR (31 downto 0);
     signal error_out_1_data_reg : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal error_out_1_data_in : STD_LOGIC_VECTOR (31 downto 0);
@@ -393,6 +393,7 @@ architecture behav of contact_discovery is
         operation : OUT STD_LOGIC_VECTOR (31 downto 0);
         operation_ap_vld : OUT STD_LOGIC;
         contact_in_V : OUT STD_LOGIC_VECTOR (511 downto 0);
+        offset : OUT STD_LOGIC_VECTOR (63 downto 0);
         db_size_in : OUT STD_LOGIC_VECTOR (31 downto 0);
         error_out : IN STD_LOGIC_VECTOR (31 downto 0);
         contacts_size_out : IN STD_LOGIC_VECTOR (31 downto 0) );
@@ -566,6 +567,7 @@ begin
         operation => operation,
         operation_ap_vld => operation_ap_vld,
         contact_in_V => contact_in_V,
+        offset => offset,
         db_size_in => db_size_in,
         error_out => error_out_1_data_reg,
         contacts_size_out => contacts_size_out_1_data_reg);

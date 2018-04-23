@@ -44,6 +44,7 @@ port (
     operation             :out  STD_LOGIC_VECTOR(31 downto 0);
     operation_ap_vld      :out  STD_LOGIC;
     contact_in_V          :out  STD_LOGIC_VECTOR(511 downto 0);
+    offset                :out  STD_LOGIC_VECTOR(63 downto 0);
     db_size_in            :out  STD_LOGIC_VECTOR(31 downto 0);
     error_out             :in   STD_LOGIC_VECTOR(31 downto 0);
     contacts_size_out     :in   STD_LOGIC_VECTOR(31 downto 0)
@@ -107,15 +108,20 @@ end entity contact_discovery_AXILiteS_s_axi;
 -- 0x54 : Data signal of contact_in_V
 --        bit 31~0 - contact_in_V[511:480] (Read/Write)
 -- 0x58 : reserved
--- 0x5c : Data signal of db_size_in
+-- 0x5c : Data signal of offset
+--        bit 31~0 - offset[31:0] (Read/Write)
+-- 0x60 : Data signal of offset
+--        bit 31~0 - offset[63:32] (Read/Write)
+-- 0x64 : reserved
+-- 0x68 : Data signal of db_size_in
 --        bit 31~0 - db_size_in[31:0] (Read/Write)
--- 0x60 : reserved
--- 0x64 : Data signal of error_out
+-- 0x6c : reserved
+-- 0x70 : Data signal of error_out
 --        bit 31~0 - error_out[31:0] (Read)
--- 0x68 : reserved
--- 0x6c : Data signal of contacts_size_out
+-- 0x74 : reserved
+-- 0x78 : Data signal of contacts_size_out
 --        bit 31~0 - contacts_size_out[31:0] (Read)
--- 0x70 : reserved
+-- 0x7c : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of contact_discovery_AXILiteS_s_axi is
@@ -146,12 +152,15 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     constant ADDR_CONTACT_IN_V_DATA_14     : INTEGER := 16#50#;
     constant ADDR_CONTACT_IN_V_DATA_15     : INTEGER := 16#54#;
     constant ADDR_CONTACT_IN_V_CTRL        : INTEGER := 16#58#;
-    constant ADDR_DB_SIZE_IN_DATA_0        : INTEGER := 16#5c#;
-    constant ADDR_DB_SIZE_IN_CTRL          : INTEGER := 16#60#;
-    constant ADDR_ERROR_OUT_DATA_0         : INTEGER := 16#64#;
-    constant ADDR_ERROR_OUT_CTRL           : INTEGER := 16#68#;
-    constant ADDR_CONTACTS_SIZE_OUT_DATA_0 : INTEGER := 16#6c#;
-    constant ADDR_CONTACTS_SIZE_OUT_CTRL   : INTEGER := 16#70#;
+    constant ADDR_OFFSET_DATA_0            : INTEGER := 16#5c#;
+    constant ADDR_OFFSET_DATA_1            : INTEGER := 16#60#;
+    constant ADDR_OFFSET_CTRL              : INTEGER := 16#64#;
+    constant ADDR_DB_SIZE_IN_DATA_0        : INTEGER := 16#68#;
+    constant ADDR_DB_SIZE_IN_CTRL          : INTEGER := 16#6c#;
+    constant ADDR_ERROR_OUT_DATA_0         : INTEGER := 16#70#;
+    constant ADDR_ERROR_OUT_CTRL           : INTEGER := 16#74#;
+    constant ADDR_CONTACTS_SIZE_OUT_DATA_0 : INTEGER := 16#78#;
+    constant ADDR_CONTACTS_SIZE_OUT_CTRL   : INTEGER := 16#7c#;
     constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -177,6 +186,7 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal int_operation       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_operation_ap_vld : STD_LOGIC := '0';
     signal int_contact_in_V    : UNSIGNED(511 downto 0) := (others => '0');
+    signal int_offset          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_db_size_in      : UNSIGNED(31 downto 0) := (others => '0');
     signal int_error_out       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_contacts_size_out : UNSIGNED(31 downto 0) := (others => '0');
@@ -337,6 +347,10 @@ begin
                         rdata_data <= RESIZE(int_contact_in_V(479 downto 448), 32);
                     when ADDR_CONTACT_IN_V_DATA_15 =>
                         rdata_data <= RESIZE(int_contact_in_V(511 downto 480), 32);
+                    when ADDR_OFFSET_DATA_0 =>
+                        rdata_data <= RESIZE(int_offset(31 downto 0), 32);
+                    when ADDR_OFFSET_DATA_1 =>
+                        rdata_data <= RESIZE(int_offset(63 downto 32), 32);
                     when ADDR_DB_SIZE_IN_DATA_0 =>
                         rdata_data <= RESIZE(int_db_size_in(31 downto 0), 32);
                     when ADDR_ERROR_OUT_DATA_0 =>
@@ -359,6 +373,7 @@ begin
     operation            <= STD_LOGIC_VECTOR(int_operation);
     operation_ap_vld     <= int_operation_ap_vld;
     contact_in_V         <= STD_LOGIC_VECTOR(int_contact_in_V);
+    offset               <= STD_LOGIC_VECTOR(int_offset);
     db_size_in           <= STD_LOGIC_VECTOR(int_db_size_in);
 
     process (ACLK)
@@ -657,6 +672,28 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_CONTACT_IN_V_DATA_15) then
                     int_contact_in_V(511 downto 480) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_contact_in_V(511 downto 480));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_OFFSET_DATA_0) then
+                    int_offset(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_offset(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_OFFSET_DATA_1) then
+                    int_offset(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_offset(63 downto 32));
                 end if;
             end if;
         end if;

@@ -47,7 +47,6 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("m_axi_db_mem_V_BRESP", 2, hls_in, 2, "m_axi", "RESP", 1),
 	Port_Property("m_axi_db_mem_V_BID", 1, hls_in, 2, "m_axi", "ID", 1),
 	Port_Property("m_axi_db_mem_V_BUSER", 1, hls_in, 2, "m_axi", "USER", 1),
-	Port_Property("offset", 64, hls_in, 3, "ap_none", "in_data", 1),
 	Port_Property("results_out_V_TDATA", 8, hls_out, 7, "axis", "out_data", 1),
 	Port_Property("results_out_V_TVALID", 1, hls_out, 7, "axis", "out_vld", 1),
 	Port_Property("results_out_V_TREADY", 1, hls_in, 7, "axis", "out_acc", 1),

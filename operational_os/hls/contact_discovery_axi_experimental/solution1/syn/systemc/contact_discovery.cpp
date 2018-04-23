@@ -120,6 +120,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     contact_discovery_AXILiteS_s_axi_U->operation(operation);
     contact_discovery_AXILiteS_s_axi_U->operation_ap_vld(operation_ap_vld);
     contact_discovery_AXILiteS_s_axi_U->contact_in_V(contact_in_V);
+    contact_discovery_AXILiteS_s_axi_U->offset(offset);
     contact_discovery_AXILiteS_s_axi_U->db_size_in(db_size_in);
     contact_discovery_AXILiteS_s_axi_U->error_out(error_out_1_data_reg);
     contact_discovery_AXILiteS_s_axi_U->contacts_size_out(contacts_size_out_1_data_reg);
@@ -721,7 +722,6 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, m_axi_db_mem_V_BRESP, "(port)m_axi_db_mem_V_BRESP");
     sc_trace(mVcdFile, m_axi_db_mem_V_BID, "(port)m_axi_db_mem_V_BID");
     sc_trace(mVcdFile, m_axi_db_mem_V_BUSER, "(port)m_axi_db_mem_V_BUSER");
-    sc_trace(mVcdFile, offset, "(port)offset");
     sc_trace(mVcdFile, results_out_V_TDATA, "(port)results_out_V_TDATA");
     sc_trace(mVcdFile, results_out_V_TVALID, "(port)results_out_V_TVALID");
     sc_trace(mVcdFile, results_out_V_TREADY, "(port)results_out_V_TREADY");
@@ -759,6 +759,7 @@ contact_discovery::contact_discovery(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, operation_ap_vld_preg, "operation_ap_vld_preg");
     sc_trace(mVcdFile, operation_ap_vld_in_sig, "operation_ap_vld_in_sig");
     sc_trace(mVcdFile, contact_in_V, "contact_in_V");
+    sc_trace(mVcdFile, offset, "offset");
     sc_trace(mVcdFile, db_size_in, "db_size_in");
     sc_trace(mVcdFile, error_out_1_data_reg, "error_out_1_data_reg");
     sc_trace(mVcdFile, error_out_1_data_in, "error_out_1_data_in");
@@ -1895,7 +1896,6 @@ void contact_discovery::thread_hdltv_gen() {
         mHdltvinHandle << " , " <<  " \"m_axi_db_mem_V_BRESP\" :  \"" << m_axi_db_mem_V_BRESP.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"m_axi_db_mem_V_BID\" :  \"" << m_axi_db_mem_V_BID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"m_axi_db_mem_V_BUSER\" :  \"" << m_axi_db_mem_V_BUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"offset\" :  \"" << offset.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"results_out_V_TDATA\" :  \"" << results_out_V_TDATA.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"results_out_V_TVALID\" :  \"" << results_out_V_TVALID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"results_out_V_TREADY\" :  \"" << results_out_V_TREADY.read() << "\" ";

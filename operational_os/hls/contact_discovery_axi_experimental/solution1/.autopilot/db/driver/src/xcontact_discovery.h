@@ -112,6 +112,8 @@ void XContact_discovery_Set_operation_vld(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_operation_vld(XContact_discovery *InstancePtr);
 void XContact_discovery_Set_contact_in_V(XContact_discovery *InstancePtr, XContact_discovery_Contact_in_v Data);
 XContact_discovery_Contact_in_v XContact_discovery_Get_contact_in_V(XContact_discovery *InstancePtr);
+void XContact_discovery_Set_offset(XContact_discovery *InstancePtr, u64 Data);
+u64 XContact_discovery_Get_offset(XContact_discovery *InstancePtr);
 void XContact_discovery_Set_db_size_in(XContact_discovery *InstancePtr, u32 Data);
 u32 XContact_discovery_Get_db_size_in(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_error_out(XContact_discovery *InstancePtr);

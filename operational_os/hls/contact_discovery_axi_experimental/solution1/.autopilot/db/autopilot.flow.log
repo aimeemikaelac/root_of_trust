@@ -1,7 +1,7 @@
-INFO: [HLS 200-0] Workspace /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1 opened at Mon Apr 23 16:17:16 MDT 2018
+INFO: [HLS 200-0] Workspace /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1 opened at Mon Apr 23 16:24:27 MDT 2018
 INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Command     config_clock returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
 INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus 
@@ -41,8 +41,8 @@ INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/te
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/dsp48e2.hlp 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       get_default_platform 
@@ -63,24 +63,24 @@ INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
 INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
@@ -88,9 +88,9 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.07 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0.11 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
@@ -102,7 +102,7 @@ INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/tech
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv7.lib 
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_hp.lib 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv.hlp 
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
@@ -114,11 +114,11 @@ INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_hp.hlp 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command     import_lib returned 0; 0.02 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
@@ -129,7 +129,7 @@ INFO: [HLS 200-100] Execute       add_library xilinx/zynquplus/zynquplus:xczu9eg
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         license_isbetapart xczu9eg 
-INFO: [HLS 200-100] Command         license_isbetapart returned 1; 0.01 sec.
+INFO: [HLS 200-100] Command         license_isbetapart returned 1; 0 sec.
 INFO: [HLS 200-100] Execute         get_default_platform 
 INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
 INFO: [HLS 200-100] Execute         config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
@@ -153,7 +153,7 @@ INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed slow
 INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     config_interface -clock_enable=false -expose_global=false -m_axi_addr64=1 -m_axi_offset=off -register_io=off -trim_dangling_port=0 
 INFO: [HLS 200-100] Command     config_interface returned 0; 0 sec.
-INFO: [HLS 200-100] Command   open_solution returned 0; 0.21 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.19 sec.
 INFO: [HLS 200-100] Execute   export_design -flow syn -rtl verilog -format ip_catalog 
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
@@ -185,22 +185,22 @@ INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.07 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.08 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -217,7 +217,7 @@ INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/techno
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op.gen 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op_simcore.gen 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/interface.gen 
@@ -232,23 +232,23 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
 INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.05 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.06 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0.08 sec.
@@ -258,20 +258,20 @@ INFO: [HLS 200-100] Command       ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Command     ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/match_db_contact.compgen.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.compgen.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/match_db_contact.compgen.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.compgen.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/match_db_contact.compgen.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.compgen.tcl 
@@ -285,7 +285,7 @@ INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/operational_o
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
@@ -307,13 +307,13 @@ INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.rtl_wrap.cfg.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.tbgen.tcl 
@@ -386,6 +386,56 @@ INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/
 INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.08 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.11 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/common.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/APCoreGen.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op.gen 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op_simcore.gen 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/interface.gen 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
@@ -408,56 +458,6 @@ INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/common.gen 
-INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/APCoreGen.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op.gen 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op_simcore.gen 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/interface.gen 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
-INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
-INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
-INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
-INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.06 sec.
-INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
-INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
-INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
-INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
@@ -490,22 +490,22 @@ INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/
 INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.02 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Command         ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.1 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.08 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.08 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -540,7 +540,7 @@ INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technolo
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
@@ -554,20 +554,20 @@ INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
 INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.06 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.05 sec.
 INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
-INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
-INFO: [HLS 200-100] Command         ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
 INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command       ap_source returned 0; 0.09 sec.
-INFO: [HLS 200-100] Command     ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.07 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.07 sec.
 INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
 INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
@@ -575,8 +575,8 @@ INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
 INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
 INFO: [HLS 200-100] Execute     source /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/global.setting.tcl 
-INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
-INFO: [HLS 200-100] Command   export_design returned 0; 152.82 sec.
-INFO: [HLS 200-100] Command ap_source returned 0; 153.04 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command   export_design returned 0; 155.04 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 155.24 sec.
 INFO: [HLS 200-100] Execute cleanup_all 
-INFO: [HLS 200-100] Command cleanup_all returned 0; 0 sec.
+INFO: [HLS 200-100] Command cleanup_all returned 0; 0.01 sec.

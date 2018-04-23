@@ -111,29 +111,37 @@ contact_in_V {
 	offset 24
 	offset_end 91
 }
+offset { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 92
+	offset_end 103
+}
 db_size_in { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 92
-	offset_end 99
+	offset 104
+	offset_end 111
 }
 error_out { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 100
-	offset_end 107
+	offset 112
+	offset_end 119
 }
 contacts_size_out { 
 	dir O
 	width 32
 	depth 1
 	mode ap_none
-	offset 108
-	offset_end 115
+	offset 120
+	offset_end 127
 }
 }
 
@@ -181,7 +189,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 7 \
+    id 6 \
     name results_out_V \
     reset_level 0 \
     sync_rst true \
@@ -195,21 +203,6 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 }
 
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 6 \
-    name offset \
-    type other \
-    dir I \
-    reset_level 0 \
-    sync_rst true \
-    corename dc_offset \
-    op interface \
-    ports { offset { I 64 vector } } \
-} "
-}
 
 
 # Adapter definition:

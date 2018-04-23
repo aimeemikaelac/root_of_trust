@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3618,HLS_SYN_LUT=3913}" *)
+(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3688,HLS_SYN_LUT=4041}" *)
 
 module contact_discovery (
         ap_clk,
@@ -57,7 +57,6 @@ module contact_discovery (
         m_axi_db_mem_V_BRESP,
         m_axi_db_mem_V_BID,
         m_axi_db_mem_V_BUSER,
-        offset,
         results_out_V_TDATA,
         results_out_V_TVALID,
         results_out_V_TREADY,
@@ -173,7 +172,6 @@ output   m_axi_db_mem_V_BREADY;
 input  [1:0] m_axi_db_mem_V_BRESP;
 input  [C_M_AXI_DB_MEM_V_ID_WIDTH - 1:0] m_axi_db_mem_V_BID;
 input  [C_M_AXI_DB_MEM_V_BUSER_WIDTH - 1:0] m_axi_db_mem_V_BUSER;
-input  [63:0] offset;
 output  [7:0] results_out_V_TDATA;
 output   results_out_V_TVALID;
 input   results_out_V_TREADY;
@@ -210,6 +208,7 @@ reg   [31:0] operation_in_sig;
 reg    operation_ap_vld_preg;
 reg    operation_ap_vld_in_sig;
 wire   [511:0] contact_in_V;
+wire   [63:0] offset;
 wire   [31:0] db_size_in;
 reg   [31:0] error_out_1_data_reg;
 reg   [31:0] error_out_1_data_in;
@@ -395,6 +394,7 @@ contact_discovery_AXILiteS_s_axi_U(
     .operation(operation),
     .operation_ap_vld(operation_ap_vld),
     .contact_in_V(contact_in_V),
+    .offset(offset),
     .db_size_in(db_size_in),
     .error_out(error_out_1_data_reg),
     .contacts_size_out(contacts_size_out_1_data_reg)

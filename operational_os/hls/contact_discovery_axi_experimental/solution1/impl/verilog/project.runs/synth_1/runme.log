@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg-ffvb1156'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5280 
+INFO: Helper process launched with PID 5760 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.680 ; gain = 77.988 ; free physical = 114 ; free virtual = 4223
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1242.680 ; gain = 77.988 ; free physical = 240 ; free virtual = 4163
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 	Parameter ap_ST_fsm_state1 bound to: 23'b00000000000000000000001 
@@ -62,7 +62,7 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery' [/home/aimee/root_of
 	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_DB_MEM_V_WSTRB_WIDTH bound to: 64 - type: integer 
 	Parameter C_M_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:203]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:201]
 INFO: [Synth 8-638] synthesizing module 'contact_discoverybkb' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discoverybkb.v:49]
 	Parameter DataWidth bound to: 512 - type: integer 
 	Parameter AddressRange bound to: 128 - type: integer 
@@ -101,12 +101,15 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_AXILiteS_s_axi' [/hom
 	Parameter ADDR_CONTACT_IN_V_DATA_14 bound to: 7'b1010000 
 	Parameter ADDR_CONTACT_IN_V_DATA_15 bound to: 7'b1010100 
 	Parameter ADDR_CONTACT_IN_V_CTRL bound to: 7'b1011000 
-	Parameter ADDR_DB_SIZE_IN_DATA_0 bound to: 7'b1011100 
-	Parameter ADDR_DB_SIZE_IN_CTRL bound to: 7'b1100000 
-	Parameter ADDR_ERROR_OUT_DATA_0 bound to: 7'b1100100 
-	Parameter ADDR_ERROR_OUT_CTRL bound to: 7'b1101000 
-	Parameter ADDR_CONTACTS_SIZE_OUT_DATA_0 bound to: 7'b1101100 
-	Parameter ADDR_CONTACTS_SIZE_OUT_CTRL bound to: 7'b1110000 
+	Parameter ADDR_OFFSET_DATA_0 bound to: 7'b1011100 
+	Parameter ADDR_OFFSET_DATA_1 bound to: 7'b1100000 
+	Parameter ADDR_OFFSET_CTRL bound to: 7'b1100100 
+	Parameter ADDR_DB_SIZE_IN_DATA_0 bound to: 7'b1101000 
+	Parameter ADDR_DB_SIZE_IN_CTRL bound to: 7'b1101100 
+	Parameter ADDR_ERROR_OUT_DATA_0 bound to: 7'b1110000 
+	Parameter ADDR_ERROR_OUT_CTRL bound to: 7'b1110100 
+	Parameter ADDR_CONTACTS_SIZE_OUT_DATA_0 bound to: 7'b1111000 
+	Parameter ADDR_CONTACTS_SIZE_OUT_CTRL bound to: 7'b1111100 
 	Parameter WRIDLE bound to: 2'b00 
 	Parameter WRDATA bound to: 2'b01 
 	Parameter WRRESP bound to: 2'b10 
@@ -115,25 +118,27 @@ INFO: [Synth 8-638] synthesizing module 'contact_discovery_AXILiteS_s_axi' [/hom
 	Parameter RDDATA bound to: 2'b01 
 	Parameter RDRESET bound to: 2'b10 
 	Parameter ADDR_BITS bound to: 7 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:273]
-WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:360]
-WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:437]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:366]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:481]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:491]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:501]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:511]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:521]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:531]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:541]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:551]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:561]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:571]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:581]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:591]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:601]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:611]
-WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:621]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:283]
+WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:376]
+WARNING: [Synth 8-6014] Unused sequential element int_isr_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:454]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:382]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:498]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:508]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:518]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:528]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:538]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:548]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:558]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:568]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:578]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:588]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:598]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:608]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:618]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:628]
+WARNING: [Synth 8-6014] Unused sequential element int_contact_in_V_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:638]
+WARNING: [Synth 8-6014] Unused sequential element int_offset_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:383]
+WARNING: [Synth 8-6014] Unused sequential element int_offset_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:658]
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery_AXILiteS_s_axi' (3#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:9]
 INFO: [Synth 8-638] synthesizing module 'contact_discovery_db_mem_V_m_axi' [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:10]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
@@ -278,7 +283,7 @@ WARNING: [Synth 8-6014] Unused sequential element operation_blk_n_reg was remove
 WARNING: [Synth 8-6014] Unused sequential element results_out_V_TDATA_blk_n_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:933]
 WARNING: [Synth 8-6014] Unused sequential element ap_block_state1_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1133]
 WARNING: [Synth 8-6014] Unused sequential element ap_block_state23_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:1137]
-WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:392]
+WARNING: [Synth 8-6014] Unused sequential element ap_ready_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:391]
 INFO: [Synth 8-256] done synthesizing module 'contact_discovery' (12#1) [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery.v:12]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[3]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[2]
@@ -338,47 +343,8 @@ WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected 
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port I_ARREGION[1]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port I_ARREGION[0]
 WARNING: [Synth 8-3331] design contact_discoverybkb has unconnected port reset
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[63]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[62]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[61]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[60]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[59]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[58]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[57]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[56]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[55]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[54]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[53]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[52]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[51]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[50]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[49]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[48]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[47]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[46]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[45]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[44]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[43]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[42]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[41]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[40]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[39]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[38]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[37]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[36]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[35]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[34]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[33]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[32]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[31]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[30]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[29]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[28]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[27]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[26]
-WARNING: [Synth 8-3331] design contact_discovery has unconnected port offset[25]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1298.305 ; gain = 133.613 ; free physical = 195 ; free virtual = 4212
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1298.305 ; gain = 133.613 ; free physical = 230 ; free virtual = 4155
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -388,7 +354,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1298.305 ; gain = 133.613 ; free physical = 205 ; free virtual = 4222
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1298.305 ; gain = 133.613 ; free physical = 236 ; free virtual = 4161
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-1-i
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -402,25 +368,25 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.26 . Memory (MB): peak = 2039.180 ; gain = 4.000 ; free physical = 120 ; free virtual = 3540
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2039.117 ; gain = 4.000 ; free physical = 116 ; free virtual = 3478
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2039.180 ; gain = 874.488 ; free physical = 180 ; free virtual = 3633
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2039.117 ; gain = 874.426 ; free physical = 199 ; free virtual = 3572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xczu9eg-ffvb1156-1-i
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2039.180 ; gain = 874.488 ; free physical = 179 ; free virtual = 3634
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2039.117 ; gain = 874.426 ; free physical = 199 ; free virtual = 3572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2039.180 ; gain = 874.488 ; free physical = 180 ; free virtual = 3636
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2039.117 ; gain = 874.426 ; free physical = 201 ; free virtual = 3574
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'contact_discovery_AXILiteS_s_axi'
-WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
+WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:197]
 INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element throttl_cnt_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_db_mem_V_m_axi.v:721]
@@ -467,8 +433,8 @@ WARNING: [Synth 8-6014] Unused sequential element sect_cnt_reg was removed.  [/h
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-5546] ROM "exitcond_fu_61_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
-WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
-WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
+WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:197]
+WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:197]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -479,9 +445,9 @@ WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/hom
                   WRRESP |                             1000 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'contact_discovery_AXILiteS_s_axi'
-WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:187]
+WARNING: [Synth 8-6014] Unused sequential element wstate_reg was removed.  [/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/contact_discovery_AXILiteS_s_axi.v:197]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2039.180 ; gain = 874.488 ; free physical = 151 ; free virtual = 3625
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2039.117 ; gain = 874.426 ; free physical = 185 ; free virtual = 3563
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -513,7 +479,7 @@ Detailed RTL Component Info :
 	              512 Bit    Registers := 5     
 	               96 Bit    Registers := 6     
 	               64 Bit    Registers := 11    
-	               32 Bit    Registers := 30    
+	               32 Bit    Registers := 32    
 	               25 Bit    Registers := 6     
 	               23 Bit    Registers := 1     
 	                8 Bit    Registers := 9     
@@ -612,7 +578,7 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 21    
+	               32 Bit    Registers := 23    
 	                7 Bit    Registers := 1     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 7     
@@ -830,6 +796,45 @@ WARNING: [Synth 8-3917] design contact_discovery has port results_out_V_TDATA[1]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[3]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[2]
 WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port ARREGION[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port RID[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port RUSER[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_cache[3]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_cache[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_cache[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_cache[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_prot[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_prot[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_prot[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_read has unconnected port rreq_user[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port AWREGION[3]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port AWREGION[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port AWREGION[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port AWREGION[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port WID[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port WUSER[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port BID[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port BUSER[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_cache[3]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_cache[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_cache[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_cache[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_prot[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_prot[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_prot[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wreq_user[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi_write has unconnected port wdata_user[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port AWREGION[3]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port AWREGION[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port AWREGION[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port AWREGION[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port WID[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port WUSER[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port ARREGION[3]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port ARREGION[2]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port ARREGION[1]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port ARREGION[0]
+WARNING: [Synth 8-3331] design contact_discovery_db_mem_V_m_axi has unconnected port I_AWID[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 warning: Removed RAM buff_wdata/mem_reg due to inactive write enable
 WARNING: [Synth 8-6014] Unused sequential element buff_wdata/mem_reg was removed. 
@@ -1138,7 +1143,7 @@ WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[23]) is unused a
 WARNING: [Synth 8-3332] Sequential element (rs_wreq/data_p2_reg[22]) is unused and will be removed from module contact_discovery_db_mem_V_m_axi_write.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 2039.180 ; gain = 874.488 ; free physical = 141 ; free virtual = 3569
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 2039.117 ; gain = 874.426 ; free physical = 160 ; free virtual = 3508
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1166,14 +1171,14 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:46 . Memory (MB): peak = 2693.133 ; gain = 1528.441 ; free physical = 100 ; free virtual = 2865
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 2694.070 ; gain = 1529.379 ; free physical = 111 ; free virtual = 2789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5556] The block RAM contacts_V_U/contact_discoverybkb_ram_U/ram_reg may be mapped as a cascade chain, because it is not timing critical.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:52 . Memory (MB): peak = 2799.438 ; gain = 1634.746 ; free physical = 146 ; free virtual = 2783
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:50 . Memory (MB): peak = 2809.609 ; gain = 1644.918 ; free physical = 157 ; free virtual = 2728
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1222,7 +1227,7 @@ INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_ax
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_axi_U/bus_read/buff_rdata/mem_reg_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance contact_discovery_db_mem_V_m_axi_U/bus_read/buff_rdata/mem_reg_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:55 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 130 ; free virtual = 2776
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 150 ; free virtual = 2727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1246,7 +1251,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:56 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 128 ; free virtual = 2780
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:53 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2725
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1259,7 +1264,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:56 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 127 ; free virtual = 2780
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:53 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2725
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1271,25 +1276,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:56 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 126 ; free virtual = 2779
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2726
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:56 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 126 ; free virtual = 2779
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2726
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 126 ; free virtual = 2779
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2726
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 126 ; free virtual = 2779
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2726
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1324,16 +1329,16 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |CARRY8     |    74|
 |2     |LUT1       |   135|
-|3     |LUT2       |   277|
-|4     |LUT3       |  1279|
-|5     |LUT4       |   644|
-|6     |LUT5       |    98|
-|7     |LUT6       |   577|
+|3     |LUT2       |   242|
+|4     |LUT3       |  1352|
+|5     |LUT4       |   623|
+|6     |LUT5       |   146|
+|7     |LUT6       |   594|
 |8     |RAMB18E2   |    15|
 |9     |RAMB18E2_1 |     1|
 |10    |RAMB36E2   |     7|
 |11    |SRL16E     |    26|
-|12    |FDRE       |  5059|
+|12    |FDRE       |  5123|
 |13    |FDSE       |    11|
 +------+-----------+------+
 
@@ -1341,8 +1346,8 @@ Report Instance Areas:
 +------+-------------------------------------+-----------------------------------------------------------+------+
 |      |Instance                             |Module                                                     |Cells |
 +------+-------------------------------------+-----------------------------------------------------------+------+
-|1     |top                                  |                                                           |  8203|
-|2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi                           |  1683|
+|1     |top                                  |                                                           |  8349|
+|2     |  contact_discovery_AXILiteS_s_axi_U |contact_discovery_AXILiteS_s_axi                           |  1829|
 |3     |  contact_discovery_db_mem_V_m_axi_U |contact_discovery_db_mem_V_m_axi                           |  4527|
 |4     |    bus_read                         |contact_discovery_db_mem_V_m_axi_read                      |  4527|
 |5     |      buff_rdata                     |contact_discovery_db_mem_V_m_axi_buffer__parameterized0    |  1605|
@@ -1355,11 +1360,11 @@ Report Instance Areas:
 |12    |  grp_match_db_contact_fu_186        |match_db_contact                                           |    85|
 +------+-------------------------------------+-----------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 2803.352 ; gain = 1638.660 ; free physical = 126 ; free virtual = 2779
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.617 ; gain = 1652.926 ; free physical = 132 ; free virtual = 2726
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2802 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:48 . Memory (MB): peak = 2803.352 ; gain = 897.785 ; free physical = 164 ; free virtual = 2819
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 2803.359 ; gain = 1638.660 ; free physical = 160 ; free virtual = 2819
+Synthesis finished with 0 errors, 0 critical warnings and 2763 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 2817.617 ; gain = 912.113 ; free physical = 170 ; free virtual = 2765
+Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2817.625 ; gain = 1652.926 ; free physical = 168 ; free virtual = 2766
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 74 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1383,9 +1388,9 @@ INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell contacts_V_U/con
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-317 Infos, 303 Warnings, 0 Critical Warnings and 0 Errors encountered.
+317 Infos, 305 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:01:00 . Memory (MB): peak = 2803.359 ; gain = 1698.109 ; free physical = 206 ; free virtual = 2847
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2817.625 ; gain = 1712.375 ; free physical = 200 ; free virtual = 2797
 INFO: [Common 17-1381] The checkpoint '/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.runs/synth_1/contact_discovery.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2827.363 ; gain = 0.000 ; free physical = 174 ; free virtual = 2849
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 23 16:18:49 2018...
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2841.629 ; gain = 0.000 ; free physical = 167 ; free virtual = 2797
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 23 16:25:57 2018...

@@ -41532,6 +41532,8 @@ void contact_discovery(
  int *contacts_size_out,
  hls::stream<unsigned char> &results_out
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);
+_ssdm_op_SpecInterface(offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_mem, "m_axi", 0, 0, "", 0, 536870912, "", "", "", 16, 16, 4, 16, "", "");
 _ssdm_op_SpecInterface(&results_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 //#pragma HLS INTERFACE axis register both port=db_in

@@ -29,7 +29,7 @@ template<unsigned int C_M_AXI_DB_MEM_V_ADDR_WIDTH = 64,
          unsigned int C_S_AXI_AXILITES_ADDR_WIDTH = 7,
          unsigned int C_S_AXI_AXILITES_DATA_WIDTH = 32>
 struct contact_discovery : public sc_module {
-    // Port declarations 69
+    // Port declarations 68
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst_n;
     sc_out< sc_logic > m_axi_db_mem_V_AWVALID;
@@ -77,7 +77,6 @@ struct contact_discovery : public sc_module {
     sc_in< sc_lv<2> > m_axi_db_mem_V_BRESP;
     sc_in< sc_uint<C_M_AXI_DB_MEM_V_ID_WIDTH> > m_axi_db_mem_V_BID;
     sc_in< sc_uint<C_M_AXI_DB_MEM_V_BUSER_WIDTH> > m_axi_db_mem_V_BUSER;
-    sc_in< sc_lv<64> > offset;
     sc_out< sc_lv<8> > results_out_V_TDATA;
     sc_out< sc_logic > results_out_V_TVALID;
     sc_in< sc_logic > results_out_V_TREADY;
@@ -139,6 +138,7 @@ struct contact_discovery : public sc_module {
     sc_signal< sc_logic > operation_ap_vld_preg;
     sc_signal< sc_logic > operation_ap_vld_in_sig;
     sc_signal< sc_lv<512> > contact_in_V;
+    sc_signal< sc_lv<64> > offset;
     sc_signal< sc_lv<32> > db_size_in;
     sc_signal< sc_lv<32> > error_out_1_data_reg;
     sc_signal< sc_lv<32> > error_out_1_data_in;

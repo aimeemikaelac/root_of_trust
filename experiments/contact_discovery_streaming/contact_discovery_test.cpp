@@ -14,13 +14,13 @@
 
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 300000
+#define DATABASE_SIZE 3000
 
 #define CONTACT_DISCOVERY_BASE 0xB0000000
-#define DB_BUFFER_BASE 0xA0000000
 #define INPUT_MAPPER_BASE 0xB0010000
 #define RESULTS_MAPPER_BASE 0xB0020000
-#define RESULTS_BUFFER 0xA0000000
+#define RESULTS_BUFFER 0xB0100000
+#define RESULTS_BUFFER_FPGA 0xA0000000
 #define FPGA_RAM_LOWER 0x00000000
 #define FPGA_RAM_UPPER 0x00000004
 #define RAM_BUFFER 0x400000000
@@ -34,7 +34,7 @@ void contact_discovery(
 	int *error_out,
 	int *contacts_size_out
 ){
-	int i;
+	int i, j;
 	volatile unsigned char *control;
 	unsigned int results_val;
 	shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
@@ -44,9 +44,12 @@ void contact_discovery(
 	control[0x10] = operation;
 	//load contact
 	if(operation == 0){
-		for(i=0; i<64; i++){
-			control[0x40 + i] = contact_in[i];
-		}
+//		for(i=0; i<64; i++){
+//			control[0x18 + i] = contact_in[i];
+//		}
+        for(i=0; i<64/4; i++){
+          writeValueToAddress(((unsigned int*)contact_in)[i], CONTACT_DISCOVERY_BASE + 0x18 + i*4);
+        }
 	}
 	//run match
 	if(operation == 1){
@@ -68,11 +71,11 @@ void contact_discovery(
 		//enable S2MM
 		writeValueToAddress(1, RESULTS_MAPPER_BASE + 0x30);
 		//set S2MM lower address bits
-		writeValueToAddress(RESULTS_BUFFER, RESULTS_MAPPER_BASE + 0x48);
+		writeValueToAddress(RESULTS_BUFFER_FPGA, RESULTS_MAPPER_BASE + 0x48);
 		//set length for transfer -> db_size*4
-		writeValueToAddress(db_size*4, RESULTS_MAPPER_BASE + 0x58);
+		writeValueToAddress(db_size, RESULTS_MAPPER_BASE + 0x58);
         printf("finished mapper programming\n");
-        writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x80);
+        writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x5C);
 	}
 	//start current call
 	control[0x0] = 1;
@@ -83,16 +86,21 @@ void contact_discovery(
 		asm("");
 		__asm__("");
 	}
-	*error_out = *((unsigned int*)(control + 0x88));
-	*contacts_size_out = *((unsigned int*)(control + 0x90));
+	*error_out = *((unsigned int*)(control + 0x64));
+	*contacts_size_out = *((unsigned int*)(control + 0x6C));
 	//read match result
 	if(operation == 1){
       // wait for output stream to finish
       unsigned int results_buffer_status;
       printf("Reading results\n");
-		for(i=0; i<db_size; i++){
+		for(i=0; i<db_size/4; i++){
 			getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
-			matched_out[i] = (bool)(results_val);
+            bool *results_buffer = (bool*)&results_val;
+  //          printf("Memory buffer: %08x\n", results_val);
+			for(j=0; j<4; j++){
+              matched_out[i*4 + j] = results_buffer[j];
+        //      printf("Matched: %i\n", matched_out[i*4 + j]);
+            }
 		}
         printf("Finished reading results\n");
 	}
@@ -245,6 +253,7 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
+//      printf("HW: %i, SW: %i\n", matched_out[j], matched_correct[j]);
 		assert(matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;

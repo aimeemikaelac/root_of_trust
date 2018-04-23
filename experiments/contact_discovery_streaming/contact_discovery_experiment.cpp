@@ -73,7 +73,7 @@ void contact_discovery(
 		//set length for transfer -> db_size*4
 		writeValueToAddress(db_size*4, RESULTS_MAPPER_BASE + 0x58);
         //printf("finished mapper programming\n");
-        writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x80);
+        writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x5C);
 	}
 	//start current call
 	control[0x0] = 1;
@@ -84,8 +84,8 @@ void contact_discovery(
 		asm("");
 		__asm__("");
 	}
-	*error_out = *((unsigned int*)(control + 0x88));
-	*contacts_size_out = *((unsigned int*)(control + 0x90));
+	*error_out = *((unsigned int*)(control + 0x64));
+	*contacts_size_out = *((unsigned int*)(control + 0x6C));
 	//read match result
 /*	if(operation == 1){
       // wait for output stream to finish

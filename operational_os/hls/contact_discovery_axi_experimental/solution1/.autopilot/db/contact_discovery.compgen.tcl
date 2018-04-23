@@ -157,24 +157,25 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler contact_discovery_AXILiteS_s_axi
 }
 
-# Native AXIS:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+# Native M_AXI:
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
+eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
     id 5 \
-    name db_in_V_V \
-    reset_level 0 \
-    sync_rst true \
-    corename {} \
-    metadata {  } \
+    corename {m_axi} \
     op interface \
-    ports { db_in_V_V_TDATA { I 512 vector } db_in_V_V_TVALID { I 1 bit } db_in_V_V_TREADY { O 1 bit } } \
+    max_latency -1 \ 
+    delay_budget 8.75 \ 
+    name {contact_discovery_db_mem_V_m_axi} \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'db_in_V_V'"
+puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'db_mem_V'"
 }
 }
 
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler contact_discovery_db_mem_V_m_axi
+}
 
 # Native AXIS:
 if {${::AESL::PGuard_autoexp_gen}} {

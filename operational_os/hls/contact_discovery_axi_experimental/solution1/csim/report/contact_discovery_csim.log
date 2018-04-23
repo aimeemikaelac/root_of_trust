@@ -4,10 +4,10 @@ INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Generating csim.exe
 Generating numbers database
 Generating contacts
-Populating db stream
+Populating db
 Checking initial conditions
 Populating contacts
 Running Match
-Contacts match 128, unmatched 29872
+Contacts match 128, unmatched 59872
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

@@ -20,7 +20,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>db_in_V_V</name>
+<name>db_mem_V</name>
 <CType>
 <TypeName>ap_uint 512</TypeName>
 <TypeWidth>512</TypeWidth>

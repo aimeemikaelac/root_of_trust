@@ -2,10 +2,9 @@
 <sourceFile name="">
 <directive functionLabel="" functionName="contact_discovery" label="">
 <pragma name="INTERFACE">
-<option name="axis" positionalBoolean="mode" value=""/>
-<option name="register" positionalBoolean="register" value=""/>
-<option name="both" positionalBoolean="register_mode" value=""/>
-<option name="port" positionalBoolean="4" value="results_out"/>
+<option name="m_axi" positionalBoolean="mode" value=""/>
+<option name="depth" value="536870912"/>
+<option name="port" positionalBoolean="4" value="db_mem"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="contact_discovery" label="">
@@ -13,7 +12,7 @@
 <option name="axis" positionalBoolean="mode" value=""/>
 <option name="register" positionalBoolean="register" value=""/>
 <option name="both" positionalBoolean="register_mode" value=""/>
-<option name="port" positionalBoolean="4" value="db_in"/>
+<option name="port" positionalBoolean="4" value="results_out"/>
 </pragma>
 </directive>
 <directive functionLabel="" functionName="contact_discovery" label="">

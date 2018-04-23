@@ -41493,17 +41493,27 @@ bool match_db_contact(hash db_item){
  return matched;
 }
 
+//void contact_discovery(
+//	int operation,
+//	hash contact_in,
+//	hls::stream<hash> &db_in,
+//	unsigned int db_size_in,
+//	int *error_out,
+//	int *contacts_size_out,
+//	hls::stream<unsigned char> &results_out
+//){
 void contact_discovery(
  int operation,
  hash contact_in,
- hls::stream<hash> &db_in,
+ hash db_mem[8388608],
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
  hls::stream<unsigned char> &results_out
 ){
+#pragma HLS INTERFACE m_axi depth=536870912 port=db_mem
 #pragma HLS INTERFACE axis register both port=results_out
-#pragma HLS INTERFACE axis register both port=db_in
+//#pragma HLS INTERFACE axis register both port=db_in
 #pragma HLS INTERFACE ap_none port=db_size_in
 #pragma HLS INTERFACE s_axilite port=db_size_in
 //#pragma HLS STREAM variable=db_stream depth=128 dim=1
@@ -41537,11 +41547,19 @@ void contact_discovery(
    *error_out = 0;
    *contacts_size_out = contacts_size;
    for(database_index = 0; database_index < db_size_in; database_index+=4){
-//			for(database_index = 0; database_index < 38400; database_index+=4){
-    results_out.write((unsigned char)(match_db_contact(db_in.read())));
-    results_out.write((unsigned char)(match_db_contact(db_in.read())));
-    results_out.write((unsigned char)(match_db_contact(db_in.read())));
-    results_out.write((unsigned char)(match_db_contact(db_in.read())));
+//			for(database_index = 0; database_index < 76800; database_index+=4){
+//				hash hash1 = db_in.read();
+//				hash hash2 = db_in.read();
+//				hash hash3 = db_in.read();
+//				hash hash4 = db_in.read();
+//				results_out.write((unsigned char)(match_db_contact(hash1)));
+//				results_out.write((unsigned char)(match_db_contact(hash2)));
+//				results_out.write((unsigned char)(match_db_contact(hash3)));
+//				results_out.write((unsigned char)(match_db_contact(hash4)));
+    results_out.write((unsigned char)(match_db_contact(db_mem[database_index])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 1])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 2])));
+    results_out.write((unsigned char)(match_db_contact(db_mem[database_index + 3])));
    }
    break;
   // clear contacts

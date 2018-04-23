@@ -28,15 +28,15 @@ set Interface1 "wire"
 set DataType1 "[list ap_uint 512 ]"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
-set PortName2 "db_in"
-set BitWidth2 "512"
+set PortName2 "db_mem"
+set BitWidth2 "64"
 set ArrayOpt2 ""
 set Const2 "0"
 set Volatile2 "0"
-set Pointer2 "2"
-set Reference2 "1"
-set Dims2 [list 0]
-set Interface2 [list AP_STREAM 0] 
+set Pointer2 "0"
+set Reference2 "0"
+set Dims2 [list 8388608]
+set Interface2 "wire"
 set DataType2 "[list ap_uint 512 ]"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2

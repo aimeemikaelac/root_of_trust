@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xczu9eg-ffvb1156-1-i" LaunchTime="1524502404">
+<GenRun Id="synth_1" LaunchPart="xczu9eg-ffvb1156-1-i" LaunchTime="1524519764">
   <File Type="VDS-TIMING-PB" Name="contact_discovery_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="contact_discovery_timing_summary_synth.rpt"/>
   <File Type="RDS-RDS" Name="contact_discovery.vds"/>
@@ -18,6 +18,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/contact_discovery_AXILiteS_s_axi.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/contact_discovery_db_mem_V_m_axi.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

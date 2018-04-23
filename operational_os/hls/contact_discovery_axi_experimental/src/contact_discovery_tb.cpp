@@ -16,14 +16,14 @@
 #define __mbstate_t_defined	1
 //#define DATABASE_CHUNK_SIZE 300
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 30000
+#define DATABASE_SIZE 60000
 
 typedef ap_uint<512> hash;
 
 void contact_discovery(
 	int operation,
 	hash contact_in,
-	hls::stream<hash> &db_in,
+	hash db_mem[DATABASE_SIZE],
 	unsigned int db_size_in,
 	int *error_out,
 	int *contacts_size_out,
@@ -93,9 +93,10 @@ int main(){
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
 	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
+	hash database[DATABASE_SIZE];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 
-	hls::stream<hash> db_stream;
+//	hls::stream<hash> db_stream;
 	hls::stream<unsigned char> results_stream;
 
 	// generate random database
@@ -133,14 +134,15 @@ int main(){
 		}
 	}
 
-	printf("Populating db stream\n");
+	printf("Populating db\n");
 	for(i=0; i<DATABASE_SIZE; i++){
 		ap_uint<512> current(db_hashes[i*64]);
 		for(j=1; j<64; j++){
 			current = current.concat(ap_uint<8>(db_hashes[i*64 + j]));
 		}
-		db_stream.write(current);
+//		db_stream.write(current);
 //		db_stream.write(db_hashes[i]);
+		database[i] = current;
 	}
 
 	printf("Checking initial conditions\n");
@@ -148,7 +150,7 @@ int main(){
 	contact_discovery(
 		2,
 		hash(0),
-		db_stream,
+		database,
 		0,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
@@ -178,7 +180,7 @@ int main(){
 		contact_discovery(
 			0,
 			current_hash,
-			db_stream,
+			database,
 			0,
 			(int*)&error_out,
 			(int*)&contacts_size_out,
@@ -194,7 +196,7 @@ int main(){
 	contact_discovery(
 		1,
 		ap_uint<512>(0),
-		db_stream,
+		database,
 		DATABASE_SIZE,
 		(int*)&error_out,
 		(int*)&contacts_size_out,

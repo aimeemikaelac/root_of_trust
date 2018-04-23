@@ -24,6 +24,7 @@
 #define FPGA_RAM_LOWER 0x00000000
 #define FPGA_RAM_UPPER 0x00000004
 #define RAM_BUFFER 0x400000000
+#define TRANSFER_MAX 8388608
 
 
 void contact_discovery(
@@ -37,7 +38,7 @@ void contact_discovery(
   int i, j;
   volatile unsigned char *control;
   unsigned int results_val, dma_status;
-  unsigned int first_length, second_length, remaining, dma_offset;
+  unsigned int first_length, second_length, remaining, dma_offset=0;
   shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
   control = (volatile unsigned char*)(control_mem->ptr);
 
@@ -54,7 +55,9 @@ void contact_discovery(
   if(db_size*64 > TRANSFER_MAX){
     first_length = TRANSFER_MAX;
     remaining = db_size - TRANSFER_MAX;
-    dma_offset = 0;
+  } else{
+    first_length = db_size;
+    remaining = 0;
   }
   if(operation == 1){
 //  printf("starting mapper programming\n");

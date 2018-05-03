@@ -37,11 +37,6 @@
 			<location>/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/.apc/.tb</location>
 		</link>
 		<link>
-			<name>.reference/contact_discovery.pragma.1.cpp</name>
-			<type>1</type>
-			<location>/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.autopilot/db/contact_discovery.pragma.1.cpp</location>
-		</link>
-		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
 			<location>/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/.tcls</location>

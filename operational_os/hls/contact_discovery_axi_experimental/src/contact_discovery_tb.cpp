@@ -28,7 +28,8 @@ void contact_discovery(
 	unsigned int db_size_in,
 	int *error_out,
 	int *contacts_size_out,
-	hls::stream<unsigned char> &results_out
+	hls::stream<unsigned char> &results_out,
+	unsigned long long *current_offset
 );
 
 typedef struct number{
@@ -90,11 +91,12 @@ void hash_numbers(){
 
 int main(){
 	unsigned int seed;
+	unsigned long long current_offset;
 	int i, j, random_index, num_matched = 0, num_unmatched = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
 	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
-	hash database[DATABASE_SIZE];
+	hash database[DATABASE_SIZE+5];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
 
 //	hls::stream<hash> db_stream;
@@ -143,7 +145,7 @@ int main(){
 		}
 //		db_stream.write(current);
 //		db_stream.write(db_hashes[i]);
-		database[i] = current;
+		database[i + 5] = current;
 	}
 
 	printf("Checking initial conditions\n");
@@ -156,7 +158,8 @@ int main(){
 		0,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
-		results_stream
+		results_stream,
+		&current_offset
 	);
 	assert(error_out == 0);
 	assert(contacts_size_out == 0);
@@ -187,7 +190,8 @@ int main(){
 			0,
 			(int*)&error_out,
 			(int*)&contacts_size_out,
-			results_stream
+			results_stream,
+			&current_offset
 		);
 		contacts_size++;
 //		printf("Current contacts size: %i\n", contacts_size);
@@ -200,13 +204,15 @@ int main(){
 		1,
 		ap_uint<512>(0),
 		database,
-		0,
+		5,
 		DATABASE_SIZE,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
-		results_stream
+		results_stream,
+		&current_offset
 	);
 	assert(error_out == 0);
+	assert(current_offset = (5 + DATABASE_SIZE - 1));
 
 	for(i=0; i<DATABASE_SIZE; i++){
 		unsigned char current_hash[64];

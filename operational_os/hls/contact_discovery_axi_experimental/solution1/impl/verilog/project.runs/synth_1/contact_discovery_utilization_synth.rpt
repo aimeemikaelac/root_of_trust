@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Mon Apr 23 16:25:57 2018
+| Date         : Thu May  3 14:44:47 2018
 | Host         : aimee-VirtualBox running 64-bit Ubuntu 16.04.4 LTS
 | Command      : report_utilization -file contact_discovery_utilization_synth.rpt -pb contact_discovery_utilization_synth.pb
 | Design       : contact_discovery
@@ -31,17 +31,17 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| CLB LUTs*                  | 2386 |     0 |    274080 |  0.87 |
-|   LUT as Logic             | 2360 |     0 |    274080 |  0.86 |
-|   LUT as Memory            |   26 |     0 |    144000 |  0.02 |
+| CLB LUTs*                  | 2718 |     0 |    274080 |  0.99 |
+|   LUT as Logic             | 2658 |     0 |    274080 |  0.97 |
+|   LUT as Memory            |   60 |     0 |    144000 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |   26 |     0 |           |       |
-| CLB Registers              | 5134 |     0 |    548160 |  0.94 |
-|   Register as Flip Flop    | 5134 |     0 |    548160 |  0.94 |
+|     LUT as Shift Register  |   60 |     0 |           |       |
+| CLB Registers              | 5460 |     0 |    548160 |  1.00 |
+|   Register as Flip Flop    | 5460 |     0 |    548160 |  1.00 |
 |   Register as Latch        |    0 |     0 |    548160 |  0.00 |
-| CARRY8                     |   74 |     0 |     34260 |  0.22 |
-| F7 Muxes                   |    0 |     0 |    137040 |  0.00 |
-| F8 Muxes                   |    0 |     0 |     68520 |  0.00 |
+| CARRY8                     |   96 |     0 |     34260 |  0.28 |
+| F7 Muxes                   |   50 |     0 |    137040 |  0.04 |
+| F8 Muxes                   |    1 |     0 |     68520 | <0.01 |
 | F9 Muxes                   |    0 |     0 |     34260 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -62,7 +62,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 11    |          Yes |         Set |            - |
-| 5123  |          Yes |       Reset |            - |
+| 5449  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -156,18 +156,20 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 5123 |            Register |
-| LUT3     | 1352 |                 CLB |
-| LUT4     |  623 |                 CLB |
-| LUT6     |  594 |                 CLB |
-| LUT2     |  242 |                 CLB |
-| LUT5     |  146 |                 CLB |
-| LUT1     |  135 |                 CLB |
-| CARRY8   |   74 |                 CLB |
-| SRL16E   |   26 |                 CLB |
+| FDRE     | 5449 |            Register |
+| LUT3     | 1425 |                 CLB |
+| LUT4     |  712 |                 CLB |
+| LUT6     |  650 |                 CLB |
+| LUT2     |  341 |                 CLB |
+| LUT1     |  168 |                 CLB |
+| LUT5     |  111 |                 CLB |
+| CARRY8   |   96 |                 CLB |
+| SRL16E   |   60 |                 CLB |
+| MUXF7    |   50 |                 CLB |
 | RAMB18E2 |   16 |           Block Ram |
 | FDSE     |   11 |            Register |
 | RAMB36E2 |    7 |           Block Ram |
+| MUXF8    |    1 |                 CLB |
 +----------+------+---------------------+
 
 

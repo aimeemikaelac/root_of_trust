@@ -41530,8 +41530,11 @@ void contact_discovery(
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
- hls::stream<unsigned char> &results_out
+ hls::stream<unsigned char> &results_out,
+ unsigned long long *current_offset
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);
+#pragma HLS INTERFACE s_axilite port=current_offset
+#pragma HLS INTERFACE ap_none port=current_offset
 #pragma HLS INTERFACE ap_none port=offset
 #pragma HLS INTERFACE s_axilite port=offset
 #pragma HLS INTERFACE m_axi depth=536870912 port=db_mem max_read_burst_length=4
@@ -41580,9 +41583,13 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index])));
+    *current_offset = offset + database_index;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 1])));
+    *current_offset = offset + database_index + 1;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 2])));
+    *current_offset = offset + database_index + 2;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 3])));
+    *current_offset = offset + database_index + 3;
    }
    break;
   // clear contacts

@@ -9,6 +9,7 @@
   <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x70" xd:statusOffset="0x74" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x78" xd:statusOffset="0x7C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="axis" xd:dataWidth="8"/>
+  <xd:arg xd:name="*(current_offset)" xd:originalName="current_offset" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x80" xd:statusOffset="0x88" xd:handshakeRef="ap_none" xd:dataWidth="64"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="4041" xd:FF="3688" xd:BRAM="45" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="4399" xd:FF="3864" xd:BRAM="45" xd:DSP="0"/>
 </xd:acceleratorMap>

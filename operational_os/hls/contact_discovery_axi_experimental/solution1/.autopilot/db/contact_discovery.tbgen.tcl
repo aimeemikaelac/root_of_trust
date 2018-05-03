@@ -1,5 +1,5 @@
 set C_TypeInfoList {{ 
-"contact_discovery" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"operation": [[], {"scalar": "int"}] }, {"contact_in": [[],"0"] }, {"db_mem": [[], {"array": ["0", [8388608]]}] }, {"offset": [[], {"scalar": "long long unsigned int"}] }, {"db_size_in": [[], {"scalar": "unsigned int"}] }, {"error_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"contacts_size_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"results_out": [[], {"reference": "1"}] }],[],""], 
+"contact_discovery" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"operation": [[], {"scalar": "int"}] }, {"contact_in": [[],"0"] }, {"db_mem": [[], {"array": ["0", [8388608]]}] }, {"offset": [[], {"scalar": "long long unsigned int"}] }, {"db_size_in": [[], {"scalar": "unsigned int"}] }, {"error_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"contacts_size_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"results_out": [[], {"reference": "1"}] }, {"current_offset": [[],{ "pointer":  {"scalar": "long long unsigned int"}}] }],[],""], 
 "0": [ "hash", {"typedef": [[[],"2"],""]}], 
 "2": [ "ap_uint<512>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 512}}]],""]}}], 
 "1": [ "stream<unsigned char>", {"hls_type": {"stream": [[[[], {"scalar": "unsigned char"}]],"3"]}}],
@@ -25,6 +25,7 @@ set C_modelArgList {
 	{ error_out int 32 regular {axi_slave 1}  }
 	{ contacts_size_out int 32 regular {axi_slave 1}  }
 	{ results_out_V int 8 regular {axi_s 1 volatile  { results_out_V Data } }  }
+	{ current_offset int 64 regular {axi_slave 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "operation", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_vld","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "operation","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
@@ -34,7 +35,8 @@ set C_modelArgMapList {[
  	{ "Name" : "db_size_in", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "db_size_in","cData": "unsigned int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":104}, "offset_end" : {"in":111}} , 
  	{ "Name" : "error_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "error_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":112}, "offset_end" : {"out":119}} , 
  	{ "Name" : "contacts_size_out", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "contacts_size_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":120}, "offset_end" : {"out":127}} , 
- 	{ "Name" : "results_out_V", "interface" : "axis", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "results_out.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} ]}
+ 	{ "Name" : "results_out_V", "interface" : "axis", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "results_out.V","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
+ 	{ "Name" : "current_offset", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":63,"cElement": [{"cName": "current_offset","cData": "long long unsigned int","bit_use": { "low": 0,"up": 63},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":128}, "offset_end" : {"out":139}} ]}
 # RTL Port declarations: 
 set portNum 68
 set portList { 
@@ -90,14 +92,14 @@ set portList {
 	{ results_out_V_TREADY sc_in sc_logic 1 outacc 7 } 
 	{ s_axi_AXILiteS_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_AWREADY sc_out sc_logic 1 signal -1 } 
-	{ s_axi_AXILiteS_AWADDR sc_in sc_lv 7 signal -1 } 
+	{ s_axi_AXILiteS_AWADDR sc_in sc_lv 8 signal -1 } 
 	{ s_axi_AXILiteS_WVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_WREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_WDATA sc_in sc_lv 32 signal -1 } 
 	{ s_axi_AXILiteS_WSTRB sc_in sc_lv 4 signal -1 } 
 	{ s_axi_AXILiteS_ARVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_ARREADY sc_out sc_logic 1 signal -1 } 
-	{ s_axi_AXILiteS_ARADDR sc_in sc_lv 7 signal -1 } 
+	{ s_axi_AXILiteS_ARADDR sc_in sc_lv 8 signal -1 } 
 	{ s_axi_AXILiteS_RVALID sc_out sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_RREADY sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_RDATA sc_out sc_lv 32 signal -1 } 
@@ -108,14 +110,14 @@ set portList {
 	{ interrupt sc_out sc_logic 1 signal -1 } 
 }
 set NewPortList {[ 
-	{ "name": "s_axi_AXILiteS_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWADDR" },"address":[{"name":"contact_discovery","role":"start","value":"0","valid_bit":"0"},{"name":"contact_discovery","role":"continue","value":"0","valid_bit":"4"},{"name":"contact_discovery","role":"auto_start","value":"0","valid_bit":"7"},{"name":"operation","role":"data","value":"16"}, {"name":"operation","role":"valid","value":"20","valid_bit":"0"},{"name":"contact_in_V","role":"data","value":"24"},{"name":"offset","role":"data","value":"92"},{"name":"db_size_in","role":"data","value":"104"}] },
+	{ "name": "s_axi_AXILiteS_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWADDR" },"address":[{"name":"contact_discovery","role":"start","value":"0","valid_bit":"0"},{"name":"contact_discovery","role":"continue","value":"0","valid_bit":"4"},{"name":"contact_discovery","role":"auto_start","value":"0","valid_bit":"7"},{"name":"operation","role":"data","value":"16"}, {"name":"operation","role":"valid","value":"20","valid_bit":"0"},{"name":"contact_in_V","role":"data","value":"24"},{"name":"offset","role":"data","value":"92"},{"name":"db_size_in","role":"data","value":"104"}] },
 	{ "name": "s_axi_AXILiteS_AWVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWVALID" } },
 	{ "name": "s_axi_AXILiteS_AWREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWREADY" } },
 	{ "name": "s_axi_AXILiteS_WVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WVALID" } },
 	{ "name": "s_axi_AXILiteS_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WREADY" } },
 	{ "name": "s_axi_AXILiteS_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WDATA" } },
 	{ "name": "s_axi_AXILiteS_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WSTRB" } },
-	{ "name": "s_axi_AXILiteS_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARADDR" },"address":[{"name":"contact_discovery","role":"start","value":"0","valid_bit":"0"},{"name":"contact_discovery","role":"done","value":"0","valid_bit":"1"},{"name":"contact_discovery","role":"idle","value":"0","valid_bit":"2"},{"name":"contact_discovery","role":"ready","value":"0","valid_bit":"3"},{"name":"contact_discovery","role":"auto_start","value":"0","valid_bit":"7"},{"name":"error_out","role":"data","value":"112"},{"name":"contacts_size_out","role":"data","value":"120"}] },
+	{ "name": "s_axi_AXILiteS_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARADDR" },"address":[{"name":"contact_discovery","role":"start","value":"0","valid_bit":"0"},{"name":"contact_discovery","role":"done","value":"0","valid_bit":"1"},{"name":"contact_discovery","role":"idle","value":"0","valid_bit":"2"},{"name":"contact_discovery","role":"ready","value":"0","valid_bit":"3"},{"name":"contact_discovery","role":"auto_start","value":"0","valid_bit":"7"},{"name":"error_out","role":"data","value":"112"},{"name":"contacts_size_out","role":"data","value":"120"},{"name":"current_offset","role":"data","value":"128"}] },
 	{ "name": "s_axi_AXILiteS_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARVALID" } },
 	{ "name": "s_axi_AXILiteS_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARREADY" } },
 	{ "name": "s_axi_AXILiteS_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "RVALID" } },
@@ -187,10 +189,10 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_186"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_186"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_186"},
-			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_186"}],
+			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
+			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
+			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"}],
 		"Port" : [
 			{"Name" : "operation", "Type" : "Vld", "Direction" : "I",
 				"BlockSignal" : [
@@ -207,14 +209,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "results_out_V", "Type" : "Axis", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "results_out_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "current_offset", "Type" : "None", "Direction" : "O"},
 			{"Name" : "contacts_size", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_match_db_contact_fu_186", "Port" : "contacts_V"}]}]},
+					{"ID" : "4", "SubInstance" : "grp_match_db_contact_fu_194", "Port" : "contacts_V"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contacts_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_AXILiteS_s_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_db_mem_V_m_axi_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_186", "Parent" : "0",
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_194", "Parent" : "0",
 		"CDFG" : "match_db_contact",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -237,6 +240,7 @@ set ArgLastReadFirstWriteLatency {
 		error_out {Type O LastRead -1 FirstWrite 0}
 		contacts_size_out {Type O LastRead -1 FirstWrite 0}
 		results_out_V {Type O LastRead -1 FirstWrite 12}
+		current_offset {Type O LastRead -1 FirstWrite 2}
 		contacts_size {Type IO LastRead -1 FirstWrite -1}
 		contacts_V {Type IO LastRead -1 FirstWrite -1}}
 	match_db_contact {

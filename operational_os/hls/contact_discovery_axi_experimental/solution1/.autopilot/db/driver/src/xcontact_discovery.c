@@ -210,6 +210,17 @@ u32 XContact_discovery_Get_contacts_size_out(XContact_discovery *InstancePtr) {
     return Data;
 }
 
+u64 XContact_discovery_Get_current_offset(XContact_discovery *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CURRENT_OFFSET_DATA);
+    Data += (u64)XContact_discovery_ReadReg(InstancePtr->Axilites_BaseAddress, XCONTACT_DISCOVERY_AXILITES_ADDR_CURRENT_OFFSET_DATA + 4) << 32;
+    return Data;
+}
+
 void XContact_discovery_InterruptGlobalEnable(XContact_discovery *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

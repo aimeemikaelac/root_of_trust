@@ -100,6 +100,18 @@ set Interface7 [list AP_STREAM 0]
 set DataType7 "unsigned char"
 set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7]
 lappend PortList $Port7
+set PortName8 "current_offset"
+set BitWidth8 "64"
+set ArrayOpt8 ""
+set Const8 "0"
+set Volatile8 "0"
+set Pointer8 "1"
+set Reference8 "0"
+set Dims8 [list 0]
+set Interface8 "wire"
+set DataType8 "long long unsigned int"
+set Port8 [list $PortName8 $Interface8 $DataType8 $Pointer8 $Dims8 $Const8 $Volatile8 $ArrayOpt8]
+lappend PortList $Port8
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 1 

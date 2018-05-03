@@ -41530,8 +41530,11 @@ void contact_discovery(
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
- hls::stream<unsigned char> &results_out
+ hls::stream<unsigned char> &results_out,
+ unsigned long long *current_offset
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);
+_ssdm_op_SpecInterface(current_offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(current_offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_mem, "m_axi", 0, 0, "", 0, 536870912, "", "", "", 16, 16, 4, 16, "", "");
@@ -41580,9 +41583,13 @@ _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index])));
+    *current_offset = offset + database_index;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 1])));
+    *current_offset = offset + database_index + 1;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 2])));
+    *current_offset = offset + database_index + 2;
     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 3])));
+    *current_offset = offset + database_index + 3;
    }
    break;
   // clear contacts

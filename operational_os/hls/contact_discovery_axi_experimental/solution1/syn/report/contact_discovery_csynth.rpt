@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Mon Apr 23 16:24:09 2018
+* Date:           Thu May  3 14:42:01 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -38,7 +38,7 @@
         |                             |                  |  Latency  |  Interval | Pipeline|
         |           Instance          |      Module      | min | max | min | max |   Type  |
         +-----------------------------+------------------+-----+-----+-----+-----+---------+
-        |grp_match_db_contact_fu_186  |match_db_contact  |  257|  257|  257|  257|   none  |
+        |grp_match_db_contact_fu_194  |match_db_contact  |  257|  257|  257|  257|   none  |
         +-----------------------------+------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -59,14 +59,14 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
 +-----------------+---------+-------+--------+--------+-----+
 |DSP              |        -|      -|       -|       -|    -|
-|Expression       |        -|      -|       0|     319|    -|
+|Expression       |        -|      -|       0|     528|    -|
 |FIFO             |        -|      -|       -|       -|    -|
-|Instance         |       30|      -|    2212|    3360|    -|
+|Instance         |       30|      -|    2282|    3488|    -|
 |Memory           |       15|      -|       0|       0|    -|
-|Multiplexer      |        -|      -|       -|     362|    -|
-|Register         |        -|      -|    1476|       -|    -|
+|Multiplexer      |        -|      -|       -|     383|    -|
+|Register         |        -|      -|    1582|       -|    -|
 +-----------------+---------+-------+--------+--------+-----+
-|Total            |       45|      0|    3688|    4041|    0|
+|Total            |       45|      0|    3864|    4399|    0|
 +-----------------+---------+-------+--------+--------+-----+
 |Available        |     1824|   2520|  548160|  274080|    0|
 +-----------------+---------+-------+--------+--------+-----+
@@ -78,11 +78,11 @@
     +------------------------------------+----------------------------------+---------+-------+------+------+
     |              Instance              |              Module              | BRAM_18K| DSP48E|  FF  |  LUT |
     +------------------------------------+----------------------------------+---------+-------+------+------+
-    |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|   776|  1448|
+    |contact_discovery_AXILiteS_s_axi_U  |contact_discovery_AXILiteS_s_axi  |        0|      0|   846|  1576|
     |contact_discovery_db_mem_V_m_axi_U  |contact_discovery_db_mem_V_m_axi  |       30|      0|  1415|  1585|
-    |grp_match_db_contact_fu_186         |match_db_contact                  |        0|      0|    21|   327|
+    |grp_match_db_contact_fu_194         |match_db_contact                  |        0|      0|    21|   327|
     +------------------------------------+----------------------------------+---------+-------+------+------+
-    |Total                               |                                  |       30|      0|  2212|  3360|
+    |Total                               |                                  |       30|      0|  2282|  3488|
     +------------------------------------+----------------------------------+---------+-------+------+------+
 
     * DSP48: 
@@ -104,24 +104,24 @@
     +--------------------------------+----------+-------+---+----+------------+------------+
     |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +--------------------------------+----------+-------+---+----+------------+------------+
-    |database_index_1_fu_257_p2      |     +    |      0|  0|  39|           3|          32|
-    |sum2_fu_278_p2                  |     +    |      0|  0|  32|          25|          25|
-    |sum4_fu_298_p2                  |     +    |      0|  0|  32|          25|          25|
-    |sum6_fu_308_p2                  |     +    |      0|  0|  32|          25|          25|
-    |sum_fu_252_p2                   |     +    |      0|  0|  32|          25|          25|
-    |tmp_5_fu_232_p2                 |     +    |      0|  0|  39|          32|           1|
+    |database_index_1_fu_310_p2      |     +    |      0|  0|  39|          32|           3|
+    |tmp_10_fu_289_p2                |     +    |      0|  0|  71|          64|          64|
+    |tmp_13_fu_305_p2                |     +    |      0|  0|  71|          64|          64|
+    |tmp_3_fu_273_p2                 |     +    |      0|  0|  71|          64|          64|
+    |tmp_5_fu_236_p2                 |     +    |      0|  0|  39|          32|           1|
+    |tmp_8_fu_256_p2                 |     +    |      0|  0|  71|          64|          64|
     |results_out_V_1_load_A          |    and   |      0|  0|   2|           1|           1|
     |results_out_V_1_load_B          |    and   |      0|  0|   2|           1|           1|
-    |icmp_fu_222_p2                  |   icmp   |      0|  0|  13|          25|           1|
+    |icmp_fu_226_p2                  |   icmp   |      0|  0|  13|          25|           1|
     |results_out_V_1_state_cmp_full  |   icmp   |      0|  0|   1|           2|           1|
-    |tmp_6_fu_243_p2                 |   icmp   |      0|  0|  16|          32|          32|
+    |tmp_6_fu_247_p2                 |   icmp   |      0|  0|  16|          32|          32|
     |ap_block_state1                 |    or    |      0|  0|   2|           1|           1|
     |ap_block_state23                |    or    |      0|  0|   2|           1|           1|
-    |tmp11_fu_303_p2                 |    or    |      0|  0|  25|          25|           2|
-    |tmp3_fu_273_p2                  |    or    |      0|  0|  25|          25|           1|
-    |tmp9_fu_293_p2                  |    or    |      0|  0|  25|          25|           2|
+    |tmp13_fu_295_p2                 |    or    |      0|  0|  32|          32|           2|
+    |tmp3_fu_268_p2                  |    or    |      0|  0|  64|          64|           1|
+    |tmp4_fu_279_p2                  |    or    |      0|  0|  32|          32|           2|
     +--------------------------------+----------+-------+---+----+------------+------------+
-    |Total                           |          |      0|  0| 319|         273|         176|
+    |Total                           |          |      0|  0| 528|         511|         303|
     +--------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
@@ -134,8 +134,9 @@
     |contacts_V_ce0                   |   15|          3|    1|          3|
     |contacts_size                    |    9|          2|   32|         64|
     |contacts_size_out_1_data_in      |   21|          4|   32|        128|
-    |database_index_reg_163           |    9|          2|   32|         64|
-    |db_mem_V_ARADDR                  |   27|          5|   64|        320|
+    |current_offset                   |   27|          5|   64|        320|
+    |current_offset_preg              |   21|          4|   64|        256|
+    |database_index_reg_170           |    9|          2|   32|         64|
     |db_mem_V_blk_n_AR                |    9|          2|    1|          2|
     |db_mem_V_blk_n_R                 |    9|          2|    1|          2|
     |error_out_1_data_in              |   21|          4|   32|        128|
@@ -147,9 +148,9 @@
     |results_out_V_1_data_out         |    9|          2|    8|         16|
     |results_out_V_1_state            |   15|          3|    2|          6|
     |results_out_V_TDATA_blk_n        |    9|          2|    1|          2|
-    |storemerge_reg_174               |    9|          2|   32|         64|
+    |storemerge_reg_182               |    9|          2|   32|         64|
     +---------------------------------+-----+-----------+-----+-----------+
-    |Total                            |  362|         75|  290|        956|
+    |Total                            |  383|         79|  354|       1212|
     +---------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
@@ -157,34 +158,32 @@
     |                     Name                    |  FF | LUT| Bits| Const Bits|
     +---------------------------------------------+-----+----+-----+-----------+
     |ap_CS_fsm                                    |   23|   0|   23|          0|
-    |ap_reg_grp_match_db_contact_fu_186_ap_start  |    1|   0|    1|          0|
+    |ap_reg_grp_match_db_contact_fu_194_ap_start  |    1|   0|    1|          0|
     |ap_reg_ioackin_db_mem_V_ARREADY              |    1|   0|    1|          0|
-    |contact_in_V_read_reg_358                    |  512|   0|  512|          0|
+    |contact_in_V_read_reg_349                    |  512|   0|  512|          0|
     |contacts_size                                |   32|   0|   32|          0|
-    |contacts_size_load_reg_367                   |   32|   0|   32|          0|
+    |contacts_size_load_reg_358                   |   32|   0|   32|          0|
     |contacts_size_out_1_data_reg                 |   32|   0|   32|          0|
     |contacts_size_out_1_vld_reg                  |    0|   0|    1|          1|
-    |database_index_1_reg_407                     |   32|   0|   32|          0|
-    |database_index_reg_163                       |   32|   0|   32|          0|
+    |current_offset_preg                          |   64|   0|   64|          0|
+    |database_index_1_reg_399                     |   32|   0|   32|          0|
+    |database_index_reg_170                       |   32|   0|   32|          0|
     |error_out_1_data_reg                         |   32|   0|   32|          0|
     |error_out_1_vld_reg                          |    0|   0|    1|          1|
     |operation_ap_vld_preg                        |    1|   0|    1|          0|
     |operation_preg                               |   32|   0|   32|          0|
-    |reg_193                                      |  512|   0|  512|          0|
+    |reg_201                                      |  512|   0|  512|          0|
     |results_out_V_1_payload_A                    |    8|   0|    8|          0|
     |results_out_V_1_payload_B                    |    8|   0|    8|          0|
     |results_out_V_1_sel_rd                       |    1|   0|    1|          0|
     |results_out_V_1_sel_wr                       |    1|   0|    1|          0|
     |results_out_V_1_state                        |    2|   0|    2|          0|
-    |storemerge_reg_174                           |   32|   0|   32|          0|
-    |sum2_reg_418                                 |   25|   0|   25|          0|
-    |sum4_reg_429                                 |   25|   0|   25|          0|
-    |sum6_reg_434                                 |   25|   0|   25|          0|
-    |sum_reg_402                                  |   25|   0|   25|          0|
-    |tmp_1_reg_376                                |   25|   0|   25|          0|
-    |tmp_7_reg_395                                |   25|   0|   25|          0|
+    |storemerge_reg_182                           |   32|   0|   32|          0|
+    |tmp_13_reg_394                               |   64|   0|   64|          0|
+    |tmp_7_reg_378                                |   64|   0|   64|          0|
+    |tmp_8_reg_383                                |   64|   0|   64|          0|
     +---------------------------------------------+-----+----+-----+-----------+
-    |Total                                        | 1476|   0| 1478|          2|
+    |Total                                        | 1582|   0| 1584|          2|
     +---------------------------------------------+-----+----+-----+-----------+
 
 
@@ -198,14 +197,14 @@
 +-------------------------+-----+-----+------------+-------------------+--------------+
 |s_axi_AXILiteS_AWVALID   |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_AWREADY   | out |    1|    s_axi   |      AXILiteS     |    pointer   |
-|s_axi_AXILiteS_AWADDR    |  in |    7|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_AWADDR    |  in |    8|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_WVALID    |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_WREADY    | out |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_WDATA     |  in |   32|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_WSTRB     |  in |    4|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_ARVALID   |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_ARREADY   | out |    1|    s_axi   |      AXILiteS     |    pointer   |
-|s_axi_AXILiteS_ARADDR    |  in |    7|    s_axi   |      AXILiteS     |    pointer   |
+|s_axi_AXILiteS_ARADDR    |  in |    8|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_RVALID    | out |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_RREADY    |  in |    1|    s_axi   |      AXILiteS     |    pointer   |
 |s_axi_AXILiteS_RDATA     | out |   32|    s_axi   |      AXILiteS     |    pointer   |

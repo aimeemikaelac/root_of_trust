@@ -17,15 +17,21 @@
 // #define DATABASE_SIZE 300000
 static unsigned int DATABASE_SIZE = 0;
 
-#define CONTACT_DISCOVERY_BASE 0xB0000000
-#define INPUT_MAPPER_BASE 0xB0010000
-#define RESULTS_MAPPER_BASE 0xB0020000
+#define CONTACT_DISCOVERY_BASE 0xA0000000
+//#define INPUT_MAPPER_BASE 0xB0010000
+#define RESULTS_MAPPER_BASE 0xB0030000
 #define RESULTS_BUFFER 0xB0100000
-#define RESULTS_BUFFER_FPGA 0xA0000000
-#define FPGA_RAM_LOWER 0x00000000
-#define FPGA_RAM_UPPER 0x00000004
-#define RAM_BUFFER 0x400000000
-#define TRANSFER_MAX 8388608
+#define RESULTS_BUFFER_FPGA 0xC0000000
+//#define FPGA_RAM_LOWER 0x00000000
+//#define FPGA_RAM_UPPER 0x00000004
+//#define RAM_BUFFER 0x400000000
+//#define TRANSFER_MAX 8388608
+//#define OFFSET_HASHES 268435456
+#define LOAD_BUFFER 0xB0000000
+#define CDMA_BASE 0xB0010000
+#define TRANSFER_SOURCE 0xB0000000
+#define TRANSFER_DESTINATION_BASE 0x00000000
+#define TRANSFER_SIZE 0x2000
 
 
 void contact_discovery(
@@ -39,7 +45,7 @@ void contact_discovery(
   int i, j;
   volatile unsigned char *control;
   unsigned int results_val, dma_status;
-  unsigned int first_length, second_length, remaining, dma_offset;
+  unsigned int first_length, second_length, remaining, dma_offset=0;
   shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
   control = (volatile unsigned char*)(control_mem->ptr);
 
@@ -51,28 +57,7 @@ void contact_discovery(
       writeValueToAddress(((unsigned int*)contact_in)[i], CONTACT_DISCOVERY_BASE + 0x18 + i*4);
     }
   }
-  //run match
-  // detect if transfer size is too large, e.g. > 2^23
-  if(db_size*64 > TRANSFER_MAX){
-    first_length = TRANSFER_MAX;
-    remaining = db_size - TRANSFER_MAX;
-    dma_offset = 0;
-  }
   if(operation == 1){
-//  printf("starting mapper programming\n");
-    // program input stream
-    //reset MM2s
-    writeValueToAddress(4, INPUT_MAPPER_BASE + 0x0);
-    //enable MM2s
-    writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0);
-    //set MM2S lower address bits
-    writeValueToAddress(FPGA_RAM_LOWER + dma_offset, INPUT_MAPPER_BASE + 0x18);
-    //set MM2s upper address bits
-    writeValueToAddress(FPGA_RAM_UPPER, INPUT_MAPPER_BASE + 0x1C);
-    //set length for transfer -> db_size*64
-    writeValueToAddress(first_length*64, INPUT_MAPPER_BASE + 0x28);
-    dma_offset += first_length*64;
-    // program output stream
     //reset S2MM
     writeValueToAddress(4, RESULTS_MAPPER_BASE + 0x30);
     //enable S2MM
@@ -81,8 +66,11 @@ void contact_discovery(
     writeValueToAddress(RESULTS_BUFFER_FPGA, RESULTS_MAPPER_BASE + 0x48);
     //set length for transfer -> db_size*4
     writeValueToAddress(db_size, RESULTS_MAPPER_BASE + 0x58);
-  //  printf("finished mapper programming\n");
-    writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x5C);
+    //write dma_offset
+    writeValueToAddress(0, CONTACT_DISCOVERY_BASE + 0x5c);
+    writeValueToAddress(0, CONTACT_DISCOVERY_BASE + 0x60);
+    //write db size
+    writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x68);
   }
   //start current call
   control[0x0] = 1;
@@ -92,48 +80,23 @@ void contact_discovery(
   while(control[0] & 0x2 != 1){
     asm("");
     __asm__("");
-    while(remaining > 0){
-      // wait for tranfer to finished -> DMA status is idle
-      getValueAtAddress(INPUT_MAPPER_BASE + 0x4, &dma_status);
-      while((dma_status & 0x2) == 0){
-        getValueAtAddress(INPUT_MAPPER_BASE + 0x4, &dma_status);
-      }
-      if(remaining*64 > TRANSFER_MAX){
-        second_length = TRANSFER_MAX;
-        remaining = remaining - TRANSFER_MAX;
-      } else{
-        second_length = remaining;
-        remaining = 0;
-      }
-      //reset MM2s
-      writeValueToAddress(4, INPUT_MAPPER_BASE + 0x0);
-      //enable MM2s
-      writeValueToAddress(1, INPUT_MAPPER_BASE + 0x0);
-      //set MM2S lower address bits
-      writeValueToAddress(FPGA_RAM_LOWER, INPUT_MAPPER_BASE + 0x18);
-      //set MM2s upper address bits
-      writeValueToAddress(FPGA_RAM_UPPER, INPUT_MAPPER_BASE + 0x1C);
-      //set length for transfer -> db_size*64
-      writeValueToAddress(second_length*64, INPUT_MAPPER_BASE + 0x28);
-      dma_offset += second_length*64;
-    }
   }
-  *error_out = *((unsigned int*)(control + 0x64));
-  *contacts_size_out = *((unsigned int*)(control + 0x6C));
+  *error_out = *((unsigned int*)(control + 0x70));
+  *contacts_size_out = *((unsigned int*)(control + 0x78));
   //read match result
-  // if(operation == 1){
-  //   // wait for output stream to finish
-  //   unsigned int results_buffer_status;
-  //   printf("Reading results\n");
-  //   for(i=0; i<db_size/4; i++){
-  //     getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
-  //     bool *results_buffer = (bool*)&results_val;
-  //     for(j=0; j<4; j++){
-  //       matched_out[i*4 + j] = results_buffer[j];
-  //     }
-  //   }
-  //   printf("Finished reading results\n");
-  // }
+  if(operation == 1){
+    // wait for output stream to finish
+    unsigned int results_buffer_status;
+    printf("Reading results\n");
+    for(i=0; i<db_size/4; i++){
+      getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
+      bool *results_buffer = (bool*)&results_val;
+      for(j=0; j<4; j++){
+        matched_out[i*4 + j] = results_buffer[j];
+      }
+    }
+    printf("Finished reading results\n");
+  }
   cleanupSharedMemoryPointer(control_mem);
 }
 
@@ -242,9 +205,18 @@ int main(int argc, char **argv){
   }
 
   // printf("Populating db stream\n");
+  int buffer_index = 0;
+  long long transfer_offset = 0;
   for(i=0; i<DATABASE_SIZE*64/4; i++){
-    writeValueToAddress(((unsigned int*)db_hashes)[i], RAM_BUFFER + i*4);
+    writeValueToAddress(((unsigned int*)db_hashes)[i], LOAD_BUFFER + buffer_index);
+    buffer_index += 4;
+    if(buffer_index >= TRANSFER_SIZE){
+      transfer_buffer(transfer_offset);
+      buffer_index = 0;
+      transfer_offset += TRANSFER_SIZE;
+    }
   }
+  transfer_buffer(transfer_offset);
 
   //check initial conditions of clearing contacts
   contact_discovery(

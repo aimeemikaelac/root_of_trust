@@ -147,6 +147,28 @@ void hash_numbers(){
   }
 }
 
+void transfer_buffer(long long transfer_offset){
+  unsigned int cdma_status;
+  //verify CDMASR.IDLE = 1
+  cdma_status = 0;
+  while(cdma_status & 0x2 == 0){
+    getValueAtAddress(CDMA_BASE + 0x4, &cdma_status);
+  }
+  //write source address
+  writeValueToAddress(TRANSFER_SOURCE, CDMA_BASE + 0x18);
+  writeValueToAddress(0, CDMA_BASE + 0x1C);
+  //write dest address
+  writeValueToAddress((unsigned int)(transfer_offset), CDMA_BASE + 0x20);
+  writeValueToAddress((unsigned int)(transfer_offset >> 32), CDMA_BASE + 0x24);
+//  printf("Destination address: %08x\n", (unsigned int)(transfer_offset));
+//  printf("Destination address msb: %08x\n", (unsigned int)(transfer_offset >> 32));
+  //write transfer length
+  writeValueToAddress(TRANSFER_SIZE, CDMA_BASE + 0x28);
+  while(cdma_status & 0x2 == 0){
+    getValueAtAddress(CDMA_BASE + 0x4, &cdma_status);
+  }
+}
+
 int main(int argc, char **argv){
   unsigned int seed, results_val;
   long long i;

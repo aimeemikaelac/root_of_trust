@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu May  3 14:43:11 2018
-# Process ID: 6347
+# Start of session at: Sun May  6 15:58:13 2018
+# Process ID: 4657
 # Current directory: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog
 # Command line: vivado -notrace -mode batch -source run_vivadosyn.tcl
 # Log file: /home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/vivado.log

@@ -2996,10 +2996,6 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/match_db_contact.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/contact_discoverybkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -3023,11 +3019,6 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       <spirit:file>
         <spirit:name>hdl/verilog/contact_discoverybkb_ram.dat</spirit:name>
         <spirit:userFileType>mif</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/match_db_contact.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/contact_discoverybkb.v</spirit:name>
@@ -3060,10 +3051,6 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/match_db_contact.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/contact_discoverybkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_f5b0bc5e</spirit:userFileType>
@@ -3083,11 +3070,6 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/contact_discovery.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/match_db_contact.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3322,8 +3304,8 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       </xilinx:taxonomies>
       <xilinx:displayName>Contact_discovery</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1805031442</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-05-03T20:43:09Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1805061557</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-05-06T21:58:11Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.1</xilinx:xilinxVersion>

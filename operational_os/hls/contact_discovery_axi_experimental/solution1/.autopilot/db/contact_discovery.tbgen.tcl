@@ -180,7 +180,7 @@ set NewPortList {[
  	{ "name": "results_out_V_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "results_out_V", "role": "TREADY" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
 		"CDFG" : "contact_discovery",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -188,11 +188,6 @@ set RtlHierarchyInfo {[
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state13", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
-			{"State" : "ap_ST_fsm_state17", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"},
-			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_match_db_contact_fu_194"}],
 		"Port" : [
 			{"Name" : "operation", "Type" : "Vld", "Direction" : "I",
 				"BlockSignal" : [
@@ -211,41 +206,25 @@ set RtlHierarchyInfo {[
 					{"Name" : "results_out_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "current_offset", "Type" : "None", "Direction" : "O"},
 			{"Name" : "contacts_size", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_match_db_contact_fu_194", "Port" : "contacts_V"}]}]},
+			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contacts_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_AXILiteS_s_axi_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_db_mem_V_m_axi_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_194", "Parent" : "0",
-		"CDFG" : "match_db_contact",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"VariableLatency" : "1",
-		"Port" : [
-			{"Name" : "db_item_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "I"}]}]}
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_db_mem_V_m_axi_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	contact_discovery {
 		operation {Type I LastRead 0 FirstWrite -1}
 		contact_in_V {Type I LastRead 0 FirstWrite -1}
-		db_mem_V {Type I LastRead 16 FirstWrite -1}
+		db_mem_V {Type I LastRead 11 FirstWrite -1}
 		offset {Type I LastRead 0 FirstWrite -1}
 		db_size_in {Type I LastRead 0 FirstWrite -1}
 		error_out {Type O LastRead -1 FirstWrite 0}
 		contacts_size_out {Type O LastRead -1 FirstWrite 0}
 		results_out_V {Type O LastRead -1 FirstWrite 12}
-		current_offset {Type O LastRead -1 FirstWrite 2}
+		current_offset {Type O LastRead -1 FirstWrite 12}
 		contacts_size {Type IO LastRead -1 FirstWrite -1}
-		contacts_V {Type IO LastRead -1 FirstWrite -1}}
-	match_db_contact {
-		db_item_V {Type I LastRead 0 FirstWrite -1}
-		contacts_V {Type I LastRead 1 FirstWrite -1}}}
+		contacts_V {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

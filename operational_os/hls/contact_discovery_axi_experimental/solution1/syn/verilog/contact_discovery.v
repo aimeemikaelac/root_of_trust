@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3864,HLS_SYN_LUT=4399}" *)
+(* CORE_GENERATION_INFO="contact_discovery,hls_ip_2017_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xczu9eg-ffvb1156-1-i,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=45,HLS_SYN_DSP=0,HLS_SYN_FF=3781,HLS_SYN_LUT=4072}" *)
 
 module contact_discovery (
         ap_clk,
@@ -80,29 +80,24 @@ module contact_discovery (
         interrupt
 );
 
-parameter    ap_ST_fsm_state1 = 23'd1;
-parameter    ap_ST_fsm_state2 = 23'd2;
-parameter    ap_ST_fsm_state3 = 23'd4;
-parameter    ap_ST_fsm_state4 = 23'd8;
-parameter    ap_ST_fsm_state5 = 23'd16;
-parameter    ap_ST_fsm_state6 = 23'd32;
-parameter    ap_ST_fsm_state7 = 23'd64;
-parameter    ap_ST_fsm_state8 = 23'd128;
-parameter    ap_ST_fsm_state9 = 23'd256;
-parameter    ap_ST_fsm_state10 = 23'd512;
-parameter    ap_ST_fsm_state11 = 23'd1024;
-parameter    ap_ST_fsm_state12 = 23'd2048;
-parameter    ap_ST_fsm_state13 = 23'd4096;
-parameter    ap_ST_fsm_state14 = 23'd8192;
-parameter    ap_ST_fsm_state15 = 23'd16384;
-parameter    ap_ST_fsm_state16 = 23'd32768;
-parameter    ap_ST_fsm_state17 = 23'd65536;
-parameter    ap_ST_fsm_state18 = 23'd131072;
-parameter    ap_ST_fsm_state19 = 23'd262144;
-parameter    ap_ST_fsm_state20 = 23'd524288;
-parameter    ap_ST_fsm_state21 = 23'd1048576;
-parameter    ap_ST_fsm_state22 = 23'd2097152;
-parameter    ap_ST_fsm_state23 = 23'd4194304;
+parameter    ap_ST_fsm_state1 = 18'd1;
+parameter    ap_ST_fsm_state2 = 18'd2;
+parameter    ap_ST_fsm_state3 = 18'd4;
+parameter    ap_ST_fsm_state4 = 18'd8;
+parameter    ap_ST_fsm_state5 = 18'd16;
+parameter    ap_ST_fsm_state6 = 18'd32;
+parameter    ap_ST_fsm_state7 = 18'd64;
+parameter    ap_ST_fsm_state8 = 18'd128;
+parameter    ap_ST_fsm_state9 = 18'd256;
+parameter    ap_ST_fsm_state10 = 18'd512;
+parameter    ap_ST_fsm_state11 = 18'd1024;
+parameter    ap_ST_fsm_state12 = 18'd2048;
+parameter    ap_ST_fsm_state13 = 18'd4096;
+parameter    ap_ST_fsm_state14 = 18'd8192;
+parameter    ap_ST_fsm_state15 = 18'd16384;
+parameter    ap_ST_fsm_state16 = 18'd32768;
+parameter    ap_ST_fsm_state17 = 18'd65536;
+parameter    ap_ST_fsm_state18 = 18'd131072;
 parameter    C_S_AXI_AXILITES_DATA_WIDTH = 32;
 parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 8;
 parameter    C_S_AXI_DATA_WIDTH = 32;
@@ -198,7 +193,7 @@ reg    ap_rst_n_inv;
 wire    ap_start;
 reg    ap_done;
 reg    ap_idle;
-(* fsm_encoding = "none" *) reg   [22:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [17:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    ap_ready;
 wire   [31:0] operation;
@@ -220,7 +215,6 @@ reg   [31:0] contacts_size_out_1_data_in;
 reg    contacts_size_out_1_vld_reg;
 reg    contacts_size_out_1_vld_in;
 reg    contacts_size_out_1_ack_in;
-reg   [7:0] results_out_V_1_data_in;
 reg   [7:0] results_out_V_1_data_out;
 reg    results_out_V_1_vld_in;
 wire    results_out_V_1_vld_out;
@@ -243,18 +237,13 @@ reg    contacts_V_we0;
 wire   [511:0] contacts_V_q0;
 reg    operation_blk_n;
 reg    db_mem_V_blk_n_AR;
-wire    ap_CS_fsm_state4;
+wire    ap_CS_fsm_state5;
 reg    db_mem_V_blk_n_R;
-wire    ap_CS_fsm_state11;
-wire    ap_CS_fsm_state13;
-wire    ap_CS_fsm_state15;
-wire    ap_CS_fsm_state17;
+wire    ap_CS_fsm_state12;
 reg    results_out_V_TDATA_blk_n;
-wire    ap_CS_fsm_state14;
-wire    ap_CS_fsm_state16;
-wire    ap_CS_fsm_state18;
-wire    ap_CS_fsm_state19;
-wire    ap_CS_fsm_state20;
+wire    ap_CS_fsm_state13;
+wire   [0:0] exitcond_i_fu_381_p2;
+wire    ap_CS_fsm_state15;
 wire    db_mem_V_AWREADY;
 wire    db_mem_V_WREADY;
 reg    db_mem_V_ARVALID;
@@ -270,62 +259,63 @@ wire    db_mem_V_BVALID;
 wire   [1:0] db_mem_V_BRESP;
 wire   [0:0] db_mem_V_BID;
 wire   [0:0] db_mem_V_BUSER;
-reg   [511:0] reg_201;
-wire    grp_match_db_contact_fu_194_ap_done;
 reg    ap_block_state1;
-reg   [511:0] contact_in_V_read_reg_349;
-wire   [31:0] operation_read_read_fu_108_p2;
-reg   [31:0] contacts_size_load_reg_358;
-wire   [31:0] tmp_5_fu_236_p2;
+reg   [511:0] contact_in_V_read_reg_426;
+wire   [31:0] operation_read_read_fu_132_p2;
+reg   [31:0] contacts_size_load_reg_435;
+wire   [24:0] tmp_2_fu_271_p1;
+reg   [24:0] tmp_2_reg_444;
 wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_fu_226_p2;
-wire  signed [63:0] tmp_7_fu_252_p1;
-reg  signed [63:0] tmp_7_reg_378;
+wire   [31:0] tmp_5_fu_293_p2;
+wire   [0:0] icmp_fu_283_p2;
+wire   [63:0] tmp_8_fu_317_p2;
+reg   [63:0] tmp_8_reg_460;
 wire    ap_CS_fsm_state3;
-wire   [0:0] tmp_6_fu_247_p2;
-wire   [63:0] tmp_8_fu_256_p2;
-reg   [63:0] tmp_8_reg_383;
+wire   [0:0] tmp_6_fu_304_p2;
+wire   [24:0] tmp_8_cast_fu_322_p2;
+reg   [24:0] tmp_8_cast_reg_465;
+wire   [5:0] i_1_fu_339_p2;
+reg   [5:0] i_1_reg_473;
+wire    ap_CS_fsm_state4;
+wire   [24:0] sum_fu_360_p2;
+reg   [24:0] sum_reg_481;
+wire   [0:0] tmp_10_fu_331_p3;
+wire   [0:0] tmp_1_fu_351_p2;
+wire   [31:0] database_index_1_fu_365_p2;
 reg    ap_sig_ioackin_db_mem_V_ARREADY;
-wire   [63:0] tmp_13_fu_305_p2;
-reg   [63:0] tmp_13_reg_394;
-wire    ap_CS_fsm_state5;
-wire   [31:0] database_index_1_fu_310_p2;
-reg   [31:0] database_index_1_reg_399;
-wire   [7:0] tmp_1_fu_316_p1;
-wire   [7:0] tmp_2_fu_321_p1;
-wire   [7:0] tmp_12_fu_326_p1;
-wire   [7:0] tmp_15_fu_331_p1;
-wire    grp_match_db_contact_fu_194_ap_start;
-wire    grp_match_db_contact_fu_194_ap_idle;
-wire    grp_match_db_contact_fu_194_ap_ready;
-wire   [6:0] grp_match_db_contact_fu_194_contacts_V_address0;
-wire    grp_match_db_contact_fu_194_contacts_V_ce0;
-wire   [0:0] grp_match_db_contact_fu_194_ap_return;
-reg   [31:0] database_index_reg_170;
-reg   [31:0] storemerge_reg_182;
-wire    ap_CS_fsm_state21;
-reg    ap_reg_grp_match_db_contact_fu_194_ap_start;
-wire    ap_CS_fsm_state12;
-wire  signed [63:0] tmp_4_fu_232_p1;
+reg   [511:0] db_mem_V_addr_read_reg_497;
+wire   [7:0] contacts_index_fu_387_p2;
+reg   [7:0] contacts_index_reg_505;
+reg    ap_block_state13_io;
+wire   [7:0] tmp_3_fu_398_p1;
+wire   [0:0] matched_fu_408_p2;
+wire    ap_CS_fsm_state14;
+reg   [31:0] database_index_reg_202;
+reg   [5:0] i_reg_214;
+reg   [7:0] contacts_index_i_reg_225;
+reg   [0:0] matched_i_reg_236;
+reg   [31:0] storemerge_reg_248;
+wire    ap_CS_fsm_state16;
+wire  signed [63:0] tmp_4_fu_289_p1;
+wire   [63:0] tmp_i_fu_393_p1;
+wire   [63:0] sum_cast_fu_371_p1;
 reg    ap_reg_ioackin_db_mem_V_ARREADY;
-wire    ap_CS_fsm_state22;
+wire    ap_CS_fsm_state17;
 reg   [63:0] current_offset_preg;
-wire   [63:0] tmp_3_fu_273_p2;
-wire   [63:0] tmp_10_fu_289_p2;
-wire    ap_CS_fsm_state6;
-wire   [24:0] tmp_fu_217_p4;
-wire   [63:0] tmp3_fu_268_p2;
-wire   [31:0] tmp4_fu_279_p2;
-wire  signed [63:0] tmp25_cast_fu_285_p1;
-wire   [31:0] tmp13_fu_295_p2;
-wire  signed [63:0] tmp36_cast_fu_301_p1;
-wire    ap_CS_fsm_state23;
-reg    ap_block_state23;
-reg   [22:0] ap_NS_fsm;
+wire   [24:0] tmp_fu_274_p4;
+wire  signed [63:0] tmp_7_fu_309_p1;
+wire   [24:0] tmp_9_fu_313_p1;
+wire   [31:0] i_cast2_fu_327_p1;
+wire   [31:0] tmp_s_fu_345_p2;
+wire   [24:0] tmp_2_cast_fu_356_p1;
+wire   [0:0] tmp_1_i_fu_403_p2;
+wire    ap_CS_fsm_state18;
+reg    ap_block_state18;
+reg   [17:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 23'd1;
+#0 ap_CS_fsm = 18'd1;
 #0 operation_preg = 32'd0;
 #0 operation_ap_vld_preg = 1'b0;
 #0 error_out_1_data_reg = 32'd0;
@@ -336,7 +326,6 @@ initial begin
 #0 results_out_V_1_sel_wr = 1'b0;
 #0 results_out_V_1_state = 2'd0;
 #0 contacts_size = 32'd0;
-#0 ap_reg_grp_match_db_contact_fu_194_ap_start = 1'b0;
 #0 ap_reg_ioackin_db_mem_V_ARREADY = 1'b0;
 #0 current_offset_preg = 64'd0;
 end
@@ -351,7 +340,7 @@ contacts_V_U(
     .address0(contacts_V_address0),
     .ce0(contacts_V_ce0),
     .we0(contacts_V_we0),
-    .d0(contact_in_V_read_reg_349),
+    .d0(contact_in_V_read_reg_426),
     .q0(contacts_V_q0)
 );
 
@@ -465,9 +454,9 @@ contact_discovery_db_mem_V_m_axi_U(
     .ACLK_EN(1'b1),
     .I_ARVALID(db_mem_V_ARVALID),
     .I_ARREADY(db_mem_V_ARREADY),
-    .I_ARADDR(tmp_8_reg_383),
+    .I_ARADDR(sum_cast_fu_371_p1),
     .I_ARID(1'd0),
-    .I_ARLEN(32'd4),
+    .I_ARLEN(32'd1),
     .I_ARSIZE(3'd0),
     .I_ARLOCK(2'd0),
     .I_ARCACHE(4'd0),
@@ -510,20 +499,6 @@ contact_discovery_db_mem_V_m_axi_U(
     .I_BUSER(db_mem_V_BUSER)
 );
 
-match_db_contact grp_match_db_contact_fu_194(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_match_db_contact_fu_194_ap_start),
-    .ap_done(grp_match_db_contact_fu_194_ap_done),
-    .ap_idle(grp_match_db_contact_fu_194_ap_idle),
-    .ap_ready(grp_match_db_contact_fu_194_ap_ready),
-    .db_item_V(reg_201),
-    .contacts_V_address0(grp_match_db_contact_fu_194_contacts_V_address0),
-    .contacts_V_ce0(grp_match_db_contact_fu_194_contacts_V_ce0),
-    .contacts_V_q0(contacts_V_q0),
-    .ap_return(grp_match_db_contact_fu_194_ap_return)
-);
-
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_CS_fsm <= ap_ST_fsm_state1;
@@ -534,21 +509,9 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_reg_grp_match_db_contact_fu_194_ap_start <= 1'b0;
-    end else begin
-        if (((1'b1 == ap_CS_fsm_state12) | ((1'b1 == ap_CS_fsm_state14) & (results_out_V_1_ack_in == 1'b1)) | ((1'b1 == ap_CS_fsm_state16) & (results_out_V_1_ack_in == 1'b1)) | ((1'b1 == ap_CS_fsm_state18) & (results_out_V_1_ack_in == 1'b1)))) begin
-            ap_reg_grp_match_db_contact_fu_194_ap_start <= 1'b1;
-        end else if ((1'b1 == grp_match_db_contact_fu_194_ap_ready)) begin
-            ap_reg_grp_match_db_contact_fu_194_ap_start <= 1'b0;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_db_mem_V_ARREADY <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state4)) begin
+        if ((1'b1 == ap_CS_fsm_state5)) begin
             if ((ap_sig_ioackin_db_mem_V_ARREADY == 1'b1)) begin
                 ap_reg_ioackin_db_mem_V_ARREADY <= 1'b0;
             end else if ((1'b1 == db_mem_V_ARREADY)) begin
@@ -562,14 +525,8 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         current_offset_preg <= 64'd0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state6)) begin
-            current_offset_preg <= tmp_13_reg_394;
-        end else if ((1'b1 == ap_CS_fsm_state5)) begin
-            current_offset_preg <= tmp_10_fu_289_p2;
-        end else if ((1'b1 == ap_CS_fsm_state4)) begin
-            current_offset_preg <= tmp_3_fu_273_p2;
-        end else if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_6_fu_247_p2))) begin
-            current_offset_preg <= tmp_8_fu_256_p2;
+        if (((1'b1 == ap_CS_fsm_state13) & (1'd1 == exitcond_i_fu_381_p2))) begin
+            current_offset_preg <= tmp_8_reg_460;
         end
     end
 end
@@ -578,7 +535,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         operation_ap_vld_preg <= 1'b0;
     end else begin
-        if (((1'b1 == ap_CS_fsm_state23) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
+        if (((1'b1 == ap_CS_fsm_state18) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
             operation_ap_vld_preg <= 1'b0;
         end else if (((1'b1 == operation_ap_vld) & ~((1'b0 == ap_start) & (1'b1 == ap_CS_fsm_state1)))) begin
             operation_ap_vld_preg <= operation_ap_vld;
@@ -633,33 +590,63 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd0 == icmp_fu_226_p2))) begin
-        contacts_size <= tmp_5_fu_236_p2;
-    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd2))) begin
+    if ((1'b1 == ap_CS_fsm_state14)) begin
+        contacts_index_i_reg_225 <= contacts_index_reg_505;
+    end else if (((1'b1 == ap_CS_fsm_state12) & (db_mem_V_RVALID == 1'b1))) begin
+        contacts_index_i_reg_225 <= 8'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd0 == icmp_fu_283_p2))) begin
+        contacts_size <= tmp_5_fu_293_p2;
+    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd2))) begin
         contacts_size <= 32'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state20) & (results_out_V_1_ack_in == 1'b1))) begin
-        database_index_reg_170 <= database_index_1_reg_399;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_108_p2 == 32'd1))) begin
-        database_index_reg_170 <= 32'd0;
+    if (((1'b1 == ap_CS_fsm_state4) & ((1'd1 == tmp_10_fu_331_p3) | (1'd0 == tmp_1_fu_351_p2)))) begin
+        database_index_reg_202 <= database_index_1_fu_365_p2;
+    end else if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_132_p2 == 32'd1))) begin
+        database_index_reg_202 <= 32'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state21)) begin
-        storemerge_reg_182 <= contacts_size_load_reg_358;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd0 == icmp_fu_226_p2))) begin
-        storemerge_reg_182 <= tmp_5_fu_236_p2;
+    if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_6_fu_304_p2))) begin
+        i_reg_214 <= 6'd0;
+    end else if (((1'b1 == ap_CS_fsm_state15) & (results_out_V_1_ack_in == 1'b1))) begin
+        i_reg_214 <= i_1_reg_473;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state14)) begin
+        matched_i_reg_236 <= matched_fu_408_p2;
+    end else if (((1'b1 == ap_CS_fsm_state12) & (db_mem_V_RVALID == 1'b1))) begin
+        matched_i_reg_236 <= 1'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state16)) begin
+        storemerge_reg_248 <= contacts_size_load_reg_435;
+    end else if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd0 == icmp_fu_283_p2))) begin
+        storemerge_reg_248 <= tmp_5_fu_293_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)))) begin
-        contact_in_V_read_reg_349 <= contact_in_V;
-        contacts_size_load_reg_358 <= contacts_size;
+        contact_in_V_read_reg_426 <= contact_in_V;
+        contacts_size_load_reg_435 <= contacts_size;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state13) & (ap_block_state13_io == 1'b0))) begin
+        contacts_index_reg_505 <= contacts_index_fu_387_p2;
     end
 end
 
@@ -670,9 +657,8 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        database_index_1_reg_399 <= database_index_1_fu_310_p2;
-        tmp_13_reg_394 <= tmp_13_fu_305_p2;
+    if (((1'b1 == ap_CS_fsm_state12) & (db_mem_V_RVALID == 1'b1))) begin
+        db_mem_V_addr_read_reg_497 <= db_mem_V_RDATA;
     end
 end
 
@@ -683,32 +669,44 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((((1'b1 == ap_CS_fsm_state11) & (db_mem_V_RVALID == 1'b1)) | ((1'b1 == ap_CS_fsm_state13) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state15) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state17) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))))) begin
-        reg_201 <= db_mem_V_RDATA;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        i_1_reg_473 <= i_1_fu_339_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == results_out_V_1_load_A)) begin
-        results_out_V_1_payload_A <= results_out_V_1_data_in;
+        results_out_V_1_payload_A <= tmp_3_fu_398_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == results_out_V_1_load_B)) begin
-        results_out_V_1_payload_B <= results_out_V_1_data_in;
+        results_out_V_1_payload_B <= tmp_3_fu_398_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_6_fu_247_p2))) begin
-        tmp_7_reg_378 <= tmp_7_fu_252_p1;
-        tmp_8_reg_383 <= tmp_8_fu_256_p2;
+    if (((1'b1 == ap_CS_fsm_state4) & (1'd0 == tmp_10_fu_331_p3) & (1'd1 == tmp_1_fu_351_p2))) begin
+        sum_reg_481 <= sum_fu_360_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_132_p2 == 32'd1))) begin
+        tmp_2_reg_444 <= tmp_2_fu_271_p1;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_6_fu_304_p2))) begin
+        tmp_8_cast_reg_465 <= tmp_8_cast_fu_322_p2;
+        tmp_8_reg_460 <= tmp_8_fu_317_p2;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state23) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
+    if (((1'b1 == ap_CS_fsm_state18) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -724,7 +722,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state23) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
+    if (((1'b1 == ap_CS_fsm_state18) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -740,27 +738,25 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        contacts_V_address0 = tmp_4_fu_232_p1;
-    end else if (((1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state19))) begin
-        contacts_V_address0 = grp_match_db_contact_fu_194_contacts_V_address0;
+    if ((1'b1 == ap_CS_fsm_state13)) begin
+        contacts_V_address0 = tmp_i_fu_393_p1;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        contacts_V_address0 = tmp_4_fu_289_p1;
     end else begin
         contacts_V_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
+    if (((1'b1 == ap_CS_fsm_state2) | ((1'b1 == ap_CS_fsm_state13) & (ap_block_state13_io == 1'b0)))) begin
         contacts_V_ce0 = 1'b1;
-    end else if (((1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state19))) begin
-        contacts_V_ce0 = grp_match_db_contact_fu_194_contacts_V_ce0;
     end else begin
         contacts_V_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd0 == icmp_fu_226_p2))) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd0 == icmp_fu_283_p2))) begin
         contacts_V_we0 = 1'b1;
     end else begin
         contacts_V_we0 = 1'b0;
@@ -776,11 +772,11 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state22)) begin
-        contacts_size_out_1_data_in = storemerge_reg_182;
-    end else if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_108_p2) & ~(operation_read_read_fu_108_p2 == 32'd1) & ~(operation_read_read_fu_108_p2 == 32'd2)))) begin
+    if ((1'b1 == ap_CS_fsm_state17)) begin
+        contacts_size_out_1_data_in = storemerge_reg_248;
+    end else if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_132_p2) & ~(operation_read_read_fu_132_p2 == 32'd1) & ~(operation_read_read_fu_132_p2 == 32'd2)))) begin
         contacts_size_out_1_data_in = contacts_size;
-    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd2))) begin
+    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd2))) begin
         contacts_size_out_1_data_in = 32'd0;
     end else begin
         contacts_size_out_1_data_in = 'bx;
@@ -788,7 +784,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_108_p2) & ~(operation_read_read_fu_108_p2 == 32'd1) & ~(operation_read_read_fu_108_p2 == 32'd2)) | (1'b1 == ap_CS_fsm_state22))) begin
+    if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_132_p2) & ~(operation_read_read_fu_132_p2 == 32'd1) & ~(operation_read_read_fu_132_p2 == 32'd2)) | (1'b1 == ap_CS_fsm_state17))) begin
         contacts_size_out_1_vld_in = 1'b1;
     end else begin
         contacts_size_out_1_vld_in = 1'b0;
@@ -796,21 +792,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        current_offset = tmp_13_reg_394;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        current_offset = tmp_10_fu_289_p2;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        current_offset = tmp_3_fu_273_p2;
-    end else if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_6_fu_247_p2))) begin
-        current_offset = tmp_8_fu_256_p2;
+    if (((1'b1 == ap_CS_fsm_state13) & (1'd1 == exitcond_i_fu_381_p2))) begin
+        current_offset = tmp_8_reg_460;
     end else begin
         current_offset = current_offset_preg;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) & (1'b0 == ap_reg_ioackin_db_mem_V_ARREADY))) begin
+    if (((1'b1 == ap_CS_fsm_state5) & (1'b0 == ap_reg_ioackin_db_mem_V_ARREADY))) begin
         db_mem_V_ARVALID = 1'b1;
     end else begin
         db_mem_V_ARVALID = 1'b0;
@@ -818,7 +808,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state11) & (db_mem_V_RVALID == 1'b1)) | ((1'b1 == ap_CS_fsm_state13) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state15) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state17) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))))) begin
+    if (((1'b1 == ap_CS_fsm_state12) & (db_mem_V_RVALID == 1'b1))) begin
         db_mem_V_RREADY = 1'b1;
     end else begin
         db_mem_V_RREADY = 1'b0;
@@ -826,7 +816,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         db_mem_V_blk_n_AR = m_axi_db_mem_V_ARREADY;
     end else begin
         db_mem_V_blk_n_AR = 1'b1;
@@ -834,7 +824,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state17))) begin
+    if ((1'b1 == ap_CS_fsm_state12)) begin
         db_mem_V_blk_n_R = m_axi_db_mem_V_RVALID;
     end else begin
         db_mem_V_blk_n_R = 1'b1;
@@ -850,11 +840,11 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd1 == icmp_fu_226_p2))) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd1 == icmp_fu_283_p2))) begin
         error_out_1_data_in = 32'd1;
-    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_108_p2) & ~(operation_read_read_fu_108_p2 == 32'd1) & ~(operation_read_read_fu_108_p2 == 32'd2))) begin
+    end else if (((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_132_p2) & ~(operation_read_read_fu_132_p2 == 32'd1) & ~(operation_read_read_fu_132_p2 == 32'd2))) begin
         error_out_1_data_in = 32'd3;
-    end else if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (32'd0 == operation_read_read_fu_108_p2)))) begin
+    end else if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (32'd0 == operation_read_read_fu_132_p2)))) begin
         error_out_1_data_in = 32'd0;
     end else begin
         error_out_1_data_in = 'bx;
@@ -862,7 +852,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_108_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (32'd0 == operation_read_read_fu_108_p2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_108_p2) & ~(operation_read_read_fu_108_p2 == 32'd1) & ~(operation_read_read_fu_108_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd1 == icmp_fu_226_p2)))) begin
+    if ((((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (operation_read_read_fu_132_p2 == 32'd1)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & (32'd0 == operation_read_read_fu_132_p2)) | ((1'b1 == ap_CS_fsm_state1) & ~((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig)) & ~(32'd0 == operation_read_read_fu_132_p2) & ~(operation_read_read_fu_132_p2 == 32'd1) & ~(operation_read_read_fu_132_p2 == 32'd2)) | ((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd1 == icmp_fu_283_p2)))) begin
         error_out_1_vld_in = 1'b1;
     end else begin
         error_out_1_vld_in = 1'b0;
@@ -894,20 +884,6 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state19) & (grp_match_db_contact_fu_194_ap_done == 1'b1))) begin
-        results_out_V_1_data_in = tmp_15_fu_331_p1;
-    end else if (((1'b1 == ap_CS_fsm_state17) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-        results_out_V_1_data_in = tmp_12_fu_326_p1;
-    end else if (((1'b1 == ap_CS_fsm_state15) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-        results_out_V_1_data_in = tmp_2_fu_321_p1;
-    end else if (((1'b1 == ap_CS_fsm_state13) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-        results_out_V_1_data_in = tmp_1_fu_316_p1;
-    end else begin
-        results_out_V_1_data_in = 'bx;
-    end
-end
-
-always @ (*) begin
     if ((1'b1 == results_out_V_1_sel)) begin
         results_out_V_1_data_out = results_out_V_1_payload_B;
     end else begin
@@ -916,7 +892,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state13) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state15) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state17) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))) | ((1'b1 == ap_CS_fsm_state19) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done))))) begin
+    if (((1'b1 == ap_CS_fsm_state13) & (1'd1 == exitcond_i_fu_381_p2) & (ap_block_state13_io == 1'b0))) begin
         results_out_V_1_vld_in = 1'b1;
     end else begin
         results_out_V_1_vld_in = 1'b0;
@@ -924,7 +900,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state19) | (1'b1 == ap_CS_fsm_state20))) begin
+    if ((((1'b1 == ap_CS_fsm_state13) & (1'd1 == exitcond_i_fu_381_p2)) | (1'b1 == ap_CS_fsm_state15))) begin
         results_out_V_TDATA_blk_n = results_out_V_1_state[1'd1];
     end else begin
         results_out_V_TDATA_blk_n = 1'b1;
@@ -941,32 +917,36 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd0 == icmp_fu_226_p2))) begin
-                ap_NS_fsm = ap_ST_fsm_state22;
-            end else if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_108_p2) & (1'd1 == icmp_fu_226_p2))) begin
-                ap_NS_fsm = ap_ST_fsm_state21;
-            end else if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_108_p2 == 32'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd0 == icmp_fu_283_p2))) begin
+                ap_NS_fsm = ap_ST_fsm_state17;
+            end else if (((1'b1 == ap_CS_fsm_state2) & (32'd0 == operation_read_read_fu_132_p2) & (1'd1 == icmp_fu_283_p2))) begin
+                ap_NS_fsm = ap_ST_fsm_state16;
+            end else if (((1'b1 == ap_CS_fsm_state2) & (operation_read_read_fu_132_p2 == 32'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state23;
+                ap_NS_fsm = ap_ST_fsm_state18;
             end
         end
         ap_ST_fsm_state3 : begin
-            if (((1'b1 == ap_CS_fsm_state3) & (1'd0 == tmp_6_fu_247_p2))) begin
-                ap_NS_fsm = ap_ST_fsm_state23;
+            if (((1'b1 == ap_CS_fsm_state3) & (1'd0 == tmp_6_fu_304_p2))) begin
+                ap_NS_fsm = ap_ST_fsm_state18;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b1 == ap_CS_fsm_state4) & (ap_sig_ioackin_db_mem_V_ARREADY == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
+            if (((1'b1 == ap_CS_fsm_state4) & ((1'd1 == tmp_10_fu_331_p3) | (1'd0 == tmp_1_fu_351_p2)))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state5 : begin
-            ap_NS_fsm = ap_ST_fsm_state6;
+            if (((1'b1 == ap_CS_fsm_state5) & (ap_sig_ioackin_db_mem_V_ARREADY == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state6;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state5;
+            end
         end
         ap_ST_fsm_state6 : begin
             ap_NS_fsm = ap_ST_fsm_state7;
@@ -984,82 +964,45 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state11;
         end
         ap_ST_fsm_state11 : begin
-            if (((1'b1 == ap_CS_fsm_state11) & (db_mem_V_RVALID == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state12;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state11;
-            end
+            ap_NS_fsm = ap_ST_fsm_state12;
         end
         ap_ST_fsm_state12 : begin
-            ap_NS_fsm = ap_ST_fsm_state13;
+            if (((1'b1 == ap_CS_fsm_state12) & (db_mem_V_RVALID == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state13;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state12;
+            end
         end
         ap_ST_fsm_state13 : begin
-            if (((1'b1 == ap_CS_fsm_state13) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
+            if (((1'b1 == ap_CS_fsm_state13) & (1'd1 == exitcond_i_fu_381_p2) & (ap_block_state13_io == 1'b0))) begin
+                ap_NS_fsm = ap_ST_fsm_state15;
+            end else if (((1'b1 == ap_CS_fsm_state13) & (ap_block_state13_io == 1'b0) & (1'd0 == exitcond_i_fu_381_p2))) begin
                 ap_NS_fsm = ap_ST_fsm_state14;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state13;
             end
         end
         ap_ST_fsm_state14 : begin
-            if (((1'b1 == ap_CS_fsm_state14) & (results_out_V_1_ack_in == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state15;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state14;
-            end
+            ap_NS_fsm = ap_ST_fsm_state13;
         end
         ap_ST_fsm_state15 : begin
-            if (((1'b1 == ap_CS_fsm_state15) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-                ap_NS_fsm = ap_ST_fsm_state16;
+            if (((1'b1 == ap_CS_fsm_state15) & (results_out_V_1_ack_in == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state15;
             end
         end
         ap_ST_fsm_state16 : begin
-            if (((1'b1 == ap_CS_fsm_state16) & (results_out_V_1_ack_in == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state17;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state16;
-            end
+            ap_NS_fsm = ap_ST_fsm_state17;
         end
         ap_ST_fsm_state17 : begin
-            if (((1'b1 == ap_CS_fsm_state17) & ~((1'b0 == db_mem_V_RVALID) | (1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-                ap_NS_fsm = ap_ST_fsm_state18;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state17;
-            end
+            ap_NS_fsm = ap_ST_fsm_state18;
         end
         ap_ST_fsm_state18 : begin
-            if (((1'b1 == ap_CS_fsm_state18) & (results_out_V_1_ack_in == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state19;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state18;
-            end
-        end
-        ap_ST_fsm_state19 : begin
-            if (((1'b1 == ap_CS_fsm_state19) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == grp_match_db_contact_fu_194_ap_done)))) begin
-                ap_NS_fsm = ap_ST_fsm_state20;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state19;
-            end
-        end
-        ap_ST_fsm_state20 : begin
-            if (((1'b1 == ap_CS_fsm_state20) & (results_out_V_1_ack_in == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state20;
-            end
-        end
-        ap_ST_fsm_state21 : begin
-            ap_NS_fsm = ap_ST_fsm_state22;
-        end
-        ap_ST_fsm_state22 : begin
-            ap_NS_fsm = ap_ST_fsm_state23;
-        end
-        ap_ST_fsm_state23 : begin
-            if (((1'b1 == ap_CS_fsm_state23) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
+            if (((1'b1 == ap_CS_fsm_state18) & ~((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in)))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state23;
+                ap_NS_fsm = ap_ST_fsm_state18;
             end
         end
         default : begin
@@ -1069,8 +1012,6 @@ always @ (*) begin
 end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
-
-assign ap_CS_fsm_state11 = ap_CS_fsm[32'd10];
 
 assign ap_CS_fsm_state12 = ap_CS_fsm[32'd11];
 
@@ -1086,17 +1027,7 @@ assign ap_CS_fsm_state17 = ap_CS_fsm[32'd16];
 
 assign ap_CS_fsm_state18 = ap_CS_fsm[32'd17];
 
-assign ap_CS_fsm_state19 = ap_CS_fsm[32'd18];
-
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
-
-assign ap_CS_fsm_state20 = ap_CS_fsm[32'd19];
-
-assign ap_CS_fsm_state21 = ap_CS_fsm[32'd20];
-
-assign ap_CS_fsm_state22 = ap_CS_fsm[32'd21];
-
-assign ap_CS_fsm_state23 = ap_CS_fsm[32'd22];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
@@ -1104,27 +1035,37 @@ assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
-
 always @ (*) begin
     ap_block_state1 = ((1'b0 == ap_start) | (1'b0 == operation_ap_vld_in_sig));
 end
 
 always @ (*) begin
-    ap_block_state23 = ((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in));
+    ap_block_state13_io = ((1'd1 == exitcond_i_fu_381_p2) & (1'b0 == results_out_V_1_ack_in));
+end
+
+always @ (*) begin
+    ap_block_state18 = ((1'b0 == results_out_V_1_ack_in) | (1'b0 == error_out_1_ack_in) | (1'b0 == contacts_size_out_1_ack_in));
 end
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign database_index_1_fu_310_p2 = (database_index_reg_170 + 32'd4);
+assign contacts_index_fu_387_p2 = (contacts_index_i_reg_225 + 8'd1);
 
-assign grp_match_db_contact_fu_194_ap_start = ap_reg_grp_match_db_contact_fu_194_ap_start;
+assign database_index_1_fu_365_p2 = (database_index_reg_202 + 32'd32);
 
-assign icmp_fu_226_p2 = (($signed(tmp_fu_217_p4) > $signed(25'd0)) ? 1'b1 : 1'b0);
+assign exitcond_i_fu_381_p2 = ((contacts_index_i_reg_225 == 8'd128) ? 1'b1 : 1'b0);
 
-assign operation_read_read_fu_108_p2 = operation_in_sig;
+assign i_1_fu_339_p2 = (i_reg_214 + 6'd1);
+
+assign i_cast2_fu_327_p1 = i_reg_214;
+
+assign icmp_fu_283_p2 = (($signed(tmp_fu_274_p4) > $signed(25'd0)) ? 1'b1 : 1'b0);
+
+assign matched_fu_408_p2 = (tmp_1_i_fu_403_p2 | matched_i_reg_236);
+
+assign operation_read_read_fu_132_p2 = operation_in_sig;
 
 assign results_out_V_1_ack_in = results_out_V_1_state[1'd1];
 
@@ -1144,40 +1085,40 @@ assign results_out_V_TDATA = results_out_V_1_data_out;
 
 assign results_out_V_TVALID = results_out_V_1_state[1'd0];
 
-assign tmp13_fu_295_p2 = (database_index_reg_170 | 32'd3);
+assign sum_cast_fu_371_p1 = sum_reg_481;
 
-assign tmp25_cast_fu_285_p1 = $signed(tmp4_fu_279_p2);
+assign sum_fu_360_p2 = (tmp_8_cast_reg_465 + tmp_2_cast_fu_356_p1);
 
-assign tmp36_cast_fu_301_p1 = $signed(tmp13_fu_295_p2);
+assign tmp_10_fu_331_p3 = i_reg_214[32'd5];
 
-assign tmp3_fu_268_p2 = (tmp_7_reg_378 | 64'd1);
+assign tmp_1_fu_351_p2 = ((tmp_s_fu_345_p2 < db_size_in) ? 1'b1 : 1'b0);
 
-assign tmp4_fu_279_p2 = (database_index_reg_170 | 32'd2);
+assign tmp_1_i_fu_403_p2 = ((contacts_V_q0 == db_mem_V_addr_read_reg_497) ? 1'b1 : 1'b0);
 
-assign tmp_10_fu_289_p2 = ($signed(tmp25_cast_fu_285_p1) + $signed(offset));
+assign tmp_2_cast_fu_356_p1 = i_reg_214;
 
-assign tmp_12_fu_326_p1 = grp_match_db_contact_fu_194_ap_return;
+assign tmp_2_fu_271_p1 = offset[24:0];
 
-assign tmp_13_fu_305_p2 = ($signed(tmp36_cast_fu_301_p1) + $signed(offset));
+assign tmp_3_fu_398_p1 = matched_i_reg_236;
 
-assign tmp_15_fu_331_p1 = grp_match_db_contact_fu_194_ap_return;
+assign tmp_4_fu_289_p1 = $signed(contacts_size_load_reg_435);
 
-assign tmp_1_fu_316_p1 = grp_match_db_contact_fu_194_ap_return;
+assign tmp_5_fu_293_p2 = (contacts_size_load_reg_435 + 32'd1);
 
-assign tmp_2_fu_321_p1 = grp_match_db_contact_fu_194_ap_return;
+assign tmp_6_fu_304_p2 = ((database_index_reg_202 < db_size_in) ? 1'b1 : 1'b0);
 
-assign tmp_3_fu_273_p2 = (tmp3_fu_268_p2 + offset);
+assign tmp_7_fu_309_p1 = $signed(database_index_reg_202);
 
-assign tmp_4_fu_232_p1 = $signed(contacts_size_load_reg_358);
+assign tmp_8_cast_fu_322_p2 = (tmp_9_fu_313_p1 + tmp_2_reg_444);
 
-assign tmp_5_fu_236_p2 = (contacts_size_load_reg_358 + 32'd1);
+assign tmp_8_fu_317_p2 = ($signed(offset) + $signed(tmp_7_fu_309_p1));
 
-assign tmp_6_fu_247_p2 = ((database_index_reg_170 < db_size_in) ? 1'b1 : 1'b0);
+assign tmp_9_fu_313_p1 = database_index_reg_202[24:0];
 
-assign tmp_7_fu_252_p1 = $signed(database_index_reg_170);
+assign tmp_fu_274_p4 = {{contacts_size_load_reg_435[31:7]}};
 
-assign tmp_8_fu_256_p2 = ($signed(tmp_7_fu_252_p1) + $signed(offset));
+assign tmp_i_fu_393_p1 = contacts_index_i_reg_225;
 
-assign tmp_fu_217_p4 = {{contacts_size_load_reg_358[31:7]}};
+assign tmp_s_fu_345_p2 = (i_cast2_fu_327_p1 + database_index_reg_202);
 
 endmodule //contact_discovery

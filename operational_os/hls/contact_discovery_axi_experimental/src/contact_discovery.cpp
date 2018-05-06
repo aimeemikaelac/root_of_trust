@@ -5,6 +5,7 @@
 
 #define CONTACTS_SIZE 128
 #define DATABASE_SIZE 30000
+#define BATCH_SIZE 32
 
 static ap_uint<512> contacts[CONTACTS_SIZE];
 static int contacts_size = 0;
@@ -80,8 +81,8 @@ void contact_discovery(
 		case 1:
 			*error_out = 0;
 			*contacts_size_out = contacts_size;
-			for(database_index = 0; database_index < db_size_in; database_index+=4){
-//			for(database_index = 0; database_index < 76800; database_index+=4){
+			for(database_index = 0; database_index < db_size_in; database_index+=BATCH_SIZE){
+//			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
 //				hash hash3 = db_in.read();
@@ -90,14 +91,14 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-				results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index])));
-				*current_offset = offset + database_index;
-				results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 1])));
-				*current_offset = offset + database_index + 1;
-				results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 2])));
-				*current_offset = offset + database_index + 2;
-				results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + 3])));
-				*current_offset = offset + database_index + 3;
+				for(i=0; i<BATCH_SIZE; i++){
+					if(database_index + i >= db_size_in){
+//					if(database_index + i >= 76800){
+						break;
+					}
+					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
+					*current_offset = offset + database_index;
+				}
 			}
 			break;
 		// clear contacts

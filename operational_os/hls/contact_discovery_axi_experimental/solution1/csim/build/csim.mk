@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../src/contact_discovery_tb.cpp ../../../src/contact_discovery.cpp ../../../src/sha512.c
+HLS_SOURCES = ../../../src/contact_discovery_tb.cpp ../../../src/sha512.c ../../../src/contact_discovery.cpp
 
 TARGET := csim.exe
 
@@ -78,14 +78,14 @@ $(ObjDir)/contact_discovery_tb.o: ../../../src/contact_discovery_tb.cpp $(ObjDir
 
 -include $(ObjDir)/contact_discovery_tb.d
 
-$(ObjDir)/contact_discovery.o: ../../../src/contact_discovery.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../src/contact_discovery.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/contact_discovery.d
-
 $(ObjDir)/sha512.o: ../../../src/sha512.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../src/sha512.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/sha512.d
+
+$(ObjDir)/contact_discovery.o: ../../../src/contact_discovery.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../src/contact_discovery.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/contact_discovery.d

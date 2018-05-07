@@ -1,10 +1,10 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 1
+set ID 3
 set MemName contact_discoverybkb
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 1 }
 set DataWd 512
 set AddrRange 128
 set AddrWd 7
@@ -158,7 +158,7 @@ current_offset {
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 2 \
+			id 4 \
 			corename contact_discovery_AXILiteS_axilite \
 			name contact_discovery_AXILiteS_s_axi \
 			ports {$port_AXILiteS} \
@@ -177,7 +177,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 3 \
+    id 5 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 
@@ -197,7 +197,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 4 \
+    id 6 \
     name results_out_V \
     reset_level 0 \
     sync_rst true \

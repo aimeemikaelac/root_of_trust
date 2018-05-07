@@ -41525,15 +41525,465 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 # 5 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2
+# 1 "/usr/include/string.h" 1 3 4
+/* Copyright (C) 1991-2016 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, see
+   <http://www.gnu.org/licenses/>.  */
+
+/*
+ *	ISO C99 Standard: 7.21 String handling	<string.h>
+ */
 
 
 
 
 
-static ap_uint<512> contacts[128];
-static int contacts_size = 0;
+
+extern "C" {
+
+/* Get size_t and NULL from <stddef.h>.  */
+
+
+
+
+# 1 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+/*===---- stddef.h - Basic type definitions --------------------------------===
+ *
+ * Copyright (c) 2008 Eli Friedman
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *===-----------------------------------------------------------------------===
+ */
+# 56 "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+/* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
+__WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
+# 33 "/usr/include/string.h" 2 3 4
+
+/* Tell the caller that we provide correct C++ prototypes.  */
+
+
+
+
+
+
+/* Copy N bytes of SRC to DEST.  */
+extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+       size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+/* Copy N bytes of SRC to DEST, guaranteeing
+   correct behavior for overlapping strings.  */
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+/* Copy no more than N bytes of SRC to DEST, stopping when C is found.
+   Return the position in DEST one byte past where C was copied,
+   or NULL if C was not found in the first N bytes of SRC.  */
+
+extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
+        int __c, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+/* Set N bytes of S to C.  */
+extern void *memset (void *__s, int __c, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+/* Compare N bytes of S1 and S2.  */
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Search N bytes of S for C.  */
+# 92 "/usr/include/string.h" 3 4
+extern void *memchr (const void *__s, int __c, size_t __n)
+      throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+/* Search in S for C.  This is similar to `memchr' but there is no
+   length limit.  */
+
+
+
+
+
+
+extern void *rawmemchr (const void *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+/* Search N bytes of S for the final occurrence of C.  */
+
+
+
+
+
+
+extern void *memrchr (const void *__s, int __c, size_t __n)
+      throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+/* Copy SRC to DEST.  */
+extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+/* Copy no more than N characters of SRC to DEST.  */
+extern char *strncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+/* Append SRC onto DEST.  */
+extern char *strcat (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+/* Append no more than N characters from SRC onto DEST.  */
+extern char *strncat (char *__restrict __dest, const char *__restrict __src,
+        size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+/* Compare S1 and S2.  */
+extern int strcmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+/* Compare N characters of S1 and S2.  */
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Compare the collated forms of S1 and S2.  */
+extern int strcoll (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+/* Put a transformation of SRC into no more than N bytes of DEST.  */
+extern size_t strxfrm (char *__restrict __dest,
+         const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+/* The following functions are equivalent to the both above but they
+   take the locale they use for the collation as an extra argument.
+   This is not standardsized but something like will come.  */
+
+
+/* Compare the collated forms of S1 and S2 using rules from L.  */
+extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+/* Put a transformation of SRC into no more than N bytes of DEST.  */
+extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
+    __locale_t __l) throw () __attribute__ ((__nonnull__ (2, 4)));
+
+
+
+/* Duplicate S, returning an identical malloc'd string.  */
+extern char *strdup (const char *__s)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+
+/* Return a malloc'd copy of at most N bytes of STRING.  The
+   resultant string is terminated even if no null terminator
+   appears before STRING[N].  */
+
+extern char *strndup (const char *__string, size_t __n)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+/* Duplicate S, returning an identical alloca'd string.  */
+# 194 "/usr/include/string.h" 3 4
+/* Return an alloca'd copy of at most N bytes of string.  */
+# 207 "/usr/include/string.h" 3 4
+/* Find the first occurrence of C in S.  */
+# 231 "/usr/include/string.h" 3 4
+extern char *strchr (const char *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+/* Find the last occurrence of C in S.  */
+# 258 "/usr/include/string.h" 3 4
+extern char *strrchr (const char *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+/* This function is similar to `strchr'.  But it returns a pointer to
+   the closing NUL byte in case C is not found in S.  */
+
+
+
+
+
+
+extern char *strchrnul (const char *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+/* Return the length of the initial segment of S which
+   consists entirely of characters not in REJECT.  */
+extern size_t strcspn (const char *__s, const char *__reject)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+/* Return the length of the initial segment of S which
+   consists entirely of characters in ACCEPT.  */
+extern size_t strspn (const char *__s, const char *__accept)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+/* Find the first occurrence in S of any character in ACCEPT.  */
+# 310 "/usr/include/string.h" 3 4
+extern char *strpbrk (const char *__s, const char *__accept)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Find the first occurrence of NEEDLE in HAYSTACK.  */
+# 337 "/usr/include/string.h" 3 4
+extern char *strstr (const char *__haystack, const char *__needle)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+/* Divide S into tokens separated by characters in DELIM.  */
+extern char *strtok (char *__restrict __s, const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+/* Divide S into tokens separated by characters in DELIM.  Information
+   passed between calls are stored in SAVE_PTR.  */
+extern char *__strtok_r (char *__restrict __s,
+    const char *__restrict __delim,
+    char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
+         char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+
+
+/* Similar to `strstr' but this function ignores the case of both strings.  */
+
+
+
+
+
+
+
+extern char *strcasestr (const char *__haystack, const char *__needle)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+/* Find the first occurrence of NEEDLE in HAYSTACK.
+   NEEDLE is NEEDLELEN bytes long;
+   HAYSTACK is HAYSTACKLEN bytes long.  */
+extern void *memmem (const void *__haystack, size_t __haystacklen,
+       const void *__needle, size_t __needlelen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)));
+
+/* Copy N bytes of SRC to DEST, return pointer to bytes after the
+   last written byte.  */
+extern void *__mempcpy (void *__restrict __dest,
+   const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern void *mempcpy (void *__restrict __dest,
+        const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+/* Return the length of S.  */
+extern size_t strlen (const char *__s)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+/* Find the length of STRING, but scan at most MAXLEN characters.
+   If no '\0' terminator is found in that many characters, return MAXLEN.  */
+extern size_t strnlen (const char *__string, size_t __maxlen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+/* Return a string describing the meaning of the `errno' code in ERRNUM.  */
+extern char *strerror (int __errnum) throw ();
+
+
+/* Reentrant version of `strerror'.
+   There are 2 flavors of `strerror_r', GNU which returns the string
+   and may or may not use the supplied temporary buffer and POSIX one
+   which fills the string into the buffer.
+   To use the POSIX version, -D_XOPEN_SOURCE=600 or -D_POSIX_C_SOURCE=200112L
+   without -D_GNU_SOURCE is needed, otherwise the GNU version is
+   preferred.  */
+# 431 "/usr/include/string.h" 3 4
+/* If a temporary buffer is required, at most BUFLEN bytes of BUF will be
+   used.  */
+extern char *strerror_r (int __errnum, char *__buf, size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2))) /* Ignore */;
+
+
+
+
+/* Translate error number to string according to the locale L.  */
+extern char *strerror_l (int __errnum, __locale_t __l) throw ();
+
+
+
+/* We define this function always since `bzero' is sometimes needed when
+   the namespace rules does not allow this.  */
+extern void __bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+/* Copy N bytes of SRC to DEST (like memmove, but args reversed).  */
+extern void bcopy (const void *__src, void *__dest, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+/* Set N bytes of S to 0.  */
+extern void bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+/* Compare N bytes of S1 and S2 (same as memcmp).  */
+extern int bcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Find the first occurrence of C in S (same as strchr).  */
+# 484 "/usr/include/string.h" 3 4
+extern char *index (const char *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+/* Find the last occurrence of C in S (same as strrchr).  */
+# 512 "/usr/include/string.h" 3 4
+extern char *rindex (const char *__s, int __c)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+/* Return the position of the first bit set in I, or 0 if none are set.
+   The least-significant bit is position 1, the most-significant 32.  */
+extern int ffs (int __i) throw () __attribute__ ((__const__));
+
+/* The following two functions are non-standard but necessary for non-32 bit
+   platforms.  */
+
+extern int ffsl (long int __l) throw () __attribute__ ((__const__));
+__extension__ extern int ffsll (long long int __ll)
+     throw () __attribute__ ((__const__));
+
+
+/* Compare S1 and S2, ignoring case.  */
+extern int strcasecmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Compare no more than N chars of S1 and S2, ignoring case.  */
+extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+/* Again versions of a few functions which use the given locale instead
+   of the global one.  */
+extern int strcasecmp_l (const char *__s1, const char *__s2,
+    __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+extern int strncasecmp_l (const char *__s1, const char *__s2,
+     size_t __n, __locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 4)));
+
+
+
+/* Return the next DELIM-delimited token from *STRINGP,
+   terminating it with a '\0', and update *STRINGP to point past it.  */
+extern char *strsep (char **__restrict __stringp,
+       const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+/* Return a string describing the meaning of the signal number in SIG.  */
+extern char *strsignal (int __sig) throw ();
+
+/* Copy SRC to DEST, returning the address of the terminating '\0' in DEST.  */
+extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+/* Copy no more than N characters of SRC to DEST, returning the address of
+   the last character written into DEST.  */
+extern char *__stpncpy (char *__restrict __dest,
+   const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+/* Compare S1 and S2 as strings holding name & indices/version numbers.  */
+extern int strverscmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+/* Sautee STRING briskly.  */
+extern char *strfry (char *__string) throw () __attribute__ ((__nonnull__ (1)));
+
+/* Frobnicate N bytes of S.  */
+extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+/* Return the file name within directory of FILENAME.  We don't
+   declare the function if the `basename' macro is available (defined
+   in <libgen.h>) which makes the XPG version of this function
+   available.  */
+
+
+
+
+
+
+extern char *basename (const char *__filename) throw () __attribute__ ((__nonnull__ (1)));
+# 658 "/usr/include/string.h" 3 4
+}
+# 6 "contact_discovery_axi_experimental/src/contact_discovery.cpp" 2
+
+
+
 
 typedef ap_uint<512> hash;
+
+static hash contacts[128];
+static hash db_buffer[64];
+static int contacts_size = 0;
+
+
 
 
 bool match_db_contact(hash db_item){
@@ -41604,8 +42054,9 @@ _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 
   case 1:
    *error_out = 0;
    *contacts_size_out = contacts_size;
-   for(database_index = 0; database_index < db_size_in; database_index+=32){
+   for(database_index = 0; database_index < db_size_in; database_index+=64){
 //			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
 //				hash hash3 = db_in.read();
@@ -41614,13 +42065,16 @@ _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-    for(i=0; i<32; i++){
-     if(database_index + i >= db_size_in){
+    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 64*sizeof(hash));
+    for(i=0; i<64; i++){
+_ssdm_Unroll(0,0,0, "");
+ if(database_index + i < db_size_in){
 //					if(database_index + i >= 76800){
-      break;
+      results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
+      *current_offset = offset + database_index;
      }
-     results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
-     *current_offset = offset + database_index;
+//					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
+
     }
    }
    break;

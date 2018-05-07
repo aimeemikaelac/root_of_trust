@@ -2,15 +2,18 @@
 #include "assert.h"
 #include "stdio.h"
 #include "ap_int.h"
+#include "string.h"
 
 #define CONTACTS_SIZE 128
-#define DATABASE_SIZE 30000
-#define BATCH_SIZE 32
-
-static ap_uint<512> contacts[CONTACTS_SIZE];
-static int contacts_size = 0;
+#define BATCH_SIZE 64
 
 typedef ap_uint<512> hash;
+
+static hash contacts[CONTACTS_SIZE];
+static hash db_buffer[BATCH_SIZE];
+static int contacts_size = 0;
+
+
 
 
 bool match_db_contact(hash db_item){
@@ -83,6 +86,7 @@ void contact_discovery(
 			*contacts_size_out = contacts_size;
 			for(database_index = 0; database_index < db_size_in; database_index+=BATCH_SIZE){
 //			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
+#pragma HLS PIPELINE
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
 //				hash hash3 = db_in.read();
@@ -91,13 +95,16 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
+				memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), BATCH_SIZE*sizeof(hash));
 				for(i=0; i<BATCH_SIZE; i++){
-					if(database_index + i >= db_size_in){
+#pragma HLS UNROLL
+					if(database_index + i < db_size_in){
 //					if(database_index + i >= 76800){
-						break;
+						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
+						*current_offset = offset + database_index;
 					}
-					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
-					*current_offset = offset + database_index;
+//					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
+
 				}
 			}
 			break;

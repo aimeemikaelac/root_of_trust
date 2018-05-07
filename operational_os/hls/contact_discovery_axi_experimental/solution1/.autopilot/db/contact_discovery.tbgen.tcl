@@ -1,9 +1,9 @@
 set C_TypeInfoList {{ 
 "contact_discovery" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"operation": [[], {"scalar": "int"}] }, {"contact_in": [[],"0"] }, {"db_mem": [[], {"array": ["0", [8388608]]}] }, {"offset": [[], {"scalar": "long long unsigned int"}] }, {"db_size_in": [[], {"scalar": "unsigned int"}] }, {"error_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"contacts_size_out": [[],{ "pointer":  {"scalar": "int"}}] }, {"results_out": [[], {"reference": "1"}] }, {"current_offset": [[],{ "pointer":  {"scalar": "long long unsigned int"}}] }],[],""], 
-"0": [ "hash", {"typedef": [[[],"2"],""]}], 
-"2": [ "ap_uint<512>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 512}}]],""]}}], 
-"1": [ "stream<unsigned char>", {"hls_type": {"stream": [[[[], {"scalar": "unsigned char"}]],"3"]}}],
-"3": ["hls", ""]
+"1": [ "stream<unsigned char>", {"hls_type": {"stream": [[[[], {"scalar": "unsigned char"}]],"2"]}}], 
+"0": [ "hash", {"typedef": [[[],"3"],""]}], 
+"3": [ "ap_uint<512>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 512}}]],""]}}],
+"2": ["hls", ""]
 }}
 set moduleName contact_discovery
 set isCombinational 0
@@ -180,7 +180,7 @@ set NewPortList {[
  	{ "name": "results_out_V_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "results_out_V", "role": "TREADY" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
 		"CDFG" : "contact_discovery",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -206,25 +206,41 @@ set RtlHierarchyInfo {[
 					{"Name" : "results_out_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "current_offset", "Type" : "None", "Direction" : "O"},
 			{"Name" : "contacts_size", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "IO"}]},
+			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "IO",
+				"SubConnect" : [
+					{"ID" : "4", "SubInstance" : "grp_match_db_contact_fu_316", "Port" : "contacts_V"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contacts_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_AXILiteS_s_axi_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_db_mem_V_m_axi_U", "Parent" : "0"}]}
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.contact_discovery_db_mem_V_m_axi_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_match_db_contact_fu_316", "Parent" : "0",
+		"CDFG" : "match_db_contact",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "Aligned", "AlignedPipeline" : "1", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "1",
+		"VariableLatency" : "0",
+		"Port" : [
+			{"Name" : "db_item_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "contacts_V", "Type" : "Memory", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	contact_discovery {
 		operation {Type I LastRead 0 FirstWrite -1}
 		contact_in_V {Type I LastRead 0 FirstWrite -1}
-		db_mem_V {Type I LastRead 11 FirstWrite -1}
+		db_mem_V {Type I LastRead 76 FirstWrite -1}
 		offset {Type I LastRead 0 FirstWrite -1}
 		db_size_in {Type I LastRead 0 FirstWrite -1}
 		error_out {Type O LastRead -1 FirstWrite 0}
 		contacts_size_out {Type O LastRead -1 FirstWrite 0}
-		results_out_V {Type O LastRead -1 FirstWrite 12}
-		current_offset {Type O LastRead -1 FirstWrite 12}
+		results_out_V {Type O LastRead -1 FirstWrite 75}
+		current_offset {Type O LastRead -1 FirstWrite 76}
 		contacts_size {Type IO LastRead -1 FirstWrite -1}
-		contacts_V {Type IO LastRead -1 FirstWrite -1}}}
+		contacts_V {Type IO LastRead -1 FirstWrite -1}}
+	match_db_contact {
+		db_item_V {Type I LastRead 1 FirstWrite -1}
+		contacts_V {Type I LastRead 64 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

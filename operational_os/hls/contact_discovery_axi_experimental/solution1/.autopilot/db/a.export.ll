@@ -441,10 +441,10 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
   call void (...)* @_ssdm_op_SpecInterface(i512 %contact_in_V, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
   %contacts_size_load = load i32* @contacts_size, align 4
-  switch i32 %operation_read, label %9 [
+  switch i32 %operation_read, label %15 [
     i32 0, label %1
     i32 1, label %5
-    i32 2, label %8
+    i32 2, label %14
   ]
 
 ; <label>:1                                       ; preds = %0
@@ -476,43 +476,127 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   %tmp_126 = trunc i64 %offset_read to i32
   br label %6
 
-; <label>:6                                       ; preds = %._crit_edge, %5
-  %tmp_127 = phi i32 [ 0, %5 ], [ %database_index, %._crit_edge ]
-  %exitcond3 = icmp eq i32 %tmp_127, %db_size_in_read
-  %database_index = add nsw i32 %tmp_127, 1
-  br i1 %exitcond3, label %.loopexit.loopexit, label %burst.rd.header.0
+; <label>:6                                       ; preds = %._crit_edge.7, %5
+  %database_index = phi i32 [ 0, %5 ], [ %database_index_1, %._crit_edge.7 ]
+  %tmp_7 = icmp ult i32 %database_index, %db_size_in_read
+  br i1 %tmp_7, label %burst.rd.header.0, label %.loopexit.loopexit
 
 burst.rd.header.0:                                ; preds = %6
-  %tmp_4 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9)
+  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9)
   call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind
-  %tmp_7 = sext i32 %tmp_127 to i64
-  %tmp_8 = add i64 %tmp_7, %offset_read
-  %tmp_128 = add i32 %tmp_126, %tmp_127
-  %tmp_129 = sext i32 %tmp_128 to i64
-  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_129
-  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
+  %tmp_8 = sext i32 %database_index to i64
+  %tmp_9 = add i64 %tmp_8, %offset_read
+  %tmp_3 = add i32 %tmp_126, %database_index
+  %tmp_4 = sext i32 %tmp_3 to i64
+  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_4
+  %db_mem_V_addr_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 8)
   %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
-  %tmp_s = icmp ult i32 %tmp_127, %db_size_in_read
-  br i1 %tmp_s, label %7, label %._crit_edge
+  %db_mem_V_addr_read_1 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_2 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_3 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_4 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_5 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_6 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %db_mem_V_addr_read_7 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
+  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
+  %tmp_2 = zext i1 %tmp_s to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  %tmp_1_15 = or i32 %database_index, 1
+  %tmp_2_1 = icmp ult i32 %tmp_1_15, %db_size_in_read
+  br i1 %tmp_2_1, label %7, label %._crit_edge.1
 
-._crit_edge:                                      ; preds = %7, %burst.rd.header.0
-  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_4)
-  br label %6
+._crit_edge.1:                                    ; preds = %7, %burst.rd.header.0
+  %tmp_1_26 = or i32 %database_index, 2
+  %tmp_2_2 = icmp ult i32 %tmp_1_26, %db_size_in_read
+  br i1 %tmp_2_2, label %8, label %._crit_edge.2
 
 ; <label>:7                                       ; preds = %burst.rd.header.0
-  %tmp_1 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
-  %tmp_2 = zext i1 %tmp_1 to i8
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2)
-  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_8)
-  br label %._crit_edge
+  %tmp_10_1 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_1)
+  %tmp_10 = zext i1 %tmp_10_1 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_10)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.1
 
-; <label>:8                                       ; preds = %0
+._crit_edge.2:                                    ; preds = %8, %._crit_edge.1
+  %tmp_1_37 = or i32 %database_index, 3
+  %tmp_2_3 = icmp ult i32 %tmp_1_37, %db_size_in_read
+  br i1 %tmp_2_3, label %9, label %._crit_edge.3
+
+; <label>:8                                       ; preds = %._crit_edge.1
+  %tmp_10_2 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_2)
+  %tmp_11 = zext i1 %tmp_10_2 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_11)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.2
+
+._crit_edge.3:                                    ; preds = %9, %._crit_edge.2
+  %tmp_1_48 = or i32 %database_index, 4
+  %tmp_2_4 = icmp ult i32 %tmp_1_48, %db_size_in_read
+  br i1 %tmp_2_4, label %10, label %._crit_edge.4
+
+; <label>:9                                       ; preds = %._crit_edge.2
+  %tmp_10_3 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_3)
+  %tmp_12 = zext i1 %tmp_10_3 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_12)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.3
+
+._crit_edge.4:                                    ; preds = %10, %._crit_edge.3
+  %tmp_1_59 = or i32 %database_index, 5
+  %tmp_2_5 = icmp ult i32 %tmp_1_59, %db_size_in_read
+  br i1 %tmp_2_5, label %11, label %._crit_edge.5
+
+; <label>:10                                      ; preds = %._crit_edge.3
+  %tmp_10_4 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_4)
+  %tmp_13 = zext i1 %tmp_10_4 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_13)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.4
+
+._crit_edge.5:                                    ; preds = %11, %._crit_edge.4
+  %tmp_1_s = or i32 %database_index, 6
+  %tmp_2_6 = icmp ult i32 %tmp_1_s, %db_size_in_read
+  br i1 %tmp_2_6, label %12, label %._crit_edge.6
+
+; <label>:11                                      ; preds = %._crit_edge.4
+  %tmp_10_5 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_5)
+  %tmp_14 = zext i1 %tmp_10_5 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_14)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.5
+
+._crit_edge.6:                                    ; preds = %12, %._crit_edge.5
+  %tmp_1_127 = or i32 %database_index, 7
+  %tmp_2_7 = icmp ult i32 %tmp_1_127, %db_size_in_read
+  br i1 %tmp_2_7, label %13, label %._crit_edge.7
+
+; <label>:12                                      ; preds = %._crit_edge.5
+  %tmp_10_6 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_6)
+  %tmp_15 = zext i1 %tmp_10_6 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_15)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.6
+
+._crit_edge.7:                                    ; preds = %13, %._crit_edge.6
+  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_1)
+  %database_index_1 = add nsw i32 %database_index, 8
+  br label %6
+
+; <label>:13                                      ; preds = %._crit_edge.6
+  %tmp_10_7 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_7)
+  %tmp_16 = zext i1 %tmp_10_7 to i8
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_16)
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9)
+  br label %._crit_edge.7
+
+; <label>:14                                      ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
   store i32 0, i32* @contacts_size, align 4
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 0)
   br label %.loopexit
 
-; <label>:9                                       ; preds = %0
+; <label>:15                                      ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 3)
   br label %.loopexit
@@ -520,7 +604,7 @@ burst.rd.header.0:                                ; preds = %6
 .loopexit.loopexit:                               ; preds = %6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %9, %8, %4
+.loopexit:                                        ; preds = %.loopexit.loopexit, %15, %14, %4
   ret void
 }
 

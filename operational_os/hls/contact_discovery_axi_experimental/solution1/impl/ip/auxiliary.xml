@@ -11,5 +11,5 @@
   <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="*(current_offset)" xd:originalName="current_offset" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x80" xd:statusOffset="0x88" xd:handshakeRef="ap_none" xd:dataWidth="64"/>
   <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
-  <xd:resourceEstimates xd:LUT="5680" xd:FF="4952" xd:BRAM="59" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="7944" xd:FF="8529" xd:BRAM="59" xd:DSP="0"/>
 </xd:acceleratorMap>

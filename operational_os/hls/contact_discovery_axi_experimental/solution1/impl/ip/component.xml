@@ -3322,8 +3322,8 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       </xilinx:taxonomies>
       <xilinx:displayName>Contact_discovery</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1805061801</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-05-07T00:01:41Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1805071526</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-05-07T21:28:20Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.1</xilinx:xilinxVersion>

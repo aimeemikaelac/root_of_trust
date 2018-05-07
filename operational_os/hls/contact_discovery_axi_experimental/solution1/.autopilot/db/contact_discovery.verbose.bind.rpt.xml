@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Sun May  6 17:07:52 2018
+<item name = "Date">Mon May  7 15:26:25 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_experimental</item>
@@ -31,12 +31,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_match_db_contact_fu_316">match_db_contact, 64, 64, 64, 64, function</column>
+<column name="grp_match_db_contact_fu_202">match_db_contact, 64, 64, 64, 64, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 138 ~ 4232, -, -, ?, no</column>
+<column name="- Loop 1">?, ?, 78 ~ 272, -, -, ?, no</column>
 </table>
 </item>
 </section>

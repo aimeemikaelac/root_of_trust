@@ -5,7 +5,7 @@
 #include "string.h"
 
 #define CONTACTS_SIZE 128
-#define BATCH_SIZE 4
+#define BATCH_SIZE 1
 
 typedef ap_uint<512> hash;
 

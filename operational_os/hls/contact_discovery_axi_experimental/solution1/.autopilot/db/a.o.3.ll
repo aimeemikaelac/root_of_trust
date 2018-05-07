@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @p_str3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=96 type=[1 x i8]*]
 @p_str = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1 ; [#uses=8 type=[10 x i8]*]
 
-; [#uses=4]
+; [#uses=1]
 define internal fastcc i1 @match_db_contact(i512 %db_item_V) readonly {
   %db_item_V_read = call i512 @_ssdm_op_Read.ap_auto.i512(i512 %db_item_V) ; [#uses=128 type=i512]
   %contacts_V_load = load i512* getelementptr inbounds ([128 x i512]* @contacts_V, i64 0, i64 0), align 64, !dbg !34 ; [#uses=1 type=i512] [debug line = 2925:9@23:15]
@@ -409,7 +409,7 @@ define internal fastcc i1 @match_db_contact(i512 %db_item_V) readonly {
 ; [#uses=1]
 declare i32 @llvm.part.select.i32(i32, i32, i32) nounwind readnone
 
-; [#uses=22]
+; [#uses=16]
 declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
 ; [#uses=0]
@@ -424,7 +424,7 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   call void (...)* @_ssdm_op_SpecBitsMap(i8* %results_out_V), !map !445
   call void (...)* @_ssdm_op_SpecBitsMap(i64* %current_offset), !map !449
   call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @contact_discovery_st) nounwind
-  %db_size_in_read = call i32 @_ssdm_op_Read.ap_none.i32(i32 %db_size_in) ; [#uses=4 type=i32]
+  %db_size_in_read = call i32 @_ssdm_op_Read.ap_none.i32(i32 %db_size_in) ; [#uses=2 type=i32]
   call void @llvm.dbg.value(metadata !{i32 %db_size_in_read}, i64 0, metadata !453), !dbg !511 ; [debug line = 42:15] [debug variable = db_size_in]
   %offset_read = call i64 @_ssdm_op_Read.ap_none.i64(i64 %offset) ; [#uses=2 type=i64]
   call void @llvm.dbg.value(metadata !{i64 %offset_read}, i64 0, metadata !512), !dbg !513 ; [debug line = 41:21] [debug variable = offset]
@@ -457,10 +457,10 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind, !dbg !562 ; [debug line = 64:1]
   call void (...)* @_ssdm_op_SpecInterface(i512 %contact_in_V, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind, !dbg !563 ; [debug line = 65:1]
   %contacts_size_load = load i32* @contacts_size, align 4, !dbg !564 ; [#uses=6 type=i32] [debug line = 73:4]
-  switch i32 %operation_read, label %11 [
+  switch i32 %operation_read, label %9 [
     i32 0, label %1
     i32 1, label %5
-    i32 2, label %10
+    i32 2, label %8
   ], !dbg !565                                    ; [debug line = 69:2]
 
 ; <label>:1                                       ; preds = %0
@@ -493,84 +493,46 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   %tmp_126 = trunc i64 %offset_read to i32        ; [#uses=1 type=i32]
   br label %6, !dbg !578                          ; [debug line = 87:8]
 
-; <label>:6                                       ; preds = %._crit_edge.3, %5
-  %database_index = phi i32 [ 0, %5 ], [ %database_index_1, %._crit_edge.3 ] ; [#uses=7 type=i32]
-  %tmp_7 = icmp ult i32 %database_index, %db_size_in_read, !dbg !578 ; [#uses=1 type=i1] [debug line = 87:8]
-  br i1 %tmp_7, label %burst.rd.header.0, label %.loopexit.loopexit, !dbg !578 ; [debug line = 87:8]
+; <label>:6                                       ; preds = %._crit_edge, %5
+  %tmp_127 = phi i32 [ 0, %5 ], [ %database_index, %._crit_edge ] ; [#uses=5 type=i32]
+  %exitcond3 = icmp eq i32 %tmp_127, %db_size_in_read, !dbg !578 ; [#uses=1 type=i1] [debug line = 87:8]
+  %database_index = add nsw i32 %tmp_127, 1, !dbg !580 ; [#uses=1 type=i32] [debug line = 87:57]
+  br i1 %exitcond3, label %.loopexit.loopexit, label %burst.rd.header.0, !dbg !578 ; [debug line = 87:8]
 
 burst.rd.header.0:                                ; preds = %6
-  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9), !dbg !580 ; [#uses=1 type=i32] [debug line = 87:76]
-  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind, !dbg !582 ; [debug line = 89:1]
-  %tmp_8 = sext i32 %database_index to i64, !dbg !583 ; [#uses=1 type=i64] [debug line = 98:5]
-  %tmp_9 = add i64 %tmp_8, %offset_read, !dbg !583 ; [#uses=4 type=i64] [debug line = 98:5]
-  %tmp_3 = add i32 %tmp_126, %database_index      ; [#uses=1 type=i32]
-  %tmp_4 = sext i32 %tmp_3 to i64, !dbg !583      ; [#uses=1 type=i64] [debug line = 98:5]
-  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_4 ; [#uses=5 type=i512*]
-  %db_mem_V_addr_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 4), !dbg !583 ; [#uses=0 type=i1] [debug line = 98:5]
-  %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
-  %db_mem_V_addr_read_1 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
-  %db_mem_V_addr_read_2 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
-  %db_mem_V_addr_read_3 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
-  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
-  %tmp_2 = zext i1 %tmp_s to i8, !dbg !584        ; [#uses=1 type=i8] [debug line = 103:41]
-  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
-  call void @llvm.dbg.value(metadata !{i8 %tmp_2}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2), !dbg !597 ; [debug line = 146:9@103:41]
-  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
-  %tmp_1_15 = or i32 %database_index, 1, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_1 = icmp ult i32 %tmp_1_15, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
-  br i1 %tmp_2_1, label %7, label %._crit_edge.1, !dbg !599 ; [debug line = 101:2]
+  %tmp_4 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9), !dbg !581 ; [#uses=1 type=i32] [debug line = 87:76]
+  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind, !dbg !583 ; [debug line = 89:1]
+  %tmp_7 = sext i32 %tmp_127 to i64, !dbg !584    ; [#uses=1 type=i64] [debug line = 98:5]
+  %tmp_8 = add i64 %tmp_7, %offset_read, !dbg !584 ; [#uses=1 type=i64] [debug line = 98:5]
+  %tmp_128 = add i32 %tmp_126, %tmp_127           ; [#uses=1 type=i32]
+  %tmp_129 = sext i32 %tmp_128 to i64, !dbg !584  ; [#uses=1 type=i64] [debug line = 98:5]
+  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_129 ; [#uses=2 type=i512*]
+  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1), !dbg !584 ; [#uses=0 type=i1] [debug line = 98:5]
+  %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !584 ; [#uses=1 type=i512] [debug line = 98:5]
+  %tmp_s = icmp ult i32 %tmp_127, %db_size_in_read, !dbg !585 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_s, label %7, label %._crit_edge, !dbg !585 ; [debug line = 101:2]
 
-._crit_edge.1:                                    ; preds = %7, %burst.rd.header.0
-  %tmp_1_26 = or i32 %database_index, 2, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_2 = icmp ult i32 %tmp_1_26, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
-  br i1 %tmp_2_2, label %8, label %._crit_edge.2, !dbg !599 ; [debug line = 101:2]
+._crit_edge:                                      ; preds = %7, %burst.rd.header.0
+  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_4), !dbg !588 ; [#uses=0 type=i32] [debug line = 109:4]
+  call void @llvm.dbg.value(metadata !{i32 %database_index}, i64 0, metadata !589), !dbg !580 ; [debug line = 87:57] [debug variable = database_index]
+  br label %6, !dbg !580                          ; [debug line = 87:57]
 
 ; <label>:7                                       ; preds = %burst.rd.header.0
-  %tmp_10_1 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_1), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
-  %tmp_10 = zext i1 %tmp_10_1 to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
-  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
-  call void @llvm.dbg.value(metadata !{i8 %tmp_10}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_10), !dbg !597 ; [debug line = 146:9@103:41]
-  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
-  br label %._crit_edge.1, !dbg !600              ; [debug line = 105:6]
+  %tmp_1 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read), !dbg !590 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_2 = zext i1 %tmp_1 to i8, !dbg !590        ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !592), !dbg !597 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_2}, i64 0, metadata !598), !dbg !600 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2), !dbg !601 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_8), !dbg !602 ; [debug line = 104:7]
+  br label %._crit_edge, !dbg !603                ; [debug line = 105:6]
 
-._crit_edge.2:                                    ; preds = %8, %._crit_edge.1
-  %tmp_1_37 = or i32 %database_index, 3, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_3 = icmp ult i32 %tmp_1_37, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
-  br i1 %tmp_2_3, label %9, label %._crit_edge.3, !dbg !599 ; [debug line = 101:2]
-
-; <label>:8                                       ; preds = %._crit_edge.1
-  %tmp_10_2 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_2), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
-  %tmp_11 = zext i1 %tmp_10_2 to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
-  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
-  call void @llvm.dbg.value(metadata !{i8 %tmp_11}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_11), !dbg !597 ; [debug line = 146:9@103:41]
-  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
-  br label %._crit_edge.2, !dbg !600              ; [debug line = 105:6]
-
-._crit_edge.3:                                    ; preds = %9, %._crit_edge.2
-  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_1), !dbg !601 ; [#uses=0 type=i32] [debug line = 109:4]
-  %database_index_1 = add nsw i32 %database_index, 4, !dbg !602 ; [#uses=1 type=i32] [debug line = 87:57]
-  call void @llvm.dbg.value(metadata !{i32 %database_index_1}, i64 0, metadata !603), !dbg !602 ; [debug line = 87:57] [debug variable = database_index]
-  br label %6, !dbg !602                          ; [debug line = 87:57]
-
-; <label>:9                                       ; preds = %._crit_edge.2
-  %tmp_10_3 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_3), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
-  %tmp_12 = zext i1 %tmp_10_3 to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
-  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
-  call void @llvm.dbg.value(metadata !{i8 %tmp_12}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
-  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_12), !dbg !597 ; [debug line = 146:9@103:41]
-  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
-  br label %._crit_edge.3, !dbg !600              ; [debug line = 105:6]
-
-; <label>:10                                      ; preds = %0
+; <label>:8                                       ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0), !dbg !604 ; [debug line = 113:4]
   store i32 0, i32* @contacts_size, align 4, !dbg !605 ; [debug line = 114:4]
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 0), !dbg !606 ; [debug line = 115:4]
   br label %.loopexit, !dbg !607                  ; [debug line = 116:4]
 
-; <label>:11                                      ; preds = %0
+; <label>:9                                       ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load), !dbg !608 ; [debug line = 119:4]
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 3), !dbg !609 ; [debug line = 120:4]
   br label %.loopexit, !dbg !610                  ; [debug line = 121:4]
@@ -578,18 +540,18 @@ burst.rd.header.0:                                ; preds = %6
 .loopexit.loopexit:                               ; preds = %6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %11, %10, %4
+.loopexit:                                        ; preds = %.loopexit.loopexit, %9, %8, %4
   ret void, !dbg !611                             ; [debug line = 123:1]
 }
 
-; [#uses=4]
+; [#uses=1]
 define weak void @_ssdm_op_Write.axis.volatile.i8P(i8*, i8) {
 entry:
   store i8 %1, i8* %0
   ret void
 }
 
-; [#uses=4]
+; [#uses=1]
 define weak void @_ssdm_op_Write.ap_none.i64P(i64*, i64) {
 entry:
   store i64 %1, i64* %0
@@ -651,7 +613,7 @@ entry:
   ret i512 %0
 }
 
-; [#uses=4]
+; [#uses=1]
 define weak i512 @_ssdm_op_Read.m_axi.i512P(i512*) {
 entry:
   %empty = load i512* %0                          ; [#uses=1 type=i512]
@@ -696,8 +658,8 @@ entry:
 ; [#uses=1]
 declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 
-!hls.encrypted.func = !{}
 !opencl.kernels = !{!0, !7, !13, !16, !19, !21, !21, !21, !21}
+!hls.encrypted.func = !{}
 !llvm.map.gv = !{!27}
 
 !0 = metadata !{null, metadata !1, metadata !2, metadata !3, metadata !4, metadata !5, metadata !6}
@@ -1280,30 +1242,30 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !577 = metadata !{i32 86, i32 4, metadata !527, null}
 !578 = metadata !{i32 87, i32 8, metadata !579, null}
 !579 = metadata !{i32 786443, metadata !527, i32 87, i32 4, metadata !332, i32 7} ; [ DW_TAG_lexical_block ]
-!580 = metadata !{i32 87, i32 76, metadata !581, null}
-!581 = metadata !{i32 786443, metadata !579, i32 87, i32 75, metadata !332, i32 8} ; [ DW_TAG_lexical_block ]
-!582 = metadata !{i32 89, i32 1, metadata !581, null}
-!583 = metadata !{i32 98, i32 5, metadata !581, null}
-!584 = metadata !{i32 103, i32 41, metadata !585, null}
-!585 = metadata !{i32 786443, metadata !586, i32 101, i32 37, metadata !332, i32 11} ; [ DW_TAG_lexical_block ]
+!580 = metadata !{i32 87, i32 57, metadata !579, null}
+!581 = metadata !{i32 87, i32 76, metadata !582, null}
+!582 = metadata !{i32 786443, metadata !579, i32 87, i32 75, metadata !332, i32 8} ; [ DW_TAG_lexical_block ]
+!583 = metadata !{i32 89, i32 1, metadata !582, null}
+!584 = metadata !{i32 98, i32 5, metadata !582, null}
+!585 = metadata !{i32 101, i32 2, metadata !586, null}
 !586 = metadata !{i32 786443, metadata !587, i32 99, i32 23, metadata !332, i32 10} ; [ DW_TAG_lexical_block ]
-!587 = metadata !{i32 786443, metadata !581, i32 99, i32 5, metadata !332, i32 9} ; [ DW_TAG_lexical_block ]
-!588 = metadata !{i32 790531, metadata !589, metadata !"stream<unsigned char>.V", null, i32 144, metadata !592, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
-!589 = metadata !{i32 786689, metadata !590, metadata !"this", metadata !462, i32 16777360, metadata !591, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!590 = metadata !{i32 786478, i32 0, metadata !461, metadata !"write", metadata !"write", metadata !"_ZN3hls6streamIhE5writeERKh", metadata !462, i32 144, metadata !485, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !501, metadata !55, i32 144} ; [ DW_TAG_subprogram ]
-!591 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !460} ; [ DW_TAG_pointer_type ]
-!592 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !544} ; [ DW_TAG_pointer_type ]
-!593 = metadata !{i32 144, i32 48, metadata !590, metadata !584}
-!594 = metadata !{i32 786688, metadata !595, metadata !"tmp", metadata !462, i32 145, metadata !88, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!595 = metadata !{i32 786443, metadata !590, i32 144, i32 79, metadata !462, i32 12} ; [ DW_TAG_lexical_block ]
-!596 = metadata !{i32 145, i32 31, metadata !595, metadata !584}
-!597 = metadata !{i32 146, i32 9, metadata !595, metadata !584}
-!598 = metadata !{i32 104, i32 7, metadata !585, null}
-!599 = metadata !{i32 101, i32 2, metadata !586, null}
-!600 = metadata !{i32 105, i32 6, metadata !585, null}
-!601 = metadata !{i32 109, i32 4, metadata !581, null}
-!602 = metadata !{i32 87, i32 57, metadata !579, null}
-!603 = metadata !{i32 786688, metadata !528, metadata !"database_index", metadata !332, i32 66, metadata !59, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!587 = metadata !{i32 786443, metadata !582, i32 99, i32 5, metadata !332, i32 9} ; [ DW_TAG_lexical_block ]
+!588 = metadata !{i32 109, i32 4, metadata !582, null}
+!589 = metadata !{i32 786688, metadata !528, metadata !"database_index", metadata !332, i32 66, metadata !59, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!590 = metadata !{i32 103, i32 41, metadata !591, null}
+!591 = metadata !{i32 786443, metadata !586, i32 101, i32 37, metadata !332, i32 11} ; [ DW_TAG_lexical_block ]
+!592 = metadata !{i32 790531, metadata !593, metadata !"stream<unsigned char>.V", null, i32 144, metadata !596, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
+!593 = metadata !{i32 786689, metadata !594, metadata !"this", metadata !462, i32 16777360, metadata !595, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!594 = metadata !{i32 786478, i32 0, metadata !461, metadata !"write", metadata !"write", metadata !"_ZN3hls6streamIhE5writeERKh", metadata !462, i32 144, metadata !485, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !501, metadata !55, i32 144} ; [ DW_TAG_subprogram ]
+!595 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !460} ; [ DW_TAG_pointer_type ]
+!596 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !544} ; [ DW_TAG_pointer_type ]
+!597 = metadata !{i32 144, i32 48, metadata !594, metadata !590}
+!598 = metadata !{i32 786688, metadata !599, metadata !"tmp", metadata !462, i32 145, metadata !88, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!599 = metadata !{i32 786443, metadata !594, i32 144, i32 79, metadata !462, i32 12} ; [ DW_TAG_lexical_block ]
+!600 = metadata !{i32 145, i32 31, metadata !599, metadata !590}
+!601 = metadata !{i32 146, i32 9, metadata !599, metadata !590}
+!602 = metadata !{i32 104, i32 7, metadata !591, null}
+!603 = metadata !{i32 105, i32 6, metadata !591, null}
 !604 = metadata !{i32 113, i32 4, metadata !527, null}
 !605 = metadata !{i32 114, i32 4, metadata !527, null}
 !606 = metadata !{i32 115, i32 4, metadata !527, null}

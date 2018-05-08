@@ -76,11 +76,6 @@
 // 0x78 : Data signal of contacts_size_out
 //        bit 31~0 - contacts_size_out[31:0] (Read)
 // 0x7c : reserved
-// 0x80 : Data signal of current_offset
-//        bit 31~0 - current_offset[31:0] (Read)
-// 0x84 : Data signal of current_offset
-//        bit 31~0 - current_offset[63:32] (Read)
-// 0x88 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_AP_CTRL                0x00
@@ -102,6 +97,4 @@
 #define XCONTACT_DISCOVERY_AXILITES_BITS_ERROR_OUT_DATA         32
 #define XCONTACT_DISCOVERY_AXILITES_ADDR_CONTACTS_SIZE_OUT_DATA 0x78
 #define XCONTACT_DISCOVERY_AXILITES_BITS_CONTACTS_SIZE_OUT_DATA 32
-#define XCONTACT_DISCOVERY_AXILITES_ADDR_CURRENT_OFFSET_DATA    0x80
-#define XCONTACT_DISCOVERY_AXILITES_BITS_CURRENT_OFFSET_DATA    64
 

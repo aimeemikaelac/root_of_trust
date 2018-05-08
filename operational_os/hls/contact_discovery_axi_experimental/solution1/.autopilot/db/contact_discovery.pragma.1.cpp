@@ -41948,7 +41948,8 @@ extern char *basename (const char *__filename) throw () __attribute__ ((__nonnul
 typedef ap_uint<512> hash;
 
 static hash contacts[128];
-static hash db_buffer[64];
+static hash db_buffer[32];
+static bool results_buffer[32];
 static int contacts_size = 0;
 
 
@@ -41980,11 +41981,8 @@ void contact_discovery(
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
- hls::stream<unsigned char> &results_out,
- unsigned long long *current_offset
+ hls::stream<unsigned char> &results_out
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);
-_ssdm_op_SpecInterface(current_offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(current_offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_mem, "m_axi", 0, 0, "", 0, 536870912, "", "", "", 16, 16, 4, 16, "", "");
@@ -42002,6 +42000,7 @@ _ssdm_op_SpecInterface(error_out, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0,
 _ssdm_op_SpecInterface(operation, "s_axilite", 1, 1, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
  int database_index, contacts_index, i;
+ long long db_length;
  bool matched, current_matched;
 
  switch(operation){
@@ -42022,8 +42021,9 @@ _ssdm_op_SpecInterface(&contact_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 
   case 1:
    *error_out = 0;
    *contacts_size_out = contacts_size;
-   for(database_index = 0; database_index < db_size_in; database_index+=64){
-//			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
+//			db_length = db_size_in;
+   db_length = 76000;
+   for(database_index = 0; database_index < db_length; database_index+=32){
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
@@ -42033,16 +42033,21 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 64*sizeof(hash));
-    for(i=0; i<64; i++){
+    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 32*sizeof(hash));
+    for(i=0; i<32; i++){
 _ssdm_Unroll(0,0,0, "");
- if(database_index + i < db_size_in){
-//					if(database_index + i >= 76800){
-      results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
-      *current_offset = offset + database_index;
+ if(database_index + i < db_length){
+      results_buffer[i] = match_db_contact(db_buffer[i]);
+//						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
+//						*current_offset = offset + database_index;
      }
 //					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
 
+    }
+    for(i=0; i<32; i++){
+     if(database_index + i < db_length){
+      results_out.write((unsigned char)(results_buffer[i]));
+     }
     }
    }
    break;

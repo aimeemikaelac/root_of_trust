@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity contact_discovery_AXILiteS_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 8;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 7;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -47,8 +47,7 @@ port (
     offset                :out  STD_LOGIC_VECTOR(63 downto 0);
     db_size_in            :out  STD_LOGIC_VECTOR(31 downto 0);
     error_out             :in   STD_LOGIC_VECTOR(31 downto 0);
-    contacts_size_out     :in   STD_LOGIC_VECTOR(31 downto 0);
-    current_offset        :in   STD_LOGIC_VECTOR(63 downto 0)
+    contacts_size_out     :in   STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity contact_discovery_AXILiteS_s_axi;
 
@@ -123,11 +122,6 @@ end entity contact_discovery_AXILiteS_s_axi;
 -- 0x78 : Data signal of contacts_size_out
 --        bit 31~0 - contacts_size_out[31:0] (Read)
 -- 0x7c : reserved
--- 0x80 : Data signal of current_offset
---        bit 31~0 - current_offset[31:0] (Read)
--- 0x84 : Data signal of current_offset
---        bit 31~0 - current_offset[63:32] (Read)
--- 0x88 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of contact_discovery_AXILiteS_s_axi is
@@ -167,10 +161,7 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     constant ADDR_ERROR_OUT_CTRL           : INTEGER := 16#74#;
     constant ADDR_CONTACTS_SIZE_OUT_DATA_0 : INTEGER := 16#78#;
     constant ADDR_CONTACTS_SIZE_OUT_CTRL   : INTEGER := 16#7c#;
-    constant ADDR_CURRENT_OFFSET_DATA_0    : INTEGER := 16#80#;
-    constant ADDR_CURRENT_OFFSET_DATA_1    : INTEGER := 16#84#;
-    constant ADDR_CURRENT_OFFSET_CTRL      : INTEGER := 16#88#;
-    constant ADDR_BITS         : INTEGER := 8;
+    constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -199,7 +190,6 @@ architecture behave of contact_discovery_AXILiteS_s_axi is
     signal int_db_size_in      : UNSIGNED(31 downto 0) := (others => '0');
     signal int_error_out       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_contacts_size_out : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_current_offset  : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -367,10 +357,6 @@ begin
                         rdata_data <= RESIZE(int_error_out(31 downto 0), 32);
                     when ADDR_CONTACTS_SIZE_OUT_DATA_0 =>
                         rdata_data <= RESIZE(int_contacts_size_out(31 downto 0), 32);
-                    when ADDR_CURRENT_OFFSET_DATA_0 =>
-                        rdata_data <= RESIZE(int_current_offset(31 downto 0), 32);
-                    when ADDR_CURRENT_OFFSET_DATA_1 =>
-                        rdata_data <= RESIZE(int_current_offset(63 downto 32), 32);
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
@@ -745,19 +731,6 @@ begin
             elsif (ACLK_EN = '1') then
                 if (true) then
                     int_contacts_size_out <= UNSIGNED(contacts_size_out); -- clear on read
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ARESET = '1') then
-                int_current_offset <= (others => '0');
-            elsif (ACLK_EN = '1') then
-                if (true) then
-                    int_current_offset <= UNSIGNED(current_offset); -- clear on read
                 end if;
             end if;
         end if;

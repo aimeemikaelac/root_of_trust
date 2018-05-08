@@ -143,14 +143,6 @@ contacts_size_out {
 	offset 120
 	offset_end 127
 }
-current_offset { 
-	dir O
-	width 64
-	depth 1
-	mode ap_none
-	offset 128
-	offset_end 139
-}
 }
 
 

@@ -5,9 +5,9 @@
 <ModuleName>contact_discovery</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_match_db_contact_fu_316</InstName>
+<InstName>grp_match_db_contact_fu_194</InstName>
 <ModuleName>match_db_contact</ModuleName>
-<ID>316</ID>
+<ID>194</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -218,32 +218,27 @@
 <EstimatedClockPeriod>8.75</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>undef</Best-caseLatency>
-<Average-caseLatency>undef</Average-caseLatency>
-<Worst-caseLatency>undef</Worst-caseLatency>
-<PipelineInitiationInterval>undef</PipelineInitiationInterval>
+<Best-caseLatency>2</Best-caseLatency>
+<Average-caseLatency>1240940</Average-caseLatency>
+<Worst-caseLatency>4963753</Worst-caseLatency>
+<PipelineInitiationInterval>3 ~ 4963754</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>
-<range>
-<min>138</min>
-<max>4232</max>
-</range>
-</IterationLatency>
-<PipelineDepth>138 ~ 4232</PipelineDepth>
+<TripCount>2375</TripCount>
+<Latency>4963750</Latency>
+<IterationLatency>2090</IterationLatency>
+<PipelineDepth>2090</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
 <BRAM_18K>59</BRAM_18K>
-<FF>40953</FF>
-<LUT>11225</LUT>
+<FF>6839</FF>
+<LUT>7417</LUT>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
 </Resources>
@@ -255,7 +250,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -268,7 +263,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -281,9 +276,9 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
-<Bits>8</Bits>
+<Bits>7</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
 <HasCtrl>1</HasCtrl>
@@ -294,7 +289,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -307,7 +302,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -320,7 +315,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
@@ -333,7 +328,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>4</Bits>
 <Attribute>unknown</Attribute>
@@ -346,7 +341,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -359,7 +354,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -372,9 +367,9 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
-<Bits>8</Bits>
+<Bits>7</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
 <HasCtrl>1</HasCtrl>
@@ -385,7 +380,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -398,7 +393,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -411,7 +406,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
@@ -424,7 +419,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>
@@ -437,7 +432,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -450,7 +445,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -463,7 +458,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register</IOConfig>
 <Dir>out</Dir>
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>

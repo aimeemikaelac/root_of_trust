@@ -5,10 +5,10 @@
 ############################################################
 open_project contact_discovery_axi_experimental
 set_top contact_discovery
-add_files contact_discovery_axi_experimental/src/sha512.h
-add_files contact_discovery_axi_experimental/src/sha512.c
-add_files contact_discovery_axi_experimental/src/fixedint.h
 add_files contact_discovery_axi_experimental/src/contact_discovery.cpp
+add_files contact_discovery_axi_experimental/src/fixedint.h
+add_files contact_discovery_axi_experimental/src/sha512.c
+add_files contact_discovery_axi_experimental/src/sha512.h
 add_files -tb contact_discovery_axi_experimental/src/contact_discovery_tb.cpp
 open_solution "solution1"
 set_part {xczu9eg-ffvb1156-1-i} -tool vivado

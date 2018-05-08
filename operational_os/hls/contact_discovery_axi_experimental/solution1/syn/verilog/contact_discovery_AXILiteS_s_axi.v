@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module contact_discovery_AXILiteS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 8,
+    C_S_AXI_ADDR_WIDTH = 7,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -44,8 +44,7 @@ module contact_discovery_AXILiteS_s_axi
     output wire [63:0]                   offset,
     output wire [31:0]                   db_size_in,
     input  wire [31:0]                   error_out,
-    input  wire [31:0]                   contacts_size_out,
-    input  wire [63:0]                   current_offset
+    input  wire [31:0]                   contacts_size_out
 );
 //------------------------Address Info-------------------
 // 0x00 : Control signals
@@ -118,50 +117,42 @@ module contact_discovery_AXILiteS_s_axi
 // 0x78 : Data signal of contacts_size_out
 //        bit 31~0 - contacts_size_out[31:0] (Read)
 // 0x7c : reserved
-// 0x80 : Data signal of current_offset
-//        bit 31~0 - current_offset[31:0] (Read)
-// 0x84 : Data signal of current_offset
-//        bit 31~0 - current_offset[63:32] (Read)
-// 0x88 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL                  = 8'h00,
-    ADDR_GIE                      = 8'h04,
-    ADDR_IER                      = 8'h08,
-    ADDR_ISR                      = 8'h0c,
-    ADDR_OPERATION_DATA_0         = 8'h10,
-    ADDR_OPERATION_CTRL           = 8'h14,
-    ADDR_CONTACT_IN_V_DATA_0      = 8'h18,
-    ADDR_CONTACT_IN_V_DATA_1      = 8'h1c,
-    ADDR_CONTACT_IN_V_DATA_2      = 8'h20,
-    ADDR_CONTACT_IN_V_DATA_3      = 8'h24,
-    ADDR_CONTACT_IN_V_DATA_4      = 8'h28,
-    ADDR_CONTACT_IN_V_DATA_5      = 8'h2c,
-    ADDR_CONTACT_IN_V_DATA_6      = 8'h30,
-    ADDR_CONTACT_IN_V_DATA_7      = 8'h34,
-    ADDR_CONTACT_IN_V_DATA_8      = 8'h38,
-    ADDR_CONTACT_IN_V_DATA_9      = 8'h3c,
-    ADDR_CONTACT_IN_V_DATA_10     = 8'h40,
-    ADDR_CONTACT_IN_V_DATA_11     = 8'h44,
-    ADDR_CONTACT_IN_V_DATA_12     = 8'h48,
-    ADDR_CONTACT_IN_V_DATA_13     = 8'h4c,
-    ADDR_CONTACT_IN_V_DATA_14     = 8'h50,
-    ADDR_CONTACT_IN_V_DATA_15     = 8'h54,
-    ADDR_CONTACT_IN_V_CTRL        = 8'h58,
-    ADDR_OFFSET_DATA_0            = 8'h5c,
-    ADDR_OFFSET_DATA_1            = 8'h60,
-    ADDR_OFFSET_CTRL              = 8'h64,
-    ADDR_DB_SIZE_IN_DATA_0        = 8'h68,
-    ADDR_DB_SIZE_IN_CTRL          = 8'h6c,
-    ADDR_ERROR_OUT_DATA_0         = 8'h70,
-    ADDR_ERROR_OUT_CTRL           = 8'h74,
-    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 8'h78,
-    ADDR_CONTACTS_SIZE_OUT_CTRL   = 8'h7c,
-    ADDR_CURRENT_OFFSET_DATA_0    = 8'h80,
-    ADDR_CURRENT_OFFSET_DATA_1    = 8'h84,
-    ADDR_CURRENT_OFFSET_CTRL      = 8'h88,
+    ADDR_AP_CTRL                  = 7'h00,
+    ADDR_GIE                      = 7'h04,
+    ADDR_IER                      = 7'h08,
+    ADDR_ISR                      = 7'h0c,
+    ADDR_OPERATION_DATA_0         = 7'h10,
+    ADDR_OPERATION_CTRL           = 7'h14,
+    ADDR_CONTACT_IN_V_DATA_0      = 7'h18,
+    ADDR_CONTACT_IN_V_DATA_1      = 7'h1c,
+    ADDR_CONTACT_IN_V_DATA_2      = 7'h20,
+    ADDR_CONTACT_IN_V_DATA_3      = 7'h24,
+    ADDR_CONTACT_IN_V_DATA_4      = 7'h28,
+    ADDR_CONTACT_IN_V_DATA_5      = 7'h2c,
+    ADDR_CONTACT_IN_V_DATA_6      = 7'h30,
+    ADDR_CONTACT_IN_V_DATA_7      = 7'h34,
+    ADDR_CONTACT_IN_V_DATA_8      = 7'h38,
+    ADDR_CONTACT_IN_V_DATA_9      = 7'h3c,
+    ADDR_CONTACT_IN_V_DATA_10     = 7'h40,
+    ADDR_CONTACT_IN_V_DATA_11     = 7'h44,
+    ADDR_CONTACT_IN_V_DATA_12     = 7'h48,
+    ADDR_CONTACT_IN_V_DATA_13     = 7'h4c,
+    ADDR_CONTACT_IN_V_DATA_14     = 7'h50,
+    ADDR_CONTACT_IN_V_DATA_15     = 7'h54,
+    ADDR_CONTACT_IN_V_CTRL        = 7'h58,
+    ADDR_OFFSET_DATA_0            = 7'h5c,
+    ADDR_OFFSET_DATA_1            = 7'h60,
+    ADDR_OFFSET_CTRL              = 7'h64,
+    ADDR_DB_SIZE_IN_DATA_0        = 7'h68,
+    ADDR_DB_SIZE_IN_CTRL          = 7'h6c,
+    ADDR_ERROR_OUT_DATA_0         = 7'h70,
+    ADDR_ERROR_OUT_CTRL           = 7'h74,
+    ADDR_CONTACTS_SIZE_OUT_DATA_0 = 7'h78,
+    ADDR_CONTACTS_SIZE_OUT_CTRL   = 7'h7c,
     WRIDLE                        = 2'd0,
     WRDATA                        = 2'd1,
     WRRESP                        = 2'd2,
@@ -169,7 +160,7 @@ localparam
     RDIDLE                        = 2'd0,
     RDDATA                        = 2'd1,
     RDRESET                       = 2'd2,
-    ADDR_BITS         = 8;
+    ADDR_BITS         = 7;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -199,7 +190,6 @@ localparam
     reg  [31:0]                   int_db_size_in = 'b0;
     reg  [31:0]                   int_error_out = 'b0;
     reg  [31:0]                   int_contacts_size_out = 'b0;
-    reg  [63:0]                   int_current_offset = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -375,12 +365,6 @@ always @(posedge ACLK) begin
                 end
                 ADDR_CONTACTS_SIZE_OUT_DATA_0: begin
                     rdata <= int_contacts_size_out[31:0];
-                end
-                ADDR_CURRENT_OFFSET_DATA_0: begin
-                    rdata <= int_current_offset[31:0];
-                end
-                ADDR_CURRENT_OFFSET_DATA_1: begin
-                    rdata <= int_current_offset[63:32];
                 end
             endcase
         end
@@ -703,15 +687,6 @@ always @(posedge ACLK) begin
         int_contacts_size_out <= 0;
     else if (ACLK_EN) begin
             int_contacts_size_out <= contacts_size_out;
-    end
-end
-
-// int_current_offset
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_current_offset <= 0;
-    else if (ACLK_EN) begin
-            int_current_offset <= current_offset;
     end
 end
 

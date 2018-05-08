@@ -5,12 +5,13 @@
 #include "string.h"
 
 #define CONTACTS_SIZE 128
-#define BATCH_SIZE 64
+#define BATCH_SIZE 32
 
 typedef ap_uint<512> hash;
 
 static hash contacts[CONTACTS_SIZE];
 static hash db_buffer[BATCH_SIZE];
+static bool results_buffer[BATCH_SIZE];
 static int contacts_size = 0;
 
 
@@ -42,11 +43,8 @@ void contact_discovery(
 	unsigned int db_size_in,
 	int *error_out,
 	int *contacts_size_out,
-	hls::stream<unsigned char> &results_out,
-	unsigned long long *current_offset
+	hls::stream<unsigned char> &results_out
 ){
-#pragma HLS INTERFACE s_axilite port=current_offset
-#pragma HLS INTERFACE ap_none port=current_offset
 #pragma HLS INTERFACE ap_none port=offset
 #pragma HLS INTERFACE s_axilite port=offset
 #pragma HLS INTERFACE m_axi depth=536870912 port=db_mem max_read_burst_length=4
@@ -64,6 +62,7 @@ void contact_discovery(
 #pragma HLS INTERFACE s_axilite register port=operation
 #pragma HLS INTERFACE s_axilite port=contact_in
 	int database_index, contacts_index, i;
+	long long db_length;
 	bool matched, current_matched;
 
 	switch(operation){
@@ -84,8 +83,9 @@ void contact_discovery(
 		case 1:
 			*error_out = 0;
 			*contacts_size_out = contacts_size;
-			for(database_index = 0; database_index < db_size_in; database_index+=BATCH_SIZE){
-//			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
+//			db_length = db_size_in;
+			db_length = 76000;
+			for(database_index = 0; database_index < db_length; database_index+=BATCH_SIZE){
 #pragma HLS PIPELINE
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
@@ -98,13 +98,18 @@ void contact_discovery(
 				memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), BATCH_SIZE*sizeof(hash));
 				for(i=0; i<BATCH_SIZE; i++){
 #pragma HLS UNROLL
-					if(database_index + i < db_size_in){
-//					if(database_index + i >= 76800){
-						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
-						*current_offset = offset + database_index;
+					if(database_index + i < db_length){
+						results_buffer[i] = match_db_contact(db_buffer[i]);
+//						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
+//						*current_offset = offset + database_index;
 					}
 //					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
 
+				}
+				for(i=0; i<BATCH_SIZE; i++){
+					if(database_index + i < db_length){
+						results_out.write((unsigned char)(results_buffer[i]));
+					}
 				}
 			}
 			break;

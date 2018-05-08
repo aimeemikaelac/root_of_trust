@@ -118,7 +118,6 @@ void XContact_discovery_Set_db_size_in(XContact_discovery *InstancePtr, u32 Data
 u32 XContact_discovery_Get_db_size_in(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_error_out(XContact_discovery *InstancePtr);
 u32 XContact_discovery_Get_contacts_size_out(XContact_discovery *InstancePtr);
-u64 XContact_discovery_Get_current_offset(XContact_discovery *InstancePtr);
 
 void XContact_discovery_InterruptGlobalEnable(XContact_discovery *InstancePtr);
 void XContact_discovery_InterruptGlobalDisable(XContact_discovery *InstancePtr);

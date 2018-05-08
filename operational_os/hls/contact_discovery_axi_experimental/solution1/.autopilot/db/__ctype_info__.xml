@@ -70,7 +70,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>results_out_V</name>
+<name>results_out</name>
 <CType>
 <TypeName>unsigned char</TypeName>
 <TypeWidth>8</TypeWidth>

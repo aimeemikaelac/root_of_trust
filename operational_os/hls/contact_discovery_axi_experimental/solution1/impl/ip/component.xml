@@ -203,7 +203,7 @@ format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type im
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">s_axi_AXILiteS:m_axi_db_mem_V:results_out_V</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">s_axi_AXILiteS:m_axi_db_mem_V:results_out</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
@@ -720,7 +720,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>results_out_V</spirit:name>
+      <spirit:name>results_out</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
       <spirit:master/>
@@ -730,7 +730,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
             <spirit:name>TVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>results_out_V_TVALID</spirit:name>
+            <spirit:name>results_out_TVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -738,7 +738,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
             <spirit:name>TREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>results_out_V_TREADY</spirit:name>
+            <spirit:name>results_out_TREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -746,26 +746,26 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
             <spirit:name>TDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>results_out_V_TDATA</spirit:name>
+            <spirit:name>results_out_TDATA</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>SIGNAL_SET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT_V.SIGNAL_SET">00000011</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT.SIGNAL_SET">00000011</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT_V.TDATA_NUM_BYTES">1</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT.TDATA_NUM_BYTES">1</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>TUSER_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT_V.TUSER_WIDTH">0</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT.TUSER_WIDTH">0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>LAYERED_METADATA</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT_V.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RESULTS_OUT.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -2765,7 +2765,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>results_out_V_TVALID</spirit:name>
+        <spirit:name>results_out_TVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2778,7 +2778,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>results_out_V_TREADY</spirit:name>
+        <spirit:name>results_out_TREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2791,7 +2791,7 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>results_out_V_TDATA</spirit:name>
+        <spirit:name>results_out_TDATA</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -3274,8 +3274,8 @@ solve_type immediate dependency {} format long minimum {} maximum {}} value 0} i
       </xilinx:taxonomies>
       <xilinx:displayName>Contact_discovery</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1805081312</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-05-08T19:13:38Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1805081419</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-05-08T20:19:45Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.1</xilinx:xilinxVersion>

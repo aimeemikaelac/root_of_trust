@@ -94,8 +94,5 @@
 <directive functionLabel="" functionName="contact_discovery" label="">
 <pragma name="PIPELINE"/>
 </directive>
-<directive functionLabel="" functionName="contact_discovery" label="">
-<pragma name="UNROLL"/>
-</directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

@@ -41925,11 +41925,12 @@ extern char *basename (const char *__filename) throw () __attribute__ ((__nonnul
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 typedef ap_uint<512> hash;
 #pragma empty_line
 static hash contacts[128];
 static hash db_buffer[32];
-static bool results_buffer[32];
+//static bool results_buffer[BATCH_SIZE];
 static int contacts_size = 0;
 #pragma empty_line
 #pragma empty_line
@@ -41961,7 +41962,7 @@ void contact_discovery(
  unsigned int db_size_in,
  int *error_out,
  int *contacts_size_out,
- hls::stream<unsigned char> &results_out
+ unsigned char results_out[0x100000]
 ){
 #pragma HLS INTERFACE ap_none port=offset
 #pragma HLS INTERFACE s_axilite port=offset
@@ -42001,9 +42002,9 @@ void contact_discovery(
   case 1:
    *error_out = 0;
    *contacts_size_out = contacts_size;
-//			db_length = db_size_in;
-   db_length = 76000;
-   for(database_index = 0; database_index < db_length; database_index+=32){
+   db_length = db_size_in;
+//			db_length = 76000;
+   for(database_index = 0; database_index < 8388608; database_index++){
 #pragma HLS PIPELINE
 //				hash hash1 = db_in.read();
 //				hash hash2 = db_in.read();
@@ -42013,22 +42014,27 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 32*sizeof(hash));
-    for(i=0; i<32; i++){
-#pragma HLS UNROLL
- if(database_index + i < db_length){
-      results_buffer[i] = match_db_contact(db_buffer[i]);
-//						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
-//						*current_offset = offset + database_index;
-     }
-//					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
-#pragma empty_line
+    if(database_index < db_length){
+     results_out[database_index] = (unsigned char)(match_db_contact(db_mem[offset + database_index]));
+//					memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), BATCH_SIZE*sizeof(hash));
+//					for(i=0; i<BATCH_SIZE; i++){
+//	#pragma HLS UNROLL
+//						if(database_index + i < db_length){
+ //						results_buffer[i] = match_db_contact(db_buffer[i]);
+ //						results_out.write((unsigned char)(match_db_contact(db_buffer[i])));
+ //						*current_offset = offset + database_index;
+//							results_out[database_index + i] = (unsigned char)match_db_contact(db_buffer[i]);
+//						}
+ //					results_out.write((unsigned char)(match_db_contact(db_mem[offset + database_index + i])));
+//					}
+    } else{
+     break;
     }
-    for(i=0; i<32; i++){
-     if(database_index + i < db_length){
-      results_out.write((unsigned char)(results_buffer[i]));
-     }
-    }
+//				for(i=0; i<BATCH_SIZE; i++){
+//					if(database_index + i < db_length){
+//						results_out.write((unsigned char)(results_buffer[i]));
+//					}
+//				}
    }
    break;
   // clear contacts

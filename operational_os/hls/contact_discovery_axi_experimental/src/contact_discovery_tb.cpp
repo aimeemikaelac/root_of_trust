@@ -28,7 +28,7 @@ void contact_discovery(
 	unsigned int db_size_in,
 	int *error_out,
 	int *contacts_size_out,
-	hls::stream<unsigned char> &results_out
+	unsigned char results_out[0x100000]
 );
 
 typedef struct number{
@@ -93,9 +93,10 @@ int main(){
 	int i, j, random_index, num_matched = 0, num_unmatched = 0;
 	volatile unsigned char contact_in[64];
 	volatile unsigned char database_in[64];
-	bool matched_out[DATABASE_SIZE], matched_correct[DATABASE_SIZE];
+	bool matched_correct[DATABASE_SIZE];
 	hash database[DATABASE_SIZE+5];
 	volatile int matched_finished, error_out, database_size_out, contacts_size_out;
+	unsigned char matched_out[DATABASE_SIZE];
 
 //	hls::stream<hash> db_stream;
 	hls::stream<unsigned char> results_stream;
@@ -156,7 +157,7 @@ int main(){
 		0,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
-		results_stream
+		matched_out
 	);
 	assert(error_out == 0);
 	assert(contacts_size_out == 0);
@@ -187,7 +188,7 @@ int main(){
 			0,
 			(int*)&error_out,
 			(int*)&contacts_size_out,
-			results_stream
+			matched_out
 		);
 		contacts_size++;
 //		printf("Current contacts size: %i\n", contacts_size);
@@ -204,7 +205,7 @@ int main(){
 		DATABASE_SIZE,
 		(int*)&error_out,
 		(int*)&contacts_size_out,
-		results_stream
+		matched_out
 	);
 	assert(error_out == 0);
 
@@ -217,9 +218,9 @@ int main(){
 
 
 	for(j=0; j<DATABASE_SIZE; j++){
-		matched_out[j] = (bool)results_stream.read();
+//		matched_out[j] = (bool)results_stream.read();
 //		printf("Matched out: %i, matched correct: %i\n", matched_out[j], matched_correct[j]);
-		assert(matched_out[j] == matched_correct[j]);
+		assert((bool)matched_out[j] == matched_correct[j]);
 		if(matched_out[j]){
 			num_matched++;
 		} else{

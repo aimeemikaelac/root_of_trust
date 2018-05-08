@@ -5,9 +5,9 @@
 <ModuleName>contact_discovery</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_match_db_contact_fu_194</InstName>
+<InstName>grp_match_db_contact_fu_206</InstName>
 <ModuleName>match_db_contact</ModuleName>
-<ID>194</ID>
+<ID>206</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -219,26 +219,31 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>2</Best-caseLatency>
-<Average-caseLatency>1240940</Average-caseLatency>
-<Worst-caseLatency>4963753</Worst-caseLatency>
-<PipelineInitiationInterval>3 ~ 4963754</PipelineInitiationInterval>
+<Average-caseLatency>67108870</Average-caseLatency>
+<Worst-caseLatency>536870926</Worst-caseLatency>
+<PipelineInitiationInterval>3 ~ 536870927</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>2375</TripCount>
-<Latency>4963750</Latency>
-<IterationLatency>2090</IterationLatency>
-<PipelineDepth>2090</PipelineDepth>
+<TripCount>
+<range>
+<min>1</min>
+<max>8388608</max>
+</range>
+</TripCount>
+<Latency>74 ~ 536870922</Latency>
+<PipelineII>64</PipelineII>
+<PipelineDepth>75</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
 <BRAM_18K>59</BRAM_18K>
-<FF>6839</FF>
-<LUT>7417</LUT>
+<FF>4789</FF>
+<LUT>5447</LUT>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
 </Resources>
@@ -1039,8 +1044,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>results_out_V_TDATA</name>
-<Object>results_out_V</Object>
+<name>results_out_TDATA</name>
+<Object>results_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -1051,8 +1056,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>results_out_V_TVALID</name>
-<Object>results_out_V</Object>
+<name>results_out_TVALID</name>
+<Object>results_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -1063,8 +1068,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>results_out_V_TREADY</name>
-<Object>results_out_V</Object>
+<name>results_out_TREADY</name>
+<Object>results_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

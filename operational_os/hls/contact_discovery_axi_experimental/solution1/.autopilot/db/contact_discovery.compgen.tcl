@@ -190,16 +190,16 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     id 6 \
-    name results_out_V \
+    name results_out \
     reset_level 0 \
     sync_rst true \
     corename {} \
     metadata {  } \
     op interface \
-    ports { results_out_V_TDATA { O 8 vector } results_out_V_TVALID { O 1 bit } results_out_V_TREADY { I 1 bit } } \
+    ports { results_out_TDATA { O 8 vector } results_out_TVALID { O 1 bit } results_out_TREADY { I 1 bit } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'results_out_V'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'results_out'"
 }
 }
 

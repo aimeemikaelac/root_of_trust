@@ -89,14 +89,14 @@ set DataType6 "int"
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6]
 lappend PortList $Port6
 set PortName7 "results_out"
-set BitWidth7 "8"
+set BitWidth7 "64"
 set ArrayOpt7 ""
 set Const7 "0"
 set Volatile7 "0"
-set Pointer7 "2"
-set Reference7 "1"
-set Dims7 [list 0]
-set Interface7 [list AP_STREAM 0] 
+set Pointer7 "0"
+set Reference7 "0"
+set Dims7 [list 1048576]
+set Interface7 "wire"
 set DataType7 "unsigned char"
 set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7]
 lappend PortList $Port7

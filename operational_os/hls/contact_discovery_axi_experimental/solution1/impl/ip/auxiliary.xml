@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="contact_discovery" xd:componentRef="contact_discovery" xd:initiationInterval="4963754" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="contact_discovery" xd:componentRef="contact_discovery" xd:initiationInterval="536870927" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
   <xd:arg xd:name="operation" xd:originalName="operation" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
   <xd:arg xd:name="contact_in" xd:originalName="contact_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="512"/>
@@ -8,7 +8,7 @@
   <xd:arg xd:name="db_size_in" xd:originalName="db_size_in" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x68" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="*(error_out)" xd:originalName="error_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x70" xd:statusOffset="0x74" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="*(contacts_size_out)" xd:originalName="contacts_size_out" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x78" xd:statusOffset="0x7C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
-  <xd:arg xd:name="results_out" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out_V" xd:busTypeRef="axis" xd:dataWidth="8"/>
-  <xd:latencyEstimates xd:best-case="2" xd:worst-case="4963753" xd:average-case="1240940"/>
-  <xd:resourceEstimates xd:LUT="7417" xd:FF="6839" xd:BRAM="59" xd:DSP="0"/>
+  <xd:arg xd:name="results_out[]" xd:originalName="results_out" xd:direction="out" xd:interfaceRef="results_out" xd:busTypeRef="axis" xd:arraySize="1048576" xd:dataWidth="8"/>
+  <xd:latencyEstimates xd:best-case="2" xd:worst-case="536870926" xd:average-case="67108870"/>
+  <xd:resourceEstimates xd:LUT="5447" xd:FF="4789" xd:BRAM="59" xd:DSP="0"/>
 </xd:acceleratorMap>

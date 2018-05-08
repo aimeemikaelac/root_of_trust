@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @contacts_V = internal unnamed_addr global [128 x i512] zeroinitializer ; [#uses=129 type=[128 x i512]*]
 @contact_discovery_st = internal unnamed_addr constant [18 x i8] c"contact_discovery\00" ; [#uses=1 type=[18 x i8]*]
 @burstread_OC_region_s = internal unnamed_addr constant [17 x i8] c"burstread.region\00" ; [#uses=0 type=[17 x i8]*]
-@p_str9 = private unnamed_addr constant [12 x i8] c"hls_label_0\00", align 1 ; [#uses=2 type=[12 x i8]*]
+@p_str9 = private unnamed_addr constant [12 x i8] c"hls_label_1\00", align 1 ; [#uses=2 type=[12 x i8]*]
 @p_str8 = private unnamed_addr constant [7 x i8] c"ap_vld\00", align 1 ; [#uses=1 type=[7 x i8]*]
 @p_str7 = private unnamed_addr constant [5 x i8] c"both\00", align 1 ; [#uses=1 type=[5 x i8]*]
 @p_str6 = private unnamed_addr constant [5 x i8] c"axis\00", align 1 ; [#uses=1 type=[5 x i8]*]
@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @p_str3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=96 type=[1 x i8]*]
 @p_str = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1 ; [#uses=8 type=[10 x i8]*]
 
-; [#uses=8]
+; [#uses=64]
 define internal fastcc i1 @match_db_contact(i512 %db_item_V) readonly {
   %db_item_V_read = call i512 @_ssdm_op_Read.ap_auto.i512(i512 %db_item_V) ; [#uses=128 type=i512]
   %contacts_V_load = load i512* getelementptr inbounds ([128 x i512]* @contacts_V, i64 0, i64 0), align 64, !dbg !34 ; [#uses=1 type=i512] [debug line = 2925:9@23:15]
@@ -409,7 +409,7 @@ define internal fastcc i1 @match_db_contact(i512 %db_item_V) readonly {
 ; [#uses=1]
 declare i32 @llvm.part.select.i32(i32, i32, i32) nounwind readnone
 
-; [#uses=30]
+; [#uses=142]
 declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
 ; [#uses=0]
@@ -424,7 +424,7 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   call void (...)* @_ssdm_op_SpecBitsMap(i8* %results_out_V), !map !445
   call void (...)* @_ssdm_op_SpecBitsMap(i64* %current_offset), !map !449
   call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @contact_discovery_st) nounwind
-  %db_size_in_read = call i32 @_ssdm_op_Read.ap_none.i32(i32 %db_size_in) ; [#uses=8 type=i32]
+  %db_size_in_read = call i32 @_ssdm_op_Read.ap_none.i32(i32 %db_size_in) ; [#uses=64 type=i32]
   call void @llvm.dbg.value(metadata !{i32 %db_size_in_read}, i64 0, metadata !453), !dbg !511 ; [debug line = 42:15] [debug variable = db_size_in]
   %offset_read = call i64 @_ssdm_op_Read.ap_none.i64(i64 %offset) ; [#uses=2 type=i64]
   call void @llvm.dbg.value(metadata !{i64 %offset_read}, i64 0, metadata !512), !dbg !513 ; [debug line = 41:21] [debug variable = offset]
@@ -457,10 +457,10 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind, !dbg !562 ; [debug line = 64:1]
   call void (...)* @_ssdm_op_SpecInterface(i512 %contact_in_V, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind, !dbg !563 ; [debug line = 65:1]
   %contacts_size_load = load i32* @contacts_size, align 4, !dbg !564 ; [#uses=6 type=i32] [debug line = 73:4]
-  switch i32 %operation_read, label %15 [
+  switch i32 %operation_read, label %71 [
     i32 0, label %1
     i32 1, label %5
-    i32 2, label %14
+    i32 2, label %70
   ], !dbg !565                                    ; [debug line = 69:2]
 
 ; <label>:1                                       ; preds = %0
@@ -493,20 +493,20 @@ define void @contact_discovery(i32 %operation, i512 %contact_in_V, i512* %db_mem
   %tmp_126 = trunc i64 %offset_read to i32        ; [#uses=1 type=i32]
   br label %6, !dbg !578                          ; [debug line = 87:8]
 
-; <label>:6                                       ; preds = %._crit_edge.7, %5
-  %database_index = phi i32 [ 0, %5 ], [ %database_index_1, %._crit_edge.7 ] ; [#uses=11 type=i32]
+; <label>:6                                       ; preds = %._crit_edge.63, %5
+  %database_index = phi i32 [ 0, %5 ], [ %database_index_1, %._crit_edge.63 ] ; [#uses=67 type=i32]
   %tmp_7 = icmp ult i32 %database_index, %db_size_in_read, !dbg !578 ; [#uses=1 type=i1] [debug line = 87:8]
   br i1 %tmp_7, label %burst.rd.header.0, label %.loopexit.loopexit, !dbg !578 ; [debug line = 87:8]
 
 burst.rd.header.0:                                ; preds = %6
-  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9), !dbg !580 ; [#uses=1 type=i32] [debug line = 87:76]
+  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9), !dbg !580 ; [#uses=1 type=i32] [debug line = 87:77]
   call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind, !dbg !582 ; [debug line = 89:1]
   %tmp_8 = sext i32 %database_index to i64, !dbg !583 ; [#uses=1 type=i64] [debug line = 98:5]
-  %tmp_9 = add i64 %tmp_8, %offset_read, !dbg !583 ; [#uses=8 type=i64] [debug line = 98:5]
+  %tmp_9 = add i64 %tmp_8, %offset_read, !dbg !583 ; [#uses=64 type=i64] [debug line = 98:5]
   %tmp_3 = add i32 %tmp_126, %database_index      ; [#uses=1 type=i32]
   %tmp_4 = sext i32 %tmp_3 to i64, !dbg !583      ; [#uses=1 type=i64] [debug line = 98:5]
-  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_4 ; [#uses=9 type=i512*]
-  %db_mem_V_addr_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 8), !dbg !583 ; [#uses=0 type=i1] [debug line = 98:5]
+  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %tmp_4 ; [#uses=65 type=i512*]
+  %db_mem_V_addr_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 64), !dbg !583 ; [#uses=0 type=i1] [debug line = 98:5]
   %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
   %db_mem_V_addr_read_1 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
   %db_mem_V_addr_read_2 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
@@ -515,19 +515,75 @@ burst.rd.header.0:                                ; preds = %6
   %db_mem_V_addr_read_5 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
   %db_mem_V_addr_read_6 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
   %db_mem_V_addr_read_7 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_8 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_9 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_10 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_11 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_12 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_13 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_14 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_15 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_16 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_17 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_18 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_19 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_20 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_21 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_22 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_23 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_24 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_25 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_26 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_27 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_28 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_29 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_30 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_31 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_32 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_33 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_34 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_35 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_36 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_37 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_38 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_39 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_40 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_41 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_42 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_43 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_44 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_45 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_46 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_47 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_48 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_49 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_50 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_51 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_52 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_53 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_54 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_55 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_56 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_57 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_58 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_59 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_60 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_61 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_62 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
+  %db_mem_V_addr_read_63 = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr), !dbg !583 ; [#uses=1 type=i512] [debug line = 98:5]
   %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
   %tmp_2 = zext i1 %tmp_s to i8, !dbg !584        ; [#uses=1 type=i8] [debug line = 103:41]
   call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
   call void @llvm.dbg.value(metadata !{i8 %tmp_2}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
   call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_2), !dbg !597 ; [debug line = 146:9@103:41]
   call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
-  %tmp_1_15 = or i32 %database_index, 1, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_1 = icmp ult i32 %tmp_1_15, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_110 = or i32 %database_index, 1, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_1 = icmp ult i32 %tmp_1_110, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_1, label %7, label %._crit_edge.1, !dbg !599 ; [debug line = 101:2]
 
 ._crit_edge.1:                                    ; preds = %7, %burst.rd.header.0
-  %tmp_1_26 = or i32 %database_index, 2, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_2 = icmp ult i32 %tmp_1_26, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_s = or i32 %database_index, 2, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_2 = icmp ult i32 %tmp_1_s, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_2, label %8, label %._crit_edge.2, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:7                                       ; preds = %burst.rd.header.0
@@ -540,8 +596,8 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.1, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.2:                                    ; preds = %8, %._crit_edge.1
-  %tmp_1_37 = or i32 %database_index, 3, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_3 = icmp ult i32 %tmp_1_37, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_127 = or i32 %database_index, 3, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_3 = icmp ult i32 %tmp_1_127, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_3, label %9, label %._crit_edge.3, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:8                                       ; preds = %._crit_edge.1
@@ -554,8 +610,8 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.2, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.3:                                    ; preds = %9, %._crit_edge.2
-  %tmp_1_48 = or i32 %database_index, 4, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_4 = icmp ult i32 %tmp_1_48, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_128 = or i32 %database_index, 4, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_4 = icmp ult i32 %tmp_1_128, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_4, label %10, label %._crit_edge.4, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:9                                       ; preds = %._crit_edge.2
@@ -568,8 +624,8 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.3, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.4:                                    ; preds = %10, %._crit_edge.3
-  %tmp_1_59 = or i32 %database_index, 5, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_5 = icmp ult i32 %tmp_1_59, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_129 = or i32 %database_index, 5, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_5 = icmp ult i32 %tmp_1_129, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_5, label %11, label %._crit_edge.5, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:10                                      ; preds = %._crit_edge.3
@@ -582,8 +638,8 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.4, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.5:                                    ; preds = %11, %._crit_edge.4
-  %tmp_1_s = or i32 %database_index, 6, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_6 = icmp ult i32 %tmp_1_s, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_130 = or i32 %database_index, 6, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_6 = icmp ult i32 %tmp_1_130, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_6, label %12, label %._crit_edge.6, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:11                                      ; preds = %._crit_edge.4
@@ -596,8 +652,8 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.5, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.6:                                    ; preds = %12, %._crit_edge.5
-  %tmp_1_127 = or i32 %database_index, 7, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
-  %tmp_2_7 = icmp ult i32 %tmp_1_127, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  %tmp_1_131 = or i32 %database_index, 7, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_7 = icmp ult i32 %tmp_1_131, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
   br i1 %tmp_2_7, label %13, label %._crit_edge.7, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:12                                      ; preds = %._crit_edge.5
@@ -610,10 +666,9 @@ burst.rd.header.0:                                ; preds = %6
   br label %._crit_edge.6, !dbg !600              ; [debug line = 105:6]
 
 ._crit_edge.7:                                    ; preds = %13, %._crit_edge.6
-  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_1), !dbg !601 ; [#uses=0 type=i32] [debug line = 109:4]
-  %database_index_1 = add nsw i32 %database_index, 8, !dbg !602 ; [#uses=1 type=i32] [debug line = 87:57]
-  call void @llvm.dbg.value(metadata !{i32 %database_index_1}, i64 0, metadata !603), !dbg !602 ; [debug line = 87:57] [debug variable = database_index]
-  br label %6, !dbg !602                          ; [debug line = 87:57]
+  %tmp_1_132 = or i32 %database_index, 8, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_8 = icmp ult i32 %tmp_1_132, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_8, label %14, label %._crit_edge.8, !dbg !599 ; [debug line = 101:2]
 
 ; <label>:13                                      ; preds = %._crit_edge.6
   %tmp_10_7 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_7), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
@@ -624,13 +679,798 @@ burst.rd.header.0:                                ; preds = %6
   call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
   br label %._crit_edge.7, !dbg !600              ; [debug line = 105:6]
 
-; <label>:14                                      ; preds = %0
+._crit_edge.8:                                    ; preds = %14, %._crit_edge.7
+  %tmp_1_133 = or i32 %database_index, 9, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_9 = icmp ult i32 %tmp_1_133, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_9, label %15, label %._crit_edge.9, !dbg !599 ; [debug line = 101:2]
+
+; <label>:14                                      ; preds = %._crit_edge.7
+  %tmp_10_8 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_8), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_17 = zext i1 %tmp_10_8 to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_17}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_17), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.8, !dbg !600              ; [debug line = 105:6]
+
+._crit_edge.9:                                    ; preds = %15, %._crit_edge.8
+  %tmp_1_134 = or i32 %database_index, 10, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_s = icmp ult i32 %tmp_1_134, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_s, label %16, label %._crit_edge.10, !dbg !599 ; [debug line = 101:2]
+
+; <label>:15                                      ; preds = %._crit_edge.8
+  %tmp_10_9 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_9), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_18 = zext i1 %tmp_10_9 to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_18}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_18), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.9, !dbg !600              ; [debug line = 105:6]
+
+._crit_edge.10:                                   ; preds = %16, %._crit_edge.9
+  %tmp_1_135 = or i32 %database_index, 11, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_10 = icmp ult i32 %tmp_1_135, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_10, label %17, label %._crit_edge.11, !dbg !599 ; [debug line = 101:2]
+
+; <label>:16                                      ; preds = %._crit_edge.9
+  %tmp_10_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_10), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_19 = zext i1 %tmp_10_s to i8, !dbg !584    ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_19}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_19), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.10, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.11:                                   ; preds = %17, %._crit_edge.10
+  %tmp_1_136 = or i32 %database_index, 12, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_11 = icmp ult i32 %tmp_1_136, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_11, label %18, label %._crit_edge.12, !dbg !599 ; [debug line = 101:2]
+
+; <label>:17                                      ; preds = %._crit_edge.10
+  %tmp_10_10 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_11), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_20 = zext i1 %tmp_10_10 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_20}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_20), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.11, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.12:                                   ; preds = %18, %._crit_edge.11
+  %tmp_1_137 = or i32 %database_index, 13, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_12 = icmp ult i32 %tmp_1_137, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_12, label %19, label %._crit_edge.13, !dbg !599 ; [debug line = 101:2]
+
+; <label>:18                                      ; preds = %._crit_edge.11
+  %tmp_10_11 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_12), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_21 = zext i1 %tmp_10_11 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_21}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_21), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.12, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.13:                                   ; preds = %19, %._crit_edge.12
+  %tmp_1_138 = or i32 %database_index, 14, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_13 = icmp ult i32 %tmp_1_138, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_13, label %20, label %._crit_edge.14, !dbg !599 ; [debug line = 101:2]
+
+; <label>:19                                      ; preds = %._crit_edge.12
+  %tmp_10_12 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_13), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_22 = zext i1 %tmp_10_12 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_22}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_22), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.13, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.14:                                   ; preds = %20, %._crit_edge.13
+  %tmp_1_139 = or i32 %database_index, 15, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_14 = icmp ult i32 %tmp_1_139, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_14, label %21, label %._crit_edge.15, !dbg !599 ; [debug line = 101:2]
+
+; <label>:20                                      ; preds = %._crit_edge.13
+  %tmp_10_13 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_14), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_23 = zext i1 %tmp_10_13 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_23}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_23), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.14, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.15:                                   ; preds = %21, %._crit_edge.14
+  %tmp_1_140 = or i32 %database_index, 16, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_15 = icmp ult i32 %tmp_1_140, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_15, label %22, label %._crit_edge.16, !dbg !599 ; [debug line = 101:2]
+
+; <label>:21                                      ; preds = %._crit_edge.14
+  %tmp_10_14 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_15), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_24 = zext i1 %tmp_10_14 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_24}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_24), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.15, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.16:                                   ; preds = %22, %._crit_edge.15
+  %tmp_1_141 = or i32 %database_index, 17, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_16 = icmp ult i32 %tmp_1_141, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_16, label %23, label %._crit_edge.17, !dbg !599 ; [debug line = 101:2]
+
+; <label>:22                                      ; preds = %._crit_edge.15
+  %tmp_10_15 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_16), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_25 = zext i1 %tmp_10_15 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_25}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_25), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.16, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.17:                                   ; preds = %23, %._crit_edge.16
+  %tmp_1_142 = or i32 %database_index, 18, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_17 = icmp ult i32 %tmp_1_142, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_17, label %24, label %._crit_edge.18, !dbg !599 ; [debug line = 101:2]
+
+; <label>:23                                      ; preds = %._crit_edge.16
+  %tmp_10_16 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_17), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_26 = zext i1 %tmp_10_16 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_26}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_26), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.17, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.18:                                   ; preds = %24, %._crit_edge.17
+  %tmp_1_143 = or i32 %database_index, 19, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_18 = icmp ult i32 %tmp_1_143, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_18, label %25, label %._crit_edge.19, !dbg !599 ; [debug line = 101:2]
+
+; <label>:24                                      ; preds = %._crit_edge.17
+  %tmp_10_17 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_18), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_27 = zext i1 %tmp_10_17 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_27}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_27), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.18, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.19:                                   ; preds = %25, %._crit_edge.18
+  %tmp_1_144 = or i32 %database_index, 20, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_19 = icmp ult i32 %tmp_1_144, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_19, label %26, label %._crit_edge.20, !dbg !599 ; [debug line = 101:2]
+
+; <label>:25                                      ; preds = %._crit_edge.18
+  %tmp_10_18 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_19), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_28 = zext i1 %tmp_10_18 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_28}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_28), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.19, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.20:                                   ; preds = %26, %._crit_edge.19
+  %tmp_1_145 = or i32 %database_index, 21, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_20 = icmp ult i32 %tmp_1_145, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_20, label %27, label %._crit_edge.21, !dbg !599 ; [debug line = 101:2]
+
+; <label>:26                                      ; preds = %._crit_edge.19
+  %tmp_10_19 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_20), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_29 = zext i1 %tmp_10_19 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_29}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_29), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.20, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.21:                                   ; preds = %27, %._crit_edge.20
+  %tmp_1_146 = or i32 %database_index, 22, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_21 = icmp ult i32 %tmp_1_146, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_21, label %28, label %._crit_edge.22, !dbg !599 ; [debug line = 101:2]
+
+; <label>:27                                      ; preds = %._crit_edge.20
+  %tmp_10_20 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_21), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_30 = zext i1 %tmp_10_20 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_30}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_30), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.21, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.22:                                   ; preds = %28, %._crit_edge.21
+  %tmp_1_147 = or i32 %database_index, 23, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_22 = icmp ult i32 %tmp_1_147, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_22, label %29, label %._crit_edge.23, !dbg !599 ; [debug line = 101:2]
+
+; <label>:28                                      ; preds = %._crit_edge.21
+  %tmp_10_21 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_22), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_31 = zext i1 %tmp_10_21 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_31}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_31), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.22, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.23:                                   ; preds = %29, %._crit_edge.22
+  %tmp_1_148 = or i32 %database_index, 24, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_23 = icmp ult i32 %tmp_1_148, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_23, label %30, label %._crit_edge.24, !dbg !599 ; [debug line = 101:2]
+
+; <label>:29                                      ; preds = %._crit_edge.22
+  %tmp_10_22 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_23), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_32 = zext i1 %tmp_10_22 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_32}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_32), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.23, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.24:                                   ; preds = %30, %._crit_edge.23
+  %tmp_1_149 = or i32 %database_index, 25, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_24 = icmp ult i32 %tmp_1_149, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_24, label %31, label %._crit_edge.25, !dbg !599 ; [debug line = 101:2]
+
+; <label>:30                                      ; preds = %._crit_edge.23
+  %tmp_10_23 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_24), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_33 = zext i1 %tmp_10_23 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_33}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_33), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.24, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.25:                                   ; preds = %31, %._crit_edge.24
+  %tmp_1_150 = or i32 %database_index, 26, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_25 = icmp ult i32 %tmp_1_150, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_25, label %32, label %._crit_edge.26, !dbg !599 ; [debug line = 101:2]
+
+; <label>:31                                      ; preds = %._crit_edge.24
+  %tmp_10_24 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_25), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_34 = zext i1 %tmp_10_24 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_34}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_34), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.25, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.26:                                   ; preds = %32, %._crit_edge.25
+  %tmp_1_151 = or i32 %database_index, 27, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_26 = icmp ult i32 %tmp_1_151, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_26, label %33, label %._crit_edge.27, !dbg !599 ; [debug line = 101:2]
+
+; <label>:32                                      ; preds = %._crit_edge.25
+  %tmp_10_25 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_26), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_35 = zext i1 %tmp_10_25 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_35}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_35), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.26, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.27:                                   ; preds = %33, %._crit_edge.26
+  %tmp_1_152 = or i32 %database_index, 28, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_27 = icmp ult i32 %tmp_1_152, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_27, label %34, label %._crit_edge.28, !dbg !599 ; [debug line = 101:2]
+
+; <label>:33                                      ; preds = %._crit_edge.26
+  %tmp_10_26 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_27), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_36 = zext i1 %tmp_10_26 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_36}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_36), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.27, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.28:                                   ; preds = %34, %._crit_edge.27
+  %tmp_1_153 = or i32 %database_index, 29, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_28 = icmp ult i32 %tmp_1_153, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_28, label %35, label %._crit_edge.29, !dbg !599 ; [debug line = 101:2]
+
+; <label>:34                                      ; preds = %._crit_edge.27
+  %tmp_10_27 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_28), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_37 = zext i1 %tmp_10_27 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_37}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_37), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.28, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.29:                                   ; preds = %35, %._crit_edge.28
+  %tmp_1_154 = or i32 %database_index, 30, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_29 = icmp ult i32 %tmp_1_154, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_29, label %36, label %._crit_edge.30, !dbg !599 ; [debug line = 101:2]
+
+; <label>:35                                      ; preds = %._crit_edge.28
+  %tmp_10_28 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_29), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_38 = zext i1 %tmp_10_28 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_38}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_38), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.29, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.30:                                   ; preds = %36, %._crit_edge.29
+  %tmp_1_155 = or i32 %database_index, 31, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_30 = icmp ult i32 %tmp_1_155, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_30, label %37, label %._crit_edge.31, !dbg !599 ; [debug line = 101:2]
+
+; <label>:36                                      ; preds = %._crit_edge.29
+  %tmp_10_29 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_30), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_39 = zext i1 %tmp_10_29 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_39}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_39), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.30, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.31:                                   ; preds = %37, %._crit_edge.30
+  %tmp_1_156 = or i32 %database_index, 32, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_31 = icmp ult i32 %tmp_1_156, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_31, label %38, label %._crit_edge.32, !dbg !599 ; [debug line = 101:2]
+
+; <label>:37                                      ; preds = %._crit_edge.30
+  %tmp_10_30 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_31), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_40 = zext i1 %tmp_10_30 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_40}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_40), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.31, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.32:                                   ; preds = %38, %._crit_edge.31
+  %tmp_1_157 = or i32 %database_index, 33, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_32 = icmp ult i32 %tmp_1_157, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_32, label %39, label %._crit_edge.33, !dbg !599 ; [debug line = 101:2]
+
+; <label>:38                                      ; preds = %._crit_edge.31
+  %tmp_10_31 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_32), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_41 = zext i1 %tmp_10_31 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_41}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_41), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.32, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.33:                                   ; preds = %39, %._crit_edge.32
+  %tmp_1_158 = or i32 %database_index, 34, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_33 = icmp ult i32 %tmp_1_158, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_33, label %40, label %._crit_edge.34, !dbg !599 ; [debug line = 101:2]
+
+; <label>:39                                      ; preds = %._crit_edge.32
+  %tmp_10_32 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_33), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_42 = zext i1 %tmp_10_32 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_42}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_42), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.33, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.34:                                   ; preds = %40, %._crit_edge.33
+  %tmp_1_159 = or i32 %database_index, 35, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_34 = icmp ult i32 %tmp_1_159, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_34, label %41, label %._crit_edge.35, !dbg !599 ; [debug line = 101:2]
+
+; <label>:40                                      ; preds = %._crit_edge.33
+  %tmp_10_33 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_34), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_43 = zext i1 %tmp_10_33 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_43}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_43), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.34, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.35:                                   ; preds = %41, %._crit_edge.34
+  %tmp_1_160 = or i32 %database_index, 36, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_35 = icmp ult i32 %tmp_1_160, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_35, label %42, label %._crit_edge.36, !dbg !599 ; [debug line = 101:2]
+
+; <label>:41                                      ; preds = %._crit_edge.34
+  %tmp_10_34 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_35), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_44 = zext i1 %tmp_10_34 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_44}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_44), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.35, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.36:                                   ; preds = %42, %._crit_edge.35
+  %tmp_1_161 = or i32 %database_index, 37, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_36 = icmp ult i32 %tmp_1_161, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_36, label %43, label %._crit_edge.37, !dbg !599 ; [debug line = 101:2]
+
+; <label>:42                                      ; preds = %._crit_edge.35
+  %tmp_10_35 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_36), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_45 = zext i1 %tmp_10_35 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_45}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_45), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.36, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.37:                                   ; preds = %43, %._crit_edge.36
+  %tmp_1_162 = or i32 %database_index, 38, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_37 = icmp ult i32 %tmp_1_162, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_37, label %44, label %._crit_edge.38, !dbg !599 ; [debug line = 101:2]
+
+; <label>:43                                      ; preds = %._crit_edge.36
+  %tmp_10_36 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_37), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_46 = zext i1 %tmp_10_36 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_46}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_46), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.37, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.38:                                   ; preds = %44, %._crit_edge.37
+  %tmp_1_163 = or i32 %database_index, 39, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_38 = icmp ult i32 %tmp_1_163, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_38, label %45, label %._crit_edge.39, !dbg !599 ; [debug line = 101:2]
+
+; <label>:44                                      ; preds = %._crit_edge.37
+  %tmp_10_37 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_38), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_47 = zext i1 %tmp_10_37 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_47}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_47), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.38, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.39:                                   ; preds = %45, %._crit_edge.38
+  %tmp_1_164 = or i32 %database_index, 40, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_39 = icmp ult i32 %tmp_1_164, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_39, label %46, label %._crit_edge.40, !dbg !599 ; [debug line = 101:2]
+
+; <label>:45                                      ; preds = %._crit_edge.38
+  %tmp_10_38 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_39), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_48 = zext i1 %tmp_10_38 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_48}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_48), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.39, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.40:                                   ; preds = %46, %._crit_edge.39
+  %tmp_1_165 = or i32 %database_index, 41, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_40 = icmp ult i32 %tmp_1_165, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_40, label %47, label %._crit_edge.41, !dbg !599 ; [debug line = 101:2]
+
+; <label>:46                                      ; preds = %._crit_edge.39
+  %tmp_10_39 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_40), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_49 = zext i1 %tmp_10_39 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_49}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_49), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.40, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.41:                                   ; preds = %47, %._crit_edge.40
+  %tmp_1_166 = or i32 %database_index, 42, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_41 = icmp ult i32 %tmp_1_166, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_41, label %48, label %._crit_edge.42, !dbg !599 ; [debug line = 101:2]
+
+; <label>:47                                      ; preds = %._crit_edge.40
+  %tmp_10_40 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_41), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_50 = zext i1 %tmp_10_40 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_50}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_50), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.41, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.42:                                   ; preds = %48, %._crit_edge.41
+  %tmp_1_167 = or i32 %database_index, 43, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_42 = icmp ult i32 %tmp_1_167, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_42, label %49, label %._crit_edge.43, !dbg !599 ; [debug line = 101:2]
+
+; <label>:48                                      ; preds = %._crit_edge.41
+  %tmp_10_41 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_42), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_51 = zext i1 %tmp_10_41 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_51}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_51), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.42, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.43:                                   ; preds = %49, %._crit_edge.42
+  %tmp_1_168 = or i32 %database_index, 44, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_43 = icmp ult i32 %tmp_1_168, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_43, label %50, label %._crit_edge.44, !dbg !599 ; [debug line = 101:2]
+
+; <label>:49                                      ; preds = %._crit_edge.42
+  %tmp_10_42 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_43), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_52 = zext i1 %tmp_10_42 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_52}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_52), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.43, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.44:                                   ; preds = %50, %._crit_edge.43
+  %tmp_1_169 = or i32 %database_index, 45, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_44 = icmp ult i32 %tmp_1_169, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_44, label %51, label %._crit_edge.45, !dbg !599 ; [debug line = 101:2]
+
+; <label>:50                                      ; preds = %._crit_edge.43
+  %tmp_10_43 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_44), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_53 = zext i1 %tmp_10_43 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_53}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_53), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.44, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.45:                                   ; preds = %51, %._crit_edge.44
+  %tmp_1_170 = or i32 %database_index, 46, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_45 = icmp ult i32 %tmp_1_170, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_45, label %52, label %._crit_edge.46, !dbg !599 ; [debug line = 101:2]
+
+; <label>:51                                      ; preds = %._crit_edge.44
+  %tmp_10_44 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_45), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_54 = zext i1 %tmp_10_44 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_54}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_54), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.45, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.46:                                   ; preds = %52, %._crit_edge.45
+  %tmp_1_171 = or i32 %database_index, 47, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_46 = icmp ult i32 %tmp_1_171, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_46, label %53, label %._crit_edge.47, !dbg !599 ; [debug line = 101:2]
+
+; <label>:52                                      ; preds = %._crit_edge.45
+  %tmp_10_45 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_46), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_55 = zext i1 %tmp_10_45 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_55}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_55), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.46, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.47:                                   ; preds = %53, %._crit_edge.46
+  %tmp_1_172 = or i32 %database_index, 48, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_47 = icmp ult i32 %tmp_1_172, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_47, label %54, label %._crit_edge.48, !dbg !599 ; [debug line = 101:2]
+
+; <label>:53                                      ; preds = %._crit_edge.46
+  %tmp_10_46 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_47), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_56 = zext i1 %tmp_10_46 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_56}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_56), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.47, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.48:                                   ; preds = %54, %._crit_edge.47
+  %tmp_1_173 = or i32 %database_index, 49, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_48 = icmp ult i32 %tmp_1_173, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_48, label %55, label %._crit_edge.49, !dbg !599 ; [debug line = 101:2]
+
+; <label>:54                                      ; preds = %._crit_edge.47
+  %tmp_10_47 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_48), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_57 = zext i1 %tmp_10_47 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_57}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_57), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.48, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.49:                                   ; preds = %55, %._crit_edge.48
+  %tmp_1_174 = or i32 %database_index, 50, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_49 = icmp ult i32 %tmp_1_174, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_49, label %56, label %._crit_edge.50, !dbg !599 ; [debug line = 101:2]
+
+; <label>:55                                      ; preds = %._crit_edge.48
+  %tmp_10_48 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_49), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_58 = zext i1 %tmp_10_48 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_58}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_58), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.49, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.50:                                   ; preds = %56, %._crit_edge.49
+  %tmp_1_175 = or i32 %database_index, 51, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_50 = icmp ult i32 %tmp_1_175, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_50, label %57, label %._crit_edge.51, !dbg !599 ; [debug line = 101:2]
+
+; <label>:56                                      ; preds = %._crit_edge.49
+  %tmp_10_49 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_50), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_59 = zext i1 %tmp_10_49 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_59}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_59), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.50, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.51:                                   ; preds = %57, %._crit_edge.50
+  %tmp_1_176 = or i32 %database_index, 52, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_51 = icmp ult i32 %tmp_1_176, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_51, label %58, label %._crit_edge.52, !dbg !599 ; [debug line = 101:2]
+
+; <label>:57                                      ; preds = %._crit_edge.50
+  %tmp_10_50 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_51), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_60 = zext i1 %tmp_10_50 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_60}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_60), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.51, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.52:                                   ; preds = %58, %._crit_edge.51
+  %tmp_1_177 = or i32 %database_index, 53, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_52 = icmp ult i32 %tmp_1_177, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_52, label %59, label %._crit_edge.53, !dbg !599 ; [debug line = 101:2]
+
+; <label>:58                                      ; preds = %._crit_edge.51
+  %tmp_10_51 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_52), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_61 = zext i1 %tmp_10_51 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_61}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_61), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.52, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.53:                                   ; preds = %59, %._crit_edge.52
+  %tmp_1_178 = or i32 %database_index, 54, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_53 = icmp ult i32 %tmp_1_178, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_53, label %60, label %._crit_edge.54, !dbg !599 ; [debug line = 101:2]
+
+; <label>:59                                      ; preds = %._crit_edge.52
+  %tmp_10_52 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_53), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_62 = zext i1 %tmp_10_52 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_62}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_62), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.53, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.54:                                   ; preds = %60, %._crit_edge.53
+  %tmp_1_179 = or i32 %database_index, 55, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_54 = icmp ult i32 %tmp_1_179, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_54, label %61, label %._crit_edge.55, !dbg !599 ; [debug line = 101:2]
+
+; <label>:60                                      ; preds = %._crit_edge.53
+  %tmp_10_53 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_54), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_63 = zext i1 %tmp_10_53 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_63}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_63), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.54, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.55:                                   ; preds = %61, %._crit_edge.54
+  %tmp_1_180 = or i32 %database_index, 56, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_55 = icmp ult i32 %tmp_1_180, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_55, label %62, label %._crit_edge.56, !dbg !599 ; [debug line = 101:2]
+
+; <label>:61                                      ; preds = %._crit_edge.54
+  %tmp_10_54 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_55), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_64 = zext i1 %tmp_10_54 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_64}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_64), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.55, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.56:                                   ; preds = %62, %._crit_edge.55
+  %tmp_1_181 = or i32 %database_index, 57, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_56 = icmp ult i32 %tmp_1_181, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_56, label %63, label %._crit_edge.57, !dbg !599 ; [debug line = 101:2]
+
+; <label>:62                                      ; preds = %._crit_edge.55
+  %tmp_10_55 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_56), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_65 = zext i1 %tmp_10_55 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_65}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_65), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.56, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.57:                                   ; preds = %63, %._crit_edge.56
+  %tmp_1_182 = or i32 %database_index, 58, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_57 = icmp ult i32 %tmp_1_182, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_57, label %64, label %._crit_edge.58, !dbg !599 ; [debug line = 101:2]
+
+; <label>:63                                      ; preds = %._crit_edge.56
+  %tmp_10_56 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_57), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_66 = zext i1 %tmp_10_56 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_66}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_66), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.57, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.58:                                   ; preds = %64, %._crit_edge.57
+  %tmp_1_183 = or i32 %database_index, 59, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_58 = icmp ult i32 %tmp_1_183, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_58, label %65, label %._crit_edge.59, !dbg !599 ; [debug line = 101:2]
+
+; <label>:64                                      ; preds = %._crit_edge.57
+  %tmp_10_57 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_58), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_67 = zext i1 %tmp_10_57 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_67}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_67), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.58, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.59:                                   ; preds = %65, %._crit_edge.58
+  %tmp_1_184 = or i32 %database_index, 60, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_59 = icmp ult i32 %tmp_1_184, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_59, label %66, label %._crit_edge.60, !dbg !599 ; [debug line = 101:2]
+
+; <label>:65                                      ; preds = %._crit_edge.58
+  %tmp_10_58 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_59), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_68 = zext i1 %tmp_10_58 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_68}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_68), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.59, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.60:                                   ; preds = %66, %._crit_edge.59
+  %tmp_1_185 = or i32 %database_index, 61, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_60 = icmp ult i32 %tmp_1_185, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_60, label %67, label %._crit_edge.61, !dbg !599 ; [debug line = 101:2]
+
+; <label>:66                                      ; preds = %._crit_edge.59
+  %tmp_10_59 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_60), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_69 = zext i1 %tmp_10_59 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_69}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_69), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.60, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.61:                                   ; preds = %67, %._crit_edge.60
+  %tmp_1_186 = or i32 %database_index, 62, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_61 = icmp ult i32 %tmp_1_186, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_61, label %68, label %._crit_edge.62, !dbg !599 ; [debug line = 101:2]
+
+; <label>:67                                      ; preds = %._crit_edge.60
+  %tmp_10_60 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_61), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_70 = zext i1 %tmp_10_60 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_70}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_70), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.61, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.62:                                   ; preds = %68, %._crit_edge.61
+  %tmp_1_187 = or i32 %database_index, 63, !dbg !599 ; [#uses=1 type=i32] [debug line = 101:2]
+  %tmp_2_62 = icmp ult i32 %tmp_1_187, %db_size_in_read, !dbg !599 ; [#uses=1 type=i1] [debug line = 101:2]
+  br i1 %tmp_2_62, label %69, label %._crit_edge.63, !dbg !599 ; [debug line = 101:2]
+
+; <label>:68                                      ; preds = %._crit_edge.61
+  %tmp_10_61 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_62), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_71 = zext i1 %tmp_10_61 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_71}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_71), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.62, !dbg !600             ; [debug line = 105:6]
+
+._crit_edge.63:                                   ; preds = %69, %._crit_edge.62
+  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_1), !dbg !601 ; [#uses=0 type=i32] [debug line = 109:4]
+  %database_index_1 = add nsw i32 %database_index, 64, !dbg !602 ; [#uses=1 type=i32] [debug line = 87:57]
+  call void @llvm.dbg.value(metadata !{i32 %database_index_1}, i64 0, metadata !603), !dbg !602 ; [debug line = 87:57] [debug variable = database_index]
+  br label %6, !dbg !602                          ; [debug line = 87:57]
+
+; <label>:69                                      ; preds = %._crit_edge.62
+  %tmp_10_62 = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read_63), !dbg !584 ; [#uses=1 type=i1] [debug line = 103:41]
+  %tmp_72 = zext i1 %tmp_10_62 to i8, !dbg !584   ; [#uses=1 type=i8] [debug line = 103:41]
+  call void @llvm.dbg.value(metadata !{i8* %results_out_V}, i64 0, metadata !588), !dbg !593 ; [debug line = 144:48@103:41] [debug variable = stream<unsigned char>.V]
+  call void @llvm.dbg.value(metadata !{i8 %tmp_72}, i64 0, metadata !594), !dbg !596 ; [debug line = 145:31@103:41] [debug variable = tmp]
+  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out_V, i8 %tmp_72), !dbg !597 ; [debug line = 146:9@103:41]
+  call void @_ssdm_op_Write.ap_none.i64P(i64* %current_offset, i64 %tmp_9), !dbg !598 ; [debug line = 104:7]
+  br label %._crit_edge.63, !dbg !600             ; [debug line = 105:6]
+
+; <label>:70                                      ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0), !dbg !604 ; [debug line = 113:4]
   store i32 0, i32* @contacts_size, align 4, !dbg !605 ; [debug line = 114:4]
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 0), !dbg !606 ; [debug line = 115:4]
   br label %.loopexit, !dbg !607                  ; [debug line = 116:4]
 
-; <label>:15                                      ; preds = %0
+; <label>:71                                      ; preds = %0
   call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load), !dbg !608 ; [debug line = 119:4]
   call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 3), !dbg !609 ; [debug line = 120:4]
   br label %.loopexit, !dbg !610                  ; [debug line = 121:4]
@@ -638,18 +1478,18 @@ burst.rd.header.0:                                ; preds = %6
 .loopexit.loopexit:                               ; preds = %6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %15, %14, %4
+.loopexit:                                        ; preds = %.loopexit.loopexit, %71, %70, %4
   ret void, !dbg !611                             ; [debug line = 123:1]
 }
 
-; [#uses=8]
+; [#uses=64]
 define weak void @_ssdm_op_Write.axis.volatile.i8P(i8*, i8) {
 entry:
   store i8 %1, i8* %0
   ret void
 }
 
-; [#uses=8]
+; [#uses=64]
 define weak void @_ssdm_op_Write.ap_none.i64P(i64*, i64) {
 entry:
   store i64 %1, i64* %0
@@ -711,7 +1551,7 @@ entry:
   ret i512 %0
 }
 
-; [#uses=8]
+; [#uses=64]
 define weak i512 @_ssdm_op_Read.m_axi.i512P(i512*) {
 entry:
   %empty = load i512* %0                          ; [#uses=1 type=i512]
@@ -1340,13 +2180,13 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !577 = metadata !{i32 86, i32 4, metadata !527, null}
 !578 = metadata !{i32 87, i32 8, metadata !579, null}
 !579 = metadata !{i32 786443, metadata !527, i32 87, i32 4, metadata !332, i32 7} ; [ DW_TAG_lexical_block ]
-!580 = metadata !{i32 87, i32 76, metadata !581, null}
-!581 = metadata !{i32 786443, metadata !579, i32 87, i32 75, metadata !332, i32 8} ; [ DW_TAG_lexical_block ]
+!580 = metadata !{i32 87, i32 77, metadata !581, null}
+!581 = metadata !{i32 786443, metadata !579, i32 87, i32 76, metadata !332, i32 8} ; [ DW_TAG_lexical_block ]
 !582 = metadata !{i32 89, i32 1, metadata !581, null}
 !583 = metadata !{i32 98, i32 5, metadata !581, null}
 !584 = metadata !{i32 103, i32 41, metadata !585, null}
 !585 = metadata !{i32 786443, metadata !586, i32 101, i32 37, metadata !332, i32 11} ; [ DW_TAG_lexical_block ]
-!586 = metadata !{i32 786443, metadata !587, i32 99, i32 23, metadata !332, i32 10} ; [ DW_TAG_lexical_block ]
+!586 = metadata !{i32 786443, metadata !587, i32 99, i32 24, metadata !332, i32 10} ; [ DW_TAG_lexical_block ]
 !587 = metadata !{i32 786443, metadata !581, i32 99, i32 5, metadata !332, i32 9} ; [ DW_TAG_lexical_block ]
 !588 = metadata !{i32 790531, metadata !589, metadata !"stream<unsigned char>.V", null, i32 144, metadata !592, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
 !589 = metadata !{i32 786689, metadata !590, metadata !"this", metadata !462, i32 16777360, metadata !591, i32 64, i32 0} ; [ DW_TAG_arg_variable ]

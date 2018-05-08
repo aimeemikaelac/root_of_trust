@@ -41928,7 +41928,7 @@ extern char *basename (const char *__filename) throw () __attribute__ ((__nonnul
 typedef ap_uint<512> hash;
 
 static hash contacts[128];
-static hash db_buffer[8];
+static hash db_buffer[64];
 static int contacts_size = 0;
 
 
@@ -42002,7 +42002,7 @@ void contact_discovery(
   case 1:
    *error_out = 0;
    *contacts_size_out = contacts_size;
-   for(database_index = 0; database_index < db_size_in; database_index+=8){
+   for(database_index = 0; database_index < db_size_in; database_index+=64){
 //			for(database_index = 0; database_index < 76800; database_index+=BATCH_SIZE){
 #pragma HLS PIPELINE
 //				hash hash1 = db_in.read();
@@ -42013,8 +42013,8 @@ void contact_discovery(
 //				results_out.write((unsigned char)(match_db_contact(hash2)));
 //				results_out.write((unsigned char)(match_db_contact(hash3)));
 //				results_out.write((unsigned char)(match_db_contact(hash4)));
-    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 8*sizeof(hash));
-    for(i=0; i<8; i++){
+    memcpy(db_buffer, (unsigned char*)(db_mem) + ((database_index + offset)*sizeof(hash)), 64*sizeof(hash));
+    for(i=0; i<64; i++){
 #pragma HLS UNROLL
  if(database_index + i < db_size_in){
 //					if(database_index + i >= 76800){

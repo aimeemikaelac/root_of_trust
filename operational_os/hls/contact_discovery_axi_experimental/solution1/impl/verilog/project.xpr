@@ -6,7 +6,7 @@
 <Project Version="7" Minor="20" Path="/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/verilog/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="cce633eafb96435aa1cacfe732f3fdf8"/>
+    <Option Name="Id" Val="0b55a8aad68f4c96bc5e6dc5deb699ed"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-1-i"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -50,6 +50,13 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/contact_discovery_results_out_m_axi.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/contact_discovery_AXILiteS_s_axi.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

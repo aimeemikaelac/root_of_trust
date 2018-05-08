@@ -41984,10 +41984,10 @@ void contact_discovery(
  int *contacts_size_out,
  unsigned char results_out[0x100000]
 ){_ssdm_SpecArrayDimSize(db_mem,8388608);_ssdm_SpecArrayDimSize(results_out,0x100000);
+_ssdm_op_SpecInterface(results_out, "m_axi", 0, 0, "", 0, 8388608, "", "", "", 16, 16, 16, 16, "", "");
 _ssdm_op_SpecInterface(offset, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(offset, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(db_mem, "m_axi", 0, 0, "", 0, 536870912, "", "", "", 16, 16, 4, 16, "", "");
-_ssdm_op_SpecInterface(results_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(db_mem, "m_axi", 0, 0, "", 0, 536870912, "", "", "", 16, 16, 16, 16, "", "");
 //#pragma HLS INTERFACE axis register both port=db_in
 _ssdm_op_SpecInterface(db_size_in, "ap_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(db_size_in, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");

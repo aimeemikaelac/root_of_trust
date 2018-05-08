@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'contact_discovery'
 ================================================================
-* Date:           Tue May  8 14:19:06 2018
+* Date:           Tue May  8 14:27:39 2018
 
 * Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
 * Project:        contact_discovery_axi_experimental
@@ -29,7 +29,7 @@
     |     Latency     |     Interval    | Pipeline|
     | min |    max    | min |    max    |   Type  |
     +-----+-----------+-----+-----------+---------+
-    |    2|  536870926|    3|  536870927|   none  |
+    |    2|  536870931|    3|  536870932|   none  |
     +-----+-----------+-----+-----------+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |          |     Latency     | Iteration|  Initiation Interval  |     Trip    |          |
         | Loop Name| min |    max    |  Latency |  achieved |   target  |    Count    | Pipelined|
         +----------+-----+-----------+----------+-----------+-----------+-------------+----------+
-        |- Loop 1  |   74|  536870922|        75|         64|          1| 1 ~ 8388608 |    yes   |
+        |- Loop 1  |   79|  536870927|        80|         64|          1| 1 ~ 8388608 |    yes   |
         +----------+-----+-----------+----------+-----------+-----------+-------------+----------+
 
 ============================================================
@@ -67,27 +67,27 @@ HasImplIP: 0
 IsGatedGlobalClock: 0
 
 + Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 64, depth = 75
+  * Pipeline-0: initiation interval (II) = 64, depth = 80
 
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 81
+* Number of FSM states: 86
 * Pipeline: 1
-  Pipeline-0: II = 64, D = 75, States = { 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 }
+  Pipeline-0: II = 64, D = 80, States = { 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
 	2  / true
 2 --> 
-	81  / (operation_read == 2) | (operation_read != 0 & operation_read != 1)
+	86  / (operation_read == 2) | (operation_read != 0 & operation_read != 1)
 	3  / (operation_read == 1)
-	79  / (operation_read == 0 & icmp)
-	80  / (operation_read == 0 & !icmp)
+	84  / (operation_read == 0 & icmp)
+	85  / (operation_read == 0 & !icmp)
 3 --> 
-	78  / (tmp_127) | (!tmp_127 & !tmp_8)
+	83  / (tmp_127) | (!tmp_127 & !tmp_8)
 	4  / (!tmp_127 & tmp_8)
 4 --> 
 	5  / true
@@ -236,42 +236,52 @@ IsGatedGlobalClock: 0
 76 --> 
 	77  / true
 77 --> 
-	3  / true
+	78  / true
 78 --> 
-	81  / true
+	79  / true
 79 --> 
 	80  / true
 80 --> 
 	81  / true
 81 --> 
+	82  / true
+82 --> 
+	3  / true
+83 --> 
+	86  / true
+84 --> 
+	85  / true
+85 --> 
+	86  / true
+86 --> 
 * FSM state operations: 
 
  <State 1>: 1.00ns
-ST_1: StgValue_82 (11)  [1/1] 0.00ns
+ST_1: StgValue_87 (11)  [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecBitsMap(i32 %operation), !map !31
 
-ST_1: StgValue_83 (12)  [1/1] 0.00ns
+ST_1: StgValue_88 (12)  [1/1] 0.00ns
 :1  call void (...)* @_ssdm_op_SpecBitsMap(i512 %contact_in_V), !map !37
 
-ST_1: StgValue_84 (13)  [1/1] 0.00ns
+ST_1: StgValue_89 (13)  [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecBitsMap(i512* %db_mem_V), !map !41
 
-ST_1: StgValue_85 (14)  [1/1] 0.00ns
+ST_1: StgValue_90 (14)  [1/1] 0.00ns
 :3  call void (...)* @_ssdm_op_SpecBitsMap(i64 %offset), !map !47
 
-ST_1: StgValue_86 (15)  [1/1] 0.00ns
+ST_1: StgValue_91 (15)  [1/1] 0.00ns
 :4  call void (...)* @_ssdm_op_SpecBitsMap(i32 %db_size_in), !map !51
 
-ST_1: StgValue_87 (16)  [1/1] 0.00ns
+ST_1: StgValue_92 (16)  [1/1] 0.00ns
 :5  call void (...)* @_ssdm_op_SpecBitsMap(i32* %error_out), !map !55
 
-ST_1: StgValue_88 (17)  [1/1] 0.00ns
+ST_1: StgValue_93 (17)  [1/1] 0.00ns
 :6  call void (...)* @_ssdm_op_SpecBitsMap(i32* %contacts_size_out), !map !59
 
-ST_1: StgValue_89 (18)  [1/1] 0.00ns
+ST_1: StgValue_94 (18)  [1/1] 0.00ns
 :7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %results_out), !map !63
 
-ST_1: StgValue_90 (19)  [1/1] 0.00ns
+ST_1: StgValue_95 (19)  [1/1] 0.00ns
 :8  call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @contact_discovery_st) nounwind
 
 ST_1: db_size_in_read (20)  [1/1] 0.00ns
@@ -286,145 +296,145 @@ ST_1: contact_in_V_read (22)  [1/1] 1.00ns
 ST_1: operation_read (23)  [1/1] 0.00ns
 :12  %operation_read = call i32 @_ssdm_op_Read.ap_vld.i32(i32 %operation)
 
-ST_1: StgValue_95 (24)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:49
-:13  call void (...)* @_ssdm_op_SpecInterface(i64 %offset, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_100 (24)  [1/1] 0.00ns
+:13  call void (...)* @_ssdm_op_SpecInterface(i8* %results_out, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 8388608, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str3, [1 x i8]* @p_str3)
 
-ST_1: StgValue_96 (25)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:50
-:14  call void (...)* @_ssdm_op_SpecInterface(i64 %offset, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_101 (25)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:50
+:14  call void (...)* @_ssdm_op_SpecInterface(i64 %offset, [8 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_97 (26)  [1/1] 0.00ns
-:15  call void (...)* @_ssdm_op_SpecInterface(i512* %db_mem_V, [6 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 536870912, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 16, i32 16, i32 4, i32 16, [1 x i8]* @p_str3, [1 x i8]* @p_str3)
+ST_1: StgValue_102 (26)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:51
+:15  call void (...)* @_ssdm_op_SpecInterface(i64 %offset, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_98 (27)  [1/1] 0.00ns
-:16  call void (...)* @_ssdm_op_SpecInterface(i8* %results_out, [5 x i8]* @p_str6, i32 1, i32 1, [5 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3)
+ST_1: StgValue_103 (27)  [1/1] 0.00ns
+:16  call void (...)* @_ssdm_op_SpecInterface(i512* %db_mem_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 536870912, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str3, [1 x i8]* @p_str3)
 
-ST_1: StgValue_99 (28)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:54
-:17  call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_104 (28)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:54
+:17  call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, [8 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_100 (29)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:55
-:18  call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_105 (29)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:55
+:18  call void (...)* @_ssdm_op_SpecInterface(i32 %db_size_in, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_101 (30)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:57
-:19  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [7 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_106 (30)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:57
+:19  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [7 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_102 (31)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:58
-:20  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_107 (31)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:58
+:20  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_103 (32)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:59
-:21  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [8 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_108 (32)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:59
+:21  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [8 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_104 (33)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:60
-:22  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_109 (33)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:60
+:22  call void (...)* @_ssdm_op_SpecInterface(i32* %contacts_size_out, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_105 (34)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:61
-:23  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [8 x i8]* @p_str, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_110 (34)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:61
+:23  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [8 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_106 (35)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:62
-:24  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_111 (35)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:62
+:24  call void (...)* @_ssdm_op_SpecInterface(i32* %error_out, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_107 (36)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:63
-:25  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str4, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_112 (36)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:63
+:25  call void (...)* @_ssdm_op_SpecInterface(i32 %operation, [10 x i8]* @p_str5, i32 1, i32 1, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
-ST_1: StgValue_108 (37)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:64
-:26  call void (...)* @_ssdm_op_SpecInterface(i512 %contact_in_V, [10 x i8]* @p_str4, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+ST_1: StgValue_113 (37)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:64
+:26  call void (...)* @_ssdm_op_SpecInterface(i512 %contact_in_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
 
 ST_1: contacts_size_load (38)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:73
 :27  %contacts_size_load = load i32* @contacts_size, align 4
 
-ST_1: StgValue_110 (39)  [1/1] 0.52ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:69
+ST_1: StgValue_115 (39)  [1/1] 0.52ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:69
 :28  switch i32 %operation_read, label %10 [
     i32 0, label %1
     i32 1, label %5
     i32 2, label %9
   ]
 
-ST_1: StgValue_111 (41)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:124
+ST_1: StgValue_116 (41)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:124
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_1: StgValue_112 (42)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:125
+ST_1: StgValue_117 (42)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:125
 :1  store i32 0, i32* @contacts_size, align 4
 
-ST_1: StgValue_113 (43)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:126
+ST_1: StgValue_118 (43)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:126
 :2  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 0)
 
-ST_1: StgValue_114 (46)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:85
+ST_1: StgValue_119 (46)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:85
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_1: StgValue_115 (47)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:86
+ST_1: StgValue_120 (47)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:86
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
 
 ST_1: tmp_126 (48)  [1/1] 0.00ns
 :2  %tmp_126 = trunc i64 %offset_read to i25
 
-ST_1: StgValue_117 (77)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:72
+ST_1: StgValue_122 (81)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:72
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_1: StgValue_118 (96)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:130
+ST_1: StgValue_123 (100)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:130
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
 
-ST_1: StgValue_119 (97)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:131
+ST_1: StgValue_124 (101)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:131
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 3)
 
 
  <State 2>: 2.34ns
-ST_2: StgValue_120 (41)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:124
+ST_2: StgValue_125 (41)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:124
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_2: StgValue_121 (43)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:126
+ST_2: StgValue_126 (43)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:126
 :2  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 0)
 
-ST_2: StgValue_122 (44)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:127
+ST_2: StgValue_127 (44)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:127
 :3  br label %11
 
-ST_2: StgValue_123 (46)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:85
+ST_2: StgValue_128 (46)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:85
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_2: StgValue_124 (47)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:86
+ST_2: StgValue_129 (47)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:86
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
 
-ST_2: StgValue_125 (49)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
+ST_2: StgValue_130 (49)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
 :3  br label %6
 
-ST_2: StgValue_126 (77)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:72
+ST_2: StgValue_131 (81)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:72
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 0)
 
-ST_2: tmp (78)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
+ST_2: tmp (82)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
 :1  %tmp = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %contacts_size_load, i32 7, i32 31)
 
-ST_2: icmp (79)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
+ST_2: icmp (83)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
 :2  %icmp = icmp sgt i25 %tmp, 0
 
-ST_2: StgValue_129 (80)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
+ST_2: StgValue_134 (84)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:74
 :3  br i1 %icmp, label %2, label %3
 
-ST_2: tmp_4 (82)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
+ST_2: tmp_4 (86)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
 :0  %tmp_4 = sext i32 %contacts_size_load to i64
 
-ST_2: contacts_V_addr (83)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
+ST_2: contacts_V_addr (87)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
 :1  %contacts_V_addr = getelementptr [128 x i512]* @contacts_V, i64 0, i64 %tmp_4
 
-ST_2: StgValue_132 (84)  [1/1] 1.35ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
+ST_2: StgValue_137 (88)  [1/1] 1.35ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:78
 :2  store i512 %contact_in_V_read, i512* %contacts_V_addr, align 64
 
-ST_2: tmp_5 (85)  [1/1] 1.58ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
+ST_2: tmp_5 (89)  [1/1] 1.58ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
 :3  %tmp_5 = add nsw i32 %contacts_size_load, 1
 
-ST_2: StgValue_134 (86)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
+ST_2: StgValue_139 (90)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
 :4  store i32 %tmp_5, i32* @contacts_size, align 4
 
-ST_2: StgValue_135 (87)  [1/1] 0.76ns
+ST_2: StgValue_140 (91)  [1/1] 0.76ns
 :5  br label %4
 
-ST_2: StgValue_136 (89)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:75
+ST_2: StgValue_141 (93)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:75
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 1)
 
-ST_2: StgValue_137 (96)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:130
+ST_2: StgValue_142 (100)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:130
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %contacts_size_load)
 
-ST_2: StgValue_138 (97)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:131
+ST_2: StgValue_143 (101)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:131
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 3)
 
-ST_2: StgValue_139 (98)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:132
+ST_2: StgValue_144 (102)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:132
 :2  br label %11
 
 
@@ -438,7 +448,7 @@ ST_3: tmp_127 (52)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/co
 ST_3: database_index_1 (53)  [1/1] 1.49ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
 :2  %database_index_1 = add i24 %database_index, 1
 
-ST_3: StgValue_143 (54)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
+ST_3: StgValue_148 (54)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
 :3  br i1 %tmp_127, label %.loopexit, label %7
 
 ST_3: database_index_cast1 (56)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
@@ -448,441 +458,472 @@ ST_3: empty (57)  [1/1] 0.00ns
 :1  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 8388608, i64 4194304)
 
 ST_3: tmp_2 (58)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
-:2  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9)
+:2  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str7)
 
-ST_3: StgValue_147 (59)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:90
+ST_3: StgValue_152 (59)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:90
 :3  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind
 
-ST_3: tmp_7_cast (60)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
-:4  %tmp_7_cast = zext i24 %database_index to i25
+ST_3: tmp_7 (60)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+:4  %tmp_7 = zext i24 %database_index to i64
 
-ST_3: tmp_8 (61)  [1/1] 0.72ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
-:5  %tmp_8 = icmp ult i32 %database_index_cast1, %db_size_in_read
+ST_3: tmp_7_cast (61)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+:5  %tmp_7_cast = zext i24 %database_index to i25
 
-ST_3: StgValue_150 (62)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
-:6  br i1 %tmp_8, label %8, label %.loopexit
+ST_3: tmp_8 (62)  [1/1] 0.72ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+:6  %tmp_8 = icmp ult i32 %database_index_cast1, %db_size_in_read
 
-ST_3: sum (64)  [1/1] 1.50ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+ST_3: StgValue_156 (63)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+:7  br i1 %tmp_8, label %8, label %.loopexit
+
+ST_3: sum (65)  [1/1] 1.50ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
 :0  %sum = add i25 %tmp_7_cast, %tmp_126
+
+ST_3: results_out_addr (72)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+:7  %results_out_addr = getelementptr i8* %results_out, i64 %tmp_7
 
 
  <State 4>: 8.75ns
-ST_4: sum_cast (65)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+ST_4: sum_cast (66)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
 :1  %sum_cast = zext i25 %sum to i64
 
-ST_4: db_mem_V_addr (66)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
+ST_4: db_mem_V_addr (67)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:99
 :2  %db_mem_V_addr = getelementptr i512* %db_mem_V, i64 %sum_cast
 
-ST_4: db_mem_V_load_req (67)  [7/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_4: db_mem_V_load_req (68)  [7/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 5>: 8.75ns
-ST_5: db_mem_V_load_req (67)  [6/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_5: db_mem_V_load_req (68)  [6/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 6>: 8.75ns
-ST_6: db_mem_V_load_req (67)  [5/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_6: db_mem_V_load_req (68)  [5/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 7>: 8.75ns
-ST_7: db_mem_V_load_req (67)  [4/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_7: db_mem_V_load_req (68)  [4/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 8>: 8.75ns
-ST_8: db_mem_V_load_req (67)  [3/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_8: db_mem_V_load_req (68)  [3/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 9>: 8.75ns
-ST_9: db_mem_V_load_req (67)  [2/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_9: db_mem_V_load_req (68)  [2/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 10>: 8.75ns
-ST_10: db_mem_V_load_req (67)  [1/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_10: db_mem_V_load_req (68)  [1/7] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :3  %db_mem_V_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i512P(i512* %db_mem_V_addr, i32 1)
 
 
  <State 11>: 8.75ns
-ST_11: db_mem_V_addr_read (68)  [1/1] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_11: db_mem_V_addr_read (69)  [1/1] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :4  %db_mem_V_addr_read = call i512 @_ssdm_op_Read.m_axi.i512P(i512* %db_mem_V_addr)
 
 
  <State 12>: 1.63ns
-ST_12: tmp_s (69)  [65/65] 1.63ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_12: tmp_s (70)  [65/65] 1.63ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 13>: 3.11ns
-ST_13: tmp_s (69)  [64/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_13: tmp_s (70)  [64/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 14>: 3.11ns
-ST_14: tmp_s (69)  [63/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_14: tmp_s (70)  [63/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 15>: 3.11ns
-ST_15: tmp_s (69)  [62/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_15: tmp_s (70)  [62/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 16>: 3.11ns
-ST_16: tmp_s (69)  [61/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_16: tmp_s (70)  [61/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 17>: 3.11ns
-ST_17: tmp_s (69)  [60/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_17: tmp_s (70)  [60/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 18>: 3.11ns
-ST_18: tmp_s (69)  [59/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_18: tmp_s (70)  [59/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 19>: 3.11ns
-ST_19: tmp_s (69)  [58/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_19: tmp_s (70)  [58/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 20>: 3.11ns
-ST_20: tmp_s (69)  [57/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_20: tmp_s (70)  [57/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 21>: 3.11ns
-ST_21: tmp_s (69)  [56/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_21: tmp_s (70)  [56/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 22>: 3.11ns
-ST_22: tmp_s (69)  [55/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_22: tmp_s (70)  [55/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 23>: 3.11ns
-ST_23: tmp_s (69)  [54/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_23: tmp_s (70)  [54/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 24>: 3.11ns
-ST_24: tmp_s (69)  [53/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_24: tmp_s (70)  [53/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 25>: 3.11ns
-ST_25: tmp_s (69)  [52/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_25: tmp_s (70)  [52/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 26>: 3.11ns
-ST_26: tmp_s (69)  [51/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_26: tmp_s (70)  [51/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 27>: 3.11ns
-ST_27: tmp_s (69)  [50/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_27: tmp_s (70)  [50/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 28>: 3.11ns
-ST_28: tmp_s (69)  [49/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_28: tmp_s (70)  [49/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 29>: 3.11ns
-ST_29: tmp_s (69)  [48/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_29: tmp_s (70)  [48/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 30>: 3.11ns
-ST_30: tmp_s (69)  [47/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_30: tmp_s (70)  [47/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 31>: 3.11ns
-ST_31: tmp_s (69)  [46/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_31: tmp_s (70)  [46/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 32>: 3.11ns
-ST_32: tmp_s (69)  [45/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_32: tmp_s (70)  [45/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 33>: 3.11ns
-ST_33: tmp_s (69)  [44/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_33: tmp_s (70)  [44/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 34>: 3.11ns
-ST_34: tmp_s (69)  [43/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_34: tmp_s (70)  [43/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 35>: 3.11ns
-ST_35: tmp_s (69)  [42/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_35: tmp_s (70)  [42/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 36>: 3.11ns
-ST_36: tmp_s (69)  [41/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_36: tmp_s (70)  [41/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 37>: 3.11ns
-ST_37: tmp_s (69)  [40/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_37: tmp_s (70)  [40/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 38>: 3.11ns
-ST_38: tmp_s (69)  [39/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_38: tmp_s (70)  [39/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 39>: 3.11ns
-ST_39: tmp_s (69)  [38/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_39: tmp_s (70)  [38/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 40>: 3.11ns
-ST_40: tmp_s (69)  [37/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_40: tmp_s (70)  [37/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 41>: 3.11ns
-ST_41: tmp_s (69)  [36/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_41: tmp_s (70)  [36/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 42>: 3.11ns
-ST_42: tmp_s (69)  [35/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_42: tmp_s (70)  [35/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 43>: 3.11ns
-ST_43: tmp_s (69)  [34/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_43: tmp_s (70)  [34/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 44>: 3.11ns
-ST_44: tmp_s (69)  [33/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_44: tmp_s (70)  [33/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 45>: 3.11ns
-ST_45: tmp_s (69)  [32/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_45: tmp_s (70)  [32/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 46>: 3.11ns
-ST_46: tmp_s (69)  [31/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_46: tmp_s (70)  [31/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 47>: 3.11ns
-ST_47: tmp_s (69)  [30/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_47: tmp_s (70)  [30/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 48>: 3.11ns
-ST_48: tmp_s (69)  [29/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_48: tmp_s (70)  [29/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 49>: 3.11ns
-ST_49: tmp_s (69)  [28/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_49: tmp_s (70)  [28/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 50>: 3.11ns
-ST_50: tmp_s (69)  [27/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_50: tmp_s (70)  [27/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 51>: 3.11ns
-ST_51: tmp_s (69)  [26/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_51: tmp_s (70)  [26/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 52>: 3.11ns
-ST_52: tmp_s (69)  [25/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_52: tmp_s (70)  [25/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 53>: 3.11ns
-ST_53: tmp_s (69)  [24/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_53: tmp_s (70)  [24/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 54>: 3.11ns
-ST_54: tmp_s (69)  [23/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_54: tmp_s (70)  [23/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 55>: 3.11ns
-ST_55: tmp_s (69)  [22/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_55: tmp_s (70)  [22/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 56>: 3.11ns
-ST_56: tmp_s (69)  [21/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_56: tmp_s (70)  [21/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 57>: 3.11ns
-ST_57: tmp_s (69)  [20/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_57: tmp_s (70)  [20/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 58>: 3.11ns
-ST_58: tmp_s (69)  [19/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_58: tmp_s (70)  [19/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 59>: 3.11ns
-ST_59: tmp_s (69)  [18/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_59: tmp_s (70)  [18/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 60>: 3.11ns
-ST_60: tmp_s (69)  [17/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_60: tmp_s (70)  [17/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 61>: 3.11ns
-ST_61: tmp_s (69)  [16/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_61: tmp_s (70)  [16/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 62>: 3.11ns
-ST_62: tmp_s (69)  [15/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_62: tmp_s (70)  [15/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 63>: 3.11ns
-ST_63: tmp_s (69)  [14/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_63: tmp_s (70)  [14/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 64>: 3.11ns
-ST_64: tmp_s (69)  [13/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_64: tmp_s (70)  [13/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 65>: 3.11ns
-ST_65: tmp_s (69)  [12/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_65: tmp_s (70)  [12/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 66>: 3.11ns
-ST_66: tmp_s (69)  [11/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_66: tmp_s (70)  [11/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 67>: 3.11ns
-ST_67: tmp_s (69)  [10/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_67: tmp_s (70)  [10/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 68>: 3.11ns
-ST_68: tmp_s (69)  [9/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_68: tmp_s (70)  [9/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 69>: 3.11ns
-ST_69: tmp_s (69)  [8/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_69: tmp_s (70)  [8/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 70>: 3.11ns
-ST_70: tmp_s (69)  [7/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_70: tmp_s (70)  [7/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 71>: 3.11ns
-ST_71: tmp_s (69)  [6/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_71: tmp_s (70)  [6/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 72>: 3.11ns
-ST_72: tmp_s (69)  [5/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_72: tmp_s (70)  [5/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 73>: 3.11ns
-ST_73: tmp_s (69)  [4/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_73: tmp_s (70)  [4/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 74>: 3.11ns
-ST_74: tmp_s (69)  [3/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_74: tmp_s (70)  [3/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
  <State 75>: 3.11ns
-ST_75: tmp_s (69)  [2/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_75: tmp_s (70)  [2/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
 
- <State 76>: 3.11ns
-ST_76: tmp_s (69)  [1/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ <State 76>: 8.75ns
+ST_76: tmp_s (70)  [1/65] 3.11ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :5  %tmp_s = call fastcc i1 @match_db_contact(i512 %db_mem_V_addr_read)
 
-ST_76: tmp_1 (70)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+ST_76: results_out_addr_req (73)  [1/1] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:8  %results_out_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %results_out_addr, i32 1)
+
+
+ <State 77>: 8.75ns
+ST_77: tmp_1 (71)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
 :6  %tmp_1 = zext i1 %tmp_s to i8
 
-ST_76: StgValue_228 (71)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
-:7  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out, i8 %tmp_1)
+ST_77: StgValue_236 (74)  [1/1] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:9  call void @_ssdm_op_Write.m_axi.i8P(i8* %results_out_addr, i8 %tmp_1, i1 true)
 
 
- <State 77>: 0.00ns
-ST_77: StgValue_229 (71)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
-:7  call void @_ssdm_op_Write.axis.volatile.i8P(i8* %results_out, i8 %tmp_1)
-
-ST_77: empty_4 (72)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:120
-:8  %empty_4 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_2)
-
-ST_77: StgValue_231 (73)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
-:9  br label %6
+ <State 78>: 8.75ns
+ST_78: results_out_addr_res (75)  [5/5] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:10  %results_out_addr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %results_out_addr)
 
 
- <State 78>: 0.00ns
-ST_78: StgValue_232 (75)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:121
+ <State 79>: 8.75ns
+ST_79: results_out_addr_res (75)  [4/5] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:10  %results_out_addr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %results_out_addr)
+
+
+ <State 80>: 8.75ns
+ST_80: results_out_addr_res (75)  [3/5] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:10  %results_out_addr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %results_out_addr)
+
+
+ <State 81>: 8.75ns
+ST_81: results_out_addr_res (75)  [2/5] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:10  %results_out_addr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %results_out_addr)
+
+
+ <State 82>: 8.75ns
+ST_82: results_out_addr_res (75)  [1/5] 8.75ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:100
+:10  %results_out_addr_res = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %results_out_addr)
+
+ST_82: empty_4 (76)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:120
+:11  %empty_4 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str7, i32 %tmp_2)
+
+ST_82: StgValue_243 (77)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:89
+:12  br label %6
+
+
+ <State 83>: 0.00ns
+ST_83: StgValue_244 (79)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:121
 .loopexit:0  br label %11
 
 
- <State 79>: 0.76ns
-ST_79: StgValue_233 (89)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:75
+ <State 84>: 0.76ns
+ST_84: StgValue_245 (93)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:75
 :0  call void @_ssdm_op_Write.ap_none.i32P(i32* %error_out, i32 1)
 
-ST_79: StgValue_234 (90)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:77
+ST_84: StgValue_246 (94)  [1/1] 0.76ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:77
 :1  br label %4
 
 
- <State 80>: 0.00ns
-ST_80: storemerge (92)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
+ <State 85>: 0.00ns
+ST_85: storemerge (96)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:79
 :0  %storemerge = phi i32 [ %tmp_5, %3 ], [ %contacts_size_load, %2 ]
 
-ST_80: StgValue_236 (93)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:76
+ST_85: StgValue_248 (97)  [2/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:76
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %storemerge)
 
 
- <State 81>: 0.00ns
-ST_81: StgValue_237 (93)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:76
+ <State 86>: 0.00ns
+ST_86: StgValue_249 (97)  [1/2] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:76
 :1  call void @_ssdm_op_Write.ap_none.i32P(i32* %contacts_size_out, i32 %storemerge)
 
-ST_81: StgValue_238 (94)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:82
+ST_86: StgValue_250 (98)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:82
 :2  br label %11
 
-ST_81: StgValue_239 (100)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:134
+ST_86: StgValue_251 (104)  [1/1] 0.00ns  loc: contact_discovery_axi_experimental/src/contact_discovery.cpp:134
 :0  ret void
 
 
@@ -898,321 +939,342 @@ The critical path consists of the following:
 
  <State 2>: 2.34ns
 The critical path consists of the following:
-	'add' operation ('tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) [85]  (1.58 ns)
-	'store' operation (contact_discovery_axi_experimental/src/contact_discovery.cpp:79) of variable 'tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79 on static variable 'contacts_size' [86]  (0.755 ns)
+	'add' operation ('tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) [89]  (1.58 ns)
+	'store' operation (contact_discovery_axi_experimental/src/contact_discovery.cpp:79) of variable 'tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79 on static variable 'contacts_size' [90]  (0.755 ns)
 
  <State 3>: 1.5ns
 The critical path consists of the following:
 	'phi' operation ('database_index') with incoming values : ('database_index', contact_discovery_axi_experimental/src/contact_discovery.cpp:89) [51]  (0 ns)
-	'add' operation ('sum', contact_discovery_axi_experimental/src/contact_discovery.cpp:99) [64]  (1.5 ns)
+	'add' operation ('sum', contact_discovery_axi_experimental/src/contact_discovery.cpp:99) [65]  (1.5 ns)
 
  <State 4>: 8.75ns
 The critical path consists of the following:
-	'getelementptr' operation ('db_mem_V_addr', contact_discovery_axi_experimental/src/contact_discovery.cpp:99) [66]  (0 ns)
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	'getelementptr' operation ('db_mem_V_addr', contact_discovery_axi_experimental/src/contact_discovery.cpp:99) [67]  (0 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 5>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 6>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 7>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 8>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 9>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 10>: 8.75ns
 The critical path consists of the following:
-	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [67]  (8.75 ns)
+	bus request on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
 
  <State 11>: 8.75ns
 The critical path consists of the following:
-	bus read on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [68]  (8.75 ns)
+	bus read on port 'db_mem_V' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [69]  (8.75 ns)
 
  <State 12>: 1.63ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (1.63 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (1.63 ns)
 
  <State 13>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 14>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 15>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 16>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 17>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 18>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 19>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 20>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 21>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 22>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 23>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 24>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 25>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 26>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 27>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 28>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 29>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 30>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 31>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 32>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 33>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 34>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 35>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 36>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 37>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 38>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 39>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 40>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 41>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 42>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 43>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 44>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 45>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 46>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 47>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 48>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 49>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 50>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 51>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 52>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 53>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 54>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 55>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 56>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 57>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 58>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 59>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 60>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 61>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 62>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 63>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 64>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 65>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 66>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 67>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 68>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 69>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 70>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 71>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 72>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 73>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 74>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
  <State 75>: 3.11ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [70]  (3.11 ns)
 
- <State 76>: 3.11ns
+ <State 76>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_s', contact_discovery_axi_experimental/src/contact_discovery.cpp:100) to 'match_db_contact' [69]  (3.11 ns)
+	bus request on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [73]  (8.75 ns)
 
- <State 77>: 0ns
+ <State 77>: 8.75ns
+The critical path consists of the following:
+	bus write on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [74]  (8.75 ns)
+
+ <State 78>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [75]  (8.75 ns)
+
+ <State 79>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [75]  (8.75 ns)
+
+ <State 80>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [75]  (8.75 ns)
+
+ <State 81>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [75]  (8.75 ns)
+
+ <State 82>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'results_out' (contact_discovery_axi_experimental/src/contact_discovery.cpp:100) [75]  (8.75 ns)
+
+ <State 83>: 0ns
 The critical path consists of the following:
 
- <State 78>: 0ns
+ <State 84>: 0.755ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('storemerge', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) with incoming values : ('contacts_size_load', contact_discovery_axi_experimental/src/contact_discovery.cpp:73) ('tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) [96]  (0.755 ns)
+
+ <State 85>: 0ns
 The critical path consists of the following:
 
- <State 79>: 0.755ns
-The critical path consists of the following:
-	multiplexor before 'phi' operation ('storemerge', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) with incoming values : ('contacts_size_load', contact_discovery_axi_experimental/src/contact_discovery.cpp:73) ('tmp_5', contact_discovery_axi_experimental/src/contact_discovery.cpp:79) [92]  (0.755 ns)
-
- <State 80>: 0ns
-The critical path consists of the following:
-
- <State 81>: 0ns
+ <State 86>: 0ns
 The critical path consists of the following:
 
 
@@ -1305,6 +1367,11 @@ N/A
 	State 79
 	State 80
 	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
 
 
 ============================================================

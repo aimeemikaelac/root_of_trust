@@ -6,7 +6,7 @@
 <Project Version="7" Minor="20" Path="/home/aimee/root_of_trust/operational_os/hls/contact_discovery_axi_experimental/solution1/impl/vhdl/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="a42ac1f825ba4698a440b7fa1553fe64"/>
+    <Option Name="Id" Val="9bb572bb2d5c4acab9e8213b3882355d"/>
     <Option Name="Part" Val="xczu9eg-ffvb1156-1-i"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -51,6 +51,12 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/contact_discovery_results_out_m_axi.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/contact_discovery_AXILiteS_s_axi.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

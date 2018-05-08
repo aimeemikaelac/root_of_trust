@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'contact_discovery'" level="0">
-<item name = "Date">Tue May  8 14:19:08 2018
+<item name = "Date">Tue May  8 14:27:40 2018
 </item>
 <item name = "Version">2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)</item>
 <item name = "Project">contact_discovery_axi_experimental</item>
@@ -24,19 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">2, 536870926, 3, 536870927, none</column>
+<column name="">2, 536870931, 3, 536870932, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_match_db_contact_fu_206">match_db_contact, 64, 64, 64, 64, function</column>
+<column name="grp_match_db_contact_fu_212">match_db_contact, 64, 64, 64, 64, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">74, 536870922, 75, 64, 1, 1 ~ 8388608, yes</column>
+<column name="- Loop 1">79, 536870927, 80, 64, 1, 1 ~ 8388608, yes</column>
 </table>
 </item>
 </section>
@@ -49,14 +49,14 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 168, -</column>
+<column name="Expression">-, -, 0, 171, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">30, -, 3376, 4734, -</column>
+<column name="Instance">4, -, 3057, 4549, -</column>
 <column name="Memory">29, -, 0, 0, -</column>
-<column name="Multiplexer">-, -, -, 545, -</column>
-<column name="Register">-, -, 1413, -, -</column>
+<column name="Multiplexer">-, -, -, 557, -</column>
+<column name="Register">-, -, 1444, -, -</column>
 <specialColumn name="Available">1824, 2520, 548160, 274080, 0</specialColumn>
-<specialColumn name="Utilization (%)">3, 0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -64,8 +64,9 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="contact_discovery_AXILiteS_s_axi_U">contact_discovery_AXILiteS_s_axi, 0, 0, 776, 1448</column>
-<column name="contact_discovery_db_mem_V_m_axi_U">contact_discovery_db_mem_V_m_axi, 30, 0, 1415, 1585</column>
-<column name="grp_match_db_contact_fu_206">match_db_contact, 0, 0, 1185, 1701</column>
+<column name="contact_discovery_db_mem_V_m_axi_U">contact_discovery_db_mem_V_m_axi, 2, 0, 548, 700</column>
+<column name="contact_discovery_results_out_m_axi_U">contact_discovery_results_out_m_axi, 2, 0, 548, 700</column>
+<column name="grp_match_db_contact_fu_212">match_db_contact, 0, 0, 1185, 1701</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -83,10 +84,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="database_index_1_fu_266_p2">+, 0, 0, 31, 24, 1</column>
-<column name="sum_fu_285_p2">+, 0, 0, 32, 25, 25</column>
-<column name="tmp_5_fu_247_p2">+, 0, 0, 39, 32, 1</column>
+<column name="database_index_1_fu_272_p2">+, 0, 0, 31, 24, 1</column>
+<column name="sum_fu_295_p2">+, 0, 0, 32, 25, 25</column>
+<column name="tmp_5_fu_253_p2">+, 0, 0, 39, 32, 1</column>
 <column name="ap_block_pp0_stage10_flag00011001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_pp0_stage15_flag00011001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage1_flag00011001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage8_flag00011001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage9_flag00011001">and, 0, 0, 2, 1, 1</column>
@@ -94,17 +96,17 @@
 <column name="ap_block_state4_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state76_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state77_io">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_2536">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op154_readreq_state4">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op218_call_state68">and, 0, 0, 2, 1, 1</column>
-<column name="results_out_1_load_A">and, 0, 0, 2, 1, 1</column>
-<column name="results_out_1_load_B">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_fu_237_p2">icmp, 0, 0, 13, 25, 1</column>
-<column name="results_out_1_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
-<column name="tmp_8_fu_280_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="ap_block_state82_pp0_stage15_iter1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_2628">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_2632">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_2636">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op161_readreq_state4">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op225_call_state68">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_fu_243_p2">icmp, 0, 0, 13, 25, 1</column>
+<column name="tmp_8_fu_290_p2">icmp, 0, 0, 16, 32, 32</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state81">or, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_tran3to78_state3">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state86">or, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_tran3to83_state3">or, 0, 0, 2, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">xor, 0, 0, 2, 1, 2</column>
 </table>
@@ -114,13 +116,15 @@
 <column name="ap_NS_fsm">317, 71, 1, 71</column>
 <column name="ap_enable_reg_pp0_iter1">15, 3, 1, 3</column>
 <column name="ap_sig_ioackin_db_mem_V_ARREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_results_out_AWREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_results_out_WREADY">9, 2, 1, 2</column>
 <column name="contacts_V_address0">15, 3, 7, 21</column>
 <column name="contacts_V_ce0">15, 3, 1, 3</column>
 <column name="contacts_V_ce1">9, 2, 1, 2</column>
 <column name="contacts_size">9, 2, 32, 64</column>
 <column name="contacts_size_out_1_data_in">21, 4, 32, 128</column>
-<column name="database_index_phi_fu_187_p4">9, 2, 24, 48</column>
-<column name="database_index_reg_183">9, 2, 24, 48</column>
+<column name="database_index_phi_fu_193_p4">9, 2, 24, 48</column>
+<column name="database_index_reg_189">9, 2, 24, 48</column>
 <column name="db_mem_V_blk_n_AR">9, 2, 1, 2</column>
 <column name="db_mem_V_blk_n_R">9, 2, 1, 2</column>
 <column name="error_out_1_data_in">21, 4, 32, 128</column>
@@ -128,10 +132,10 @@
 <column name="operation_ap_vld_preg">9, 2, 1, 2</column>
 <column name="operation_blk_n">9, 2, 1, 2</column>
 <column name="operation_in_sig">9, 2, 32, 64</column>
-<column name="results_out_1_data_out">9, 2, 8, 16</column>
-<column name="results_out_1_state">15, 3, 2, 6</column>
-<column name="results_out_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="storemerge_reg_194">9, 2, 32, 64</column>
+<column name="results_out_blk_n_AW">9, 2, 1, 2</column>
+<column name="results_out_blk_n_B">9, 2, 1, 2</column>
+<column name="results_out_blk_n_W">9, 2, 1, 2</column>
+<column name="storemerge_reg_200">9, 2, 32, 64</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -139,32 +143,32 @@
 <column name="ap_CS_fsm">70, 0, 70, 0</column>
 <column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="ap_reg_grp_match_db_contact_fu_206_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_match_db_contact_fu_212_ap_start">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_db_mem_V_ARREADY">1, 0, 1, 0</column>
-<column name="ap_reg_pp0_iter1_tmp_127_reg_341">1, 0, 1, 0</column>
-<column name="ap_reg_pp0_iter1_tmp_8_reg_350">1, 0, 1, 0</column>
-<column name="contact_in_V_read_reg_310">512, 0, 512, 0</column>
+<column name="ap_reg_ioackin_results_out_AWREADY">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_results_out_WREADY">1, 0, 1, 0</column>
+<column name="ap_reg_pp0_iter1_results_out_addr_reg_374">24, 0, 64, 40</column>
+<column name="ap_reg_pp0_iter1_tmp_127_reg_356">1, 0, 1, 0</column>
+<column name="ap_reg_pp0_iter1_tmp_8_reg_365">1, 0, 1, 0</column>
+<column name="contact_in_V_read_reg_325">512, 0, 512, 0</column>
 <column name="contacts_size">32, 0, 32, 0</column>
-<column name="contacts_size_load_reg_319">32, 0, 32, 0</column>
+<column name="contacts_size_load_reg_334">32, 0, 32, 0</column>
 <column name="contacts_size_out_1_data_reg">32, 0, 32, 0</column>
 <column name="contacts_size_out_1_vld_reg">0, 0, 1, 1</column>
-<column name="database_index_1_reg_345">24, 0, 24, 0</column>
-<column name="database_index_reg_183">24, 0, 24, 0</column>
-<column name="db_mem_V_addr_read_reg_365">512, 0, 512, 0</column>
+<column name="database_index_1_reg_360">24, 0, 24, 0</column>
+<column name="database_index_reg_189">24, 0, 24, 0</column>
+<column name="db_mem_V_addr_read_reg_385">512, 0, 512, 0</column>
 <column name="error_out_1_data_reg">32, 0, 32, 0</column>
 <column name="error_out_1_vld_reg">0, 0, 1, 1</column>
 <column name="operation_ap_vld_preg">1, 0, 1, 0</column>
 <column name="operation_preg">32, 0, 32, 0</column>
-<column name="results_out_1_payload_A">8, 0, 8, 0</column>
-<column name="results_out_1_payload_B">8, 0, 8, 0</column>
-<column name="results_out_1_sel_rd">1, 0, 1, 0</column>
-<column name="results_out_1_sel_wr">1, 0, 1, 0</column>
-<column name="results_out_1_state">2, 0, 2, 0</column>
-<column name="storemerge_reg_194">32, 0, 32, 0</column>
-<column name="sum_reg_354">25, 0, 25, 0</column>
-<column name="tmp_126_reg_328">25, 0, 25, 0</column>
-<column name="tmp_127_reg_341">1, 0, 1, 0</column>
-<column name="tmp_8_reg_350">1, 0, 1, 0</column>
+<column name="results_out_addr_reg_374">24, 0, 64, 40</column>
+<column name="storemerge_reg_200">32, 0, 32, 0</column>
+<column name="sum_reg_369">25, 0, 25, 0</column>
+<column name="tmp_126_reg_343">25, 0, 25, 0</column>
+<column name="tmp_127_reg_356">1, 0, 1, 0</column>
+<column name="tmp_8_reg_365">1, 0, 1, 0</column>
+<column name="tmp_s_reg_390">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -239,9 +243,51 @@
 <column name="m_axi_db_mem_V_BRESP">in, 2, m_axi, db_mem_V, pointer</column>
 <column name="m_axi_db_mem_V_BID">in, 1, m_axi, db_mem_V, pointer</column>
 <column name="m_axi_db_mem_V_BUSER">in, 1, m_axi, db_mem_V, pointer</column>
-<column name="results_out_TDATA">out, 8, axis, results_out, pointer</column>
-<column name="results_out_TVALID">out, 1, axis, results_out, pointer</column>
-<column name="results_out_TREADY">in, 1, axis, results_out, pointer</column>
+<column name="m_axi_results_out_AWVALID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWREADY">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWADDR">out, 64, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWLEN">out, 8, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWSIZE">out, 3, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWBURST">out, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWLOCK">out, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWCACHE">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWPROT">out, 3, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWQOS">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWREGION">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_AWUSER">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WVALID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WREADY">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WDATA">out, 32, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WSTRB">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WLAST">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_WUSER">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARVALID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARREADY">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARADDR">out, 64, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARID">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARLEN">out, 8, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARSIZE">out, 3, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARBURST">out, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARLOCK">out, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARCACHE">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARPROT">out, 3, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARQOS">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARREGION">out, 4, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_ARUSER">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RVALID">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RREADY">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RDATA">in, 32, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RLAST">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RID">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RUSER">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_RRESP">in, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_BVALID">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_BREADY">out, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_BRESP">in, 2, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_BID">in, 1, m_axi, results_out, pointer</column>
+<column name="m_axi_results_out_BUSER">in, 1, m_axi, results_out, pointer</column>
 </table>
 </item>
 </section>

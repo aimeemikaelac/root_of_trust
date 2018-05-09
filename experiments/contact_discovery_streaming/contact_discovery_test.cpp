@@ -17,10 +17,12 @@
 #define DATABASE_SIZE 30000
 
 #define CONTACT_DISCOVERY_BASE 0xA0000000
+#define CONTACT_DISCOVERY_BASE_1 0xA0010000
 //#define INPUT_MAPPER_BASE 0xB0010000
 #define RESULTS_MAPPER_BASE 0xB0030000
 #define RESULTS_BUFFER 0xB0100000
-#define RESULTS_BUFFER_FPGA 0xC0000000
+#define RESULTS_BUFFER_1 0xB0200000
+// #define RESULTS_BUFFER_FPGA 0xC0000000
 //#define FPGA_RAM_LOWER 0x00000000
 //#define FPGA_RAM_UPPER 0x00000004
 //#define RAM_BUFFER 0x400000000
@@ -43,18 +45,22 @@ void contact_discovery(
   int *contacts_size_out
 ){
   int i, j;
-  volatile unsigned char *control;
+  volatile unsigned char *control, *control_1;
   unsigned int results_val, dma_status;
   unsigned int first_length, second_length, remaining, dma_offset=0;
   shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
+  shared_memory control_mem_1 = getSharedMemoryArea(CONTACT_DISCOVERY_BASE_1, 0x1000);
   control = (volatile unsigned char*)(control_mem->ptr);
+  control_1 = (volatile unsigned char*)(control_mem->ptr);
 
   //set operation
   control[0x10] = operation;
+  control_1[0x10] = operation;
   //load contact
   if(operation == 0){
     for(i=0; i<64/4; i++){
       writeValueToAddress(((unsigned int*)contact_in)[i], CONTACT_DISCOVERY_BASE + 0x18 + i*4);
+      writeValueToAddress(((unsigned int*)contact_in)[i], CONTACT_DISCOVERY_BASE_1 + 0x18 + i*4);
     }
   }
   //run match
@@ -82,24 +88,30 @@ void contact_discovery(
     // dma_offset += first_length*64;
     // program output stream
     //reset S2MM
-    writeValueToAddress(4, RESULTS_MAPPER_BASE + 0x30);
+    // writeValueToAddress(4, RESULTS_MAPPER_BASE + 0x30);
     //enable S2MM
-    writeValueToAddress(1, RESULTS_MAPPER_BASE + 0x30);
+    // writeValueToAddress(1, RESULTS_MAPPER_BASE + 0x30);
     //set S2MM lower address bits
-    writeValueToAddress(RESULTS_BUFFER_FPGA, RESULTS_MAPPER_BASE + 0x48);
+    // writeValueToAddress(RESULTS_BUFFER_FPGA, RESULTS_MAPPER_BASE + 0x48);
     //set length for transfer -> db_size*4
-    writeValueToAddress(db_size, RESULTS_MAPPER_BASE + 0x58);
+    // writeValueToAddress(db_size, RESULTS_MAPPER_BASE + 0x58);
   //  printf("finished mapper programming\n");
     //write dma_offset
+    unsigned long long offset_1 = db_size/2;
     writeValueToAddress(0, CONTACT_DISCOVERY_BASE + 0x5c);
     writeValueToAddress(0, CONTACT_DISCOVERY_BASE + 0x60);
+    writeValueToAddress(offset_1, CONTACT_DISCOVERY_BASE_1 + 0x5c);
+    writeValueToAddress(0, CONTACT_DISCOVERY_BASE_1 + 0x60);
     //write db size
-    writeValueToAddress(db_size, CONTACT_DISCOVERY_BASE + 0x68);
+    writeValueToAddress(db_size/2, CONTACT_DISCOVERY_BASE + 0x68);
+    writeValueToAddress(db_size/2, CONTACT_DISCOVERY_BASE_1 + 0x68);
   }
   //start current call
   control[0x0] = 1;
+  control_1[0x0] = 1;
   //set operation valid
   control[0x14] = 1;
+  control_1[0x14] = 1;
   //wait for done
   while(control[0] & 0x2 != 1){
     asm("");
@@ -130,14 +142,19 @@ void contact_discovery(
     //   dma_offset += second_length*64;
     // }
   }
-  *error_out = *((unsigned int*)(control + 0x70));
+  while(control_1[0] & 0x2 != 1){
+    asm("");
+    __asm__("");
+  }
+  *error_out = *((unsigned int*)(control + 0x70)) || *((unsigned int*)(control_1 + 0x70));
+  assert(*((unsigned int*)(control + 0x70)) == *((unsigned int*)(control_1 + 0x70)));
   *contacts_size_out = *((unsigned int*)(control + 0x78));
   //read match result
   if(operation == 1){
     // wait for output stream to finish
     unsigned int results_buffer_status;
     printf("Reading results\n");
-    for(i=0; i<db_size/4; i++){
+    for(i=0; i<db_size/8; i++){
       getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
 //      printf("Result %i: %08x\n", i, results_val);
       bool *results_buffer = (bool*)&results_val;
@@ -145,9 +162,18 @@ void contact_discovery(
         matched_out[i*4 + j] = results_buffer[j];
       }
     }
+    for(i=0; i<db_size/8; i++){
+      getValueAtAddress(RESULTS_BUFFER_1 + i*4, &results_val);
+//      printf("Result %i: %08x\n", i, results_val);
+      bool *results_buffer = (bool*)&results_val;
+      for(j=0; j<4; j++){
+        matched_out[db_size/2 + i*4 + j] = results_buffer[j];
+      }
+    }
     printf("Finished reading results\n");
   }
   cleanupSharedMemoryPointer(control_mem);
+  cleanupSharedMemoryPointer(control_mem_1);
 }
 
 
@@ -272,7 +298,7 @@ int main(){
     }
   }
   transfer_buffer(transfer_offset);
-  
+
 
   printf("Checking initial conditions\n");
   //check initial conditions of clearing contacts

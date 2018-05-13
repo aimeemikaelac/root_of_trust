@@ -2,7 +2,7 @@ INCLUDES        := -I user_mmap_driver/
 CFLAGS          := $(INCLUDES)
 CXXFLAGS        := $(INCLUDES)
 LDFLAGS         :=
-LIBS            := user_mmap_driver/user_mmap_driver.o sha512.o
+LIBS            := user_mmap_driver/user_mmap_driver.o sha512.o contact_discovery_utils.o
 TEST_STREAMING  := contact_discovery_test
 EXP_STREAMING		:= contact_discovery_experiment
 

@@ -30,7 +30,7 @@ int main(int argc, char **argv){
     sw_match_end = clock();
     sw_elapsed = ((double)(sw_match_end - sw_match_start)/CLOCKS_PER_SEC);
 
-    count_results(&context);
+//    count_results(&context);
     printf("%i,%i,%f,%f\n", iterations, database_size, sw_elapsed, hw_elapsed);
   }
   // printf("Contacts match %i, unmatched %i\n", num_matched, num_unmatched);

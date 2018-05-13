@@ -1,6 +1,6 @@
 #include "contact_discovery_utils.h"
 
-#define DATABASE_SIZE 30000
+#define DATABASE_SIZE 12800
 
 int main(){
   CD_CONTEXT context;

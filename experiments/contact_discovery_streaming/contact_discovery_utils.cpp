@@ -12,7 +12,7 @@ void contact_discovery(
   shared_memory control_mem = getSharedMemoryArea(CONTACT_DISCOVERY_BASE, 0x1000);
   shared_memory control_mem_1 = getSharedMemoryArea(CONTACT_DISCOVERY_BASE_1, 0x1000);
   control = (volatile unsigned char*)(control_mem->ptr);
-  control_1 = (volatile unsigned char*)(control_mem->ptr);
+  control_1 = (volatile unsigned char*)(control_mem_1->ptr);
 
   //set operation
   control[0x10] = operation;
@@ -111,28 +111,28 @@ void contact_discovery(
   assert(*((unsigned int*)(control + 0x70)) == *((unsigned int*)(control_1 + 0x70)));
   context->contacts_size_out = *((unsigned int*)(control + 0x78));
   //read match result
-  if(operation == 1){
-    // wait for output stream to finish
-    unsigned int results_buffer_status;
-    printf("Reading results\n");
-    for(i=0; i<context->database_size/8; i++){
-      getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
-//      printf("Result %i: %08x\n", i, results_val);
-      bool *results_buffer = (bool*)&results_val;
-      for(j=0; j<4; j++){
-        context->matched_out[i*4 + j] = results_buffer[j];
-      }
-    }
-    for(i=0; i<context->database_size/8; i++){
-      getValueAtAddress(RESULTS_BUFFER_1 + i*4, &results_val);
-//      printf("Result %i: %08x\n", i, results_val);
-      bool *results_buffer = (bool*)&results_val;
-      for(j=0; j<4; j++){
-        context->matched_out[context->database_size/2 + i*4 + j] = results_buffer[j];
-      }
-    }
-    printf("Finished reading results\n");
-  }
+//  if(operation == 1){
+//    // wait for output stream to finish
+//    unsigned int results_buffer_status;
+////    printf("Reading results\n");
+//    for(i=0; i<context->database_size/8; i++){
+//      getValueAtAddress(RESULTS_BUFFER + i*4, &results_val);
+////      printf("Result %i: %08x\n", i, results_val);
+//      bool *results_buffer = (bool*)&results_val;
+//      for(j=0; j<4; j++){
+//        context->matched_out[i*4 + j] = results_buffer[j];
+//      }
+//    }
+//    for(i=0; i<context->database_size/8; i++){
+//      getValueAtAddress(RESULTS_BUFFER_1 + i*4, &results_val);
+////      printf("Result %i: %08x\n", i, results_val);
+//      bool *results_buffer = (bool*)&results_val;
+//      for(j=0; j<4; j++){
+//        context->matched_out[context->database_size/2 + i*4 + j] = results_buffer[j];
+//      }
+//    }
+//    printf("Finished reading results\n");
+//  }
   cleanupSharedMemoryPointer(control_mem);
   cleanupSharedMemoryPointer(control_mem_1);
 }
@@ -304,16 +304,37 @@ void transfer_buffer(long long transfer_offset){
 }
 
 void count_results(CD_CONTEXT *context){
-  int j;
+  int i;
+  unsigned int index = 0;
+  shared_memory buffer = NULL;
   context->num_matched = 0;
   context->num_unmatched = 0;
-  for(j=0; j<context->database_size; j++){
-    assert(context->matched_out[j] == context->matched_correct[j]);
-    if(context->matched_out[j]){
+
+//  buffer = getSharedMemoryArea(, 0x1000);
+  for(i=0; i<context->database_size/2; i++){
+    if(i % 0x1000 == 0 || i == context->database_size/2){
+      if(buffer != NULL){
+        cleanupSharedMemoryPointer(buffer);
+      }
+      if(i < (context->database_size/2)){
+        buffer = getSharedMemoryArea(RESULTS_BUFFER + i, 0x1000);
+      } else{
+        unsigned long long addr = RESULTS_BUFFER_1 + (i - context->database_size/2);
+        printf("Address: %016llu\n", addr);
+        buffer = getSharedMemoryArea(addr, 0x1000);
+      }
+    }
+    context->matched_out[i] = (bool)(((unsigned char*)buffer->ptr)[i%0x1000]);
+//    printf("Iteration: %i, HW result: %02x, sw result: %02x\n", i, context->matched_out[i], context->matched_correct[i]);
+    assert(context->matched_out[i] == context->matched_correct[i]);
+    if(context->matched_out[i]){
       context->num_matched++;
     } else{
       context->num_unmatched++;
     }
+  }
+  if(buffer != NULL){
+    cleanupSharedMemoryPointer(buffer);
   }
 }
 

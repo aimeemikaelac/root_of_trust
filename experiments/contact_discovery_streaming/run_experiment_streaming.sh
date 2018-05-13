@@ -15,7 +15,7 @@ make contact_discovery_experiment
 
 echo "ITERATIONS,DB_SIZE,SW_ELAPSED,HW_ELAPSED" | tee $OUTPUT_FILE
 
-for (( size=300; size<$MAX; size*=2 ))
+for (( size=800; size<$MAX; size*=2 ))
 do
   sudo $SCRIPTPATH/contact_discovery_experiment $size $ITERATIONS | tee -a $OUTPUT_FILE
 done

@@ -1,0 +1,131 @@
+INFO: [HLS 200-10] Running '/Xilinx/Vivado_HLS/2017.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'aimee' on host 'aimee-VirtualBox' (Linux_x86_64 version 4.13.0-39-generic) on Tue May 15 18:21:35 MDT 2018
+INFO: [HLS 200-10] On os Ubuntu 16.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/aimee/root_of_trust/experiments/secure_filesystem'
+INFO: [HLS 200-10] Opening project '/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls'.
+INFO: [HLS 200-10] Adding design file 'secure_filesystem_hls/solution1/src/aes.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'secure_filesystem_hls/solution1/src/filesystem.cpp' to the project
+INFO: [HLS 200-10] Opening solution '/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [LIC 200-101] Checked out feature [xczu9eg-es1]
+INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-1-i-es1'
+INFO: [HLS 200-10] Analyzing design file 'secure_filesystem_hls/solution1/src/filesystem.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'secure_filesystem_hls/solution1/src/aes.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 400.855 ; gain = 58.430 ; free physical = 517 ; free virtual = 5164
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 400.855 ; gain = 58.430 ; free physical = 514 ; free virtual = 5164
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:195).
+INFO: [XFORM 203-603] Inlining function 'subBytes' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:201).
+INFO: [XFORM 203-603] Inlining function 'shiftRows' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:202).
+INFO: [XFORM 203-603] Inlining function 'mixColumns' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'computeKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:204).
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:205).
+INFO: [XFORM 203-603] Inlining function 'subBytes' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:208).
+INFO: [XFORM 203-603] Inlining function 'shiftRows' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:209).
+INFO: [XFORM 203-603] Inlining function 'computeKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:210).
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:211).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:132->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:133->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:134->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:135->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 401.230 ; gain = 58.805 ; free physical = 500 ; free virtual = 5153
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] secure_filesystem_hls/solution1/src/aes.cpp:191: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 401.230 ; gain = 58.805 ; free physical = 494 ; free virtual = 5147
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:63:18).
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1' (secure_filesystem_hls/solution1/src/filesystem.cpp:24) in function 'filesystem_encrypt' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'memcpy.buffer_temp.addr.buffer.V' because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'memcpy.buffer.V.buffer_temp_out.V.addr' because its parent loop or function is pipelined.
+INFO: [XFORM 203-501] Unrolling loop 'INP_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:189) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'ENC_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:200) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.1' (secure_filesystem_hls/solution1/src/aes.cpp:82) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.2' (secure_filesystem_hls/solution1/src/aes.cpp:125) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.3' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (secure_filesystem_hls/solution1/src/aes.cpp:82) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'OUT_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:215) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'memcpy.buffer_temp.addr.buffer.V' in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.2' (secure_filesystem_hls/solution1/src/filesystem.cpp:30) in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-501] Unrolling loop 'memcpy.buffer.V.buffer_temp_out.V.addr' in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-102] Partitioning array 'buffer_temp' automatically.
+INFO: [XFORM 203-101] Partitioning array 'state'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'statekey'  in dimension 1 completely.
+INFO: [XFORM 203-11] Balancing expressions in function 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:173)...372 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:28 ; elapsed = 00:00:22 . Memory (MB): peak = 528.855 ; gain = 186.430 ; free physical = 462 ; free virtual = 5119
+INFO: [XFORM 203-811] Inferring bus burst read of length 32 on port 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28:2).
+INFO: [XFORM 203-811] Inferring bus burst write of length 32 on port 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46:3).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:10).
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:03 ; elapsed = 00:00:58 . Memory (MB): peak = 528.855 ; gain = 186.430 ; free physical = 447 ; free virtual = 5105
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'filesystem_encrypt' ...
+WARNING: [SYN 201-107] Renaming port name 'filesystem_encrypt/length' to 'filesystem_encrypt/length_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'aestest' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'aestest'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 11.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 58.69 seconds; current allocated memory: 114.549 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.09 seconds; current allocated memory: 121.282 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'filesystem_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 67, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 74, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 76, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 77, Depth: 78.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.81 seconds; current allocated memory: 125.324 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1 seconds; current allocated memory: 128.280 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aestest' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aestest'.
+INFO: [HLS 200-111]  Elapsed time: 1.68 seconds; current allocated memory: 140.726 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'filesystem_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/buffer_V' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/iv_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/key_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/length_r' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'filesystem_encrypt' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'iv_V' and 'length_r' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'filesystem_encrypt_buffer_temp_out_V' to 'filesystem_encrypbkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'filesystem_encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 56.12 seconds; current allocated memory: 187.051 MB.
+INFO: [RTMG 210-279] Implementing memory 'aestest_sboxes_rom' using block ROMs.
+INFO: [RTMG 210-278] Implementing memory 'filesystem_encrypbkb_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:10 ; elapsed = 00:02:08 . Memory (MB): peak = 720.855 ; gain = 378.430 ; free physical = 319 ; free virtual = 5014
+INFO: [SYSC 207-301] Generating SystemC RTL for filesystem_encrypt.
+INFO: [VHDL 208-304] Generating VHDL RTL for filesystem_encrypt.
+INFO: [VLOG 209-307] Generating Verilog RTL for filesystem_encrypt.
+INFO: [HLS 200-112] Total elapsed time: 128.29 seconds; peak allocated memory: 187.051 MB.
+INFO: [LIC 200-101] Checked in feature [xczu9eg-es1]

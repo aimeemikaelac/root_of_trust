@@ -1,0 +1,741 @@
+INFO: [HLS 200-0] Workspace /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1 opened at Tue May 15 18:21:36 MDT 2018
+INFO: [HLS 200-100] Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-100] Command     config_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
+INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.lib 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.lib 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.lib 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_old.lib 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_vivado.lib 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/dsp48e2.hlp 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -speed medium 
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.12 sec.
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.13 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0.13 sec.
+INFO: [HLS 200-100] Execute     open_platform DefaultPlatform 
+INFO: [HLS 200-100] Command     open_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     import_lib /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv7.lib 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_hp.lib 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv.hlp 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.hlp 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/target_info.tcl 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.hlp 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.hlp 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.hlp 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_hp.hlp 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     import_lib returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute     source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command     ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     set_part xczu9eg-ffvb1156-1-i-es1 
+INFO: [HLS 200-100] Execute       add_library xilinx/zynquplus/zynquplus:xczu9eg:-ffvb1156:-1-i-es1 
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         license_isbetapart xczu9eg-es1 
+INFO: [HLS 200-100] Command         license_isbetapart returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute         license_exists xczu9eg-es1 
+INFO: [LICQ 200-103] Checked out feature [xczu9eg-es1]
+INFO: [LIC 200-101] Checked out feature [xczu9eg-es1]
+INFO: [HLS 200-100] Command         license_exists returned 0; 0.22 sec.
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute         config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command         config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0.25 sec.
+INFO: [HLS 200-100] Execute       add_library xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute         get_default_platform 
+INFO: [HLS 200-100] Command         get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command       add_library returned 0; 0 sec.
+INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-1-i-es1'
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command     set_part returned 0; 0.28 sec.
+INFO: [HLS 200-100] Execute     get_default_platform 
+INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command     config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command   open_solution returned 0; 0.47 sec.
+INFO: [HLS 200-100] Execute   set_part xczu9eg-ffvb1156-1-i-es1 -tool vivado 
+INFO: [HLS 200-100] Execute     add_library xilinx/zynquplus/zynquplus:xczu9eg:-ffvb1156:-1-i-es1 
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       license_isbetapart xczu9eg-es1 
+INFO: [HLS 200-100] Command       license_isbetapart returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       license_exists xczu9eg-es1 
+INFO: [HLS 200-100] Command       license_exists returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -resource  {SLICE 34260} {LUT 274080}   {FF 548160}  {DSP48E 2520}  {BRAM 1824} {URAM 0}  
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       config_chip_info -quiet -speed slow 
+INFO: [HLS 200-100] Command       config_chip_info returned 0; 0 sec.
+INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     add_library xilinx/zynquplus/zynquplus_fpv7 
+INFO: [HLS 200-100] Execute       get_default_platform 
+INFO: [HLS 200-100] Command       get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command     add_library returned 0; 0 sec.
+INFO: [HLS 200-100] Execute     get_default_platform 
+INFO: [HLS 200-100] Command     get_default_platform returned 0; 0 sec.
+INFO: [HLS 200-100] Command   set_part returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute   create_clock -period 10 -name default 
+INFO: [HLS 200-100] Command   create_clock returned 0; 0 sec.
+INFO: [HLS 200-100] Execute   csynth_design 
+INFO: [HLS 200-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
+INFO: [HLS 200-10] Analyzing design file 'secure_filesystem_hls/solution1/src/filesystem.cpp' ... 
+INFO: [HLS 200-0] Compiling one TU...
+INFO: [HLS 200-100] Execute       is_m_axi_addr64 
+INFO: [HLS 200-100] Command       is_m_axi_addr64 returned 0; 0 sec.
+INFO: [HLS 200-0] Handling secure_filesystem_hls/solution1/src/filesystem.cpp as C++
+INFO: [HLS 200-0] Syntax Checking before pre-processing...
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__   -I "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include" -I "/Xilinx/Vivado_HLS/2017.1/include" -I "/Xilinx/Vivado_HLS/2017.1/include/ap_sysc" -fexceptions -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "secure_filesystem_hls/solution1/src/filesystem.cpp"  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.00.o" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -I /Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include -I /Xilinx/Vivado_HLS/2017.1/include -I /Xilinx/Vivado_HLS/2017.1/include/ap_sysc -fexceptions -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -include etc/autopilot_ssdm_op.h secure_filesystem_hls/solution1/src/filesystem.cpp -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.00.o
+INFO: [HLS 200-100] Command       clang returned 0; 0.6 sec.
+INFO: [HLS 200-100] Execute       is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.00.o 
+INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "secure_filesystem_hls/solution1/src/filesystem.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E secure_filesystem_hls/solution1/src/filesystem.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.09 sec.
+INFO: [HLS 200-0] GCC PP time: 0 seconds per iteration
+INFO: [HLS 200-100] Execute       list_core -type functional_unit 
+INFO: [HLS 200-100] Command       list_core returned 0; 0 sec.
+INFO: [HLS 200-0] CDT Preprocessing...
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp.ap-line.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp.ap-line.cpp.CXX 1
+INFO: [HLS 200-0] Converting Markers to Pragmas...
+INFO: [HLS 200-100] Execute       cdt  "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp.ap-line.cpp"  -m "filesystem_encrypt" -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/solution1.directive --source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/src/filesystem.cpp --error /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_fulldsp HAddSub_meddsp HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --ca --es --gf --pd --p2d /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --sd --scff /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/.systemc_flag --ad 
+INFO: [HLS 200-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+INFO: [HLS 200-100] Command       cdt returned 0; 7.08 sec.
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pp.0.cpp.ap-cdt.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.0.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.0.cpp.ap-line.CXX 0
+INFO: [HLS 200-0] Converting Pragmas to Markers...
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/pragma.status.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Pragma Handling...
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.2.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.2.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.08 sec.
+INFO: [HLS 200-0] Processing labels
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.g.bc" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.g.bc
+INFO: [HLS 200-100] Command       clang returned 0; 0.51 sec.
+INFO: [HLS 200-10] Analyzing design file 'secure_filesystem_hls/solution1/src/aes.cpp' ... 
+INFO: [HLS 200-0] Compiling one TU...
+INFO: [HLS 200-100] Execute       is_m_axi_addr64 
+INFO: [HLS 200-100] Command       is_m_axi_addr64 returned 0; 0 sec.
+INFO: [HLS 200-0] Handling secure_filesystem_hls/solution1/src/aes.cpp as C++
+INFO: [HLS 200-0] Syntax Checking before pre-processing...
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__   -I "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include" -I "/Xilinx/Vivado_HLS/2017.1/include" -I "/Xilinx/Vivado_HLS/2017.1/include/ap_sysc" -fexceptions -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "secure_filesystem_hls/solution1/src/aes.cpp"  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.00.o" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -I /Xilinx/Vivado_HLS/2017.1/lnx64/tools/systemc/include -I /Xilinx/Vivado_HLS/2017.1/include -I /Xilinx/Vivado_HLS/2017.1/include/ap_sysc -fexceptions -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -include etc/autopilot_ssdm_op.h secure_filesystem_hls/solution1/src/aes.cpp -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.00.o
+INFO: [HLS 200-100] Command       clang returned 0; 0.55 sec.
+INFO: [HLS 200-100] Execute       is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.00.o 
+INFO: [HLS 200-100] Command       is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "secure_filesystem_hls/solution1/src/aes.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E secure_filesystem_hls/solution1/src/aes.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.1 sec.
+INFO: [HLS 200-0] GCC PP time: 0 seconds per iteration
+INFO: [HLS 200-100] Execute       list_core -type functional_unit 
+INFO: [HLS 200-100] Command       list_core returned 0; 0 sec.
+INFO: [HLS 200-0] CDT Preprocessing...
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp.ap-line.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp.ap-line.cpp.CXX 1
+INFO: [HLS 200-0] Converting Markers to Pragmas...
+INFO: [HLS 200-100] Execute       cdt  "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp.ap-line.cpp"  -m "filesystem_encrypt" -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/solution1.directive --source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/src/aes.cpp --error /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_fulldsp HAddSub_meddsp HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --ca --es --gf --pd --p2d /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db --sd --scff /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/.systemc_flag --ad 
+INFO: [HLS 200-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+INFO: [HLS 200-100] Command       cdt returned 0; 6.65 sec.
+INFO: [HLS 200-0] Marker-Pragma convertor: /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pp.0.cpp.ap-cdt.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.0.cpp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.0.cpp.ap-line.CXX 0
+INFO: [HLS 200-0] Converting Pragmas to Markers...
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/pragma.status.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Pragma Handling...
+INFO: [HLS 200-0] Source preprocessing
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "/Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.2.cpp" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -CC -E /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.2.cpp
+INFO: [HLS 200-100] Command       clang returned 0; 0.07 sec.
+INFO: [HLS 200-0] Processing labels
+INFO: [HLS 200-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot" -I "/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.g.bc" 
+INFO: [HLS 200-0] exec clang -fno-limit-debug-info -gcc-toolchain /Xilinx/Vivado_HLS/2017.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot -I /Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -g -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.g.bc
+INFO: [HLS 200-100] Command       clang returned 0; 0.53 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/ve_warning.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/pragma.status.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 400.855 ; gain = 58.430 ; free physical = 517 ; free virtual = 5164
+INFO: [HLS 200-0] Linking Release ...
+INFO: [HLS 200-100] Execute       llvm-ld /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.bc /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lm_basic -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o 
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.11 sec.
+INFO: [HLS 200-100] Execute       disassemble /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o 
+INFO: [HLS 200-100] Execute         is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.bc 
+INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.06 sec.
+INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
+INFO: [HLS 200-0] Linking Debug ...
+INFO: [HLS 200-100] Execute       llvm-ld /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem.g.bc /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aes.g.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lm_basic -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g 
+INFO: [HLS 200-100] Command       llvm-ld returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute       disassemble /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g 
+INFO: [HLS 200-100] Execute         is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.bc 
+INFO: [HLS 200-100] Command         is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command       disassemble returned 0; 0.05 sec.
+INFO: [HLS 200-0] Disassemble time: 0 seconds per iteration
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 400.855 ; gain = 58.430 ; free physical = 514 ; free virtual = 5164
+INFO: [HLS 200-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+INFO: [HLS 200-100] Execute         cleanup_all_models 
+INFO: [HLS 200-100] Command         cleanup_all_models returned 0; 0 sec.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-100] Execute         transform -promote-dbg-pointer /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.pp.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.pp.0.bc -f 
+INFO: [HLS 200-100] Command         transform returned 0; 0.03 sec.
+INFO: [HLS 200-100] Execute         llvm-ld /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/Xilinx/Vivado_HLS/2017.1/lnx64/lib -lfloatconversion -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.0 
+INFO: [HLS 200-100] Command         llvm-ld returned 0; 0.09 sec.
+INFO: [HLS 200-0] Running Standard Transforms...
+INFO: [HLS 200-100] Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top filesystem_encrypt -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.0.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:195).
+INFO: [XFORM 203-603] Inlining function 'subBytes' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:201).
+INFO: [XFORM 203-603] Inlining function 'shiftRows' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:202).
+INFO: [XFORM 203-603] Inlining function 'mixColumns' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'computeKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:204).
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:205).
+INFO: [XFORM 203-603] Inlining function 'subBytes' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:208).
+INFO: [XFORM 203-603] Inlining function 'shiftRows' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:209).
+INFO: [XFORM 203-603] Inlining function 'computeKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:210).
+INFO: [XFORM 203-603] Inlining function 'addRoundKey' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:211).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:132->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:133->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:134->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'xtime' into 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:135->secure_filesystem_hls/solution1/src/aes.cpp:203).
+INFO: [HLS 200-100] Command         transform returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1 /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1 
+INFO: [HLS 200-100] Execute           is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.07 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 401.230 ; gain = 58.805 ; free physical = 500 ; free virtual = 5153
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-0] Checking Synthesizability 1/2..
+INFO: [HLS 200-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO: [HLS 200-100] Command         transform returned 0; 0.1 sec.
+INFO: [HLS 200-0] Checking Synthesizability 2/2..
+INFO: [HLS 200-100] Execute         transform -syn-check /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-23] secure_filesystem_hls/solution1/src/aes.cpp:191: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-100] Command         transform returned 0; 0.03 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 401.230 ; gain = 58.805 ; free physical = 494 ; free virtual = 5147
+INFO: [HLS 200-0] Compiler optimizing ...
+INFO: [HLS 200-0] Share syncheck's 1.bc for syn flow: copy /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.g.1.bc to /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.1.bc
+INFO: [HLS 200-0] Presyn 1...
+INFO: [HLS 200-100] Execute         transform -hls -tmp /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.1.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:63:18).
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1' (secure_filesystem_hls/solution1/src/filesystem.cpp:24) in function 'filesystem_encrypt' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'memcpy.buffer_temp.addr.buffer.V' because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'memcpy.buffer.V.buffer_temp_out.V.addr' because its parent loop or function is pipelined.
+INFO: [XFORM 203-501] Unrolling loop 'INP_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:189) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'ENC_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:200) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.1' (secure_filesystem_hls/solution1/src/aes.cpp:82) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.2' (secure_filesystem_hls/solution1/src/aes.cpp:125) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.3' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (secure_filesystem_hls/solution1/src/aes.cpp:82) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5' (secure_filesystem_hls/solution1/src/aes.cpp:67) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'OUT_LOOP' (secure_filesystem_hls/solution1/src/aes.cpp:215) in function 'aestest' completely.
+INFO: [XFORM 203-501] Unrolling loop 'memcpy.buffer_temp.addr.buffer.V' in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.2' (secure_filesystem_hls/solution1/src/filesystem.cpp:30) in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-501] Unrolling loop 'memcpy.buffer.V.buffer_temp_out.V.addr' in function 'filesystem_encrypt' completely.
+INFO: [XFORM 203-102] Partitioning array 'buffer_temp' automatically.
+INFO: [XFORM 203-101] Partitioning array 'state'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'statekey'  in dimension 1 completely.
+INFO: [HLS 200-100] Command         transform returned 0; 1.85 sec.
+INFO: [HLS 200-0] Presyn 2...
+INFO: [HLS 200-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-11] Balancing expressions in function 'aestest' (secure_filesystem_hls/solution1/src/aes.cpp:173)...372 expression(s) balanced.
+INFO: [HLS 200-100] Command         transform returned 0; 0.83 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.2 /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.2 
+INFO: [HLS 200-100] Execute           is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.2.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:28 ; elapsed = 00:00:22 . Memory (MB): peak = 528.855 ; gain = 186.430 ; free physical = 462 ; free virtual = 5119
+INFO: [HLS 200-0] Building ssdm...
+INFO: [HLS 200-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -validate-dataflow -cdfg-build /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.2.bc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+INFO: [XFORM 203-811] Inferring bus burst read of length 32 on port 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28:2).
+INFO: [XFORM 203-811] Inferring bus burst write of length 32 on port 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46:3).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer.V' (secure_filesystem_hls/solution1/src/filesystem.cpp:10).
+INFO: [HLS 200-100] Command         transform returned 0; 35.13 sec.
+INFO: [HLS 200-100] Execute         disassemble /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.3 /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.3 
+INFO: [HLS 200-100] Execute           is_encrypted /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.o.3.bc 
+INFO: [HLS 200-100] Command           is_encrypted returned 0; 0 sec.
+INFO: [HLS 200-100] Command         disassemble returned 0; 0.04 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:03 ; elapsed = 00:00:58 . Memory (MB): peak = 528.855 ; gain = 186.430 ; free physical = 447 ; free virtual = 5105
+INFO: [HLS 200-0] Finish building internal data model.
+INFO: [HLS 200-100] Command       opt_and_import_c returned 0; 38.31 sec.
+INFO: [HLS 200-100] Command     elaborate returned 0; 56.8 sec.
+INFO: [HLS 200-100] Execute     autosyn 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-0] Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'filesystem_encrypt' ...
+INFO: [HLS 200-100] Execute       ap_set_top_model filesystem_encrypt 
+INFO: [HLS 200-100] Command       ap_set_top_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_model_list filesystem_encrypt -filter all-wo-channel -topdown 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model filesystem_encrypt 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       preproc_iomode -model aestest 
+INFO: [HLS 200-100] Command       preproc_iomode returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       get_model_list filesystem_encrypt -filter all-wo-channel 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for configure: aestest filesystem_encrypt
+INFO: [HLS 200-0] Configuring Module : aestest ...
+INFO: [HLS 200-100] Execute       set_default_model aestest 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit aestest 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Configuring Module : filesystem_encrypt ...
+INFO: [HLS 200-100] Execute       set_default_model filesystem_encrypt 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       apply_spec_resource_limit filesystem_encrypt 
+INFO: [HLS 200-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for preprocess: aestest filesystem_encrypt
+INFO: [HLS 200-0] Preprocessing Module: aestest ...
+INFO: [HLS 200-100] Execute       set_default_model aestest 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model aestest 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.02 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess aestest 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing Module: filesystem_encrypt ...
+INFO: [HLS 200-100] Execute       set_default_model filesystem_encrypt 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       cdfg_preprocess -model filesystem_encrypt 
+INFO: [HLS 200-100] Command       cdfg_preprocess returned 0; 0.06 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess filesystem_encrypt 
+WARNING: [SYN 201-107] Renaming port name 'filesystem_encrypt/length' to 'filesystem_encrypt/length_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0.01 sec.
+INFO: [HLS 200-0] Model list for synthesis: aestest filesystem_encrypt
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'aestest' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model aestest 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model aestest 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'aestest'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 11.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 1.06 sec.
+INFO: [HLS 200-111]  Elapsed time: 58.69 seconds; current allocated memory: 114.549 MB.
+INFO: [HLS 200-100] Execute       report -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.15 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.19 sec.
+INFO: [HLS 200-0] Finish scheduling aestest.
+INFO: [HLS 200-100] Execute       set_default_model aestest 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model aestest 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=aestest
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.74 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.09 seconds; current allocated memory: 121.282 MB.
+INFO: [HLS 200-100] Execute       report -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 1.17 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.18 sec.
+INFO: [HLS 200-0] Finish binding aestest.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'filesystem_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       set_default_model filesystem_encrypt 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       schedule -model filesystem_encrypt 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 67, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 74, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 76, distance = 1, offset = 1)
+   between bus access on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:46) and bus request on port 'buffer_V' (secure_filesystem_hls/solution1/src/filesystem.cpp:28).
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 77, Depth: 78.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-100] Command       schedule returned 0; 3.46 sec.
+INFO: [HLS 200-111]  Elapsed time: 4.81 seconds; current allocated memory: 125.324 MB.
+INFO: [HLS 200-100] Execute       report -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.2 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.sched.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.07 sec.
+INFO: [HLS 200-0] Finish scheduling filesystem_encrypt.
+INFO: [HLS 200-100] Execute       set_default_model filesystem_encrypt 
+INFO: [HLS 200-100] Command       set_default_model returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       bind -model filesystem_encrypt 
+INFO: [BIND 205-110] clear=
+INFO: [BIND 205-110] debug=
+INFO: [BIND 205-110] drf=
+INFO: [BIND 205-110] effort=
+INFO: [BIND 205-110] fast_refine=
+INFO: [BIND 205-110] fu_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] global_opt=
+INFO: [BIND 205-110] gsearch=
+INFO: [BIND 205-110] help=
+INFO: [BIND 205-110] help-hidden=
+INFO: [BIND 205-110] min_mem_port=
+INFO: [BIND 205-110] min_op=
+INFO: [BIND 205-110] minreg=
+INFO: [BIND 205-110] ml=
+INFO: [BIND 205-110] model=filesystem_encrypt
+INFO: [BIND 205-110] no_false_path=
+INFO: [BIND 205-110] no_min_op=
+INFO: [BIND 205-110] normalize=
+INFO: [BIND 205-110] quiet=
+INFO: [BIND 205-110] refine=
+INFO: [BIND 205-110] reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-110] search=
+INFO: [BIND 205-110] tight_delay=
+INFO: [BIND 205-110] verbose=
+INFO: [BIND 205-110] wFF=
+INFO: [BIND 205-110] wFU=
+INFO: [BIND 205-110] wMUX=
+INFO: [BIND 205-110] wNET=
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-100] Command       bind returned 0; 0.73 sec.
+INFO: [HLS 200-111]  Elapsed time: 1 seconds; current allocated memory: 128.280 MB.
+INFO: [HLS 200-100] Execute       report -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.verbose.bind.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 1.14 sec.
+INFO: [HLS 200-100] Execute       db_write -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.bind.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.06 sec.
+INFO: [HLS 200-0] Finish binding filesystem_encrypt.
+INFO: [HLS 200-100] Execute       get_model_list filesystem_encrypt -filter all-wo-channel 
+INFO: [HLS 200-100] Command       get_model_list returned 0; 0 sec.
+INFO: [HLS 200-0] Preprocessing for RTLGen ...
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess aestest 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       rtl_gen_preprocess filesystem_encrypt 
+INFO: [HLS 200-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for RTL generation: aestest filesystem_encrypt
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aestest' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model aestest -vendor xilinx -mg_file /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aestest'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 0.47 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.68 seconds; current allocated memory: 140.726 MB.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl aestest -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/systemc/aestest -synmodules aestest filesystem_encrypt 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       gen_rtl aestest -style xilinx -f -lang vhdl -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/vhdl/aestest 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       gen_rtl aestest -style xilinx -f -lang vlog -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/verilog/aestest 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info aestest -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest -p /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0.34 sec.
+INFO: [HLS 200-100] Execute       report -model aestest -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/report/aestest_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.34 sec.
+INFO: [HLS 200-100] Execute       report -model aestest -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/report/aestest_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.34 sec.
+INFO: [HLS 200-100] Execute       report -model aestest -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 1.48 sec.
+INFO: [HLS 200-100] Execute       db_write -model aestest -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.51 sec.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'filesystem_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-100] Execute       create_rtl_model filesystem_encrypt -vendor xilinx -mg_file /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/buffer_V' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/iv_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/key_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'filesystem_encrypt/length_r' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'filesystem_encrypt' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'iv_V' and 'length_r' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'filesystem_encrypt_buffer_temp_out_V' to 'filesystem_encrypbkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'filesystem_encrypt'.
+INFO: [HLS 200-100] Command       create_rtl_model returned 0; 52.76 sec.
+INFO: [HLS 200-111]  Elapsed time: 56.12 seconds; current allocated memory: 187.051 MB.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.rtl_wrap.cfg.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       gen_rtl filesystem_encrypt -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/systemc/filesystem_encrypt -synmodules aestest filesystem_encrypt 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute       gen_rtl filesystem_encrypt -istop -style xilinx -f -lang vhdl -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/vhdl/filesystem_encrypt 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.19 sec.
+INFO: [HLS 200-100] Execute       gen_rtl filesystem_encrypt -istop -style xilinx -f -lang vlog -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/verilog/filesystem_encrypt 
+INFO: [HLS 200-100] Command       gen_rtl returned 0; 0.1 sec.
+INFO: [HLS 200-100] Execute       export_constraint_db -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.constraint.tcl -f -tool general 
+INFO: [HLS 200-100] Command       export_constraint_db returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.design.xml -verbose -f -dv 
+INFO: [HLS 200-100] Command       report returned 0; 0.92 sec.
+INFO: [HLS 200-100] Execute       report -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.sdaccel.xml -verbose -f -sdaccel 
+INFO: [HLS 200-100] Command       report returned 0; 0.3 sec.
+INFO: [HLS 200-100] Execute       gen_tb_info filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt -p /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db 
+INFO: [HLS 200-100] Command       gen_tb_info returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       report -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/report/filesystem_encrypt_csynth.rpt -f 
+INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute       report -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/syn/report/filesystem_encrypt_csynth.xml -f -x 
+INFO: [HLS 200-100] Command       report returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute       report -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.verbose.rpt -verbose -f 
+INFO: [HLS 200-100] Command       report returned 0; 1.28 sec.
+INFO: [HLS 200-100] Execute       db_write -model filesystem_encrypt -o /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.adb -f 
+INFO: [HLS 200-100] Command       db_write returned 0; 0.16 sec.
+INFO: [HLS 200-100] Execute       sc_get_clocks filesystem_encrypt 
+INFO: [HLS 200-100] Command       sc_get_clocks returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       sc_get_portdomain filesystem_encrypt 
+INFO: [HLS 200-100] Command       sc_get_portdomain returned 0; 0 sec.
+INFO: [HLS 200-0] Model list for RTL component generation: aestest filesystem_encrypt
+INFO: [HLS 200-0] Handling components in module [aestest] ... 
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.compgen.tcl 
+INFO: [HLS 200-0] Found component aestest_sboxes.
+INFO: [HLS 200-0] Append model aestest_sboxes
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Handling components in module [filesystem_encrypt] ... 
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.compgen.tcl 
+INFO: [HLS 200-0] Found component filesystem_encrypbkb.
+INFO: [HLS 200-0] Append model filesystem_encrypbkb
+INFO: [HLS 200-0] Found component filesystem_encrypt_AXILiteS_s_axi.
+INFO: [HLS 200-0] Append model filesystem_encrypt_AXILiteS_s_axi
+INFO: [HLS 200-0] Found component filesystem_encrypt_buffer_V_m_axi.
+INFO: [HLS 200-0] Append model filesystem_encrypt_buffer_V_m_axi
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-0] Append model aestest
+INFO: [HLS 200-0] Append model filesystem_encrypt
+INFO: [HLS 200-0] Generating RTL model list ...
+INFO: [HLS 200-0] All models in this session: aestest_sboxes filesystem_encrypbkb filesystem_encrypt_AXILiteS_s_axi filesystem_encrypt_buffer_V_m_axi aestest filesystem_encrypt
+INFO: [HLS 200-0] To file: write model aestest_sboxes
+INFO: [HLS 200-0] To file: write model filesystem_encrypbkb
+INFO: [HLS 200-0] To file: write model filesystem_encrypt_AXILiteS_s_axi
+INFO: [HLS 200-0] To file: write model filesystem_encrypt_buffer_V_m_axi
+INFO: [HLS 200-0] To file: write model aestest
+INFO: [HLS 200-0] To file: write model filesystem_encrypt
+INFO: [HLS 200-0] Finished generating RTL model list.
+
+
+INFO: [HLS 200-0] RTL Generation done.
+INFO: [HLS 200-0] CAS Generation done.
+INFO: [HLS 200-0] CBC Generation done.
+INFO: [HLS 200-100] Execute       export_ssdm /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/a.export.ll 
+INFO: [HLS 200-100] Command       export_ssdm returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/common.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/APCoreGen.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/op_simcore.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/generic/autopilot/interface.gen 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/virtex.gen 
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx.gen 
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/plb46.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/fsl.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/axi4.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/nativeAXI4.gen 
+INFO: [HLS 200-100] Execute               source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/saxilite.gen 
+INFO: [HLS 200-100] Command               ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute               source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/maxi.gen 
+INFO: [HLS 200-100] Command               ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/util.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfir.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/xfft.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.06 sec.
+INFO: [HLS 200-100] Execute             source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/ip/dds_compiler.gen 
+INFO: [HLS 200-100] Command             ap_source returned 0; 0.01 sec.
+INFO: [HLS 200-100] Command           ap_source returned 0; 0.09 sec.
+INFO: [HLS 200-100] Execute           source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/dsp48.gen 
+INFO: [HLS 200-100] Command           ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command         ap_source returned 0; 0.1 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.1 sec.
+INFO: [HLS 200-100] Execute       source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/zynquplus/zynquplus_fpv7.gen 
+INFO: [HLS 200-100] Execute         source /Xilinx/Vivado_HLS/2017.1/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/global.setting.tcl 
+INFO: [HLS 200-100] Command       ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/aestest.compgen.tcl 
+INFO: [RTMG 210-279] Implementing memory 'aestest_sboxes_rom' using block ROMs.
+INFO: [HLS 200-100] Command       ap_source returned 0; 1.43 sec.
+INFO: [HLS 200-100] Execute       source /home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/.autopilot/db/filesystem_encrypt.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'filesystem_encrypbkb_ram' using block RAMs.
+INFO: [HLS 200-100] Execute         source ./AXILiteS.slave.tcl 
+INFO: [HLS 200-100] Command         ap_source returned 0; 0 sec.
+INFO: [HLS 200-100] Command       ap_source returned 0; 0.05 sec.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:10 ; elapsed = 00:02:08 . Memory (MB): peak = 720.855 ; gain = 378.430 ; free physical = 319 ; free virtual = 5014
+INFO: [SYSC 207-301] Generating SystemC RTL for filesystem_encrypt.
+INFO: [VHDL 208-304] Generating VHDL RTL for filesystem_encrypt.
+INFO: [VLOG 209-307] Generating Verilog RTL for filesystem_encrypt.
+INFO: [HLS 200-100] Command     autosyn returned 0; 70.7 sec.
+INFO: [HLS 200-100] Command   csynth_design returned 0; 127.5 sec.
+INFO: [HLS 200-100] Command ap_source returned 0; 128 sec.
+INFO: [HLS 200-100] Execute cleanup_all 
+INFO: [HLS 200-100] Command cleanup_all returned 0; 0.05 sec.

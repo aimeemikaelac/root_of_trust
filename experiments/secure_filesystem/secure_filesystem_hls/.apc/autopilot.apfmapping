@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="filesystem.cpp" path="/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/src/filesystem.cpp"/>
+    <originFiles name="aes.cpp" path="/home/aimee/root_of_trust/experiments/secure_filesystem/secure_filesystem_hls/solution1/src/aes.cpp"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

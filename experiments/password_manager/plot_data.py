@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
 import pylab
 import argparse
 import csv
@@ -110,6 +112,7 @@ if __name__ == "__main__":
     )
     pylab.ylabel("Password Write Time (s)")
     pylab.xlabel("Password size (characters)")
+    pylab.ylim((.200, .204))
     pylab.legend(loc=0)
     pylab.savefig("password_manager_write.pdf")
     pylab.savefig("password_manager_write.png")

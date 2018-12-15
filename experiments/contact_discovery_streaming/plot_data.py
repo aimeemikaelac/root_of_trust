@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
 import pylab
 import argparse
 import csv
@@ -56,7 +58,7 @@ if __name__ == "__main__":
     pylab.ylabel("Contact Match Elapsed Time (s)")
     pylab.xlabel("Number of Contacts in Database")
     pylab.legend()
-    pylab.savefig("contact_manager_hls.pdf")
-    pylab.savefig("contact_manager_hls.png")
+    pylab.savefig("contact_matcher_hls.pdf")
+    pylab.savefig("contact_matcher_hls.png")
     # pylab.xscale("log")
     pylab.show()
